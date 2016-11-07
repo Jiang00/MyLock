@@ -52,6 +52,7 @@ public class PasswordFragment extends ThemeFragment {
             public void match(String passwd) {
                 bridge.check(passwd, true);
                 if (callback != null) {
+                    Log.e("mtt","right");
                     callback.onSuccess();
                 }
             }

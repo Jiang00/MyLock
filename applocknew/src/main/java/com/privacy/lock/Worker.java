@@ -28,6 +28,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -468,6 +469,7 @@ public class Worker extends Service {
             ThemeFragment.ICheckResult callback = new ThemeFragment.ICheckResult() {
                 @Override
                 public void onSuccess() {
+                    Log.e("mtt","successful");
                     unlockLastApplication(lastApp, false);
                     hideAlertIfPossible(false);
                 }
