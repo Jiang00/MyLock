@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="security_bt_backg_dis">#ff858585</drawable>
+
+    <drawable name="button_bg_normal">@color/theme_primary</drawable>
+    <drawable name="button_bg_clicked">@color/theme_primary_light</drawable>
+    <drawable name="button_bg_disabled">#ff858585</drawable>
+    <drawable name="selected_dir">#74bbee</drawable>
+    <drawable name="menu_bg_new">#0E1C39</drawable>
+    <drawable name="share_btnbg_normal">#ff858585</drawable>
+    <drawable name="share_btnbg_clicked">#33b1ec</drawable>
+    <drawable name="security_bt_backg_normal">@color/security_app_pri</drawable>
+    <drawable name="security_bt_back_cil">@color/security_app_pri_pass</drawable>
+
+
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">اضغط عليها لقفل التطبيق</string>
+    <string name="help_unlock">اضغط عليها لفتح التطبيق</string>
+    <string name="help_search_app">مربع البحث مفتوحا للبحث التطبيق بالاسم</string>
+    <string name="help_hide">إخفاء التطبيق من الشاشة الرئيسية</string>
+    <string name="help_show">مشاهدة أيقونة التطبيق</string>
+
+    <string name="help_edit_mode">أدخل وضع التحرير</string>
+
+    <string name="help_add_pic">نقل الصور إلى قبو. ما عليك سوى اختيار الصور المراد حمايته من معرض ووضعها في قبو</string>
+    <string name="help_select_all_photos">انقر لتحديد كافة الصور</string>
+    <string name="help_unlock_photo">نقل الصور المحددة للخروج من قبو</string>
+    <string name="help_del_photo">حذف الصور المحددة بشكل دائم</string>
+    <string name="help_lock_photo">نقل الصور المحددة في قبو. يمكنك عرض الصور في قبو</string>
+
+    <string name="help_add_video">الانتقال أشرطة الفيديو إلى قبو. ما عليك سوى اختيار أشرطة الفيديو لتكون محمية من معرض ووضعها في قبو</string>
+    <string name="help_select_all_videos">انقر لتحديد كافة أشرطة الفيديو</string>
+    <string name="help_unlock_video">نقل الفيديو المختار من قبو</string>
+    <string name="help_del_video">حذف الفيديو المختار بشكل دائم</string>
+    <string name="help_lock_video">نقل الفيديو المختار في قبو. يمكنك مشاهدة أشرطة الفيديو في قبو</string>
+
+    <string name="help_add_file">انقر لإضافة ملفات</string>
+    <string name="help_select_all_files">انقر لتحديد كافة الملفات في مجلد</string>
+    <string name="help_unlock_file">انقر لنقل الملفات المحددة من قبو</string>
+    <string name="help_del_file">انقر لحذف الملفات المحددة بشكل دائم</string>
+    <string name="help_lock_file">"انقر لنقل الملفات المحددة في قبو. لا يمكنك عرض الملفات في قبو"</string>
+</resources>

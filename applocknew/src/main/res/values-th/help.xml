@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">แตะมันจะล็อคการตรวจสอบ</string>
+    <string name="help_unlock">แตะมันเพื่อปลดล็อคการตรวจสอบ</string>
+    <string name="help_search_app">เปิดกล่องค้นหาในการค้นหาแอพพลิเคโดยใช้ชื่อ</string>
+    <string name="help_hide">แอพพลิเคซ่อนจากหน้าจอหลัก</string>
+    <string name="help_show">แสดงไอคอนการตรวจสอบ</string>
+
+    <string name="help_edit_mode">เข้าสู่โหมดแก้ไข</string>
+
+    <string name="help_add_pic">ย้ายรูปภาพลงในหลุมฝังศพ เพียงแค่เลือกภาพที่จะได้รับการคุ้มครองจากแกลเลอรี่และใส่ไว้ในหลุมฝังศพ</string>
+    <string name="help_select_all_photos">เลือกภาพทั้งหมด</string>
+    <string name="help_unlock_photo">ย้ายภาพออกมาจากหลุมฝังศพ</string>
+    <string name="help_del_photo">ลบภาพที่เลือกอย่างถาวร</string>
+    <string name="help_lock_photo">ย้ายภาพที่เลือกลงในหลุมฝังศพ คุณสามารถดูภาพในห้องนิรภัย</string>
+
+    <string name="help_add_video">ย้ายวิดีโอลงในหลุมฝังศพ เพียงแค่เลือกวิดีโอที่ได้รับการคุ้มครองจากแกลเลอรี่และใส่ไว้ในหลุมฝังศพ</string>
+    <string name="help_select_all_videos">แตะเพื่อเลือกวิดีโอทั้งหมด</string>
+    <string name="help_unlock_video">วิดีโอที่เลือกย้ายออกจากหลุมฝังศพ</string>
+    <string name="help_del_video">ลบวิดีโอที่เลือกอย่างถาวร</string>
+    <string name="help_lock_video">ย้ายวิดีโอที่เลือกลงในหลุมฝังศพ คุณสามารถดูวิดีโอในหลุมฝังศพ</string>
+
+    <string name="help_add_file">แตะเพื่อเพิ่มไฟล์</string>
+    <string name="help_select_all_files">แตะเพื่อเลือกไฟล์ทั้งหมดในโฟลเดอร์</string>
+    <string name="help_unlock_file">แตะที่จะย้ายไฟล์ที่เลือกออกมาจากหลุมฝังศพ</string>
+    <string name="help_del_file">แตะเพื่อลบไฟล์อย่างถาวร</string>
+    <string name="help_lock_file">"แตะเพื่อย้ายไฟล์ที่เลือกลงในหลุมฝังศพ. คุณไม่สามารถดูไฟล์ในหลุมฝังศพ."</string>
+</resources>

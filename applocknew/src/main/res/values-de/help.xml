@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">Aktivieren Sie die Entsperr-Taste zum Sperren der App.</string>
+    <string name="help_unlock">Deaktivieren Sie die Entsperr-Taste zum Entsperren der App.</string>
+    <string name="help_search_app">Öffnen Sie das Suchfeld,um nach dem App-Namen zu suchen.</string>
+    <string name="help_hide">Tippen Sie auf App verstecken</string>
+    <string name="help_show">Tippen Sie um app zeigen</string>
+
+    <string name="help_edit_mode">Tippen Sie in den Bearbeitungsmodus</string>
+
+    <string name="help_add_pic">Verschieben Sie Bildern in den Tresor. Wählen Sie einfach die Bilder,die Sie schützen möchten,in der Galerie aus und verschieben Sie sie in den Tresor.</string>
+    <string name="help_select_all_photos">Wählen Sie alle Bilder aus.</string>
+    <string name="help_unlock_photo">Ziehen Sie Bilder aus dem Tresor.</string>
+    <string name="help_del_photo">Löschen Sie die ausgewählten Fotos fest</string>
+    <string name="help_lock_photo">Verschieben Sie Bilder in den Tresor.Sie können die geschützten Bilder nur in der Fotoverwaltung durchsuchen</string>
+
+    <string name="help_add_video">Verschieben Sie Videos in den Tresor. Wählen Sie einfach die Videos, die Sie schützen möchten,in der Galerie aus und verschieben Sie sie in den Tresor.</string>
+    <string name="help_select_all_videos">Wählen Sie alle Videos aus.</string>
+    <string name="help_unlock_video">Ziehen Sie Videos aus dem Tresor.</string>
+    <string name="help_del_video">Die ausgewählten Videos löschen dauerhaft</string>
+    <string name="help_lock_video">Verschieben Sie Videos in den Tresor.Sie können die geschützen Video nur im Tresor ansehen.</string>
+
+    <string name="help_add_file">Tippen Sie auf Dateien hinzufügen</string>
+    <string name="help_select_all_files">Tippen Sie auf, um alle Dateien in einem Ordner auswählen</string>
+    <string name="help_unlock_file">Bewegen Sie die ausgewählten Dateien aus dem Tresor</string>
+    <string name="help_del_file">Die ausgewählten Dateien dauerhaft zu löschen</string>
+    <string name="help_lock_file">"Verschieben Sie Dateien in den Tresor.Sie können keine Dateien in den Tresor zu sehen."</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">Encender el interruptor para bloqurar la aplicación.</string>
+    <string name="help_unlock">Apagar el interruptor para desbloquear la aplicación.</string>
+    <string name="help_search_app">Abrir el cuadro de búsqueda para buscar aplicaciones por su nombre</string>
+    <string name="help_hide">Pulse para ocultar aplicación</string>
+    <string name="help_show">Pulse para mostrar la aplicación</string>
+
+    <string name="help_edit_mode">Entre en el modo de edición</string>
+
+    <string name="help_add_pic">Ingresar imágenes al almacén.Solo seleccione las imágenes a proteger de la galería y póngalas en el almacén.</string>
+    <string name="help_select_all_photos">Seleccionar todas las imágenes.</string>
+    <string name="help_unlock_photo">Sacar imágenes del almacén.</string>
+    <string name="help_del_photo">Eliminar las fotografías seleccionadas de forma permanente</string>
+    <string name="help_lock_photo">Ingresar imágenes al almacén.Almacén de fotos,puede navegar por las imágenes protegidas sólo en el almacén de fotos.</string>
+
+    <string name="help_add_video">Ingresar videos al almacén.Solo seleccione los videos a proteger de la galería y póngalas en el almacén.</string>
+    <string name="help_select_all_videos">Seleccionar todas los videos.</string>
+    <string name="help_unlock_video">Sacar videoss del almacén.</string>
+    <string name="help_del_video">Eliminar los videos seleccionados de forma permanente</string>
+    <string name="help_lock_video">Ingresar videos al almacén.Almacén de videos,puede verlos videos protegidos sólo en el almacén de videos.</string>
+
+    <string name="help_add_file">Toque para añadir archivos</string>
+    <string name="help_select_all_files">Pulse para seleccionar todos los archivos en una carpeta</string>
+    <string name="help_unlock_file">Pulse para mover los archivos seleccionados de la bóveda</string>
+    <string name="help_del_file">Toque para eliminar los archivos seleccionados de forma permanente</string>
+    <string name="help_lock_file">"Dé un toque para mover los archivos seleccionados en la bóveda.Usted no puede ver los archivos en la bóveda."</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">"Activez le bouton pour verrouiller l'application"</string>
+    <string name="help_unlock">"Désactivez le bouton pour déverouiller l'application."</string>
+    <string name="help_search_app">Ouvrez la boîte de recherche pour rechercher une application par son nom</string>
+    <string name="help_hide">"Appuyez pour masquer icône de l'application"</string>
+    <string name="help_show">"Appuyez sur pour afficher l'icône de l'application"</string>
+
+    <string name="help_edit_mode">"Entrer dans le mode d'édition"</string>
+
+    <string name="help_add_pic">Déplacer des images dans le coffre. Il suffit de sélectionner les photos à protéger dans la galerie et de les mettre dans le coffre</string>
+    <string name="help_select_all_photos">Sélectionnez toutes les images</string>
+    <string name="help_unlock_photo">Sortir des photos du coffre</string>
+    <string name="help_del_photo">Supprimer les photos sélectionnées de façon permanente. Attention, supprimer des photos ne peuvent pas être récupérés.</string>
+    <string name="help_lock_photo">Déplacer des images dans le coffre. Coffre à photos,vous pouvez parcourir les images protégées uniquement dans le coffre à photos.</string>
+
+    <string name="help_add_video">Déplacer des vidéos dans le coffre. Il suffit de sélectionner les vidéos à protéger dans la galerie et de les mettre dans le coffre.</string>
+    <string name="help_select_all_videos">Sélectionnez toutes les vidéos</string>
+    <string name="help_unlock_video">Sorez vidéos du coffre</string>
+    <string name="help_del_video">Supprimer les vidéos sélectionnées de façon permanente. Attention, supprimer les vidéos ne peuvent pas être récupérés.</string>
+    <string name="help_lock_video">Déplacer des vidéos dans le coffre.Il suffit de sélectionner les vidéos à protéger dans la galerie et de les mettre dans le coffre.</string>
+
+    <string name="help_add_file">Touchez-le pour ajouter des fichiers</string>
+    <string name="help_select_all_files">Appuyez sur pour sélectionner tous les fichiers dans un dossier</string>
+    <string name="help_unlock_file">Déplacez les fichiers sélectionnés sur la voûte</string>
+    <string name="help_del_file">Appuyez sur pour supprimer les fichiers sélectionnés de façon permanente</string>
+    <string name="help_lock_file">"Appuyez sur pour déplacer les fichiers sélectionnés dans le caveau.Vous ne pouvez pas afficher les fichiers dans le caveau."</string>
+</resources>

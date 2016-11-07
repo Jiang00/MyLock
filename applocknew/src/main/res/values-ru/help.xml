@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">нажмите, чтобы заблокировать приложение</string>
+    <string name="help_unlock">нажмите, чтобы открыть приложение</string>
+    <string name="help_search_app">Открыть окно поиска, чтобы найти приложение по имени</string>
+    <string name="help_hide">Скрыть значок приложения</string>
+    <string name="help_show">Показать значок приложения</string>
+
+    <string name="help_edit_mode">Войдите в режим редактирования</string>
+
+    <string name="help_add_pic">Перемещение фотографии в хранилище. Просто выберите фотографии должны быть защищены от галереи и положить их в хранилище.</string>
+    <string name="help_select_all_photos">Нажмите, чтобы выбрать все фотографии</string>
+    <string name="help_unlock_photo">Перемещение выбранных фотографий из хранилища</string>
+    <string name="help_del_photo">Удалить выбранные фотографии постоянно</string>
+    <string name="help_lock_photo">Перемещение выделенных фотографии в хранилище. Вы можете просмотреть фотографии в хранилище.</string>
+
+    <string name="help_add_video">Перемещение видео в хранилище. Просто выберите видео должны быть защищены от галереи и положить их в хранилище.</string>
+    <string name="help_select_all_videos">Нажмите, чтобы выбрать все видео</string>
+    <string name="help_unlock_video">Перемещение выделенных видео из хранилища</string>
+    <string name="help_del_video">Удалить выбранные видео постоянно</string>
+    <string name="help_lock_video">Перемещение выделенных видео в хранилище. Вы можете смотреть видео в хранилище.</string>
+
+    <string name="help_add_file">Нажмите, чтобы добавить файлы</string>
+    <string name="help_select_all_files">Нажмите, чтобы выбрать все файлы в папке</string>
+    <string name="help_unlock_file">Нажмите, чтобы переместить выбранные файлы из хранилища</string>
+    <string name="help_del_file">Нажмите, чтобы удалить выбранные файлы навсегда</string>
+    <string name="help_lock_file">"Нажмите, чтобы переместить выбранные файлы в хранилище. Вы не можете просматривать файлы в хранилище."</string>
+</resources>

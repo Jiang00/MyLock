@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="1dp"
+    android:layout_height="114dp">
+
+    <com.privacy.lock.DrawableImageView
+        android:id="@+id/icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/butter_bar_light"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="#96000000"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@android:color/white" />
+
+    <View
+        android:id="@+id/bg_sel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
+</FrameLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/refresh">
+
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/abs_list"
+        android:layout_weight="1"
+        android:divider="@drawable/security_list_driver"
+        android:headerDividersEnabled="false"
+        android:dividerHeight="1px"
+        android:choiceMode="multipleChoice"
+        android:longClickable="false"
+
+        />
+</android.support.v4.widget.SwipeRefreshLayout>

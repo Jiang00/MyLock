@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">Przycisk blokady aplikacji</string>
+    <string name="help_unlock">Odblokować przycisk aplikacji</string>
+    <string name="help_search_app">Dotknij, aby wyszukać aplikację po nazwie</string>
+    <string name="help_hide">Ukryj aplikacji z ekranu głównego</string>
+    <string name="help_show">Pokaż ikona aplikacji</string>
+
+    <string name="help_edit_mode">Wejście w tryb edycji</string>
+
+    <string name="help_add_pic">Przenieś zdjęcia do skarbca. Wystarczy wybrać zdjęcia do ochrony przed galerii i umieścić je w skarbcu.</string>
+    <string name="help_select_all_photos">Kliknij, aby wybrać wszystkie zdjęcia</string>
+    <string name="help_unlock_photo">Przenieś wybrane zdjęcia z krypty</string>
+    <string name="help_del_photo">Usuń wybrane zdjęcia stałe</string>
+    <string name="help_lock_photo">Przenieś wybrane zdjęcia do skarbca. Możesz oglądać zdjęcia w skarbcu.</string>
+
+    <string name="help_add_video">Przenieść wideo w skarbca. Wystarczy wybrać na wideo które mają być chronione przed galerii i umieścić je w skarbcu.</string>
+    <string name="help_select_all_videos">Kliknij, aby wybrać wszystkie wideo</string>
+    <string name="help_unlock_video">Przesuń wybrane wideo z krypty</string>
+    <string name="help_del_video">Usuń wybrane wideo stałe</string>
+    <string name="help_lock_video">Przesuń wybrane wideo w skarbcu. Możesz oglądać filmy w skarbcu.</string>
+
+    <string name="help_add_file">Dotknij, aby dodać pliki do przechowalni</string>
+    <string name="help_select_all_files">Dotknij, aby zaznaczyć wszystkie pliki w folderze</string>
+    <string name="help_unlock_file">Dotknij, aby przenieść wybrane pliki z przechowalni</string>
+    <string name="help_del_file">Dotknij, aby usunąć wybrane pliki na stałe</string>
+    <string name="help_lock_file">Dotknij, aby przenieść wybrane pliki do sejfu. Nie można przeglądać pliki w skarbcu.</string>
+</resources>

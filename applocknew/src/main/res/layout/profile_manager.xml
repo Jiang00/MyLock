@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.privacy.lock.view.DragLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:id="@id/menu">
+
+    <com.privacy.lock.view.MyRelativeLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+        <include layout="@layout/security_myabout_bar"/>
+        <ListView
+            android:id="@+id/abs_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:id="@+id/add_profile"
+            android:text="@string/float_action_add_profile"
+            android:textColor="@color/body_text_1_inverse"
+            android:background="@drawable/security_button_bg"/>
+    </com.privacy.lock.view.MyRelativeLayout>
+
+    <include
+        layout="@layout/mat_menu"
+        android:id="@+id/left"/>
+
+    <include
+        layout="@layout/security_myhelp"
+        android:id="@+id/right"/>
+</com.privacy.lock.view.DragLayout>

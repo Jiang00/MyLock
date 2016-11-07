@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.privacy.lock.view.MyFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include
+        android:visibility="gone"
+        layout="@layout/overflow_menu_stub" />
+
+    <LinearLayout
+        android:id="@+id/anim_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/passwd_ab" />
+
+        <LinearLayout
+            android:background="@color/new_user_choose_app_bac"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="201dp"
+            android:gravity="center"
+            android:id="@+id/abc">
+
+            <ImageView
+                android:id="@+id/title"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size" />
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:id="@+id/text_appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/numpad_font_color"
+                android:fontFamily="sans-serif-light"
+                android:textSize="18sp"
+                android:text="@string/security_input_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.privacy.lock.view.PasswdDot
+                android:layout_marginTop="9dp"
+                drawable="@drawable/security_password_dot_cre"
+                android:tag="app_dot_dian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+        </LinearLayout>
+
+        <com.privacy.lock.view.PasswdDot
+            android:id="@+id/passwd_dot_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8.0dip"
+            android:orientation="horizontal" />
+
+
+
+        <include layout="@layout/num_pad_create"/>
+
+        <Button
+            android:id="@+id/use_pattern"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginTop="12dp"
+            android:text="@string/use_pattern"
+            android:textColor="@color/security_toggle_button"
+            android:textSize="20sp" />
+    </LinearLayout>
+</com.privacy.lock.view.MyFrameLayout>

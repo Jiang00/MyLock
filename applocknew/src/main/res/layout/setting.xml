@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.privacy.lock.view.DragLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:id="@id/menu">
+
+    <com.privacy.lock.view.MyRelativeLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <include layout="@layout/security_myabout_bar"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/setting_container"/>
+    </com.privacy.lock.view.MyRelativeLayout>
+
+    <include
+        layout="@layout/mat_menu"
+        android:id="@+id/left"/>
+
+    <include
+
+        layout="@layout/security_myhelp"
+        android:id="@+id/right"/>
+</com.privacy.lock.view.DragLayout>

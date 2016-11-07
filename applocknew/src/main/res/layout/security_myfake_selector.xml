@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.privacy.lock.view.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/security_myabout_bar"
+            android:visibility="gone" />
+
+        <include layout="@layout/normal_action_bar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="8dp"
+            android:singleLine="true"
+            android:text="@string/fake"
+            android:textColor="@color/accent_material_light"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <GridView
+            android:paddingTop="20dp"
+            android:id="@+id/fake_cover_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="8dp"
+            android:singleLine="true"
+            android:text="@string/fake_selector"
+            android:textColor="@color/accent_material_light"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <GridView
+            android:layout_marginTop="6dp"
+            android:horizontalSpacing="6dp"
+            android:verticalSpacing="6dp"
+            android:id="@+id/fake_icon_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:numColumns="2" />
+    </LinearLayout>
+</com.privacy.lock.view.MyRelativeLayout>
+
+

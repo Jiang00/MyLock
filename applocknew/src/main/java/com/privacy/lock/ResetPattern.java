@@ -1,0 +1,189 @@
+package com.privacy.lock;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.AlertDialog;
+import android.util.Patterns;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.privacy.lock.meta.Pref;
+import com.privacy.lock.view.MessageBox;
+
+import java.util.regex.Pattern;
+
+/**
+ * Created by superjoy on 2014/9/28.
+ */
+public class ResetPattern extends AbsActivity {
+    public static final int REQ_CONFIRM = 2;
+
+    static boolean isOk = false;
+
+    @Override
+    public void setupView() {
+        if (getIntent().getBooleanExtra("direct-confirm", false)){
+            confirm(this);
+        } else {
+            showDialog(this, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    isOk = true;
+                    confirm(context);
+                }
+            }, new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    if (!isOk)
+                        finish();
+                }
+            }, false);
+        }
+    }
+
+    public static AlertDialog showDialog(Context context, DialogInterface.OnClickListener yes, DialogInterface.OnDismissListener dismiss, boolean alert) {
+        MessageBox.Data data = new MessageBox.Data();
+        data.msg = R.string.login_with_email;
+        data.title = R.string.forgot_passwd;
+        data.cancelable = true;
+        data.onyes = yes;
+        data.style = R.style.MessageBox;
+        data.yes = R.string.verify;
+        data.button = MessageBox.BUTTON_YES_NO;
+        data.alert = alert;
+        data.ondismiss = dismiss;
+        return MessageBox.show_(context, data);
+    }
+
+    public static void confirm(final Activity context) {
+        /*
+        AccountManager manager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+        Account[] accounts = manager.getAccounts();
+        Pattern emailPattern = Patterns.EMAIL_ADDRESS;
+        boolean hasDone = false;
+        for (Account account : accounts) {
+            if (emailPattern.matcher(account.name).matches()) {
+                manager.confirmCredentials(account, null, context, new AccountManagerCallback<Bundle>() {
+                    @Override
+                    public void run(AccountManagerFuture<Bundle> future) {
+                        try {
+                            success = true;
+                            if (future.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT)) {
+                                context.startActivity(new Intent(context, SetupPattern.class).putExtra("set", SetupPattern.SET_GRAPH_PASSWD));
+                                context.finish();
+                            } else {
+                                MessageBox.Data data = new MessageBox.Data();
+                                data.msg = R.string.id_verified_fail;
+                                data.title = R.string.forgot_passwd;
+                                data.alert = true;
+                                data.yes = R.string.retry;
+                                data.button = MessageBox.BUTTON_YES_CANCEL;
+                                isOk = false;
+                                data.onyes = new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        success = false;
+                                        isOk = true;
+                                        confirm(context);
+                                    }
+                                };
+                                data.oncancel = new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        context.finish();
+                                    }
+                                };
+                                data.ondismiss = new DialogInterface.OnDismissListener() {
+                                    @Override
+                                    public void onDismiss(DialogInterface dialog) {
+                                        if (!isOk)
+                                            context.finish();
+                                    }
+                                };
+                                MessageBox.show_(context, data);
+                            }
+                        } catch (Exception ignore) {
+                            ignore.printStackTrace();
+                            context.finish();
+                        }
+                    }
+                }, null);
+                hasDone = true;
+                break;
+            }
+        }
+        */
+        boolean hasDone = false;
+        if (!hasDone){
+            MessageBox.Data data = new MessageBox.Data();
+            data.msg = R.string.no_google_account;
+            data.title = R.string.forgot_passwd;
+            data.ondismiss = new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    context.finish();
+                }
+            };
+            MessageBox.show(context, data);
+        }
+    }
+
+    boolean paused = false;
+    Handler handler;
+    static boolean success = false;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        paused = true;
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (paused) {
+            paused = false;
+            if (handler == null){
+                handler = new Handler(getMainLooper());
+            }
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (!success)
+                        finish();
+                }
+            }, 200);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        handler = null;
+        super.onDestroy();
+    }
+
+    @Override
+    protected boolean hasHelp() {
+        return false;
+    }
+
+    @Override
+    protected int getBackImage() {
+        return R.drawable.icon;
+    }
+}

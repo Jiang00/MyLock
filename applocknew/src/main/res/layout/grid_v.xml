@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.privacy.lock.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu_bg_new">
+
+    <com.privacy.lock.view.MyRelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <include layout="@layout/security_myabout_bar" />
+
+        <GridView
+            android:id="@+id/abs_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/list_bg"
+            android:clickable="false"
+            android:fastScrollEnabled="true"
+            android:numColumns="3" />
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/list_bg"
+            android:gravity="center"
+            android:text="@string/no_encrypted_file"
+            android:visibility="gone" />
+
+        <include layout="@layout/security_bootom_bar" />
+    </com.privacy.lock.view.MyRelativeLayout>
+
+    <include
+        android:id="@+id/left"
+        layout="@layout/mat_menu" />
+
+    <include
+        android:id="@+id/right"
+        layout="@layout/security_myhelp" />
+</com.privacy.lock.view.DragLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="brief_slot">
+        <item>@string/every_time</item>
+        <item>@string/five_min</item>
+        <item>@string/until_screen_off</item>
+    </string-array>
+    <string-array name="brief_slot_idx" >
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="fake_icons">
+        <item>@string/fake_icon_default</item>
+        <item>@string/fake_icon_1</item>
+        <item>@string/fake_icon_2</item>
+        <item>@string/fake_icon_3</item>
+    </string-array>
+</resources>

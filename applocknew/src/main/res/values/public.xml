@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<public type="attr" name="aspect" id="0x7f010000" />-->
+    <!--<public type="drawable" name="dly_new" id="0x7f020001" />-->
+    <!--<public type="drawable" name="overflow" id="0x7f020004" />-->
+    <!--<public type="drawable" name="overflow_btn" id="0x7f020005" />-->
+    <!--<public type="drawable" name="passwd_dot" id="0x7f020006" />-->
+    <!--<public type="drawable" name="title_bar" id="0x7f020007" />-->
+    <!--<public type="drawable" name="abs__btn_cab_done_pressed_holo_light" id="0x7f020008" />-->
+    <!--<public type="drawable" name="abs__menu_dropdown_panel_holo_light" id="0x7f020009" />-->
+    <!--<public type="drawable" name="btn_check_off_holo_light" id="0x7f02000a" />-->
+    <!--<public type="drawable" name="btn_check_on_holo_light" id="0x7f02000b" />-->
+    <!--<public type="drawable" name="icon" id="0x7f02000c" />-->
+    <!--<public type="drawable" name="num_back" id="0x7f02000d" />-->
+    <!--<public type="drawable" name="num_del" id="0x7f02000e" />-->
+    <!--<public type="drawable" name="passwd_normal" id="0x7f02000f" />-->
+    <!--<public type="drawable" name="passwd_right" id="0x7f020010" />-->
+    <!--<public type="drawable" name="passwd_wrong" id="0x7f020011" />-->
+    <!--<public type="drawable" name="pattern_normal" id="0x7f020012" />-->
+    <!--<public type="drawable" name="pattern_right" id="0x7f020013" />-->
+    <!--<public type="drawable" name="pattern_wrong" id="0x7f020014" />-->
+    <!--<public type="drawable" name="preview1" id="0x7f020018" />-->
+    <!--<public type="drawable" name="preview2" id="0x7f020019" />-->
+    <!--<public type="drawable" name="numpad_bg" id="0x7f02001a" />-->
+    <!--<public type="drawable" name="numpad_normal" id="0x7f02001b" />-->
+    <!--<public type="drawable" name="numpad_pressed" id="0x7f02001c" />-->
+    <!--<public type="drawable" name="del_focus" id="0x7f02001d" />-->
+    <!--<public type="drawable" name="del_normal" id="0x7f02001e" />-->
+    <!--<public type="drawable" name="pattern_inner_normal" id="0x7f02001f" />-->
+    <!--<public type="drawable" name="pattern_inner_right" id="0x7f020020" />-->
+
+    <!--<public type="layout" name="graph_view" id="0x7f030001" />-->
+    <!--<public type="layout" name="num_pad" id="0x7f030002" />-->
+    <!--<public type="layout" name="overflow_menu_stub" id="0x7f030004" />-->
+    <!--<public type="layout" name="passwd" id="0x7f030005" />-->
+    <!--<public type="layout" name="passwd_ab" id="0x7f030006" />-->
+
+    <!--<public type="anim" name="circle_interp" id="0x7f040000" />-->
+    <!--<public type="anim" name="overflow_in" id="0x7f040001" />-->
+    <!--<public type="anim" name="overflow_out" id="0x7f040002" />-->
+    <!--<public type="anim" name="scale_out" id="0x7f040003" />-->
+    <!--<public type="anim" name="scalein" id="0x7f040004" />-->
+    <!--<public type="anim" name="shake_dot" id="0x7f040005" />-->
+
+    <!--<public type="color" name="passwd_background" id="0x7f050000" />-->
+    <!--<public type="color" name="theme_transp" id="0x7f050001" />-->
+    <!--<public type="color" name="overflow_menu_item_normal" id="0x7f050002" />-->
+    <!--<public type="color" name="overflow_menu_pressed" id="0x7f050003" />-->
+    <!--<public type="color" name="pattern_line_color_normal" id="0x7f050004" />-->
+    <!--<public type="color" name="pattern_line_color_error" id="0x7f050005" />-->
+    <!--<public type="color" name="explore_background_color" id="0x7f050006" />-->
+    <!--<public type="color" name="apply_button_normal_down" id="0x7f050007" />-->
+    <!--<public type="color" name="apply_button_normal_up" id="0x7f050008" />-->
+    <!--<public type="color" name="apply_button_pressed_down" id="0x7f050009" />-->
+    <!--<public type="color" name="apply_button_pressed_up" id="0x7f05000a" />-->
+    <!--<public type="color" name="explore_title_bar_down" id="0x7f05000b" />-->
+    <!--<public type="color" name="explore_title_bar_up" id="0x7f05000c" />-->
+    <!--<public type="color" name="switch_mode_btn" id="0x7f05000d" />-->
+    <!--<public type="color" name="numpad_font_color" id="0x7f05000e" />-->
+    <!--<public type="color" name="numpad_normal_stroke_color" id="0x7f05000f" />-->
+    <!--<public type="color" name="numpad_normal_solid_color" id="0x7f050010" />-->
+    <!--<public type="color" name="numpad_pressed_solid_color" id="0x7f050011" />-->
+    <!--<public type="color" name="numpad_pressed_stroke_color" id="0x7f050012" />-->
+    <!--<public type="color" name="passwd_normal_solid_color" id="0x7f050013" />-->
+    <!--<public type="color" name="passwd_normal_stroke_color" id="0x7f050014" />-->
+    <!--<public type="color" name="passwd_right_solid_color" id="0x7f050015" />-->
+    <!--<public type="color" name="passwd_right_stroke_color" id="0x7f050016" />-->
+    <!--<public type="color" name="passwd_wrong_solid_color" id="0x7f050017" />-->
+    <!--<public type="color" name="passwd_wrong_stroke_color" id="0x7f050018" />-->
+    <!--<public type="color" name="switch_mode_btn_pressed" id="0x7f050019" />-->
+    <!--<public type="color" name="toggle_button" id="0x7f05001a" />-->
+    <!--<public type="color" name="pattern_inner_right_color" id="0x7f05001b"/>-->
+    <!--<public type="color" name="pattern_inner_normal_color" id="0x7f05001c"/>-->
+    <!--<public type="color" name="pattern_outer_normal_solid_color" id="0x7f05001d"/>-->
+    <!--<public type="color" name="pattern_outer_normal_stroke_color" id="0x7f05001e"/>-->
+    <!--<public type="color" name="pattern_outer_right_stroke_color" id="0x7f05001f"/>-->
+    <!--<public type="color" name="pattern_outer_right_solid_color" id="0x7f050020"/>-->
+    <!--<public type="color" name="pattern_outer_wrong_stroke_color" id="0x7f050021"/>-->
+    <!--<public type="color" name="pattern_outer_wrong_solid_color" id="0x7f050022"/>-->
+    <!--<public type="color" name="app_name_color" id="0x7f050023"/>-->
+
+    <!--<public type="dimen" name="icon_size" id="0x7f060000" />-->
+    <!--<public type="dimen" name="passwd_dot_size" id="0x7f060001" />-->
+    <!--<public type="dimen" name="pattern_line_size" id="0x7f060002" />-->
+    <!--<public type="dimen" name="pattern_circle_size" id="0x7f060003" />-->
+    <!--<public type="dimen" name="numpad_margin" id="0x7f060004" />-->
+    <!--<public type="dimen" name="numpad_vertical_margin" id="0x7f060005" />-->
+    <!--<public type="dimen" name="apply_button_corner_radius" id="0x7f060006" />-->
+    <!--<public type="dimen" name="numpad_font_size" id="0x7f060007" />-->
+    <!--<public type="dimen" name="numpad_stroke_width" id="0x7f060008" />-->
+    <!--<public type="dimen" name="passwd_stroke_width" id="0x7f060009" />-->
+    <!--<public type="dimen" name="pattern_inner_circle_size" id="0x7f06000a" />-->
+    <!--<public type="dimen" name="pattern_outer_stroke_width" id="0x7f06000b" />-->
+    <!--<public type="dimen" name="numpad_size" id="0x7f06000c" />-->
+
+    <!--<public type="id" name="icon_id" id="0x7f090000" />-->
+    <!--<public type="id" name="red" id="0x7f090001" />-->
+    <!--<public type="id" name="download" id="0x7f090002" />-->
+    <!--<public type="id" name="frame_layout" id="0x7f090003" />-->
+    <!--<public type="id" name="title" id="0x7f090004" />-->
+    <!--<public type="id" name="tip" id="0x7f090005" />-->
+    <!--<public type="id" name="lpv_lock" id="0x7f090006" />-->
+    <!--<public type="id" name="passwd_cancel" id="0x7f090007" />-->
+    <!--<public type="id" name="numpad" id="0x7f090008" />-->
+    <!--<public type="id" name="button1" id="0x7f090009" />-->
+    <!--<public type="id" name="button2" id="0x7f09000a" />-->
+    <!--<public type="id" name="button3" id="0x7f09000b" />-->
+    <!--<public type="id" name="button4" id="0x7f09000c" />-->
+    <!--<public type="id" name="button5" id="0x7f09000d" />-->
+    <!--<public type="id" name="button6" id="0x7f09000e" />-->
+    <!--<public type="id" name="button7" id="0x7f09000f" />-->
+    <!--<public type="id" name="button8" id="0x7f090010" />-->
+    <!--<public type="id" name="button9" id="0x7f090011" />-->
+    <!--<public type="id" name="button0" id="0x7f090012" />-->
+    <!--<public type="id" name="backspace" id="0x7f090013" />-->
+    <!--<public type="id" name="ok" id="0x7f090014" />-->
+    <!--<public type="id" name="brief_setting" id="0x7f090015" />-->
+    <!--<public type="id" name="overflow_stub" id="0x7f090016" />-->
+    <!--<public type="id" name="passwd_dot_id" id="0x7f090017" />-->
+    <!--<public type="id" name="use_pattern" id="0x7f090018" />-->
+    <!--<public type="id" name="fragment_container" id="0x7f090019" />-->
+    <!--<public type="id" name="action_bar_passwd" id="0x7f09001a" />-->
+    <!--<public type="id" name="app_name" id="0x7f09001b" />-->
+    <!--<public type="id" name="dly" id="0x7f09001c" />-->
+    <!--<public type="id" name="overflow_id" id="0x7f09001d" />-->
+</resources>

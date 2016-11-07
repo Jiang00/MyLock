@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">Uygulamayı kilitlemek açmak için anahtarı açın</string>
+    <string name="help_unlock">Uygulamayı kilidini açmak için anahtarı kapatın.</string>
+    <string name="help_search_app">Adına göre uygulama aramak için arama kutusunu açın.</string>
+    <string name="help_hide">Uygulamayı gizlemek için dokunun</string>
+    <string name="help_show">Uygulamayı göstermek için dokunun</string>
+
+    <string name="help_edit_mode">Düzenleme moduna girin</string>
+
+    <string name="help_add_pic">Resimleri kutuya taşıyın. Korunacak resimleri galeriden seçip kutuya yerleştirmeniz yeterlidir</string>
+    <string name="help_select_all_photos">Tüm resimleri seç</string>
+    <string name="help_unlock_photo">Resimleri kutudan taşıyın</string>
+    <string name="help_del_photo">Fotoğrafı silmek. Dikkatli olun, silinmiş fotoğraf geri alınamaz.</string>
+    <string name="help_lock_photo">Resimleri kutuya taşıyın. Korumalı resimlere yalnızca fotoğraf kutusunda göz atabilirsiniz.</string>
+
+    <string name="help_add_video">Videoları  kutuya taşıyın. Korunacak videoları  galeriden seçip kutuya yerleştirmeniz yeterlidir.</string>
+    <string name="help_select_all_videos">Tüm videoları seç</string>
+    <string name="help_unlock_video">Videoları  kutudan taşıyın. </string>
+    <string name="help_del_video">Videoyu silmek. Dikkatli olun, silinmiş video geri alınamaz.</string>
+    <string name="help_lock_video">Videoları  kutuya taşıyın. Korumalı videoları yalnızca video kutusunda izleyebilirsiniz.</string>
+
+    <string name="help_add_file">Dosyaları eklemek için dokunun</string>
+    <string name="help_select_all_files">Bir klasördeki tüm dosyaları seçmek için dokunun</string>
+    <string name="help_unlock_file">Tonoz arasından seçilen dosyaları taşımak için dokunun</string>
+    <string name="help_del_file">Kalıcı Seçilen dosyaları silmek için dokunun</string>
+    <string name="help_lock_file">"Tonoz seçili dosyaları taşımak için dokunun.Sen kasasında dosyaları görüntülemek olamaz."</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">打开开关即可对应用加锁</string>
+    <string name="help_unlock">关闭开关即可对应用解锁</string>
+    <string name="help_search_app">打开搜索框，按名称搜索应用</string>
+    <string name="help_hide">点击隐藏应用图标</string>
+    <string name="help_show">点击显示应用图标</string>
+
+    <string name="help_edit_mode">点击进入编辑模式</string>
+
+    <string name="help_add_pic">放入图片，图片库中将列出设备中存储的所有图片，选择您要保护的图片放入保险箱即可。</string>
+    <string name="help_select_all_photos">选中全部图片</string>
+    <string name="help_unlock_photo">将图片移出保险箱</string>
+    <string name="help_del_photo">删除图片，被删除图片不可恢复，请谨慎操作。</string>
+    <string name="help_lock_photo">将图片放入保险箱，可以在保险箱浏览图片。</string>
+
+    <string name="help_add_video">放入视频，视频库中将列出设备中存储的所有视频，选择您要保护的视频放入保险箱即可。</string>
+    <string name="help_select_all_videos">选中全部视频</string>
+    <string name="help_unlock_video">将视频移出保险箱</string>
+    <string name="help_del_video">删除视频，被删除视频不可恢复，请谨慎操作。</string>
+    <string name="help_lock_video">将视频放入保险箱，可以在保险箱观看视频。</string>
+
+    <string name="help_add_file">放入文件，文件库中将列出设备中存储的所有文件和文件夹，选择您需要保护的文件放入保险箱。</string>
+    <string name="help_select_all_files">点击选中当前文件夹下所有文件</string>
+    <string name="help_unlock_file">将选中文件移出保险箱</string>
+    <string name="help_del_file">点击删除文件，被删除文件不可恢复，请谨慎操作。</string>
+    <string name="help_lock_file">将文件放入保险箱，放入保险箱的文件不可预览，如需预览，请先将文件移出保险箱。</string>
+</resources>

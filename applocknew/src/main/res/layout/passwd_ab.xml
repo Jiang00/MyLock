@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:id="@+id/action_bar_passwd"
+       android:visibility="gone"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="48dp"
+              android:paddingLeft="12dp"
+              android:paddingRight="12dp"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/app_name_color"
+        android:textSize="21sp"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+    <com.privacy.lib.view.RedotImageView
+        android:id="@+id/dly"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/overflow"
+        android:padding="12dp"
+        android:src="@drawable/ic_dly"
+        android:visibility="visible"/>
+
+    <com.privacy.lib.view.RedotImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/overflow"
+        android:padding="12dp"
+        android:tag="icon_persistent"
+        android:src="@drawable/ic_dly"
+        android:visibility="visible"/>
+
+    <ImageButton
+        android:id="@+id/overflow_id"
+        android:layout_width="32dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/overflow"
+        />
+</LinearLayout>

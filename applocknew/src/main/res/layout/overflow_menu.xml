@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="48dp"
+              android:background="@drawable/overflow_btn"
+              android:gravity="start|center_vertical"
+              android:id="@+id/brief_setting"
+              android:paddingLeft="12dp"
+              android:paddingRight="12dp"
+              android:textColor="@android:color/black"/>
+        <!--
+    <Button android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/overflow_btn"
+            android:gravity="start|center_vertical"
+            android:id="@+id/brief_setting"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/black"
+            android:text="@string/overf_brief"/>
+    <Button
+            android:id="@+id/unlock_me"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/overflow_btn"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:gravity="start|center_vertical"
+            android:textColor="@android:color/black"
+            android:drawableRight="@drawable/btn_check_off_holo_light"
+            android:drawableEnd="@drawable/btn_check_off_holo_light"
+            android:text="@string/overf_unlock_me"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/overflow_btn"
+            android:id="@+id/forget"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/black"
+            android:text="@string/forgot_passwd"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/overflow_btn"
+            android:id="@+id/explore_theme"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/black"
+            android:text="@string/theme"/> -->

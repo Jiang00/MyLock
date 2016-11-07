@@ -1,0 +1,515 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+#-ignorewarnings
+-dontwarn com.testin.agent.**
+-keep class com.testin.agent.** {*;}
+-keepattributes SourceFile, LineNumberTable
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.support.v4.app.Fragment
+-keepclassmembers class net.i2p.android.ext.floatingactionbutton.FloatingActionsMenu$RotatingDrawable {
+   void set*(***);
+   *** get*();
+}
+
+-keep class com.superjoy.applock.AppCore {*;}
+-keep class com.superjoy.applock.meta.Daily {*;}
+-keep class com.superjoy.applock.meta.OverflowMenu {*;}
+-keep class com.superjoy.applock.intf.IThemeFragment {*;}
+-keep class com.superjoy.applock.intf.IThemeBridge {*;}
+-keep class com.superjoy.applock.meta.ThemeBridge {*;}
+-keep class com.superjoy.applock.AppCore {*;}
+-keep class * implements android.os.Parcelable {
+	public static final android.os.Parcelable$Creator *;
+}
+-keepclassmembers class **{
+    native <methods>;
+}
+
+-dontwarn com.tendcloud.tenddata.**
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+
+-keep public class com.google.ads.** {
+   public *;
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class com.google.analytics.** {*;}
+-keep class com.google.android.gms.** {*;}
+-keep class android.support.v4.**{*;}
+-dontwarn butterknife.internal.**
+-dontwarn com.facebook.**
+-keep class **$$ViewInjector { *; }
+-keep class com.facebook.** {*;}
+-keepnames class * { @butterknife.InjectView *;}
+-keep class org.eclipse.mat.** { *; }
+-keep class com.squareup.leakcanary.** { *; }
+
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+-keepattributes SourceFile,LineNumberTable
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class **.R {
+  public *;
+}
+
+-keep public class **.R$* {
+  public *;
+}
+
+-keep public class com.unity3d.ads.android.**
+-keepclassmembers class com.unity3d.ads.android.** {
+   public *;
+}
+
+-keep public class com.unity3d.ads.android.**$*
+-keepclassmembers class com.unity3d.ads.android.**$* {
+   public *;
+}
+
+-keep public class com.applifier.impact.android.ApplifierImpact
+-keepclassmembers class com.applifier.impact.android.ApplifierImpact {
+   public *;
+}
+
+-keep public interface com.applifier.impact.android.IApplifierImpactListener
+-keepclassmembers interface com.applifier.impact.android.IApplifierImpactListener {
+   public *;
+}
+
+-keep public enum com.unity3d.ads.android.view.UnityAdsMainView$UnityAdsMainViewAction {
+   **[] $VALUES;
+   public *;
+}
+
+-keep public enum com.unity3d.ads.android.campaign.UnityAdsCampaign$UnityAdsCampaignStatus {
+   **[] $VALUES;
+   public *;
+}
+
+-keepattributes JavascriptInterface
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+#-ignorewarnings
+-dontwarn com.testin.agent.**
+-keep class com.testin.agent.** {*;}
+-keepattributes SourceFile, LineNumberTable
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.support.v4.app.Fragment
+-keepclassmembers class net.i2p.android.ext.floatingactionbutton.FloatingActionsMenu$RotatingDrawable {
+   void set*(***);
+   *** get*();
+}
+
+-keep class com.superjoy.applock.AppCore {*;}
+-keep class com.superjoy.applock.meta.Daily {*;}
+-keep class com.superjoy.applock.meta.OverflowMenu {*;}
+-keep class com.superjoy.applock.intf.IThemeFragment {*;}
+-keep class com.superjoy.applock.intf.IThemeBridge {*;}
+-keep class com.superjoy.applock.meta.ThemeBridge {*;}
+-keep class com.superjoy.applock.AppCore {*;}
+-keep class * implements android.os.Parcelable {
+	public static final android.os.Parcelable$Creator *;
+}
+-keepclassmembers class **{
+    native <methods>;
+}
+
+-dontwarn com.tendcloud.tenddata.**
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+
+-keep public class com.google.ads.** {
+   public *;
+}
+
+-keep public class com.google.android.gms.** {public *;}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class com.google.analytics.** {*;}
+-keep class com.google.android.gms.** {*;}
+-keep class android.support.v4.**{*;}
+-dontwarn butterknife.internal.**
+-dontwarn com.facebook.**
+-keep class **$$ViewInjector { *; }
+-keep class com.facebook.** {*;}
+-keepnames class * { @butterknife.InjectView *;}
+-keep class org.eclipse.mat.** { *; }
+-keep class com.squareup.leakcanary.** { *; }
+
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+
+-keep class org.simple.** { *; }
+-keep interface org.simple.** { *; }
+-keepclassmembers class * {
+    @org.simple.eventbus.Subscriber <methods>;
+}
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+-keepattributes SourceFile,LineNumberTable
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class **.R {
+  public *;
+}
+
+-keep public class **.R$* {
+  public *;
+}
+
+-keep public class com.unity3d.ads.android.**
+-keepclassmembers class com.unity3d.ads.android.** {
+   public *;
+}
+
+-keep public class com.unity3d.ads.android.**$*
+-keepclassmembers class com.unity3d.ads.android.**$* {
+   public *;
+}
+
+-keep public class com.applifier.impact.android.ApplifierImpact
+-keepclassmembers class com.applifier.impact.android.ApplifierImpact {
+   public *;
+}
+
+-keep public interface com.applifier.impact.android.IApplifierImpactListener
+-keepclassmembers interface com.applifier.impact.android.IApplifierImpactListener {
+   public *;
+}
+
+-keep public enum com.unity3d.ads.android.view.UnityAdsMainView$UnityAdsMainViewAction {
+   **[] $VALUES;
+   public *;
+}
+
+-keep public enum com.unity3d.ads.android.campaign.UnityAdsCampaign$UnityAdsCampaignStatus {
+   **[] $VALUES;
+   public *;
+}
+
+-keepattributes JavascriptInterface
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
+
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+
+-keep public class com.google.ads.** {
+   public *;
+}
+
+-keep class !android.support.v7.internal.view.menu.**,android.support.v7.** {*;}
+
+-dontwarn com.android.volley.**
+
+-keep class com.risesdk.client.** {
+    <methods>;
+}
+
+-keep class android.support.** {
+    *;
+}
+
+-keep class com.nineoldandroids.** { *; }
+
+-dontwarn com.unity3d.**
+-keep class com.android.client.** {
+    <methods>;
+}
+
+-keep class android.support.** {
+    *;
+}
+
+-keep class com.core.async.** {
+    public *;
+}
+
+-keep class com.core.common.** {
+    public *;
+}
+
+-keep class com.core.network.** {
+    public *;
+}
+
+-keep class com.core.view.** {
+    public *;
+}

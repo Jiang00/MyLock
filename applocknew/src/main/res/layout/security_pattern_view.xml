@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.privacy.lock.view.MyFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include
+            android:visibility="gone"
+            layout="@layout/passwd_ab" />
+
+        <LinearLayout
+            android:background="@color/new_user_choose_app_bac"
+
+            android:layout_width="match_parent"
+            android:layout_height="201dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:background="@drawable/icon"
+                android:id="@+id/title"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                />
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:id="@+id/text_appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:gravity="center">
+
+            <com.privacy.lock.view.LockPatternView
+                android:id="@+id/lpv_lock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/passwd_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:text="@string/use_normal_passwd"
+                android:textColor="@color/security_toggle_button"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/passwd_unlock"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/security_toggle_button"
+                android:textSize="20sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/overflow_menu_stub" />
+</com.privacy.lock.view.MyFrameLayout>

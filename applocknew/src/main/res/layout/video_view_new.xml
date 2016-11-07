@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/black">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/video"
+            android:orientation="vertical"
+            android:gravity="center">
+
+        <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/video_preview"
+                android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <include layout="@layout/security_myabout_bar"/>
+
+    <include
+            layout="@layout/security_bootom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_ab_h"
+            android:layout_gravity="bottom"/>
+</FrameLayout>

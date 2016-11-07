@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">लॉक अनुप्रयोग के बटन</string>
+    <string name="help_unlock">एप्लिकेशन को बटन अनलॉक</string>
+    <string name="help_search_app">नाम से app की खोज करने के लिए ओपन खोज बॉक्स</string>
+    <string name="help_hide">मुख्य स्क्रीन से छुपाएं एप्लिकेशन को</string>
+    <string name="help_show">दिखाएँ app आइकन</string>
+
+    <string name="help_edit_mode">संपादन मोड में प्रवेश</string>
+
+    <string name="help_add_pic">तिजोरी में तस्वीरें ले जाएँ। सिर्फ तस्वीरों गैलरी से संरक्षित किया जाना चयन करें और कोठरी में डाल दिया।</string>
+    <string name="help_select_all_photos">सभी तस्वीरें चयन करने के लिए टैप</string>
+    <string name="help_unlock_photo">तिजोरी से बाहर चयनित तस्वीरें ले जाएं</string>
+    <string name="help_del_photo">स्थायी रूप से चयनित फ़ोटो हटाएं</string>
+    <string name="help_lock_photo">तिजोरी में चयनित तस्वीरें ले जाएँ। आप तिजोरी में तस्वीरें देख सकते हैं।</string>
+
+    <string name="help_add_video">तिजोरी में वीडियो हटो। बस वीडियो गैलरी से संरक्षित किया जाना चयन करें और कोठरी में डाल दिया।</string>
+    <string name="help_select_all_videos">सभी वीडियो का चयन करने के लिए टैप</string>
+    <string name="help_unlock_video">तिजोरी से बाहर चयनित वीडियो हटो</string>
+    <string name="help_del_video">स्थायी रूप से चयनित वीडियो हटाएं</string>
+    <string name="help_lock_video">तिजोरी में चयनित वीडियो हटो। आप तिजोरी में वीडियो देख सकते हैं।</string>
+
+    <string name="help_add_file">तिजोरी में फ़ाइलों को जोड़ने के लिए टैप</string>
+    <string name="help_select_all_files">एक फ़ोल्डर में सभी फ़ाइलों का चयन करने के लिए टैप</string>
+    <string name="help_unlock_file">तिजोरी से बाहर चयनित फ़ाइलों को स्थानांतरित करने के लिए टैप</string>
+    <string name="help_del_file">स्थायी रूप से चयनित फ़ाइलों को नष्ट करने के लिए टैप</string>
+    <string name="help_lock_file">तिजोरी में चयनित फ़ाइलों को स्थानांतरित करने के लिए टैप करें। आप तिजोरी में फ़ाइलों को नहीं देख सकते हैं।</string>
+</resources>

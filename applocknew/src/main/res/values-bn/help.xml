@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">অ্যাপ্লিকেশন লক বাটন চাপ</string>
+    <string name="help_unlock">অ্যাপ্লিকেশন আনলক বাটন চাপ</string>
+    <string name="help_search_app">ওপেন সার্চ বক্স নামের দ্বারা অ্যাপ্লিকেশন অনুসন্ধান</string>
+    <string name="help_hide">প্রধান পর্দা থেকে আড়াল অ্যাপ্লিকেশন</string>
+    <string name="help_show">দেখান অ্যাপ্লিকেশন আইকন</string>
+
+    <string name="help_edit_mode">সম্পাদনা মোডে প্রবেশ</string>
+
+    <string name="help_add_pic">খিলান মধ্যে ছবি নিয়ে যান. শুধু ছবি গ্যালারি থেকে রক্ষা করা এবং নির্বাচন খিলান তাদের করা.</string>
+    <string name="help_select_all_photos">সব ছবি নির্বাচন ট্যাপ</string>
+    <string name="help_unlock_photo">খিলান আউট নির্বাচিত ছবি সরান</string>
+    <string name="help_del_photo">স্থায়ীভাবে নির্বাচিত ছবি মুছে দিন</string>
+    <string name="help_lock_photo">খিলান মধ্যে নির্বাচিত ছবি নিয়ে যান. আপনি খিলান মধ্যে ছবি দেখতে পারেন.</string>
+
+    <string name="help_add_video">খিলান মধ্যে ভিডিও নিয়ে যান. শুধু ভিডিও গ্যালারি থেকে রক্ষা করা এবং নির্বাচন খিলান তাদের করা.</string>
+    <string name="help_select_all_videos">সব ভিডিও নির্বাচন ট্যাপ</string>
+    <string name="help_unlock_video">খিলান আউট নির্বাচিত ভিডিও নিয়ে যান</string>
+    <string name="help_del_video">স্থায়ীভাবে নির্বাচিত ভিডিও মুছে দিন</string>
+    <string name="help_lock_video">খিলান মধ্যে নির্বাচিত ভিডিও নিয়ে যান. আপনি খিলান ভিডিও দেখতে পারেন.</string>
+
+    <string name="help_add_file">ফাইল যোগ ট্যাপ</string>
+    <string name="help_select_all_files">একটি ফোল্ডারে সব ফাইল নির্বাচন ট্যাপ</string>
+    <string name="help_unlock_file">খিলান আউট নির্বাচিত ফাইল স্থানান্তর করার জন্য ট্যাপ</string>
+    <string name="help_del_file">স্থায়ীভাবে নির্বাচিত ফাইল মুছে দিন ট্যাপ</string>
+    <string name="help_lock_file">খিলান মধ্যে নির্বাচিত ফাইল স্থানান্তর করার জন্য ট্যাপ. আপনি খিলান মধ্যে ফাইল দেখতে পারবেন না. খিলান</string>
+</resources>

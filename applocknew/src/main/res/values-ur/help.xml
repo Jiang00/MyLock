@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_lock">تالا اپلی بٹن</string>
+    <string name="help_unlock">اپلی کیشن کے بٹن کو غیر مقفل</string>
+    <string name="help_search_app">اوپن تلاش کے باکس کے نام سے اے پی پی کی تلاش کے لئے</string>
+    <string name="help_hide">اہم سکرین سے چھپائیں اے پی پی</string>
+    <string name="help_show">شو اپلی کیشن کا آئکن</string>
+
+    <string name="help_edit_mode">ترمیم موڈ میں داخل</string>
+
+    <string name="help_add_pic">والٹ میں تصاویر منتقل کریں. صرف تصاویر کی گیلری سے محفوظ کرنے کا انتخاب کریں اور تجوری میں رکھ</string>
+    <string name="help_select_all_photos">تمام تصاویر کو منتخب کرنے کے لئے تھپتھپائیں</string>
+    <string name="help_unlock_photo">تجوری کے باہر منتخب کی گئی تصاویر کو منتقل</string>
+    <string name="help_del_photo">مستقل طور پر منتخب کی گئی تصاویر کو حذف کریں</string>
+    <string name="help_lock_photo">تجوری میں منتخب کردہ تصاویر کو منتقل کریں. آپ کو تجوری میں تصاویر دیکھ سکتے ہیں</string>
+
+    <string name="help_add_video">تجوری میں ویڈیوز میں منتقل کریں. بس شخصیت کے ویڈیو گیلری سے محفوظ کرنے کا انتخاب کریں اور تجوری میں رکھ</string>
+    <string name="help_select_all_videos">تمام ویڈیوز کو منتخب کرنے کے لئے تھپتھپائیں</string>
+    <string name="help_unlock_video">تجوری کے باہر منتخب کردہ ویڈیوز منتقل</string>
+    <string name="help_del_video">مستقل طور پر منتخب کردہ ویڈیوز کو حذف</string>
+    <string name="help_lock_video">والٹ میں منتخب کردہ ویڈیوز منتقل. آپ کو تجوری میں ویڈیوز دیکھ سکتے ہیں</string>
+
+    <string name="help_add_file">تجوری میں فائلوں کو شامل کرنے کے لئے تھپتھپائیں</string>
+    <string name="help_select_all_files">ایک فولڈر میں تمام فائلوں کو منتخب کرنے کے لئے تھپتھپائیں</string>
+    <string name="help_unlock_file">تجوری کے باہر منتخب کردہ فائلوں کو منتقل کرنے کے لئے تھپتھپائیں</string>
+    <string name="help_del_file">مستقل طور پر منتخب کردہ فائلوں کو خارج کرنے کے لئے تھپتھپائیں</string>
+    <string name="help_lock_file">تجوری میں منتخب کردہ فائلوں کو منتقل کرنے کے لئے تھپتھپائیں. آپ کو تجوری میں فائلوں کو دیکھنے نہیں کر سکتے ہیں</string>
+</resources>
