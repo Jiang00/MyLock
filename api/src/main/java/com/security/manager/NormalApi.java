@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import com.security.manager.lib.async.LoadingTask;
 import com.security.manager.lib.io.BaseColumns;
-import com.privacy.model.FileType;
-import com.privacy.model.FolderEntry;
+import com.security.mymodule.FileType;
+import com.security.mymodule.FolderEntry;
 
 import java.util.ArrayList;
 import java.util.HashMap;

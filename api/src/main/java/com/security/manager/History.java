@@ -1,6 +1,6 @@
 package com.security.manager;
 
-import com.privacy.model.FileType;
+import com.security.mymodule.FileType;
 
 import java.io.BufferedReader;
 import java.io.File;

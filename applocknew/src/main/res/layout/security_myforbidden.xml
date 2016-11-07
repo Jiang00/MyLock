@@ -4,7 +4,13 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:gravity="center"
+    android:background="@android:color/transparent"
     android:orientation="vertical">
+    <com.security.lib.customview.MySurfaceView
+        android:background="@android:color/transparent"
+        android:layout_width="0.1px"
+        android:layout_height="0.1px"
+        android:id="@+id/surface"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -22,8 +28,5 @@
         android:textColor="@color/body_text_1_inverse"
         android:textSize="32sp"/>
 
-    <com.privacy.lib.view.MySurfaceView
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:id="@+id/surface"/>
+
 </LinearLayout>

@@ -19,7 +19,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:id="@+id/bg_sel"
-            android:background="@drawable/fake_check"
+            android:background="@drawable/security_myfake_select"
             android:layout_gravity="bottom|end"/>
     </FrameLayout>
 

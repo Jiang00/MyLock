@@ -16,4 +16,21 @@
         <item>@string/fake_icon_2</item>
         <item>@string/fake_icon_3</item>
     </string-array>
+
+
+    <string-array name="suo_ruqinzhe_slot">
+        <item>@string/suo_intru_w_1</item>
+        <item>@string/suo_intru_w_2</item>
+        <item>@string/suo_intru_w_3</item>
+        <item>@string/suo_intru_w_4</item>
+        <item>@string/suo_intru_w_5</item>
+    </string-array>
+    <string-array name="suo_invade_st_">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 </resources>

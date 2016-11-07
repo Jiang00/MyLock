@@ -2,7 +2,7 @@ package com.security.manager;
 
 import android.graphics.Bitmap;
 
-import com.privacy.model.IntruderEntry;
+import com.security.mymodule.IntruderEntry;
 
 import java.io.File;
 import java.io.FileOutputStream;

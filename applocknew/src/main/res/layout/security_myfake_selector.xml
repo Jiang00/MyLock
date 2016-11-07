@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<com.privacy.lock.view.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.security.manager.page.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,10 +14,15 @@
         android:orientation="vertical">
 
         <include
+            layout="@layout/security_component_toolbar"
+             />
+        <include
             layout="@layout/security_myabout_bar"
             android:visibility="gone" />
 
-        <include layout="@layout/normal_action_bar" />
+        <include
+            android:visibility="gone"
+            layout="@layout/security_normal_actionbar" />
 
         <TextView
             android:layout_width="match_parent"
@@ -60,6 +65,6 @@
             android:layout_marginRight="6dp"
             android:numColumns="2" />
     </LinearLayout>
-</com.privacy.lock.view.MyRelativeLayout>
+</com.security.manager.page.MyRelativeLayout>
 
 

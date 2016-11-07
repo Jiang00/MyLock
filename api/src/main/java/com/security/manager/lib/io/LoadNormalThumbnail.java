@@ -7,7 +7,7 @@ import android.graphics.Point;
 import android.provider.MediaStore;
 
 import com.security.manager.lib.BaseApp;
-import com.privacy.model.FileType;
+import com.security.mymodule.FileType;
 
 /**
  * Created by SongHualin on 6/29/2015.

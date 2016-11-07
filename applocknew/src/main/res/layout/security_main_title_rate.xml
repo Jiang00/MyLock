@@ -111,7 +111,7 @@
         android:visibility="gone" />
 
     <View
-        android:background="@drawable/newgoodbac"
+        android:background="@drawable/security_shadow_"
         android:layout_width="match_parent"
         android:layout_height="8dp"></View>
 

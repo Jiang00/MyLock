@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/unlock_type">
         <Preference android:key="nor"
-            android:layout="@layout/unlock_method"/>
+            android:layout="@layout/security_unlock_switch"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/setting_tab">
         <Preference

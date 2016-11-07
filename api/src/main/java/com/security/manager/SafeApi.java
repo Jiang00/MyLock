@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.SparseArray;
 
 import com.security.manager.lib.async.LoadingTask;
-import com.privacy.model.FileType;
-import com.privacy.model.FolderEntry;
+import com.security.mymodule.FileType;
+import com.security.mymodule.FolderEntry;
 
 import java.io.File;
 import java.util.ArrayList;

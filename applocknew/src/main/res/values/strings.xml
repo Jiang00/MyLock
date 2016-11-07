@@ -277,7 +277,20 @@
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="fake_calender">Calendar</string>
     <string name="fake_notepad">Notepad</string>
+    <string name="suo_ruqinzhe">Intruder selfie </string>
+    <string name="suo_ruqinzhe_on">Intruder detector is turned on</string>
+    <string name="suo_ruqinzhe_off">Intruder detector is turned off</string>
+    <string name="suo_ruqinzhe_de">Catch intruder for you</string>
 
+    <string name="suo_intru_w_1">1 time</string>
+    <string name="suo_intru_w_2">2 times</string>
+    <string name="suo_intru_w_3">3 times</string>
+    <string name="suo_intru_w_4">4 times</string>
+    <string name="suo_intru_w_5">5 times</string>
+    <string name="suo_intru_selfie">Intruder Selfie</string>
+    <string name="suo_intru_w_tit">Incorrect code entered</string>
+    <string name="suo_intru_help">Help</string>
+    <string name="suo_intru_shutter">Enable shutter sound</string>
 
 
 

@@ -6,8 +6,8 @@ import com.security.manager.History;
 import com.security.manager.SafeApi;
 import com.security.manager.lib.BaseApp;
 import com.security.manager.lib.Utils;
-import com.privacy.model.FileType;
-import com.privacy.model.FolderEntry;
+import com.security.mymodule.FileType;
+import com.security.mymodule.FolderEntry;
 
 import junit.framework.Assert;
 

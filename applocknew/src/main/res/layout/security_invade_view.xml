@@ -58,7 +58,7 @@
             />
         </LinearLayout>
 
-        <com.privacy.lib.view.ReloadableImageView
+        <com.security.lib.customview.ReloadableImageView
             android:id="@+id/security_invade_peple"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

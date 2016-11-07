@@ -4,8 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
-        layout="@layout/normal_action_bar"
+        android:visibility="gone"
+        layout="@layout/security_normal_actionbar"
         ></include>
+
+    <include
+        layout="@layout/security_component_toolbar"/>
 
 
     <ScrollView
@@ -19,10 +23,10 @@
 
 
             <ImageView
-                android:background="@drawable/intrude_top_icon"
+                android:background="@drawable/security_intrude_infomation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-                <com.privacy.lock.view.ListViewForScrollView
+                <com.security.manager.page.ListViewForScrollView
                     android:divider="@null"
                     android:id="@+id/abs_list"
                     android:layout_width="match_parent"
