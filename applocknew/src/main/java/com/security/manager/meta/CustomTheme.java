@@ -53,7 +53,7 @@ public class CustomTheme {
             fos.close();
             ImageMaster.remove(CACHE_KEY);
             App.getSharedPreferences().edit().putString("theme", "custom").apply();
-            Toast.makeText(App.getContext(), R.string.use_theme_success, Toast.LENGTH_SHORT).show();
+            Toast.makeText(App.getContext(), R.string.security_use_theme_success, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

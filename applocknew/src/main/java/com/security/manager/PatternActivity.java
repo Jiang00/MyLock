@@ -209,25 +209,31 @@ public class PatternActivity extends SetupPattern {
         if (firstLaunchList != null && firstLaunchList.size() > 0) return;
         PackageManager packageManager = getPackageManager();
         String[] predefinedpkgs = new String[]{
-                "com.sec.android.gallery3d",
-                "com.android.gallery3d",
-                "com.android.gallery",
-                "com.facebook.katana",
-                "com.facebook.orca",
-                "jp.naver.line.android",
-                "com.whatsapp",
-                "com.kakao.talk",
-                "com.instagram.android",
-                "com.android.vending",
-                "com.twitter.android",
-                "com.android.contacts",
-                "com.android.mms",
-                "com.google.android.gm",
-                "com.android.email",
-                "com.google.android.youtube",
-                "com.tencent.mm",
-                "com.google.android.talk",
+                "com.badoo.mobile",
+                "com.tencent.mobileqq",
+                "com.tencent.mobileqqi",
                 "com.skype.raider",
+                "com.skype.rover",
+                "com.jnj.mocospace.android",
+                "com.instagram.android",
+                "mingle.android.mingle",
+                "com.taggedapp",
+                "com.igg.android.im",
+                "com.snapchat.android",
+                "com.myyearbook.m",
+                "co.vine.android",
+                "com.tumblr",
+                "com.skout.android",
+                "com.tinder",
+                "com.twitter.android",
+                "com.pinterest",
+                "com.viber.voip","com.imo.android.imoim","com.facebook.orca","com.facebook.lite","com.whatsapp",
+                "com.askfm",
+                "com.oovoo",
+                "com.singlesaroundme.android",
+                "com.facebook.katana",
+                "sh.whisper", "com.sgiggle.production", "kik.android", "com.pof.android", "com.hotornot.app", "com.tencent.mm", "com.skype.raider", "com.mico", "com.waplog.social", "com.minus.android", "com.jaumo", "com.linkedin.android", "com.hi5.app", "com.unearby.sayhi", "com.choiceoflove.dating", "com.vkontakte.android", "com.keek", "ru.mamba.client", "com.playcorp.peepapp", "jp.naver.line.android", "com.instanza.cocovoice", "com.airg.hookt", "com.path", "com.weheartit", "chat.meet.date.me", "im.twogo.godroid", "com.tencent.mobileqqi", "com.tencent.qqlite", "kr.woot0pia.talkreply", "com.kakao.talk", "com.google.android.apps.plus", "com.immomo.momo", "com.paypal.android.p2pmobile", "com.google.android.apps.gmoney", "com.google.android.apps.walletnfcrel", "ru.mw", "com.paypal.here", "com.ns.paypalpp", "com.venmo", "com.eg.android.AlipayGphone", "com.alipay.android.client.pad", "com.moneybookers.skrillpayments", "com.payoneer.android", "com.squareup.cash", "com.transferwise.android", "com.dwolla.dwolla", "com.scvngr.levelup.app", "de.schildbach.wallet", "com.infonow.bofa", "com.htsu.hsbcpersonalbanking", "com.abnamro.nl.mobile.payments", "com.citi.citimobile", "com.db.mm.deutschebank", "fr.creditagricole.androidapp", "com.rbs.mobile.android.iom", "net.bnpparibas.mescomptes", "com.bnpp.easybanking", "com.americanexpress.android.acctsvcs.us", "com.wf.wellsfargomobile", "com.wf.wellsfargomobile.tablet", "com.chase.sig.android", "com.creditkarma.mobile", "com.konylabs.capitalone", "com.geico.mobile", "com.ifs.banking.fiid1460", "com.westernunion.android.mtapp", "com.netspend.mobileapp.westernunion", "com.mint", "com.netgate", "com.chasepay.sig.android", "com.firstdata.moneynetwork", "com.xoom.android.app", "com.worldremit.android", "com.discoverfinancial.mobile", "com.discoverfinancial.tablet", "com.usaa.mobile.android.usaa", "com.usbank.mobilebanking", "com.usb.cps.axol.usbc", "com.navyfederal.android", "com.brisk.jpay", "com.pnc.ecommerce.mobile", "com.yahoo.mobile.client.android.finance", "com.capitalone.mobile.wallet", "com.konylabs.capitalone", "com.tdbank", "com.tdbank.retail.tablet", "com.netspend.product.android", "com.netspend.product.android.ace", "com.netspend.mobileapp.heb", "com.netspend.aa.product.android", "com.netspend.product.android.bet", "com.netspend.mobileapp.skylight", "com.mfoundry.mb.android.mb_15000001", "com.cardinalcommerce.greendot", "com.netspend.mobileapp.brinks", "com.rushcard.android", "com.ace.ingo.android", "com.card.cardcom", "com.microsoft.amp.apps.bingfinance", "com.investorvista.stockspyod", "com.taguru.ChartPro", "com.investorvista.stockspyphone", "org.yccheok.jstock.gui", "com.acorns.android", "com.experian", "com.myfico", "com.regions.mobbanking", "com.statefarm.pocketagent", "com.domesticcat.chimpchange", "com.ally.MobileBanking", "com.tmcc.click2pay.mytfs", "com.unionbank.ecommerce.mobile.android"
+
         };
         ArrayList<String> commons = new ArrayList<>();
         HashMap<String, Boolean> filter = new HashMap<>();
@@ -411,9 +417,9 @@ public class PatternActivity extends SetupPattern {
             TextView desc = (TextView) header.findViewById(R.id.desc);
             ImageView icon = (ImageView) header.findViewById(R.id.select_app_status);
             icon.setBackgroundResource(R.drawable.security_select_apps_successful);
-            title.setText(R.string.protect_apps_success);
-            desc.setText(R.string.select_apps_locked);
-            next.setText(R.string.done);
+            title.setText(R.string.security_app_pro_successful);
+            desc.setText(R.string.security_select_apps_locked);
+            next.setText(R.string.security_done);
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

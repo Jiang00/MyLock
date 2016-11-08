@@ -34,7 +34,7 @@
         android:layout_height="49dp"
         android:textSize="18sp"
         android:background="@drawable/security_select_button"
-        android:text="@string/set_pass"
+        android:text="@string/security_set_password"
         android:id="@+id/next"
         android:textColor="#fff"/>
 

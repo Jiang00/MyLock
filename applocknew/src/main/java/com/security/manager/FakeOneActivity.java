@@ -3,5 +3,5 @@ package com.security.manager;
 /**
  * Created by song on 15/8/20.
  */
-public class Fake1Activity extends PatternActivity {
+public class FakeOneActivity extends PatternActivity {
 }

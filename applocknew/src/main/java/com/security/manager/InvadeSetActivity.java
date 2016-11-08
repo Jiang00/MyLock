@@ -6,30 +6,34 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.util.Log;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
 
 import com.privacy.lock.R;
 import com.security.manager.lib.BaseActivity;
 import com.security.manager.meta.Pref;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by song on 15/12/25.
+ * Created by ma on 15/12/25.
  */
 public class InvadeSetActivity extends BaseActivity {
 
 //    @InjectView(R.id.suo_title_bar_te)
 //    TextView title;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.suo_invade_set);
         ButterKnife.inject(this);
+        setupToolbar();
 
 
 //        标题
@@ -48,6 +52,23 @@ public class InvadeSetActivity extends BaseActivity {
         getFragmentManager().beginTransaction().replace(R.id.suo_frag_co, fragment).commitAllowingStateLoss();
     }
 
+    private void setupToolbar() {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.security_intruder_setting_new);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+    }
+
+
+
     @Override
     protected void onIntent(Intent intent) {
 
@@ -62,16 +83,17 @@ public class InvadeSetActivity extends BaseActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            addPreferencesFromResource(R.xml.suo_invade_set);
+            addPreferencesFromResource(R.xml.security_intrude_set);
 
             CheckBoxPreference intruder = (CheckBoxPreference) findPreference(SETTING_CATCH_INTRUDER);
-            intruder.setChecked(Pref.fetchIntruder());//com.lockscreen.lock.Preference.isFetchIntruderEnabled()
+            intruder.setChecked(Pref.fetchIntruder());
             intruder.setOnPreferenceChangeListener(this);
 
             Preference preference = findPreference(SETTING_CATCH_INTRUDER_SLOT);
             String[] summaries = getResources().getStringArray(R.array.suo_ruqinzhe_slot);
             int slot = com.security.manager.db.Preference.getIntruderSlot();
             preference.setSummary(summaries[slot]);
+
             preference.setOnPreferenceChangeListener(this);
 
             CheckBoxPreference shutter = (CheckBoxPreference) findPreference(SETTING_INTRUDER_SHUTTER);
@@ -88,7 +110,6 @@ public class InvadeSetActivity extends BaseActivity {
                     int slot = Integer.parseInt(value);
                     lp.setValue(value);
                     com.security.manager.db.Preference.setIntruderSlot(slot);
-                    Log.i("aaaaaa","--------------"+slot);
                     lp.setSummary(lp.getEntry());
                 }
                 break;
@@ -109,34 +130,6 @@ public class InvadeSetActivity extends BaseActivity {
             return true;
         }
 
-    }
 
-//    public void showTutorial() {
-//        final View view = getLayoutInflater().inflate(R.layout.suo_tut_dial, null, false);
-//        final View bg = view.findViewById(R.id.suo_backg_tt);
-//        final SoundPool soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-//        final int shutterSoundId = soundPool.load(InvadeSetActivity.this, R.raw.shutter, 0);
-//        view.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    soundPool.play(shutterSoundId, 1, 1, 1, 0, 1);
-//                    bg.startAnimation(AnimationUtils.loadAnimation(InvadeSetActivity.this, R.anim.activi_in));
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, 200);
-//        bg.setBackgroundResource(R.drawable.suo_invade_se);
-//        ((TextView) view.findViewById(R.id.suo_tt_tishi)).setText(R.string.suo_intru_tishi);
-//        final AlertDialog dialog = new AlertDialog.Builder(this, R.style.invade_dia).setView(view).create();
-//        view.findViewById(R.id.suo_invad_got).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                soundPool.release();
-//                dialog.cancel();
-//            }
-//        });
-//        dialog.show();
-//    }
+    }
 }

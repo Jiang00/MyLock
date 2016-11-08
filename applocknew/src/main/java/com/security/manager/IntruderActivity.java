@@ -7,15 +7,13 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.privacy.lock.R;
 import com.security.manager.page.ListViewForScrollView;
@@ -72,7 +70,7 @@ public class IntruderActivity extends AbsActivity {
         ButterKnife.inject(this);
         setupToolbar();
 
-        normalTitle.setText("   " + getResources().getString(R.string.intruder));
+        normalTitle.setText("   " + getResources().getString(R.string.security_new_intruder));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
         normalTitle.setOnClickListener(new View.OnClickListener() {
@@ -92,23 +90,43 @@ public class IntruderActivity extends AbsActivity {
 //            }
 //        });
 
+
+    }
+
+    @Override
+    public void setupView() {
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == 1) {
+            int position = data.getIntExtra("position", -1);
+            if (position >= 0) {
+                IntruderEntry intruder = intruderEntries.remove(position);
+                IntruderApi.deleteIntruder(intruder);
+                adapter.notifyDataSetChanged();
+
+
+                if (intruderEntries.size() == 0) {
+                    listView.setVisibility(View.GONE);
+//                    tip.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         findViewById(R.id.help).setVisibility(View.GONE);
         findViewById(R.id.search_button).setVisibility(View.GONE);
 
         CheckBox checkBox = (CheckBox) findViewById(R.id.intruder_switch);
         checkBox.setChecked(Pref.fetchIntruder());
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(final CompoundButton compoundButton, boolean b) {
-                Pref.setFetchIntruder(b);
-                if (b) {
-                    Toast.makeText(App.getContext(), R.string.intruder_on, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(App.getContext(), R.string.intruder_off, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
         intruderEntries = IntruderApi.getIntruders();
         if (intruderEntries.size() == 0) {
@@ -184,48 +202,15 @@ public class IntruderActivity extends AbsActivity {
 
             lv.setAdapter(adapter);
         }
-
-    }
-
-    @Override
-    public void setupView() {
-
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1 && resultCode == 1) {
-            int position = data.getIntExtra("position", -1);
-            if (position >= 0) {
-                IntruderEntry intruder = intruderEntries.remove(position);
-                IntruderApi.deleteIntruder(intruder);
-                adapter.notifyDataSetChanged();
-
-
-                if (intruderEntries.size() == 0) {
-                    listView.setVisibility(View.GONE);
-//                    tip.setVisibility(View.VISIBLE);
-                }
-            }
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (adapter != null) {
-            adapter.notifyDataSetChanged();
-        }
     }
 
     @Override
     public void onBackPressed() {
         this.finish();
+        Log.e("mtt","back");
         Intent intent = new Intent(this, AppLock.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
         super.onBackPressed();
     }
 
@@ -233,7 +218,7 @@ public class IntruderActivity extends AbsActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(R.string.intruder);
+            actionBar.setTitle(R.string.security_new_intruder);
             actionBar.setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
@@ -260,6 +245,8 @@ public class IntruderActivity extends AbsActivity {
         }
         return true;
     }
+
+
 
 
 }

@@ -114,14 +114,14 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.Fake2Activity"
+            android:name="com.security.manager.FakeTwoActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
 
             android:icon="@drawable/security_myfake_2"
-            android:label="@string/fake_icon_2"
+            android:label="@string/security_fake_icon_2"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/PasswordTheme"
@@ -134,14 +134,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.security.manager.Fake3Activity"
+            android:name="com.security.manager.FakeThreeActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
 
             android:icon="@drawable/security_myfake_3"
-            android:label="@string/fake_icon_3"
+            android:label="@string/security_fake_icon_3"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/PasswordTheme"
@@ -155,14 +155,14 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.Fake1Activity"
+            android:name="com.security.manager.FakeOneActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
 
             android:icon="@drawable/security_myfake_1"
-            android:label="@string/fake_icon_1"
+            android:label="@string/security_fake_icon_1"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/PasswordTheme"
@@ -176,14 +176,14 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.Fake4Activity"
+            android:name="com.security.manager.FakeFourActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
 
             android:icon="@drawable/security_myfake_4"
-            android:label="@string/fake_calender"
+            android:label="@string/security_fake_calender"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/PasswordTheme"
@@ -197,14 +197,14 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.Fake5Activity"
+            android:name="com.security.manager.FakeFiveActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
 
             android:icon="@drawable/security_myfake_5"
-            android:label="@string/fake_notepad"
+            android:label="@string/security_fake_notepad"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/PasswordTheme"
@@ -353,7 +353,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget"/>
+                android:resource="@xml/security_widget"/>
         </receiver>
         <receiver
             android:name="com.security.manager.BootReceiver"

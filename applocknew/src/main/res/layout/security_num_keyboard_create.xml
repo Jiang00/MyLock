@@ -175,6 +175,6 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/security_button_bg"
-        android:text="@string/next"
+        android:text="@string/security_btn_next"
         android:textColor="#fff"/>
 </LinearLayout>

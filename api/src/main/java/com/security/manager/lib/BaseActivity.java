@@ -19,7 +19,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hasRequestCodeResult = false;
-
         if (savedInstanceState != null){
             onRestoreInstanceStateOnCreate(savedInstanceState);
         } else {

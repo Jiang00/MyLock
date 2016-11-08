@@ -99,8 +99,8 @@ public class DesktopWidgetView {
                                     worker.showNotification(true);
                                 }
                                 notifyDataSetChanged();
-                                d.title = context.getString(R.string.protecting);
-                                Toast.makeText(context, R.string.protecting, Toast.LENGTH_SHORT).show();
+                                d.title = context.getString(R.string.security_protecting);
+                                Toast.makeText(context, R.string.security_protecting, Toast.LENGTH_SHORT).show();
                             }
                         } catch (RemoteException e) {
                             e.printStackTrace();
@@ -164,7 +164,7 @@ public class DesktopWidgetView {
         List<WidgetSwitch.Data> data = new ArrayList<>();
 
         WidgetSwitch.Data toggleProtect = new WidgetSwitch.Data(
-                context.getResources().getString(!Pref.isProtectStopped() ? R.string.protecting : R.string.pause_protect),
+                context.getResources().getString(!Pref.isProtectStopped() ? R.string.security_protecting : R.string.security_pause_protect),
                 R.drawable.protect_switch, !Pref.isProtectStopped(), true);
 
         data.add(toggleProtect);

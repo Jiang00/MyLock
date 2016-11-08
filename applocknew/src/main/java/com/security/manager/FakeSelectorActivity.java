@@ -43,23 +43,23 @@ public class FakeSelectorActivity extends AbsActivity {
     Toolbar toolbar;
 
     static final int[] sections = {
-            R.string.fake,
-            R.string.fake_selector
+            R.string.security_myfake,
+            R.string.security_fake_selector
     };
 
     static final int[] fakes = {
-            R.string.fake_none, R.drawable.security_myfake_2,
-            R.string.fake_fc, R.drawable.security_myfake_2,
-            R.string.fake_finger, R.drawable.security_myfake_2
+            R.string.security_fake_none, R.drawable.security_myfake_2,
+            R.string.security_fake_fc, R.drawable.security_myfake_2,
+            R.string.security_fake_finger, R.drawable.security_myfake_2
     };
 
     static final int[] icons = {
-            R.string.fake_icon_default, R.drawable.security_myfake_default,
-            R.string.fake_icon_1, R.drawable.security_myfake_1,
-            R.string.fake_icon_2, R.drawable.security_myfake_2,
-            R.string.fake_icon_3, R.drawable.security_myfake_3,
-            R.string.fake_calender, R.drawable.security_myfake_4,
-            R.string.fake_notepad, R.drawable.security_myfake_5
+            R.string.security_fake_icon_default, R.drawable.security_myfake_default,
+            R.string.security_fake_icon_1, R.drawable.security_myfake_1,
+            R.string.security_fake_icon_2, R.drawable.security_myfake_2,
+            R.string.security_fake_icon_3, R.drawable.security_myfake_3,
+            R.string.security_fake_calender, R.drawable.security_myfake_4,
+            R.string.security_fake_notepad, R.drawable.security_myfake_5
 
 
     };
@@ -77,8 +77,8 @@ public class FakeSelectorActivity extends AbsActivity {
         setContentView(R.layout.security_myfake_selector);
         ButterKnife.inject(this);
         setupToolbar();
-        setup(R.string.fake);
-        normalTitle.setText("   "+getResources().getString(R.string.fake));
+        setup(R.string.security_myfake);
+        normalTitle.setText("   "+getResources().getString(R.string.security_myfake));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
         findViewById(R.id.search_button).setVisibility(View.GONE);
@@ -150,15 +150,15 @@ public class FakeSelectorActivity extends AbsActivity {
                 Pref.setFakeCover(FakePresenter.FAKE_NONE);
                 currentFakeCover = which;
                 Utils.notifyDataSetChanged(fakeCoverList);
-                Toast.makeText(App.getContext(), R.string.fake_none, Toast.LENGTH_SHORT).show();
+                Toast.makeText(App.getContext(), R.string.security_fake_none, Toast.LENGTH_SHORT).show();
                 break;
 
             case FakePresenter.FAKE_FC:
-                AlertDialog dialog = FakePresenter.showFC(App.getContext(), R.string.fake, Html.fromHtml(getString(R.string.fake_setting_msg)),
+                AlertDialog dialog = FakePresenter.showFC(App.getContext(), R.string.security_myfake, Html.fromHtml(getString(R.string.security_fake_setting_msg)),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getApplicationContext(), R.string.set_fake_fails, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), R.string.security_fake_fails, Toast.LENGTH_SHORT).show();
                             }
                         }, new MessageBox.OnLongClickListener<AlertDialog>() {
                             @Override
@@ -167,7 +167,7 @@ public class FakeSelectorActivity extends AbsActivity {
                                 dialog.cancel();
                                 currentFakeCover = FakePresenter.FAKE_FC;
                                 MessageBox.Data data = new MessageBox.Data();
-                                data.msg = R.string.set_fake_success;
+                                data.msg = R.string.security_security_set_fake_success;
                                 MessageBox.show(FakeSelectorActivity.this, data);
                                 return true;
                             }
@@ -188,7 +188,7 @@ public class FakeSelectorActivity extends AbsActivity {
                         currentFakeCover = FakePresenter.FAKE_SCAN;
                         FakePresenter.hide();
                         MessageBox.Data data = new MessageBox.Data();
-                        data.msg = R.string.set_fake_success;
+                        data.msg = R.string.security_security_set_fake_success;
                         MessageBox.show(FakeSelectorActivity.this, data);
                         Utils.notifyDataSetChanged(fakeCoverList);
                     }
@@ -208,7 +208,7 @@ public class FakeSelectorActivity extends AbsActivity {
         Intent intent = new Intent(this, AppLock.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
 
         super.onBackPressed();
     }
@@ -217,7 +217,7 @@ public class FakeSelectorActivity extends AbsActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(R.string.intruder);
+            actionBar.setTitle(R.string.security_myfake);
             actionBar.setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override

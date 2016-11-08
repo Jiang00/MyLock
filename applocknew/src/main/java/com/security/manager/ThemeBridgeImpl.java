@@ -81,8 +81,8 @@ public class ThemeBridgeImpl implements IThemeBridge {
                         && !sp.contains("PREF_BRIEF_AFTER_SCREEN_OFF")) {
                     MessageBox.Data data = new MessageBox.Data();
                     data.alert = true;
-                    data.title = R.string.brief_exit;
-                    data.msg = R.string.brief_exit_screen_off;
+                    data.title = R.string.security_short_exit;
+                    data.msg = R.string.security_short_exit_off;
                     MessageBox.show_(context, data);
                     sp.edit().putBoolean("PREF_BRIEF_AFTER_SCREEN_OFF", true).apply();
                 }
@@ -202,7 +202,7 @@ public class ThemeBridgeImpl implements IThemeBridge {
             OverflowMenu theme = new OverflowMenu() {
                 @Override
                 public OverflowMenu init() {
-                    title = R.string.theme;
+                    title = R.string.security_my_theme;
                     return this;
                 }
 
@@ -251,7 +251,7 @@ public class ThemeBridgeImpl implements IThemeBridge {
             OverflowMenu brief = new OverflowMenu() {
                 @Override
                 public OverflowMenu init() {
-                    title = R.string.overf_brief;
+                    title = R.string.security_over_short;
                     return this;
                 }
 
@@ -260,7 +260,7 @@ public class ThemeBridgeImpl implements IThemeBridge {
                     try {
                         int idx = App.getSharedPreferences().getInt(Pref.PREF_BRIEF_SLOT, Pref.PREF_DEFAULT);
                         final String[] stringArray = context.getResources().getStringArray(R.array.brief_slot);
-                        AlertDialog d = new AlertDialog.Builder(context, R.style.Theme_AppCompat_Light_Dialog_Alert).setTitle(context.getResources().getString(R.string.overf_brief)).setSingleChoiceItems(stringArray, idx, new DialogInterface.OnClickListener() {
+                        AlertDialog d = new AlertDialog.Builder(context, R.style.Theme_AppCompat_Light_Dialog_Alert).setTitle(context.getResources().getString(R.string.security_over_short)).setSingleChoiceItems(stringArray, idx, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 App.getSharedPreferences().edit().putInt(Pref.PREF_BRIEF_SLOT, i).commit();
@@ -283,7 +283,7 @@ public class ThemeBridgeImpl implements IThemeBridge {
             final OverflowMenu unlockMeMenu = new OverflowMenu() {
                 @Override
                 public OverflowMenu init() {
-                    title = R.string.overf_unlock_me;
+                    title = R.string.security_unlock_me;
                     checkable = true;
                     return this;
                 }
@@ -294,8 +294,8 @@ public class ThemeBridgeImpl implements IThemeBridge {
                     unlockMe = checked;
                     if (checked) {
                         MessageBox.Data data = new MessageBox.Data();
-                        data.title = R.string.overf_unlock_me;
-                        data.msg = R.string.unlock_me;
+                        data.title = R.string.security_unlock_me;
+                        data.msg = R.string.security_enter_password;
                         data.alert = hasPermission;
                         AlertDialog d = MessageBox.show_(context, data);
                         addedToWindow[MENU_IDX_UNLOCKME] = d;

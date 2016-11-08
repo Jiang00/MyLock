@@ -18,7 +18,7 @@
             android:layout_weight="1"
             android:layout_height="48dp"
             android:padding="12dp"
-            android:text="@string/float_action_switch_widget"
+            android:text="@string/security_float_action_switch_widget"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textColor="@color/body_text_1_inverse"

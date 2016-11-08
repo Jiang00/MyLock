@@ -16,6 +16,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.privacy.lock.R;
+import com.security.manager.db.Preference;
 import com.security.manager.meta.Pref;
 import com.security.manager.IntruderApi;
 
@@ -115,7 +116,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                                 public void run() {
                                     try {
                                         if (soundPool != null) {
-                                            soundPool.play(shutterSoundId, 1, 1, 1, 0, 1);
+                                            if (Preference.isShutterSoundEnabled()) {
+                                                soundPool.play(shutterSoundId, 1, 1, 1, 0, 1);
+                                            }
                                         }
                                         Camera.Parameters parameters = cam.getParameters();
                                         int width = parameters.getPreviewSize().width;

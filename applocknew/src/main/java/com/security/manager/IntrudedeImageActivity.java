@@ -6,6 +6,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -47,6 +50,9 @@ public class IntrudedeImageActivity extends BaseActivity {
     ImageButton edit_mode;
     @InjectView(R.id.security_set_bt)
     ImageButton delete;
+
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
 
 
 //    LoadImagePresenter presenter;
@@ -91,6 +97,7 @@ public class IntrudedeImageActivity extends BaseActivity {
 
         setContentView(R.layout.security_invade_view);
         ButterKnife.inject(this);
+        setupToolbar();
 //       设置 actionbar
 //        setSupportActionBar(lockscreen_toolbar);
 //        ActionBar bar = getSupportActionBar();
@@ -102,7 +109,7 @@ public class IntrudedeImageActivity extends BaseActivity {
 //        presenter = LoadImagePresenter.getPresenter();
         //设置自定义标题
         title.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
-        title.setText("      "+getString(R.string.intruder));
+        title.setText("      "+getString(R.string.security_new_intruder));
         edit_mode.setVisibility(View.GONE);
         delete.setImageResource(R.drawable.security_incade_de);
         title.setOnClickListener(new View.OnClickListener(){
@@ -161,11 +168,11 @@ public class IntrudedeImageActivity extends BaseActivity {
 //        ImageTManager.setImageView(blockImage,url,true);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.security_invade_view, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.security_intruder_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -173,19 +180,53 @@ public class IntrudedeImageActivity extends BaseActivity {
             onBackPressed();
             return true;
         }
-//        else if (item.getItemId() == R.id.lockscreendelete) {
-//            deleteIntruder();
-//            return true;
-//        }
+        else if (item.getItemId() == R.id.inder_two_set) {
+            Intent in=new Intent();
+            in.putExtra("position",position);
+            deleteIntruder();
+            setResult(1,in);
+            finish();
+            return true;
+        }
         else {
             return super.onOptionsItemSelected(item);
         }
     }
 
-
+    private void setupToolbar() {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.security_new_intruder);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private void deleteIntruder() {
+        IntruderApi.deleteIntruder(url);
+        finish();
+    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.security_setting_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

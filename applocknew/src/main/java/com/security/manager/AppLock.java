@@ -1,13 +1,10 @@
 package com.security.manager;
 
 import android.annotation.TargetApi;
-import android.app.AppOpsManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -15,11 +12,12 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
 import com.privacy.lock.R;
 import com.security.manager.meta.Pref;
 import com.security.manager.page.AppsFragment;
@@ -32,12 +30,13 @@ import com.security.manager.meta.MProfiles;
 import com.security.manager.page.MessageBox;
 
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
+import static com.security.manager.page.ThemeFragment.TAG_TLEF_AD;
 
 /**
  * Created by SongHualin on 6/12/2015.
@@ -55,6 +54,11 @@ public class AppLock extends ClientActivity {
         if (fragment != null) {
             fragment.onResult(list);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -89,20 +93,20 @@ public class AppLock extends ClientActivity {
             if (Utils.requireCheckAccessPermission(this)) {
                 final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-//                    new android.app.AlertDialog.Builder(this).setTitle(R.string.permission_title)
-//                            .setMessage(R.string.permission_msg)
-//                            .setPositiveButton(R.string.permission_grant, new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    startActivity(intent);
-//                                }
-//                            }).setNegativeButton(android.R.string.cancel, null).create().show();
+                    if (Utils.isEMUI()) {
+                        new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
+                                .setMessage(R.string.security_permission_msg)
+                                .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        startActivity(intent);
+                                    }
+                                }).setNegativeButton(android.R.string.cancel, null).create().show();
 
-//                    if (getAppOps(this)) {
-                    ShowDialogview.showPermission(this);
-                    // }
+                    } else {
+                        ShowDialogview.showPermission(this);
 
-
+                    }
                 }
             }
         }
@@ -126,17 +130,6 @@ public class AppLock extends ClientActivity {
 
     @Override
     protected boolean hasHelp() {
-//        if (hide) {
-//            Help.attach(shareBar, helpScrollView,
-//                    R.drawable.locked, 0, R.string.help_show,
-//                    R.drawable.unlock, 1, R.string.help_hide,
-//                    R.drawable.ic_menu_search, 1, R.string.help_search_app);
-//        } else {
-//            Help.attach(shareBar, helpScrollView,
-//                    R.drawable.locked, 0, R.string.help_unlock,
-//                    R.drawable.unlock, 1, R.string.help_lock,
-//                    R.drawable.ic_menu_search, 1, R.string.help_search_app);
-//        }
         return false;
     }
 
@@ -158,23 +151,11 @@ public class AppLock extends ClientActivity {
         setupToolbar();
 
         if (hide) {
-            MyMenu.currentMenuIt = MyMenu.MENU_HIDE_APP;
-            new Thread() {
-                @Override
-                public void run() {
-                    if (!Tools.isMyPhoneRooted()) {
-                        MessageBox.Data data = new MessageBox.Data();
-                        data.alert = false;
-                        data.title = MessageBox.NO_TITLE;
-                        data.msg = R.string.phone_not_root;
-                        MessageBox.show(AppLock.this, data);
-                    }
-                }
-            }.start();
+
         } else {
             MyMenu.currentMenuIt = MyMenu.MENU_LOCK_APP;
         }
-        setup(hide ? R.string.hide_app : R.string.lock_tab);
+        setup(R.string.security_lock_app);
 
         profileName = SafeDB.defaultDB().getString(Pref.PREF_ACTIVE_PROFILE, Pref.PREF_DEFAULT_LOCK);
         long profileId = SafeDB.defaultDB().getLong(Pref.PREF_ACTIVE_PROFILE_ID, 1);
@@ -200,9 +181,9 @@ public class AppLock extends ClientActivity {
             MessageBox.Data data = new MessageBox.Data();
             data.button = MessageBox.BUTTON_YES_NO;
             data.style = R.style.MessageBox;
-            data.title = R.string.update_title;
-            data.yes = R.string.update;
-            data.no = R.string.later;
+            data.title = R.string.security_update_title;
+            data.yes = R.string.security_update;
+            data.no = R.string.security_later_;
             data.messages = Html.fromHtml(Pref.getNewVersionDesc());
             data.onyes = new DialogInterface.OnClickListener() {
                 @Override
@@ -235,6 +216,8 @@ public class AppLock extends ClientActivity {
 //        }
 
         requirePermission();
+
+
 //        ininShowAD();
 
     }
@@ -321,35 +304,34 @@ public class AppLock extends ClientActivity {
 //            }
 //        }
 //    }
+//
+//
+    void ininShowAD() {
+        if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
 
 
-//    void ininShowAD() {
-//        if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-//
-//
-//            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_native_layout, new ClientNativeAd.NativeAdClickListener() {
-//                @Override
-//                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
-//
-//                }
-//            }, new ClientNativeAd.NativeAdScrollListener() {
-//                @Override
-//                public void onNativeAdScrolled(float v) {
-//
-//                }
-//            });
-//            if (scrollView != null) {
-//                App.getWatcher().watch(scrollView);
-//                ADView.addView(scrollView);
-//            }
-//        }
-//
-//    }
+            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_slide_native_layout, new ClientNativeAd.NativeAdClickListener() {
+                @Override
+                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
+
+                }
+            }, new ClientNativeAd.NativeAdScrollListener() {
+                @Override
+                public void onNativeAdScrolled(float v) {
+
+                }
+            });
+            if (scrollView != null) {
+                App.getWatcher().watch(scrollView);
+                ADView.addView(scrollView);
+            }
+        }
+
+    }
 
     private void setupToolbar() {
         toolbar.setNavigationIcon(R.drawable.security_slide_menu);
         setSupportActionBar(toolbar);
-
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.app_name);

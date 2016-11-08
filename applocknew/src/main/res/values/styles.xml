@@ -8,8 +8,8 @@
     </style>
 
     <style name="MyAnimation.Window" parent="@android:style/Animation.Dialog">
-        <item name="android:windowExitAnimation">@anim/scale_out</item>
-        <item name="android:windowEnterAnimation">@anim/scalein</item>
+        <item name="android:windowExitAnimation">@anim/security_scale_out</item>
+        <item name="android:windowEnterAnimation">@anim/security_scale_in</item>
     </style>
 
     <style name="MessageBox" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -30,7 +30,7 @@
     </style>
 
     <style name="menu_labels_style">
-        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:background">@drawable/security_label_background</item>
         <item name="android:textColor">@color/transp</item>
         <item name="android:textSize">16sp</item>
     </style>
@@ -40,6 +40,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/theme_primary</item>
         <item name="colorPrimaryDark">@color/theme_primary</item>
+        <item name="colorAccent">@color/theme_primary</item>
+
     </style>
 
 
@@ -82,7 +84,7 @@
 
 
     <style name="dialog_animation" parent="@android:style/Animation">
-        <item name="android:windowEnterAnimation">@anim/dialog_show_animation</item>
+        <item name="android:windowEnterAnimation">@anim/security_dialog_show_animation</item>
 
         <item name="android:windowFrame">@null</item>
 

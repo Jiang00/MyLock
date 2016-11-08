@@ -237,13 +237,17 @@ public class MApps {
                 SearchThread.SearchData data = new SearchThread.SearchData();
                 data.label = label;
                 data.pkg = pkg;
-                if ((app.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                    data.system = true;
-                    systems_.add(data);
-                } else {
-                    data.system = false;
-                    thirdParties_.add(data);
+                if(!pkg.equals("com.android.settings")){
+                    if ((app.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                        data.system = true;
+                        systems_.add(data);
+                    } else {
+                        data.system = false;
+                        thirdParties_.add(data);
+                    }
                 }
+
+
             }
 
             Collections.sort(hiddens_, comparator);

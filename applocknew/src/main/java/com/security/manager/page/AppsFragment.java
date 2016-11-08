@@ -20,6 +20,9 @@ import butterknife.OnItemClick;
 //
 //import com.android.client.AndroidSdk;
 //import com.android.client.ClientNativeAd;
+import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
+import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.App;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
@@ -36,6 +39,8 @@ import com.security.manager.meta.MApps;
 import com.security.manager.meta.MProfiles;
 
 import java.util.*;
+
+import static com.security.manager.page.ThemeFragment.TAG_TOP_AD;
 
 /**
  * Created by SongHualin on 6/24/2015.
@@ -328,28 +333,27 @@ public class AppsFragment extends BaseFragment implements SearchThread.OnSearchR
         if (locks.containsKey(pkgName)) {
             if (hide) {
                 if (!Tools.showApp(pkgName)) {
-                    toast = Toast.makeText(getActivity().getApplicationContext(), getResources().getString(R.string.show_app_fail), Toast.LENGTH_SHORT);
                 } else {
-                    toast = Toast.makeText(context, getString(R.string.show_app_success, data.label), Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(context, getString(R.string.security_show_successful, data.label), Toast.LENGTH_SHORT);
                     locks.remove(pkgName);
                     MApps.show(data);
                 }
                 toast.show();
             } else {
                 locks.remove(pkgName);
-                toast = Toast.makeText(getActivity().getApplicationContext(), getResources().getString(R.string.unlock_success, data.label), Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getActivity().getApplicationContext(), getResources().getString(R.string.security_unlock_success, data.label), Toast.LENGTH_SHORT);
             }
         } else {
             if (hide) {
                 if (!Tools.hideApp(pkgName)) {
-                    toast = Toast.makeText(context, getString(R.string.hide_app_fail, data.label), Toast.LENGTH_SHORT);
+//                    toast = Toast.makeText(context, null, data.label), Toast.LENGTH_SHORT);
                 } else {
-                    toast = Toast.makeText(context, getString(R.string.hide_app_success, data.label), Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(context, getString(R.string.security_hide_successful, data.label), Toast.LENGTH_SHORT);
                     locks.put(pkgName, true);
                     MApps.hide(data);
                 }
             } else {
-                toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.lock_success, data.label), Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.security_lock_success, data.label), Toast.LENGTH_SHORT);
                 locks.put(pkgName, true);
             }
         }
@@ -400,23 +404,40 @@ public class AppsFragment extends BaseFragment implements SearchThread.OnSearchR
 
                 Utils.rate(getActivity());
 
-//                View alertDialogView = View.inflate(v.getContext(), R.layout.security_rate_result, null);
-//
-//                final MyWidgetContainer w = new MyWidgetContainer(getActivity(), MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
-//                w.addView(alertDialogView);
-//                w.addToWindow();
-//
-//                w.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        w.removeAllViews();
-//                        w.removeFromWindow();
-//
-//                    }
-//                });
+                if(!Utils.isEMUI()){
+
+                    View alertDialogView = View.inflate(v.getContext(), R.layout.suo_rate_result, null);
+
+                    final MyWidgetContainer w = new MyWidgetContainer(getActivity(), MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+                    w.addView(alertDialogView);
+                    w.addToWindow();
+
+                    w.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            w.removeAllViews();
+                            w.removeFromWindow();
+
+                        }
+                    });
+                }
+
 
                 listView.removeHeaderView(headerView);
 
+            }
+        });
+
+
+        headerView.findViewById(R.id.security_rat_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listView.removeHeaderView(headerView);
+                shareFive.setFiveRate(true);
+                getActivity().finish();
+                Log.e("mtt", "headview");
+                Intent intent = new Intent(getActivity(), AppLock.class);
+                startActivity(intent);
             }
         });
 
@@ -438,7 +459,7 @@ public class AppsFragment extends BaseFragment implements SearchThread.OnSearchR
 
         }
     }
-
+//
 //    void ininShowAD() {
 //        if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
 //

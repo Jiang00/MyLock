@@ -134,7 +134,6 @@
                 android:layout_height="match_parent"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:hint="@string/search_hint"
                 android:textColorHint="@android:color/white"
                 android:singleLine="true"
                 android:textColor="@android:color/white"

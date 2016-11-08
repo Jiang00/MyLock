@@ -25,9 +25,9 @@
     <color name="body_text_1_inverse">#deffffff</color>
     <color name="body_text_2_inverse">#8affffff</color>
 
-    <color name="theme_primary">#5a5f70</color>
-    <color name="theme_primary_dark">#5a5f70</color>
-    <color name="theme_primary_light">#5a5f70</color>
+    <color name="theme_primary">#363d4f</color>
+    <color name="theme_primary_dark">#363d4f</color>
+    <color name="theme_primary_light">#363d4f</color>
 
     <color name="theme_accent_1">#00b0ff</color>
     <color name="theme_accent_1_light">#8ad4fa</color>
@@ -155,6 +155,8 @@
     <color name="security_app_password_wang_soild">#ff6100</color>
     <color name="security_app_password_wang_stroke">#ffff0000</color>
     <color name="password_wrong_dot">#9698a2</color>
+    <color name="security_white_87">#deffffff</color>
+
 
 
 

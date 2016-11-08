@@ -19,7 +19,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/show_noti"
+            android:text="@string/security_show_noti"
             android:id="@+id/security_title_bar_te"
             android:textSize="16sp"
 

@@ -31,7 +31,7 @@ public class PasswdDot extends LinearLayout {
 
         setCount(10, drawable);
         realPasswd = Pref.getPasswd().toCharArray();
-        a = AnimationUtils.loadAnimation(getContext(), R.anim.shake_dot);
+        a = AnimationUtils.loadAnimation(getContext(), R.anim.security_shake_dot);
         a.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

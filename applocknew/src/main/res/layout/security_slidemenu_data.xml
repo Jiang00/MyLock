@@ -54,7 +54,6 @@
             android:layout_weight="1"
             android:background="@color/list_bg"
             android:gravity="center"
-            android:text="@string/no_encrypted_file"
             android:visibility="gone" />
     </com.security.manager.page.MyRelativeLayout>
 

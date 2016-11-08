@@ -10,11 +10,11 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/use_normal" />
+        android:text="@string/security_use_normal" />
 
     <RadioButton
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/use_graphic" />
+        android:text="@string/security_use_pattern" />
 </RadioGroup>

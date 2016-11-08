@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="@string/apps_open_permission"
+                android:text="@string/security_apps_open_permission"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
 

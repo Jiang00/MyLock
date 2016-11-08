@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
 
-            <ImageView
+            <View
                 android:background="@drawable/security_intrude_infomation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -39,7 +39,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/no_intruder"
+        android:text="@string/security_no_intruder"
         android:textColor="@color/body_text_2"
         android:textSize="18sp"
         android:typeface="sans" />
@@ -52,7 +52,7 @@
         android:layout_gravity="bottom"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:text="@string/turnon_intruder"
+        android:text="@string/security_turnon_intruder"
         android:textColor="@color/body_text_2" />
 
     <include

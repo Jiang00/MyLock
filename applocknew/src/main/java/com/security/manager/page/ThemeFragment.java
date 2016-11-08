@@ -1,6 +1,7 @@
 package com.security.manager.page;
 
 import android.content.res.Configuration;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,6 +14,9 @@ import android.widget.*;
 
 //import com.android.client.AndroidSdk;
 //import com.android.client.ClientNativeAd;
+import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
+import com.security.manager.App;
 import com.security.manager.meta.ThemeBridge;
 import com.security.manager.lib.Utils;
 import com.privacy.lock.R;
@@ -44,7 +48,7 @@ public class ThemeFragment extends Fragment {
     public static void afterViewCreated(View view, OverflowCtrl ctrl) {
         setupTitle(view);
 //        if (!Pref.isAdsBlocked()) {
-        createAdView((ViewGroup) view);
+//        createAdView((ViewGroup) view);
 //        }
 //        setupOverflow(view, ctrl);
 //        setupDaily(view);
@@ -116,8 +120,8 @@ public class ThemeFragment extends Fragment {
         super.onDestroyView();
     }
 
-    protected static void createAdView(ViewGroup view) {
-
+//    protected static void createAdView(ViewGroup view) {
+//
 //        if (AndroidSdk.hasNativeAd(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
 //            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
 //            Point size = Utils.getScreenSize(view.getContext());
@@ -151,9 +155,9 @@ public class ThemeFragment extends Fragment {
 //                view.addView(scrollView, layoutParams);
 //            }
 //        }
-
-
-    }
+//
+//
+//    }
 
 
 }

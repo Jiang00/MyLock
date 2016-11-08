@@ -7,7 +7,12 @@
     android:orientation="vertical"
     >
 
-    <include layout="@layout/security_delete_bars"/>
+    <include
+        layout="@layout/security_component_toolbar"/>
+
+    <include
+        android:visibility="gone"
+        layout="@layout/security_delete_bars"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

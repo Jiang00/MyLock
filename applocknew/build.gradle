@@ -83,5 +83,5 @@ dependencies {
     compile project(':api')
     compile project(':model')
     compile 'com.privacy.lib:common:1.1.0'
-//    compile 'com.core:empty:1.0.3'
+    compile 'com.core:empty:1.0.3'
 }

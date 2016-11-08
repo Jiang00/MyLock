@@ -605,14 +605,14 @@ public class Worker extends Service {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getApplicationContext(), R.string.app_lock_stopped, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.security_applock_stop, Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getApplicationContext(), R.string.app_lock_opened, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.security_applock_open, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -763,28 +763,28 @@ public class Worker extends Service {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
             PendingIntent pi;
             if (sleep) {
-                builder.setContentTitle(getResources().getString(R.string.app_lock_stopped));
-                builder.setContentText(getResources().getString(R.string.app_lock_to_open));
-                builder.setTicker(getResources().getString(R.string.app_lock_stopped));
+                builder.setContentTitle(getResources().getString(R.string.security_applock_stop));
+                builder.setContentText(getResources().getString(R.string.security_lock_to_open));
+                builder.setTicker(getResources().getString(R.string.security_applock_stop));
                 builder.setSmallIcon(R.drawable.ic_launcher);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getApplicationContext(), R.string.app_lock_stopped, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.security_applock_stop, Toast.LENGTH_SHORT).show();
                     }
                 });
                 pi = PendingIntent.getService(getApplicationContext(), 0,
                         new Intent(getApplicationContext(), Worker.class).putExtra(WORK_EXTRA_KEY, WORK_TURN_ON_PROTECT),
                         PendingIntent.FLAG_UPDATE_CURRENT);
             } else {
-                builder.setContentTitle(getResources().getString(R.string.app_lock_opened));
-                builder.setContentText(getResources().getString(R.string.app_lock_to_stop));
-                builder.setTicker(getResources().getString(R.string.app_lock_opened));
+                builder.setContentTitle(getResources().getString(R.string.security_applock_open));
+                builder.setContentText(getResources().getString(R.string.security_lock_to_stop));
+                builder.setTicker(getResources().getString(R.string.security_applock_open));
                 builder.setSmallIcon(R.drawable.ic_launcher);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getApplicationContext(), R.string.app_lock_opened, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.security_applock_open, Toast.LENGTH_SHORT).show();
                     }
                 });
                 pi = PendingIntent.getActivity(getApplicationContext(), 0,
@@ -861,7 +861,7 @@ public class Worker extends Service {
     Runnable briefToast = new Runnable() {
         @Override
         public void run() {
-            Toast.makeText(getApplicationContext(), R.string.brief_exit_detail, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.security_short_exit_detail, Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -951,7 +951,7 @@ public class Worker extends Service {
         }
 
         if (fadeout == null) {
-            fadeout = AnimationUtils.loadAnimation(this, R.anim.fadeout);
+            fadeout = AnimationUtils.loadAnimation(this, R.anim.security_fade_out);
             fadeout.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
@@ -1005,8 +1005,8 @@ public class Worker extends Service {
         receiverFilter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(sOnBroadcastReciver, receiverFilter);
 
-        excludesClasses.put(Fake1Activity.class.getName(), true);
-        excludesClasses.put(Fake2Activity.class.getName(), true);
+        excludesClasses.put(FakeOneActivity.class.getName(), true);
+        excludesClasses.put(FakeTwoActivity.class.getName(), true);
         excludesClasses.put(PatternActivity.class.getName(), true);
         excludesClasses.put(ToggleActivity.class.getName(), true);
         excludesClasses.put(UnlockApp.class.getName(), true);
@@ -1051,8 +1051,8 @@ public class Worker extends Service {
         try {
             PackageInfo pi = getPackageManager().getPackageInfo(pkg, PackageManager.GET_ACTIVITIES);
             String label = pi.applicationInfo.loadLabel(getPackageManager()).toString();
-            CharSequence protect = "<br/>" + getString(R.string.ask_lock_protect);
-            String msg = getString(R.string.ask_lock, label) + protect;
+            CharSequence protect = "<br/>" + getString(R.string.security_ask_lock_protect);
+            String msg = getString(R.string.security_ask_lock, label) + protect;
             Drawable icon = pi.applicationInfo.loadIcon(getPackageManager());
 
             /*View view = LayoutInflater.from(this).inflate(R.layout.ask_lock, null, false);
@@ -1070,7 +1070,7 @@ public class Worker extends Service {
 
             AlertDialog dialog = new AlertDialog.Builder(this, R.style.MessageBox)
                     .setView(view)
-                    .setNegativeButton(R.string.later, new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.security_later_, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (dontaskagain) {
@@ -1078,7 +1078,7 @@ public class Worker extends Service {
                             }
                         }
                     })
-                    .setPositiveButton(R.string.protect, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.security_protect, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             lockApps.put(pkg, true);
@@ -1098,7 +1098,7 @@ public class Worker extends Service {
             if (lockApps.containsKey(pkg)) return;
             PackageInfo pi = getPackageManager().getPackageInfo(pkg, PackageManager.GET_ACTIVITIES);
             String label = pi.applicationInfo.loadLabel(getPackageManager()).toString();
-            String format = getResources().getString(R.string.ask_lock_new);
+            String format = getResources().getString(R.string.security_for_lock_new);
             label = String.format(format, label);
             AlertDialog dialog = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert).setTitle(R.string.app_name).setIcon(R.drawable.ic_launcher).setMessage(label)
                     .setNegativeButton(android.R.string.no, null)

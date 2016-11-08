@@ -3,6 +3,7 @@ package com.security.manager.page;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,9 +50,11 @@ public class PasswordFragment extends ThemeFragment {
         dot.init(new PasswdDot.ICheckListener() {
             @Override
             public void match(String passwd) {
-                bridge.check(passwd, true);
-                if (callback != null) {
-                    callback.onSuccess();
+                if (bridge.check(passwd, true)) {
+                    if (callback != null) {
+                        callback.onSuccess();
+                        Log.e("mtt","right");
+                    }
                 }
             }
         });

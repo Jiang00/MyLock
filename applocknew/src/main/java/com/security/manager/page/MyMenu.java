@@ -62,8 +62,8 @@ public class MyMenu {
 //    };
 
     public static int menus[] = {
-            R.string.lock_tab, R.string.fake,R.string.intruder,
-             R.string.setting_tab
+            R.string.security_lock_app, R.string.security_myfake,R.string.security_new_intruder,
+             R.string.security_tab_setting
     };
 
     public static byte[] seperator = {
@@ -119,13 +119,13 @@ public class MyMenu {
                     }
                     if (i == MENU_THEME) {
                         context.startActivity(intents[i]);
-                        ((Activity) context).overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                        ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     } else if (i == MENU_DAILY) {
 //                        Utils.openPlayStore(context, App.getSharedPreferences().getString(ServerData.KEY_DAILY_MENU_URL, context.getString(R.string.website)));
                     } else {
                         if (intents[i] != null) {
                             context.startActivity(intents[i]);
-                            ((Activity) context).overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                            ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                             currentMenuIt = i;
                             ((Activity) context).finish();
                         }

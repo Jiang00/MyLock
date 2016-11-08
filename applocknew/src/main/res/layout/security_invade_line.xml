@@ -2,7 +2,8 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:id="@+id/security_linera"
@@ -29,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/app_name"
-            android:textSize="12sp"
-            android:textColor="@color/security_ftl_black_38" />
+            android:textColor="@color/security_ftl_black_38"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <ImageView

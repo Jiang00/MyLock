@@ -40,12 +40,12 @@ public class ResetPattern extends AbsActivity {
 
     public static AlertDialog showDialog(Context context, DialogInterface.OnClickListener yes, DialogInterface.OnDismissListener dismiss, boolean alert) {
         MessageBox.Data data = new MessageBox.Data();
-        data.msg = R.string.login_with_email;
-        data.title = R.string.forgot_passwd;
+        data.msg = R.string.security_login_with_email;
+        data.title = R.string.security_forget_password;
         data.cancelable = true;
         data.onyes = yes;
         data.style = R.style.MessageBox;
-        data.yes = R.string.verify;
+        data.yes = R.string.security_verify;
         data.button = MessageBox.BUTTON_YES_NO;
         data.alert = alert;
         data.ondismiss = dismiss;
@@ -113,8 +113,8 @@ public class ResetPattern extends AbsActivity {
         boolean hasDone = false;
         if (!hasDone){
             MessageBox.Data data = new MessageBox.Data();
-            data.msg = R.string.no_google_account;
-            data.title = R.string.forgot_passwd;
+            data.msg = R.string.security_no_google_account;
+            data.title = R.string.security_forget_password;
             data.ondismiss = new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {

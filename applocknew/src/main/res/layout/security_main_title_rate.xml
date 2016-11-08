@@ -33,8 +33,8 @@
         android:text="@string/security_rate_t" />
     <LinearLayout
         android:id="@+id/security_rat_close"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginRight="6dp"
         android:gravity="center_horizontal|center_vertical">
         <ImageButton

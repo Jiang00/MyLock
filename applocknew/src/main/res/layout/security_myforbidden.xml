@@ -2,31 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
+    android:fitsSystemWindows="true"
     android:gravity="center"
-    android:background="@android:color/transparent"
     android:orientation="vertical">
     <com.security.lib.customview.MySurfaceView
+
         android:background="@android:color/transparent"
         android:layout_width="0.1px"
         android:layout_height="0.1px"
         android:id="@+id/surface"/>
 
+    <LinearLayout
+        android:id="@+id/error_lin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40.0dip"
+        android:orientation="horizontal">
+
     <TextView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/body_text_1_inverse"
-        android:textSize="64sp"
+        android:textColor="@color/fab_blue_light"
+        android:textSize="15sp"
         android:id="@+id/count_down"/>
     <TextView
         android:id="@+id/try_later"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/try_later"
-        android:textColor="@color/body_text_1_inverse"
-        android:textSize="32sp"/>
+        android:text="@string/security_try_later"
+        android:textColor="@color/fab_blue_light"
+        android:textSize="15sp"/>
+        </LinearLayout>
 
 
 </LinearLayout>

@@ -43,20 +43,20 @@ public class Settings extends ClientActivity {
     public static final byte REQ_CODE_PASS = 2;
     public static final byte REQ_CODE_PATTERN = 4;
     static final int[] items = new int[]{
-            R.string.overf_brief,
+            R.string.security_over_short,
             0,
 //            R.string.help_normal_pass,
 //            R.string.help_graph_pass,
 //            R.string.secure_email,
-            R.string.hide_path,
+            R.string.security_hide_path,
 //            R.string.random_keyboard,
 //            R.string.advanced_security,
 //            R.string.fake_selector,
 //            R.string.intruder,
 //            R.string.pause_protect,
 //            R.string.show_noti,
-            R.string.lock_new_app,
-            R.string.help_rate,
+            R.string.security_newapp_lock,
+            R.string.security_help_share,
 //            R.string.help_share,
 //            R.string.lost_found
     };
@@ -81,8 +81,8 @@ public class Settings extends ClientActivity {
         ButterKnife.inject(this);
         setupToolbar();
 
-        setup(R.string.setting);
-        normalTitle.setText("   "+getResources().getString(R.string.setting));
+        setup(R.string.security_tab_setting);
+        normalTitle.setText("   "+getResources().getString(R.string.security_tab_setting));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
         normalTitle.setOnClickListener(new View.OnClickListener() {
@@ -120,8 +120,8 @@ public class Settings extends ClientActivity {
 
                     TextView title = (TextView) view.findViewById(R.id.security_title_bar_te);
                     TextView desc = (TextView) view.findViewById(R.id.security_text_des);
-                    title.setText(R.string.reset_passwd_2_btn);
-                    desc.setText(Pref.isUseNormalPasswd() ? R.string.security_password_lock : R.string.use_graphic);
+                    title.setText(R.string.security_reset_passwd_2_btn);
+                    desc.setText(Pref.isUseNormalPasswd() ? R.string.security_password_lock : R.string.security_use_pattern);
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -173,7 +173,7 @@ public class Settings extends ClientActivity {
                     view = LayoutInflater.from(Settings.this).inflate(R.layout.security_notica_it, null, false);
 
                     ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.show_noti);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_show_noti);
                     final ImageView checkBox = (ImageView) view.findViewById(R.id.security_set_checked);
 
                     if (Pref.fetchIntruder()) {
@@ -187,11 +187,11 @@ public class Settings extends ClientActivity {
                         public void onClick(View v) {
                             if (Pref.fetchIntruder()) {
                                 checkBox.setImageResource(R.drawable.security_setting_not_check);
-                                Toast.makeText(getApplicationContext(), R.string.intruder_off, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), R.string.security_intruder_off_new, Toast.LENGTH_SHORT).show();
                                 Pref.setFetchIntruder(false);
                             } else {
                                 checkBox.setImageResource(R.drawable.security_setting_check);
-                                Toast.makeText(getApplicationContext(), R.string.intruder_on, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), R.string.security_intruder_on_new, Toast.LENGTH_SHORT).show();
 
                                 Pref.setFetchIntruder(true);
 
@@ -294,7 +294,7 @@ public class Settings extends ClientActivity {
             if (id == SETTING_SLOT) {
                 SharedPreferences sp = App.getSharedPreferences();
                 int idx = sp.getInt(Pref.PREF_BRIEF_SLOT, Pref.PREF_DEFAULT);
-                new AlertDialog.Builder(context).setTitle(R.string.brief_exit_slot).setSingleChoiceItems(R.array.brief_slot, idx, new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(context).setTitle(R.string.security_short_exit_slot).setSingleChoiceItems(R.array.brief_slot, idx, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         App.getSharedPreferences().edit().putInt(Pref.PREF_BRIEF_SLOT, i).apply();
@@ -359,7 +359,7 @@ public class Settings extends ClientActivity {
     public void onBackPressed() {
         Intent intent=new Intent(this,AppLock.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
         super.onBackPressed();
     }
 
@@ -368,7 +368,7 @@ public class Settings extends ClientActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(R.string.intruder);
+            actionBar.setTitle(R.string.security_new_intruder);
             actionBar.setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override

@@ -16,14 +16,14 @@ import android.view.animation.AnimationUtils;
 
 import com.security.lib.customview.WidgetContainer;
 import com.security.manager.App;
-import com.security.manager.Fake1Activity;
-import com.security.manager.Fake3Activity;
+import com.security.manager.FakeOneActivity;
+import com.security.manager.FakeThreeActivity;
 import com.security.manager.PatternActivity;
 import com.security.manager.meta.Pref;
 import com.security.manager.lib.Utils;
-import com.security.manager.Fake2Activity;
-import com.security.manager.Fake4Activity;
-import com.security.manager.Fake5Activity;
+import com.security.manager.FakeTwoActivity;
+import com.security.manager.FakeFourActivity;
+import com.security.manager.FakeFiveActivity;
 import com.privacy.lock.R;
 
 /**
@@ -87,7 +87,7 @@ public class FakePresenter {
                 if (Utils.xiaomi) {
                     container.removeFromWindow();
                 }
-                showFC(context, MessageBox.NO_TITLE, context.getString(R.string.fake_force_close, label),
+                showFC(context, MessageBox.NO_TITLE, context.getString(R.string.security_fake_force_close, label),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -115,8 +115,8 @@ public class FakePresenter {
             case FAKE_SCAN:
                 if (fingerprint == null) {
                     fingerprint = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.security_myfinger, null, false);
-                    alpha = AnimationUtils.loadAnimation(App.getContext(), R.anim.fade_yoyo);
-                    scanLine = AnimationUtils.loadAnimation(App.getContext(), R.anim.scan_line);
+                    alpha = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_fade_you);
+                    scanLine = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_scan_line);
                     fingerprint.findViewById(R.id.fingerprint).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -196,7 +196,7 @@ public class FakePresenter {
         data.alert = true;
         data.messages = msg;
         data.icon = MessageBox.NO_TITLE;
-        data.yes = R.string.close;
+        data.yes = R.string.security_my_close;
         data.button = MessageBox.BUTTON_YES;
         data.onyes = onyes;
         alertDialog = MessageBox.showLegacy(context, data);
@@ -235,58 +235,58 @@ public class FakePresenter {
         Class[] classes = new Class[FAKE_ICON_COUNT];
         switch (idx) {
             case FAKE_ICON_FAKE1:
-                classes[0] = Fake1Activity.class;
-                classes[1] = Fake2Activity.class;
-                classes[2] = Fake3Activity.class;
+                classes[0] = FakeOneActivity.class;
+                classes[1] = FakeTwoActivity.class;
+                classes[2] = FakeThreeActivity.class;
                 classes[3] = PatternActivity.class;
-                classes[4] = Fake4Activity.class;
-                classes[5] = Fake5Activity.class;
+                classes[4] = FakeFourActivity.class;
+                classes[5] = FakeFiveActivity.class;
                 break;
 
             case FAKE_ICON_FAKE2:
-                classes[1] = Fake1Activity.class;
-                classes[0] = Fake2Activity.class;
-                classes[2] = Fake3Activity.class;
+                classes[1] = FakeOneActivity.class;
+                classes[0] = FakeTwoActivity.class;
+                classes[2] = FakeThreeActivity.class;
                 classes[3] = PatternActivity.class;
-                classes[4] = Fake4Activity.class;
-                classes[5] = Fake5Activity.class;
+                classes[4] = FakeFourActivity.class;
+                classes[5] = FakeFiveActivity.class;
                 break;
 
             case FAKE_ICON_NORMAL:
-                classes[3] = Fake1Activity.class;
-                classes[2] = Fake2Activity.class;
-                classes[1] = Fake3Activity.class;
-                classes[4] = Fake4Activity.class;
-                classes[5] = Fake5Activity.class;
+                classes[3] = FakeOneActivity.class;
+                classes[2] = FakeTwoActivity.class;
+                classes[1] = FakeThreeActivity.class;
+                classes[4] = FakeFourActivity.class;
+                classes[5] = FakeFiveActivity.class;
                 classes[0] = PatternActivity.class;
                 break;
 
             case FAKE_ICON_FAKE3:
-                classes[3] = Fake1Activity.class;
-                classes[2] = Fake2Activity.class;
-                classes[0] = Fake3Activity.class;
-                classes[4] = Fake4Activity.class;
-                classes[5] = Fake5Activity.class;
+                classes[3] = FakeOneActivity.class;
+                classes[2] = FakeTwoActivity.class;
+                classes[0] = FakeThreeActivity.class;
+                classes[4] = FakeFourActivity.class;
+                classes[5] = FakeFiveActivity.class;
                 classes[1] = PatternActivity.class;
 
 
                 break;
 
             case FAKE_ICON_FAKE4:
-                classes[0] = Fake4Activity.class;
-                classes[4] = Fake5Activity.class;
-                classes[5] = Fake1Activity.class;
-                classes[3] = Fake2Activity.class;
-                classes[2] = Fake3Activity.class;
+                classes[0] = FakeFourActivity.class;
+                classes[4] = FakeFiveActivity.class;
+                classes[5] = FakeOneActivity.class;
+                classes[3] = FakeTwoActivity.class;
+                classes[2] = FakeThreeActivity.class;
                 classes[1] = PatternActivity.class;
                 break;
 
             case FAKE_ICON_FAKE5:
-                classes[0] = Fake5Activity.class;
-                classes[4] = Fake4Activity.class;
-                classes[5] = Fake1Activity.class;
-                classes[3] = Fake2Activity.class;
-                classes[2] = Fake3Activity.class;
+                classes[0] = FakeFiveActivity.class;
+                classes[4] = FakeFourActivity.class;
+                classes[5] = FakeOneActivity.class;
+                classes[3] = FakeTwoActivity.class;
+                classes[2] = FakeThreeActivity.class;
                 classes[1] = PatternActivity.class;
                 break;
         }
@@ -309,21 +309,21 @@ public class FakePresenter {
     public static int fakeIconDesc() {
         int idx = fakeIconIdx();
         int[] descs = {
-                R.string.fake_icon_default,
-                R.string.fake_icon_1,
-                R.string.fake_icon_2,
-                R.string.fake_icon_3
+                R.string.security_fake_icon_default,
+                R.string.security_fake_icon_1,
+                R.string.security_fake_icon_2,
+                R.string.security_fake_icon_3
         };
         return descs[idx];
     }
 
     public static int fakeIconIdx() {
         Class[] classes = new Class[FAKE_ICON_COUNT];
-        classes[5] = Fake5Activity.class;
-        classes[4] = Fake4Activity.class;
-        classes[3] = Fake3Activity.class;
-        classes[2] = Fake2Activity.class;
-        classes[1] = Fake1Activity.class;
+        classes[5] = FakeFiveActivity.class;
+        classes[4] = FakeFourActivity.class;
+        classes[3] = FakeThreeActivity.class;
+        classes[2] = FakeTwoActivity.class;
+        classes[1] = FakeOneActivity.class;
         classes[0] = PatternActivity.class;
         int i = 0;
         for (Class clazz : classes) {

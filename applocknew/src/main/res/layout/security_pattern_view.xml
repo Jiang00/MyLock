@@ -75,7 +75,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_weight="1"
-                android:text="@string/use_normal_passwd"
+                android:text="@string/security_use_password"
                 android:textColor="@color/security_toggle_button"
                 android:textSize="20sp" />
 

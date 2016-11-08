@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 //import com.android.client.AndroidSdk;
+import com.android.client.AndroidSdk;
 import com.privacy.lock.R;
 import com.security.manager.meta.Pref;
 import com.security.manager.page.DragLayout;
@@ -56,6 +57,8 @@ public abstract class AbsActivity extends BaseActivity implements SearchThread.O
     protected void onIntent(Intent intent) {
 
     }
+
+
 
     @Override
     protected void onPostResume() {
@@ -127,6 +130,8 @@ public abstract class AbsActivity extends BaseActivity implements SearchThread.O
         context = null;
         super.onDestroy();
     }
+
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

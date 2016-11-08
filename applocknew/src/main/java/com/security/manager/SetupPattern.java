@@ -174,16 +174,16 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
         if (togglePattern){
             togglePattern = false;
             Button ok = (Button) findViewById(R.id.ok);
-            ok.setText(R.string.next);
+            ok.setText(R.string.security_btn_next);
             ok.setTextColor(getResources().getColor(R.color.numpad_font_color));
 //            ok.setBackgroundResource(R.drawable.button_bg);
         }
     }
 
     public void passwdIsEmpty() {
-        Toast t = Toast.makeText(context, R.string.passwd_empty, Toast.LENGTH_SHORT);
-        t.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        t.show();
+//        Toast t = Toast.makeText(context, R.string.passwd_empty, Toast.LENGTH_SHORT);
+//        t.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+//        t.show();
     }
 
     public void setPasswd() {
@@ -233,10 +233,11 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
     public void enterGraphNormal() {
         confirmMode = false;
         tip.setTextColor(getResources().getColor(R.color.body_text_1_inverse));
-        tip.setText(R.string.draw_graphical_passwd);
+        tip.setText(R.string.security_draw_pattern);
         tip.setVisibility(View.VISIBLE);
         cancel.setVisibility(View.VISIBLE);
-        cancel.setText(R.string.use_normal);
+        cancel.setText(R.string.security_use_normal);
+        cancel.setTextColor(getResources().getColor(R.color.numpad_font_color));
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -247,9 +248,9 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
 
     public void enterConfirmMode() {
         confirmMode = true;
-        tip.setText(R.string.draw_graphical_passwd_again);
+        tip.setText(R.string.security_draw_pattern_next);
         cancel.setVisibility(View.VISIBLE);
-        cancel.setText(R.string.reset_passwd_2_btn);
+        cancel.setText(R.string.security_reset_passwd_2_btn);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -293,19 +294,19 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
                     if (!LockPatternUtils.checkPattern(pattern, pattern1)) {
                         lockPatternView.setDisplayMode(LockPatternView.DisplayMode.Wrong);
                         tip.setTextColor(0xffcc0000);
-                        tip.setText(R.string.passwd_not_match);
+                        tip.setText(R.string.security_password_not_match);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 lockPatternView.clearPattern();
                                 tip.setTextColor(getResources().getColor(R.color.body_text_1_inverse));
-                                tip.setText(R.string.draw_graphical_passwd_again);
+                                tip.setText(R.string.security_draw_pattern_next);
                             }
                         }, 700);
                     } else {
                         try {
                             Pref.begin().setPasswd(LockPatternUtils.patternToString(pattern1), false).useNormalPasswd(false).commit();
-                            Toast.makeText(context, R.string.passwd_is_set, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, R.string.security_password_setsuccessful, Toast.LENGTH_SHORT).show();
                             setResult(1);
                             if (firstSetup) {
                                 setEmail();
@@ -315,20 +316,20 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.passwd_is_set_fail, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, R.string.security_set_password_successful, Toast.LENGTH_SHORT).show();
                         }
                     }
                 } else {
                     if (pattern.size() < 3) {
                         lockPatternView.setDisplayMode(LockPatternView.DisplayMode.Wrong);
                         tip.setTextColor(0xffcc0000);
-                        tip.setText(R.string.pattern_too_small);
+                        tip.setText(R.string.security_pattern_short);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 lockPatternView.clearPattern();
                                 tip.setTextColor(getResources().getColor(R.color.body_text_1_inverse));
-                                tip.setText(R.string.draw_graphical_passwd_again);
+                                tip.setText(R.string.security_draw_pattern_next);
                             }
                         }, 700);
                     } else {
@@ -371,7 +372,7 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
             public void match(String pass) {
                 Pref.begin().setPasswd(pass, true).useNormalPasswd(true).commit();
                 setResult(1);
-                Toast.makeText(context, R.string.passwd_is_set, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.security_password_setsuccessful, Toast.LENGTH_SHORT).show();
                 if (firstSetup) {
                     setEmail();
                     firstSetup = false;
@@ -381,7 +382,7 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
             }
         });
         final Button okBtn = (Button) findViewById(R.id.ok);
-        okBtn.setText(R.string.use_graphic);
+        okBtn.setText(R.string.security_use_pattern);
         okBtn.setVisibility(View.VISIBLE);
         okBtn.setBackgroundDrawable(null);
         okBtn.setTextColor(getResources().getColor(R.color.numpad_font_color));
@@ -402,19 +403,19 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
                     passdot.setFlag(false);
                     passdot.reset();
 //                    okBtn.setVisibility(View.INVISIBLE);
-                    okBtn.setText(R.string.reset_passwd_2_btn);
+                    okBtn.setText(R.string.security_reset_passwd_2_btn);
                     okBtn.setTextColor(getResources().getColor(R.color.numpad_font_color));
                     okBtn.setBackgroundDrawable(null);
-                    ((TextView) findViewById(R.id.title)).setText(R.string.confirm_pass);
-                    ((TextView) findViewById(R.id.tip)).setText(R.string.confirm_passwd_tip);
+                    ((TextView) findViewById(R.id.title)).setText(R.string.security_set_confirm_password);
+                    ((TextView) findViewById(R.id.tip)).setText(R.string.security_confirm_passwd_tip);
                 } else if (setProgress == 1){
                     setProgress = 0;
                     passdot.setFlag(false);
                     passdot.reset();
                     togglePattern = true;
-                    okBtn.setText(R.string.use_graphic);
-                    ((TextView) findViewById(R.id.title)).setText(R.string.set_pass);
-                    ((TextView) findViewById(R.id.tip)).setText(R.string.set_passwd_tip);
+                    okBtn.setText(R.string.security_use_pattern);
+                    ((TextView) findViewById(R.id.title)).setText(R.string.security_set_password);
+                    ((TextView) findViewById(R.id.tip)).setText(R.string.security_set_passwd_tip);
                 }
             }
         });
@@ -424,7 +425,7 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
                 passdot.backSpace();
                 if (passdot.empty() && !togglePattern){
                     togglePattern = true;
-                    okBtn.setText(R.string.use_graphic);
+                    okBtn.setText(R.string.security_use_pattern);
                     okBtn.setBackgroundDrawable(null);
                     okBtn.setTextColor(getResources().getColor(R.color.numpad_font_color));
                 }
@@ -440,7 +441,7 @@ public class SetupPattern extends ClientActivity implements View.OnClickListener
                 } else {
                     --setProgress;
                     passdot.reset();
-                    ((TextView) findViewById(R.id.title)).setText(R.string.set_pass);
+                    ((TextView) findViewById(R.id.title)).setText(R.string.security_set_password);
                     okBtn.setVisibility(View.INVISIBLE);
                 }
             }

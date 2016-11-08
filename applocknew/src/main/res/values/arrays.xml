@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="brief_slot">
-        <item>@string/every_time</item>
-        <item>@string/five_min</item>
-        <item>@string/until_screen_off</item>
+        <item>@string/security_every_time</item>
+        <item>@string/security_five_min</item>
+        <item>@string/security_until_screen_off</item>
     </string-array>
     <string-array name="brief_slot_idx" >
         <item>0</item>
@@ -11,19 +11,19 @@
         <item>2</item>
     </string-array>
     <string-array name="fake_icons">
-        <item>@string/fake_icon_default</item>
-        <item>@string/fake_icon_1</item>
-        <item>@string/fake_icon_2</item>
-        <item>@string/fake_icon_3</item>
+        <item>@string/security_fake_icon_default</item>
+        <item>@string/security_fake_icon_1</item>
+        <item>@string/security_fake_icon_2</item>
+        <item>@string/security_fake_icon_3</item>
     </string-array>
 
 
     <string-array name="suo_ruqinzhe_slot">
-        <item>@string/suo_intru_w_1</item>
-        <item>@string/suo_intru_w_2</item>
-        <item>@string/suo_intru_w_3</item>
-        <item>@string/suo_intru_w_4</item>
-        <item>@string/suo_intru_w_5</item>
+        <item>@string/security_intrude_one</item>
+        <item>@string/security_intrude_two</item>
+        <item>@string/security_intrude_three</item>
+        <item>@string/security_intrude_four</item>
+        <item>@string/security_intrude_five</item>
     </string-array>
     <string-array name="suo_invade_st_">
         <item>0</item>
