@@ -1,19 +1,19 @@
 package com.security.manager;
 
-import com.security.manager.meta.Pref;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.FakePresenter;
 
 /**
  * Created by superjoy on 2014/11/5.
  */
-public class UnlockApp extends PatternActivity {
+public class UnlockApp extends SecurityPatternActivity {
 
     @Override
     public void setupView() {
         if (FakePresenter.isFakeCover()) {
             try {
                 CharSequence label = getPackageManager().getApplicationInfo(pkg, 0).loadLabel(getPackageManager());
-                FakePresenter.show(this, Pref.getFakeCover(FakePresenter.FAKE_NONE), label, new Runnable() {
+                FakePresenter.show(this, SecurityMyPref.getFakeCover(FakePresenter.FAKE_NONE), label, new Runnable() {
                     @Override
                     public void run() {
                         UnlockApp.super.setupView();
@@ -32,6 +32,6 @@ public class UnlockApp extends PatternActivity {
         } else {
             super.setupView();
         }
-        MyTracker.sendEvent(MyTracker.CATE_DEFAULT, MyTracker.ACT_UNLOCK, MyTracker.ACT_UNLOCK, 1L);
+        Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
     }
 }

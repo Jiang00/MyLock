@@ -5,14 +5,14 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
 import com.security.gallery.view.TileBitmapDrawable;
-import com.security.manager.db.Preference;
+import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
 import com.security.manager.lib.datatype.SDataType;
 import com.security.manager.lib.io.ImageMaster;
-import com.security.manager.asyncmanager.ImageManager;
+import com.security.manager.asyncmanager.SecurityImgManager;
 import com.security.manager.meta.MApps;
-import com.security.manager.meta.MProfiles;
-import com.security.manager.meta.Pref;
+import com.security.manager.meta.SecuritProfiles;
+import com.security.manager.meta.SecurityMyPref;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -34,7 +34,7 @@ public class App extends BaseApp{
         watcher = LeakCanary.install(this);
         SDataType.init(this);
 
-        if (Pref.isEnglish()){
+        if (SecurityMyPref.isEnglish()){
             if (getResources().getConfiguration().locale != Locale.ENGLISH){
                 Configuration cfg = getResources().getConfiguration();
                     cfg.locale = Locale.ENGLISH;
@@ -42,19 +42,19 @@ public class App extends BaseApp{
             }
         }
 
-        AppsCore.init(this, ImageManager.ROOT);
+        AppsCore.init(this, SecurityImgManager.ROOT);
 //        SafeDB.initialize(this, getHandler());
 
 
         ImageMaster.imageCache = TileBitmapDrawable.initCache(this);
-        ImageManager.cache = ImageMaster.imageCache;
+        SecurityImgManager.cache = ImageMaster.imageCache;
 //        Start.start(this);
-        Preference.initialize(this);
-        startService(new Intent(this, Worker.class));
+        SecurityPreference.initialize(this);
+        startService(new Intent(this, SecurityService.class));
 
 
         MApps.init();
-        MProfiles.init();
+        SecuritProfiles.init();
     }
 
     static RefWatcher watcher;

@@ -17,7 +17,7 @@
         android:id="@+id/scan_result_icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginLeft="37dp"
+        android:layout_marginLeft="20dp"
         android:src="@drawable/security_rate" />
 
     <TextView
@@ -27,9 +27,9 @@
         android:layout_marginLeft="6dp"
 
         android:id="@+id/security_title_bar_te"
-        android:textColor="@color/security_black_87"
-        android:fontFamily="serif"
-        android:textSize="16sp"
+        android:textColor="@color/security_rate_us"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
         android:text="@string/security_rate_t" />
     <LinearLayout
         android:id="@+id/security_rat_close"
@@ -51,10 +51,10 @@
         android:fontFamily="sans-serif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/security_black_87"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="62dp"
-        android:textSize="13sp"
+        android:textColor="@color/security_rate_us"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15sp"
         android:id="@+id/scan_result_desc"
         android:layout_below="@id/security_title_bar_te"
         android:text="@string/security_rate_msg" />
@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal">
         <Button
             android:fontFamily="sans-serif"
@@ -92,7 +92,6 @@
 
             />
     </LinearLayout>
-
 
     <View
         android:layout_width="match_parent"

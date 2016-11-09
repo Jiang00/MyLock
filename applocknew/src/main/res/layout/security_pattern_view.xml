@@ -16,7 +16,7 @@
             layout="@layout/security_password_status_bar" />
 
         <LinearLayout
-            android:background="@color/new_user_choose_app_bac"
+            android:background="@color/security_new_user_choose_app_bac"
             android:layout_width="match_parent"
             android:layout_height="201dp"
             android:gravity="center"
@@ -55,7 +55,7 @@
             android:layout_weight="2.5"
             android:gravity="center">
 
-            <com.security.manager.page.LockPatternView
+            <com.security.manager.page.SecurityPatternView
                 android:id="@+id/lpv_lock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

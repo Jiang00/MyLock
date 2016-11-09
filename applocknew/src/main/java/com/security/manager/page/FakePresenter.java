@@ -14,16 +14,16 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.security.lib.customview.WidgetContainer;
+import com.security.lib.customview.SecurityWidget;
 import com.security.manager.App;
-import com.security.manager.FakeOneActivity;
-import com.security.manager.FakeThreeActivity;
-import com.security.manager.PatternActivity;
-import com.security.manager.meta.Pref;
+import com.security.manager.FakeFourActivitySecurityPatternActivity;
+import com.security.manager.FakeOneActivitySecurityPatternActivity;
+import com.security.manager.FakeThreeActivitySecurityPatternActivity;
+import com.security.manager.FakeTwoActivitySecurityPatternActivity;
+import com.security.manager.SecurityPatternActivity;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.lib.Utils;
-import com.security.manager.FakeTwoActivity;
-import com.security.manager.FakeFourActivity;
-import com.security.manager.FakeFiveActivity;
+import com.security.manager.FakeFiveActivitySecurityPatternActivity;
 import com.privacy.lock.R;
 
 /**
@@ -44,7 +44,7 @@ public class FakePresenter {
 
     public static final int FAKE_ICON_COUNT = 6;
 
-    private static WidgetContainer container;
+    private static SecurityWidget container;
     private static View fingerprint;
     private static Animation alpha;
     private static Animation scanLine;
@@ -53,19 +53,19 @@ public class FakePresenter {
     private static AlertDialog alertDialog;
 
     public static boolean isFakeCover() {
-        return Pref.getFakeCover(FAKE_NONE) != FAKE_NONE;
+        return SecurityMyPref.getFakeCover(FAKE_NONE) != FAKE_NONE;
     }
 
     public static void show(Context context, int fakeType, CharSequence label, final Runnable ok, final Runnable cancel) {
         if (container == null) {
-            container = new WidgetContainer(context.getApplicationContext(), Gravity.CENTER, ViewGroup.LayoutParams.MATCH_PARENT,
+            container = new SecurityWidget(context.getApplicationContext(), Gravity.CENTER, ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT, true);
-            container.setBackgroundColor(context.getResources().getColor(R.color.background_bg));
+            container.setBackgroundColor(context.getResources().getColor(R.color.security_background_bg));
         }
         container.addToWindow();
         switch (fakeType) {
             case FAKE_FC:
-                container.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                container.setWidgetListener(new SecurityWidget.IWidgetListener() {
                     @Override
                     public boolean onBackPressed() {
                         cancel.run();
@@ -142,7 +142,7 @@ public class FakePresenter {
                 fingerprint.findViewById(R.id.bg_alpha_anim_target).startAnimation(alpha);
                 fingerprint.findViewById(R.id.scan_line_anim_target).startAnimation(scanLine);
                 View fingerIcon = fingerprint.findViewById(R.id.fingerprint);
-                container.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                container.setWidgetListener(new SecurityWidget.IWidgetListener() {
                     @Override
                     public boolean onBackPressed() {
                         alpha.cancel();
@@ -235,59 +235,59 @@ public class FakePresenter {
         Class[] classes = new Class[FAKE_ICON_COUNT];
         switch (idx) {
             case FAKE_ICON_FAKE1:
-                classes[0] = FakeOneActivity.class;
-                classes[1] = FakeTwoActivity.class;
-                classes[2] = FakeThreeActivity.class;
-                classes[3] = PatternActivity.class;
-                classes[4] = FakeFourActivity.class;
-                classes[5] = FakeFiveActivity.class;
+                classes[0] = FakeOneActivitySecurityPatternActivity.class;
+                classes[1] = FakeTwoActivitySecurityPatternActivity.class;
+                classes[2] = FakeThreeActivitySecurityPatternActivity.class;
+                classes[3] = SecurityPatternActivity.class;
+                classes[4] = FakeFourActivitySecurityPatternActivity.class;
+                classes[5] = FakeFiveActivitySecurityPatternActivity.class;
                 break;
 
             case FAKE_ICON_FAKE2:
-                classes[1] = FakeOneActivity.class;
-                classes[0] = FakeTwoActivity.class;
-                classes[2] = FakeThreeActivity.class;
-                classes[3] = PatternActivity.class;
-                classes[4] = FakeFourActivity.class;
-                classes[5] = FakeFiveActivity.class;
+                classes[1] = FakeOneActivitySecurityPatternActivity.class;
+                classes[0] = FakeTwoActivitySecurityPatternActivity.class;
+                classes[2] = FakeThreeActivitySecurityPatternActivity.class;
+                classes[3] = SecurityPatternActivity.class;
+                classes[4] = FakeFourActivitySecurityPatternActivity.class;
+                classes[5] = FakeFiveActivitySecurityPatternActivity.class;
                 break;
 
             case FAKE_ICON_NORMAL:
-                classes[3] = FakeOneActivity.class;
-                classes[2] = FakeTwoActivity.class;
-                classes[1] = FakeThreeActivity.class;
-                classes[4] = FakeFourActivity.class;
-                classes[5] = FakeFiveActivity.class;
-                classes[0] = PatternActivity.class;
+                classes[3] = FakeOneActivitySecurityPatternActivity.class;
+                classes[2] = FakeTwoActivitySecurityPatternActivity.class;
+                classes[1] = FakeThreeActivitySecurityPatternActivity.class;
+                classes[4] = FakeFourActivitySecurityPatternActivity.class;
+                classes[5] = FakeFiveActivitySecurityPatternActivity.class;
+                classes[0] = SecurityPatternActivity.class;
                 break;
 
             case FAKE_ICON_FAKE3:
-                classes[3] = FakeOneActivity.class;
-                classes[2] = FakeTwoActivity.class;
-                classes[0] = FakeThreeActivity.class;
-                classes[4] = FakeFourActivity.class;
-                classes[5] = FakeFiveActivity.class;
-                classes[1] = PatternActivity.class;
+                classes[3] = FakeOneActivitySecurityPatternActivity.class;
+                classes[2] = FakeTwoActivitySecurityPatternActivity.class;
+                classes[0] = FakeThreeActivitySecurityPatternActivity.class;
+                classes[4] = FakeFourActivitySecurityPatternActivity.class;
+                classes[5] = FakeFiveActivitySecurityPatternActivity.class;
+                classes[1] = SecurityPatternActivity.class;
 
 
                 break;
 
             case FAKE_ICON_FAKE4:
-                classes[0] = FakeFourActivity.class;
-                classes[4] = FakeFiveActivity.class;
-                classes[5] = FakeOneActivity.class;
-                classes[3] = FakeTwoActivity.class;
-                classes[2] = FakeThreeActivity.class;
-                classes[1] = PatternActivity.class;
+                classes[0] = FakeFourActivitySecurityPatternActivity.class;
+                classes[4] = FakeFiveActivitySecurityPatternActivity.class;
+                classes[5] = FakeOneActivitySecurityPatternActivity.class;
+                classes[3] = FakeTwoActivitySecurityPatternActivity.class;
+                classes[2] = FakeThreeActivitySecurityPatternActivity.class;
+                classes[1] = SecurityPatternActivity.class;
                 break;
 
             case FAKE_ICON_FAKE5:
-                classes[0] = FakeFiveActivity.class;
-                classes[4] = FakeFourActivity.class;
-                classes[5] = FakeOneActivity.class;
-                classes[3] = FakeTwoActivity.class;
-                classes[2] = FakeThreeActivity.class;
-                classes[1] = PatternActivity.class;
+                classes[0] = FakeFiveActivitySecurityPatternActivity.class;
+                classes[4] = FakeFourActivitySecurityPatternActivity.class;
+                classes[5] = FakeOneActivitySecurityPatternActivity.class;
+                classes[3] = FakeTwoActivitySecurityPatternActivity.class;
+                classes[2] = FakeThreeActivitySecurityPatternActivity.class;
+                classes[1] = SecurityPatternActivity.class;
                 break;
         }
         switchLauncher(classes);
@@ -319,12 +319,12 @@ public class FakePresenter {
 
     public static int fakeIconIdx() {
         Class[] classes = new Class[FAKE_ICON_COUNT];
-        classes[5] = FakeFiveActivity.class;
-        classes[4] = FakeFourActivity.class;
-        classes[3] = FakeThreeActivity.class;
-        classes[2] = FakeTwoActivity.class;
-        classes[1] = FakeOneActivity.class;
-        classes[0] = PatternActivity.class;
+        classes[5] = FakeFiveActivitySecurityPatternActivity.class;
+        classes[4] = FakeFourActivitySecurityPatternActivity.class;
+        classes[3] = FakeThreeActivitySecurityPatternActivity.class;
+        classes[2] = FakeTwoActivitySecurityPatternActivity.class;
+        classes[1] = FakeOneActivitySecurityPatternActivity.class;
+        classes[0] = SecurityPatternActivity.class;
         int i = 0;
         for (Class clazz : classes) {
             int componentEnabledSetting = App.getContext().getPackageManager().getComponentEnabledSetting(new ComponentName(App.getContext(), clazz));

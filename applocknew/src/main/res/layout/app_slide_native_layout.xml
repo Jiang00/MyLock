@@ -18,21 +18,6 @@
         android:textColor="@android:color/white"
         android:textSize="8sp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="90dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="140dp"
-        android:ellipsize="end"
-        android:fontFamily="sans-serif-regular"
-        android:maxLength="45"
-        android:singleLine="true"
-        android:tag="ad_title"
-        android:textColor="#de000000"
-        android:textSize="14sp"
-        tools:text="Your see"/>
-
     <ImageButton
 
         android:layout_width="wrap_content"
@@ -70,7 +55,6 @@
         tools:text="Your see Your see Your see Your see"/>
 
     <com.core.view.RoundImageView
-        android:background="@drawable/security_intrude_infomation"
         android:layout_width="match_parent"
         android:layout_height="136dp"
         android:layout_gravity="center_horizontal"
@@ -78,4 +62,19 @@
         rightBottom="false"
         leftBottom="false"
         android:tag="ad_image"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="90dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="140dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-regular"
+        android:maxLength="45"
+        android:singleLine="true"
+        android:tag="ad_title"
+        android:textColor="#de000000"
+        android:textSize="14sp"
+        tools:text="Your see"/>
 </FrameLayout>

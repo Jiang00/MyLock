@@ -21,26 +21,26 @@
         <item name="windowFixedWidthMinor">100%</item>
         <item name="windowFixedHeightMajor">100%</item>
         <item name="windowFixedHeightMinor">100%</item>
-        <item name="android:colorBackground">@color/background_bg</item>
+        <item name="android:colorBackground">@color/security_background_bg</item>
     </style>
 
     <style name="PostiveButtonStyle" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:textColor">@color/body_text_1_inverse</item>
+        <item name="android:textColor">@color/security_body_text_1_inverse</item>
         <item name="android:background">@drawable/security_material_green</item>
     </style>
 
     <style name="menu_labels_style">
         <item name="android:background">@drawable/security_label_background</item>
-        <item name="android:textColor">@color/transp</item>
+        <item name="android:textColor">@color/security_transp</item>
         <item name="android:textSize">16sp</item>
     </style>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/theme_primary</item>
-        <item name="colorPrimaryDark">@color/theme_primary</item>
-        <item name="colorAccent">@color/theme_primary</item>
+        <item name="colorPrimary">@color/security_theme_primary</item>
+        <item name="colorPrimaryDark">@color/security_theme_primary</item>
+        <item name="colorAccent">@color/security_theme_primary</item>
 
     </style>
 

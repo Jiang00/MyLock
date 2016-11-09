@@ -32,13 +32,13 @@ public class LockPatternUtils {
      * @param string The pattern serialized with {@link #patternToString}
      * @return The pattern.
      */
-    public static List<LockPatternView.Cell> stringToPattern(String string) {
-        List<LockPatternView.Cell> result = new ArrayList<LockPatternView.Cell>();
+    public static List<SecurityPatternView.Cell> stringToPattern(String string) {
+        List<SecurityPatternView.Cell> result = new ArrayList<SecurityPatternView.Cell>();
 
         final byte[] bytes = string.getBytes();
         for (int i = 0; i < bytes.length; i++) {
             byte b = bytes[i];
-            result.add(LockPatternView.Cell.of(b / 3, b % 3));
+            result.add(SecurityPatternView.Cell.of(b / 3, b % 3));
         }
         return result;
     }
@@ -48,7 +48,7 @@ public class LockPatternUtils {
      * @param pattern The pattern.
      * @return The pattern in string form.
      */
-    public static String patternToString(List<LockPatternView.Cell> pattern) {
+    public static String patternToString(List<SecurityPatternView.Cell> pattern) {
         if (pattern == null) {
             return "";
         }
@@ -56,13 +56,13 @@ public class LockPatternUtils {
 
         byte[] res = new byte[patternSize];
         for (int i = 0; i < patternSize; i++) {
-            LockPatternView.Cell cell = pattern.get(i);
+            SecurityPatternView.Cell cell = pattern.get(i);
             res[i] = (byte) (cell.getRow() * 3 + cell.getColumn());
         }
         return Arrays.toString(res);
     }
 
-    public void saveLockPattern(List<LockPatternView.Cell> pattern){
+    public void saveLockPattern(List<SecurityPatternView.Cell> pattern){
         Editor editor = preference.edit();
         editor.putString(KEY_LOCK_PWD, patternToString(pattern));
         editor.commit();
@@ -72,14 +72,14 @@ public class LockPatternUtils {
         return preference.getString(KEY_LOCK_PWD, "");
     }
 
-    public boolean checkPattern(List<LockPatternView.Cell> pattern) {
+    public boolean checkPattern(List<SecurityPatternView.Cell> pattern) {
         String stored = getLockPaternString();
         if(stored.length() > 0){
             return stored.equals(patternToString(pattern));
         } else return false;
     }
 
-    public static boolean checkPattern(List<LockPatternView.Cell> p1, List<LockPatternView.Cell> p2)
+    public static boolean checkPattern(List<SecurityPatternView.Cell> p1, List<SecurityPatternView.Cell> p2)
     {
         return patternToString(p1).equals(patternToString(p2));
     }

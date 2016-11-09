@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:background="@color/theme_primary"
+    android:background="@color/security_theme_primary"
     android:gravity="center_vertical"
     android:id="@+id/new_normal_bar"
     >

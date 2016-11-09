@@ -3,7 +3,7 @@
     android:id="@+id/menu_it"
     android:layout_width="258dp"
     android:layout_height="50dp"
-    android:background="@color/theme_primary"
+    android:background="@color/security_theme_primary"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 

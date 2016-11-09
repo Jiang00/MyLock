@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.security.manager.myinterface.IThemeBridge;
+import com.security.manager.myinterface.ISecurityBridge;
 
 import java.io.DataOutputStream;
 import java.io.PrintWriter;
@@ -406,7 +406,7 @@ public class Tools {
         }
     }
 
-    public static void RandomNumpad(IThemeBridge bridge, View root, int[] buttons) {
+    public static void RandomNumpad(ISecurityBridge bridge, View root, int[] buttons) {
         if (!bridge.random()) return;
 
         ArrayList<IndexedDrawable> buttonBgs = new ArrayList<>();

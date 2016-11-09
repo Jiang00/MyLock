@@ -10,7 +10,7 @@
 
         ></corners>
 
-    <solid android:color="@color/good_button_color"/>
+    <solid android:color="@color/security_good_button_color"/>
 
 
 </shape>

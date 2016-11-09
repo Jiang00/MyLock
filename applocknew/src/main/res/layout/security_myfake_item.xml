@@ -30,6 +30,6 @@
         android:layout_gravity="bottom"
         android:singleLine="true"
         android:gravity="center"
-        android:textColor="@color/body_text_1"
+        android:textColor="@color/security_body_text_1"
         android:textSize="16sp"/>
 </LinearLayout>

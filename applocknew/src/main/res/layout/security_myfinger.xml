@@ -42,6 +42,6 @@
         android:gravity="center"
         android:singleLine="false"
         android:text="@string/security_finger_tip"
-        android:textColor="@color/body_text_1_inverse"
+        android:textColor="@color/security_body_text_1_inverse"
         android:textSize="18sp"/>
 </LinearLayout>

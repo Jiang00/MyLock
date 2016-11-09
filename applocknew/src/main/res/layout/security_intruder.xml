@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content">
 
 
-                <com.security.lib.customview.ReloadableImageView
+                <com.security.lib.customview.SecurityloadImage
                     android:id="@+id/security_ima"
                     android:layout_width="280dp"
                     android:layout_height="126dp"

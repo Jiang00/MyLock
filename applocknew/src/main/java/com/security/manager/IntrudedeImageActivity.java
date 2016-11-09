@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 
 import com.privacy.lock.R;
-import com.security.lib.customview.ReloadableImageView;
+import com.security.lib.customview.SecurityloadImage;
 import com.security.manager.lib.BaseActivity;
 
 import com.security.mymodule.FileType;
@@ -34,7 +34,7 @@ public class IntrudedeImageActivity extends BaseActivity {
     ImageView blockIcon;
 
     @InjectView(R.id.security_invade_peple)
-    ReloadableImageView blockImage;
+    SecurityloadImage blockImage;
 
 
     @InjectView(R.id.security_xia_ic)

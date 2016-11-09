@@ -11,7 +11,7 @@
     android:paddingBottom="8dp"
     android:paddingTop="8dp">
 
-    <com.security.lib.customview.ReloadableImageView
+    <com.security.lib.customview.SecurityloadImage
         android:id="@+id/icon"
         android:layout_width="41dp"
         android:layout_height="41dp"
@@ -35,5 +35,5 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:enabled="false"
-        android:src="@drawable/lock_bg" />
+        android:src="@drawable/security_lock_bg" />
 </LinearLayout>

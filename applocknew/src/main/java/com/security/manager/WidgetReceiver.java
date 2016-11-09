@@ -14,13 +14,13 @@ import com.privacy.lock.R;
 public class WidgetReceiver extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.startService(new Intent(context, Worker.class));
+        context.startService(new Intent(context, SecurityService.class));
         super.onReceive(context, intent);
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        context.startService(new Intent(context, Worker.class));
+        context.startService(new Intent(context, SecurityService.class));
         for (int appID : appWidgetIds) {
 
             // 获取 example_appwidget.xml 对应的RemoteViews
@@ -38,7 +38,7 @@ public class WidgetReceiver extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
-        context.startService(new Intent(context, Worker.class));
+        context.startService(new Intent(context, SecurityService.class));
     }
 
     @Override

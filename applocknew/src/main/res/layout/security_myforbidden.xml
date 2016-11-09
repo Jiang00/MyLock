@@ -5,7 +5,7 @@
     android:fitsSystemWindows="true"
     android:gravity="center"
     android:orientation="vertical">
-    <com.security.lib.customview.MySurfaceView
+    <com.security.lib.customview.SecuritySurface
 
         android:background="@android:color/transparent"
         android:layout_width="0.1px"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/fab_blue_light"
+        android:textColor="@color/security_fab_blue_light"
         android:textSize="15sp"
         android:id="@+id/count_down"/>
     <TextView
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/security_try_later"
-        android:textColor="@color/fab_blue_light"
+        android:textColor="@color/security_fab_blue_light"
         android:textSize="15sp"/>
         </LinearLayout>
 

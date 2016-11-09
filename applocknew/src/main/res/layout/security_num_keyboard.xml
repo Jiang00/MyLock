@@ -20,7 +20,7 @@
             android:background="@drawable/security_number_1"
             android:onClick="onClick"
             android:text="1"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <Button
@@ -31,7 +31,7 @@
             android:background="@drawable/security_number_2"
             android:onClick="onClick"
             android:text="2"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <Button
@@ -42,7 +42,7 @@
             android:background="@drawable/security_number_3"
             android:onClick="onClick"
             android:text="3"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
     </LinearLayout>
 
@@ -60,7 +60,7 @@
             android:background="@drawable/security_number_4"
             android:onClick="onClick"
             android:text="4"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <Button
@@ -71,7 +71,7 @@
             android:background="@drawable/security_number_5"
             android:onClick="onClick"
             android:text="5"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <Button
@@ -82,7 +82,7 @@
             android:background="@drawable/security_number_6"
             android:onClick="onClick"
             android:text="6"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
     </LinearLayout>
 
@@ -100,7 +100,7 @@
             android:background="@drawable/security_number_7"
             android:onClick="onClick"
             android:text="7"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <Button
@@ -111,7 +111,7 @@
             android:background="@drawable/security_number_8"
             android:onClick="onClick"
             android:text="8"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <Button
@@ -122,7 +122,7 @@
             android:background="@drawable/security_number_9"
             android:onClick="onClick"
             android:text="9"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
     </LinearLayout>
 
@@ -150,7 +150,7 @@
             android:background="@drawable/security_num_left"
             android:onClick="onClick"
             android:text="0"
-            android:textColor="@color/numpad_font_color"
+            android:textColor="@color/security_numpad_font_color"
             android:textSize="@dimen/numpad_font_size" />
 
         <ImageButton
@@ -174,7 +174,7 @@
         android:layout_marginRight="12dp"
         android:layout_marginBottom="15dp"
         android:text="@android:string/ok"
-        android:textColor="@color/refresh_progress_1"
+        android:textColor="@color/security_refresh_progress_1"
         />
 
 

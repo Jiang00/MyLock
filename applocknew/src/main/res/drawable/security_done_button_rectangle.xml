@@ -10,7 +10,7 @@
 
         ></corners>
 
-    <solid android:color="@color/new_user_choose_app_bac"/>
+    <solid android:color="@color/security_new_user_choose_app_bac"/>
 
 
 </shape>

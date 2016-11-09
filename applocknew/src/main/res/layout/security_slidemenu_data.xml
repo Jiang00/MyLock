@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.security.manager.page.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.security.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/menu"
     android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 android:id="@+id/tutorial_slide_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/home_pane_header"
+                android:background="@color/security_home_pane_header"
                 android:clickable="true"
                 android:visibility="gone" />
 
@@ -52,7 +52,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/list_bg"
+            android:background="@color/security_list_bg"
             android:gravity="center"
             android:visibility="gone" />
     </com.security.manager.page.MyRelativeLayout>
@@ -65,4 +65,4 @@
     <!--<include-->
     <!--android:id="@+id/right"-->
     <!--layout="@layout/help" />-->
-</com.security.manager.page.DragLayout>
+</com.security.manager.page.SlideMenu>

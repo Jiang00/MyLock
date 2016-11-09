@@ -33,7 +33,7 @@ android {
         versionName 'v2.3'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
-        buildConfigField('String', 'ROOT_DIR_NAME', '"/.auroralock/"')
+        buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
     }
 
     buildTypes {
@@ -51,7 +51,7 @@ android {
             versionCode 21
             versionName 'v2.3'
             signingConfig signingConfigs.moduleConfig
-            resValue("string", "app_name", "AppLock")
+            resValue("string", "app_name", "SecurityAppLock")
             buildConfigField('String', 'ROOT_DIR_NAME', '"/.security_s_lock/"')
         }
     }

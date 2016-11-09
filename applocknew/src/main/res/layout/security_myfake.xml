@@ -13,7 +13,7 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:singleLine="true"
-        android:textColor="@color/body_text_1"
+        android:textColor="@color/security_body_text_1"
         android:textSize="16sp"/>
 
     <GridView

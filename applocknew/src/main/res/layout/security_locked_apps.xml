@@ -28,7 +28,7 @@
         android:id="@+id/bg_sel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/tutorial_lock_bg"
+        android:src="@drawable/security_tutorial_lock_bg"
         android:layout_marginRight="16dp"
         android:enabled="false" />
 </LinearLayout>

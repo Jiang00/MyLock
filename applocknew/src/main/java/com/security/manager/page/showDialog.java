@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 import com.security.lib.customview.MyWidgetContainer;
 import com.privacy.lock.R;
-import com.security.manager.SetupPattern;
+import com.security.manager.SecuritySetPattern;
 
 
 /**
@@ -79,9 +79,9 @@ public class showDialog {
        public void onClick(View v) {
            d.cancel();
 
-           Intent intent = new Intent(c,SetupPattern.class);
+           Intent intent = new Intent(c,SecuritySetPattern.class);
            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-           intent.putExtra("set",SetupPattern.SET_GRAPH_PASSWD);
+           intent.putExtra("set", SecuritySetPattern.SET_GRAPH_PASSWD);
            c.startActivity(intent);
 
        }
@@ -92,9 +92,9 @@ public class showDialog {
             public void onClick(View v) {
                 d.cancel();
 
-                Intent intent = new Intent(c,SetupPattern.class);
+                Intent intent = new Intent(c,SecuritySetPattern.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("set", SetupPattern.SET_NORMAL_PASSWD);
+                intent.putExtra("set", SecuritySetPattern.SET_NORMAL_PASSWD);
                 c.startActivity(intent);
 
 

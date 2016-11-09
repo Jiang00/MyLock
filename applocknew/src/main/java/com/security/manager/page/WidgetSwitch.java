@@ -27,8 +27,8 @@ public class WidgetSwitch {
     public WidgetSwitch(View root) {
         ButterKnife.inject(this, root);
         if (iconNormalColor == 0){
-            iconNormalColor = root.getContext().getResources().getColor(R.color.gray_background);
-            iconSelectedColor = root.getContext().getResources().getColor(R.color.theme_primary);
+            iconNormalColor = root.getContext().getResources().getColor(R.color.security_gray_background);
+            iconSelectedColor = root.getContext().getResources().getColor(R.color.security_theme_primary);
         }
     }
 

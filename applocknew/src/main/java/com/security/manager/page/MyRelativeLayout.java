@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
 public class MyRelativeLayout extends LinearLayout {
-    private DragLayout dl;
+    private SlideMenu dl;
 
     public MyRelativeLayout(Context context) {
         super(context);
@@ -16,14 +16,14 @@ public class MyRelativeLayout extends LinearLayout {
         super(context, attrs);
     }
 
-    public void setDragLayout(DragLayout dl) {
+    public void setDragLayout(SlideMenu dl) {
         this.dl = dl;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
         if(dl!=null){
-            if (dl.getStatus() != DragLayout.Status.Close) {
+            if (dl.getStatus() != SlideMenu.Status.Close) {
                 return true;
             }
         }
@@ -34,7 +34,7 @@ public class MyRelativeLayout extends LinearLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if(dl!=null){
-            if (dl.getStatus() != DragLayout.Status.Close) {
+            if (dl.getStatus() != SlideMenu.Status.Close) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     dl.close();
                 }

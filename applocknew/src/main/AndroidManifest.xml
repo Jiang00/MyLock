@@ -23,11 +23,11 @@
         android:name="com.security.manager.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:manageSpaceActivity="com.security.manager.PatternActivity"
+        android:manageSpaceActivity="com.security.manager.SecurityPatternActivity"
         android:persistent="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.security.manager.AppLock"
+            android:name="com.security.manager.SecurityAppLock"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
 
@@ -57,7 +57,7 @@
 
 
         <activity
-            android:name="com.security.manager.Settings"
+            android:name="com.security.manager.SecuritySettings"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
@@ -71,7 +71,7 @@
             <!--android:excludeFromRecents="true"-->
             <!--android:screenOrientation="portrait"/>-->
         <activity
-            android:name="com.security.manager.SetupPattern"
+            android:name="com.security.manager.SecuritySetPattern"
             android:allowTaskReparenting="true"
 
             android:excludeFromRecents="true"
@@ -87,14 +87,14 @@
             <!--android:taskAffinity=".theme"-->
             <!--android:theme="@style/AppTheme"/>-->
         <activity
-            android:name="com.security.manager.IntruderActivity"
+            android:name="com.security.manager.IntruderActivitySecurity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:taskAffinity=".theme"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.security.manager.PatternActivity"
+            android:name="com.security.manager.SecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:icon="@drawable/ic_launcher"
@@ -114,7 +114,7 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeTwoActivity"
+            android:name="com.security.manager.FakeTwoActivitySecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -134,7 +134,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.security.manager.FakeThreeActivity"
+            android:name="com.security.manager.FakeThreeActivitySecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -155,7 +155,7 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeOneActivity"
+            android:name="com.security.manager.FakeOneActivitySecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -176,7 +176,7 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeFourActivity"
+            android:name="com.security.manager.FakeFourActivitySecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -197,7 +197,7 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeFiveActivity"
+            android:name="com.security.manager.FakeFiveActivitySecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -223,12 +223,12 @@
 
 
         <activity
-            android:name="com.security.manager.ToggleActivity"
+            android:name="com.security.manager.SecurityTogglePatternActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/PasswordTheme"/>
         <activity
-            android:name="com.security.manager.UnlockActivity"
+            android:name="com.security.manager.UnlockActivitySecurityPatternActivity"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
             android:screenOrientation="portrait"
@@ -246,7 +246,7 @@
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.security.manager.ResetPattern"
+            android:name="com.security.manager.SecurityResetPattern"
             android:screenOrientation="portrait"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
@@ -254,7 +254,7 @@
             android:theme="@style/Theme.AppCompat.Dialog.Alert"
             />
 
-        <activity android:name="com.security.manager.InvadeSetActivity"
+        <activity android:name="com.security.manager.SecurityIntruderSetAct"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:allowTaskReparenting="true"
@@ -273,7 +273,7 @@
             <!--android:screenOrientation="portrait"-->
             <!--android:theme="@style/AppTheme"/>-->
         <activity
-            android:name="com.security.manager.FakeSelectorActivity"
+            android:name="com.security.manager.FakeSelectorActivitySecurity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
@@ -305,7 +305,7 @@
         <!--<service-->
             <!--android:name="com.security.lock.Start"-->
             <!--android:process=":remote"/>-->
-        <service android:name="com.security.manager.Worker"/>
+        <service android:name="com.security.manager.SecurityService"/>
 
         <!--<receiver-->
             <!--android:name="com.google.android.gms.analytics.AnalyticsReceiver"-->
@@ -356,7 +356,7 @@
                 android:resource="@xml/security_widget"/>
         </receiver>
         <receiver
-            android:name="com.security.manager.BootReceiver"
+            android:name="com.security.manager.SecurityBootReceiver"
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>

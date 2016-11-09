@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/new_user_choose_app_bac"
+    android:background="@color/security_new_user_choose_app_bac"
     android:gravity="center|center_horizontal"
     android:layout_height="201dp">
 
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/security_protect_apps"
-        android:textColor="@color/security_black_87"
+        android:textColor="@color/security_security_black_87"
         android:gravity="center"
         android:id="@+id/title"
         android:layout_marginTop="40dp"

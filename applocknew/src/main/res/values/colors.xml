@@ -17,127 +17,122 @@
     -->
     <color name="transparent">#00000000</color>
 
-    <color name="body_text_1">#de000000</color>
-    <color name="body_text_2">#8a000000</color>
-    <color name="body_text_3">#60000000</color>
-    <color name="body_text_disabled">#44000000</color>
+    <color name="security_body_text_1">#de000000</color>
+    <color name="security_body_text_2">#8a000000</color>
+    <color name="security_body_text_3">#60000000</color>
+    <color name="security_body_text_disabled">#44000000</color>
 
-    <color name="body_text_1_inverse">#deffffff</color>
-    <color name="body_text_2_inverse">#8affffff</color>
+    <color name="security_body_text_1_inverse">#deffffff</color>
+    <color name="security_body_text_2_inverse">#8affffff</color>
 
-    <color name="theme_primary">#363d4f</color>
-    <color name="theme_primary_dark">#363d4f</color>
-    <color name="theme_primary_light">#363d4f</color>
+    <color name="security_theme_primary">#363d4f</color>
+    <color name="security_theme_primary_dark">#363d4f</color>
+    <color name="security_theme_primary_light">#363d4f</color>
 
-    <color name="theme_accent_1">#00b0ff</color>
-    <color name="theme_accent_1_light">#8ad4fa</color>
+    <color name="security_theme_accent_1">#00b0ff</color>
+    <color name="security_theme_accent_1_light">#8ad4fa</color>
 
-    <color name="theme_accent_2">#ff4081</color>
-    <color name="theme_accent_2_light">#f797b7</color>
+    <color name="security_theme_accent_2">#ff4081</color>
+    <color name="security_theme_accent_2_light">#f797b7</color>
 
-    <color name="all_track_color">#ff222222</color>
-    <color name="home_pane_header">#99000000</color>
-    <color name="slide_bg">#dd000000</color>
+    <color name="security_all_track_color">#ff222222</color>
+    <color name="security_home_pane_header">#99000000</color>
+    <color name="security_slide_bg">#dd000000</color>
 
-    <color name="sliding_pane_content_fade">#cceeeeee</color>
-    <color name="sticky_block_background">#ddffffff</color>
+    <color name="security_sliding_pane_content_fade">#cceeeeee</color>
+    <color name="security_block_background">#ddffffff</color>
 
-    <color name="gray_background">#d5d5d5</color>
-    <color name="gray_background_2">#f0f0f0</color>
-    <color name="dark_divider">#32000000</color>
+    <color name="security_gray_background">#d5d5d5</color>
+    <color name="security_gray_background_2">#f0f0f0</color>
+    <color name="security_dark_divider">#32000000</color>
 
-    <color name="navdrawer_background">#ffffffff</color>
-    <color name="navdrawer_text_color">@color/body_text_1</color>
-    <color name="navdrawer_text_color_selected">@color/theme_primary</color>
-    <color name="navdrawer_icon_tint">#888</color>
-    <color name="navdrawer_icon_tint_selected">@color/theme_primary</color>
+    <color name="security_navdrawer_background">#ffffffff</color>
+    <color name="security_text_color">@color/security_body_text_1</color>
+    <color name="security_navdrawer_text_color_selected">@color/security_theme_primary</color>
+    <color name="security_navdrawer_icon_tint">#888</color>
+    <color name="security_navdrawer_icon_tint_selected">@color/security_theme_primary</color>
 
-    <color name="refresh_progress_1">@color/theme_accent_2</color>
-    <color name="refresh_progress_2">@color/theme_accent_1</color>
-    <color name="refresh_progress_3">@color/theme_primary</color>
+    <color name="security_refresh_progress_1">@color/security_theme_accent_2</color>
+    <color name="security_refresh_progress_2">@color/security_theme_accent_1</color>
+    <color name="security_refresh_progress_3">@color/security_theme_primary</color>
 
-    <color name="nearby_header_color">#00c</color>
-    <color name="nearby_url_color">#0a0</color>
-    <color name="nearby_description_color">@color/body_text_2</color>
+    <color name="security_nearby_header_color">#00c</color>
+    <color name="security_nearby_url_color">#0a0</color>
+    <color name="security_nearby_description_color">@color/security_body_text_2</color>
 
-    <color name="list_dropdown_foreground_normal">#ff333333</color>
-    <color name="list_dropdown_divider_color">#92a3a3a3</color>
-    <color name="butter_bar_light">#eee0e0e0</color>
+    <color name="security_list_dropdown_foreground_normal">#ff333333</color>
+    <color name="security_list_dropdown_divider_color">#92a3a3a3</color>
+    <color name="security_butter_bar_light">#eee0e0e0</color>
 
-    <color name="translucent_actionbar_background">#cc3f51b5</color>
-    <color name="translucent_statusbar_background">#cc3f51b5</color>
+    <color name="security_translucent_actionbar_background">#cc3f51b5</color>
+    <color name="security_translucent_statusbar_background">#cc3f51b5</color>
 
-    <color name="tab_background">@color/theme_primary</color>
-    <color name="tab_selected_strip">@color/theme_accent_1</color>
+    <color name="security_tab_background">@color/security_theme_primary</color>
+    <color name="security_tab_selected_strip">@color/security_theme_accent_1</color>
 
-    <color name="fab_normal">#f00</color>
-    <color name="fab_light">#ff4081</color>
-    <color name="fab_green_normal">#ff00a000</color>
-    <color name="fab_green_light">#ff55aa55</color>
-    <color name="fab_earth_normal">#ff7c5c37</color>
-    <color name="fab_earth_light">#ff7c6c37</color>
-    <color name="fab_blue_normal">#ff7eb5fa</color>
-    <color name="fab_blue_light">#ff7ec5fa</color>
-    <color name="fab_green_lighter">#ff55ffff</color>
-    <color name="fab_green_darker">#ff00bbbb</color>
+    <color name="security_fab_normal">#f00</color>
+    <color name="security_fab_light">#ff4081</color>
+    <color name="security_fab_green_normal">#ff00a000</color>
+    <color name="security_fab_green_light">#ff55aa55</color>
+    <color name="security_fab_earth_normal">#ff7c5c37</color>
+    <color name="security_fab_earth_light">#ff7c6c37</color>
+    <color name="security_fab_blue_normal">#ff7eb5fa</color>
+    <color name="security_fab_blue_light">#ff7ec5fa</color>
+    <color name="security_fab_green_lighter">#ff55ffff</color>
+    <color name="security_fab_green_darker">#ff00bbbb</color>
 
     <!--
       licence end here
     -->
 
-    <color name="new_color">#f00</color>
-    <color name="list_bg">#F0F0F0</color>
-    <color name="list_item_bg">#ffffff</color>
-    <color name="menu_bg_normal">#00181E13</color>
-    <color name="menu_bg_selected">#22999999</color>
-    <color name="overflow_pressed">#aa858585</color>
-    <color name="background_bg">#252B2F</color>
-    <color name="numpad_color">#ffaaaaaa</color>
-    <color name="transp">#9000</color>
-    <drawable name="place_holder">#1000</drawable>
-    <color name="app_name_color">@android:color/white</color>
-    <color name="passwd_background">#fff0f0f0</color>
-    <color name="theme_transp">#66000000</color>
-    <color name="overflow_menu_item_normal">#00181e13</color>
-    <color name="overflow_menu_pressed">#aa858585</color>
-    <color name="pattern_line_color_normal">#dedfe2</color>
+    <color name="security_list_bg">#F0F0F0</color>
+    <color name="security_list_item_bg">#ffffff</color>
+    <color name="security_menu_bg_normal">#00181E13</color>
+    <color name="security_overflow_pressed">#aa858585</color>
+    <color name="security_background_bg">#252B2F</color>
+    <color name="security_numpad_color">#ffaaaaaa</color>
+    <color name="security_transp">#9000</color>
+    <drawable name="security_place_holder">#1000</drawable>
+    <color name="security_app_name_color">@android:color/white</color>
+    <color name="security_passwd_background">#fff0f0f0</color>
+    <color name="security_theme_transp">#66000000</color>
+    <color name="security_overflow_menu_item_normal">#00181e13</color>
+    <color name="security_overflow_menu_pressed">#aa858585</color>
+    <color name="security_pattern_line_color_normal">#dedfe2</color>
     <color name="pattern_line_color_error">#55ff0000</color>
-    <color name="apply_button_normal_down">#ff23b529</color>
-    <color name="apply_button_normal_up">#ff23c035</color>
-    <color name="apply_button_pressed_down">#ff65b529</color>
-    <color name="apply_button_pressed_up">#ff73cb35</color>
-    <color name="explore_background_color">#ffc6e2ff</color>
-    <color name="explore_title_bar_down">#ff0ab5ef</color>
-    <color name="explore_title_bar_up">#ff0087e6</color>
-    <color name="switch_mode_btn">#ffffff</color>
-    <color name="switch_mode_btn_pressed">#aaffffff</color>
-    <color name="numpad_font_color">#8d8f9a</color>
-    <color name="numpad_normal_stroke_color">#ffffff</color>
-    <color name="numpad_normal_solid_color">#00000000</color>
-    <color name="numpad_pressed_solid_color">#ee0099ee</color>
-    <color name="numpad_pressed_stroke_color">#ffffff</color>
-    <color name="passwd_normal_solid_color">#ffffff</color>
-    <color name="passwd_normal_stroke_color">#ffffff</color>
-    <color name="passwd_right_solid_color">#00ff00</color>
-    <color name="passwd_right_stroke_color">#00ff00</color>
-    <color name="passwd_wrong_solid_color">#ff6100</color>
-    <color name="passwd_wrong_stroke_color">#ffff0000</color>
-    <color name="pattern_inner_right_color">#ff00bbff</color>
-    <color name="pattern_inner_normal_color">#aaffffff</color>
-    <color name="pattern_outer_normal_solid_color">#00000000</color>
-    <color name="pattern_outer_normal_stroke_color">#ffffff</color>
-    <color name="pattern_outer_right_stroke_color">#ffffff</color>
-    <color name="pattern_outer_right_solid_color">#ee0099ee</color>
-    <color name="pattern_outer_wrong_stroke_color">#ffff0000</color>
-    <color name="pattern_outer_wrong_solid_color">#88ff0000</color>
-    <color name="app_text_color">#636363</color>
+    <color name="security_apply_button_normal_down">#ff23b529</color>
+    <color name="security_apply_button_normal_up">#ff23c035</color>
+    <color name="security_apply_button_pressed_down">#ff65b529</color>
+    <color name="security_apply_button_pressed_up">#ff73cb35</color>
+    <color name="security_explore_background_color">#ffc6e2ff</color>
+    <color name="security_switch_mode_btn">#ffffff</color>
+    <color name="security_switch_mode_btn_pressed">#aaffffff</color>
+    <color name="security_numpad_font_color">#8d8f9a</color>
+    <color name="security_numpad_normal_stroke_color">#ffffff</color>
+    <color name="security_numpad_normal_solid_color">#00000000</color>
+    <color name="security_numpad_pressed_stroke_color">#ffffff</color>
+    <color name="security_passwd_normal_solid_color">#ffffff</color>
+    <color name="security_passwd_normal_stroke_color">#ffffff</color>
+    <color name="security_passwd_right_solid_color">#00ff00</color>
+    <color name="security_passwd_right_stroke_color">#00ff00</color>
+    <color name="security_passwd_wrong_solid_color">#ff6100</color>
+    <color name="security_passwd_wrong_stroke_color">#ffff0000</color>
+    <color name="security_pattern_inner_right_color">#ff00bbff</color>
+    <color name="security_pattern_inner_normal_color">#aaffffff</color>
+    <color name="security_pattern_outer_normal_solid_color">#00000000</color>
+    <color name="security_pattern_outer_normal_stroke_color">#ffffff</color>
+    <color name="security_pattern_outer_right_stroke_color">#ffffff</color>
+    <color name="security_pattern_outer_right_solid_color">#ee0099ee</color>
+    <color name="security_pattern_outer_wrong_stroke_color">#ffff0000</color>
+    <color name="security_pattern_outer_wrong_solid_color">#88ff0000</color>
+    <color name="security_app_text_color">#636363</color>
     <color name="security_app_pri">#5a5f70</color>
     <color name="security_app_pri_pass">#282730</color>
     <color name="security_bt_backg_dis">#ff858585</color>
     <color name="security_theme_color">#5a5f70</color>
-    <color name="new_user_choose_app_bac">#5a5f70</color>
-    <color name="security_black_87">#636363</color>
-    <color name="good_button_color">#52b759</color>
+    <color name="security_new_user_choose_app_bac">#5a5f70</color>
+    <color name="security_security_black_87">#636363</color>
+    <color name="security_good_button_color">#52b759</color>
     <color name="security_transparent">#00000000</color>
     <color name="security_ftl_black_38">#61000000</color>
     <color name="security_bt_text_sc">#33a638</color>
@@ -156,17 +151,7 @@
     <color name="security_app_password_wang_stroke">#ffff0000</color>
     <color name="password_wrong_dot">#9698a2</color>
     <color name="security_white_87">#deffffff</color>
-
-
-
-
-
-
-
-
-
-
-
+    <color name="security_rate_us">#5a5f70</color>
 
 
 </resources>

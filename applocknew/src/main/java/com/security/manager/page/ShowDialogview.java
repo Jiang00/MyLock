@@ -27,11 +27,11 @@ public class ShowDialogview {
         alertDialogView.findViewById(R.id.security_good_bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharPFive sh = new SharPFive(context);
+                SecuritySharPFive sh = new SecuritySharPFive(context);
                 sh.setFiveRate(true);
                 if(listview!=null){
-                    if(AppsFragment.headerView!=null){
-                        listview.removeHeaderView(AppsFragment.headerView);
+                    if(AppsFragSecurity.headerView!=null){
+                        listview.removeHeaderView(AppsFragSecurity.headerView);
                     }
                 }
 
