@@ -20,6 +20,9 @@ import butterknife.OnItemClick;
 //
 //import com.android.client.AndroidSdk;
 //import com.android.client.ClientNativeAd;
+import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
+import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.lib.customview.SecurityBaseFrag;
 import com.security.manager.App;
@@ -28,7 +31,6 @@ import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
 import com.security.lib.customview.SecurityloadImage;
-import com.privacy.lock.R;
 import com.security.manager.SearchThread;
 import com.security.manager.Tools;
 import com.privacy.lock.aidl.IWorker;
@@ -37,6 +39,8 @@ import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecuritProfiles;
 
 import java.util.*;
+
+import static com.security.manager.page.SecurityThemeFragment.TAG_TOP_AD;
 
 /**
  * Created by SongHualin on 6/24/2015.
@@ -137,7 +141,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
             listView.addHeaderView(headerView);
             headerClick(headerView);
         } else {
-//            ininShowAD();
+            ininShowAD();
         }
         setAdaptor();
 
@@ -454,28 +458,28 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 
         }
     }
-//
-//    void ininShowAD() {
-//        if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-//
-//            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_native_layout, new ClientNativeAd.NativeAdClickListener() {
-//                @Override
-//                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
-//
-//                }
-//            }, new ClientNativeAd.NativeAdScrollListener() {
-//                @Override
-//                public void onNativeAdScrolled(float v) {
-//
-//                }
-//            });
-//            if (scrollView != null) {
-//                App.getWatcher().watch(scrollView);
-//                listView.addHeaderView(scrollView);
-//            }
-//        }
-//
-//    }
+
+    void ininShowAD() {
+        if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+
+            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_native_layout, new ClientNativeAd.NativeAdClickListener() {
+                @Override
+                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
+
+                }
+            }, new ClientNativeAd.NativeAdScrollListener() {
+                @Override
+                public void onNativeAdScrolled(float v) {
+
+                }
+            });
+            if (scrollView != null) {
+                App.getWatcher().watch(scrollView);
+                listView.addHeaderView(scrollView);
+            }
+        }
+
+    }
 
 
 }

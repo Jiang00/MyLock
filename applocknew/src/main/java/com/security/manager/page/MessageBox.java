@@ -10,6 +10,7 @@ import android.view.WindowManager;
 
 import com.privacy.lock.R;
 
+
 /**
  * Created by huale on 2015/3/10.
  */

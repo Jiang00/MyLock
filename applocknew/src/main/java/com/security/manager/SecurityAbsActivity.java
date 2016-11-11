@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -19,7 +21,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 //import com.android.client.AndroidSdk;
+import com.android.client.AndroidSdk;
+import com.android.client.SdkResultListener;
+
 import com.privacy.lock.R;
+import com.security.manager.db.backgroundData;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SlideMenu;
 import com.security.manager.page.SecurityMenu;
@@ -42,7 +48,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     private AnimatorListenerAdapter invis2visAnimatorListener;
 
 
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -52,7 +57,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void onIntent(Intent intent) {
 
     }
-
 
 
     @Override
@@ -127,7 +131,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     }
 
 
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -140,13 +143,13 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     }
 
     protected void initNow() {
-//        AndroidSdk.onCreate(this);
+        AndroidSdk.onCreate(this);
         setupView();
     }
 
     @Override
     protected void onResume() {
-//        AndroidSdk.onResume(this);
+        AndroidSdk.onResume(this);
         super.onResume();
     }
 
@@ -249,6 +252,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         } else {
             findViewById(R.id.help).setVisibility(View.GONE);
         }
+
     }
 
 
@@ -281,6 +285,8 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
 
     protected void askForExit() {
         super.onBackPressed();
+        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+
     }
 
 
@@ -391,7 +397,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
             findViewById(id).setVisibility(type);
         }
     }
-
 
 
     public abstract void setupView();

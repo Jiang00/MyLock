@@ -9,8 +9,9 @@ import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.security.lib.customview.SecuritySurface;
 import com.privacy.lock.R;
+import com.security.lib.customview.SecuritySurface;
+
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
 import com.security.manager.meta.SecurityMyPref;

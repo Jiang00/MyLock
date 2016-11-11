@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
 
-import com.security.manager.App;
+
 import com.privacy.lock.R;
+import com.security.manager.App;
+
 import com.security.manager.Tools;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;

@@ -7,11 +7,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.widget.Toast;
 
+import com.privacy.lock.R;
 import com.security.manager.App;
 import com.security.manager.lib.BaseActivity;
 import com.security.manager.lib.io.ImageMaster;
 import com.security.manager.lib.io.LoadNormalThumbnail;
-import com.privacy.lock.R;
 import com.security.manager.asyncmanager.SecurityImgManager;
 
 import java.io.File;

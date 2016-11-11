@@ -1,0 +1,173 @@
+{
+  "v_api": 4,
+  "v_pub": 1,
+  "domain": "https://admob-app-id-5748796808.firebaseio.com/data.json",
+  "data": {
+    "daily": "com.lockstudio.lockscreen.pinkflowers&referrer=utm_source%3DgalaxyDaily",
+    "unlock": "com.lockstudio.lockscreen.reddiamond&referrer=utm_source%3Dgalaxyunlock",
+    "icon": "https://65.media.tumblr.com/15e02ea64cd53ff4eaa2b447ed2c8e8b/tumblr_oerbqeAoVg1vdy83bo2_75sq.png",
+    "icon_persistent": "https://66.media.tumblr.com/d0f48c3ac1bff91c23e3ef29a15207a2/tumblr_oerbqeAoVg1vdy83bo3_75sq.png",
+    "more": "http://moreapp.us/more",
+    "cross": "market://details?id=com.privacylock.guest",
+    "themes": [
+      {
+        "url": "com.lockstudio.lockscreen.pinkmood&referrer=utm_source%3Dtheme7",
+        "prev": "https://66.media.tumblr.com/6f9d20759b52cf699eedc31ca6327030/tumblr_obsexfO7BX1sxao59o3_400.jpg"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.reddiamond&referrer=utm_source%3Dtheme2",
+        "prev": "https://67.media.tumblr.com/3eb55dc796427ed5bb3e83a26e85c004/tumblr_odxpmm1Z8W1vdh1s1o1_400.png"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.paperumbrella&referrer=utm_source%3Dtheme3",
+        "prev": "https://65.media.tumblr.com/66635cc044d93f9be329ad4583fc3b84/tumblr_odxpk0ptmE1vdh1s1o7_400.png"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.pinkflowers&referrer=utm_source%3Dtheme4",
+        "prev": "https://66.media.tumblr.com/8a232b007c8a469a8fc9a1f5720fcb9d/tumblr_odxplndrLZ1vdh1s1o3_400.png"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.goldenage&referrer=utm_source%3Dtheme5",
+        "prev": "https://67.media.tumblr.com/3d2000eba05cc7832a5f7447796830be/tumblr_ociap1tdc71vdy83bo3_400.jpg"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.rainflower&referrer=utm_source%3Dtheme8",
+        "prev": "https://66.media.tumblr.com/b2a1b6884decd23901b863b7b4a9de48/tumblr_odxplndrLZ1vdh1s1o9_400.png"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.sweetheart_one&referrer=utm_source%3Dtheme9",
+        "prev": "https://66.media.tumblr.com/8548996a2512cef6f044190e5ae39414/tumblr_oc5cntK9CT1vdh1s1o5_400.jpg"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.beautifulbeach&referrer=utm_source%3Dtheme16",
+        "prev": "https://66.media.tumblr.com/988dded02571f533d3843763644b47b5/tumblr_obsewjjUbZ1sxao59o1_400.jpg"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.drops&referrer=utm_source%3Dtheme31",
+        "prev": "https://66.media.tumblr.com/18b38171b57c94b8d3ce357b4d493fb8/tumblr_od839nyn6F1vdh1s1o9_400.png"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.sunset&referrer=utm_source%3Dtheme33",
+        "prev": "https://65.media.tumblr.com/ba5ecb66d9e35ed32d8df386303c4495/tumblr_obfdw9qoOQ1sxao59o10_400.jpg"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.snow1&referrer=utm_source%3Dtheme36",
+        "prev": "https://66.media.tumblr.com/e5fe77bab38e3519fe2ddf576ac9bf2d/tumblr_od83dfQhJZ1vdh1s1o3_400.png"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.coolbeam&referrer=utm_source%3Dtheme43",
+        "prev": "https://66.media.tumblr.com/7d85f4b825ab537fe37dae3c6ed68dad/tumblr_octahcJehB1vdh1s1o3_400.jpg"
+      },
+      {
+        "url": "com.lockstudio.lockscreen.fullmoon&referrer=utm_source%3Dtheme44",
+        "prev": "https://67.media.tumblr.com/5fa88c314e50431322feb2844e4e3991/tumblr_odxpi8DFvj1vdh1s1o7_400.png"
+      }
+    ],
+    "help": [
+      {
+        "url": "com.lockstudio.lockscreen.pinkmood&referrer=utm_source%3DgalaxyHelp",
+        "icon": "https://56.media.tumblr.com/511c45e886eb84712f7c257cae0ca0c6/tumblr_o3t0p1lwSe1u4cvnlo1_250.jpg"
+      }
+    ],
+    "version": {
+      "versionCode": 1,
+      "desc": "<b>Updatetip</b><br/><font color=\"red\">Brand new design</font><br/><blockquote>Version: <font color=\"green\">V 1.0.5</font><br/>Size: 3.2 MB<br/></blockquote>What's new: <br/>1,New design with better performance<br/>2, Scan privacy security and clean junk files<br/>3,  Intruder selfie : take photo 1-5 times, and more"
+    },
+    "ads": {
+      "versionCode": 6,
+      "hasBanner": false,
+      "hasInter": true,
+      "rate": 5,
+      "bannerId": "",
+      "interId": "",
+      "fbBannerId": "",
+      "fbInterId": "",
+      "unityId": "",
+      "hasNative": true,
+      "nativeId": "",
+      "nativeCount": 2,
+      "nativeGreenButton": false,
+      "hasUpgrade": true,
+      "title": "AppLock Skull",
+      "desc": "<b>New design screenlock</b><br/><font color=\"red\">Cool applock free for you</font><br/><blockquote>New funcion:<font color=\"green\">security scan</font><br/>New look：beautiful UI design<br/></blockquote>Themes <br/>1, Galaxy,Fool , space , vanlentine, star Wars<br/>2, Kisses, super car, camera, carnival<br/>3, Rupee , cricket , zoo, diamond ",
+      "url": "com.lockstudio.lockscreen.pinkflowers&referrer=utm_source%3DgalaxyGiftEn",
+      "icon": "https://67.media.tumblr.com/8a1c679a5dcfa486f31adc87dc93e6b5/tumblr_oerbqeAoVg1vdy83bo1_75sq.png",
+      "image": "https://66.media.tumblr.com/cbb29fb99b185b8b574f0d17859d3d2c/tumblr_odxplndrLZ1vdh1s1o4_500.png"
+    },
+    "silence": {
+      "silenceTime": 0,
+      "chargingsilence": 1,
+      "screenlock": 1,
+      "notification": 0,
+      "nativead": 0,
+      "screenlockislock": 1
+    }
+  },
+  "ads": {
+    "banner": {
+      "admob": "",
+      "facebook": ""
+    },
+    "full": {
+      "admob": "ca-app-pub-5337632550203530/7225530000",
+      "facebook": "132262217222625_133851023730411"
+    },
+    "native": {
+      "battery": {
+        "max_count": 1,
+        "facebook": {
+          "id": "132262217222625_133853350396845",
+          "count": 1
+        },
+        "green_style": 1,
+        "order": "facebook"
+      },
+      "screenlock": {
+        "max_count": 1,
+        "facebook": {
+          "id": "132262217222625_133853473730166",
+          "count": 1
+        },
+        "green_style": 1,
+        "order": "facebook"
+      },
+      "unlock": {
+        "max_count": 3,
+        "facebook": {
+          "id": "132262217222625_133853393730174",
+          "count": 3
+        },
+        "green_style": 1,
+        "order": "facebook,our"
+      },
+      "news": {
+        "max_count": 3,
+        "facebook": {
+          "id": "132262217222625_133853393730174",
+          "count": 3
+        },
+        "green_style": 1,
+        "order": "facebook,our"
+      },
+      "clean": {
+        "max_count": 1,
+        "facebook": {
+          "id": "132262217222625_133853547063492",
+          "count": 1
+        },
+        "green_style": 1,
+        "order": "facebook"
+      }
+    },
+    "adpos": {
+      "auto": "",
+      "pause": "admob,facebook",
+      "exit": "our"
+    }
+  },
+  "track": {
+    "api": "ga",
+    "id": "UA-85423893-1"
+  },
+  "appid": 1229
+}

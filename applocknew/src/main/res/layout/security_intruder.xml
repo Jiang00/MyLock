@@ -87,8 +87,8 @@
                     android:id="@+id/security_ima"
                     android:layout_width="280dp"
                     android:layout_height="126dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    />
 
             </FrameLayout>
 

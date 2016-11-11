@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import com.security.manager.page.MessageBox;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
+import com.security.manager.page.SlideMenu;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -202,30 +204,32 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        this.finish();
-        Intent intent = new Intent(this, SecurityAppLock.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
-
-        super.onBackPressed();
-    }
 
     private void setupToolbar() {
+        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.security_myfake);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressed();
-                }
-            });
+
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            SlideMenu.Status status = menu.getStatus();
+            if (status == SlideMenu.Status.Close)
+                menu.open();
+            else if (status == SlideMenu.Status.OpenRight) {
+                menu.close();
+            } else
+                askForExit();
+        }
+        return true;
+    }
+
+
 
 }

@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 
 import com.privacy.lock.R;
 
+
 public class SlideMenu extends FrameLayout {
     private GestureDetectorCompat gestureDetector;
     private ViewDragHelper dragHelper;
@@ -137,7 +138,6 @@ public class SlideMenu extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         vg_left = findViewById(R.id.left);
-//        vg_right = findViewById(R.id.right);
         vg_main = (MyRelativeLayout) findViewById(R.id.main);
         vg_main.setDragLayout(this);
 //        vg_left.setClickable(true);
@@ -145,7 +145,6 @@ public class SlideMenu extends FrameLayout {
 //        vg_main.setClickable(true);
     }
 
-    boolean layouted = false;
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {

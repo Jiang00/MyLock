@@ -67,6 +67,7 @@
 
 
     <LinearLayout
+        android:background="@drawable/security_intrude_infomation"
         android:orientation="horizontal"
         android:layout_gravity="bottom"
         android:id="@+id/slide_menu_ad"

@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.security.lib.customview.MyWidgetContainer;
 import com.privacy.lock.R;
+import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.SecuritySetPattern;
 
 

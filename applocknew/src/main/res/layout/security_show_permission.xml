@@ -94,6 +94,10 @@
     <LinearLayout
         android:background="@drawable/security_normal_bootom_rectangle"
         android:layout_width="match_parent"
-        android:layout_height="13dp"></LinearLayout>
+        android:layout_height="13dp">
+
+
+
+    </LinearLayout>
 </LinearLayout>
 

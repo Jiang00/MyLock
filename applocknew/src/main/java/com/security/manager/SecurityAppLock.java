@@ -12,13 +12,16 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.client.SdkResultListener;
 import com.privacy.lock.R;
+import com.security.manager.db.backgroundData;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.AppsFragSecurity;
 import com.security.manager.page.SlideMenu;
@@ -49,29 +52,29 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
     }
 
-    @Override
-    public void onResult(ArrayList<SearchThread.SearchData> list) {
-        if (fragment != null) {
-            fragment.onResult(list);
-        }
-    }
+//    @Override
+//    public void onResult(ArrayList<SearchThread.SearchData> list) {
+//        if (fragment != null) {
+//            fragment.onResult(list);
+//        }
+//    }
 
     @Override
     protected void onResume() {
         super.onResume();
     }
 
-    @Override
-    protected void onSearchExit() {
-        if (fragment != null) {
-            fragment.onResult(null);
-        }
-    }
+//    @Override
+//    protected void onSearchExit() {
+//        if (fragment != null) {
+//            fragment.onResult(null);
+//        }
+//    }
 
-    @Override
-    public List<SearchThread.SearchData> getSearchList() {
-        return fragment == null ? super.getSearchList() : fragment.getSearchData();
-    }
+//    @Override
+//    public List<SearchThread.SearchData> getSearchList() {
+//        return fragment == null ? super.getSearchList() : fragment.getSearchData();
+//    }
 
 //    @InjectView(R.id.float_action_menu)
 
@@ -170,23 +173,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
             fragment.setArguments(args);
             getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment, "fragment").commit();
         }
-
-        if (SecurityMyPref.hasNewVersion()) {
-            MessageBox.Data data = new MessageBox.Data();
-            data.button = MessageBox.BUTTON_YES_NO;
-            data.style = R.style.MessageBox;
-            data.title = R.string.security_update_title;
-            data.yes = R.string.security_update;
-            data.no = R.string.security_later_;
-            data.messages = Html.fromHtml(SecurityMyPref.getNewVersionDesc());
-            data.onyes = new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Utils.openPlayStore(App.getContext(), getPackageName());
-                }
-            };
-            MessageBox.show_(this, data);
-        } else if (SecurityMyPref.tip4Rate()) {
+        if (SecurityMyPref.tip4Rate()) {
 
             //之前的评价机制
 
@@ -211,10 +198,13 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
         requirePermission();
 
+        ininShowAD();
 
-//        ininShowAD();
+        initgetData();
+
 
     }
+
 
 //    public void showAdvanceSecurity() {
 //        MessageBox.Data data = new MessageBox.Data();
@@ -265,10 +255,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
             fragment.switchProfile(SecuritProfiles.getEntries().get(SecuritProfiles.getActiveProfileIdx(pn)), server);
             profileName = pn;
         }
-    }
-
-    SharedPreferences getSharedPreferences() {
-        return getSharedPreferences("cf", MODE_MULTI_PROCESS);
     }
 
     //    @Override
@@ -347,5 +333,14 @@ public class SecurityAppLock extends ClientActivitySecurity {
         return true;
     }
 
+
+    private void initgetData() {
+        String data = AndroidSdk.getExtraData();
+        if (data != null) {
+            backgroundData.onReceiveData(this, data);
+
+        }
+
+    }
 
 }

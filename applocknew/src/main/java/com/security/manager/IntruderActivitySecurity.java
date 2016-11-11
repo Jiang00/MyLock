@@ -24,6 +24,7 @@ import com.security.manager.page.ListViewForScrollView;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
 import com.security.lib.customview.SecurityloadImage;
+import com.security.manager.page.SlideMenu;
 import com.security.mymodule.FileType;
 import com.security.mymodule.IntruderEntry;
 
@@ -35,7 +36,7 @@ import butterknife.InjectView;
 /**
  * Created by song on 15/10/8.
  */
-public class IntruderActivitySecurity extends SecurityAbsActivity {
+public class IntruderActivitySecurity extends ClientActivitySecurity {
     @InjectView(R.id.abs_list)
     ListViewForScrollView listView;
 
@@ -59,27 +60,33 @@ public class IntruderActivitySecurity extends SecurityAbsActivity {
         return false;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.security_intruder_container);
-        ButterKnife.inject(this);
-        setupToolbar();
 
 //        PackageManager pm = getPackageManager();
 //        boolean permission = (PackageManager.PERMISSION_GRANTED ==
 //                pm.checkPermission("android.permission.CAMERA", context.getPackageName()));
+
+    }
+
+    @Override
+    public void setupView() {
+        setContentView(R.layout.security_intruder_container);
+        ButterKnife.inject(this);
+
+        setupToolbar();
+
         if (Utils.isMIUI()) {
             if (SecurityMyPref.getintruderCamer() == false) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
                 SecurityMyPref.setintruderCamer(true);
             }
         }
-    }
 
-    @Override
-    public void setupView() {
+        setup(R.string.security_intrude_five);
 
     }
 
@@ -178,28 +185,20 @@ public class IntruderActivitySecurity extends SecurityAbsActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        this.finish();
-        Log.e("mtt", "back");
-        Intent intent = new Intent(this, SecurityAppLock.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
-        super.onBackPressed();
-    }
 
     private void setupToolbar() {
+        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.security_new_intruder);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressed();
-                }
-            });
+//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onBackPressed();
+//                }
+//            });
         }
     }
 
@@ -216,9 +215,15 @@ public class IntruderActivitySecurity extends SecurityAbsActivity {
             Intent i = new Intent(this, SecurityIntruderSetAct.class);
             startActivity(i);
 
+        } else if (item.getItemId() == android.R.id.home) {
+            SlideMenu.Status status = menu.getStatus();
+            if (status == SlideMenu.Status.Close)
+                menu.open();
+            else if (status == SlideMenu.Status.OpenRight) {
+                menu.close();
+            } else
+                askForExit();
         }
         return true;
     }
-
-
 }

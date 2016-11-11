@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import com.privacy.lock.R;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.App;
 import com.security.manager.FakeFourActivitySecurityPatternActivity;
@@ -24,7 +25,6 @@ import com.security.manager.SecurityPatternActivity;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.lib.Utils;
 import com.security.manager.FakeFiveActivitySecurityPatternActivity;
-import com.privacy.lock.R;
 
 /**
  * Created by song on 15/8/14.

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">应用锁</string>
+
     <string name="security_app_pro_successful">保護成功</string>
     <string name="security_applock_open">超級應用鎖已開啟</string>
     <string name="security_applock_stop">超級應用鎖已關閉</string>
@@ -35,7 +37,6 @@
     <string name="security_hide_path">隱藏圖形繪製路徑</string>
     <string name="security_hide_successful">%1$s已隱藏</string>
     <string name="security_intruder_off_new">入侵者監測已關閉</string>
-    <string name="security_intruder_on_new">入侵者監測已啟動</string>
     <string name="security_later_">以後再說</string>
     <string name="security_lock_app">鎖應用</string>
     <string name="security_lock_success">%1$s已加鎖</string>
@@ -45,7 +46,7 @@
     <string name="security_my_close">關閉</string>
     <string name="security_my_theme">皮膚</string>
     <string name="security_myfake">應用偽裝</string>
-    <string name="security_new_intruder">侵入者拍照 </string>
+    <string name="security_new_intruder">入侵者拍照 </string>
     <string name="security_newapp_lock">新應用加鎖提示</string>
     <string name="security_no_google_account">您的手機沒有設置Google賬戶。</string>
     <string name="security_no_intruder">目前為止還沒有發現侵入者</string>
@@ -92,13 +93,13 @@
     <string name="security_use_pattern_">使用圖形解鎖</string>
     <string name="security_use_theme_success">皮膚已切換</string>
     <string name="security_verify">驗證賬戶</string>
-	<string name="security_applock_permission">為了更好的隱私保護，請允許訪問權限。</string>
+    <string name="security_applock_permission">為了更好的隱私保護，請允許訪問權限。</string>
     <string name="security_applock_permission_allow">允許</string>
-	<string name="security_apps_open_permission">查找应用锁並啟用它</string>
-	<string name="security_cancel">取消</string>
-	<string name="security_fake_calender">日曆</string>
-	<string name="security_five_start">我們致力於保護您的隱私。你能給我們5星好評嗎？</string>
-	<string name="security_input_password">請輸入PIN碼</string>
+    <string name="security_apps_open_permission">查找应用锁並啟用它</string>
+    <string name="security_cancel">取消</string>
+    <string name="security_fake_calender">日曆</string>
+    <string name="security_five_start">我們致力於保護您的隱私。你能給我們5星好評嗎？</string>
+    <string name="security_input_password">請輸入PIN碼</string>
     <string name="security_intru_f_app">這傢伙正試圖打破你的%1$s。我們抓住了他。</string>
     <string name="security_intrude_five">5次</string>
     <string name="security_intrude_five_rate">您的讚美將鼓勵我們做得更好</string>
@@ -110,19 +111,21 @@
     <string name="security_intrude_two">2次</string>
     <string name="security_intruder_help">幫助</string>
     <string name="security_intruder_off">入侵檢測器已關閉</string>
+    <string name="security_intruder_on_new">打開入侵檢測器</string>
     <string name="security_intruder_open">為你抓住入侵者</string>
     <string name="security_intruder_setting">入侵者自拍</string>
     <string name="security_intruder_setting_new">入侵者自拍設置</string>
     <string name="security_intruder_tip">輸入的密碼不正確</string>
-	<string name="security_password_lock">PIN碼鎖</string>
-	<string name="security_pattern_lock">模式鎖定</string>
-	<string name="security_rate_bad">差劲</string>
+    <string name="security_password_lock">PIN碼鎖</string>
+    <string name="security_pattern_lock">模式鎖定</string>
+    <string name="security_rate_bad">差劲</string>
     <string name="security_rate_good">好用</string>
-    <string name="security_rate_msg">如果你喜歡AppLock，請給我們一個5星級。</string>
+    <string name="security_rate_msg">如果你喜歡AppLock，請給我們一個5星好評。</string>
     <string name="security_rate_t">評分Applock</string>
-	<string name="security_reset_password">重置密碼</string>
-	<string name="setting_category_pattern">模式</string>
+    <string name="security_reset_password">重置密碼</string>
+    <string name="setting_category_pattern">模式</string>
     <string name="setting_digital_code">PIN碼</string>
-	<string name="security_fake_notepad">記事本</string>
-	<string name="security_start_rat">5星好評</string>
+    <string name="security_fake_notepad">記事本</string>
+    <string name="security_start_rat">5星好評</string>
+
 </resources>

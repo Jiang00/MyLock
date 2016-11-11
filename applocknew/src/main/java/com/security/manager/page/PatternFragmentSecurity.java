@@ -14,8 +14,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.security.manager.App;
 import com.privacy.lock.R;
+import com.security.manager.App;
+
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
 import com.security.manager.meta.SecurityCusTheme;

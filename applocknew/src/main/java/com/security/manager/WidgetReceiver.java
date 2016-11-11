@@ -8,6 +8,7 @@ import android.widget.RemoteViews;
 
 import com.privacy.lock.R;
 
+
 /**
  * Created by song on 15/9/7.
  */

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
+
 import com.privacy.lock.BuildConfig;
 
 import java.io.File;

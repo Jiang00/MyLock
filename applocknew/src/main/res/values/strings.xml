@@ -126,4 +126,8 @@
     <string name="security_verify">Verify</string>
     <string name="setting_category_pattern">Pattern</string>
     <string name="setting_digital_code">PIN code</string>
+    <string name="security_show_newversion">UPDATE</string>
+    <string name="security_show_newversion_inf">The new version has been released, hurry to update it</string>
+
+
 </resources>

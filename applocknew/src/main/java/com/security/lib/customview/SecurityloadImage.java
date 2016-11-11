@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
@@ -12,12 +13,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.privacy.lock.R;
 import com.security.manager.App;
 import com.security.manager.lib.io.ImageMaster;
 import com.security.manager.lib.io.LoadIconFromApp;
 import com.security.manager.lib.io.LoadNormalThumbnail;
 import com.security.manager.lib.io.LoadSafeThumbnail;
-import com.privacy.lock.R;
 
 /**
  * Created by SongHualin on 6/12/2015.
@@ -62,6 +63,13 @@ public class SecurityloadImage extends ImageView
             setImageDrawable(null);
         } else {
             Bitmap bitmap = ImageMaster.getImage(url);
+
+//            BitmapDrawable drawable=new BitmapDrawable();
+//
+//
+//            BitmapDrawable bitmapDrawable=(BitmapDrawable)imageview1.getDrawable();
+//            imageview2.setImageBitmap(Bitmap.createBitmap(bitmapDrawable.getBitmap(),x,y,width,height));
+
             setImageBitmap(bitmap);
             if (bitmap == null && forceLoading) {
                 LoadNormalThumbnail loadingTask = LoadNormalThumbnail.Instance();

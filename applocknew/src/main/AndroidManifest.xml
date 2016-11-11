@@ -154,6 +154,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.security.manager.SecurityActivity"/>
+
         <activity
             android:name="com.security.manager.FakeOneActivitySecurityPatternActivity"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"

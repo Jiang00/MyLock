@@ -7,8 +7,9 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ListView;
 
-import com.security.lib.customview.MyWidgetContainer;
 import com.privacy.lock.R;
+import com.security.lib.customview.MyWidgetContainer;
+import com.security.manager.lib.Utils;
 
 
 /**
@@ -86,5 +87,27 @@ public class ShowDialogview {
                 d.cancel();
             }
         });
+    }
+
+
+    public static  void showNewVersion(final Context context){
+
+        final View alertDialogView = View.inflate(context, R.layout.security_show_newversion, null);
+
+
+        final MyDialog d = new MyDialog(context, 0, 0, alertDialogView, R.style.dialog);
+
+
+        d.show();
+
+        alertDialogView.findViewById(R.id.security_update).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.rate(context);
+
+            }
+        });
+
+
     }
 }

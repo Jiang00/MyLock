@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -247,7 +248,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         firstLaunchLabels = labels;
         firstLaunchLocked = new HashMap<>();
         for(int i=0; i<commons.size(); ++i){
-            if (i > 10) break;
+//            if (i > 10) break; //推荐默认枷锁前面多少个
             firstLaunchLocked.put(commons.get(i), true);
         }
         firstLaunchFilter = filter;
@@ -407,7 +408,6 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             firstLaunchList.clear();
             firstLaunchList.addAll(firstLaunchLocked.keySet());
         }
-
         if (firstLaunchShowResult){
             TextView title = (TextView) header.findViewById(R.id.title);
             TextView desc = (TextView) header.findViewById(R.id.desc);
@@ -497,7 +497,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            recreate();
+
         }
     }
 

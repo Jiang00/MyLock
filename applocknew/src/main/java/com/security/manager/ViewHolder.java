@@ -6,6 +6,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.privacy.lock.R;
 
 import butterknife.ButterKnife;

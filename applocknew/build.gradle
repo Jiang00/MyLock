@@ -29,8 +29,8 @@ android {
         targetSdkVersion 21
         testApplicationId "com.freejoyapps.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
-        versionCode 14
-        versionName 'v2.3'
+        versionCode 1
+        versionName 'v1.0'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
         buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
@@ -66,6 +66,7 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
+
     externalNativeBuild {
         ndkBuild {
             path 'src/main/jni/Android.mk'

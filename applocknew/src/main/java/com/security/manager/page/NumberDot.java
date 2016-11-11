@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+
 import com.privacy.lock.R;
 import com.security.manager.meta.SecurityMyPref;
 

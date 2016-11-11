@@ -2,6 +2,7 @@ package com.security.manager.meta;
 
 import android.content.SharedPreferences;
 
+import com.core.common.SdkCache;
 import com.security.manager.App;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.datatype.SInt;
@@ -58,43 +59,51 @@ public class SecurityMyPref {
     }
 
     public SecurityMyPref setPasswd(String pass, boolean normal) {
-//        editor.putString(normal ? "pp" : "pg", pass);
+        editor.putString(normal ? "pp" : "pg", pass);
         SafeDB.defaultDB().putString(normal ? "pp" : "pg", pass);
         SafeDB.defaultDB().commit();
+        SdkCache.cache().cache("applock_passwd_", pass.getBytes(), false);
+
         return this;
     }
 
     public static boolean checkPasswd(String pass, boolean normal) {
-        String passed = SafeDB.defaultDB().getString(normal ? "pp" : "pg", "");
-        Utils.LOGER("passwd " + passed);
-        return passed.equals(pass);
+//        String passed = SafeDB.defaultDB().getString(normal ? "pp" : "pg", "");
+//        Utils.LOGER("passwd " + passed);
+
+        String savePass = SdkCache.cache().readText("applock_passwd_", false, false);
+
+
+        return savePass.equals(pass);
 //        return App.getSharedPreferences().getString(normal ? "pp" : "pg", "").equals(pass);
     }
 
     public static String getPasswd() {
-        return SafeDB.defaultDB().getString("pp", "");
+
+        if(SdkCache.cache().readText("applock_passwd_", false, false)!=null){
+            return SdkCache.cache().readText("applock_passwd_", false, false);
+
+        }else{
+            return "";
+
+        }
 //        return App.getSharedPreferences().getString("pp", "");
     }
 
     public static String getPattern() {
-        return SafeDB.defaultDB().getString("pg", "");
+        return  SdkCache.cache().readText("applock_passwd_", false, false);
     }
 
     public static boolean isPasswdSet(boolean normal) {
         String string = SafeDB.defaultDB().getString(normal ? "pp" : "pg", "");
 //        String string = App.getSharedPreferences().getString(normal ? "pp" : "pg", null);
-        return string != null && string.length() > 0;
+//        return string != null && string.length() > 0;
+
+        String passwd = SdkCache.cache().readText("applock_passwd_", false, false);
+        return  passwd != null && passwd.length()>0;
     }
 
-    public SecurityMyPref migComplete(String tag) {
-        editor.putBoolean(tag, true);
-        return this;
-    }
 
-    public SecurityMyPref putBoolean(String tag, boolean value) {
-        editor.putBoolean(tag, value);
-        return this;
-    }
 
     public SecurityMyPref remove(String tag) {
         editor.remove(tag);

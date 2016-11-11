@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.privacy.lock.R;
 import com.security.manager.meta.SecurityMyPref;
+import com.security.manager.page.SlideMenu;
 import com.security.manager.page.showDialog;
 
 import butterknife.ButterKnife;
@@ -283,7 +285,6 @@ public class SecuritySettings extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
-//        AndroidSdk.track("SettingActivity");
 
     }
 
@@ -355,29 +356,33 @@ public class SecuritySettings extends ClientActivitySecurity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent=new Intent(this,SecurityAppLock.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
-        super.onBackPressed();
-    }
 
 
     private void setupToolbar() {
+        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(R.string.security_new_intruder);
+            actionBar.setTitle(R.string.security_tab_setting);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressed();
-                }
-            });
+
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            SlideMenu.Status status = menu.getStatus();
+            if (status == SlideMenu.Status.Close)
+                menu.open();
+            else if (status == SlideMenu.Status.OpenRight) {
+                menu.close();
+            } else
+                askForExit();
+        }
+        return true;
+    }
+
 
 
 }
