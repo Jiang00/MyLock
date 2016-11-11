@@ -66,12 +66,11 @@
     <!--</LinearLayout>-->
 
 
-    <LinearLayout
-        android:background="@drawable/security_intrude_infomation"
-        android:orientation="horizontal"
+    <FrameLayout
+        android:gravity="center"
         android:layout_gravity="bottom"
         android:id="@+id/slide_menu_ad"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_height="wrap_content"></FrameLayout>
 
 </LinearLayout>

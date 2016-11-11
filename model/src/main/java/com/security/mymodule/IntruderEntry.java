@@ -5,6 +5,8 @@ package com.security.mymodule;
  */
 public class IntruderEntry {
     public String date;
+    public String simdate;
     public String url;
     public String pkg;
+    public long lastModified;
 }

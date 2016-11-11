@@ -22,7 +22,6 @@ import butterknife.OnItemClick;
 //import com.android.client.ClientNativeAd;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.lib.customview.SecurityBaseFrag;
 import com.security.manager.App;
@@ -31,6 +30,7 @@ import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
 import com.security.lib.customview.SecurityloadImage;
+import com.privacy.lock.R;
 import com.security.manager.SearchThread;
 import com.security.manager.Tools;
 import com.privacy.lock.aidl.IWorker;
@@ -40,6 +40,7 @@ import com.security.manager.meta.SecuritProfiles;
 
 import java.util.*;
 
+import static com.security.manager.page.SecurityThemeFragment.TAG_TLEF_AD;
 import static com.security.manager.page.SecurityThemeFragment.TAG_TOP_AD;
 
 /**
@@ -314,7 +315,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 //            }
 //        }
         int count = listView.getHeaderViewsCount();
-        if(count>0){
+        if (count > 0) {
             which--;
         }
 
@@ -328,7 +329,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
         }
         String pkgName = data.pkg;
 
-        Log.e("mtt",pkgName+"--");
+        Log.e("mtt", pkgName + "--");
         Context context = view.getContext().getApplicationContext();
         if (locks.containsKey(pkgName)) {
             if (hide) {
@@ -404,7 +405,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 
                 Utils.rate(getActivity());
 
-                if(!Utils.isEMUI()){
+                if (!Utils.isEMUI()) {
 
                     View alertDialogView = View.inflate(v.getContext(), R.layout.suo_rate_result, null);
 
@@ -443,21 +444,6 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 
     }
 
-    public void showDialogFive() {
-
-        int time = shareFive.getEnterAppsTimes();
-        time++;
-        shareFive.setEnterAppsTimes(time);
-
-        if (time == 2) {
-            SecuritySharPFive sh = new SecuritySharPFive(getActivity());
-            if (!sh.getFiveRate()) {
-                ShowDialogview.showDialog(getActivity(), null, listView);
-            }
-
-
-        }
-    }
 
     void ininShowAD() {
         if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
@@ -478,8 +464,16 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
                 listView.addHeaderView(scrollView);
             }
         }
-
+//
+//        if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+//            View scrollView = AndroidSdk.peekNativeAdViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.top_app_native_layout, null);
+//            if (scrollView != null) {
+//                App.getWatcher().watch(scrollView);
+//                listView.addHeaderView(scrollView);
+//            }
+//        }
     }
-
-
 }
+
+
+

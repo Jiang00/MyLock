@@ -2,9 +2,9 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="245dp"
     android:layout_height="match_parent"
-    android:background="@drawable/security_shape_r">
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,19 +50,9 @@
         android:fontFamily="sans-serif-light"
         android:singleLine="true"
         android:tag="ad_subtitle"
-        android:textColor="#8a000000"
+        android:textColor="#fff"
         android:textSize="10sp"
         tools:text="Your see Your see Your see Your see"/>
-
-    <com.core.view.RoundImageView
-        android:background="@drawable/security_intrude_infomation"
-        android:layout_width="match_parent"
-        android:layout_height="136dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="fitXY"
-        rightBottom="false"
-        leftBottom="false"
-        android:tag="ad_image"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -75,7 +65,16 @@
         android:maxLength="45"
         android:singleLine="true"
         android:tag="ad_title"
-        android:textColor="#de000000"
+        android:textColor="#fff"
         android:textSize="14sp"
         tools:text="Your see"/>
+
+    <com.core.view.RoundImageView
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"
+        rightBottom="false"
+        leftBottom="false"
+        android:tag="ad_image"/>
 </FrameLayout>

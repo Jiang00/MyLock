@@ -193,12 +193,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         if (actionBar != null) {
             actionBar.setTitle(R.string.security_new_intruder);
             actionBar.setDisplayHomeAsUpEnabled(true);
-//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    onBackPressed();
-//                }
-//            });
+
         }
     }
 

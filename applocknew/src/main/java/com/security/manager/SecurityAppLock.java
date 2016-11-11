@@ -15,6 +15,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.android.client.AndroidSdk;
@@ -85,7 +86,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
     boolean hide;
 
     @InjectView(R.id.slide_menu_ad)
-    LinearLayout ADView;
+    FrameLayout ADView;
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
@@ -173,72 +174,13 @@ public class SecurityAppLock extends ClientActivitySecurity {
             fragment.setArguments(args);
             getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment, "fragment").commit();
         }
-        if (SecurityMyPref.tip4Rate()) {
-
-            //之前的评价机制
-
-        }
-//        } else if (!SecurityMyPref.isAdvanceEnabled()) {
-////            if (SecurityMyPref.tip4Security()) {
-////                showAdvanceSecurity();
-////                SecurityMyPref.tip4SecurityComplete();
-////            }
-//            try {
-//                if (getIntent().getExtras().containsKey("launch")) {
-//                    Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_ADVANCE, Tracker.ACT_ADVANCE, 1L);
-//                    Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-//                    intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, new ComponentName(context, DeviceAdmin.class));
-//                    intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.dev_admin_desc));
-//                    startActivityForResult(intent, Setting.REQ_CODE_ADVANCE);
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
 
         requirePermission();
 
         ininShowAD();
 
         initgetData();
-
-
     }
-
-
-//    public void showAdvanceSecurity() {
-//        MessageBox.Data data = new MessageBox.Data();
-//        data.button = MessageBox.BUTTON_YES_CANCEL;
-//        data.yes = R.string.enable;
-//        data.cancel = R.string.cancel;
-//        data.msg = R.string.protect_uninstall;
-//        data.title = R.string.protect_title;
-//        data.onyes = new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_ADVANCE, Tracker.ACT_ADVANCE, 1L);
-//                Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-//                intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, new ComponentName(context, DeviceAdmin.class));
-//                intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.dev_admin_desc));
-//                startActivityForResult(intent, Setting.REQ_CODE_ADVANCE);
-//            }
-//        };
-//        MessageBox.show(this, data);
-//    }
-
-//     @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
-
-//    @InjectViews({R.id.add_profile, R.id.switch_profile, R.id.switch_widget})
-//    FloatingActionButton[] fabs;
-
-//    public static final int REQ_ADD_PROFILE = 2;
-
-
     @Override
     protected void onPause() {
         if (!hide) {
@@ -288,21 +230,8 @@ public class SecurityAppLock extends ClientActivitySecurity {
 //
     void ininShowAD() {
         if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-
-
-            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_slide_native_layout, new ClientNativeAd.NativeAdClickListener() {
-                @Override
-                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
-
-                }
-            }, new ClientNativeAd.NativeAdScrollListener() {
-                @Override
-                public void onNativeAdScrolled(float v) {
-
-                }
-            });
+            View scrollView = AndroidSdk.peekNativeAdViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.app_slide_native_layout, null);
             if (scrollView != null) {
-                App.getWatcher().watch(scrollView);
                 ADView.addView(scrollView);
             }
         }
