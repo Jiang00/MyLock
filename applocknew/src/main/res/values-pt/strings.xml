@@ -125,4 +125,12 @@
     <string name="security_start_rat">Classificação 5 estrelas</string>
     <string name="security_update">Instalar</string>
     <string name="security_update_title">Atualização da nova versão</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">ATUALIZAR</string>
+    <string name="security_show_newversion_inf">A nova versão foi lançada, pressa para atualizá-lo!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">O AppLock está em execução</string>
+    <string name="security_visitor_off">AppLock é interrompido</string>
+    <string name="security_nofification">Notificação</string>
 </resources>

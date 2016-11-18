@@ -4,8 +4,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import com.privacy.lock.R;
 import com.security.manager.meta.SecurityMyPref;
+import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.SlideMenu;
 import com.security.manager.page.showDialog;
 
@@ -31,22 +34,21 @@ import butterknife.InjectView;
  */
 public class SecuritySettings extends ClientActivitySecurity {
     public static byte idx = 0;
-    public static final byte SETTING_SLOT = idx++;
-    public static final byte SETTING_MODE = idx++;
-    public static final byte SETTING_HIDE_GRAPH_PATH = idx++;
-    public static final byte SETTING_RANDOM = idx++;
-    //    public static final byte SETTING_ADVANCED = idx++;
-    //    public static final int SETTING_FAKE_SELECTOR = idx++;
-    public static final byte SETTING_LOCK_NEW = idx++;
-    public static final byte SETTING_RATE = idx++;
-    //    public static final byte SETTING_SHARE = idx++;
-    public static final int SETTING_INTRUDER = idx++;
+    public static final byte SETTING_SLOT = 0;
+    public static final byte SETTING_MODE = 1;
+    public static final byte SETTING_HIDE_GRAPH_PATH = 2;
+    public static final byte SETTING_LOCK_NEW = 3;
+    public static final byte SETTING_NOTIFICATION = 4;
 
-    public static final byte REQ_CODE_PASS = 2;
-    public static final byte REQ_CODE_PATTERN = 4;
+
+    public static final byte SETTING_RATE = 5;
+    public static final byte SETTING_FACEBOOK = 6;
+    public static final byte SETTING_GOOGLE = 7;
+
+
     static final int[] items = new int[]{
             R.string.security_over_short,
-            0,
+            R.string.security_reset_password,
 //            R.string.help_normal_pass,
 //            R.string.help_graph_pass,
 //            R.string.secure_email,
@@ -58,9 +60,11 @@ public class SecuritySettings extends ClientActivitySecurity {
 //            R.string.pause_protect,
 //            R.string.show_noti,
             R.string.security_newapp_lock,
+            R.string.security_nofification,
             R.string.security_help_share,
-//            R.string.help_share,
-//            R.string.lost_found
+            R.string.security_facebook,
+            R.string.security_google
+
     };
 
     ListView lv;
@@ -84,7 +88,7 @@ public class SecuritySettings extends ClientActivitySecurity {
         setupToolbar();
 
         setup(R.string.security_tab_setting);
-        normalTitle.setText("   "+getResources().getString(R.string.security_tab_setting));
+        normalTitle.setText("   " + getResources().getString(R.string.security_tab_setting));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
         normalTitle.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +133,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                         public void onClick(View v) {
 //                            setPasswd(true, !SharPre.isUseNormalPasswd());
                             showDialog.showResetPasswordDialog(v.getContext());
+                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_RESETPAS,Tracker.ACT_SETTING_RESETPAS,1L);
                         }
                     });
                 } else if (i == SETTING_SLOT) {
@@ -140,69 +145,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     ((TextView) it.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
-                }
-//                else if (i == SETTING_RANDOM) {
-//                    view = LayoutInflater.from(SettingActivity.this).inflate(R.layout.security_notica_it, null, false);
-//
-//                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-////                    ((TextView) view.findViewById(R.id.desc)).setText(R.string.random_keyboard_desc);
-//                    view.findViewById(R.id.security_text_des).setVisibility(View.GONE);
-//                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-//                    if (Application.getSharedPreferences().getBoolean("random", false)) {
-//                        checkbox.setImageResource(R.drawable.security_setting_check);
-//                    } else {
-//                        checkbox.setImageResource(R.drawable.security_setting_not_check);
-//                    }
-//
-//                    checkbox.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            if (Application.getSharedPreferences().getBoolean("random", false)) {
-//                                checkbox.setImageResource(R.drawable.security_setting_not_check);
-//                                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_RANDOM, MyTrack.ACT_RANDOM, 1L);
-//                                Application.getSharedPreferences().edit().putBoolean("random", false).apply();
-//                            } else {
-//                                checkbox.setImageResource(R.drawable.security_setting_check);
-//                                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_RANDOM, MyTrack.ACT_RANDOM, 1L);
-//                                Application.getSharedPreferences().edit().putBoolean("random", true).apply();
-//
-//                            }
-//                        }
-//                    });
-//
-//                }
-                else if (i == SETTING_INTRUDER) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica_it, null, false);
-
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_show_noti);
-                    final ImageView checkBox = (ImageView) view.findViewById(R.id.security_set_checked);
-
-                    if (SecurityMyPref.fetchIntruder()) {
-                        checkBox.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        checkBox.setImageResource(R.drawable.security_setting_not_check);
-                    }
-
-                    checkBox.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (SecurityMyPref.fetchIntruder()) {
-                                checkBox.setImageResource(R.drawable.security_setting_not_check);
-                                Toast.makeText(getApplicationContext(), R.string.security_intruder_off_new, Toast.LENGTH_SHORT).show();
-                                SecurityMyPref.setFetchIntruder(false);
-                            } else {
-                                checkBox.setImageResource(R.drawable.security_setting_check);
-                                Toast.makeText(getApplicationContext(), R.string.security_intruder_on_new, Toast.LENGTH_SHORT).show();
-
-                                SecurityMyPref.setFetchIntruder(true);
-
-                            }
-                        }
-                    });
-
-
-                } else if (i == 3) {
+                } else if (i == SETTING_LOCK_NEW) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica, null, false);
                     ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                     ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
@@ -231,15 +174,15 @@ public class SecuritySettings extends ClientActivitySecurity {
 
 
                 } else if (i == SETTING_RATE) {
-                    if (SecurityMyPref.hasOption(SecurityMyPref.OPT_RATE_REDDOT) && !SecurityMyPref.isOptionPressed(SecurityMyPref.OPT_RATE_REDDOT)) {
-                        view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);//lockscreen_red
-                    } else {
-                        view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
-                    }
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
                     Button it = (Button) view.findViewById(R.id.security_abuout_bt);
                     it.setText(items[i]);
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
+
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE,1L);
+
+
                 } else if (i == SETTING_HIDE_GRAPH_PATH) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica_it, null, false);
                     ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
@@ -268,12 +211,59 @@ public class SecuritySettings extends ClientActivitySecurity {
                         }
                     });
 
-                } else if (i == 4) {
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_HIDEPATH,Tracker.ACT_SETTING_HIDEPATH,1L);
+
+
+
+                } else if (i == SETTING_FACEBOOK) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
                     Button it = (Button) view.findViewById(R.id.security_abuout_bt);
                     it.setText(items[i]);
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
+
+
+                } else if (i == SETTING_GOOGLE) {
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
+                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
+                    it.setText(items[i]);
+                    it.setOnClickListener(onClickListener);
+                    it.setId(i);
+
+
+                } else if (i == SETTING_NOTIFICATION) {
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
+                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                    if (SecurityMyPref.getNotification()) {
+                        checkbox.setImageResource(R.drawable.security_setting_check);
+                    } else {
+                        checkbox.setImageResource(R.drawable.security_setting_not_check);
+                    }
+                    checkbox.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (SecurityMyPref.getNotification()) {
+                                checkbox.setImageResource(R.drawable.security_setting_not_check);
+                                SecurityMyPref.setNotification(false);
+                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
+
+                            } else {
+                                checkbox.setImageResource(R.drawable.security_setting_check);
+                                SecurityMyPref.setNotification(true);
+
+                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
+                                startService(new Intent(SecuritySettings.this, NotificationService.class));
+
+                            }
+
+                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_LOCK_NOTIFICAO,Tracker.ACT_SETTING_LOCK_NOTIFICAO,1L);
+
+
+                        }
+                    });
+
                 }
 
                 return view;
@@ -301,15 +291,46 @@ public class SecuritySettings extends ClientActivitySecurity {
                         App.getSharedPreferences().edit().putInt(SecurityMyPref.PREF_BRIEF_SLOT, i).apply();
                         notifyDatasetChanged();
                         dialogInterface.dismiss();
+                        if(i==0){
+                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_EVERY_TIME,Tracker.ACT_SETTING_EVERY_TIME,1L);
+
+                        }else if(i==1){
+                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_FIVE_MINIUTE,Tracker.ACT_SETTING_FIVE_MINIUTE,1L);
+
+                        }else  if(i==2){
+                            Tracker.sendEvent(Tracker.ACT_SETTING_SCREEN_OFF,Tracker.ACT_SETTING_SCREEN_OFF,Tracker.ACT_SETTING_FIVE_MINIUTE,1L);
+
+                        }
+
                     }
                 }).create().show();
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_BRIEF,Tracker.ACT_SETTING_BRIEF,1L);
+
+
             } else if (id == 4) {
                 if (!SecurityMyPref.isOptionPressed(SecurityMyPref.OPT_RATE_REDDOT)) {
                     SecurityMyPref.pressOption(SecurityMyPref.OPT_RATE_REDDOT);
                 }
                 SecurityShare.rate(context);
-//                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_RATE, MyTrack.ACT_RATE, 1L);
                 notifyDatasetChanged();
+            } else if (id == SETTING_FACEBOOK) {
+
+                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_FACEBOOK,Tracker.ACT_FACEBOOK,1L);
+
+
+            } else if (id == SETTING_GOOGLE) {
+
+
+                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_GOOGLE_PLUS,Tracker.ACT_GOOGLE_PLUS,1L);
+
+
             }
         }
     };
@@ -357,7 +378,6 @@ public class SecuritySettings extends ClientActivitySecurity {
     }
 
 
-
     private void setupToolbar() {
         toolbar.setNavigationIcon(R.drawable.security_slide_menu);
         setSupportActionBar(toolbar);
@@ -382,7 +402,6 @@ public class SecuritySettings extends ClientActivitySecurity {
         }
         return true;
     }
-
 
 
 }

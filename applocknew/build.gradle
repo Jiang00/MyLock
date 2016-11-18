@@ -27,7 +27,7 @@ android {
         applicationId "com.security.applock"
         minSdkVersion 11
         targetSdkVersion 21
-        testApplicationId "com.freejoyapps.applock.tests"
+        testApplicationId "com.security.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
         versionCode 1
         versionName 'v1.0'
@@ -44,17 +44,7 @@ android {
         }
     }
 
-    productFlavors {
-        aurora {}
-        module {
-            applicationId "com.freejoyapps.applock"
-            versionCode 21
-            versionName 'v2.3'
-            signingConfig signingConfigs.moduleConfig
-            resValue("string", "app_name", "SecurityAppLock")
-            buildConfigField('String', 'ROOT_DIR_NAME', '"/.security_s_lock/"')
-        }
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
@@ -76,7 +66,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//    compile project(':library')
     compile project(':ByakuGallery')
     compile 'com.jakewharton:butterknife:6.1.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
@@ -84,5 +73,5 @@ dependencies {
     compile project(':api')
     compile project(':model')
     compile 'com.privacy.lib:common:1.1.0'
-    compile 'com.core:empty:1.0.3'
+    compile 'com.core:empty:1.0.7'
 }

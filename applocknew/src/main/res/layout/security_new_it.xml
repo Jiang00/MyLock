@@ -15,6 +15,7 @@
         android:background="@drawable/security_ne" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/security_abuout_bt"
         android:layout_width="match_parent"
         android:layout_height="62dp"

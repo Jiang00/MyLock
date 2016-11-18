@@ -125,4 +125,12 @@
     <string name="security_start_rat">5-තරු-ණය ශ්රේණිය</string>
     <string name="security_update">ස්ථාපනය</string>
     <string name="security_update_title">නව අනුවාදය යාවත්කාලීන</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">යාවත්කාලීන</string>
+    <string name="security_show_newversion_inf">නව අනුවාදය, නිදහස් කර ඇත එය යාවත්කාලීන කිරීමට ඉක්මන් කරන්න!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">AppLock ධාවනය වන</string>
+    <string name="security_visitor_off">AppLock නතර</string>
+    <string name="security_nofification">නිවේදනය</string>
 </resources>

@@ -17,6 +17,7 @@ public class SecurityMyPref {
 
     static SecurityMyPref securityMyPref = new SecurityMyPref();
 
+
     public static void upgrade() {
         SafeDB safeDB = SafeDB.defaultDB();
         int version = safeDB.getInt("version", 0);
@@ -71,38 +72,36 @@ public class SecurityMyPref {
 //        String passed = SafeDB.defaultDB().getString(normal ? "pp" : "pg", "");
 //        Utils.LOGER("passwd " + passed);
 
-        String savePass = SdkCache.cache().readText("applock_passwd_", false, false);
-
-
+        String savePass = getPasswd();
         return savePass.equals(pass);
 //        return App.getSharedPreferences().getString(normal ? "pp" : "pg", "").equals(pass);
     }
 
     public static String getPasswd() {
 
-        if(SdkCache.cache().readText("applock_passwd_", false, false)!=null){
-            return SdkCache.cache().readText("applock_passwd_", false, false);
+        String passWord = SdkCache.cache().readText("applock_passwd_", false, false);
+        if (passWord != null) {
+            return passWord;
 
-        }else{
+        } else {
             return "";
-
         }
+
+
 //        return App.getSharedPreferences().getString("pp", "");
     }
 
-    public static String getPattern() {
-        return  SdkCache.cache().readText("applock_passwd_", false, false);
-    }
+//    public static String getPattern() {
+//        return SdkCache.cache().readText("applock_passwd_", false, false);
+//    }
 
     public static boolean isPasswdSet(boolean normal) {
-        String string = SafeDB.defaultDB().getString(normal ? "pp" : "pg", "");
 //        String string = App.getSharedPreferences().getString(normal ? "pp" : "pg", null);
 //        return string != null && string.length() > 0;
 
         String passwd = SdkCache.cache().readText("applock_passwd_", false, false);
-        return  passwd != null && passwd.length()>0;
+        return passwd != null && passwd.length() > 0;
     }
-
 
 
     public SecurityMyPref remove(String tag) {
@@ -354,6 +353,23 @@ public class SecurityMyPref {
         blockAdsTime.setValue((int) (System.currentTimeMillis() / 1000L));
     }
 
+    public static void setVisitor(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("visitor_op_", yes).apply();
+    }
+
+    public static boolean getVisitor() {
+        return App.getSharedPreferences().getBoolean("visitor_op_", true);
+    }
+
+
+    public static void setNotification(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("notification_", yes).apply();
+    }
+
+    public static boolean getNotification() {
+        return App.getSharedPreferences().getBoolean("notification_", true);
+    }
+
 
     public static void setintruderCamer(boolean yes) {
         App.getSharedPreferences().edit().putBoolean("intruder-came_", yes).apply();
@@ -361,6 +377,24 @@ public class SecurityMyPref {
 
     public static boolean getintruderCamer() {
         return App.getSharedPreferences().getBoolean("intruder-came_", false);
+    }
+
+
+    public static void setFirstLeader(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("first_lea", yes).apply();
+    }
+
+    public static boolean getFirstLeader() {
+        return App.getSharedPreferences().getBoolean("first_lea", true);
+    }
+
+
+    public static void setOpenPermission(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("open_perssion_", yes).apply();
+    }
+
+    public static boolean getOpenPermission() {
+        return App.getSharedPreferences().getBoolean("open_perssion_", false);
     }
 
 

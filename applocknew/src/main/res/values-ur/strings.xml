@@ -125,4 +125,12 @@
     <string name="security_start_rat">5 ستارے درجہ بندی</string>
     <string name="security_update">انسٹال کریں</string>
     <string name="security_update_title">نئے ورژن کو اپ ڈیٹ</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">اپ ڈیٹ</string>
+    <string name="security_show_newversion_inf">نیا ورژن جاری کیا گیا ہے، اس کو اپ ڈیٹ کرنے کے لئے جلدی کرو!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">AppLock چل رہا ہے</string>
+    <string name="security_visitor_off">AppLock روک دی گئی ہے</string>
+    <string name="security_nofification">بارے میں اہم اطلاع</string>
 </resources>

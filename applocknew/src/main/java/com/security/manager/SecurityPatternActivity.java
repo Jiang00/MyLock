@@ -21,10 +21,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.WrapperListAdapter;
 
 import com.privacy.lock.R;
 import com.security.manager.db.SecurityProfileHelper;
+import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.page.PasswordFragmentSecurity;
@@ -49,6 +51,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     PatternFragmentSecurity patternFrag;
     PasswordFragmentSecurity passFrag;
     boolean normal = false;
+    Intent notiIntent;
 
     public void toggle(boolean normal) {
         if (normal) {
@@ -69,7 +72,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     protected void onStart() {
         resetThemeBridgeImpl();
         super.onStart();
-        if (!toggled && (passFrag != null || patternFrag != null)){
+        if (!toggled && (passFrag != null || patternFrag != null)) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, normal ? passFrag : patternFrag).commitAllowingStateLoss();
         }
     }
@@ -82,12 +85,15 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     @Override
     public void onResume() {
         switchTheme();
+        notiIntent = getIntent();
+
+
         super.onResume();
     }
 
     @Override
     protected void onStop() {
-        if (passFrag != null || patternFrag != null){
+        if (passFrag != null || patternFrag != null) {
             getSupportFragmentManager().beginTransaction().remove(normal ? passFrag : patternFrag).commitAllowingStateLoss();
         }
         toggled = false;
@@ -95,10 +101,10 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     }
 
     public void unlockSuccess(boolean unlockMe) {
-        switch (action){
+        switch (action) {
             case ACTION_SWITCH_PROFILE:
-                for(SecurityProfileHelper.ProfileEntry entry : SecuritProfiles.getEntries()){
-                    if (entry.name.equals(profileName)){
+                for (SecurityProfileHelper.ProfileEntry entry : SecuritProfiles.getEntries()) {
+                    if (entry.name.equals(profileName)) {
                         SecuritProfiles.switchProfile(entry, server);
                         break;
                     }
@@ -126,6 +132,14 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
             case ACTION_UNLOCK_SELF:
                 startListApp();
+                if(notiIntent.hasExtra(Notification.NOTIFICATION)){
+                    SecurityMyPref.setVisitor(false);
+                    stopService(new Intent(this, NotificationService.class));
+                    startService(new Intent(this, NotificationService.class));
+                    Toast.makeText(this,R.string.security_visitor_off,Toast.LENGTH_LONG).show();
+                    Tracker.sendEvent(Tracker.ACT_MODE,Tracker.ACT_MODE_NOTIFICATION,Tracker.ACT_MODE_OFF,1L);
+
+                }
                 break;
         }
     }
@@ -142,7 +156,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     @Override
     public void startListApp() {
-        if (firstLaunchShowResult){
+        if (firstLaunchShowResult) {
             firstTimeLaunch();
             firstLaunchShowResult = false;
             return;
@@ -206,7 +220,8 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     HashMap<String, String> firstLaunchLabels;
     HashMap<String, Boolean> firstLaunchLocked;
     HashMap<String, Boolean> firstLaunchFilter;
-    void loadPackages(){
+
+    void loadPackages() {
         if (firstLaunchList != null && firstLaunchList.size() > 0) return;
         PackageManager packageManager = getPackageManager();
         String[] predefinedpkgs = new String[]{
@@ -240,21 +255,22 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 PackageInfo pi = packageManager.getPackageInfo(pkg, PackageManager.GET_ACTIVITIES);
                 labels.put(pkg, pi.applicationInfo.loadLabel(packageManager).toString());
                 commons.add(pkg);
-            } catch (Exception ignore) {}
+            } catch (Exception ignore) {
+            }
             filter.put(pkg, true);
         }
 
         firstLaunchList = commons;
         firstLaunchLabels = labels;
         firstLaunchLocked = new HashMap<>();
-        for(int i=0; i<commons.size(); ++i){
+        for (int i = 0; i < commons.size(); ++i) {
 //            if (i > 10) break; //推荐默认枷锁前面多少个
             firstLaunchLocked.put(commons.get(i), true);
         }
         firstLaunchFilter = filter;
     }
 
-    public void firstTimeLaunch(){
+    public void firstTimeLaunch() {
         setContentView(R.layout.security_first);
 
         loadPackages();
@@ -297,7 +313,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             public View getView(int position, View convertView, ViewGroup parent) {
                 ViewHolder holder;
 
-                if (convertView == null){
+                if (convertView == null) {
                     convertView = LayoutInflater.from(SecurityPatternActivity.this).inflate(R.layout.security_locked_apps, parent, false);
                     holder = new ViewHolder();
                     holder.icon = (android.widget.ImageView) convertView.findViewById(R.id.icon);
@@ -322,7 +338,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 holder.icon.setImageBitmap(icon);
                 holder.appName.setText(firstLaunchLabels.get(pkg));
                 holder.encrypted.setEnabled(firstLaunchLocked.containsKey(pkg));
-                if (!clickable){
+                if (!clickable) {
                     holder.encrypted.setSelected(false);
                 } else {
                     holder.encrypted.setSelected(true);
@@ -332,7 +348,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             }
         });
 
-        if (!firstLaunchShowResult){
+        if (!firstLaunchShowResult) {
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -340,20 +356,20 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     --position;
                     String pkg = firstLaunchList.get(position);
                     boolean locked = firstLaunchLocked.containsKey(pkg);
-                    if (locked){
+                    if (locked) {
                         firstLaunchLocked.remove(pkg);
                     } else {
                         firstLaunchLocked.put(pkg, true);
                     }
-                    if (firstLaunchLocked.size() > 0){
+                    if (firstLaunchLocked.size() > 0) {
                         next.setEnabled(true);
                     } else {
                         next.setEnabled(false);
                     }
-                    ((BaseAdapter)((WrapperListAdapter)lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+                    ((BaseAdapter) ((WrapperListAdapter) lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
                 }
             });
-            new Thread(){
+            new Thread() {
                 @Override
                 public void run() {
                     PackageManager packageManager = getPackageManager();
@@ -383,7 +399,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                         } else {
                             labels.put(pkgName, pkg.loadLabel(packageManager).toString());
                             apps.add(pkgName);
-                            if (labels.size() == 10 || i == pkgs.size()-1){
+                            if (labels.size() == 10 || i == pkgs.size() - 1) {
                                 final HashMap<String, String> labels_ = (HashMap<String, String>) labels.clone();
                                 final ArrayList<String> apps_ = (ArrayList<String>) apps.clone();
                                 labels.clear();
@@ -395,7 +411,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                                         apps_.clear();
                                         firstLaunchLabels.putAll(labels_);
                                         labels_.clear();
-                                        ((BaseAdapter)((WrapperListAdapter)lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+                                        ((BaseAdapter) ((WrapperListAdapter) lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
                                     }
                                 });
                             }
@@ -408,7 +424,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             firstLaunchList.clear();
             firstLaunchList.addAll(firstLaunchLocked.keySet());
         }
-        if (firstLaunchShowResult){
+        if (firstLaunchShowResult) {
             TextView title = (TextView) header.findViewById(R.id.title);
             TextView desc = (TextView) header.findViewById(R.id.desc);
             ImageView icon = (ImageView) header.findViewById(R.id.select_app_status);
@@ -420,6 +436,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 @Override
                 public void onClick(View v) {
                     startListApp();
+                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.ACT_LEDADER_OK,Tracker.ACT_LEDADER_OK,1L);
                 }
             });
         } else {
@@ -429,6 +446,8 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     firstSetup = true;
                     firstLaunchShowResult = true;
                     setGraphView();
+                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.ACT_LEADER_SETPASSWORD,Tracker.ACT_LEADER_SETPASSWORD,1L);
+
                 }
             });
         }
@@ -436,7 +455,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     @Override
     public void setEmail() {
-        if (firstSetup){
+        if (firstSetup) {
             if (firstLaunchLocked != null && firstLaunchLocked.size() > 0) {
                 try {
                     SQLiteDatabase db = SecurityProfileHelper.singleton(getApplicationContext()).getWritableDatabase();
@@ -470,6 +489,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     }
 
     String pkg;
+
     @Override
     protected void onIntent(Intent intent) {
         action = intent.getIntExtra("action", intent.hasExtra("pkg") ? ACTION_UNLOCK_OTHER : ACTION_UNLOCK_SELF);
@@ -480,6 +500,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     boolean toggled = false;
     String profileName = null;
+
     public void selectOperation() {
         try {
             switch (setting) {

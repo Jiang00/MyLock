@@ -125,4 +125,12 @@
     <string name="security_start_rat">5 ดาวเรตติ้ง</string>
     <string name="security_update">ติดตั้ง</string>
     <string name="security_update_title">รุ่นปรับปรุงใหม่</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">ปรับปรุง</string>
+    <string name="security_show_newversion_inf">รุ่นใหม่ได้รับการปล่อยตัวออกมารีบร้อนที่จะปรับปรุงมัน!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">Applock กำลังทำงาน</string>
+    <string name="security_visitor_off">Applock จะหยุดการทำงาน</string>
+    <string name="security_nofification">การแจ้งเตือน</string>
 </resources>

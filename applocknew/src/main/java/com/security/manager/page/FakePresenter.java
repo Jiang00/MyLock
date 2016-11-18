@@ -306,16 +306,16 @@ public class FakePresenter {
         }
     }
 
-    public static int fakeIconDesc() {
-        int idx = fakeIconIdx();
-        int[] descs = {
-                R.string.security_fake_icon_default,
-                R.string.security_fake_icon_1,
-                R.string.security_fake_icon_2,
-                R.string.security_fake_icon_3
-        };
-        return descs[idx];
-    }
+//    public static int fakeIconDesc() {
+//        int idx = fakeIconIdx();
+//        int[] descs = {
+//                R.string.security_fake_icon_default,
+//                R.string.security_fake_icon_1,
+//                R.string.security_fake_icon_2,
+//                R.string.security_fake_icon_3
+//        };
+//        return descs[idx];
+//    }
 
     public static int fakeIconIdx() {
         Class[] classes = new Class[FAKE_ICON_COUNT];

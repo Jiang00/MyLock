@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
@@ -14,8 +15,11 @@ import com.security.manager.SecurityAppLock;
 import com.security.manager.FakeSelectorActivitySecurity;
 import com.security.manager.IntruderActivitySecurity;
 import com.security.manager.SecuritySettings;
+import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.Locale;
 
 /**
@@ -35,6 +39,8 @@ public class SecurityMenu {
     public static final int MENU_ABOUT = 10;
     public static final int MENU_DAILY = 11;
     public static final int MENU_FAQ = 4;
+    public static final String FACEBOOK = "https://www.facebook.com/IvyAppLock";
+    public static final String GOOGLE = "https://plus.google.com/u/0/communities/113134139742239607331";
 
 
     public static final String[] newidkeys = {
@@ -52,8 +58,12 @@ public class SecurityMenu {
 //            R.drawable.file,
 //            R.drawable.hide,
             R.drawable.security_myfake_2,
-            R.drawable.security_intrude_infomation
+            R.drawable.security_intrude_infomation,
 //            R.drawable.daily
+            R.drawable.security_intrude_infomation,
+            R.drawable.security_intrude_infomation
+
+
     };
 
 //    public static int menus[] = {
@@ -62,8 +72,8 @@ public class SecurityMenu {
 //    };
 
     public static int menus[] = {
-            R.string.security_lock_app, R.string.security_myfake,R.string.security_new_intruder,
-             R.string.security_tab_setting
+            R.string.security_lock_app, R.string.security_myfake, R.string.security_new_intruder,
+            R.string.security_tab_setting, R.string.security_facebook, R.string.security_google
     };
 
     public static byte[] seperator = {
@@ -74,6 +84,10 @@ public class SecurityMenu {
     static int langIdx = 0;
 
     public static void attach(final SlideMenu menu, final View reddot) {
+
+        Uri facebookuri = Uri.parse(FACEBOOK);
+        Uri googleuri = Uri.parse(GOOGLE);
+
         LinearLayout menuList = (LinearLayout) menu.findViewById(R.id.menu_its);
         final Context context = menu.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -85,21 +99,11 @@ public class SecurityMenu {
         int textColorNormal = resources.getColor(R.color.security_text_color);
 
         final Intent[] intents = new Intent[]{
-                new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS).putExtra("hide", false),
-//                new Intent(context, ExploreFolder.class).putExtra("normal", false).putExtra("video", false).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-//                new Intent(context, ExploreFolder.class).putExtra("normal", false).putExtra("video", true).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-//                new Intent(context, Profiles.class),
-                new Intent(context, FakeSelectorActivitySecurity.class),
-                new Intent(context, IntruderActivitySecurity.class),
-
-
-//                new Intent(context, PluginList.class),
-//                new Intent(context, Themes.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-//                new Intent(context, ExploreCommonFolder.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-//                new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS).putExtra("hide", true),
+                new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
+                new Intent(context, FakeSelectorActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
+                new Intent(context, IntruderActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
                 new Intent(context, SecuritySettings.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-//                new Intent(context, About.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-                null
+
         };
 
         View.OnClickListener listener = new View.OnClickListener() {
@@ -109,33 +113,35 @@ public class SecurityMenu {
                 if (currentMenuIt == i) {
                     menu.close();
                 } else {
-                    Context context = v.getContext();
-                    if (!SecurityMyPref.isMenuPressed(i)) {
-                        SecurityMyPref.pressMenu(i);
-                        v.findViewById(R.id.red).setVisibility(View.GONE);
-                        if (!SecurityMyPref.hasReddot()) {
-                            reddot.setVisibility(View.GONE);
-                        }
-                    }
-                    if (i == MENU_THEME) {
+                    if (intents[i] != null) {
                         context.startActivity(intents[i]);
                         ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
-                    } else if (i == MENU_DAILY) {
-//                        Utils.openPlayStore(context, App.getSharedPreferences().getString(ServerData.KEY_DAILY_MENU_URL, context.getString(R.string.website)));
-                    } else {
-                        if (intents[i] != null) {
-                            context.startActivity(intents[i]);
-                            ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
-                            currentMenuIt = i;
-                            ((Activity) context).finish();
-                        }
+                        currentMenuIt = i;
+                        ((Activity) context).finish();
+
                     }
-//                    Tracker.sendEvent(Tracker.CATE_MENU, acts[i], acts[i], 1L);
+
+                    if(i==0){
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_APPLOCK,Tracker.ACT_APPLOCK,1L);
+
+                    }else if(i==1){
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_FAKE,Tracker.ACT_FAKE,1L);
+
+
+                    }else if(i==2){
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_INTRUDE,Tracker.ACT_INTRUDE,1L);
+
+
+                    }else if(i==3){
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_MENU,1L);
+
+
+                    }
+
                 }
             }
         };
 
-        int j = 0;
         SecurityMyPref.pressMenu(SecurityMenu.MENU_LOCK_APP);
         for (int i = MENU_LOCK_APP; i < MENU_FAQ; ++i) {
             if (i == MENU_DAILY) {
@@ -147,102 +153,17 @@ public class SecurityMenu {
                 icon.setColorFilter(currentMenuIt == i ? iconColorSelected : iconColorNormal);
                 TextView text = (TextView) menuItem.findViewById(R.id.text);
                 text.setText(menus[i]);
+                menuItem.findViewById(R.id.blue).setVisibility(currentMenuIt == i ? View.VISIBLE : View.GONE);
 //                text.setTextColor(currentMenuIt == i ? textColorSelected : textColorNormal);
+                menuItem.findViewById(R.id.menu_it).setBackgroundResource(currentMenuIt==i?R.color.security_theme_change_bac:R.color.security_theme_primary);
                 menuItem.setOnClickListener(listener);
-                if (SecurityMyPref.isMenuPressed(i)) {
-                    menuItem.findViewById(R.id.red).setVisibility(View.GONE);
-                }
+
                 menuItem.setTag(i);
                 menuList.addView(menuItem);
             }
-
-            if (i == seperator[j]) {
-                View sep = inflater.inflate(R.layout.security_slide_menu_line, menuList, false);
-                menuList.addView(sep);
-                ++j;
-            }
         }
 
-//        if (SecurityMyPref.isAdvanceEnabled()) {
-//            View adv = inflater.inflate(R.layout.mat_menu_it, menuList, false);
-//            setUninstallMenu(adv);
-//            menuList.addView(adv);
-//            advanceView = adv;
-//        }
 
-//        View faq = menu.findViewById(R.id.faq);
-//        if (SecurityMyPref.isMenuPressed(MENU_FAQ)) {
-//            faq.findViewById(R.id.red).setVisibility(View.GONE);
-//        }
-//        faq.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (!SecurityMyPref.isMenuPressed(SecurityMenu.MENU_FAQ)) {
-//                    SecurityMyPref.pressMenu(SecurityMenu.MENU_FAQ);
-//                    v.findViewById(R.id.red).setVisibility(View.INVISIBLE);
-//                    if (!SecurityMyPref.hasReddot()) {
-//                        reddot.setVisibility(View.GONE);
-//                    }
-//                }
-//                Context context = v.getContext();
-//                Tracker.sendEvent(Tracker.CATE_MENU, Tracker.ACT_FAQ_MENU, Tracker.ACT_FAQ_MENU, 1L);
-//                View vv = LayoutInflater.from(context).inflate(R.layout.faq_layout, null, false);
-//                new AlertDialog.Builder(context).setTitle(R.string.help_help).setView(vv).setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                    }
-//                }).create().show();
-//            }
-//        });
-
-//        Spinner langspinner = (Spinner) menu.findViewById(R.id.langs);
-//        langspinner.setAdapter(new ArrayAdapter<>(context, R.layout.lang_it, new String[]{context.getResources().getString(R.string.system), "English"}));
-//        langspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                /**
-//                 * @design Well, English's position is 1, System's position is 0, I defined it
-//                 */
-//                if (SecurityMyPref.isEnglish()) {
-//                    if (position == 1) {
-//                        return;
-//                    }
-//                } else {
-//                    if (position == 0) return;
-//                }
-//                selectLanguage((Activity) context, position == 1);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-//        langspinner.setSelection(SecurityMyPref.isEnglish() ? 1 : 0);
     }
-
-
-    public static void selectLanguage(Activity context, boolean english) {
-        Configuration cfg = context.getResources().getConfiguration();
-        if (english)
-            cfg.locale = Locale.ENGLISH;
-        else
-            cfg.locale = Locale.getDefault();
-        SecurityMyPref.selectLanguage(english);
-        context.getResources().updateConfiguration(cfg, context.getResources().getDisplayMetrics());
-
-        context.recreate();
-    }
-
-    static View advanceView;
-
-
-    public static void removeUninstallMenu(SlideMenu menu) {
-        LinearLayout menuList = (LinearLayout) menu.findViewById(R.id.menu_its);
-        if (advanceView != null)
-            menuList.removeView(advanceView);
-    }
-
 
 }

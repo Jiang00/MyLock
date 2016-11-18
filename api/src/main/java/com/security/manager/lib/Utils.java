@@ -59,8 +59,19 @@ public class Utils {
     }
 
 
+    public static String photoSystem() {
+        try {
+            String photo = Build.MODEL;
+            return photo;
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+
     /**
      * 华为rom
+     *
      * @return
      */
     public static boolean isEMUI() {
@@ -74,6 +85,7 @@ public class Utils {
 
     /**
      * 小米rom
+     *
      * @return
      */
     public static boolean isMIUI() {
@@ -91,6 +103,7 @@ public class Utils {
 
     /**
      * 魅族rom
+     *
      * @return
      */
     public static boolean isFlyme() {
@@ -101,7 +114,6 @@ public class Utils {
             return false;
         }
     }
-
 
 
     public static void share(Context context, String title, String text, Bitmap stream) {
@@ -312,105 +324,205 @@ public class Utils {
         wm.removeViewImmediate(view);
     }
 
-    /** @hide No operation specified. */
+    /**
+     * @hide No operation specified.
+     */
     public static final int OP_NONE = -1;
-    /** @hide Access to coarse location information. */
+    /**
+     * @hide Access to coarse location information.
+     */
     public static final int OP_COARSE_LOCATION = 0;
-    /** @hide Access to fine location information. */
+    /**
+     * @hide Access to fine location information.
+     */
     public static final int OP_FINE_LOCATION = 1;
-    /** @hide Causing GPS to run. */
+    /**
+     * @hide Causing GPS to run.
+     */
     public static final int OP_GPS = 2;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_VIBRATE = 3;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_READ_CONTACTS = 4;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_CONTACTS = 5;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_READ_CALL_LOG = 6;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_CALL_LOG = 7;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_READ_CALENDAR = 8;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_CALENDAR = 9;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WIFI_SCAN = 10;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_POST_NOTIFICATION = 11;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_NEIGHBORING_CELLS = 12;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_CALL_PHONE = 13;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_READ_SMS = 14;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_SMS = 15;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_RECEIVE_SMS = 16;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_RECEIVE_EMERGECY_SMS = 17;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_RECEIVE_MMS = 18;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_RECEIVE_WAP_PUSH = 19;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_SEND_SMS = 20;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_READ_ICC_SMS = 21;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_ICC_SMS = 22;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_SETTINGS = 23;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_SYSTEM_ALERT_WINDOW = 24;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_ACCESS_NOTIFICATIONS = 25;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_CAMERA = 26;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_RECORD_AUDIO = 27;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_PLAY_AUDIO = 28;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_READ_CLIPBOARD = 29;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WRITE_CLIPBOARD = 30;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_TAKE_MEDIA_BUTTONS = 31;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_TAKE_AUDIO_FOCUS = 32;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_MASTER_VOLUME = 33;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_VOICE_VOLUME = 34;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_RING_VOLUME = 35;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_MEDIA_VOLUME = 36;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_ALARM_VOLUME = 37;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_NOTIFICATION_VOLUME = 38;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_AUDIO_BLUETOOTH_VOLUME = 39;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_WAKE_LOCK = 40;
-    /** @hide Continually monitoring location data. */
+    /**
+     * @hide Continually monitoring location data.
+     */
     public static final int OP_MONITOR_LOCATION = 41;
-    /** @hide Continually monitoring location data with a relatively high power request. */
+    /**
+     * @hide Continually monitoring location data with a relatively high power request.
+     */
     public static final int OP_MONITOR_HIGH_POWER_LOCATION = 42;
-    /** @hide Retrieve current usage stats via {@link UsageStatsManager}. */
+    /**
+     * @hide Retrieve current usage stats via {@link UsageStatsManager}.
+     */
     public static final int OP_GET_USAGE_STATS = 43;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_MUTE_MICROPHONE = 44;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int OP_TOAST_WINDOW = 45;
-    /** @hide Capture the device's display contents and/or audio */
+    /**
+     * @hide Capture the device's display contents and/or audio
+     */
     public static final int OP_PROJECT_MEDIA = 46;
-    /** @hide Activate a VPN connection without user intervention. */
+    /**
+     * @hide Activate a VPN connection without user intervention.
+     */
     public static final int OP_ACTIVATE_VPN = 47;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int _NUM_OP = 48;
 
     public static boolean xiaomi = false;
@@ -446,7 +558,7 @@ public class Utils {
             AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
             Method method = AppOpsManager.class.getDeclaredMethod("checkOp", int.class, int.class, String.class);
             method.setAccessible(true);
-            return (Integer)method.invoke(appOpsManager, permission, applicationInfo.uid, applicationInfo.packageName);
+            return (Integer) method.invoke(appOpsManager, permission, applicationInfo.uid, applicationInfo.packageName);
         } catch (Exception e) {
             e.printStackTrace();
             return -1;

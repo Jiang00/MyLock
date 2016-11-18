@@ -11,6 +11,7 @@ import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import com.android.client.AndroidSdk;
 import com.privacy.lock.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.LockPatternUtils;
@@ -42,10 +43,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    protected void tips() {
 
-    }
 
     @Override
     public void setupView() {
@@ -241,6 +239,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             @Override
             public void onClick(View view) {
                 setPasswdView();
+                Tracker.sendEvent(Tracker.CATE_SETTING,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,1L);
             }
         });
     }
@@ -259,6 +258,13 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     }
 
     void setGraphView() {
+        if(SecurityMyPref.getFirstLeader()){
+            SecurityMyPref.setFirstLeader(false);
+            Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
+        }else{
+            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
+
+        }
         setContentView(R.layout.security_pattern_view_set);
         ButterKnife.inject(this);
         View back = findViewById(R.id.back);
@@ -364,6 +370,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             }
         });
         ((ImageView) findViewById(R.id.backspace)).setColorFilter(getResources().getColor(R.color.security_numpad_color));
+
         passdot = (NumberDot) findViewById(R.id.passwd_dot_id);
         passdot.setFlag(true);
         passdot.init(new NumberDot.ICheckListener() {
@@ -391,6 +398,8 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             public void onClick(View view) {
                 if (togglePattern){
                     setGraphView();
+                    Tracker.sendEvent(Tracker.CATE_SETTING,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
+
                     return;
                 }
                 if (setProgress == 0) {

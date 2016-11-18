@@ -63,13 +63,14 @@
             />
         </LinearLayout>
 
-        <com.security.lib.customview.SecurityloadImage
+        <com.security.lib.customview.AnimationImageView
             android:id="@+id/security_invade_peple"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="48dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             />
+
 
         <ImageView
             android:id="@+id/security_xia_ic"

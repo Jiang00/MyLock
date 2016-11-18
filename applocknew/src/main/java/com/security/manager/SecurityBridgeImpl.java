@@ -75,7 +75,16 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             if (context instanceof Activity) {
                 ((SecurityPatternActivity) context).unlockSuccess(unlockMe);
             } else {
-                ((SecurityService) context).unlockSuccess(unlockMe);
+                if (context == null) {
+                    try {
+                        ((SecurityPatternActivity) App.getContext()).unlockSuccess(unlockMe);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    ((SecurityService) context).unlockSuccess(unlockMe);
+
+                }
                 SharedPreferences sp = App.getSharedPreferences();
                 if (sp.getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT) == SecurityMyPref.PREF_BRIEF_AFTER_SCREEN_OFF
                         && !sp.contains("PREF_BRIEF_AFTER_SCREEN_OFF")) {
@@ -112,7 +121,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
     public static final int MENU_IDX_ALL = -1;
     public static final int MENU_IDX_BRIEF = 0;
     public static final int MENU_IDX_UNLOCKME = 1;
-//    public static final int MENU_IDX_FORGET = 2;
+    //    public static final int MENU_IDX_FORGET = 2;
     public static final int MENU_IDX_THEME = 2;
     public static final int MENU_IDX_TOGGLE = 3;
     public static final int MENU_IDX_COUNT = 4;
@@ -326,7 +335,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
 //        d.iconPersistentUrl = ServerData.KEY_DAILY_ICON_PERSISTENT;
 //        return d;
 
-        return  null;
+        return null;
     }
 
     @Override

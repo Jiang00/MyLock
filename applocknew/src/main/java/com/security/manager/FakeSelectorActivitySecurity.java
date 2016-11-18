@@ -80,7 +80,7 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
         ButterKnife.inject(this);
         setupToolbar();
         setup(R.string.security_myfake);
-        normalTitle.setText("   "+getResources().getString(R.string.security_myfake));
+        normalTitle.setText("   " + getResources().getString(R.string.security_myfake));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
         findViewById(R.id.search_button).setVisibility(View.GONE);
@@ -90,7 +90,7 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
         normalTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            onBackPressed();
+                onBackPressed();
             }
         });
 
@@ -140,6 +140,8 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
         currentFakeIcon = which;
         FakePresenter.switchFakeIcon(which);
         Utils.notifyDataSetChanged(fakeIconList);
+        stopService(new Intent(this, NotificationService.class));
+        startService(new Intent(this, NotificationService.class));
     }
 
     @OnItemClick(R.id.fake_cover_list)
@@ -202,6 +204,8 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
                 });
                 break;
         }
+
+
     }
 
 
@@ -229,7 +233,6 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
         }
         return true;
     }
-
 
 
 }

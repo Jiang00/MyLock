@@ -30,7 +30,7 @@ public class NumberDot extends LinearLayout {
 
         int drawable = attrs.getAttributeResourceValue(null, "drawable", R.drawable.security_password_dot_cre);
 
-        setCount(10, drawable);
+        setCount(6, drawable);
         realPasswd = SecurityMyPref.getPasswd().toCharArray();
         a = AnimationUtils.loadAnimation(getContext(), R.anim.security_shake_dot);
         a.setAnimationListener(new Animation.AnimationListener() {

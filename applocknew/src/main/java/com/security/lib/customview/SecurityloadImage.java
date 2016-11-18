@@ -64,9 +64,7 @@ public class SecurityloadImage extends ImageView
         } else {
             Bitmap bitmap = ImageMaster.getImage(url);
 
-//            BitmapDrawable drawable=new BitmapDrawable();
-//
-//
+//              setImageBitmap(Bitmap.createBitmap(urlDrawable.getBitmap(),10,100,100,500));
 //            BitmapDrawable bitmapDrawable=(BitmapDrawable)imageview1.getDrawable();
 //            imageview2.setImageBitmap(Bitmap.createBitmap(bitmapDrawable.getBitmap(),x,y,width,height));
 

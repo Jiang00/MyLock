@@ -80,7 +80,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         setupToolbar();
 
         if (Utils.isMIUI()) {
-            if (SecurityMyPref.getintruderCamer() == false) {
+            if (!SecurityMyPref.getintruderCamer() ) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
                 SecurityMyPref.setintruderCamer(true);
             }
@@ -126,8 +126,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                     final IntruderEntry entry = intruderEntries.get(position);
                     holder.idx = position;
                     holder.appName.setText(entry.date);
-
-
                     ((SecurityloadImage) holder.icon).setImage(entry.url, 0L, FileType.TYPE_PIC, !scroll);
                     holder.icon.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -148,7 +146,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                         Drawable icon = packageInfo.applicationInfo.loadIcon(context.getPackageManager());
                         holder.lockIcon.setBackgroundDrawable(icon);
 
-                        CharSequence label = packageInfo.applicationInfo.loadLabel(context.getPackageManager());
+//                        CharSequence label = packageInfo.applicationInfo.loadLabel(context.getPackageManager());
 //                        holder.blockmessage.setText(getResources().getString(R.string.block_intruder_for_app, label));
                     } catch (PackageManager.NameNotFoundException e) {
                         holder.lockIcon.setBackgroundResource(R.drawable.ic_launcher);

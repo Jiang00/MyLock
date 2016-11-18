@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
+import com.security.manager.Tracker;
 import com.security.manager.lib.Utils;
 
 
@@ -31,8 +32,8 @@ public class ShowDialogview {
                 SecuritySharPFive sh = new SecuritySharPFive(context);
                 sh.setFiveRate(true);
                 if(listview!=null){
-                    if(AppsFragSecurity.headerView!=null){
-                        listview.removeHeaderView(AppsFragSecurity.headerView);
+                    if(AppFragementSecurity.headerView!=null){
+                        listview.removeHeaderView(AppFragementSecurity.headerView);
                     }
                 }
 
@@ -78,12 +79,17 @@ public class ShowDialogview {
 
                     }
                 });
+
+                Tracker.sendEvent(Tracker.ACT_PERMISSION,Tracker.ACT_PERMISSION_OK,Tracker.ACT_PERMISSION_OK,1L);
+
             }
         });
 
         alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Tracker.sendEvent(Tracker.ACT_PERMISSION,Tracker.ACT_PERMISSION_OK,Tracker.ACT_PERMISSION_CANCLE,1L);
+
                 d.cancel();
             }
         });

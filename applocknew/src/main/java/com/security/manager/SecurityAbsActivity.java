@@ -53,7 +53,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         super.onPause();
         invisible = true;
     }
-
     protected void onIntent(Intent intent) {
 
     }
@@ -63,12 +62,15 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void onPostResume() {
         super.onPostResume();
         invisible = false;
-        tips();
+
     }
 
     protected void tips() {
         if (SecurityMyPref.hasIntruder()) {
+            this.finish();
+            SecurityMenu.currentMenuIt = 2;
             SecurityIntruderPresenter.show();
+            overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
             SecurityMyPref.setHasIntruder(false);
         }
     }
@@ -149,7 +151,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
 
     @Override
     protected void onResume() {
-        AndroidSdk.onResume(this);
+        AndroidSdk.onResumeWithoutTransition(this);
         super.onResume();
     }
 

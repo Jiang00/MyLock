@@ -96,7 +96,7 @@ public class SecuritySurface extends SurfaceView implements SurfaceHolder.Callba
         try {
             Camera.Parameters parameters = camera.getParameters();
             List<Camera.Size> sizes = parameters.getSupportedPictureSizes();
-            Camera.Size size = getOptimalPreviewSize(sizes, 240, 320);
+            Camera.Size size = getOptimalPreviewSize(sizes, 500, 320);
             Camera.Size optimalSize = getOptimalPictureSize(camera, size);
             parameters.setPictureSize(optimalSize.width, optimalSize.height);
             camera.setParameters(parameters);
@@ -121,6 +121,7 @@ public class SecuritySurface extends SurfaceView implements SurfaceHolder.Callba
                                             }
                                         }
                                         Camera.Parameters parameters = cam.getParameters();
+
                                         int width = parameters.getPreviewSize().width;
                                         int height = parameters.getPreviewSize().height;
 

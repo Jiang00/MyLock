@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.usage.UsageStats;
@@ -40,6 +41,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.client.AndroidSdk;
 import com.privacy.lock.R;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.db.SecurityProfileHelper;
@@ -83,15 +85,22 @@ public class SecurityService extends Service {
 
     public String getTopPackageName() {
         String packageName = null;
+
+        if (!SecurityMyPref.getVisitor()) {
+            return "";
+        }
+
         if (Build.VERSION.SDK_INT > 19) {
             try {
                 packageName = getActivePackages();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
                 if (packageName == null) {
                     packageName = getTopPackage();
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -119,6 +128,7 @@ public class SecurityService extends Service {
         if (processInfos != null) {
             for (ActivityManager.RunningAppProcessInfo processInfo : processInfos) {
                 int anInt = processState.getInt(processInfo);
+
                 if (anInt == 2) return processInfo.pkgList[0];
             }
         }
@@ -126,13 +136,18 @@ public class SecurityService extends Service {
     }
 
 
-    /** first app user */
+    /**
+     * first app user
+     */
     public static final int AID_APP = 10000;
 
-    /** offset for uid ranges for each user */
+    /**
+     * offset for uid ranges for each user
+     */
     public static final int AID_USER = 100000;
 
     static HashMap<String, Boolean> excludes = new HashMap<>();
+
     static {
         excludes.put("com.android.systemui", true);
         excludes.put("android.process.acore", true);
@@ -156,7 +171,6 @@ public class SecurityService extends Service {
 
             try {
                 String cgroup = read(String.format("/proc/%d/cgroup", pid));
-
                 if (cgroup.contains("bg_non_interactive")) {
                     continue;
                 }
@@ -208,6 +222,7 @@ public class SecurityService extends Service {
             }
         }
 
+
         return foregroundProcess;
     }
 
@@ -226,7 +241,6 @@ public class SecurityService extends Service {
             }
         }
     }
-
 
 
     Field processState = null;
@@ -249,7 +263,7 @@ public class SecurityService extends Service {
         if (alertContainer != null) {
             wm.removeViewImmediate(alertContainer);
             if (alertView != null) {
-                ((ViewGroup)alertView).removeAllViews();
+                ((ViewGroup) alertView).removeAllViews();
             }
             alertContainer.removeAllViews();
             alertContainer = null;
@@ -259,6 +273,7 @@ public class SecurityService extends Service {
     }
 
     int delayTime = 0;
+
     public void hideAlertIfPossible(boolean home) {
         if (alert && !removing) {
             removing = true;
@@ -315,6 +330,8 @@ public class SecurityService extends Service {
 
         @Override
         public void run() {
+
+
             running = true;
             while (running) {
                 /**
@@ -328,7 +345,10 @@ public class SecurityService extends Service {
 //                    ServerData.fetchIfNecessary(getApplicationContext());
                 }
 
+
                 final String packageName = getTopPackageName();
+
+
                 if (packageName == null) {
                     try {
                         Thread.sleep(sleeptime);
@@ -352,7 +372,6 @@ public class SecurityService extends Service {
                                 tmpUnlockedApps.clear();
                                 getSharedPreferences("tmp", MODE_PRIVATE).edit().remove(SecurityMyPref.PREF_TMP_UNLOCK).commit();
                                 break;
-
                             default:
                                 if (tmpUnlockedApps.containsKey(lastPackageName)) {
                                     briefTimes.put(lastPackageName, System.currentTimeMillis());
@@ -446,7 +465,8 @@ public class SecurityService extends Service {
                 }
                 alertContainer = null;
                 alertView = null;
-            } catch (Exception ignore) {}
+            } catch (Exception ignore) {
+            }
 //            if (Build.VERSION.SDK_INT >= 21) {
 //                v.setPadding(0, Utils.getDimens(SecurityService.this, 16), 0, 0);
 //            }
@@ -477,7 +497,6 @@ public class SecurityService extends Service {
             @Override
             public void run() {
                 alert = true;
-                Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
                 final WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
                 LayoutInflater from = LayoutInflater.from(SecurityTheBridge.themeContext == null ? App.getContext() : SecurityTheBridge.themeContext);
                 if (SecurityMyPref.isUseNormalPasswd()) {
@@ -489,6 +508,7 @@ public class SecurityService extends Service {
         };
 
         CharSequence label;
+
         private void alertForUnlock(final String packageName) {
             lastApp = packageName;
             if (Utils.hasSystemAlertPermission(App.getContext())) {
@@ -618,86 +638,6 @@ public class SecurityService extends Service {
         }
     }
 
-//    public void initWidget() {
-//        boolean showing = App.getSharedPreferences().getBoolean(SecurityMyPref.PREF_SHOW_WIDGET, false);
-//        if (showing) {
-//            if (securityWidget == null) {
-//                SecuritProfiles.waiting(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        if (securityWidget != null) return;
-//                        SecurityWidget wc = new SecurityWidget(getApplicationContext(),
-//                                Gravity.START | Gravity.BOTTOM,
-//                                ViewGroup.LayoutParams.WRAP_CONTENT,
-//                                ViewGroup.LayoutParams.WRAP_CONTENT,
-//                                false);
-//                        ImageView view = new ImageView(getApplicationContext());
-//                        view.setImageResource(R.drawable.widget_desktop);
-//                        wc.setWidgetListener(new SecurityWidget.IWidgetListener() {
-//                            @Override
-//                            public boolean onBackPressed() {
-//                                return false;
-//                            }
-//
-//                            @Override
-//                            public boolean onMenuPressed() {
-//                                return false;
-//                            }
-//
-//                            @Override
-//                            public void onClick() {
-//                                SecurityDesktop.updateData(toggleContainer);
-//                                toggleContainer.setVisibility(View.VISIBLE);
-//                                securityWidget.setVisibility(View.GONE);
-//                            }
-//                        });
-//                        wc.addView(view);
-//                        SecurityWidget toggle = new SecurityWidget(getApplicationContext(),
-//                                Gravity.CENTER,
-//                                ViewGroup.LayoutParams.MATCH_PARENT,
-//                                ViewGroup.LayoutParams.MATCH_PARENT, true);
-//                        toggle.addView(SecurityDesktop.getView(getApplicationContext(), toggle, binder));
-//                        toggle.setWidgetListener(new SecurityWidget.IWidgetListener() {
-//                            @Override
-//                            public boolean onBackPressed() {
-//                                toggleContainer.setVisibility(View.GONE);
-//                                securityWidget.setVisibility(View.VISIBLE);
-//                                return true;
-//                            }
-//
-//                            @Override
-//                            public boolean onMenuPressed() {
-//                                return false;
-//                            }
-//
-//                            @Override
-//                            public void onClick() {
-//                                onBackPressed();
-//                            }
-//                        });
-//                        wc.setVisibility(View.GONE);
-//                        toggle.setVisibility(View.GONE);
-//
-//                        if (securityWidget != null) return;
-//                        securityWidget = wc;
-//                        toggleContainer = toggle;
-//                        securityWidget.addToWindow();
-//                        toggleContainer.addToWindow();
-//                    }
-//                });
-//            }
-//        } else {
-//            if (securityWidget != null) {
-//                handler.post(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        securityWidget.setVisibility(View.GONE);
-//                    }
-//                });
-//            }
-//        }
-//    }
-
     public void showWidgetIfNecessary(boolean show) {
         if (App.getSharedPreferences().getBoolean(SecurityMyPref.PREF_SHOW_WIDGET, false)) {
             final int visible = show ? View.VISIBLE : View.GONE;
@@ -807,23 +747,19 @@ public class SecurityService extends Service {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     String getTopPackage() {
         long ts = System.currentTimeMillis();
-
         if (mUsageStatsManager == null) {
             mUsageStatsManager = (UsageStatsManager) getSystemService("usagestats");
         }
-
-//        UsageEvents ue = mUsageStatsManager.queryEvents(ts - 1000, ts);
-//        UsageEvents.Event event = new UsageEvents.Event();
-//        while (ue.hasNextEvent()) {
-//            ue.getNextEvent(event);
-//        }
-//        return event.getPackageName();
         List<UsageStats> usageStats = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, ts - 10000, ts);
 
         if (usageStats == null || usageStats.size() == 0) {
-            return getForegroundApp();
+
+            String pkgname = getForegroundApp();
+
+            return pkgname;
         } else {
             Collections.sort(usageStats, mRecentComp);
+
             return usageStats.get(0).getPackageName();
         }
     }
@@ -866,19 +802,16 @@ public class SecurityService extends Service {
 
     Animation fadeout;
     boolean create = true;
-
     boolean hasAccessUsagePermission = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        AndroidSdk.onCreate(this);
         Utils.init();
         handler = new Handler(getMainLooper());
-
-
         if (Build.VERSION.SDK_INT >= 21) {
             hasAccessUsagePermission = Utils.checkPermissionIsGrant(App.getContext(), Utils.OP_GET_USAGE_STATS) == AppOpsManager.MODE_ALLOWED;
-
         }
 
         String[] top25 = new String[]{
@@ -1044,6 +977,7 @@ public class SecurityService extends Service {
     }
 
     boolean dontaskagain = false;
+
     public void protect(final String pkg) {
         try {
             PackageInfo pi = getPackageManager().getPackageInfo(pkg, PackageManager.GET_ACTIVITIES);
@@ -1154,8 +1088,5 @@ public class SecurityService extends Service {
         super.onDestroy();
     }
 
-    public static void startService(Context context) {
-        context.startService(new Intent(context, SecurityService.class));
-    }
 }
 

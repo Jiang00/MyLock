@@ -125,4 +125,12 @@
     <string name="security_start_rat">5-sao-Đánh giá</string>
     <string name="security_update">cài đặt, dựng lên</string>
     <string name="security_update_title">Phiên bản mới cập nhật</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">cập nhật</string>
+    <string name="security_show_newversion_inf">Các phiên bản mới đã được phát hành, vội vàng để cập nhật nó!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">AppLock đang chạy</string>
+    <string name="security_visitor_off">AppLock là dừng lại</string>
+    <string name="security_nofification">thông báo</string>
 </resources>

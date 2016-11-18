@@ -125,4 +125,12 @@
     <string name="security_start_rat">5-Bintang-Penilaian</string>
     <string name="security_update">Memasang</string>
     <string name="security_update_title">New Version Perbarui</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">MEMPERBARUI</string>
+    <string name="security_show_newversion_inf">Versi baru telah dirilis, terburu-buru untuk memperbaruinya!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">AppLock berjalan</string>
+    <string name="security_visitor_off">AppLock dihentikan</string>
+    <string name="security_nofification">Pemberitahuan</string>
 </resources>

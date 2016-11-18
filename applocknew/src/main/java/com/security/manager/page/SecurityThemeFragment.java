@@ -48,11 +48,15 @@ public class SecurityThemeFragment extends Fragment {
 
     public static void afterViewCreated(View view, OverflowCtrl ctrl) {
         setupTitle(view);
-//        if (!SecurityMyPref.isAdsBlocked()) {
-        createAdView((ViewGroup) view);
-//        }
-//        setupOverflow(view, ctrl);
-//        setupDaily(view);
+
+        try {
+            createAdView((ViewGroup) view);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
     public static void setupTitle(View v) {
@@ -155,6 +159,7 @@ public class SecurityThemeFragment extends Fragment {
                 view.addView(scrollView, layoutParams);
             }
         }
+
 
 
     }

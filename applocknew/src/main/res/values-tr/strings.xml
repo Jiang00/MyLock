@@ -125,5 +125,13 @@
     <string name="security_start_rat">5-Yıldız-Değerlendirme</string>
     <string name="security_update">kurmak</string>
     <string name="security_update_title">Yeni Versiyon Güncelleme</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">güncelleştirme</string>
+    <string name="security_show_newversion_inf">Yeni sürümü piyasaya sürüldü, güncellemek için acele edin!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">AppLock çalışıyor</string>
+    <string name="security_visitor_off">AppLock durduruldu</string>
+    <string name="security_nofification">Bildirim</string>
 </resources>
 

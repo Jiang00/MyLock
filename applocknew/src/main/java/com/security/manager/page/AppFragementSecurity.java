@@ -1,9 +1,14 @@
 package com.security.manager.page;
 
+import android.app.ActivityManager;
+import android.app.AppOpsManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,15 +22,14 @@ import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnItemClick;
-//
-//import com.android.client.AndroidSdk;
-//import com.android.client.ClientNativeAd;
+
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.lib.customview.SecurityBaseFrag;
 import com.security.manager.App;
 import com.security.manager.SecurityAppLock;
+import com.security.manager.Tracker;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
@@ -35,18 +39,22 @@ import com.security.manager.SearchThread;
 import com.security.manager.Tools;
 import com.privacy.lock.aidl.IWorker;
 import com.security.manager.db.SecurityProfileHelper;
+import com.security.manager.lib.io.RefreshList;
 import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecuritProfiles;
+import com.security.manager.meta.SecurityMyPref;
+import com.security.manager.meta.SimpleGetTopAppUseCase;
 
 import java.util.*;
 
+import static android.content.Context.ACTIVITY_SERVICE;
 import static com.security.manager.page.SecurityThemeFragment.TAG_TLEF_AD;
 import static com.security.manager.page.SecurityThemeFragment.TAG_TOP_AD;
 
 /**
  * Created by SongHualin on 6/24/2015.
  */
-public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.OnSearchResult {
+public class AppFragementSecurity extends SecurityBaseFrag implements RefreshList {
     public static final String PROFILE_ID_KEY = "profile_id";
     public static final String PROFILE_NAME_KEY = "profile_name";
     public static final String PROFILE_HIDE = "hide";
@@ -55,10 +63,10 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
     SwipeRefreshLayout refreshLayout;
 
     @InjectView(R.id.abs_list)
-    ListView listView;
+     ListView listView;
 
     CListViewScroller scroller;
-    CListViewAdaptor adaptor;
+    static CListViewAdaptor adaptor;
 
     SecurityProfileHelper.ProfileEntry profileEntry;
     SQLiteDatabase db;
@@ -68,6 +76,8 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
     SecuritySharPFive shareFive;
 
     boolean adShow = false;
+
+    SimpleGetTopAppUseCase topUseCase;
 
 
     public static final Object searchLock = new Object();
@@ -88,6 +98,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         onArguments(savedInstanceState);
+
     }
 
     @Override
@@ -103,17 +114,17 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
         setRetainInstance(true);
         super.onCreate(savedInstanceState);
         updateLocks();
+
+
     }
 
     private void updateLocks() {
-        if (!hide) {
-            db = SecurityProfileHelper.singleton(getActivity()).getWritableDatabase();
-            if (profileEntry.name != null) {
-                try {
-                    locks = SecurityProfileHelper.ProfileEntry.getLockedApps(db, profileEntry.id);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        db = SecurityProfileHelper.singleton(getActivity()).getWritableDatabase();
+        if (profileEntry.name != null) {
+            try {
+                locks = SecurityProfileHelper.ProfileEntry.getLockedApps(db, profileEntry.id);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -122,14 +133,8 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.security_myapp_list, container, false);
         ButterKnife.inject(this, v);
-
         shareFive = new SecuritySharPFive(getActivity());
-//        showDialogFive();
-
-
         headerView = inflater.inflate(R.layout.security_main_title_rate, null);
-
-
         refreshLayout.setColorSchemeResources(R.color.security_theme_accent_2, R.color.security_theme_accent_1);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -146,6 +151,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
         }
         setAdaptor();
 
+
         return v;
     }
 
@@ -154,17 +160,9 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
         super.onResume();
         MApps.setWaiting(action);
         updateLocks();
-    }
 
-    public void switchProfile(SecurityProfileHelper.ProfileEntry entry, IWorker server) {
-        if (dirty) {
-            saveOrCreateProfile(profileEntry.name, server);
-        }
-        refreshLayout.setRefreshing(true);
-        profileEntry = entry;
-        locks = SecurityProfileHelper.ProfileEntry.getLockedApps(db, entry.id);
-        SecuritProfiles.switchProfile(entry, server);
-        MApps.setWaiting(action);
+
+
     }
 
     public void saveOrCreateProfile(String profileName, IWorker server) {
@@ -194,21 +192,11 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
         super.onDestroy();
     }
 
+
     private void setAdaptor() {
         adaptor = new CListViewAdaptor(scroller, R.layout.security_apps_item) {
 
             private void updateUI(int position, ViewHolder h, boolean forceLoading) {
-//                if (requireCheckHeader()) {
-//                    if (position == 0) {
-//                        h.icon.setImageResource(R.drawable.fake_none);
-//                        h.name.setText(R.string.intruder);
-//                        h.lock.setImageResource(R.drawable.ic_action_next_item);
-//                        return;
-//                    } else {
-//                        --position;
-//                    }
-//                }
-
                 apps = MApps.getApps(locks);
                 if (apps.size() != 0) {
                     //                List<SearchThread.SearchData> list = searchResult == null ? apps : searchResult;
@@ -217,6 +205,13 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
                     String pkgName = data.pkg;
                     h.icon.setImageIcon(pkgName, forceLoading);
                     h.name.setText(data.label);
+
+                    if (SecurityMyPref.getVisitor()) {
+                        h.lock.setImageResource(R.drawable.security_lock_bg);
+
+                    } else {
+                        h.lock.setImageResource(R.drawable.security_lock_bg_two);
+                    }
                     h.lock.setImageResource(R.drawable.security_lock_bg);
                     h.lock.setEnabled(locks.containsKey(pkgName));
                 }
@@ -248,37 +243,14 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 
     }
 
-    Runnable refreshSearchResult = new Runnable() {
-        @Override
-        public void run() {
-            Utils.notifyDataSetChanged(listView);
-        }
-    };
-    boolean searching = false;
-
-    public List<SearchThread.SearchData> getSearchData() {
-        searching = true;
-        return apps;
-    }
-
     @Override
-    public void onResult(ArrayList<SearchThread.SearchData> list) {
-        synchronized (searchLock) {
-            if (searching) {
-                searchResult = list;
-                if (list == null) {
-                    searching = false;
-                    MApps.setWaiting(action);
-                } else {
-                    refreshUI(refreshSearchResult);
-                }
-            }
+    public void refresh() {
+        if(adaptor!=null){
+            adaptor.notifyDataSetChanged();
         }
+
     }
 
-    public void refreshUI(Runnable action) {
-        App.runOnUiThread(action);
-    }
 
     class ViewHolder {
         @InjectView(R.id.icon)
@@ -300,26 +272,12 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 
     Toast toast;
 
-    private boolean requireCheckHeader() {
-        return !hide && searchResult == null;
-    }
-
     @OnItemClick(R.id.abs_list)
     public void onItemClick(View view, int which) {
-//        if (requireCheckHeader()) {
-//            if (which == 0) {
-//                SecurityIntruderPresenter.show();
-//                return;
-//            } else {
-//                --which;
-//            }
-//        }
         int count = listView.getHeaderViewsCount();
         if (count > 0) {
             which--;
         }
-
-        Log.e("mtt", "which" + which);
         List<SearchThread.SearchData> list = apps;
         if (which >= list.size()) return;
         SearchThread.SearchData data = list.get(which);
@@ -329,42 +287,24 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
         }
         String pkgName = data.pkg;
 
-        Log.e("mtt", pkgName + "--");
-        Context context = view.getContext().getApplicationContext();
         if (locks.containsKey(pkgName)) {
-            if (hide) {
-                if (!Tools.showApp(pkgName)) {
-                } else {
-                    toast = Toast.makeText(context, getString(R.string.security_show_successful, data.label), Toast.LENGTH_SHORT);
-                    locks.remove(pkgName);
-                    MApps.show(data);
-                }
-                toast.show();
-            } else {
-                locks.remove(pkgName);
-                toast = Toast.makeText(getActivity().getApplicationContext(), getResources().getString(R.string.security_unlock_success, data.label), Toast.LENGTH_SHORT);
-            }
+            locks.remove(pkgName);
+            toast = Toast.makeText(getActivity().getApplicationContext(), getResources().getString(R.string.security_unlock_success, data.label), Toast.LENGTH_SHORT);
+            Tracker.sendEvent(Tracker.ACT_APPLOCK,Tracker.ACT_APPLOCK_UNLOCK,data.label+"",1L);
+
         } else {
-            if (hide) {
-                if (!Tools.hideApp(pkgName)) {
-//                    toast = Toast.makeText(context, null, data.label), Toast.LENGTH_SHORT);
-                } else {
-                    toast = Toast.makeText(context, getString(R.string.security_hide_successful, data.label), Toast.LENGTH_SHORT);
-                    locks.put(pkgName, true);
-                    MApps.hide(data);
-                }
-            } else {
-                toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.security_lock_success, data.label), Toast.LENGTH_SHORT);
-                locks.put(pkgName, true);
-            }
+
+            toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.security_lock_success, data.label), Toast.LENGTH_SHORT);
+            locks.put(pkgName, true);
+            Tracker.sendEvent(Tracker.ACT_APPLOCK,Tracker.ACT_APPLOCK_LOCK,data.label+"",1L);
+
         }
         ViewHolder holder = (ViewHolder) view.getTag();
         holder.lock.setEnabled(locks.containsKey(pkgName));
-
         toast.show();
     }
 
-    private Runnable action = new Runnable() {
+    Runnable action = new Runnable() {
         @Override
         public void run() {
             apps = hide ? MApps.getHiddenApps(locks) : MApps.getApps(locks);
@@ -374,6 +314,10 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
             Utils.notifyDataSetChanged(listView);
         }
     };
+
+    public static void refreshUI(Runnable action) {
+        App.runOnUiThread(action);
+    }
 
 
     private void headerClick(final View headerView) {
@@ -386,9 +330,10 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
                 listView.removeHeaderView(headerView);
                 shareFive.setFiveRate(true);
                 getActivity().finish();
-                Log.e("mtt", "headview");
                 Intent intent = new Intent(getActivity(), SecurityAppLock.class);
                 startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE_GOOD,Tracker.ACT_PERMISSION_CANCLE,1L);
+
 
             }
         });
@@ -398,11 +343,6 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
             @Override
             public void onClick(final View v) {
                 shareFive.setFiveRate(true);
-
-//                if (Utils.hasPlayStore(getActivity())) {
-//
-//                }
-
                 Utils.rate(getActivity());
 
                 if (!Utils.isEMUI()) {
@@ -425,6 +365,7 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 
 
                 listView.removeHeaderView(headerView);
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE_GOOD,Tracker.ACT_GOOD_RATE_GOOD,1L);
 
             }
         });
@@ -438,6 +379,8 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
                 getActivity().finish();
                 Intent intent = new Intent(getActivity(), SecurityAppLock.class);
                 startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE_GOOD,Tracker.ACT_GOOD_RATE_CLOSE,1L);
+
             }
         });
 
@@ -472,7 +415,17 @@ public class AppsFragSecurity extends SecurityBaseFrag implements SearchThread.O
 //                listView.addHeaderView(scrollView);
 //            }
 //        }
+
+
     }
+
+    public static void refreshlist(){
+        adaptor.notifyDataSetChanged();
+        Log.e("mtt","refresh");
+
+    }
+
+
 }
 
 

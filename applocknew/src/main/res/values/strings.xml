@@ -127,7 +127,10 @@
     <string name="setting_category_pattern">Pattern</string>
     <string name="setting_digital_code">PIN code</string>
     <string name="security_show_newversion">UPDATE</string>
-    <string name="security_show_newversion_inf">The new version has been released, hurry to update it</string>
-
-
+    <string name="security_show_newversion_inf">The new version has been released, hurry to update it!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">AppLock is running</string>
+    <string name="security_visitor_off">AppLock is stopped</string>
+    <string name="security_nofification">Notification</string>
 </resources>

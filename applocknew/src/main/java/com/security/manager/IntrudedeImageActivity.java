@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 
 import com.privacy.lock.R;
+import com.security.lib.customview.AnimationImageView;
 import com.security.lib.customview.SecurityloadImage;
 import com.security.manager.lib.BaseActivity;
 
@@ -34,7 +35,7 @@ public class IntrudedeImageActivity extends BaseActivity {
     ImageView blockIcon;
 
     @InjectView(R.id.security_invade_peple)
-    SecurityloadImage blockImage;
+    AnimationImageView blockImage;
 
 
     @InjectView(R.id.security_xia_ic)

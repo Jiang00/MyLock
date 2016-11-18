@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/menu_it"
-    android:layout_width="258dp"
+    android:layout_width="match_parent"
     android:layout_height="72dp"
     android:background="@color/security_theme_primary"
     android:gravity="center_vertical"
     android:orientation="horizontal">
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/blue"
+        android:background="#00abf1"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"></View>
+
 
     <ImageView
         android:id="@+id/icon"

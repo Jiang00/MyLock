@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.SecuritySetPattern;
+import com.security.manager.Tracker;
 
 
 /**
@@ -83,6 +84,8 @@ public class showDialog {
            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
            intent.putExtra("set", SecuritySetPattern.SET_GRAPH_PASSWD);
            c.startActivity(intent);
+           Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
+
 
        }
    });
@@ -96,6 +99,8 @@ public class showDialog {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("set", SecuritySetPattern.SET_NORMAL_PASSWD);
                 c.startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,1L);
+
 
 
             }

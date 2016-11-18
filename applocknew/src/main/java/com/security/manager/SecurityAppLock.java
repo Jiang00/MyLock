@@ -4,42 +4,38 @@ import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.android.client.ClientNativeAd;
-import com.android.client.SdkResultListener;
 import com.privacy.lock.R;
 import com.security.manager.db.backgroundData;
+import com.security.manager.lib.io.RefreshList;
 import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.AppsFragSecurity;
+import com.security.manager.page.AppFragementSecurity;
 import com.security.manager.page.SlideMenu;
 import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.ShowDialogview;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.io.SafeDB;
 import com.security.manager.meta.SecuritProfiles;
-import com.security.manager.page.MessageBox;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import static com.core.common.SdkEnv.getActivity;
 import static com.security.manager.page.SecurityThemeFragment.TAG_TLEF_AD;
 
 /**
@@ -50,36 +46,24 @@ public class SecurityAppLock extends ClientActivitySecurity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tips();
+
+        Log.e("photosystem", Utils.photoSystem() + "----");
 
     }
-
-//    @Override
-//    public void onResult(ArrayList<SearchThread.SearchData> list) {
-//        if (fragment != null) {
-//            fragment.onResult(list);
-//        }
-//    }
 
     @Override
     protected void onResume() {
+        if (SecurityMyPref.getVisitor()) {
+            visitor.setBackgroundResource(R.drawable.security_visitor_on);
+        } else {
+            visitor.setBackgroundResource(R.drawable.security_visitor_off);
+        }
         super.onResume();
     }
 
-//    @Override
-//    protected void onSearchExit() {
-//        if (fragment != null) {
-//            fragment.onResult(null);
-//        }
-//    }
 
-//    @Override
-//    public List<SearchThread.SearchData> getSearchList() {
-//        return fragment == null ? super.getSearchList() : fragment.getSearchData();
-//    }
-
-//    @InjectView(R.id.float_action_menu)
-
-    AppsFragSecurity fragment;
+    AppFragementSecurity fragment;
 
     private String profileName;
 
@@ -91,27 +75,45 @@ public class SecurityAppLock extends ClientActivitySecurity {
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
+    @InjectView(R.id.visitor)
+    ImageView visitor;
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void requirePermission() {
         if (Build.VERSION.SDK_INT >= 21) {
             if (Utils.requireCheckAccessPermission(this)) {
-                final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-                    if (Utils.isEMUI()) {
-                        new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
-                                .setMessage(R.string.security_permission_msg)
-                                .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        startActivity(intent);
-                                    }
-                                }).setNegativeButton(android.R.string.cancel, null).create().show();
+                String value = Utils.photoSystem().toString();
+                if (!value.contains("SM") && !value.contains("LG")) {
+                    final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                    if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
+                        if (Utils.isEMUI()) {
+                            new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
+                                    .setMessage(R.string.security_permission_msg)
+                                    .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            startActivity(intent);
+                                            Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
-                    } else {
-                        ShowDialogview.showPermission(this);
+                                        }
+                                    }).setNegativeButton(android.R.string.cancel, null).create().show();
 
+                        } else {
+                            ShowDialogview.showPermission(this);
+                        }
                     }
                 }
+
+            } else {
+                String value = Utils.photoSystem().toString();
+                if (!value.contains("SM") && !value.contains("LG")) {
+                  if(!SecurityMyPref.getOpenPermission()) {
+                      Tracker.sendEvent(Tracker.ACT_PERMISSION,Tracker.ACT_PERMISSION_OPEN,Tracker.ACT_PERMISSION_OPEN,1L);
+                       SecurityMyPref.setOpenPermission(true);
+                  }
+                }
+
+
             }
         }
     }
@@ -147,87 +149,76 @@ public class SecurityAppLock extends ClientActivitySecurity {
                 e.printStackTrace();
             }
         }
+
     }
+
 
     public void setupView() {
         setContentView(R.layout.security_slidemenu_data);
         ButterKnife.inject(this);
         setupToolbar();
-
-        if (hide) {
-
-        } else {
-            SecurityMenu.currentMenuIt = SecurityMenu.MENU_LOCK_APP;
-        }
+        SecurityMenu.currentMenuIt = SecurityMenu.MENU_LOCK_APP;
         setup(R.string.security_lock_app);
+        visitor.setVisibility(View.VISIBLE);
+
 
         profileName = SafeDB.defaultDB().getString(SecurityMyPref.PREF_ACTIVE_PROFILE, SecurityMyPref.PREF_DEFAULT_LOCK);
         long profileId = SafeDB.defaultDB().getLong(SecurityMyPref.PREF_ACTIVE_PROFILE_ID, 1);
 
-        fragment = (AppsFragSecurity) getFragmentManager().findFragmentByTag("fragment");
+        fragment = (AppFragementSecurity) getFragmentManager().findFragmentByTag("fragment");
         if (fragment == null) {
-            fragment = new AppsFragSecurity();
+            fragment = new AppFragementSecurity();
             Bundle args = new Bundle();
-            args.putLong(AppsFragSecurity.PROFILE_ID_KEY, profileId);
-            args.putString(AppsFragSecurity.PROFILE_NAME_KEY, profileName);
-            args.putBoolean(AppsFragSecurity.PROFILE_HIDE, hide);
+            args.putLong(AppFragementSecurity.PROFILE_ID_KEY, profileId);
+            args.putString(AppFragementSecurity.PROFILE_NAME_KEY, profileName);
+            args.putBoolean(AppFragementSecurity.PROFILE_HIDE, hide);
             fragment.setArguments(args);
             getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment, "fragment").commit();
         }
-
         requirePermission();
 
         ininShowAD();
 
         initgetData();
+
+
+        visitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (SecurityMyPref.getVisitor()) {
+                    SecurityMyPref.setVisitor(false);
+                    visitor.setBackgroundResource(R.drawable.security_visitor_off);
+                    Toast.makeText(getApplication(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
+                    stopService(new Intent(SecurityAppLock.this, NotificationService.class));
+                    startService(new Intent(SecurityAppLock.this, NotificationService.class));
+                    Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
+                } else {
+                    visitor.setBackgroundResource(R.drawable.security_visitor_on);
+                    Toast.makeText(getApplication(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+                    SecurityMyPref.setVisitor(true);
+                    stopService(new Intent(SecurityAppLock.this, NotificationService.class));
+                    startService(new Intent(SecurityAppLock.this, NotificationService.class));
+                    Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_ON, 1L);
+
+                }
+            }
+        });
     }
+
     @Override
     protected void onPause() {
-        if (!hide) {
-            fragment.saveOrCreateProfile(profileName, server);
-        }
+        fragment.saveOrCreateProfile(profileName, server);
         super.onPause();
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        String pn = SafeDB.defaultDB().getString(SecurityMyPref.PREF_ACTIVE_PROFILE, SecurityMyPref.PREF_DEFAULT_LOCK);
-        if (!pn.equals(profileName)) {
-            fragment.switchProfile(SecuritProfiles.getEntries().get(SecuritProfiles.getActiveProfileIdx(pn)), server);
-            profileName = pn;
-        }
+
+
     }
 
-    //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == Setting.REQ_CODE_ADVANCE) {
-//            DevicePolicyManager p = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
-//            boolean b = p.isAdminActive(new ComponentName(context, DeviceAdmin.class));
-//            if (b) {
-//                MessageBox.Data d = new MessageBox.Data();
-//                d.title = R.string.advanced_security;
-//                d.msg = R.string.dev_admin_actived;
-//                MessageBox.show(this, d);
-//                Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_ADVANCE, Tracker.LABEL_ADVANCE, 1);
-//            } else {
-//                Toast.makeText(context, R.string.dev_admin_canceled, Toast.LENGTH_SHORT).show();
-//            }
-//            SecurityMyPref.enableAdvance(b);
-//            if (b) {
-//                if (!SecurityMyPref.isOptionPressed(SecurityMyPref.OPT_ADVANCE_REDDOT)) {
-//                    SecurityMyPref.pressOption(SecurityMyPref.OPT_ADVANCE_REDDOT);
-//                }
-//                if (menu != null)
-//                    SecurityMenu.addUninstallMenu(menu);
-//            } else {
-//                if (menu != null)
-//                    SecurityMenu.removeUninstallMenu(menu);
-//            }
-//        }
-//    }
-//
-//
     void ininShowAD() {
         if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
             View scrollView = AndroidSdk.peekNativeAdViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.app_slide_native_layout, null);
@@ -262,14 +253,13 @@ public class SecurityAppLock extends ClientActivitySecurity {
         return true;
     }
 
-
     private void initgetData() {
         String data = AndroidSdk.getExtraData();
         if (data != null) {
             backgroundData.onReceiveData(this, data);
 
         }
-
     }
+
 
 }

@@ -125,5 +125,13 @@
     <string name="security_rate_good">جيد</string>
     <string name="security_rate_msg">إذا كنت ترغب AppLock، يرجى اعطاءنا-تصنيف 5 نجوم.</string>
     <string name="security_rate_t">معدل Applock</string>
+	<string name="app_name">AppLock</string>
+	<string name="security_show_newversion">تحديث</string>
+    <string name="security_show_newversion_inf">لقد تم الافراج عن الإصدار الجديد، عجل لتحديثه!</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_google">Google+</string>
+    <string name="security_visitor_on">وAppLock تشغيل</string>
+    <string name="security_visitor_off">توقف AppLock</string>
+    <string name="security_nofification">إعلام</string>
 </resources>
 
