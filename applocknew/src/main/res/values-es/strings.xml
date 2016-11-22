@@ -133,4 +133,9 @@
     <string name="security_visitor_on">AppLock se está ejecutando</string>
     <string name="security_visitor_off">AppLock se detiene</string>
     <string name="security_nofification">Notificación</string>
+	<string name="security_power_mode">Ahorro de energía</string>
+    <string name="security_power_mode_des">Reducir el consumo de energía del 50%, extender el tiempo de espera del teléfono.</string>
+	<string name="security_service_title">Accesibilidad</string>
+    <string name="security_service_description">Servicio estable y menos consumo de energía.</string>
+	<string name="security_settings_preference">Preferencia</string>
 </resources>

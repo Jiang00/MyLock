@@ -1,47 +1,58 @@
 package com.security.manager.page;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
-
 import com.privacy.lock.R;
 import com.security.manager.App;
-
+import com.security.manager.SecuritySettingsAdvance;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
 import com.security.manager.meta.SecurityCusTheme;
 
 import java.util.List;
 
+import butterknife.InjectView;
+
 /**
  * Created by huale on 2014/11/21.
  */
 public class PatternFragmentSecurity extends SecurityThemeFragment {
 
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true);
-        } else {
-            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
-        }
         return pattern = getView(inflater, container, ctrl, new ICheckResult() {
             @Override
             public void onSuccess() {
                 getActivity().finish();
+            }
+
+            @Override
+            public void unLock() {
+
             }
         });
     }
@@ -82,6 +93,42 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             }
         }
 
+        v.findViewById(R.id.setting_advance).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    ISecurityBridge bridge = SecurityTheBridge.bridge;
+                    Log.e("name",bridge.appName()+"");
+                    if (bridge != null) {
+                        if (bridge.appName().equals(R.string.app_name)) {
+                            Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                            intent.putExtra("launchname", bridge + "");
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            App.getContext().startActivity(intent);
+                        }else{
+                            Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            App.getContext().startActivity(intent);
+
+                        }
+
+
+                    } else {
+                        Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        App.getContext().startActivity(intent);
+
+                    }
+
+
+                    callback.unLock();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
 
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         final SecurityPatternView lock = (SecurityPatternView) v.findViewById(R.id.lpv_lock);
@@ -90,21 +137,6 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         parent.requestLayout();
 
         v.findViewById(R.id.passwd_cancel).setVisibility(View.GONE);
-        /*
-        View cancel = v.findViewById(R.id.passwd_cancel);
-        if (bridge.hasPasswd()){
-            cancel.setBackgroundDrawable(null);
-            cancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    bridge.toggle(true);
-                }
-            });
-        } else {
-            cancel.setVisibility(View.INVISIBLE);
-        }
-        */
-
         final ViewStub forbidden = new ViewStub(App.getContext(), R.layout.security_myforbidden);
         ((MyFrameLayout) v).addView(forbidden);
         final ErrorBiddenView errorBiddenView = new ErrorBiddenView(forbidden);
@@ -142,19 +174,13 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         });
         lock.clearPattern();
         v.setOnClickListener(ctrl.hideOverflow);
-
         return v;
     }
 
-    private void setTranslucentStatus(boolean on) {
-        Window win = getActivity().getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.security_setting_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

@@ -85,16 +85,16 @@ public class SecurityBridgeImpl implements ISecurityBridge {
                     ((SecurityService) context).unlockSuccess(unlockMe);
 
                 }
-                SharedPreferences sp = App.getSharedPreferences();
-                if (sp.getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT) == SecurityMyPref.PREF_BRIEF_AFTER_SCREEN_OFF
-                        && !sp.contains("PREF_BRIEF_AFTER_SCREEN_OFF")) {
-                    MessageBox.Data data = new MessageBox.Data();
-                    data.alert = true;
-                    data.title = R.string.security_short_exit;
-                    data.msg = R.string.security_short_exit_off;
-                    MessageBox.show_(context, data);
-                    sp.edit().putBoolean("PREF_BRIEF_AFTER_SCREEN_OFF", true).apply();
-                }
+//                SharedPreferences sp = App.getSharedPreferences();
+//                if (sp.getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT) == SecurityMyPref.PREF_BRIEF_AFTER_SCREEN_OFF
+//                        && !sp.contains("PREF_BRIEF_AFTER_SCREEN_OFF")) {
+//                    MessageBox.Data data = new MessageBox.Data();
+//                    data.alert = true;
+//                    data.title = R.string.security_short_exit;
+//                    data.msg = R.string.security_short_exit_off;
+//                    MessageBox.show_(context, data);
+//                    sp.edit().putBoolean("PREF_BRIEF_AFTER_SCREEN_OFF", true).apply();
+//                }
             }
             return true;
         } else {
@@ -104,7 +104,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
 
     @Override
     public Resources res() {
-        return context.getResources();
+        return App.getContext().getResources();
     }
 
     @Override

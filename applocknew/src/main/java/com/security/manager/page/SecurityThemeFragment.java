@@ -33,6 +33,8 @@ public class SecurityThemeFragment extends Fragment {
 
     public interface ICheckResult {
         void onSuccess();
+
+        void unLock();
     }
 
     @Override
@@ -78,7 +80,7 @@ public class SecurityThemeFragment extends Fragment {
         TextView viewById = (TextView) v.findViewById(R.id.app_name);
         TextView appname = (TextView) v.findViewById(R.id.text_appname);
         appname.setText(bridge.appName());
-        viewById.setText(bridge.res().getString(bridge.resId("app_name", "string")));
+//        viewById.setText(bridge.res().getString(bridge.resId("app_name", "string")));
         /*
         lp = (RelativeLayout.LayoutParams) viewById.getLayoutParams();
         lp.leftMargin = Utils.getDimens(v.getContext(), 8);

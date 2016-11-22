@@ -22,7 +22,7 @@ public class ShowDialogview {
 
     public static void showDialog(final Context context, final String style, final ListView listview) {
         final View alertDialogView = View.inflate(context, R.layout.security_main_five_rate_new, null);
-        final AlertDialog d = new AlertDialog.Builder(context,R.style.security_show_dialog).create();
+        final AlertDialog d = new AlertDialog.Builder(context, R.style.security_show_dialog).create();
 //        Utils.addAlertAttribute(d.getWindow());
         d.setView(alertDialogView);
         d.show();
@@ -31,8 +31,8 @@ public class ShowDialogview {
             public void onClick(View v) {
                 SecuritySharPFive sh = new SecuritySharPFive(context);
                 sh.setFiveRate(true);
-                if(listview!=null){
-                    if(AppFragementSecurity.headerView!=null){
+                if (listview != null) {
+                    if (AppFragementSecurity.headerView != null) {
                         listview.removeHeaderView(AppFragementSecurity.headerView);
                     }
                 }
@@ -80,7 +80,7 @@ public class ShowDialogview {
                     }
                 });
 
-                Tracker.sendEvent(Tracker.ACT_PERMISSION,Tracker.ACT_PERMISSION_OK,Tracker.ACT_PERMISSION_OK,1L);
+                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
             }
         });
@@ -88,7 +88,7 @@ public class ShowDialogview {
         alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Tracker.sendEvent(Tracker.ACT_PERMISSION,Tracker.ACT_PERMISSION_OK,Tracker.ACT_PERMISSION_CANCLE,1L);
+                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
 
                 d.cancel();
             }
@@ -96,7 +96,7 @@ public class ShowDialogview {
     }
 
 
-    public static  void showNewVersion(final Context context){
+    public static void showNewVersion(final Context context) {
 
         final View alertDialogView = View.inflate(context, R.layout.security_show_newversion, null);
 
@@ -113,7 +113,53 @@ public class ShowDialogview {
 
             }
         });
+    }
+
+
+    public static void showAccess(Context context) {
+        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+        context.startActivity(intent);
+        if(!Utils.isEMUI()){
+            final View submitDialogView = View.inflate(context, R.layout.security_permission_setting, null);
+            final MyWidgetContainer w = new MyWidgetContainer(context, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+            w.addView(submitDialogView);
+            w.addToWindow();
+            submitDialogView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    w.removeFromWindow();
+
+                }
+            });
+        }
+
 
 
     }
+
+
+    public static void showPermission50(Context context) {
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        context.startActivity(intent);
+        if(!Utils.isEMUI()){
+            final View submitDialogView = View.inflate(context, R.layout.security_permission_setting, null);
+            final MyWidgetContainer w = new MyWidgetContainer(context, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+            w.addView(submitDialogView);
+            w.addToWindow();
+
+
+            submitDialogView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    w.removeFromWindow();
+
+                }
+            });
+        }
+
+
+
+    }
+
+
 }

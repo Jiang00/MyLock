@@ -367,7 +367,7 @@ public class SecurityMyPref {
     }
 
     public static boolean getNotification() {
-        return App.getSharedPreferences().getBoolean("notification_", true);
+        return App.getSharedPreferences().getBoolean("notification_", false);
     }
 
 

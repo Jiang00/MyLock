@@ -369,9 +369,9 @@ public class TileBitmapDrawable extends Drawable {
 
         @Override
         protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
-            if (newValue != oldValue) {
-                oldValue.recycle();
-            }
+//            if (newValue != oldValue) {
+//                oldValue.recycle();
+//            }
         }
 
         @Override
@@ -443,9 +443,9 @@ public class TileBitmapDrawable extends Drawable {
             try {
                 final Bitmap bitmap = decoder.decodeRegion(screenNailRect, options);
                 screenNail = Bitmap.createScaledBitmap(bitmap, Math.round(decoder.getWidth() * minScale), Math.round(decoder.getHeight() * minScale), true);
-                if (!bitmap.equals(screenNail)) {
-                    bitmap.recycle();
-                }
+//                if (!bitmap.equals(screenNail)) {
+//                    bitmap.recycle();
+//                }
 
             } catch (OutOfMemoryError e) {
                 // We're under memory pressure. Let's try again with a smaller size

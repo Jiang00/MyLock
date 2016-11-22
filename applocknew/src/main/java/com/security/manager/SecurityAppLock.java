@@ -47,9 +47,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tips();
-
-        Log.e("photosystem", Utils.photoSystem() + "----");
-
     }
 
     @Override
@@ -82,38 +79,30 @@ public class SecurityAppLock extends ClientActivitySecurity {
     public void requirePermission() {
         if (Build.VERSION.SDK_INT >= 21) {
             if (Utils.requireCheckAccessPermission(this)) {
-                String value = Utils.photoSystem().toString();
-                if (!value.contains("SM") && !value.contains("LG")) {
-                    final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                    if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-                        if (Utils.isEMUI()) {
-                            new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
-                                    .setMessage(R.string.security_permission_msg)
-                                    .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            startActivity(intent);
-                                            Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
+                final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
+                    if (Utils.isEMUI()) {
+                        new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
+                                .setMessage(R.string.security_permission_msg)
+                                .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        startActivity(intent);
+                                        Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
-                                        }
-                                    }).setNegativeButton(android.R.string.cancel, null).create().show();
+                                    }
+                                }).setNegativeButton(android.R.string.cancel, null).create().show();
 
-                        } else {
-                            ShowDialogview.showPermission(this);
-                        }
+                    } else {
+                        ShowDialogview.showPermission(this);
                     }
                 }
+            }
 
-            } else {
-                String value = Utils.photoSystem().toString();
-                if (!value.contains("SM") && !value.contains("LG")) {
-                  if(!SecurityMyPref.getOpenPermission()) {
-                      Tracker.sendEvent(Tracker.ACT_PERMISSION,Tracker.ACT_PERMISSION_OPEN,Tracker.ACT_PERMISSION_OPEN,1L);
-                       SecurityMyPref.setOpenPermission(true);
-                  }
-                }
-
-
+        } else {
+            if (!SecurityMyPref.getOpenPermission()) {
+                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OPEN, Tracker.ACT_PERMISSION_OPEN, 1L);
+                SecurityMyPref.setOpenPermission(true);
             }
         }
     }

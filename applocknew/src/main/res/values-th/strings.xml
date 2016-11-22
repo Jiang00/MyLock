@@ -133,4 +133,9 @@
     <string name="security_visitor_on">Applock กำลังทำงาน</string>
     <string name="security_visitor_off">Applock จะหยุดการทำงาน</string>
     <string name="security_nofification">การแจ้งเตือน</string>
+	<string name="security_power_mode">ประหยัดพลังงาน</string>
+    <string name="security_power_mode_des">ลดการใช้พลังงาน 50% ขยายโทรศัพท์เวลาสแตนด์บาย</string>
+	<string name="security_service_title">การเข้าถึง</string>
+    <string name="security_service_description">บริการที่มีเสถียรภาพและใช้พลังงานน้อยลง</string>
+	<string name="security_settings_preference">การตั้งค่า</string>
 </resources>

@@ -7,7 +7,7 @@
         <CheckBoxPreference
             android:key="invade_set_kaiguan"
             android:summaryOff="@string/security_intruder_off"
-            android:summaryOn="@string/security_intruder_on"
+            android:summaryOn="@string/security_intruder_on_new"
             android:title="@string/security_intrude_self"
             android:textColor="@color/security_theme_primary"
             />

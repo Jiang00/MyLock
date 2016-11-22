@@ -133,4 +133,9 @@
     <string name="security_visitor_on">AppLock চলমান</string>
     <string name="security_visitor_off">AppLock থামানো হয়</string>
     <string name="security_nofification">প্রজ্ঞাপন</string>
+	<string name="security_power_mode">শক্তি সঞ্চয়</string>
+    <string name="security_power_mode_des">50% শক্তি খরচ কমাতে, ফোন standby সময় প্রসারিত.</string>
+	<string name="security_service_title">অভিগম্যতা</string>
+    <string name="security_service_description">আস্তাবল সেবা ও কম শক্তি খরচ.</string>
+	<string name="security_settings_preference">পক্ষপাত</string>
 </resources>

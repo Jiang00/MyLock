@@ -23,7 +23,7 @@ public class ImageMaster {
         @Override
         protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
             if (newValue != oldValue) {
-                oldValue.recycle();
+//                oldValue.recycle();
             }
         }
 

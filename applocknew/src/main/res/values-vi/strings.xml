@@ -133,4 +133,9 @@
     <string name="security_visitor_on">AppLock đang chạy</string>
     <string name="security_visitor_off">AppLock là dừng lại</string>
     <string name="security_nofification">thông báo</string>
+	<string name="security_power_mode">Tiết kiệm năng lượng</string>
+    <string name="security_power_mode_des">Giảm tiêu thụ điện năng 50%, kéo dài thời gian chờ điện thoại.</string>
+	<string name="security_service_title">Khả năng tiếp cận</string>
+    <string name="security_service_description">dịch vụ ổn định và tiêu thụ ít điện năng hơn.</string>
+	<string name="security_settings_preference">sự ưa thích</string>
 </resources>

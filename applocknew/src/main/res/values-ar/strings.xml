@@ -133,5 +133,10 @@
     <string name="security_visitor_on">وAppLock تشغيل</string>
     <string name="security_visitor_off">توقف AppLock</string>
     <string name="security_nofification">إعلام</string>
+	<string name="security_power_mode">حفظ الطاقة</string>
+    <string name="security_power_mode_des">تخفيض 50٪ من استهلاك الطاقة، تمديد الهاتف زمن الانتظار.</string>
+	<string name="security_service_title">إمكانية الوصول</string>
+    <string name="security_service_description">خدمة مستقرة وأقل من استهلاك الطاقة.</string>
+	<string name="security_settings_preference">تفضيل</string>
 </resources>
 

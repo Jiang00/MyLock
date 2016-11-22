@@ -133,4 +133,9 @@
     <string name="security_visitor_on">AppLock چل رہا ہے</string>
     <string name="security_visitor_off">AppLock روک دی گئی ہے</string>
     <string name="security_nofification">بارے میں اہم اطلاع</string>
+	<string name="security_power_mode">بجلی کی بچت</string>
+    <string name="security_power_mode_des">50 فیصد بجلی کی کھپت کو کم فون یوز وقت میں توسیع.</string>
+	<string name="security_service_title">ایکسس</string>
+    <string name="security_service_description">مستحکم سروس اور کم طاقت کی کھپت.</string>
+	<string name="security_settings_preference">پسند</string>
 </resources>

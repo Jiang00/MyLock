@@ -1,14 +1,8 @@
 package com.security.manager.page;
 
-import android.app.ActivityManager;
-import android.app.AppOpsManager;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +30,6 @@ import com.security.manager.lib.controller.CListViewScroller;
 import com.security.lib.customview.SecurityloadImage;
 import com.privacy.lock.R;
 import com.security.manager.SearchThread;
-import com.security.manager.Tools;
 import com.privacy.lock.aidl.IWorker;
 import com.security.manager.db.SecurityProfileHelper;
 import com.security.manager.lib.io.RefreshList;
@@ -47,8 +40,6 @@ import com.security.manager.meta.SimpleGetTopAppUseCase;
 
 import java.util.*;
 
-import static android.content.Context.ACTIVITY_SERVICE;
-import static com.security.manager.page.SecurityThemeFragment.TAG_TLEF_AD;
 import static com.security.manager.page.SecurityThemeFragment.TAG_TOP_AD;
 
 /**
@@ -160,8 +151,6 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
         super.onResume();
         MApps.setWaiting(action);
         updateLocks();
-
-
 
     }
 
@@ -347,7 +336,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
 
                 if (!Utils.isEMUI()) {
 
-                    View alertDialogView = View.inflate(v.getContext(), R.layout.suo_rate_result, null);
+                    View alertDialogView = View.inflate(v.getContext(), R.layout.security_rate_result, null);
 
                     final MyWidgetContainer w = new MyWidgetContainer(getActivity(), MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
                     w.addView(alertDialogView);

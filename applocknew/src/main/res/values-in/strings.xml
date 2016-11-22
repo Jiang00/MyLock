@@ -133,4 +133,9 @@
     <string name="security_visitor_on">AppLock berjalan</string>
     <string name="security_visitor_off">AppLock dihentikan</string>
     <string name="security_nofification">Pemberitahuan</string>
+	<string name="security_power_mode">Penghematan energi</string>
+    <string name="security_power_mode_des">Mengurangi konsumsi daya 50%, memperpanjang telepon waktu siaga.</string>
+	<string name="security_service_title">Aksesibilitas</string>
+    <string name="security_service_description">Layanan stabil dan konsumsi daya yang lebih kecil.</string>
+	<string name="security_settings_preference">Pilihan</string>
 </resources>

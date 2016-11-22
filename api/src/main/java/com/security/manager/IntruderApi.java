@@ -86,7 +86,7 @@ public class IntruderApi {
             FileOutputStream fos = new FileOutputStream(new File(AppsCore.ROOT + "ic/intruder_" + pkg + "_" + System.currentTimeMillis()));
             bmp.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.close();
-            bmp.recycle();
+//            bmp.recycle();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

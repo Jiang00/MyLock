@@ -74,6 +74,29 @@ import java.util.Map;
  */
 public class SecurityService extends Service {
     boolean home = false;
+    public static final String EXTRA_WORKING = "_work_";
+    public static final String EXTRA_LOCK_PKG = "_pkg_";
+    public static final int WORKING_LOCK_NEW = 1;
+    public static final int WORKING_TOGGLE_ON = 2;
+    public static final int WORKING_TOGGLE_OFF = 3;
+    public static final int WORKING_LOCK_APP = 4;
+    public static final int WORKING_UPGRADE = 5;
+    public static final String WORKING_LOCK_NEW_PKG_NAME = "_pkg_";
+
+    public static void startWorking(Context context) {
+        context.startService(new Intent(context, SecurityService.class).putExtra(EXTRA_WORKING, WORKING_TOGGLE_ON));
+    }
+
+    public static void stopWorking(Context context) {
+        context.startService(new Intent(context, SecurityService.class).putExtra(EXTRA_WORKING, WORKING_TOGGLE_OFF));
+    }
+
+    public static void startLock(Context context, String packageName) {
+        context.startService(new Intent(context, SecurityService.class)
+                .putExtra(EXTRA_WORKING, WORKING_LOCK_APP)
+                .putExtra(EXTRA_LOCK_PKG, packageName)
+        );
+    }
     HashMap<String, Long> briefTimes = new HashMap<>();
     private Runnable removeRunner = new Runnable() {
         @Override
@@ -490,6 +513,12 @@ public class SecurityService extends Service {
                 @Override
                 public void onSuccess() {
                     unlockLastApplication(lastApp, false);
+                    hideAlertIfPossible(false);
+                }
+
+                @Override
+                public void unLock() {
+                    unlockLastApplication("", false);
                     hideAlertIfPossible(false);
                 }
             };

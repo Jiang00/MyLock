@@ -133,4 +133,9 @@
     <string name="security_visitor_on">應用鎖正在運行</string>
     <string name="security_visitor_off">應用鎖已經停止</string>
     <string name="security_nofification">通知消息</string>
+	<string name="security_power_mode">省電模式</string>
+    <string name="security_power_mode_des">減少50%電量消耗，延長待機時間。</string>
+	<string name="security_service_title">使用記錄權限</string>
+    <string name="security_service_description">服務更穩定，耗電量更少。</string>
+	<string name="security_settings_preference">偏好設置</string>
 </resources>

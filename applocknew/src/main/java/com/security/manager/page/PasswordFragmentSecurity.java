@@ -1,8 +1,10 @@
 package com.security.manager.page;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +16,23 @@ import android.widget.Button;
 import com.privacy.lock.R;
 import com.security.manager.App;
 
+import com.security.manager.SecuritySettingsAdvance;
 import com.security.manager.Tools;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
 import com.security.manager.meta.SecurityCusTheme;
 
+import butterknife.InjectView;
+
 /**
  * Created by huale on 2014/11/19.
  */
+
+
+
 public class PasswordFragmentSecurity extends SecurityThemeFragment {
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +40,11 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             @Override
             public void onSuccess() {
                 getActivity().finish();
+            }
+
+            @Override
+            public void unLock() {
+
             }
         });
     }
@@ -55,7 +70,6 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                 if (bridge.check(passwd, true)) {
                     if (callback != null) {
                         callback.onSuccess();
-                        Log.e("mtt","right");
                     }
                 }
             }
@@ -69,8 +83,32 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
         v.findViewById(R.id.passwd_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bridge.back();
-            }
+                try {
+                    ISecurityBridge bridge = SecurityTheBridge.bridge;
+                    if (bridge != null) {
+                        if (bridge.appName().equals(R.string.app_name)) {
+                            Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                            intent.putExtra("launchname", bridge + "");
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            App.getContext().startActivity(intent);
+                        }else{
+                            Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            App.getContext().startActivity(intent);
+
+                        }
+                    } else {
+                        Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        App.getContext().startActivity(intent);
+
+                    }
+
+
+                    callback.unLock();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }            }
         });
 
         v.findViewById(R.id.use_pattern).setVisibility(View.GONE);
@@ -110,6 +148,17 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
         }
 
         v.setOnClickListener(ctrl.hideOverflow);
+
+        v.findViewById(R.id.setting_advance).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                App.getContext().startActivity(intent);
+                callback.unLock();
+            }
+        });
+
 
         return v;
     }

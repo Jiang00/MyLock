@@ -21,7 +21,7 @@ import butterknife.InjectView;
 /**
  * Created by ma on 15/12/25.
  */
-public class SecurityIntruderSetAct extends BaseActivity {
+public class SecurityIntruderSetting extends BaseActivity {
 
 //    @InjectView(R.id.suo_title_bar_te)
 //    TextView title;
@@ -33,7 +33,7 @@ public class SecurityIntruderSetAct extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.suo_invade_set);
+        setContentView(R.layout.security_intrude_set);
         ButterKnife.inject(this);
         setupToolbar();
 

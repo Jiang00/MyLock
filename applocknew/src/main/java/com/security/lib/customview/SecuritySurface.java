@@ -174,7 +174,7 @@ public class SecuritySurface extends SurfaceView implements SurfaceHolder.Callba
         mtx.postRotate(degree);
 
         Bitmap bmp = Bitmap.createBitmap(bitmap, 0, 0, w, h, mtx, true);
-        bitmap.recycle();
+//        bitmap.recycle();
         return bmp;
     }
 

@@ -47,14 +47,17 @@ public class Notification {
         RemoteViews remoteView = new RemoteViews(context.getPackageName(), R.layout.notifaction_view);
 
         if (SecurityMyPref.getVisitor()) {
+            try {
+                notifyIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
+                notifyIntent.putExtra(NOTIFICATION, true);
+                notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                remoteView.setImageViewResource(R.id.right_icon, R.drawable.security_visitor_on);
+                CharSequence status = context.getResources().getString(R.string.security_visitor_on);
+                remoteView.setTextViewText(R.id.applock_run, status);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
-            notifyIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
-            notifyIntent.putExtra(NOTIFICATION, true);
-            notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                    | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            remoteView.setImageViewResource(R.id.right_icon, R.drawable.security_visitor_on);
-            CharSequence status = context.getResources().getString(R.string.security_visitor_on);
-            remoteView.setTextViewText(R.id.applock_run, status);
         } else {
             notifyIntent = new Intent(context, SecurityTansparent.class);
             notifyIntent.putExtra(NOTIFICATION, true);
@@ -63,7 +66,6 @@ public class Notification {
             remoteView.setImageViewResource(R.id.right_icon, R.drawable.security_visitor_off);
             CharSequence status = context.getResources().getString(R.string.security_visitor_off);
             remoteView.setTextViewText(R.id.applock_run, status);
-
         }
 
 
@@ -83,10 +85,5 @@ public class Notification {
         android.app.Notification notification = mBuilder.build();
         notification.flags = android.app.Notification.FLAG_NO_CLEAR;
         return notification;
-    }
-
-
-    public void newIntent() {
-
     }
 }

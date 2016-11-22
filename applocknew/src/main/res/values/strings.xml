@@ -133,4 +133,9 @@
     <string name="security_visitor_on">AppLock is running</string>
     <string name="security_visitor_off">AppLock is stopped</string>
     <string name="security_nofification">Notification</string>
+    <string name="security_power_mode">Power saving</string>
+    <string name="security_power_mode_des">Reduce 50% power consumption, extend phone standby time.</string>
+	<string name="security_service_title">Accessibility</string>
+    <string name="security_service_description">Stable service and less power consumption.</string>
+	<string name="security_settings_preference">Preference</string>
 </resources>

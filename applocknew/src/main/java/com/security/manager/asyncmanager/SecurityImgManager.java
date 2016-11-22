@@ -40,7 +40,7 @@ public class SecurityImgManager {
         @Override
         protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
             if (evicted || (oldValue != newValue && newValue != null && !oldValue.isRecycled())){
-                oldValue.recycle();
+//                oldValue.recycle();
             }
         }
     };

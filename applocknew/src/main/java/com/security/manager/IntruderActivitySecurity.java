@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -65,10 +63,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-//        PackageManager pm = getPackageManager();
-//        boolean permission = (PackageManager.PERMISSION_GRANTED ==
-//                pm.checkPermission("android.permission.CAMERA", context.getPackageName()));
 
     }
 
@@ -146,8 +140,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                         Drawable icon = packageInfo.applicationInfo.loadIcon(context.getPackageManager());
                         holder.lockIcon.setBackgroundDrawable(icon);
 
-//                        CharSequence label = packageInfo.applicationInfo.loadLabel(context.getPackageManager());
-//                        holder.blockmessage.setText(getResources().getString(R.string.block_intruder_for_app, label));
                     } catch (PackageManager.NameNotFoundException e) {
                         holder.lockIcon.setBackgroundResource(R.drawable.ic_launcher);
 
@@ -205,7 +197,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.intrude_set) {
-            Intent i = new Intent(this, SecurityIntruderSetAct.class);
+            Intent i = new Intent(this, SecurityIntruderSetting.class);
             startActivity(i);
 
         } else if (item.getItemId() == android.R.id.home) {

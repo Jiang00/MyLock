@@ -11,8 +11,9 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+
         <include
-            android:visibility="gone"
+
             layout="@layout/security_password_status_bar" />
 
         <LinearLayout
@@ -90,5 +91,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <include layout="@layout/security_overflow_bar" />
 </com.security.manager.page.MyFrameLayout>

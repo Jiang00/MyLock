@@ -29,9 +29,7 @@
                 layout="@layout/security_myabout_bar"
                 android:visibility="gone" />
 
-            <include
-                layout="@layout/security_normal_actionbar"
-                android:visibility="gone"></include>
+
 
             <ScrollView
                 android:layout_width="wrap_content"

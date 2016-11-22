@@ -133,5 +133,10 @@
     <string name="security_visitor_on">AppLock çalışıyor</string>
     <string name="security_visitor_off">AppLock durduruldu</string>
     <string name="security_nofification">Bildirim</string>
+	<string name="security_power_mode">Güç tasarrufu</string>
+    <string name="security_power_mode_des">50% güç tüketimini azaltın, telefon bekleme süresini uzatın.</string>
+	<string name="security_service_title">Ulaşılabilirlik</string>
+    <string name="security_service_description">Kararlı hizmet ve daha az güç tüketimi.</string>
+	<string name="security_settings_preference">Tercih</string>
 </resources>
 
