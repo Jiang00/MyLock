@@ -138,4 +138,6 @@
 	<string name="security_service_title">Aksesibilitas</string>
     <string name="security_service_description">Layanan stabil dan konsumsi daya yang lebih kecil.</string>
 	<string name="security_settings_preference">Pilihan</string>
+	<string name="security_stop_applock">Berhenti AppLock</string>
+    <string name="security_stop_applock_information">Aplikasi Anda tidak akan terjamin jika Anda menghentikan layanan AppLock. Terus?</string>
 </resources>

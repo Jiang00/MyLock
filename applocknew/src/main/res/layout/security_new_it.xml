@@ -14,7 +14,7 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/security_ne" />
 
-    <Button
+    <TextView
         android:textAllCaps="false"
         android:id="@+id/security_abuout_bt"
         android:layout_width="match_parent"

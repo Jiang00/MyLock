@@ -138,5 +138,7 @@
 	<string name="security_service_title">доступность</string>
     <string name="security_service_description">Стабильное обслуживание и меньше потребление энергии.</string>
 	<string name="security_settings_preference">предпочтение</string>
+	<string name="security_stop_applock">Стоп Applock</string>
+    <string name="security_stop_applock_information">Ваши приложения не будут защищены, если вы прекратите AppLock обслуживание. Продолжать?</string>
 </resources>
 

@@ -138,4 +138,6 @@
 	<string name="security_service_title">ප්රවේශ</string>
     <string name="security_service_description">ස්ථාවර සේවා සහ අඩු ශක්ති පරිභෝජනය.</string>
 	<string name="security_settings_preference">සැලකිල්ලක් දක්වනු</string>
+	<string name="security_stop_applock">Applock නැවතුම්</string>
+    <string name="security_stop_applock_information">ඔබ AppLock සේවා නතර නම් ඔබේ යෙදුම් සුරක්ෂිත කළ නොහැකි වනු ඇත. දිගටම කරගෙන යන්නද?</string>
 </resources>

@@ -3,12 +3,18 @@ package com.security.manager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +25,7 @@ import com.security.manager.page.MessageBox;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
+import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.SlideMenu;
 
 import butterknife.ButterKnife;
@@ -43,6 +50,12 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+
+    @InjectView(R.id.facebook)
+    ImageView facebook;
+
+    @InjectView(R.id.goolge)
+    ImageView google;
 
     static final int[] sections = {
             R.string.security_myfake,
@@ -79,6 +92,7 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
         setContentView(R.layout.security_myfake_selector);
         ButterKnife.inject(this);
         setupToolbar();
+        initclick();
         setup(R.string.security_myfake);
         normalTitle.setText("   " + getResources().getString(R.string.security_myfake));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
@@ -232,6 +246,30 @@ public class FakeSelectorActivitySecurity extends SecurityAbsActivity {
                 askForExit();
         }
         return true;
+    }
+
+    public void initclick() {
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
+            }
+        });
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
     }
 
 

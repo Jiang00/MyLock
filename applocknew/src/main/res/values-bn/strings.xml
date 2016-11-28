@@ -138,4 +138,6 @@
 	<string name="security_service_title">অভিগম্যতা</string>
     <string name="security_service_description">আস্তাবল সেবা ও কম শক্তি খরচ.</string>
 	<string name="security_settings_preference">পক্ষপাত</string>
+	<string name="security_stop_applock">স্টপ Applock</string>
+    <string name="security_stop_applock_information">আপনার অ্যাপস যদি আপনি AppLock সেবা বন্ধ সংরক্ষিত হবে না. চালিয়ে যেতে চান?</string>
 </resources>

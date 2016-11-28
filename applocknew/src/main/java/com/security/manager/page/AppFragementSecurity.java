@@ -3,9 +3,15 @@ package com.security.manager.page;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -20,8 +26,9 @@ import butterknife.OnItemClick;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.security.lib.customview.MyWidgetContainer;
-import com.security.lib.customview.SecurityBaseFrag;
+import com.security.lib.customview.SecurityBaseFragment;
 import com.security.manager.App;
+import com.security.manager.NotificationService;
 import com.security.manager.SecurityAppLock;
 import com.security.manager.Tracker;
 import com.security.manager.lib.Utils;
@@ -45,16 +52,20 @@ import static com.security.manager.page.SecurityThemeFragment.TAG_TOP_AD;
 /**
  * Created by SongHualin on 6/24/2015.
  */
-public class AppFragementSecurity extends SecurityBaseFrag implements RefreshList {
+public class AppFragementSecurity extends SecurityBaseFragment implements RefreshList, SearchView.OnQueryTextListener {
     public static final String PROFILE_ID_KEY = "profile_id";
     public static final String PROFILE_NAME_KEY = "profile_name";
     public static final String PROFILE_HIDE = "hide";
+    View scrollView;
 
     @InjectView(R.id.refresh)
     SwipeRefreshLayout refreshLayout;
 
     @InjectView(R.id.abs_list)
-     ListView listView;
+    ListView listView;
+
+    private boolean CloseSearch = true;
+
 
     CListViewScroller scroller;
     static CListViewAdaptor adaptor;
@@ -69,12 +80,15 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
     boolean adShow = false;
 
     SimpleGetTopAppUseCase topUseCase;
+    MenuItem menuSearch;
+    MenuItem visitorState;
 
 
     public static final Object searchLock = new Object();
 
     private static List<SearchThread.SearchData> apps;
     private List<SearchThread.SearchData> searchResult;
+
     int count = 0;
     boolean hide;
 
@@ -102,12 +116,13 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         setRetainInstance(true);
         super.onCreate(savedInstanceState);
         updateLocks();
 
-
     }
+
 
     private void updateLocks() {
         db = SecurityProfileHelper.singleton(getActivity()).getWritableDatabase();
@@ -119,6 +134,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
             }
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -134,14 +150,9 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
             }
         });
         scroller = new CListViewScroller(listView);
-        if (!shareFive.getFiveRate()) {
-            listView.addHeaderView(headerView);
-            headerClick(headerView);
-        } else {
-            ininShowAD();
-        }
-        setAdaptor();
 
+        showAdOrFive();
+        setAdaptor();
 
         return v;
     }
@@ -151,7 +162,15 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
         super.onResume();
         MApps.setWaiting(action);
         updateLocks();
+    }
 
+    void showAdOrFive() {
+        if (!shareFive.getFiveRate()) {
+            listView.addHeaderView(headerView);
+            headerClick(headerView);
+        } else {
+            ininShowAD();
+        }
     }
 
     public void saveOrCreateProfile(String profileName, IWorker server) {
@@ -183,14 +202,15 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
 
 
     private void setAdaptor() {
+
         adaptor = new CListViewAdaptor(scroller, R.layout.security_apps_item) {
 
             private void updateUI(int position, ViewHolder h, boolean forceLoading) {
                 apps = MApps.getApps(locks);
                 if (apps.size() != 0) {
-                    //                List<SearchThread.SearchData> list = searchResult == null ? apps : searchResult;
-                    if (position >= apps.size()) return;
-                    SearchThread.SearchData data = apps.get(position);
+                    List<SearchThread.SearchData> list = searchResult == null ? apps : searchResult;
+                    if (position >= list.size()) return;
+                    SearchThread.SearchData data = list.get(position);
                     String pkgName = data.pkg;
                     h.icon.setImageIcon(pkgName, forceLoading);
                     h.name.setText(data.label);
@@ -221,24 +241,96 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
             @Override
             public int getCount() {
                 if (searchResult == null) {
-                    return hide ? count : (count
-                    );
+                    return hide ? count : (count);
                 } else {
                     return searchResult.size();
                 }
             }
         };
+
         listView.setAdapter(adaptor);
 
     }
 
     @Override
     public void refresh() {
-        if(adaptor!=null){
+        if (adaptor != null) {
             adaptor.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.security_applock_menu, menu);
+        menuSearch = menu.findItem(R.id.action_search);
+        visitorState = menu.findItem(R.id.menuvisitor);
+        if (SecurityMyPref.getVisitor()) {
+            visitorState.setIcon(R.drawable.security_app_visitor_on);
+        } else {
+            visitorState.setIcon(R.drawable.security_app_visitor_off);
+        }
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuSearch);
+        searchView.setOnQueryTextListener(this);
+        MenuItemCompat.setOnActionExpandListener(menuSearch, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+
+                menuSearch.setVisible(false);
+                CloseSearch = false;
+                if (!shareFive.getFiveRate()) {
+                    listView.removeHeaderView(headerView);
+
+                } else {
+                    if (scrollView != null) {
+                        listView.removeHeaderView(scrollView);
+                    }
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                CloseSearch = true;
+                searchResult = null;
+                visitorState.setVisible(true);
+                menuSearch.setVisible(true);
+                showAdOrFive();
+                return true;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
 
     }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        if (CloseSearch) {
+            refreshUI(refreshSearchResult);
+            apps = MApps.getApps(locks);
+            CloseSearch = false;
+        } else {
+            CloseSearch = false;
+            searchResult = filter((ArrayList<SearchThread.SearchData>) MApps.getApps(locks), newText);
+            refreshUI(refreshSearchResult);
+
+        }
+
+        return true;
+    }
+
+
+    Runnable refreshSearchResult = new Runnable() {
+        @Override
+        public void run() {
+            Utils.notifyDataSetChanged(listView);
+        }
+    };
 
 
     class ViewHolder {
@@ -267,7 +359,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
         if (count > 0) {
             which--;
         }
-        List<SearchThread.SearchData> list = apps;
+        List<SearchThread.SearchData> list = searchResult == null ? apps : searchResult;
         if (which >= list.size()) return;
         SearchThread.SearchData data = list.get(which);
         dirty = true;
@@ -279,13 +371,13 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
         if (locks.containsKey(pkgName)) {
             locks.remove(pkgName);
             toast = Toast.makeText(getActivity().getApplicationContext(), getResources().getString(R.string.security_unlock_success, data.label), Toast.LENGTH_SHORT);
-            Tracker.sendEvent(Tracker.ACT_APPLOCK,Tracker.ACT_APPLOCK_UNLOCK,data.label+"",1L);
+            Tracker.sendEvent(Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK_UNLOCK, data.label + "", 1L);
 
         } else {
 
             toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.security_lock_success, data.label), Toast.LENGTH_SHORT);
             locks.put(pkgName, true);
-            Tracker.sendEvent(Tracker.ACT_APPLOCK,Tracker.ACT_APPLOCK_LOCK,data.label+"",1L);
+            Tracker.sendEvent(Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK_LOCK, data.label + "", 1L);
 
         }
         ViewHolder holder = (ViewHolder) view.getTag();
@@ -321,7 +413,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
                 getActivity().finish();
                 Intent intent = new Intent(getActivity(), SecurityAppLock.class);
                 startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE_GOOD,Tracker.ACT_PERMISSION_CANCLE,1L);
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_PERMISSION_CANCLE, 1L);
 
 
             }
@@ -335,9 +427,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
                 Utils.rate(getActivity());
 
                 if (!Utils.isEMUI()) {
-
                     View alertDialogView = View.inflate(v.getContext(), R.layout.security_rate_result, null);
-
                     final MyWidgetContainer w = new MyWidgetContainer(getActivity(), MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
                     w.addView(alertDialogView);
                     w.addToWindow();
@@ -354,7 +444,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
 
 
                 listView.removeHeaderView(headerView);
-                Tracker.sendEvent(Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE_GOOD,Tracker.ACT_GOOD_RATE_GOOD,1L);
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_GOOD_RATE_GOOD, 1L);
 
             }
         });
@@ -368,7 +458,7 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
                 getActivity().finish();
                 Intent intent = new Intent(getActivity(), SecurityAppLock.class);
                 startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_GOOD_RATE,Tracker.ACT_GOOD_RATE_GOOD,Tracker.ACT_GOOD_RATE_CLOSE,1L);
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_GOOD_RATE_CLOSE, 1L);
 
             }
         });
@@ -376,11 +466,66 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menuvisitor) {
+            if (SecurityMyPref.getVisitor()) {
+                final View alertDialogView = View.inflate(getActivity(), R.layout.security_stop_applock, null);
+                final AlertDialog d = new AlertDialog.Builder(getActivity(), R.style.dialog).create();
+                d.setView(alertDialogView);
+                d.setCanceledOnTouchOutside(false);
+                d.show();
+
+                alertDialogView.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        d.cancel();
+                        SecurityMyPref.setVisitor(false);
+                        visitorState.setIcon(R.drawable.security_app_visitor_off);
+                         Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
+
+                        Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
+                        if (SecurityMyPref.getNotification()) {
+                            getActivity().stopService(new Intent(getActivity(), NotificationService.class));
+                            getActivity().startService(new Intent(getActivity(), NotificationService.class));
+                        }
+                    }
+                });
+
+                alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        d.cancel();
+                    }
+                });
+//                visitorState.setIcon(R.drawable.security_app_visitor_off);
+
+
+            } else {
+                visitorState.setIcon(R.drawable.security_app_visitor_on);
+                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+                SecurityMyPref.setVisitor(true);
+                if (SecurityMyPref.getNotification()) {
+                    getActivity().stopService(new Intent(getActivity(), NotificationService.class));
+                    getActivity().startService(new Intent(getActivity(), NotificationService.class));
+                }
+                Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_ON, 1L);
+
+            }
+
+        }
+
+        return super.
+
+                onOptionsItemSelected(item);
+
+    }
 
     void ininShowAD() {
         if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
 
-            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_native_layout, new ClientNativeAd.NativeAdClickListener() {
+            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 
@@ -408,13 +553,24 @@ public class AppFragementSecurity extends SecurityBaseFrag implements RefreshLis
 
     }
 
-    public static void refreshlist(){
-        adaptor.notifyDataSetChanged();
-        Log.e("mtt","refresh");
 
+    public ArrayList<SearchThread.SearchData> filter(ArrayList<SearchThread.SearchData> models, String query) {
+        query = query.toLowerCase();
+        ArrayList<SearchThread.SearchData> oneEntity = null;
+        for (int i = 0; i < models.size(); i++) {
+            oneEntity = new ArrayList<SearchThread.SearchData>();
+            ArrayList<SearchThread.SearchData> app = (ArrayList<SearchThread.SearchData>) MApps.getApps(locks);
+            for (SearchThread.SearchData enity : app) {
+                final String text = enity.label.toLowerCase();
+                if (text.contains(query)) {
+                    oneEntity.add(enity);
+                }
+            }
+            searchResult = oneEntity;
+        }
+
+        return oneEntity;
     }
-
-
 }
 
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Created by SongHualin on 6/24/2015.
  */
-public class SecurityBaseFrag extends Fragment {
+public class SecurityBaseFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

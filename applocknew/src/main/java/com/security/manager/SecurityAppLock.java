@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -11,17 +12,13 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.privacy.lock.R;
 import com.security.manager.db.backgroundData;
-import com.security.manager.lib.io.RefreshList;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.AppFragementSecurity;
 import com.security.manager.page.SlideMenu;
@@ -31,12 +28,9 @@ import com.security.manager.lib.Utils;
 import com.security.manager.lib.io.SafeDB;
 import com.security.manager.meta.SecuritProfiles;
 
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import static com.core.common.SdkEnv.getActivity;
-import static com.security.manager.page.SecurityThemeFragment.TAG_TLEF_AD;
 
 /**
  * Created by SongHualin on 6/12/2015.
@@ -46,19 +40,8 @@ public class SecurityAppLock extends ClientActivitySecurity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tips();
+//        tips();
     }
-
-    @Override
-    protected void onResume() {
-        if (SecurityMyPref.getVisitor()) {
-            visitor.setBackgroundResource(R.drawable.security_visitor_on);
-        } else {
-            visitor.setBackgroundResource(R.drawable.security_visitor_off);
-        }
-        super.onResume();
-    }
-
 
     AppFragementSecurity fragment;
 
@@ -66,22 +49,28 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
     boolean hide;
 
-    @InjectView(R.id.slide_menu_ad)
-    FrameLayout ADView;
+//    @InjectView(R.id.slide_menu_ad)
+//    FrameLayout ADView;
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
-    @InjectView(R.id.visitor)
-    ImageView visitor;
+    @InjectView(R.id.facebook)
+    ImageView facebook;
+
+    @InjectView(R.id.goolge)
+    ImageView google;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void requirePermission() {
         if (Build.VERSION.SDK_INT >= 21) {
             if (Utils.requireCheckAccessPermission(this)) {
+
+                String inf = Utils.photoSystem().toString();
+
                 final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-                    if (Utils.isEMUI()) {
+                    if (Utils.isEMUI() || inf.contains("ZTE")) {
                         new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
                                 .setMessage(R.string.security_permission_msg)
                                 .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
@@ -117,6 +106,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
         hide = savedInstanceState.getBoolean("hide");
     }
 
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -148,8 +138,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
         setupToolbar();
         SecurityMenu.currentMenuIt = SecurityMenu.MENU_LOCK_APP;
         setup(R.string.security_lock_app);
-        visitor.setVisibility(View.VISIBLE);
-
 
         profileName = SafeDB.defaultDB().getString(SecurityMyPref.PREF_ACTIVE_PROFILE, SecurityMyPref.PREF_DEFAULT_LOCK);
         long profileId = SafeDB.defaultDB().getLong(SecurityMyPref.PREF_ACTIVE_PROFILE_ID, 1);
@@ -166,33 +154,13 @@ public class SecurityAppLock extends ClientActivitySecurity {
         }
         requirePermission();
 
-        ininShowAD();
+        //侧边栏广告取消
+//        ininShowAD();
+        initclick();
 
         initgetData();
 
 
-        visitor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (SecurityMyPref.getVisitor()) {
-                    SecurityMyPref.setVisitor(false);
-                    visitor.setBackgroundResource(R.drawable.security_visitor_off);
-                    Toast.makeText(getApplication(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
-                    stopService(new Intent(SecurityAppLock.this, NotificationService.class));
-                    startService(new Intent(SecurityAppLock.this, NotificationService.class));
-                    Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
-                } else {
-                    visitor.setBackgroundResource(R.drawable.security_visitor_on);
-                    Toast.makeText(getApplication(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
-                    SecurityMyPref.setVisitor(true);
-                    stopService(new Intent(SecurityAppLock.this, NotificationService.class));
-                    startService(new Intent(SecurityAppLock.this, NotificationService.class));
-                    Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_ON, 1L);
-
-                }
-            }
-        });
     }
 
     @Override
@@ -208,18 +176,23 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
     }
 
-    void ininShowAD() {
-        if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-            View scrollView = AndroidSdk.peekNativeAdViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.app_slide_native_layout, null);
-            if (scrollView != null) {
-                ADView.addView(scrollView);
-            }
-        }
-
-    }
+//    void ininShowAD() {
+//        if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+//            View scrollView = AndroidSdk.peekNativeAdViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.app_slide_native_layout, null);
+//            if (scrollView != null) {
+//                ADView.addView(scrollView);
+//            }
+//        }
+//
+//    }
 
     private void setupToolbar() {
-        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
+        if (SecurityMyPref.hasIntruder()) {
+            toolbar.setNavigationIcon(R.drawable.security_slide_menu_red);
+        } else {
+            toolbar.setNavigationIcon(R.drawable.security_slide_menu);
+        }
+
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -239,7 +212,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
             } else
                 askForExit();
         }
-        return true;
+        return false;
     }
 
     private void initgetData() {
@@ -250,5 +223,28 @@ public class SecurityAppLock extends ClientActivitySecurity {
         }
     }
 
+    public void initclick() {
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
+            }
+        });
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
+    }
 
 }

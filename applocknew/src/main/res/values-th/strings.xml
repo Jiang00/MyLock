@@ -138,4 +138,6 @@
 	<string name="security_service_title">การเข้าถึง</string>
     <string name="security_service_description">บริการที่มีเสถียรภาพและใช้พลังงานน้อยลง</string>
 	<string name="security_settings_preference">การตั้งค่า</string>
+	<string name="security_stop_applock">หยุด applock</string>
+    <string name="security_stop_applock_information">ปพลิเคชันของคุณจะไม่ได้รับการคุ้มครองถ้าคุณหยุดบริการ applock ต่อหรือไม่?</string>
 </resources>

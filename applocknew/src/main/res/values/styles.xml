@@ -104,7 +104,7 @@
     </style>
 
     <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:textSize">10px</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
 

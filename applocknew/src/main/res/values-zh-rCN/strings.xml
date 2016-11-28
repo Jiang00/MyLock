@@ -138,4 +138,6 @@
 	<string name="security_service_title">使用记录权限</string>
     <string name="security_service_description">服务更稳定，耗电量更少。</string>
 	<string name="security_settings_preference">偏好设置</string>
+	<string name="security_stop_applock">停止应用锁</string>
+    <string name="security_stop_applock_information">您即将暂停使用AppLock，暂停后应用将失去保护。</string>
 </resources>

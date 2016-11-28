@@ -155,7 +155,7 @@ public class AppsCore {
             BaseApp.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(BaseApp.getContext(), BaseApp.getContext().getResources().getIdentifier("sdcard_not_prepared", "string", BaseApp.getContext().getPackageName()), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(BaseApp.getContext(), BaseApp.getContext().getResources().getIdentifier("sdcard_not_prepared", "string", BaseApp.getContext().getPackageName()), Toast.LENGTH_SHORT).show();
                 }
             });
             return false;

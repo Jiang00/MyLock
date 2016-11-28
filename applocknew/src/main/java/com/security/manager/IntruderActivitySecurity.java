@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ import com.security.manager.page.ListViewForScrollView;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
 import com.security.lib.customview.SecurityloadImage;
+import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.SlideMenu;
 import com.security.mymodule.FileType;
 import com.security.mymodule.IntruderEntry;
@@ -46,6 +49,12 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+
+    @InjectView(R.id.facebook)
+    ImageView facebook;
+
+    @InjectView(R.id.goolge)
+    ImageView google;
 
 
     @Override
@@ -72,6 +81,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         ButterKnife.inject(this);
 
         setupToolbar();
+        initclick();
 
         if (Utils.isMIUI()) {
             if (!SecurityMyPref.getintruderCamer() ) {
@@ -81,30 +91,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         }
 
         setup(R.string.security_intrude_five);
-
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1 && resultCode == 1) {
-            int position = data.getIntExtra("position", -1);
-            if (position >= 0) {
-                IntruderEntry intruder = intruderEntries.remove(position);
-                IntruderApi.deleteIntruder(intruder);
-                adapter.notifyDataSetChanged();
-                if (intruderEntries.size() == 0) {
-                    listView.setVisibility(View.GONE);
-                    tip.setVisibility(View.VISIBLE);
-                }
-            }
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
         intruderEntries = IntruderApi.getIntruders();
         if (intruderEntries.size() == 0) {
             listView.setVisibility(View.GONE);
@@ -130,8 +116,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                             intent.putExtra("pkg", entry.pkg);
                             intent.putExtra("position", position);
                             startActivityForResult(intent, 1);
-
-
                         }
                     });
 
@@ -173,6 +157,36 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
 
             lv.setAdapter(adapter);
         }
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == 1) {
+            int position = data.getIntExtra("position", -1);
+            if (position >= 0) {
+                IntruderEntry intruder = intruderEntries.remove(position);
+                IntruderApi.deleteIntruder(intruder);
+                adapter.notifyDataSetChanged();
+                if (intruderEntries.size() == 0) {
+                    listView.setVisibility(View.GONE);
+                    tip.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adapter!=null){
+            intruderEntries.clear();
+            intruderEntries= IntruderApi.getIntruders();
+            adapter.notifyDataSetChanged();
+
+        }
+
     }
 
 
@@ -210,5 +224,29 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                 askForExit();
         }
         return true;
+    }
+
+    public void initclick() {
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
+            }
+        });
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
     }
 }

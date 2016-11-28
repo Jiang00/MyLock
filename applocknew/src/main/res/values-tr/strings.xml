@@ -138,5 +138,7 @@
 	<string name="security_service_title">Ulaşılabilirlik</string>
     <string name="security_service_description">Kararlı hizmet ve daha az güç tüketimi.</string>
 	<string name="security_settings_preference">Tercih</string>
+	<string name="security_stop_applock">Applock\'u durdur</string>
+    <string name="security_stop_applock_information">AppLock hizmetini durdurmanız durumunda uygulamalarınız korunmayacaktır. Devam et?</string>
 </resources>
 

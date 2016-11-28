@@ -43,8 +43,7 @@ public class SecuritySettings extends ClientActivitySecurity {
     public static final byte SETTING_SETTING_ADVANCE = 4;
 
     public static final byte SETTING_RATE = 5;
-    public static final byte SETTING_FACEBOOK = 6;
-    public static final byte SETTING_GOOGLE = 7;
+
 
 
     static final int[] items = new int[]{
@@ -62,9 +61,8 @@ public class SecuritySettings extends ClientActivitySecurity {
 //            R.string.show_noti,
             R.string.security_newapp_lock,
             R.string.security_settings_preference,
-            R.string.security_help_share,
-            R.string.security_facebook,
-            R.string.security_google
+            R.string.security_help_share
+
 
     };
 
@@ -75,6 +73,12 @@ public class SecuritySettings extends ClientActivitySecurity {
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+
+    @InjectView(R.id.facebook)
+    ImageView facebook;
+
+    @InjectView(R.id.goolge)
+    ImageView google;
 
 
     @Override
@@ -89,6 +93,7 @@ public class SecuritySettings extends ClientActivitySecurity {
         setupToolbar();
 
         setup(R.string.security_tab_setting);
+        initclick();
         normalTitle.setText("   " + getResources().getString(R.string.security_tab_setting));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
@@ -180,7 +185,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                 } else if(i==SETTING_SETTING_ADVANCE){
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
 
-                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
+                    TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);
                     it.setText(items[i]);
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
@@ -189,13 +194,12 @@ public class SecuritySettings extends ClientActivitySecurity {
 
                 else if (i == SETTING_RATE) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
-                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
+                    TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);
                     it.setText(items[i]);
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
 
                     Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE, 1L);
-
 
                 } else if (i == SETTING_HIDE_GRAPH_PATH) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica_it, null, false);
@@ -229,23 +233,24 @@ public class SecuritySettings extends ClientActivitySecurity {
                     });
 
 
-                } else if (i == SETTING_FACEBOOK) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
-                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
-                    it.setText(items[i]);
-                    it.setOnClickListener(onClickListener);
-                    it.setId(i);
-
-
-                } else if (i == SETTING_GOOGLE) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
-                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
-                    it.setText(items[i]);
-                    it.setOnClickListener(onClickListener);
-                    it.setId(i);
-
-
                 }
+//                else if (i == SETTING_FACEBOOK) {
+//                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
+//                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
+//                    it.setText(items[i]);
+//                    it.setOnClickListener(onClickListener);
+//                    it.setId(i);
+//
+//
+//                } else if (i == SETTING_GOOGLE) {
+//                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
+//                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
+//                    it.setText(items[i]);
+//                    it.setOnClickListener(onClickListener);
+//                    it.setId(i);
+//
+//
+//                }
 //                else if (i == SETTING_NOTIFICATION) {
 //                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica, null, false);
 //                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
@@ -328,19 +333,22 @@ public class SecuritySettings extends ClientActivitySecurity {
                 }
                 SecurityShare.rate(context);
                 notifyDatasetChanged();
-            } else if (id == SETTING_FACEBOOK) {
-                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
-            } else if (id == SETTING_GOOGLE) {
-                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
-
-
-            }else if(id==SETTING_SETTING_ADVANCE){
+            }
+//            else if (id == SETTING_FACEBOOK) {
+//                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                startActivity(intent);
+//                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
+//            }
+//            else if (id == SETTING_GOOGLE) {
+//                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                startActivity(intent);
+//                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+//
+//
+//            }
+            else if(id==SETTING_SETTING_ADVANCE){
                 Intent intent=new Intent(SecuritySettings.this,SecuritySettingsAdvance.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -415,6 +423,30 @@ public class SecuritySettings extends ClientActivitySecurity {
                 askForExit();
         }
         return true;
+    }
+
+    public void initclick() {
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
+            }
+        });
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
     }
 
 

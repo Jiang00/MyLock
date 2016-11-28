@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
 /**
  * Created by SongHualin on 6/12/2015.
@@ -14,6 +15,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private Intent requestData;
     private static final String REQ_CODE_KEY = "_code_";
     private static final String REQ_RESULT_KEY = "_result_";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

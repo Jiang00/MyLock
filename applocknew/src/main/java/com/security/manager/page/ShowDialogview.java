@@ -11,6 +11,7 @@ import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.Tracker;
 import com.security.manager.lib.Utils;
+import com.security.manager.meta.SecurityMyPref;
 
 
 /**
@@ -143,10 +144,9 @@ public class ShowDialogview {
         context.startActivity(intent);
         if(!Utils.isEMUI()){
             final View submitDialogView = View.inflate(context, R.layout.security_permission_setting, null);
-            final MyWidgetContainer w = new MyWidgetContainer(context, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+            final MyWidgetContainer w = new MyWidgetContainer(context, MyWidgetContainer.WRAP_CONTENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
             w.addView(submitDialogView);
             w.addToWindow();
-
 
             submitDialogView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -156,9 +156,36 @@ public class ShowDialogview {
                 }
             });
         }
+    }
 
 
+    public static void stopApplock(final Context c) {
+        final View alertDialogView = View.inflate(c, R.layout.security_stop_applock, null);
+        final AlertDialog d = new AlertDialog.Builder(c, R.style.dialog).create();
+        d.setView(alertDialogView);
+        d.setCanceledOnTouchOutside(false);
+        d.show();
 
+//        Utils.addAlertAttribute(d.getWindow());
+        alertDialogView.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.cancel();
+                SecurityMyPref.setVisitor(false);
+
+//                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
+
+            }
+        });
+
+        alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
+
+                d.cancel();
+            }
+        });
     }
 
 

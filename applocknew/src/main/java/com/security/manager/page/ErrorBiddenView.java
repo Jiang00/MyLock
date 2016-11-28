@@ -1,5 +1,6 @@
 package com.security.manager.page;
 
+import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.CountDownTimer;
@@ -45,7 +46,6 @@ public class ErrorBiddenView {
             return;
         }
         wrong_time += 1;
-        Log.i("time","----"+wrong_time);
         if (wrong_time == SecurityPreference.getIntruderSlot()+1) {
             if (catchIntruder) {
                 String currentApp = SecurityTheBridge.bridge.currentPkg();
@@ -111,8 +111,8 @@ public class ErrorBiddenView {
         }
         wrongView = forbidden.inflate();
         colorAnim = ObjectAnimator.ofInt(wrongView, "backgroundColor", 0x00000000, 0x00000000);
-//        colorAnim.setDuration(5000);
-//        colorAnim.setEvaluator(new ArgbEvaluator());
+        colorAnim.setDuration(5000);
+        colorAnim.setEvaluator(new ArgbEvaluator());
         hideTips();
     }
 

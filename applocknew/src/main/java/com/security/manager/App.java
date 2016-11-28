@@ -46,6 +46,7 @@ public class App extends BaseApp{
         ImageMaster.imageCache = TileBitmapDrawable.initCache(this);
         SecurityImgManager.cache = ImageMaster.imageCache;
         SecurityPreference.initialize(this);
+//        Start.start(this);
         startService(new Intent(this, SecurityService.class));
         if(SecurityMyPref.getNotification()){
             startService(new Intent(this,NotificationService.class));

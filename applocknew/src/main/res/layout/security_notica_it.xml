@@ -22,7 +22,6 @@
             android:text="@string/security_show_noti"
             android:id="@+id/security_title_bar_te"
             android:textSize="16sp"
-
             android:layout_toLeftOf="@+id/security_set_checked"
             android:textColor="@color/security_te_3"
            />

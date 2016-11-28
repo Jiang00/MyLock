@@ -20,6 +20,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import com.privacy.lock.R;
 import com.security.manager.App;
 import com.security.manager.SecuritySettingsAdvance;
@@ -43,7 +45,6 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
         return pattern = getView(inflater, container, ctrl, new ICheckResult() {
             @Override
             public void onSuccess() {
@@ -55,6 +56,8 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 
             }
         });
+
+
     }
 
     @Override
@@ -98,14 +101,14 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             public void onClick(View v) {
                 try {
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
-                    Log.e("name",bridge.appName()+"");
+                    Log.e("name", bridge.appName() + "");
                     if (bridge != null) {
                         if (bridge.appName().equals(R.string.app_name)) {
                             Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
                             intent.putExtra("launchname", bridge + "");
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             App.getContext().startActivity(intent);
-                        }else{
+                        } else {
                             Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             App.getContext().startActivity(intent);
@@ -122,7 +125,7 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 
 
                     callback.unLock();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -161,7 +164,6 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
                 } else {
                     errorBiddenView.right();
                     callback.onSuccess();
-
                 }
             }
 
@@ -183,4 +185,5 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         inflater.inflate(R.menu.security_setting_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
+
 }

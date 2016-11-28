@@ -58,6 +58,9 @@ public class Notification {
                 e.printStackTrace();
             }
 
+            mBuilder.setSmallIcon(R.drawable.security_notification_lock);
+
+
         } else {
             notifyIntent = new Intent(context, SecurityTansparent.class);
             notifyIntent.putExtra(NOTIFICATION, true);
@@ -66,6 +69,8 @@ public class Notification {
             remoteView.setImageViewResource(R.id.right_icon, R.drawable.security_visitor_off);
             CharSequence status = context.getResources().getString(R.string.security_visitor_off);
             remoteView.setTextViewText(R.id.applock_run, status);
+            mBuilder.setSmallIcon(R.drawable.security_notification_unlock);
+
         }
 
 
@@ -81,7 +86,6 @@ public class Notification {
         mBuilder.setOngoing(true);
         mBuilder.setWhen(System.currentTimeMillis());
 
-        mBuilder.setSmallIcon(R.drawable.ic_launcher);
         android.app.Notification notification = mBuilder.build();
         notification.flags = android.app.Notification.FLAG_NO_CLEAR;
         return notification;

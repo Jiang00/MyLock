@@ -149,6 +149,15 @@ public class SecurityMenu {
             } else {
                 View menuItem = inflater.inflate(R.layout.security_slide_menu_item, menuList, false);
                 ImageView icon = (ImageView) menuItem.findViewById(R.id.icon);
+                View red = (View) menuItem.findViewById(R.id.red);
+                if(i==2){
+                    if(SecurityMyPref.hasIntruder()){
+                        red.setVisibility(View.VISIBLE);
+                        SecurityMyPref.setHasIntruder(false);
+
+                    }
+                }
+
                 icon.setImageResource(icons[i]);
                 icon.setColorFilter(currentMenuIt == i ? iconColorSelected : iconColorNormal);
                 TextView text = (TextView) menuItem.findViewById(R.id.text);

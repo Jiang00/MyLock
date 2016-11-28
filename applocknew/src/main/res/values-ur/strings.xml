@@ -138,4 +138,6 @@
 	<string name="security_service_title">ایکسس</string>
     <string name="security_service_description">مستحکم سروس اور کم طاقت کی کھپت.</string>
 	<string name="security_settings_preference">پسند</string>
+	<string name="security_stop_applock">سٹاپ Applock</string>
+    <string name="security_stop_applock_information">آپ کے اطلاقات محفوظ نہیں کیا جائے گا، آپ AppLock سروس بند ہے تو. جاری رکھیں؟</string>
 </resources>

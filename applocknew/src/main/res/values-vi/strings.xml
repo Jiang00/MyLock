@@ -138,4 +138,6 @@
 	<string name="security_service_title">Khả năng tiếp cận</string>
     <string name="security_service_description">dịch vụ ổn định và tiêu thụ ít điện năng hơn.</string>
 	<string name="security_settings_preference">sự ưa thích</string>
+	<string name="security_stop_applock">dừng AppLock</string>
+    <string name="security_stop_applock_information">ứng dụng của bạn sẽ không được bảo vệ nếu bạn ngừng dịch vụ AppLock. Tiếp tục?</string>
 </resources>

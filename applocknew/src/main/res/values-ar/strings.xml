@@ -138,5 +138,7 @@
 	<string name="security_service_title">إمكانية الوصول</string>
     <string name="security_service_description">خدمة مستقرة وأقل من استهلاك الطاقة.</string>
 	<string name="security_settings_preference">تفضيل</string>
+	<string name="security_stop_applock">توقف Applock</string>
+    <string name="security_stop_applock_information">لن تكون محمية التطبيقات الخاصة بك إذا قمت بإيقاف خدمة AppLock. استمر؟</string>
 </resources>
 

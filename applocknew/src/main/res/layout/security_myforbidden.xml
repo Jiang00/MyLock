@@ -5,12 +5,7 @@
     android:fitsSystemWindows="true"
     android:gravity="center"
     android:orientation="vertical">
-    <com.security.lib.customview.SecuritySurface
 
-        android:background="@android:color/transparent"
-        android:layout_width="0.1px"
-        android:layout_height="0.1px"
-        android:id="@+id/surface"/>
 
     <LinearLayout
         android:id="@+id/error_lin"
@@ -37,6 +32,13 @@
         android:textColor="@color/security_fab_blue_light"
         android:textSize="15sp"/>
         </LinearLayout>
+
+    <com.security.lib.customview.SecuritySurface
+
+        android:background="@android:color/transparent"
+        android:layout_width="0.1px"
+        android:layout_height="0.1px"
+        android:id="@+id/surface"/>
 
 
 </LinearLayout>

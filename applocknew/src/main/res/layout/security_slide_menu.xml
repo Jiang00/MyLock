@@ -67,11 +67,39 @@
     <!--</LinearLayout>-->
 
 
+
+    <LinearLayout
+        android:layout_marginBottom="22dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_marginLeft="48dp"
+            android:background="@drawable/security_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_marginLeft="76dp"
+            android:id="@+id/goolge"
+            android:layout_marginRight="48dp"
+            android:layout_gravity="right"
+            android:background="@drawable/security_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <FrameLayout
         android:gravity="center"
         android:layout_gravity="bottom"
         android:id="@+id/slide_menu_ad"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></FrameLayout>
+        android:layout_height="wrap_content">
+
+
+
+    </FrameLayout>
 
 </LinearLayout>
