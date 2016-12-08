@@ -513,3 +513,9 @@
 -keep class com.core.view.** {
     public *;
 }
+
+-dontwarn com.samsung.android.**
+-keep class com.samsung.android.**{*;}
+
+-dontwarn com.samsung.android.sdk.**
+-keep class com.samsung.android.sdk.**{*;}

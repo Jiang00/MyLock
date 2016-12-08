@@ -190,7 +190,7 @@ public class MApps {
                     "com.android.gallery",
                     "com.android.contacts",
                     "com.android.mms",
-                    "com.android.phone",
+//                    "com.android.phone",
 //                    "com.android.packageinstaller",
                     "com.facebook.katana",
                     "com.google.android.gm",
@@ -237,7 +237,10 @@ public class MApps {
                 SearchThread.SearchData data = new SearchThread.SearchData();
                 data.label = label;
                 data.pkg = pkg;
-                if(!pkg.equals("com.android.settings")){
+
+                //锁应用列表界面去除掉了设置实现
+                // 引导界面需要添加设置需要去相关patternactivity设置
+//                if(!pkg.equals("com.android.settings")){
                     if ((app.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
                         data.system = true;
                         systems_.add(data);
@@ -245,7 +248,7 @@ public class MApps {
                         data.system = false;
                         thirdParties_.add(data);
                     }
-                }
+               // }
 
 
             }

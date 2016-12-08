@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">Preferência</string>
 	<string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Se você parar o serviço AppLock, seus aplicativos não serão protegidos. Continuar?</string>
+	<string name="security_fingerprint">Impressão digital</string>
+    <string name="security_open_fingerprint">Usar impressão digital</string>
+    <string name="security_go_open_fingerprint">Para configurar imediatamente</string>
+    <string name="security_fingerprint_many_error">Por favor use a senha</string>
 </resources>

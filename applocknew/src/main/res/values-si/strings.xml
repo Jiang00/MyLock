@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">සැලකිල්ලක් දක්වනු</string>
 	<string name="security_stop_applock">Applock නැවතුම්</string>
     <string name="security_stop_applock_information">ඔබ AppLock සේවා නතර නම් ඔබේ යෙදුම් සුරක්ෂිත කළ නොහැකි වනු ඇත. දිගටම කරගෙන යන්නද?</string>
+	<string name="security_fingerprint">ඇඟිලි සලකුණු</string>
+    <string name="security_open_fingerprint">ඇඟිලි සලකුණු භාවිත කරන්න</string>
+    <string name="security_go_open_fingerprint">වහාම ආරම්භ කිරීමට</string>
+    <string name="security_fingerprint_many_error">රහස් පදය භාවිතා කරන්න</string>
 </resources>

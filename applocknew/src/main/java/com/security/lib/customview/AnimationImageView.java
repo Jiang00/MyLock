@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -13,9 +12,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.security.manager.App;
-import com.security.manager.lib.io.ImageMaster;
-import com.security.manager.lib.io.LoadNormalThumbnail;
+import com.security.manager.lib.ImageTools;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by song on 15/9/23.
@@ -59,7 +59,7 @@ public class AnimationImageView extends ImageView {
     }
 
 
-    public void setImage(String url, long id, int fileType, boolean forceLoading) {
+    public void setImage(String url, long id, int fileType, Bitmap bacbitmap, Context context, String data) {
         this.id = id;
         this.fileType = fileType;
         this.url = url;
@@ -67,13 +67,19 @@ public class AnimationImageView extends ImageView {
             setImageDrawable(null);
         } else {
 //            Bitmap bitmap = ImageMaster.getImage(url);
-            Bitmap bitmap= BitmapFactory.decodeFile(url);
-            Log.e("mtt",url+"------");
-            setImageBitmap(bitmap,false);
-
+            Bitmap bitmap = BitmapFactory.decodeFile(url);
+            Date mydate = new Date(data);
+            mydate.toString();
+            long time = mydate.getTime();
+            try {
+                Bitmap bm = ImageTools.Watermark(bitmap,255, bacbitmap, context);
+                ImageTools.saveMyBitmap(time+"", bm);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            setImageBitmap(bitmap, false);
         }
     }
-
     @Override
     protected void onDraw(Canvas canvas) {
         try {

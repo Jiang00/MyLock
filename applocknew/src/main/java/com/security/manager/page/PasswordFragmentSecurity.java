@@ -1,28 +1,30 @@
 package com.security.manager.page;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
+import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
+import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.security.manager.App;
 
+import com.security.manager.SecurityAppLock;
+import com.security.manager.SecurityPatternActivity;
 import com.security.manager.SecuritySettingsAdvance;
 import com.security.manager.Tools;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
-import com.security.manager.meta.SecurityCusTheme;
-
-import butterknife.InjectView;
 
 /**
  * Created by huale on 2014/11/19.
@@ -44,6 +46,7 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             public void unLock() {
 
             }
+
         });
     }
 
@@ -52,16 +55,8 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
     public static View getView(LayoutInflater inflater, ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
-        View v = inflater.inflate(R.layout.security_number_password, container, false);
+        final View v = inflater.inflate(R.layout.security_number_password, container, false);
         ((MyFrameLayout) v).setOverflowCtrl(ctrl);
-
-//        if (App.getSharedPreferences().getString("theme", "").equals("custom")) {
-//            Bitmap bitmap = SecurityCusTheme.getBitmap();
-//            if (bitmap != null) {
-//                v.setBackgroundDrawable(new BitmapDrawable(bitmap));
-//            }
-//        }
-
         final NumberDot dot = (NumberDot) v.findViewById(R.id.passwd_dot_id);
         dot.init(new NumberDot.ICheckListener() {
             @Override
@@ -73,13 +68,15 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                 }
             }
         });
-
         dot.reset();
         ViewStub forbidden = new ViewStub(App.getContext(), R.layout.security_myforbidden);
-        dot.errorBiddenView = new ErrorBiddenView(forbidden);
+
+        ErrorBiddenView errorBiddenView=new ErrorBiddenView(forbidden);
+        dot.setErrorBiddenView(errorBiddenView);
         ((MyFrameLayout) v).addView(forbidden);
-        dot.errorBiddenView.init();
-        v.findViewById(R.id.passwd_cancel).setOnClickListener(new View.OnClickListener() {
+        errorBiddenView.init();
+
+        v.findViewById(R.id.setting_advance).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -111,20 +108,81 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             }
         });
 
-        v.findViewById(R.id.use_pattern).setVisibility(View.GONE);
-        /*
-        View usep = v.findViewById(R.id.use_pattern);
-        if (bridge.hasPattern()){
-            usep.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    bridge.toggle(false);
-                }
-            });
-        } else {
-            usep.setVisibility(View.INVISIBLE);
+        if (SecurityMyPref.getFingerPrint()) {
+
+            FingerUtil fingerPrint = new FingerUtil();
+            fingerPrint.init(v.getContext());
+            boolean haveFinger = false;
+            try {
+                haveFinger = fingerPrint.checkhasFingerPrint();
+            } catch (SsdkUnsupportedException e) {
+                e.printStackTrace();
+            }
+            if (fingerPrint.isFeatureEnabled_fingerprint && haveFinger) {
+
+                final ImageView finger = (ImageView) v.findViewById(R.id.use_pass_finger);
+                final LinearLayout fingerpatternview = (LinearLayout) v.findViewById(R.id.numpad);
+                final TextView userpassword = (TextView) v.findViewById(R.id.finger_user_number);
+                finger.setVisibility(View.VISIBLE);
+                fingerpatternview.setVisibility(View.GONE);
+                userpassword.setVisibility(View.VISIBLE);
+                userpassword.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finger.setVisibility(View.GONE);
+                        fingerpatternview.setVisibility(View.VISIBLE);
+                        userpassword.setVisibility(View.GONE);
+                    }
+                });
+
+
+                fingerPrint.setListener(new FingerUtil.onFingerPrintCompletedListener() {
+                                            @Override
+                                            public void AfterUnlock() {
+                                                try {
+                                                    finger.setBackgroundResource(R.drawable.security_finger_right);
+                                                    new Thread().sleep(250);
+                                                    ISecurityBridge bridge = SecurityTheBridge.bridge;
+                                                    String currentApp = bridge.currentPkg();
+                                                    if (App.getContext().getPackageName().equals(currentApp)) {
+                                                        Intent intent = new Intent(App.getContext(), SecurityAppLock.class);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                        App.getContext().startActivity(intent);
+                                                    }
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                if (callback != null) {
+                                                    ((SecurityPatternActivity) v.getContext()).unlockSuccess(false);
+                                                    callback.onSuccess();
+
+                                                }
+                                            }
+
+                                            @Override
+                                            public void unlockFailed() {
+//                                            fingerPrint.cancelIdentify();
+
+
+                                                finger.setBackgroundResource(R.drawable.security_finger_wrong);
+
+                                                new Handler().postDelayed(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        // TODO Auto-generated method stub
+                                                        finger.setBackgroundResource(R.drawable.security_fingerprint);
+                                                    }
+                                                }, 250);
+                                            }
+                                        }
+                );
+                fingerPrint.startFingerprint();
+            }
         }
-        */
+
+
+        v.findViewById(R.id.use_pattern).setVisibility(View.GONE);
+
 
         v.findViewById(R.id.backspace).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,13 +207,13 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
 
         v.setOnClickListener(ctrl.hideOverflow);
 
-        v.findViewById(R.id.setting_advance).setOnClickListener(new View.OnClickListener() {
+        v.findViewById(R.id.number_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                App.getContext().startActivity(intent);
-                callback.unLock();
+//                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                App.getContext().startActivity(intent);
+//                callback.unLock();
             }
         });
 

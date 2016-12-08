@@ -8,6 +8,7 @@
     android:orientation="horizontal">
 
     <View
+        android:background="#00abf1"
         android:visibility="gone"
         android:id="@+id/blue"
         android:layout_width="4dp"

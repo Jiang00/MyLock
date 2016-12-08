@@ -43,7 +43,6 @@ import com.security.manager.lib.io.RefreshList;
 import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.meta.SimpleGetTopAppUseCase;
 
 import java.util.*;
 
@@ -79,7 +78,6 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
     boolean adShow = false;
 
-    SimpleGetTopAppUseCase topUseCase;
     MenuItem menuSearch;
     MenuItem visitorState;
 
@@ -525,7 +523,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     void ininShowAD() {
         if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
 
-            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_native_layout, new ClientNativeAd.NativeAdClickListener() {
+            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_top_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 

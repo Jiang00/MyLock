@@ -91,13 +91,19 @@ public class Tracker {
     public static final String ACT_INTRUDE= "入侵者界面";
     public static final String ACT_FAKE= "伪装界面";
     public static final String ACT_SETTING_BRIEF= "加锁频率";
+    public static final String ACT_SETTING_PREFRENCE= "偏好设置";
+
     public static final String ACT_SETTING_RESETPAS= "重置密码";
     public static final String ACT_SETTING_HIDEPATH= "隐藏解锁路径";
+    public static final String ACT_SETTING_FINGER= "指纹解锁";
+
     public static final String ACT_SETTING_LOCK_NEW= "新应用加锁";
     public static final String ACT_SETTING_LOCK_NOTIFICAO= "通知";
     public static final String ACT_GOOD_RATE= "好评";
     public static final String ACT_GOOGLE_PLUS = "google+";
     public static final String ACT_FACEBOOK = "facebook";
+    public static final String ACT_GOOGLE_PLAY = "googleplay";
+
     public static final String ACT_SETTING_EVERY_TIME = "每次加锁";
     public static final String ACT_SETTING_FIVE_MINIUTE = "5分钟";
     public static final String ACT_SETTING_SCREEN_OFF = "屏幕关闭";
@@ -107,6 +113,9 @@ public class Tracker {
     public static final String ACT_MODE_ON= "开";
     public static final String ACT_MODE_OFF= "关";
     public static final String ACT_LEDADER_OK= "完成";
+    public static final String ACT_INTRUDE_SHARE= "入侵者分享功能";
+
+
 
 
 

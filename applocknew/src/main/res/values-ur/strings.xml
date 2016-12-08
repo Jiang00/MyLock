@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">پسند</string>
 	<string name="security_stop_applock">سٹاپ Applock</string>
     <string name="security_stop_applock_information">آپ کے اطلاقات محفوظ نہیں کیا جائے گا، آپ AppLock سروس بند ہے تو. جاری رکھیں؟</string>
+	<string name="security_fingerprint">فنگرپرنٹ</string>
+    <string name="security_open_fingerprint">فنگر پرنٹ کا استعمال</string>
+    <string name="security_go_open_fingerprint">فوری طور پر قائم کرنے کے لئے</string>
+    <string name="security_fingerprint_many_error">پاس ورڈ استعمال کریں</string>
 </resources>

@@ -61,30 +61,30 @@ public class SecurityAppLock extends ClientActivitySecurity {
     @InjectView(R.id.goolge)
     ImageView google;
 
+    @InjectView(R.id.googleplay)
+    ImageView googleplay;
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void requirePermission() {
         if (Build.VERSION.SDK_INT >= 21) {
             if (Utils.requireCheckAccessPermission(this)) {
-
-                String inf = Utils.photoSystem().toString();
-
                 final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-                    if (Utils.isEMUI() || inf.contains("ZTE")) {
-                        new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
-                                .setMessage(R.string.security_permission_msg)
-                                .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        startActivity(intent);
-                                        Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
-
-                                    }
-                                }).setNegativeButton(android.R.string.cancel, null).create().show();
-
-                    } else {
-                        ShowDialogview.showPermission(this);
-                    }
+//                    startActivity(intent);
+                    ShowDialogview.showPermission(this);
+//                    if (Utils.isEMUI() || inf.contains("ZTE")) {
+//                        new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
+//                                .setMessage(R.string.security_permission_msg)
+//                                .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
+//
+//                                    }
+//                                }).setNegativeButton(android.R.string.cancel, null).create().show();
+//
+//                    } else {
+//                    }
                 }
             }
 
@@ -222,7 +222,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
         }
     }
-
     public void initclick() {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,6 +240,19 @@ public class SecurityAppLock extends ClientActivitySecurity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
+        googleplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse(SecurityMenu.GOOGLEPLAY);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLAY, Tracker.ACT_GOOGLE_PLAY, 1L);
+
 
             }
         });

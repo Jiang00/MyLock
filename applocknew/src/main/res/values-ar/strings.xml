@@ -140,5 +140,9 @@
 	<string name="security_settings_preference">تفضيل</string>
 	<string name="security_stop_applock">توقف Applock</string>
     <string name="security_stop_applock_information">لن تكون محمية التطبيقات الخاصة بك إذا قمت بإيقاف خدمة AppLock. استمر؟</string>
+	<string name="security_fingerprint">بصمة</string>
+    <string name="security_open_fingerprint">استخدام بصمات الأصابع</string>
+    <string name="security_go_open_fingerprint">لإعداد فورا</string>
+    <string name="security_fingerprint_many_error">الرجاء استخدام كلمة المرور</string>
 </resources>
 

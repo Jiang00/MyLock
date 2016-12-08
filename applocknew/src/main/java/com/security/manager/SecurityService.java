@@ -137,6 +137,12 @@ public class SecurityService extends Service {
                 }
             }
         }
+        if (packageName != null) {
+            if (packageName.equals(getPackageName())) {
+                packageName = null;
+            }
+        }
+
         return packageName;
     }
 

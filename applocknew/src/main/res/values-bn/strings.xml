@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">পক্ষপাত</string>
 	<string name="security_stop_applock">স্টপ Applock</string>
     <string name="security_stop_applock_information">আপনার অ্যাপস যদি আপনি AppLock সেবা বন্ধ সংরক্ষিত হবে না. চালিয়ে যেতে চান?</string>
+	<string name="security_fingerprint">অঙ্গুলাঙ্ক</string>
+    <string name="security_open_fingerprint">ব্যবহারের ফিঙ্গারপ্রিন্ট</string>
+    <string name="security_go_open_fingerprint">অবিলম্বে স্থাপন করতে</string>
+    <string name="security_fingerprint_many_error">পাসওয়ার্ড ব্যবহার করুন</string>
 </resources>

@@ -30,6 +30,8 @@ public class SecurityThemeFragment extends Fragment {
     public static final String TAG_UNLOCK = "unlock";
     public static final String TAG_TLEF_AD = "Leftmenu";
     public static final String TAG_TOP_AD = "TopLocklist";
+    public static View adView = null;
+
 
     public interface ICheckResult {
         void onSuccess();
@@ -46,29 +48,24 @@ public class SecurityThemeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         afterViewCreated(view, ctrl);
+
     }
 
     public static void afterViewCreated(View view, OverflowCtrl ctrl) {
-        setupTitle(view);
-
         try {
             createAdView((ViewGroup) view);
-
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-
+        setupTitle(view);
     }
+
 
     public static void setupTitle(View v) {
         ISecurityBridge bridge = SecurityTheBridge.bridge;
-
-
         TextView appName = new TextView(v.getContext());
         appName.setTag("realAppName");
         appName.setText(bridge.appName());
-
         appName.setTextSize(21);
         appName.setTextColor(0xffffffff);
         appName.setGravity(Gravity.CENTER);
@@ -76,22 +73,19 @@ public class SecurityThemeFragment extends Fragment {
         lp.leftMargin = Utils.getDimens(v.getContext(), 8);
         ((ViewGroup) v).addView(appName, lp);
         appName.setAlpha(0);
-
-        TextView viewById = (TextView) v.findViewById(R.id.app_name);
         TextView appname = (TextView) v.findViewById(R.id.text_appname);
-        appname.setText(bridge.appName());
-//        viewById.setText(bridge.res().getString(bridge.resId("app_name", "string")));
-        /*
-        lp = (RelativeLayout.LayoutParams) viewById.getLayoutParams();
-        lp.leftMargin = Utils.getDimens(v.getContext(), 8);
-        lp.addRule(RelativeLayout.CENTER_IN_PARENT, 0);// same as removeRule
-        lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        lp.addRule(RelativeLayout.CENTER_VERTICAL);
-        viewById.setLayoutParams(lp);
-        */
-
         ImageView icon = (ImageView) v.findViewById(R.id.title);
+        ImageView statusicon = (ImageView) v.findViewById(R.id.app_icon);
+        appname.setText(bridge.appName());
         icon.setBackgroundDrawable(bridge.icon());
+
+
+
+        if (adView != null) {
+            icon.setVisibility(View.GONE);
+            appname.setVisibility(View.GONE);
+            statusicon.setBackgroundDrawable(bridge.icon());
+        }
     }
 
     @Override
@@ -127,7 +121,6 @@ public class SecurityThemeFragment extends Fragment {
     }
 
     protected static void createAdView(ViewGroup view) {
-
         if (AndroidSdk.hasNativeAd(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
             Point size = Utils.getScreenSize(view.getContext());
@@ -142,8 +135,7 @@ public class SecurityThemeFragment extends Fragment {
 //            realAppName.setAlpha(1.0f);
 //            appName.setAlpha(0.0f);
 
-
-            View scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
+             adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 
@@ -156,13 +148,11 @@ public class SecurityThemeFragment extends Fragment {
 //                    realAppName.setAlpha(v);
                 }
             });
-            if (scrollView != null) {
-                App.getWatcher().watch(scrollView);
-                view.addView(scrollView, layoutParams);
+            if (adView != null) {
+                App.getWatcher().watch(adView);
+                view.addView(adView, layoutParams);
             }
         }
-
-
 
     }
 

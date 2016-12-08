@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.privacy.lock.R;
 import com.security.lib.customview.SecuritySurface;
@@ -43,6 +44,7 @@ public class ErrorBiddenView {
 
     public void wrong() {
         if (wrongView == null) {
+
             return;
         }
         wrong_time += 1;

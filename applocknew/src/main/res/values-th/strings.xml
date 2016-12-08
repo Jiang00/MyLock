@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">การตั้งค่า</string>
 	<string name="security_stop_applock">หยุด applock</string>
     <string name="security_stop_applock_information">ปพลิเคชันของคุณจะไม่ได้รับการคุ้มครองถ้าคุณหยุดบริการ applock ต่อหรือไม่?</string>
+	<string name="security_fingerprint">ลายนิ้วมือ</string>
+    <string name="security_open_fingerprint">การใช้ลายนิ้วมือ</string>
+    <string name="security_go_open_fingerprint">ในการตั้งขึ้นมาทันที</string>
+    <string name="security_fingerprint_many_error">โปรดใช้รหัสผ่าน</string>
 </resources>

@@ -96,7 +96,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/passwd_cancel"
+            android:id="@+id/number_cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"

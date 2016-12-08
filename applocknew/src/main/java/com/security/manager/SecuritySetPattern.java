@@ -5,13 +5,13 @@ import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.*;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import com.android.client.AndroidSdk;
 import com.privacy.lock.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.LockPatternUtils;
@@ -161,7 +161,6 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         */
         startListApp();
     }
-
     NumberDot passdot;
 
     @Override
@@ -174,6 +173,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             ok.setText(R.string.security_btn_next);
             ok.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
 //            ok.setBackgroundResource(R.drawable.button_bg);
+
         }
     }
 
@@ -183,19 +183,19 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
 //        t.show();
     }
 
-    public void setPasswd() {
-        String pwd = lastPasswd.toString();
-        String email = email_address.getText().toString();
-        App.getSharedPreferences().edit().putString("email", email).apply();
-        if (pwd.length() == 0) {
-            passwdIsEmpty();
-            return;
-        }
-        SecurityMyPref p = SecurityMyPref.begin();
-        p.setPasswd(pwd, true).useNormalPasswd(true).commit();
-        Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK, 1L);
-        startListApp();
-    }
+//    public void setPasswd() {
+//        String pwd = lastPasswd.toString();
+//        String email = email_address.getText().toString();
+//        App.getSharedPreferences().edit().putString("email", email).apply();
+//        if (pwd.length() == 0) {
+//            passwdIsEmpty();
+//            return;
+//        }
+//        SecurityMyPref p = SecurityMyPref.begin();
+//        p.setPasswd(pwd, true).useNormalPasswd(true).commit();
+//        Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK, 1L);
+//        startListApp();
+//    }
 
     public Drawable getIcon() {
         String packageName = getIntent().getStringExtra("pkg");
@@ -208,6 +208,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     }
 
     public void setupTitle(ImageView tv) {
+
         String packageName = getIntent().getStringExtra("pkg");
         try {
             PackageInfo pi = getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
@@ -221,7 +222,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     public SecurityPatternView securityPatternView;
     public boolean confirmMode = false;
 
-    @InjectView(R.id.passwd_cancel)
+    @InjectView(R.id.number_cancel)
     Button cancel;
 
     @InjectView(R.id.tip)
@@ -372,6 +373,8 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         ((ImageView) findViewById(R.id.backspace)).setColorFilter(getResources().getColor(R.color.security_numpad_color));
 
         passdot = (NumberDot) findViewById(R.id.passwd_dot_id);
+
+
         passdot.setFlag(true);
         passdot.init(new NumberDot.ICheckListener() {
             @Override
@@ -410,6 +413,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                     ++setProgress;
                     passdot.setFlag(false);
                     passdot.reset();
+
 //                    okBtn.setVisibility(View.INVISIBLE);
                     okBtn.setText(R.string.security_reset_passwd_2_btn);
                     okBtn.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
@@ -441,7 +445,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         });
 
         //ignore
-        findViewById(R.id.passwd_cancel).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.number_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (setProgress == 0) {

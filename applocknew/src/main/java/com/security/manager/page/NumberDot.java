@@ -2,6 +2,7 @@ package com.security.manager.page;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -41,7 +42,8 @@ public class NumberDot extends LinearLayout {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                reset();
+                rightReset();
+
                 animating = false;
             }
 
@@ -95,6 +97,12 @@ public class NumberDot extends LinearLayout {
     }
 
     boolean animating = false;
+
+
+    public void setErrorBiddenView(ErrorBiddenView errorbiddenview){
+        this.errorBiddenView=errorbiddenview;
+
+    }
 
     public void setNumber(char num) {
         if (animating || idx > len) return;
@@ -158,4 +166,18 @@ public class NumberDot extends LinearLayout {
             errorBiddenView.right();
         }
     }
+
+    public void rightReset() {
+        idx = 0;
+        for (ImageView v : dots) {
+            v.setEnabled(true);
+            v.setSelected(false);
+            v.setVisibility(GONE);
+        }
+        dots[0].setVisibility(INVISIBLE);
+
+    }
+
+
+
 }

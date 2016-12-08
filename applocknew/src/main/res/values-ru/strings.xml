@@ -140,5 +140,9 @@
 	<string name="security_settings_preference">предпочтение</string>
 	<string name="security_stop_applock">Стоп Applock</string>
     <string name="security_stop_applock_information">Ваши приложения не будут защищены, если вы прекратите AppLock обслуживание. Продолжать?</string>
+	<string name="security_fingerprint">отпечаток пальца</string>
+    <string name="security_open_fingerprint">отпечатков пальцев</string>
+    <string name="security_go_open_fingerprint">Чтобы установить немедленно</string>
+    <string name="security_fingerprint_many_error">Пожалуйста, используйте пароль</string>
 </resources>
 

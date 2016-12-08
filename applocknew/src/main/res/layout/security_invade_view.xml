@@ -1,98 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="#ececed"
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/security_component_toolbar"/>
-
-    <include
-        android:visibility="gone"
-        layout="@layout/security_delete_bars"/>
+    <include layout="@layout/security_component_toolbar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/security_invade_shape"
-        android:layout_margin="16px"
-        >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12px"
+        android:layout_marginLeft="12px"
+        android:layout_marginRight="12px"
+        android:background="@drawable/security_invade_shape">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="16px">
+            android:layout_marginLeft="12px"
+            android:orientation="horizontal">
 
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/security_invade_shang_ic"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+                <ImageView
+                    android:id="@+id/security_invade_shang_ic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerCrop"
 
-            android:scaleType="centerCrop"
-            />
+                    android:visibility="gone" />
 
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignBottom="@id/security_invade_shang_ic"
+                    android:layout_alignRight="@id/security_invade_shang_ic" />
+            </RelativeLayout>
 
-            android:layout_alignBottom="@id/security_invade_shang_ic"
-            android:layout_alignRight="@id/security_invade_shang_ic"
-            />
-       </RelativeLayout>
-        <TextView
-            android:id="@+id/security_invade_tishi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-
-            android:fontFamily="sans-serif-light"
-            android:lineSpacingExtra="6dp"
-            android:textColor="@color/security_security_black_87"
-            android:textSize="15sp"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            tools:text="Successfully protect your %1$s from snooping by this guy."
-            />
         </LinearLayout>
 
-        <com.security.lib.customview.AnimationImageView
-            android:id="@+id/security_invade_peple"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="48dp"
-            android:scaleType="centerCrop"
-            />
+            android:layout_height="443dp">
+
+            <com.security.lib.customview.AnimationImageView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/security_invade_peple"
+                android:layout_width="match_parent"
+                android:layout_height="443dp"
+                android:scaleType="centerCrop" />
 
 
-        <ImageView
-            android:id="@+id/security_xia_ic"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_alignBottom="@id/security_invade_peple"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            />
+            <ImageView
+                android:id="@+id/share_id"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/intruder_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/security_invade_data"
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+    <include
+        layout="@layout/security_delete_bars"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_marginLeft="12px"
+        android:layout_marginRight="12px"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_marginTop="4dp"
+
+            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/security_invade_peple"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="37dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
-            android:textColor="#fff"
-            android:textSize="17sp"
-            tools:text="haha your see"
-            />
-    </RelativeLayout>
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginLeft="12dp"
+                android:id="@+id/security_xia_ic"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <LinearLayout
+
+                android:layout_marginBottom="4px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/security_invade_tishi"
+                    android:textColor="#777a87"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:fontFamily="sans-serif"
+                    android:textSize="13sp"
+                    tools:text="Successfully protect your %1$s" />
+                <TextView
+                    android:id="@+id/security_invade_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#777a87"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif"
+                    tools:text="haha your see" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">sự ưa thích</string>
 	<string name="security_stop_applock">dừng AppLock</string>
     <string name="security_stop_applock_information">ứng dụng của bạn sẽ không được bảo vệ nếu bạn ngừng dịch vụ AppLock. Tiếp tục?</string>
+	<string name="security_fingerprint">vân tay</string>
+    <string name="security_open_fingerprint">sử dụng dấu vân tay</string>
+    <string name="security_go_open_fingerprint">Để thiết lập ngay lập tức</string>
+    <string name="security_fingerprint_many_error">Vui lòng sử dụng mật khẩu</string>
 </resources>

@@ -101,8 +101,6 @@ public class showDialog {
                 c.startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,1L);
 
-
-
             }
         });
 

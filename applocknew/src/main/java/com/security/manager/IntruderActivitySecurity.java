@@ -56,6 +56,8 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     @InjectView(R.id.goolge)
     ImageView google;
 
+    @InjectView(R.id.googleplay)
+    ImageView googleplay;
 
     @Override
     protected void onIntent(Intent intent) {
@@ -244,6 +246,19 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
+        googleplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse(SecurityMenu.GOOGLEPLAY);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLAY, Tracker.ACT_GOOGLE_PLAY, 1L);
+
 
             }
         });

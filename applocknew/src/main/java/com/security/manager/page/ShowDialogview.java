@@ -7,8 +7,11 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ListView;
 
+import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
+import com.security.manager.App;
+import com.security.manager.SecurityPermissionActivity;
 import com.security.manager.Tracker;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
@@ -66,23 +69,34 @@ public class ShowDialogview {
                 d.cancel();
                 final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 c.startActivity(intent);
+                try {
+                    new Thread().sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-                final View submitDialogView = View.inflate(v.getContext(), R.layout.security_permission_setting, null);
-                final MyWidgetContainer w = new MyWidgetContainer(c, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
-                w.addView(submitDialogView);
-                w.addToWindow();
+                Intent transintent = new Intent(c, SecurityPermissionActivity.class);
+                c.startActivity(transintent);
 
-
-                submitDialogView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        w.removeFromWindow();
-
-                    }
-                });
+//                View submitDialogView = View.inflate(v.getContext(), R.layout.security_permission_setting, null);
+//                final MyWidgetContainer w = new MyWidgetContainer(c, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+//                w.addView(submitDialogView);
+//                w.addToWindow();
+//
+//
+//                submitDialogView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        w.removeFromWindow();
+//
+//                    }
+//                });
 
                 Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
+//                 WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+//
+//                attachToWindow(wm, submitDialogView);
             }
         });
 
@@ -117,45 +131,30 @@ public class ShowDialogview {
     }
 
 
-    public static void showAccess(Context context) {
-        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+    public static void showSaveMode(Context context) {
+        final  Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
         context.startActivity(intent);
-        if(!Utils.isEMUI()){
-            final View submitDialogView = View.inflate(context, R.layout.security_permission_setting, null);
-            final MyWidgetContainer w = new MyWidgetContainer(context, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
-            w.addView(submitDialogView);
-            w.addToWindow();
-            submitDialogView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    w.removeFromWindow();
 
-                }
-            });
+        try {
+            new Thread().sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
-
-
+        Intent transintent = new Intent(context, SecurityPermissionActivity.class);
+        context.startActivity(transintent);
     }
 
-
-    public static void showPermission50(Context context) {
+    public static void showSettingPermission50(Context context) {
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
         context.startActivity(intent);
-        if(!Utils.isEMUI()){
-            final View submitDialogView = View.inflate(context, R.layout.security_permission_setting, null);
-            final MyWidgetContainer w = new MyWidgetContainer(context, MyWidgetContainer.WRAP_CONTENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
-            w.addView(submitDialogView);
-            w.addToWindow();
-
-            submitDialogView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    w.removeFromWindow();
-
-                }
-            });
+        try {
+            new Thread().sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        Intent transintent = new Intent(context, SecurityPermissionActivity.class);
+        context.startActivity(transintent);
+
     }
 
 
@@ -187,6 +186,33 @@ public class ShowDialogview {
             }
         });
     }
+
+
+    public static void showFingerPrint(Context context) {
+        final View alertDialogView = View.inflate(context, R.layout.show_finger_print, null);
+        final AlertDialog d = new AlertDialog.Builder(context).create();
+        d.setView(alertDialogView);
+        d.show();
+        alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.cancel();
+            }
+        });
+        alertDialogView.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.cancel();
+                FingerUtil finger=new FingerUtil();
+                finger.init(v.getContext());
+                finger.registerFinger(v.getContext());
+                SecurityMyPref.setFirstLeader(true);
+
+            }
+        });
+    }
+
+
 
 
 }

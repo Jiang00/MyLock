@@ -366,7 +366,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
     @Override
     public void toggle(boolean normal) {
         if (unlockSelf) {
-            ((SecurityPatternActivity) context).toggle(normal);
+            ((SecurityPatternActivity) App.getContext()).toggle(normal);
         }
     }
 

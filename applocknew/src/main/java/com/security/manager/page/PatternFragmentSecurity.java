@@ -1,13 +1,9 @@
 package com.security.manager.page;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,18 +12,21 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
+import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.security.manager.App;
+import com.security.manager.SecurityAppLock;
+import com.security.manager.SecurityPatternActivity;
 import com.security.manager.SecuritySettingsAdvance;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
-import com.security.manager.meta.SecurityCusTheme;
 
 import java.util.List;
 
@@ -45,26 +44,27 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
         return pattern = getView(inflater, container, ctrl, new ICheckResult() {
             @Override
             public void onSuccess() {
                 getActivity().finish();
+                Log.e("appname", "sussone");
             }
 
             @Override
             public void unLock() {
+                Log.e("appname", "unlock");
 
             }
-        });
 
+        });
 
     }
 
     @Override
     public void onResume() {
-
         super.onResume();
-
         if (pattern != null) {
             ((SecurityPatternView) pattern.findViewById(R.id.lpv_lock)).resetPattern();
         }
@@ -86,22 +86,17 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 
     public static View getView(LayoutInflater inflater, final ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
-        View v = inflater.inflate(R.layout.security_pattern_view, container, false);
+        final View v = inflater.inflate(R.layout.security_pattern_view, container, false);
         ((MyFrameLayout) v).setOverflowCtrl(ctrl);
+        final ImageButton button = (ImageButton) v.findViewById(R.id.setting_advance);
 
-        if (App.getSharedPreferences().getString("theme", "").equals("custom")) {
-            Bitmap bitmap = SecurityCusTheme.getBitmap();
-            if (bitmap != null) {
-                v.setBackgroundDrawable(new BitmapDrawable(bitmap));
-            }
-        }
-
-        v.findViewById(R.id.setting_advance).setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
+
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
-                    Log.e("name", bridge.appName() + "");
+
                     if (bridge != null) {
                         if (bridge.appName().equals(R.string.app_name)) {
                             Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
@@ -112,43 +107,35 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
                             Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             App.getContext().startActivity(intent);
-
                         }
-
-
                     } else {
                         Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         App.getContext().startActivity(intent);
-
                     }
-
-
                     callback.unLock();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
+
             }
         });
-
-
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         final SecurityPatternView lock = (SecurityPatternView) v.findViewById(R.id.lpv_lock);
         LinearLayout parent = (LinearLayout) lock.getParent();
         ((LinearLayout.LayoutParams) parent.getLayoutParams()).weight = 1.5f;
         parent.requestLayout();
 
-        v.findViewById(R.id.passwd_cancel).setVisibility(View.GONE);
+        v.findViewById(R.id.number_cancel).setVisibility(View.GONE);
         final ViewStub forbidden = new ViewStub(App.getContext(), R.layout.security_myforbidden);
         ((MyFrameLayout) v).addView(forbidden);
         final ErrorBiddenView errorBiddenView = new ErrorBiddenView(forbidden);
         errorBiddenView.init();
 
         lock.setOnPatternListener(new SecurityPatternView.OnPatternListener() {
-
             public void onPatternStart() {
-
             }
 
             public void onPatternDetected(List<SecurityPatternView.Cell> pattern) {
@@ -171,11 +158,89 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             }
 
             public void onPatternCellAdded(List<SecurityPatternView.Cell> pattern) {
-
             }
         });
+
+        if (SecurityMyPref.getFingerPrint()) {
+
+            FingerUtil fingerPrint = new FingerUtil();
+            fingerPrint.init(v.getContext());
+            boolean haveFinger = false;
+            try {
+                haveFinger = fingerPrint.checkhasFingerPrint();
+            } catch (SsdkUnsupportedException e) {
+                e.printStackTrace();
+            }
+            if (fingerPrint.isFeatureEnabled_fingerprint && haveFinger) {
+                final ImageView finger = (ImageView) v.findViewById(R.id.use_finger);
+                final SecurityPatternView fingerpatternview = (SecurityPatternView) v.findViewById(R.id.lpv_lock);
+                final TextView userpattern = (TextView) v.findViewById(R.id.finger_user_pattern);
+                finger.setVisibility(View.VISIBLE);
+                fingerpatternview.setVisibility(View.GONE);
+                userpattern.setVisibility(View.VISIBLE);
+                userpattern.findViewById(R.id.finger_user_pattern).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finger.setVisibility(View.GONE);
+                        fingerpatternview.setVisibility(View.VISIBLE);
+                        userpattern.setVisibility(View.GONE);
+                    }
+                });
+
+                fingerPrint.setListener(new FingerUtil.onFingerPrintCompletedListener() {
+                                            @Override
+                                            public void AfterUnlock() {
+
+
+                                                try {
+                                                    finger.setBackgroundResource(R.drawable.security_finger_right);
+                                                    new Thread().sleep(250);
+
+                                                    ISecurityBridge bridge = SecurityTheBridge.bridge;
+                                                    String currentApp = bridge.currentPkg();
+                                                    if (App.getContext().getPackageName().equals(currentApp)) {
+                                                        Intent intent = new Intent(App.getContext(), SecurityAppLock.class);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                        App.getContext().startActivity(intent);
+                                                    }
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                                if (callback != null) {
+                                                    ((SecurityPatternActivity) v.getContext()).unlockSuccess(false);
+                                                    callback.onSuccess();
+
+                                                }
+                                            }
+
+                                            @Override
+                                            public void unlockFailed() {
+//                                            fingerPrint.cancelIdentify();
+
+
+                                                finger.setBackgroundResource(R.drawable.security_finger_wrong);
+
+                                                new Handler().postDelayed(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        // TODO Auto-generated method stub
+                                                        finger.setBackgroundResource(R.drawable.security_fingerprint);
+                                                    }
+                                                }, 250);
+                                            }
+                                        }
+                );
+                fingerPrint.startFingerprint();
+            } else {
+                v.findViewById(R.id.lpv_lock).setVisibility(View.VISIBLE);
+
+            }
+        }
+
         lock.clearPattern();
         v.setOnClickListener(ctrl.hideOverflow);
+
+
         return v;
     }
 
@@ -185,5 +250,4 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         inflater.inflate(R.menu.security_setting_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
-
 }

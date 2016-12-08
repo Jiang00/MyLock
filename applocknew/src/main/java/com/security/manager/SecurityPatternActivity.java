@@ -230,7 +230,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 "com.android.gallery",
                 "com.android.contacts",
                 "com.android.mms",
-                "com.android.phone",
+//                "com.android.phone",
 //                    "com.android.packageinstaller",
                 "com.facebook.katana",
                 "com.google.android.gm",

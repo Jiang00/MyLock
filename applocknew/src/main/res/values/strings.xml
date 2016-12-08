@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">Preference</string>
     <string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Your apps will not be protected if you stop AppLock service. Continue?</string>
+    <string name="security_fingerprint">Fingerprint</string>
+    <string name="security_open_fingerprint">Use fingerprint</string>
+    <string name="security_go_open_fingerprint">To set up immediately</string>
+    <string name="security_fingerprint_many_error">Please use password</string>
 </resources>

@@ -68,28 +68,40 @@
 
 
 
+
     <LinearLayout
         android:layout_marginBottom="22dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/googleplay"
+            android:layout_marginLeft="34dp"
+            android:layout_weight="1"
+            android:background="@drawable/security_google_play"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginLeft="34dp"
+            android:layout_weight="1"
             android:id="@+id/facebook"
-            android:layout_marginLeft="48dp"
             android:background="@drawable/security_facebook"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" />
 
 
         <ImageView
-            android:layout_marginLeft="76dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="34dp"
             android:id="@+id/goolge"
-            android:layout_marginRight="48dp"
             android:layout_gravity="right"
             android:background="@drawable/security_google"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" />
+
+
     </LinearLayout>
     <FrameLayout
         android:gravity="center"

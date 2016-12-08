@@ -398,4 +398,13 @@ public class SecurityMyPref {
     }
 
 
+    public static void setFingerPrint(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("set_finger_", yes).apply();
+    }
+
+    public static boolean getFingerPrint() {
+        return App.getSharedPreferences().getBoolean("set_finger_", false);
+    }
+
+
 }

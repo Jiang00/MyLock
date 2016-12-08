@@ -60,7 +60,22 @@
                 android:id="@+id/lpv_lock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/use_finger"
+                android:visibility="gone"
+                android:background="@drawable/security_fingerprint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:textColor="@color/security_theme_color"
+            android:text="@string/security_use_pattern_"
+            android:id="@+id/finger_user_pattern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +85,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/passwd_cancel"
+                android:id="@+id/number_cancel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"

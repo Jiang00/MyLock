@@ -69,8 +69,6 @@ public class SecurityIntruderSetting extends BaseActivity {
         }
     }
 
-
-
     @Override
     protected void onIntent(Intent intent) {
 

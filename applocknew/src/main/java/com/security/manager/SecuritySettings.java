@@ -20,9 +20,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
+import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SecurityMenu;
+import com.security.manager.page.ShowDialogview;
 import com.security.manager.page.SlideMenu;
 import com.security.manager.page.showDialog;
 
@@ -34,38 +37,15 @@ import butterknife.InjectView;
  */
 public class SecuritySettings extends ClientActivitySecurity {
     public static byte idx = 0;
-    public static final byte SETTING_SLOT = 0;
-    public static final byte SETTING_MODE = 1;
-    public static final byte SETTING_HIDE_GRAPH_PATH = 2;
-    public static final byte SETTING_LOCK_NEW = 3;
-//    public static final byte SETTING_NOTIFICATION = 4;
+    public static byte SETTING_SLOT;
+    public static byte SETTING_MODE;
+    public static byte SETTING_FINGERPRINT;
+    public static byte SETTING_HIDE_GRAPH_PATH;
+    public static byte SETTING_LOCK_NEW;
+    public static byte SETTING_SETTING_ADVANCE;
+    public static byte SETTING_RATE;
 
-    public static final byte SETTING_SETTING_ADVANCE = 4;
-
-    public static final byte SETTING_RATE = 5;
-
-
-
-    static final int[] items = new int[]{
-            R.string.security_over_short,
-            R.string.security_reset_password,
-//            R.string.help_normal_pass,
-//            R.string.help_graph_pass,
-//            R.string.secure_email,
-            R.string.security_hide_path,
-//            R.string.random_keyboard,
-//            R.string.advanced_security,
-//            R.string.fake_selector,
-//            R.string.intruder,
-//            R.string.pause_protect,
-//            R.string.show_noti,
-            R.string.security_newapp_lock,
-            R.string.security_settings_preference,
-            R.string.security_help_share
-
-
-    };
-
+    int[] items;
     ListView lv;
 
     @InjectView(R.id.normal_title_name)
@@ -80,6 +60,10 @@ public class SecuritySettings extends ClientActivitySecurity {
     @InjectView(R.id.goolge)
     ImageView google;
 
+    @InjectView(R.id.googleplay)
+    ImageView googleplay;
+    FingerUtil fingerUtil;
+
 
     @Override
     protected boolean hasHelp() {
@@ -92,8 +76,51 @@ public class SecuritySettings extends ClientActivitySecurity {
         ButterKnife.inject(this);
         setupToolbar();
 
+        try {
+            fingerUtil = new FingerUtil();
+            fingerUtil.init(this);
+            if (fingerUtil.isFeatureEnabled_fingerprint) {
+                SETTING_SLOT = 0;
+                SETTING_MODE = 1;
+                SETTING_FINGERPRINT = 2;
+                SETTING_HIDE_GRAPH_PATH = 3;
+                SETTING_LOCK_NEW = 4;
+                SETTING_SETTING_ADVANCE = 5;
+                SETTING_RATE = 6;
+                items = new int[]{
+                        R.string.security_over_short,
+                        R.string.security_reset_password,
+                        R.string.security_fingerprint,
+                        R.string.security_hide_path,
+                        R.string.security_newapp_lock,
+                        R.string.security_settings_preference,
+                        R.string.security_help_share
+                };
+
+
+            } else {
+                SETTING_SLOT = 0;
+                SETTING_MODE = 1;
+                SETTING_HIDE_GRAPH_PATH = 2;
+                SETTING_LOCK_NEW = 3;
+                SETTING_SETTING_ADVANCE = 4;
+                SETTING_RATE = 5;
+                items = new int[]{
+                        R.string.security_over_short,
+                        R.string.security_reset_password,
+                        R.string.security_hide_path,
+                        R.string.security_newapp_lock,
+                        R.string.security_settings_preference,
+                        R.string.security_help_share
+                };
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
         setup(R.string.security_tab_setting);
-        initclick();
         normalTitle.setText("   " + getResources().getString(R.string.security_tab_setting));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
 
@@ -182,17 +209,54 @@ public class SecuritySettings extends ClientActivitySecurity {
                     });
 
 
-                } else if(i==SETTING_SETTING_ADVANCE){
+                } else if (i == SETTING_FINGERPRINT) {
+
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica_it, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
+                    final ImageView b = (ImageView) view.findViewById(R.id.security_set_checked);
+
+                    Log.i("fingerabc", SecurityMyPref.getFingerPrint() + "------3");
+                    if (SecurityMyPref.getFingerPrint()) {
+                        b.setImageResource(R.drawable.security_setting_check);
+                    } else {
+                        b.setImageResource(R.drawable.security_setting_not_check);
+                    }
+                    b.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            boolean hasfinger = false;
+                            try {
+                                hasfinger = fingerUtil.checkhasFingerPrint();
+                            } catch (SsdkUnsupportedException e) {
+                                e.printStackTrace();
+                            }
+
+                            Log.e("fingerabc", hasfinger + "--1");
+                            Log.e("fingerabc", SecurityMyPref.getFingerPrint() + "--2");
+                            if (hasfinger) {
+                                if (SecurityMyPref.getFingerPrint()) {
+                                    SecurityMyPref.setFingerPrint(false);
+                                    b.setImageResource(R.drawable.security_setting_not_check);
+                                } else {
+                                    SecurityMyPref.setFingerPrint(true);
+                                    b.setImageResource(R.drawable.security_setting_check);
+                                }
+                            } else {
+                                ShowDialogview.showFingerPrint(SecuritySettings.this);
+                            }
+                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_FINGER, Tracker.ACT_SETTING_FINGER, 1L);
+
+                        }
+                    });
+                } else if (i == SETTING_SETTING_ADVANCE) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
 
                     TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);
                     it.setText(items[i]);
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
-                }
-
-
-                else if (i == SETTING_RATE) {
+                } else if (i == SETTING_RATE) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
                     TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);
                     it.setText(items[i]);
@@ -234,61 +298,17 @@ public class SecuritySettings extends ClientActivitySecurity {
 
 
                 }
-//                else if (i == SETTING_FACEBOOK) {
-//                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
-//                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
-//                    it.setText(items[i]);
-//                    it.setOnClickListener(onClickListener);
-//                    it.setId(i);
-//
-//
-//                } else if (i == SETTING_GOOGLE) {
-//                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
-//                    Button it = (Button) view.findViewById(R.id.security_abuout_bt);
-//                    it.setText(items[i]);
-//                    it.setOnClickListener(onClickListener);
-//                    it.setId(i);
-//
-//
-//                }
-//                else if (i == SETTING_NOTIFICATION) {
-//                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica, null, false);
-//                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-//                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-//                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-//                    if (SecurityMyPref.getNotification()) {
-//                        checkbox.setImageResource(R.drawable.security_setting_check);
-//                    } else {
-//                        checkbox.setImageResource(R.drawable.security_setting_not_check);
-//                    }
-//                    checkbox.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            if (SecurityMyPref.getNotification()) {
-//                                checkbox.setImageResource(R.drawable.security_setting_not_check);
-//                                SecurityMyPref.setNotification(false);
-//                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
-//
-//                            } else {
-//                                checkbox.setImageResource(R.drawable.security_setting_check);
-//                                SecurityMyPref.setNotification(true);
-//
-//                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
-//                                startService(new Intent(SecuritySettings.this, NotificationService.class));
-//
-//                            }
-//
-//                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_LOCK_NOTIFICAO,Tracker.ACT_SETTING_LOCK_NOTIFICAO,1L);
-//
-//
-//                        }
-//                    });
-//
-//                }
+
+                initclick();
 
                 return view;
             }
         });
+
+
+        int value = this.checkCallingOrSelfPermission("com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY");
+
+        Log.e("permissionvalue", value + "");
     }
 
 
@@ -333,26 +353,11 @@ public class SecuritySettings extends ClientActivitySecurity {
                 }
                 SecurityShare.rate(context);
                 notifyDatasetChanged();
-            }
-//            else if (id == SETTING_FACEBOOK) {
-//                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
-//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//                startActivity(intent);
-//                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
-//            }
-//            else if (id == SETTING_GOOGLE) {
-//                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
-//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//                startActivity(intent);
-//                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
-//
-//
-//            }
-            else if(id==SETTING_SETTING_ADVANCE){
-                Intent intent=new Intent(SecuritySettings.this,SecuritySettingsAdvance.class);
+            } else if (id == SETTING_SETTING_ADVANCE) {
+                Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PREFRENCE, Tracker.ACT_SETTING_PREFRENCE, 1L);
             }
         }
     };
@@ -425,6 +430,7 @@ public class SecuritySettings extends ClientActivitySecurity {
         return true;
     }
 
+
     public void initclick() {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -443,6 +449,18 @@ public class SecuritySettings extends ClientActivitySecurity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
+
+            }
+        });
+
+        googleplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse(SecurityMenu.GOOGLEPLAY);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLAY, Tracker.ACT_GOOGLE_PLAY, 1L);
 
             }
         });

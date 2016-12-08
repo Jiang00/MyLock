@@ -41,6 +41,8 @@ public class SecurityMenu {
     public static final int MENU_FAQ = 4;
     public static final String FACEBOOK = "https://www.facebook.com/IvyAppLock";
     public static final String GOOGLE = "https://plus.google.com/u/0/communities/113134139742239607331";
+    public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=IVYMOBI";
+
 
 
     public static final String[] newidkeys = {

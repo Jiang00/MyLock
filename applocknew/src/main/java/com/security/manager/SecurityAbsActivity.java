@@ -53,10 +53,10 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         super.onPause();
         invisible = true;
     }
+
     protected void onIntent(Intent intent) {
 
     }
-
 
     @Override
     protected void onPostResume() {
@@ -123,7 +123,11 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         super.onCreate(savedInstanceState);
         context = this;
         Thread.setDefaultUncaughtExceptionHandler(exceptionHandler);
-        initNow();
+        try {
+            initNow();
+        } catch (Error e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -147,11 +151,16 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void initNow() {
         AndroidSdk.onCreate(this);
         setupView();
+
     }
 
     @Override
     protected void onResume() {
-        AndroidSdk.onResumeWithoutTransition(this);
+        try {
+            AndroidSdk.onResumeWithoutTransition(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         super.onResume();
     }
 

@@ -140,4 +140,8 @@
 	<string name="security_settings_preference">पसंद</string>
 	<string name="security_stop_applock">बंद करो Applock</string>
     <string name="security_stop_applock_information">अपनी क्षुधा यदि आप AppLock सेवा बंद संरक्षित नहीं किया जाएगा। जारी रहना?</string>
+	<string name="security_fingerprint">अंगुली की छाप</string>
+    <string name="security_open_fingerprint">उपयोग फिंगरप्रिंट</string>
+    <string name="security_go_open_fingerprint">तुरंत सेट करने के लिए</string>
+    <string name="security_fingerprint_many_error">पासवर्ड का उपयोग करें</string>
 </resources>

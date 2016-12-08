@@ -1,36 +1,23 @@
 package com.security.manager;
 
-import android.accessibilityservice.AccessibilityService;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Build;
-import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.privacy.lock.R;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.ShowDialogview;
-import com.security.manager.page.SlideMenu;
-import com.security.manager.page.showDialog;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -159,7 +146,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                     checkbox.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ShowDialogview.showPermission50(SecuritySettingsAdvance.this);
+                            ShowDialogview.showSettingPermission50(SecuritySettingsAdvance.this);
                         }
                     });
                 } else if (i == SETTING_POWER_MODE) {
@@ -172,7 +159,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                     view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ShowDialogview.showAccess(SecuritySettingsAdvance.this);
+                            ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
                         }
                     });
 
@@ -183,11 +170,9 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         });
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
-        setupView();
     }
 
     private void setupToolbar() {
