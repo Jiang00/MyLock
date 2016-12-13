@@ -51,11 +51,7 @@
                 android:resource="@xml/acc" />
         </service>
 
-        <!--<service-->
-            <!--android:name=".Start"-->
-            <!--android:process=":remote"/>-->
         <service android:name="com.security.manager.c"  android:process=":remote"/>
-
 
 
         <activity
@@ -275,9 +271,7 @@
             android:theme="@style/activityTheme" />
 
 
-        <service android:name="com.security.manager.SecurityService"
-            android:process=":locker"
-            />
+        <service android:name="com.security.manager.SecurityService" />
         <service android:name="com.security.manager.NotificationService" />
 
 
@@ -310,7 +304,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="package" />
             </intent-filter>

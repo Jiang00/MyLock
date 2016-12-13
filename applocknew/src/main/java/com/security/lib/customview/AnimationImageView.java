@@ -66,18 +66,17 @@ public class AnimationImageView extends ImageView {
         if (url == null) {
             setImageDrawable(null);
         } else {
-//            Bitmap bitmap = ImageMaster.getImage(url);
-            Bitmap bitmap = BitmapFactory.decodeFile(url);
-            Date mydate = new Date(data);
-            mydate.toString();
-            long time = mydate.getTime();
             try {
+                Bitmap bitmap = BitmapFactory.decodeFile(url);
+                setImageBitmap(bitmap, false);
+                Date mydate = new Date(data);
+                mydate.toString();
+                long time = mydate.getTime();
                 Bitmap bm = ImageTools.Watermark(bitmap,255, bacbitmap, context);
                 ImageTools.saveMyBitmap(time+"", bm);
             }catch (Exception e){
                 e.printStackTrace();
             }
-            setImageBitmap(bitmap, false);
         }
     }
     @Override

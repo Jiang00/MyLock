@@ -85,13 +85,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         setupToolbar();
         initclick();
 
-        if (Utils.isMIUI()) {
-            if (!SecurityMyPref.getintruderCamer() ) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
-                SecurityMyPref.setintruderCamer(true);
-            }
-        }
-
         setup(R.string.security_intrude_five);
         intruderEntries = IntruderApi.getIntruders();
         if (intruderEntries.size() == 0) {

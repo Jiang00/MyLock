@@ -567,6 +567,7 @@ public class SecurityService extends Service {
                     handler.post(alertRunner);
                 }
             } else {
+                Log.e("unlock", "unlock--------appname");
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
@@ -574,7 +575,6 @@ public class SecurityService extends Service {
             }
         }
     }
-
 
     private void showAd() {
 //        if (System.currentTimeMillis() / 1000L - AdConfig.lastShowAdTime.getValue() > (AdConfig.fullShowingRate.getValue() * 60)) {
@@ -846,16 +846,17 @@ public class SecurityService extends Service {
         super.onCreate();
         try {
             AndroidSdk.onCreate(this);
-
         } catch (Exception e) {
 
         }
         Utils.init();
         handler = new Handler(getMainLooper());
+        c.a(this);
+        Intent serviceIntent = new Intent(this, c.class);
+        startService(serviceIntent);
         if (Build.VERSION.SDK_INT >= 21) {
             hasAccessUsagePermission = Utils.checkPermissionIsGrant(App.getContext(), Utils.OP_GET_USAGE_STATS) == AppOpsManager.MODE_ALLOWED;
         }
-
         String[] top25 = new String[]{
                 /*
                 "com.facebook.orca",
@@ -982,10 +983,6 @@ public class SecurityService extends Service {
         excludesClasses.put(SecurityPatternActivity.class.getName(), true);
         excludesClasses.put(SecurityTogglePatternActivity.class.getName(), true);
         excludesClasses.put(UnlockApp.class.getName(), true);
-
-
-        Intent cService = new Intent(this, c.class);
-        startService(cService);
     }
 
     @Override

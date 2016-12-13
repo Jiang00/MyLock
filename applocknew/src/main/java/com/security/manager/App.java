@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
-import com.privacy.lock.Start;
 import com.security.gallery.view.TileBitmapDrawable;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
@@ -31,6 +30,7 @@ public class App extends BaseApp{
         if (requireEarlyReturn()) {
             return;
         }
+
         watcher = LeakCanary.install(this);
         SDataType.init(this);
 
@@ -45,8 +45,8 @@ public class App extends BaseApp{
         ImageManager.initialize(this);
         ImageMaster.imageCache = TileBitmapDrawable.initCache(this);
         SecurityImgManager.cache = ImageMaster.imageCache;
-//        Start.start(this);
         SecurityPreference.initialize(this);
+//        Start.start(this);
         startService(new Intent(this, SecurityService.class));
         if(SecurityMyPref.getNotification()){
             startService(new Intent(this,NotificationService.class));

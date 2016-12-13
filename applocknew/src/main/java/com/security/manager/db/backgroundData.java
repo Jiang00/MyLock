@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.android.dev.ICacheHandler;
-import com.security.manager.App;
+
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.ShowDialogview;
 
@@ -16,7 +15,7 @@ import org.json.JSONObject;
 /**
  * Created by huale on 2015/2/6.
  */
-public class backgroundData implements ICacheHandler {
+public class backgroundData  {
 
 
     public static final String KEY_NEW_VERSION = "version";
@@ -82,8 +81,4 @@ public class backgroundData implements ICacheHandler {
 
     }
 
-    @Override
-    public void addCache(String s, String s1) {
-
-    }
 }

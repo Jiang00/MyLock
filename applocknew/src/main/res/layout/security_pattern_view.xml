@@ -60,12 +60,7 @@
                 android:id="@+id/lpv_lock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <ImageView
-                android:id="@+id/use_finger"
-                android:visibility="gone"
-                android:background="@drawable/security_fingerprint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
         <TextView

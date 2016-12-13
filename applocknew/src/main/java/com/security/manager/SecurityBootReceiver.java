@@ -1,6 +1,7 @@
 package com.security.manager;
 
 import android.content.*;
+import android.util.Log;
 
 import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecurityMyPref;
@@ -14,9 +15,10 @@ public class SecurityBootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         String act = intent.getAction();
-        Utils.LOGER("on receive " + intent.toString());
+        Utils.LOGER("myreceive " + intent.toString());
         switch (act) {
             case Intent.ACTION_BOOT_COMPLETED:
+                Log.e("myreceive","------");
                 context.startService(new Intent(context, SecurityService.class));
                 break;
             case Intent.ACTION_PACKAGE_REMOVED:{
