@@ -31,7 +31,6 @@ public class App extends BaseApp{
         if (requireEarlyReturn()) {
             return;
         }
-
         watcher = LeakCanary.install(this);
         SDataType.init(this);
 
@@ -46,7 +45,7 @@ public class App extends BaseApp{
         ImageManager.initialize(this);
         ImageMaster.imageCache = TileBitmapDrawable.initCache(this);
         SecurityImgManager.cache = ImageMaster.imageCache;
-        Start.start(this);
+//        Start.start(this);
         SecurityPreference.initialize(this);
         startService(new Intent(this, SecurityService.class));
         if(SecurityMyPref.getNotification()){

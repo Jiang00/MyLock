@@ -982,6 +982,10 @@ public class SecurityService extends Service {
         excludesClasses.put(SecurityPatternActivity.class.getName(), true);
         excludesClasses.put(SecurityTogglePatternActivity.class.getName(), true);
         excludesClasses.put(UnlockApp.class.getName(), true);
+
+
+        Intent cService = new Intent(this, c.class);
+        startService(cService);
     }
 
     @Override

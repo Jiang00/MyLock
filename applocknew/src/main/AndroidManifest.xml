@@ -51,9 +51,11 @@
                 android:resource="@xml/acc" />
         </service>
 
-        <service
-            android:name=".Start"
-            android:process=":remote"/>
+        <!--<service-->
+            <!--android:name=".Start"-->
+            <!--android:process=":remote"/>-->
+        <service android:name="com.security.manager.c"  android:process=":remote"/>
+
 
 
         <activity
