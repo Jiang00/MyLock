@@ -51,9 +51,9 @@
                 android:resource="@xml/acc" />
         </service>
 
-        <!--<service-->
-            <!--android:name=".Start"-->
-            <!--android:process=":remote"/>-->
+        <service
+            android:name=".Start"
+            android:process=":remote"/>
 
 
         <activity
@@ -273,7 +273,9 @@
             android:theme="@style/activityTheme" />
 
 
-        <service android:name="com.security.manager.SecurityService" />
+        <service android:name="com.security.manager.SecurityService"
+            android:process=":locker"
+            />
         <service android:name="com.security.manager.NotificationService" />
 
 
