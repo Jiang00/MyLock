@@ -7,7 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ListView;
 
-import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.App;
@@ -186,33 +185,5 @@ public class ShowDialogview {
             }
         });
     }
-
-
-    public static void showFingerPrint(Context context) {
-        final View alertDialogView = View.inflate(context, R.layout.show_finger_print, null);
-        final AlertDialog d = new AlertDialog.Builder(context).create();
-        d.setView(alertDialogView);
-        d.show();
-        alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d.cancel();
-            }
-        });
-        alertDialogView.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d.cancel();
-                FingerUtil finger=new FingerUtil();
-                finger.init(v.getContext());
-                finger.registerFinger(v.getContext());
-                SecurityMyPref.setFirstLeader(true);
-
-            }
-        });
-    }
-
-
-
 
 }

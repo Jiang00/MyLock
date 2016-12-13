@@ -151,7 +151,6 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
         showAdOrFive();
         setAdaptor();
-
         return v;
     }
 
@@ -262,11 +261,23 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         inflater.inflate(R.menu.security_applock_menu, menu);
         menuSearch = menu.findItem(R.id.action_search);
         visitorState = menu.findItem(R.id.menuvisitor);
-        if (SecurityMyPref.getVisitor()) {
-            visitorState.setIcon(R.drawable.security_app_visitor_on);
+
+        if (SecurityMyPref.getshowLockAll()) {
+            if (SecurityMyPref.getVisitor()) {
+                visitorState.setIcon(R.drawable.security_app_visitor_on).setVisible(true);
+            } else {
+                visitorState.setIcon(R.drawable.security_app_visitor_off).setVisible(true);
+            }
         } else {
-            visitorState.setIcon(R.drawable.security_app_visitor_off);
+            if (SecurityMyPref.getVisitor()) {
+                visitorState.setIcon(R.drawable.security_app_visitor_on).setVisible(false);
+            } else {
+                visitorState.setIcon(R.drawable.security_app_visitor_off).setVisible(false);
+            }
+
         }
+
+
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuSearch);
         searchView.setOnQueryTextListener(this);
         MenuItemCompat.setOnActionExpandListener(menuSearch, new MenuItemCompat.OnActionExpandListener() {
@@ -290,8 +301,14 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             public boolean onMenuItemActionCollapse(MenuItem item) {
                 CloseSearch = true;
                 searchResult = null;
-                visitorState.setVisible(true);
                 menuSearch.setVisible(true);
+                if (SecurityMyPref.getshowLockAll()) {
+                    visitorState.setVisible(true);
+                } else {
+                    visitorState.setVisible(false);
+
+                }
+
                 showAdOrFive();
                 return true;
             }
@@ -480,7 +497,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                         d.cancel();
                         SecurityMyPref.setVisitor(false);
                         visitorState.setIcon(R.drawable.security_app_visitor_off);
-                         Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
 
                         Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
                         if (SecurityMyPref.getNotification()) {

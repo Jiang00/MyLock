@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.privacy.lock.R;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.ShowDialogview;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -53,24 +55,41 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         intent = getIntent();
         final int[] items;
         if (Build.VERSION.SDK_INT >= 21) {
-            SETTING_PERMISSION = 0;
-            SETTING_NOTIFICATION = 1;
-            SETTING_POWER_MODE = 2;
-            items = new int[]{
-                    R.string.security_service_title,
-                    R.string.security_nofification,
-                    R.string.security_power_mode,
-            };
+            if (SecurityMyPref.getshowLockAll()) {
+                SETTING_PERMISSION = 0;
+                SETTING_NOTIFICATION = 1;
+                SETTING_POWER_MODE = 2;
+                items = new int[]{
+                        R.string.security_service_title,
+                        R.string.security_nofification,
+                        R.string.security_power_mode,
+                };
+            } else {
+                SETTING_PERMISSION = 0;
+                SETTING_POWER_MODE = 1;
+                items = new int[]{
+                        R.string.security_service_title,
+                        R.string.security_power_mode,
+                };
+
+            }
+
         } else {
-            SETTING_NOTIFICATION = 0;
-            SETTING_POWER_MODE = 1;
-            items = new int[]{
-                    R.string.security_nofification,
-                    R.string.security_power_mode,
-            };
 
+            if (SecurityMyPref.getshowLockAll()) {
+                SETTING_NOTIFICATION = 0;
+                SETTING_POWER_MODE = 1;
+                items = new int[]{
+                        R.string.security_nofification,
+                        R.string.security_power_mode,
+                };
+            } else {
+                SETTING_POWER_MODE = 0;
+                items = new int[]{
+                        R.string.security_power_mode,
+                };
+            }
         }
-
 
         ButterKnife.inject(this);
         setupToolbar();
@@ -102,76 +121,127 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
 
-                if (i == SETTING_NOTIFICATION) {
-                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                    if (SecurityMyPref.getNotification()) {
-                        checkbox.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        checkbox.setImageResource(R.drawable.security_setting_not_check);
-                    }
-                    checkbox.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (SecurityMyPref.getNotification()) {
-                                checkbox.setImageResource(R.drawable.security_setting_not_check);
-                                SecurityMyPref.setNotification(false);
-                                stopService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
+                Log.e("ivalue", i + "---");
 
-                            } else {
-                                checkbox.setImageResource(R.drawable.security_setting_check);
-                                SecurityMyPref.setNotification(true);
-                                stopService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
-                                startService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
+                if (SecurityMyPref.getshowLockAll()) {
+
+                    if (i == SETTING_POWER_MODE) {
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
+                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+
+                        checkbox.setImageResource(R.drawable.security_ne);
+                        view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
+                            }
+                        });
+
+
+
+
+                    } else if (i == SETTING_NOTIFICATION) {
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                        ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
+                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                        if (SecurityMyPref.getNotification()) {
+                            checkbox.setImageResource(R.drawable.security_setting_check);
+                        } else {
+                            checkbox.setImageResource(R.drawable.security_setting_not_check);
+                        }
+                        checkbox.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (SecurityMyPref.getNotification()) {
+                                    checkbox.setImageResource(R.drawable.security_setting_not_check);
+                                    SecurityMyPref.setNotification(false);
+                                    stopService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
+
+                                } else {
+                                    checkbox.setImageResource(R.drawable.security_setting_check);
+                                    SecurityMyPref.setNotification(true);
+                                    stopService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
+                                    startService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
+
+                                }
+
+                                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
+
 
                             }
-
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
-
-
-                        }
-                    });
-                } else if (i == SETTING_PERMISSION) {
-                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
-                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                    if (!Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
-                        checkbox.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        checkbox.setImageResource(R.drawable.security_setting_not_check);
+                        });
                     }
-                    checkbox.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ShowDialogview.showSettingPermission50(SecuritySettingsAdvance.this);
-                        }
-                    });
-                } else if (i == SETTING_POWER_MODE) {
-                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
-                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
 
-                    checkbox.setImageResource(R.drawable.security_ne);
-                    view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
+
+                    else if (i == SETTING_PERMISSION) {
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
+                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                        if (!Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
+                            checkbox.setImageResource(R.drawable.security_setting_check);
+                        } else {
+                            checkbox.setImageResource(R.drawable.security_setting_not_check);
                         }
-                    });
+                        checkbox.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ShowDialogview.showSettingPermission50(SecuritySettingsAdvance.this);
+                            }
+                        });
+                    }
+
+                } else {
+
+                    if (i == SETTING_POWER_MODE) {
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
+                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+
+                        checkbox.setImageResource(R.drawable.security_ne);
+                        view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
+                            }
+                        });
+
+
+                    } else if (i == SETTING_PERMISSION) {
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
+                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                        if (!Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
+                            checkbox.setImageResource(R.drawable.security_setting_check);
+                        } else {
+                            checkbox.setImageResource(R.drawable.security_setting_not_check);
+                        }
+                        checkbox.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ShowDialogview.showSettingPermission50(SecuritySettingsAdvance.this);
+                            }
+                        });
+                    }
 
 
                 }
+
                 return view;
             }
         });
     }
 
+
+
     @Override
     protected void onResume() {
+//        lv.getAdapter().notify();
         super.onResume();
     }
 
@@ -193,7 +263,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                 Intent nIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
                 nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(nIntent);
-            }else{
+            } else {
                 this.finish();
 
             }
@@ -205,10 +275,10 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
     public void onBackPressed() {
         if (intent.getExtra("launchname") != null) {
             this.finish();
-            Intent nIntent = new Intent(this,SecurityPatternActivity.class);
+            Intent nIntent = new Intent(this, SecurityPatternActivity.class);
             nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(nIntent);
-        }else{
+        } else {
             this.finish();
 
         }

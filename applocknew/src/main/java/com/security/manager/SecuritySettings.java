@@ -20,9 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
-import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.ShowDialogview;
@@ -62,7 +60,6 @@ public class SecuritySettings extends ClientActivitySecurity {
 
     @InjectView(R.id.googleplay)
     ImageView googleplay;
-    FingerUtil fingerUtil;
 
 
     @Override
@@ -76,50 +73,22 @@ public class SecuritySettings extends ClientActivitySecurity {
         ButterKnife.inject(this);
         setupToolbar();
 
-        try {
-            fingerUtil = new FingerUtil();
-            fingerUtil.init(this);
-            if (fingerUtil.isFeatureEnabled_fingerprint) {
-                SETTING_SLOT = 0;
-                SETTING_MODE = 1;
-                SETTING_FINGERPRINT = 2;
-                SETTING_HIDE_GRAPH_PATH = 3;
-                SETTING_LOCK_NEW = 4;
-                SETTING_SETTING_ADVANCE = 5;
-                SETTING_RATE = 6;
-                items = new int[]{
-                        R.string.security_over_short,
-                        R.string.security_reset_password,
-                        R.string.security_fingerprint,
-                        R.string.security_hide_path,
-                        R.string.security_newapp_lock,
-                        R.string.security_settings_preference,
-                        R.string.security_help_share
-                };
 
+        SETTING_SLOT = 0;
+        SETTING_MODE = 1;
+        SETTING_HIDE_GRAPH_PATH = 2;
+        SETTING_LOCK_NEW = 3;
+        SETTING_SETTING_ADVANCE = 4;
+        SETTING_RATE = 5;
+        items = new int[]{
+                R.string.security_over_short,
+                R.string.security_reset_password,
+                R.string.security_hide_path,
+                R.string.security_newapp_lock,
+                R.string.security_settings_preference,
+                R.string.security_help_share
+        };
 
-            } else {
-                SETTING_SLOT = 0;
-                SETTING_MODE = 1;
-                SETTING_HIDE_GRAPH_PATH = 2;
-                SETTING_LOCK_NEW = 3;
-                SETTING_SETTING_ADVANCE = 4;
-                SETTING_RATE = 5;
-                items = new int[]{
-                        R.string.security_over_short,
-                        R.string.security_reset_password,
-                        R.string.security_hide_path,
-                        R.string.security_newapp_lock,
-                        R.string.security_settings_preference,
-                        R.string.security_help_share
-                };
-
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
         setup(R.string.security_tab_setting);
         normalTitle.setText("   " + getResources().getString(R.string.security_tab_setting));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
@@ -209,47 +178,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     });
 
 
-                } else if (i == SETTING_FINGERPRINT) {
-
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica_it, null, false);
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-                    final ImageView b = (ImageView) view.findViewById(R.id.security_set_checked);
-
-                    Log.i("fingerabc", SecurityMyPref.getFingerPrint() + "------3");
-                    if (SecurityMyPref.getFingerPrint()) {
-                        b.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        b.setImageResource(R.drawable.security_setting_not_check);
-                    }
-                    b.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            boolean hasfinger = false;
-                            try {
-                                hasfinger = fingerUtil.checkhasFingerPrint();
-                            } catch (SsdkUnsupportedException e) {
-                                e.printStackTrace();
-                            }
-
-                            Log.e("fingerabc", hasfinger + "--1");
-                            Log.e("fingerabc", SecurityMyPref.getFingerPrint() + "--2");
-                            if (hasfinger) {
-                                if (SecurityMyPref.getFingerPrint()) {
-                                    SecurityMyPref.setFingerPrint(false);
-                                    b.setImageResource(R.drawable.security_setting_not_check);
-                                } else {
-                                    SecurityMyPref.setFingerPrint(true);
-                                    b.setImageResource(R.drawable.security_setting_check);
-                                }
-                            } else {
-                                ShowDialogview.showFingerPrint(SecuritySettings.this);
-                            }
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_FINGER, Tracker.ACT_SETTING_FINGER, 1L);
-
-                        }
-                    });
-                } else if (i == SETTING_SETTING_ADVANCE) {
+                }  else if (i == SETTING_SETTING_ADVANCE) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
 
                     TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);

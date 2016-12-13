@@ -30,7 +30,7 @@ android {
         testApplicationId "com.security.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
         versionCode 1
-        versionName 'v1.6.12.2'
+        versionName 'v1.7.12.3'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
         buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
@@ -80,6 +80,6 @@ dependencies {
     compile project(':model')
     compile 'com.privacy.lib:common:1.1.0'
     compile 'com.core:empty:1.1.0'
-    compile project(':fingerprint')
+//    compile project(':fingerprint')
 
 }

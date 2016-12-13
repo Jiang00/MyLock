@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.android.dev.ICacheHandler;
 import com.security.manager.App;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.ShowDialogview;
 
 
@@ -22,6 +23,7 @@ public class backgroundData implements ICacheHandler {
     public static final String KEY_VERSION_CODE = "versionCode";
     public static final String KEY_VERSION_EDITION = "versionEdition";
     public static final String KEY_NEW_VERSION_DESC = "desc";
+    public static final String KEY_SHOW_LOCK_ALL = "show_lockall";
 
 
     private static final backgroundData data = new backgroundData();
@@ -57,12 +59,27 @@ public class backgroundData implements ICacheHandler {
 //                    sp.edit().putBoolean(KEY_NEW_VERSION, true).putString(KEY_VERSION_EDITION, version.getString(KEY_VERSION_EDITION))
 //                            .putString(KEY_NEW_VERSION_DESC, version.getString(KEY_NEW_VERSION_DESC)).apply();
 //                }
+
+
+            }
+            if (newObj.has(KEY_SHOW_LOCK_ALL)) {
+                Log.e("mtt", "lockvalue" + "--------have");
+                int lockvalue = newObj.getInt(KEY_SHOW_LOCK_ALL);
+                if(lockvalue==1){
+                    SecurityMyPref.setshowLockAll(true);
+                }else{
+                    SecurityMyPref.setshowLockAll(false);
+
+                }
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("exception", e.getMessage());
         }
+
+
     }
 
     @Override

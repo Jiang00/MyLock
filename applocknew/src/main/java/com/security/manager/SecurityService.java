@@ -97,6 +97,7 @@ public class SecurityService extends Service {
                 .putExtra(EXTRA_LOCK_PKG, packageName)
         );
     }
+
     HashMap<String, Long> briefTimes = new HashMap<>();
     private Runnable removeRunner = new Runnable() {
         @Override
@@ -574,6 +575,7 @@ public class SecurityService extends Service {
         }
     }
 
+
     private void showAd() {
 //        if (System.currentTimeMillis() / 1000L - AdConfig.lastShowAdTime.getValue() > (AdConfig.fullShowingRate.getValue() * 60)) {
 //            AdConfig.lastShowAdTime.setValue((int) (System.currentTimeMillis() / 1000L));
@@ -842,7 +844,12 @@ public class SecurityService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        AndroidSdk.onCreate(this);
+        try {
+            AndroidSdk.onCreate(this);
+
+        } catch (Exception e) {
+
+        }
         Utils.init();
         handler = new Handler(getMainLooper());
         if (Build.VERSION.SDK_INT >= 21) {

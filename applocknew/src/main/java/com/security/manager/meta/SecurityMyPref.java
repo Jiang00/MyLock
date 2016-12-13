@@ -407,4 +407,13 @@ public class SecurityMyPref {
     }
 
 
+    public static void setshowLockAll(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("show_lock_al", yes).apply();
+    }
+
+    public static boolean getshowLockAll() {
+        return App.getSharedPreferences().getBoolean("show_lock_al", true);
+    }
+
+
 }

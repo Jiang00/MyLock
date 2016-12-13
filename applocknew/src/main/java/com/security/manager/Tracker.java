@@ -96,7 +96,6 @@ public class Tracker {
     public static final String ACT_SETTING_RESETPAS= "重置密码";
     public static final String ACT_SETTING_HIDEPATH= "隐藏解锁路径";
     public static final String ACT_SETTING_FINGER= "指纹解锁";
-
     public static final String ACT_SETTING_LOCK_NEW= "新应用加锁";
     public static final String ACT_SETTING_LOCK_NOTIFICAO= "通知";
     public static final String ACT_GOOD_RATE= "好评";

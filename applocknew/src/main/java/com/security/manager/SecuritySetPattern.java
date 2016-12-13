@@ -44,7 +44,6 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     }
 
 
-
     @Override
     public void setupView() {
         byte setting = getIntent().getByteExtra("set", SET_EMPTY);
@@ -161,13 +160,16 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         */
         startListApp();
     }
+
     NumberDot passdot;
+    int size = 0;
 
     @Override
     public void onClick(View view) {
         Button v = (Button) view;
         passdot.setNumber(v.getText().charAt(0));
-        if (togglePattern){
+        size++;
+        if (togglePattern) {
             togglePattern = false;
             Button ok = (Button) findViewById(R.id.ok);
             ok.setText(R.string.security_btn_next);
@@ -240,7 +242,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             @Override
             public void onClick(View view) {
                 setPasswdView();
-                Tracker.sendEvent(Tracker.CATE_SETTING,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,Tracker.ACT_LEADER_SETTINGPASS_PASSWORD,1L);
+                Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_LEADER_SETTINGPASS_PASSWORD, Tracker.ACT_LEADER_SETTINGPASS_PASSWORD, 1L);
             }
         });
     }
@@ -259,17 +261,17 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     }
 
     void setGraphView() {
-        if(SecurityMyPref.getFirstLeader()){
+        if (SecurityMyPref.getFirstLeader()) {
             SecurityMyPref.setFirstLeader(false);
-            Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
-        }else{
-            Tracker.sendEvent(Tracker.ACT_SETTING_MENU,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
+            Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
+        } else {
+            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
 
         }
         setContentView(R.layout.security_pattern_view_set);
         ButterKnife.inject(this);
         View back = findViewById(R.id.back);
-        if (firstSetup){
+        if (firstSetup) {
             back.setVisibility(View.GONE);
         }
         securityPatternView = (SecurityPatternView) findViewById(R.id.lpv_lock);
@@ -361,7 +363,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         setContentView(R.layout.security_password_setting);
 //        randomNumpadIfPossible();
         View back = findViewById(R.id.back);
-        if (firstSetup){
+        if (firstSetup) {
             back.setVisibility(View.GONE);
         }
         back.setOnClickListener(new View.OnClickListener() {
@@ -399,13 +401,19 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
 
             @Override
             public void onClick(View view) {
-                if (togglePattern){
+                if (togglePattern) {
                     setGraphView();
-                    Tracker.sendEvent(Tracker.CATE_SETTING,Tracker.ACT_LEADER_SETTINGPASS,Tracker.ACT_LEADER_SETTINGPASS,1L);
+                    Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
 
                     return;
                 }
                 if (setProgress == 0) {
+                    if (size < 6) {
+                        size = 0;
+                        passdot.reset();
+                        Toast.makeText(SecuritySetPattern.this, R.string.security_password_short, Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     if (passdot.empty()) {
                         passwdIsEmpty();
                         return;
@@ -420,7 +428,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                     okBtn.setBackgroundDrawable(null);
                     ((TextView) findViewById(R.id.title)).setText(R.string.security_set_confirm_password);
                     ((TextView) findViewById(R.id.tip)).setText(R.string.security_confirm_passwd_tip);
-                } else if (setProgress == 1){
+                } else if (setProgress == 1) {
                     setProgress = 0;
                     passdot.setFlag(false);
                     passdot.reset();
@@ -435,7 +443,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             @Override
             public void onClick(View view) {
                 passdot.backSpace();
-                if (passdot.empty() && !togglePattern){
+                if (passdot.empty() && !togglePattern) {
                     togglePattern = true;
                     okBtn.setText(R.string.security_use_pattern);
                     okBtn.setBackgroundDrawable(null);

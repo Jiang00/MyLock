@@ -8,14 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 
-import com.android.fingerprint.FingerUtil;
 import com.privacy.lock.R;
-import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.security.manager.App;
 
 import com.security.manager.SecurityAppLock;
@@ -108,77 +103,7 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             }
         });
 
-        if (SecurityMyPref.getFingerPrint()) {
 
-            FingerUtil fingerPrint = new FingerUtil();
-            fingerPrint.init(v.getContext());
-            boolean haveFinger = false;
-            try {
-                haveFinger = fingerPrint.checkhasFingerPrint();
-            } catch (SsdkUnsupportedException e) {
-                e.printStackTrace();
-            }
-            if (fingerPrint.isFeatureEnabled_fingerprint && haveFinger) {
-
-                final ImageView finger = (ImageView) v.findViewById(R.id.use_pass_finger);
-                final LinearLayout fingerpatternview = (LinearLayout) v.findViewById(R.id.numpad);
-                final TextView userpassword = (TextView) v.findViewById(R.id.finger_user_number);
-                finger.setVisibility(View.VISIBLE);
-                fingerpatternview.setVisibility(View.GONE);
-                userpassword.setVisibility(View.VISIBLE);
-                userpassword.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finger.setVisibility(View.GONE);
-                        fingerpatternview.setVisibility(View.VISIBLE);
-                        userpassword.setVisibility(View.GONE);
-                    }
-                });
-
-
-                fingerPrint.setListener(new FingerUtil.onFingerPrintCompletedListener() {
-                                            @Override
-                                            public void AfterUnlock() {
-                                                try {
-                                                    finger.setBackgroundResource(R.drawable.security_finger_right);
-                                                    new Thread().sleep(250);
-                                                    ISecurityBridge bridge = SecurityTheBridge.bridge;
-                                                    String currentApp = bridge.currentPkg();
-                                                    if (App.getContext().getPackageName().equals(currentApp)) {
-                                                        Intent intent = new Intent(App.getContext(), SecurityAppLock.class);
-                                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                        App.getContext().startActivity(intent);
-                                                    }
-                                                } catch (Exception e) {
-                                                    e.printStackTrace();
-                                                }
-                                                if (callback != null) {
-                                                    ((SecurityPatternActivity) v.getContext()).unlockSuccess(false);
-                                                    callback.onSuccess();
-
-                                                }
-                                            }
-
-                                            @Override
-                                            public void unlockFailed() {
-//                                            fingerPrint.cancelIdentify();
-
-
-                                                finger.setBackgroundResource(R.drawable.security_finger_wrong);
-
-                                                new Handler().postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        // TODO Auto-generated method stub
-                                                        finger.setBackgroundResource(R.drawable.security_fingerprint);
-                                                    }
-                                                }, 250);
-                                            }
-                                        }
-                );
-                fingerPrint.startFingerprint();
-            }
-        }
 
 
         v.findViewById(R.id.use_pattern).setVisibility(View.GONE);
@@ -216,7 +141,6 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
 //                callback.unLock();
             }
         });
-
 
         return v;
     }
