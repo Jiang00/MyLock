@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">Float Widget</string>
     <string name="security_for_lock_new">Apakah Anda ingin mengunci \"%1$s\"?</string>
     <string name="security_forget_password">Lupa kata sandi</string>
-    <string name="security_help_share">☆ Menilainya saya</string>
+    <string name="security_help_share">Menilainya saya</string>
     <string name="security_hide_path">Sembunyikan path pola menarik</string>
     <string name="security_hide_successful">Sembunyikan %1$s sukses</string>
     <string name="security_intruder_off_new">Detektor penyusup adalah off</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">Membatalkan</string>
     <string name="security_fake_calender">Kalender</string>
     <string name="security_five_start">Kami berkomitmen untuk melindungi privasi Anda. Bisakah Anda memberi kami 5-bintang rating?</string>
-    <string name="security_input_password">Masukkan kode PIN</string>
+    <string name="security_input_password">Masukkan kode PIN 6-digit</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 kali</string>
     <string name="security_intrude_five_rate">pujian Anda akan mendorong kita berbuat lebih baik.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">Mengurangi konsumsi daya 50%, memperpanjang telepon waktu siaga.</string>
 	<string name="security_service_title">Aksesibilitas</string>
     <string name="security_service_description">Layanan stabil dan konsumsi daya yang lebih kecil.</string>
-	<string name="security_settings_preference">Pilihan</string>
+	<string name="security_settings_preference">Pusat izin</string>
 	<string name="security_stop_applock">Berhenti AppLock</string>
     <string name="security_stop_applock_information">Aplikasi Anda tidak akan terjamin jika Anda menghentikan layanan AppLock. Terus?</string>
 	<string name="security_fingerprint">Sidik jari</string>
     <string name="security_open_fingerprint">Gunakan sidik jari</string>
     <string name="security_go_open_fingerprint">Untuk segera menyiapkan</string>
     <string name="security_fingerprint_many_error">Gunakan sandi</string>
+	<string name="security_password_short">6 digit diperlukan</string>
 </resources>

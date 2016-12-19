@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">phụ tùng nổi</string>
     <string name="security_for_lock_new">Bạn có muốn khóa \"%1$s\"?</string>
     <string name="security_forget_password">Quên mật khẩu</string>
-    <string name="security_help_share">☆ Rate tôi</string>
+    <string name="security_help_share">Rate tôi</string>
     <string name="security_hide_path">Hide con đường mô hình hòa</string>
     <string name="security_hide_successful">Giấu %1$s thành công</string>
     <string name="security_intruder_off_new">Máy phát hiện kẻ xâm nhập là tắt</string>
@@ -95,7 +95,7 @@
     <string name="security_cancel">hủy bỏ</string>
     <string name="security_fake_calender">Lịch</string>
     <string name="security_five_start">Chúng tôi cam kết bảo vệ sự riêng tư của bạn. Ông có thể cho chúng ta một 5-sao-giá?</string>
-    <string name="security_input_password">Vui lòng nhập mã PIN</string>
+    <string name="security_input_password">Vui lòng nhập mã PIN 6-chữ số</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 lần</string>
     <string name="security_intrude_five_rate">lời khen ngợi của bạn sẽ khuyến khích chúng ta làm tốt hơn.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">Giảm tiêu thụ điện năng 50%, kéo dài thời gian chờ điện thoại.</string>
 	<string name="security_service_title">Khả năng tiếp cận</string>
     <string name="security_service_description">dịch vụ ổn định và tiêu thụ ít điện năng hơn.</string>
-	<string name="security_settings_preference">sự ưa thích</string>
+	<string name="security_settings_preference">Trung tâm cho phép</string>
 	<string name="security_stop_applock">dừng AppLock</string>
     <string name="security_stop_applock_information">ứng dụng của bạn sẽ không được bảo vệ nếu bạn ngừng dịch vụ AppLock. Tiếp tục?</string>
 	<string name="security_fingerprint">vân tay</string>
     <string name="security_open_fingerprint">sử dụng dấu vân tay</string>
     <string name="security_go_open_fingerprint">Để thiết lập ngay lập tức</string>
     <string name="security_fingerprint_many_error">Vui lòng sử dụng mật khẩu</string>
+	<string name="security_password_short">6 chữ số là cần thiết</string>
 </resources>

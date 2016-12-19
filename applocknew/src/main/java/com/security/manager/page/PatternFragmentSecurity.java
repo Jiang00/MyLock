@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ivy.util.Constants;
+import com.ivy.util.Utility;
 import com.privacy.lock.R;
 
 import com.security.manager.App;
@@ -97,20 +99,14 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
 
                     if (bridge != null) {
-                        if (bridge.appName().equals(R.string.app_name)) {
-                            Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
-                            intent.putExtra("launchname", bridge + "");
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            App.getContext().startActivity(intent);
+                        if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
+                            Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
+
                         } else {
-                            Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            App.getContext().startActivity(intent);
+                            Utility.goPermissionCenter(App.getContext(),"");
                         }
                     } else {
-                        Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        App.getContext().startActivity(intent);
+                        Utility.goPermissionCenter(App.getContext(),"");
                     }
                     callback.unLock();
 

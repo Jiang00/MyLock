@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">เครื่องมือลอย</string>
     <string name="security_for_lock_new">คุณต้องการที่จะล็อค \"%1$s\"?</string>
     <string name="security_forget_password">ลืมรหัสผ่าน</string>
-    <string name="security_help_share">☆คะแนนฉัน</string>
+    <string name="security_help_share">คะแนนฉัน</string>
     <string name="security_hide_path">ซ่อนรูปแบบเส้นทางวาด</string>
     <string name="security_hide_successful">ซ่อน %1$s ประสบความสำเร็จ</string>
     <string name="security_intruder_off_new">เครื่องตรวจจับผู้บุกรุกจะปิด</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">ยกเลิก</string>
     <string name="security_fake_calender">ปฏิทิน</string>
     <string name="security_five_start">เรามีความมุ่งมั่นที่จะปกป้องความเป็นส่วนตัวของคุณ คุณสามารถให้เรา 5 ดาวคะแนน?</string>
-    <string name="security_input_password">กรุณากรอกรหัส PIN</string>
+    <string name="security_input_password">กรุณากรอกรหัส PIN 6 หลัก</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 ครั้ง</string>
     <string name="security_intrude_five_rate">สรรเสริญของคุณจะให้เราทำดีกว่า</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">ลดการใช้พลังงาน 50% ขยายโทรศัพท์เวลาสแตนด์บาย</string>
 	<string name="security_service_title">การเข้าถึง</string>
     <string name="security_service_description">บริการที่มีเสถียรภาพและใช้พลังงานน้อยลง</string>
-	<string name="security_settings_preference">การตั้งค่า</string>
+	<string name="security_settings_preference">ศูนย์รับอนุญาต</string>
 	<string name="security_stop_applock">หยุด applock</string>
     <string name="security_stop_applock_information">ปพลิเคชันของคุณจะไม่ได้รับการคุ้มครองถ้าคุณหยุดบริการ applock ต่อหรือไม่?</string>
 	<string name="security_fingerprint">ลายนิ้วมือ</string>
     <string name="security_open_fingerprint">การใช้ลายนิ้วมือ</string>
     <string name="security_go_open_fingerprint">ในการตั้งขึ้นมาทันที</string>
     <string name="security_fingerprint_many_error">โปรดใช้รหัสผ่าน</string>
+	<string name="security_password_short">6 หลักเป็นสิ่งจำเป็น</string>
 </resources>

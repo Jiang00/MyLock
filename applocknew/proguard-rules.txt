@@ -51,10 +51,22 @@
 -optimizationpasses 5
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
 -dontpreverify
+-dontwarn
+-dontnote
 -verbose
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-ignorewarnings
+-allowaccessmodification
 
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses
+-dontwarn android.webkit.**
+-keepattributes JavascriptInterface
+
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.app.Service
@@ -519,3 +531,16 @@
 
 -dontwarn com.samsung.android.sdk.**
 -keep class com.samsung.android.sdk.**{*;}
+-keep class com.android.async.** {
+     public *; 
+} 
+-keep class com.android.common.** {
+     public *; 
+}
+-keep class com.android.network.** { 
+    public *;
+     }
+-keep class com.android.view.** {
+     public *; 
+    }
+-dontwarn com.squareup.picasso.**

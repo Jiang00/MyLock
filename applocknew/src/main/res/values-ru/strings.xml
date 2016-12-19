@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">поплавок виджет</string>
     <string name="security_for_lock_new">Хотите, чтобы зафиксировать \"%1$S\"?</string>
     <string name="security_forget_password">Забыли пароль</string>
-    <string name="security_help_share">☆ Оценить мне</string>
+    <string name="security_help_share">Оценить мне</string>
     <string name="security_hide_path">Скрыть модели ничья путь</string>
     <string name="security_hide_successful">Скрыть %1$S успех</string>
     <string name="security_intruder_off_new">Извещатель выключен</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">Отмена</string>
     <string name="security_fake_calender">Календарь</string>
     <string name="security_five_start">Мы стремимся защитить вашу личную жизнь. Не могли бы вы дать нам 5-звездочный рейтинг?</string>
-    <string name="security_input_password">Пожалуйста, введите пин-код</string>
+    <string name="security_input_password">Пожалуйста, введите 6-ти значный PIN-код</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 раз</string>
     <string name="security_intrude_five_rate">Ваша похвала будет побуждать нас делать лучше.</string>
@@ -137,12 +137,13 @@
     <string name="security_power_mode_des">Снижение на 50% потребление электроэнергии, продлить время ожидания Phone.</string>
 	<string name="security_service_title">доступность</string>
     <string name="security_service_description">Стабильное обслуживание и меньше потребление энергии.</string>
-	<string name="security_settings_preference">предпочтение</string>
+	<string name="security_settings_preference">Разрешение центр</string>
 	<string name="security_stop_applock">Стоп Applock</string>
     <string name="security_stop_applock_information">Ваши приложения не будут защищены, если вы прекратите AppLock обслуживание. Продолжать?</string>
 	<string name="security_fingerprint">отпечаток пальца</string>
     <string name="security_open_fingerprint">отпечатков пальцев</string>
     <string name="security_go_open_fingerprint">Чтобы установить немедленно</string>
     <string name="security_fingerprint_many_error">Пожалуйста, используйте пароль</string>
+	<string name="security_password_short">6 цифр требуется</string>
 </resources>
 

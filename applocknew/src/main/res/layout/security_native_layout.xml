@@ -8,7 +8,7 @@
     android:layout_marginLeft="12dp"
     android:background="@drawable/security_shape_r">
 
-    <com.core.view.RoundImageView
+    <com.android.view.RoundImageView
         android:layout_width="match_parent"
         android:layout_height="136dp"
         android:layout_gravity="center_horizontal"
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:background="@drawable/security_select_green"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="135dp"
         android:layout_marginRight="4dp"
         android:textSize="16sp"
         android:text="Install"

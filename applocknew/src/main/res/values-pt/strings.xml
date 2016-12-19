@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">Widget flutuador</string>
     <string name="security_for_lock_new">Você deseja bloquear\"%1$s\"？</string>
     <string name="security_forget_password">Esqueceu a palavra-passe</string>
-    <string name="security_help_share">☆Avalie me</string>
+    <string name="security_help_share">Avalie me</string>
     <string name="security_hide_path">Ocultar caminho padrão empate</string>
     <string name="security_hide_successful">Oculto:%1$s</string>
     <string name="security_intruder_off_new">Detector de intrusão está fora</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">Cancelar</string>
     <string name="security_fake_calender">Calendário</string>
     <string name="security_five_start">Temos o compromisso de proteger sua privacidade. Você poderia nos dar uma classificação de 5 estrelas?</string>
-    <string name="security_input_password">Introduza o código PIN</string>
+    <string name="security_input_password">Introduza o código PIN de 6 dígitos</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 vezes</string>
     <string name="security_intrude_five_rate">Seu elogio nos encorajará a fazer melhor.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">Reduza o consumo de energia de 50%, estenda o tempo de espera do telefone.</string>
 	<string name="security_service_title">Acessibilidade</string>
     <string name="security_service_description">Serviço estável e menor consumo de energia.</string>
-	<string name="security_settings_preference">Preferência</string>
+	<string name="security_settings_preference">Centro de permissão</string>
 	<string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Se você parar o serviço AppLock, seus aplicativos não serão protegidos. Continuar?</string>
 	<string name="security_fingerprint">Impressão digital</string>
     <string name="security_open_fingerprint">Usar impressão digital</string>
     <string name="security_go_open_fingerprint">Para configurar imediatamente</string>
     <string name="security_fingerprint_many_error">Por favor use a senha</string>
+	<string name="security_password_short">6 dígitos são necessários</string>
 </resources>

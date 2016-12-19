@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ivy.util.Utility;
 import com.privacy.lock.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SecurityMenu;
@@ -39,6 +40,8 @@ public class SecuritySettings extends ClientActivitySecurity {
     public static byte SETTING_MODE;
     public static byte SETTING_FINGERPRINT;
     public static byte SETTING_HIDE_GRAPH_PATH;
+    public static byte SETTING_NOTIFICATION;
+
     public static byte SETTING_LOCK_NEW;
     public static byte SETTING_SETTING_ADVANCE;
     public static byte SETTING_RATE;
@@ -61,6 +64,8 @@ public class SecuritySettings extends ClientActivitySecurity {
     @InjectView(R.id.googleplay)
     ImageView googleplay;
 
+    BaseAdapter adapter;
+
 
     @Override
     protected boolean hasHelp() {
@@ -72,19 +77,20 @@ public class SecuritySettings extends ClientActivitySecurity {
         setContentView(R.layout.security_settings);
         ButterKnife.inject(this);
         setupToolbar();
-
-
         SETTING_SLOT = 0;
         SETTING_MODE = 1;
         SETTING_HIDE_GRAPH_PATH = 2;
         SETTING_LOCK_NEW = 3;
-        SETTING_SETTING_ADVANCE = 4;
-        SETTING_RATE = 5;
+        SETTING_NOTIFICATION = 4;
+
+        SETTING_SETTING_ADVANCE = 5;
+        SETTING_RATE = 6;
         items = new int[]{
                 R.string.security_over_short,
                 R.string.security_reset_password,
                 R.string.security_hide_path,
                 R.string.security_newapp_lock,
+                R.string.security_nofification,
                 R.string.security_settings_preference,
                 R.string.security_help_share
         };
@@ -119,6 +125,7 @@ public class SecuritySettings extends ClientActivitySecurity {
             public long getItemId(int i) {
                 return i;
             }
+
 
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
@@ -177,14 +184,50 @@ public class SecuritySettings extends ClientActivitySecurity {
                         }
                     });
 
+                } else if (i == SETTING_NOTIFICATION) {
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
+                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                    if (SecurityMyPref.getNotification()) {
+                        checkbox.setImageResource(R.drawable.security_setting_check);
+                    } else {
+                        checkbox.setImageResource(R.drawable.security_setting_not_check);
+                    }
+                    checkbox.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (SecurityMyPref.getNotification()) {
+                                checkbox.setImageResource(R.drawable.security_setting_not_check);
+                                SecurityMyPref.setNotification(false);
+                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
 
-                }  else if (i == SETTING_SETTING_ADVANCE) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
+                            } else {
+                                checkbox.setImageResource(R.drawable.security_setting_check);
+                                SecurityMyPref.setNotification(true);
+                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
+                                startService(new Intent(SecuritySettings.this, NotificationService.class));
+                            }
 
-                    TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);
+                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
+
+
+                        }
+                    });
+
+
+                } else if (i == SETTING_SETTING_ADVANCE) {
+
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it_permission, null, false);
+                    TextView it = (TextView) view.findViewById(R.id.security_abuout_bt_permission);
+                    LinearLayout lin = (LinearLayout) view.findViewById(R.id.permission_id);
                     it.setText(items[i]);
-                    it.setOnClickListener(onClickListener);
-                    it.setId(i);
+                    lin.setOnClickListener(onClickListener);
+                    lin.setId(i);
+                    if (Utility.isGrantedAllPermission(SecuritySettings.this)) {
+                        View redView = (View) view.findViewById(R.id.permission_red);
+                        redView.setVisibility(View.GONE);
+                    }
                 } else if (i == SETTING_RATE) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
                     TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);
@@ -192,7 +235,6 @@ public class SecuritySettings extends ClientActivitySecurity {
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
 
-                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE, 1L);
 
                 } else if (i == SETTING_HIDE_GRAPH_PATH) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_notica_it, null, false);
@@ -244,6 +286,15 @@ public class SecuritySettings extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (lv != null) {
+            try {
+                ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();
+                setupView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
 
     }
 
@@ -280,13 +331,15 @@ public class SecuritySettings extends ClientActivitySecurity {
                 if (!SecurityMyPref.isOptionPressed(SecurityMyPref.OPT_RATE_REDDOT)) {
                     SecurityMyPref.pressOption(SecurityMyPref.OPT_RATE_REDDOT);
                 }
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE, 1L);
                 SecurityShare.rate(context);
                 notifyDatasetChanged();
             } else if (id == SETTING_SETTING_ADVANCE) {
-                Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PREFRENCE, Tracker.ACT_SETTING_PREFRENCE, 1L);
+//                Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
+                Utility.goPermissionCenter(SecuritySettings.this, "");
             }
         }
     };
@@ -395,6 +448,10 @@ public class SecuritySettings extends ClientActivitySecurity {
         });
 
     }
+
+//    public void setadapter(){
+//
+//    }
 
 
 }

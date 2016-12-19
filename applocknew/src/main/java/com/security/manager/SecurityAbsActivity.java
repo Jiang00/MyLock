@@ -6,11 +6,10 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.DragEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -22,10 +21,8 @@ import android.widget.TextView;
 
 //import com.android.client.AndroidSdk;
 import com.android.client.AndroidSdk;
-import com.android.client.SdkResultListener;
 
 import com.privacy.lock.R;
-import com.security.manager.db.backgroundData;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SlideMenu;
 import com.security.manager.page.SecurityMenu;
@@ -79,6 +76,12 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     static class MyUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
         boolean crashing = false;
 
+        String versionName;
+
+        public void setVersionName(String versionName) {
+            this.versionName = versionName;
+        }
+
         @Override
         public void uncaughtException(Thread thread, Throwable ex) {
             try {
@@ -88,7 +91,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
                 sw.append(thread.toString());
                 PrintWriter pw = new PrintWriter(sw);
                 ex.printStackTrace(pw);
-                Tracker.sendEvent(Tracker.CATE_EXCEPTION, Tracker.ACT_CRASH, sw.toString(), 0L);
+                Tracker.sendEvent(Tracker.CATE_EXCEPTION, Tracker.ACT_CRASH + versionName, sw.toString(), 0L);
                 defaultHandler.uncaughtException(thread, ex);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -96,7 +99,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         }
     }
 
-    private Thread.UncaughtExceptionHandler exceptionHandler = new MyUncaughtExceptionHandler();
+    private MyUncaughtExceptionHandler exceptionHandler = new MyUncaughtExceptionHandler();
 
     public static void showSoftKeyboard(Activity activity, View view, boolean show) {
         if (show) {
@@ -122,6 +125,11 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
+        try {
+            exceptionHandler.setVersionName(getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
         Thread.setDefaultUncaughtExceptionHandler(exceptionHandler);
         try {
             initNow();

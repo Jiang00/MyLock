@@ -110,7 +110,7 @@
         android:visibility="gone" />
 
     <View
-        android:background="@drawable/security_shadow_"
+        android:background="@drawable/security_shadow_app"
         android:layout_width="match_parent"
         android:layout_height="8dp"></View>
 

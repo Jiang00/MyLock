@@ -113,6 +113,8 @@ public class Tracker {
     public static final String ACT_MODE_OFF= "关";
     public static final String ACT_LEDADER_OK= "完成";
     public static final String ACT_INTRUDE_SHARE= "入侵者分享功能";
+    public static final String ACT_SETTING_PERMISSION= "权限中心";
+
 
 
 

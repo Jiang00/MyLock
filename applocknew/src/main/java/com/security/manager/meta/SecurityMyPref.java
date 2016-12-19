@@ -2,7 +2,7 @@ package com.security.manager.meta;
 
 import android.content.SharedPreferences;
 
-import com.core.common.SdkCache;
+import com.android.common.SdkCache;
 import com.security.manager.App;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.datatype.SInt;
@@ -82,12 +82,9 @@ public class SecurityMyPref {
         String passWord = SdkCache.cache().readText("applock_passwd_", false, false);
         if (passWord != null) {
             return passWord;
-
         } else {
             return "";
         }
-
-
 //        return App.getSharedPreferences().getString("pp", "");
     }
 

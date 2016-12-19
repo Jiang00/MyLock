@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
+import com.android.client.AndroidSdk;
 import com.security.gallery.view.TileBitmapDrawable;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
@@ -51,7 +52,6 @@ public class App extends BaseApp{
         if(SecurityMyPref.getNotification()){
             startService(new Intent(this,NotificationService.class));
         }
-
         MApps.init();
         SecuritProfiles.init();
     }

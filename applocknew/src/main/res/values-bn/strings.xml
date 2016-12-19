@@ -95,7 +95,7 @@
     <string name="security_cancel">বাতিল</string>
     <string name="security_fake_calender">পাঁজি</string>
     <string name="security_five_start">আমরা আপনার গোপনীয়তা রক্ষা করতে প্রতিশ্রুতিবদ্ধ. আপনি আমাদের একটি 5 তারকা রেটিং দিতে পারেন?</string>
-    <string name="security_input_password">পিন কোড প্রবেশ করুন</string>
+    <string name="security_input_password">6 টি সংখ্যা পিন কোড প্রবেশ করুন</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 বার</string>
     <string name="security_intrude_five_rate">আপনার প্রশংসা আমাদের ভালো করতে উত্সাহিত করতে হবে.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">50% শক্তি খরচ কমাতে, ফোন standby সময় প্রসারিত.</string>
 	<string name="security_service_title">অভিগম্যতা</string>
     <string name="security_service_description">আস্তাবল সেবা ও কম শক্তি খরচ.</string>
-	<string name="security_settings_preference">পক্ষপাত</string>
+	<string name="security_settings_preference">অনুমতি কেন্দ্র</string>
 	<string name="security_stop_applock">স্টপ Applock</string>
     <string name="security_stop_applock_information">আপনার অ্যাপস যদি আপনি AppLock সেবা বন্ধ সংরক্ষিত হবে না. চালিয়ে যেতে চান?</string>
 	<string name="security_fingerprint">অঙ্গুলাঙ্ক</string>
     <string name="security_open_fingerprint">ব্যবহারের ফিঙ্গারপ্রিন্ট</string>
     <string name="security_go_open_fingerprint">অবিলম্বে স্থাপন করতে</string>
     <string name="security_fingerprint_many_error">পাসওয়ার্ড ব্যবহার করুন</string>
+	<string name="security_password_short">6 ডিজিটের প্রয়োজন বোধ করা হয়</string>
 </resources>

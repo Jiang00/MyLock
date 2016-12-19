@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 
+import com.ivy.util.Utility;
 import com.privacy.lock.*;
 import com.security.manager.SecurityAppLock;
 import com.security.manager.FakeSelectorActivitySecurity;
@@ -159,6 +161,17 @@ public class SecurityMenu {
 
                     }
                 }
+
+                if(i==3){
+                    Log.e("mttstate",Utility.isGrantedAllPermission(context)+"---");
+                    if(!Utility.isGrantedAllPermission(context)){
+                        red.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+
+
 
                 icon.setImageResource(icons[i]);
                 icon.setColorFilter(currentMenuIt == i ? iconColorSelected : iconColorNormal);

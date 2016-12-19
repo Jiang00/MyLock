@@ -13,6 +13,12 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+
+    <uses-permission android:name="ivy.permission.USAGE_ACCESS_SETTINGS" />
+    <uses-permission android:name="ivy.permission.access_service"/>
+
+
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
@@ -106,7 +112,7 @@
             android:excludeFromRecents="true"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme"
             android:windowSoftInputMode="adjustResize">
@@ -114,8 +120,15 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
         </activity>
 
         <activity
@@ -124,7 +137,6 @@
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
-
             android:icon="@drawable/security_myfake_2"
             android:label="@string/security_fake_icon_2"
             android:launchMode="singleInstance"

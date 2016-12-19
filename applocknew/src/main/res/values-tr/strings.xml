@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">kayan Widget</string>
     <string name="security_for_lock_new">\"%1$s\" kilitlemek istermisiniz?</string>
     <string name="security_forget_password">Şifremi unuttum</string>
-    <string name="security_help_share">☆Beni derecelendir</string>
+    <string name="security_help_share">Beni derecelendir</string>
     <string name="security_hide_path">Sakla desen kilidi yolu</string>
     <string name="security_hide_successful">%1$s başarıyla gizlendi</string>
     <string name="security_intruder_off_new">Hırsız dedektörü kapalı</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">İptal etmek</string>
     <string name="security_fake_calender">Takvim</string>
     <string name="security_five_start">Biz gizliliğinizi korumayı taahhüt ediyoruz. Eğer bize 5-star-derecelendirme verebilir?</string>
-    <string name="security_input_password">PIN kodunu girin</string>
+    <string name="security_input_password">Lütfen 6 basamaklı PIN kodunu girin</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 kere</string>
     <string name="security_intrude_five_rate">Sizin övgü bize daha iyisini teşvik edecektir.</string>
@@ -137,12 +137,13 @@
     <string name="security_power_mode_des">50% güç tüketimini azaltın, telefon bekleme süresini uzatın.</string>
 	<string name="security_service_title">Ulaşılabilirlik</string>
     <string name="security_service_description">Kararlı hizmet ve daha az güç tüketimi.</string>
-	<string name="security_settings_preference">Tercih</string>
+	<string name="security_settings_preference">Izin merkezi</string>
 	<string name="security_stop_applock">Applock\'u durdur</string>
     <string name="security_stop_applock_information">AppLock hizmetini durdurmanız durumunda uygulamalarınız korunmayacaktır. Devam et?</string>
 	<string name="security_fingerprint">Parmak izi</string>
     <string name="security_open_fingerprint">Parmak izi kullan</string>
     <string name="security_go_open_fingerprint">Hemen kurmak için</string>
     <string name="security_fingerprint_many_error">Lütfen şifreyi kullan</string>
+	<string name="security_password_short">6 hane gerekiyor</string>
 </resources>
 

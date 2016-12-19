@@ -57,7 +57,7 @@
         android:textSize="10sp"
         tools:text="Your see Your see Your see Your see"/>
 
-    <com.core.view.RoundImageView
+    <com.android.view.RoundImageView
         android:layout_width="match_parent"
         android:layout_height="136dp"
         android:layout_gravity="center_horizontal"

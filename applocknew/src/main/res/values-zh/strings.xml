@@ -32,7 +32,7 @@
     <string name="security_float_action_switch_widget">桌面widget</string>
     <string name="security_for_lock_new">您需要鎖定\"%1$s\"嗎？</string>
     <string name="security_forget_password">忘記密碼</string>
-    <string name="security_help_share">☆評價</string>
+    <string name="security_help_share">評價</string>
     <string name="security_hide_path">隱藏圖形繪製路徑</string>
     <string name="security_hide_successful">%1$s已隱藏</string>
     <string name="security_intruder_off_new">入侵者監測已關閉</string>
@@ -98,7 +98,7 @@
     <string name="security_cancel">取消</string>
     <string name="security_fake_calender">日曆</string>
     <string name="security_five_start">我們致力於保護您的隱私。你能給我們5星好評嗎？</string>
-    <string name="security_input_password">請輸入PIN碼</string>
+    <string name="security_input_password">請輸入6位PIN碼</string>
     <string name="security_intru_f_app">這傢伙正試圖打破你的%1$s。我們抓住了他。</string>
     <string name="security_intrude_five">5次</string>
     <string name="security_intrude_five_rate">您的讚美將鼓勵我們做得更好</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">減少50%電量消耗，延長待機時間。</string>
 	<string name="security_service_title">使用記錄權限</string>
     <string name="security_service_description">服務更穩定，耗電量更少。</string>
-	<string name="security_settings_preference">偏好設置</string>
+	<string name="security_settings_preference">權限中心</string>
 	<string name="security_stop_applock">停止應用鎖</string>
     <string name="security_stop_applock_information">您即將暫停使用AppLock，暫停後應用將失去保護。</string>
 	<string name="security_fingerprint">指紋</string>
     <string name="security_open_fingerprint">使用指紋</string>
     <string name="security_go_open_fingerprint">立即設置</string>
     <string name="security_fingerprint_many_error">請使用密碼</string>
+	<string name="security_password_short">需要6位數字密碼</string>
 </resources>

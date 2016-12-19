@@ -99,7 +99,7 @@
     <string name="security_cancel">取消</string>
     <string name="security_fake_calender">日历</string>
     <string name="security_five_start">我们致力于保护您的隐私。你能给我们5星好评吗？ </string>
-    <string name="security_input_password">请输入PIN码</string>
+    <string name="security_input_password">请输入6位PIN码</string>
     <string name="security_intru_f_app">这家伙正试图偷窥你的%1$s。我们抓住了他。 </string>
     <string name="security_intrude_five">5次</string>
     <string name="security_intrude_five_rate">您的赞美将鼓励我们做得更好</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">减少50%电量消耗，延长待机时间。</string>
 	<string name="security_service_title">使用记录权限</string>
     <string name="security_service_description">服务更稳定，耗电量更少。</string>
-	<string name="security_settings_preference">偏好设置</string>
+	<string name="security_settings_preference">权限中心</string>
 	<string name="security_stop_applock">停止应用锁</string>
     <string name="security_stop_applock_information">暂停使用AppLock,暂停后应用将失去保护。</string>
 	<string name="security_fingerprint">指纹</string>
     <string name="security_open_fingerprint">使用指纹</string>
     <string name="security_go_open_fingerprint">立即设置</string>
     <string name="security_fingerprint_many_error">请使用密码</string>
+	<string name="security_password_short">需要6位数字密码</string>
 </resources>

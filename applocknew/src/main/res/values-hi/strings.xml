@@ -94,7 +94,7 @@
     <string name="security_cancel">रद्द करना</string>
     <string name="security_fake_calender">कैलेंडर</string>
     <string name="security_five_start">आपकी निजता की रक्षा करने के लिए हम वचनबद्ध हैं। आप हमें एक 5 सितारा रेटिंग दे सकता है?</string>
-    <string name="security_input_password">पिन कोड दर्ज करें</string>
+    <string name="security_input_password">6 अंक पिन कोड दर्ज करें</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 बार</string>
     <string name="security_intrude_five_rate">अपनी प्रशंसा के लिए हमें बेहतर कर प्रोत्साहित करेंगे।</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">50% बिजली की खपत को कम करने, फोन अतिरिक्त समय का विस्तार।</string>
 	<string name="security_service_title">एक्सेसिबिलिटी</string>
     <string name="security_service_description">स्थिर सेवा और कम बिजली की खपत।</string>
-	<string name="security_settings_preference">पसंद</string>
+	<string name="security_settings_preference">अनुमति केंद्र</string>
 	<string name="security_stop_applock">बंद करो Applock</string>
     <string name="security_stop_applock_information">अपनी क्षुधा यदि आप AppLock सेवा बंद संरक्षित नहीं किया जाएगा। जारी रहना?</string>
 	<string name="security_fingerprint">अंगुली की छाप</string>
     <string name="security_open_fingerprint">उपयोग फिंगरप्रिंट</string>
     <string name="security_go_open_fingerprint">तुरंत सेट करने के लिए</string>
     <string name="security_fingerprint_many_error">पासवर्ड का उपयोग करें</string>
+	<string name="security_password_short">6 अंक की आवश्यकता है</string>
 </resources>

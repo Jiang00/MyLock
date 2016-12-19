@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">فلوٹنگ ویجیٹ</string>
     <string name="security_for_lock_new">\"%1$s\" آپ کو لاک کرنا چاہتے ہو</string>
     <string name="security_forget_password">پاس ورڈ بھول گیا</string>
-    <string name="security_help_share">مجھے 5 ستارے کی درجہ بندی☆</string>
+    <string name="security_help_share">مجھے 5 ستارے کی درجہ بندی</string>
     <string name="security_hide_path">چھپائیں پیٹرن کو متوجہ پاتھ</string>
     <string name="security_hide_successful">%1$s کامیابی کو چھپانے کے</string>
     <string name="security_intruder_off_new">گھسپیٹھیی پکڑنے بند ہے</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">منسوخ کریں</string>
     <string name="security_fake_calender">کیلنڈر</string>
     <string name="security_five_start">ہم آپ کی پرائیویسی کی حفاظت کرنے کے لئے مصروف عمل ہیں. آپ ہمیں ایک 5 اسٹار کی درجہ بندی دے سکتا ہے؟</string>
-    <string name="security_input_password">PIN کوڈ داخل کریں</string>
+    <string name="security_input_password">6 ہندسوں پن کوڈ درج کریں</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 بار</string>
     <string name="security_intrude_five_rate">آپ کی تعریف ہماری بہتر کر حوصلہ افزائی کریں گے.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">50 فیصد بجلی کی کھپت کو کم فون یوز وقت میں توسیع.</string>
 	<string name="security_service_title">ایکسس</string>
     <string name="security_service_description">مستحکم سروس اور کم طاقت کی کھپت.</string>
-	<string name="security_settings_preference">پسند</string>
+	<string name="security_settings_preference">اجازت مرکز</string>
 	<string name="security_stop_applock">سٹاپ Applock</string>
     <string name="security_stop_applock_information">آپ کے اطلاقات محفوظ نہیں کیا جائے گا، آپ AppLock سروس بند ہے تو. جاری رکھیں؟</string>
 	<string name="security_fingerprint">فنگرپرنٹ</string>
     <string name="security_open_fingerprint">فنگر پرنٹ کا استعمال</string>
     <string name="security_go_open_fingerprint">فوری طور پر قائم کرنے کے لئے</string>
     <string name="security_fingerprint_many_error">پاس ورڈ استعمال کریں</string>
+	<string name="security_password_short">6 پوائنٹس درکار ہے</string>
 </resources>

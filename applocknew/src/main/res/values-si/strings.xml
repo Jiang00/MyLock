@@ -31,7 +31,7 @@
     <string name="security_float_action_switch_widget">පාවෙන විජට්</string>
     <string name="security_for_lock_new">ඔබ \"%1$s\ ලොක් කිරීමට අවශ්යද?</string>
     <string name="security_forget_password">මුරපදය අමතක වුණා ද</string>
-    <string name="security_help_share">☆තරු 5 අපට වර්ග</string>
+    <string name="security_help_share">තරු 5 අපට වර්ග</string>
     <string name="security_hide_path">සඟවන්න රටාව මාර්ගය</string>
     <string name="security_hide_successful">%1$s ක් සාර්ථකත්වය සඟවන්න</string>
     <string name="security_intruder_off_new">අනවසරයෙන් ඇතුල් අනාවරක අක්රිය වී</string>
@@ -94,7 +94,7 @@
     <string name="security_cancel">අවලංගු කරන්න</string>
     <string name="security_fake_calender">දින දසුන</string>
     <string name="security_five_start">අපි ඔබගේ පුද්ගලිකත්වය ආරක්ෂා කිරීමට කැප වී සිටිනවා. ඔබ අප 5-තරු ශ්රේණිගත දෙන්න?</string>
-    <string name="security_input_password">PIN කේතය ඇතුලත් කරන්න</string>
+    <string name="security_input_password">6-සංඛ්යාංක PIN කේතය ඇතුලත් කරන්න</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 වතාවක්</string>
     <string name="security_intrude_five_rate">ඔබගේ ප්රශංසාව වඩා හොඳින් අප දිරිමත් කරනු ඇත.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">50% ක් විදුලිය පරිභෝජනය අඩු, දුරකථන පොරොත්තු කාලය දීර්ඝ.</string>
 	<string name="security_service_title">ප්රවේශ</string>
     <string name="security_service_description">ස්ථාවර සේවා සහ අඩු ශක්ති පරිභෝජනය.</string>
-	<string name="security_settings_preference">සැලකිල්ලක් දක්වනු</string>
+	<string name="security_settings_preference">අවසර මධ්යස්ථානය</string>
 	<string name="security_stop_applock">Applock නැවතුම්</string>
     <string name="security_stop_applock_information">ඔබ AppLock සේවා නතර නම් ඔබේ යෙදුම් සුරක්ෂිත කළ නොහැකි වනු ඇත. දිගටම කරගෙන යන්නද?</string>
 	<string name="security_fingerprint">ඇඟිලි සලකුණු</string>
     <string name="security_open_fingerprint">ඇඟිලි සලකුණු භාවිත කරන්න</string>
     <string name="security_go_open_fingerprint">වහාම ආරම්භ කිරීමට</string>
     <string name="security_fingerprint_many_error">රහස් පදය භාවිතා කරන්න</string>
+	<string name="security_password_short">ඉලක්කම් 6 ක් අවශ්ය වේ</string>
 </resources>

@@ -443,6 +443,14 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             @Override
             public void onClick(View view) {
                 passdot.backSpace();
+                try {
+                    if (size > 0) {
+                        size--;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 if (passdot.empty() && !togglePattern) {
                     togglePattern = true;
                     okBtn.setText(R.string.security_use_pattern);

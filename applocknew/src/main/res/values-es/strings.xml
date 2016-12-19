@@ -94,7 +94,7 @@
     <string name="security_cancel">Cancelar</string>
     <string name="security_fake_calender">Calendario</string>
     <string name="security_five_start">Estamos comprometidos a proteger su privacidad. ¿Podría darnos una calificación de 5 estrellas?</string>
-    <string name="security_input_password">Introduzca el código PIN</string>
+    <string name="security_input_password">Ingrese un código PIN de 6 dígitos</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
     <string name="security_intrude_five">5 veces</string>
     <string name="security_intrude_five_rate">Su alabanza nos alentará a hacerlo mejor.</string>
@@ -137,11 +137,12 @@
     <string name="security_power_mode_des">Reducir el consumo de energía del 50%, extender el tiempo de espera del teléfono.</string>
 	<string name="security_service_title">Accesibilidad</string>
     <string name="security_service_description">Servicio estable y menos consumo de energía.</string>
-	<string name="security_settings_preference">Preferencia</string>
+	<string name="security_settings_preference">Centro de permisos</string>
 	<string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Sus aplicaciones no estarán protegidas si detiene el servicio de AppLock. ¿Continuar?</string>
 	<string name="security_fingerprint">Huella dactilar</string>
     <string name="security_open_fingerprint">Usar huellas dactilares</string>
     <string name="security_go_open_fingerprint">Para configurar inmediatamente</string>
     <string name="security_fingerprint_many_error">Por favor use la contraseña</string>
+	<string name="security_password_short">Se requieren 6 dígitos</string>
 </resources>

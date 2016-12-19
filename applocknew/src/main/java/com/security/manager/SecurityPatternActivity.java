@@ -100,6 +100,9 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         super.onStop();
     }
 
+
+
+
     public void unlockSuccess(boolean unlockMe) {
         switch (action) {
             case ACTION_SWITCH_PROFILE:
@@ -111,7 +114,6 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 }
                 finish();
                 break;
-
             case ACTION_TOGGLE_PROTECT:
                 try {
                     server.toggleProtectStatus();
@@ -120,7 +122,6 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     e.printStackTrace();
                 }
                 break;
-
             case ACTION_UNLOCK_OTHER:
                 try {
                     server.unlockLastApp(unlockMe);
@@ -131,6 +132,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 break;
 
             case ACTION_UNLOCK_SELF:
+
                 startListApp();
                 if(notiIntent.hasExtra(Notification.NOTIFICATION)){
                     SecurityMyPref.setVisitor(false);
