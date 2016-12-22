@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">50% güç tüketimini azaltın, telefon bekleme süresini uzatın.</string>
 	<string name="security_service_title">Ulaşılabilirlik</string>
     <string name="security_service_description">Kararlı hizmet ve daha az güç tüketimi.</string>
-	<string name="security_settings_preference">Izin merkezi</string>
+	<string name="security_settings_preference">Gelişmiş koruma</string>
 	<string name="security_stop_applock">Applock\'u durdur</string>
     <string name="security_stop_applock_information">AppLock hizmetini durdurmanız durumunda uygulamalarınız korunmayacaktır. Devam et?</string>
 	<string name="security_fingerprint">Parmak izi</string>
@@ -145,5 +145,7 @@
     <string name="security_go_open_fingerprint">Hemen kurmak için</string>
     <string name="security_fingerprint_many_error">Lütfen şifreyi kullan</string>
 	<string name="security_password_short">6 hane gerekiyor</string>
+	<string name="security_slide_theme">Tema</string>
+	<string name="security_settings_preference_desc">Mükemmel koruma sağlamak için tüm izinleri etkinleştirmenizi öneririz.</string>
 </resources>
 

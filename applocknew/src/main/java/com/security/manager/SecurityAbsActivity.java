@@ -4,12 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -18,11 +20,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //import com.android.client.AndroidSdk;
 import com.android.client.AndroidSdk;
 
+import com.android.launcher3.theme.ThemeManager;
 import com.privacy.lock.R;
+import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SlideMenu;
 import com.security.manager.page.SecurityMenu;
@@ -136,6 +141,9 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         } catch (Error e) {
             e.printStackTrace();
         }
+
+
+
     }
 
     @Override
@@ -158,6 +166,8 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
 
     protected void initNow() {
         AndroidSdk.onCreate(this);
+        ThemeManager.onCreate(this);
+        ThemeManager.useTheme(this,"com.theme.testtheme.new");
         setupView();
 
     }
@@ -166,6 +176,9 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void onResume() {
         try {
             AndroidSdk.onResumeWithoutTransition(this);
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

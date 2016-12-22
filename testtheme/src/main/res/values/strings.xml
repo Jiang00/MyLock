@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">testtheme</string>
+    <string name="security_input_password">Please enter 6-digits PIN code</string>
+    <string name="security_use_pattern_">Use Pattern To Unlock</string>
+    <string name="security_btn_next">Next</string>
+    <string name="security_use_password">Use Password To Unlock</string>
+
+
+</resources>

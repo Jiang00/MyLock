@@ -63,8 +63,8 @@
     <string name="security_later_">Later</string>
     <string name="security_lock_app">Lock App</string>
     <string name="security_lock_success">Lock %1$s success</string>
-    <string name="security_lock_to_open">Tap to turn on Super AppLock</string>
-    <string name="security_lock_to_stop">Tap to turn off Super AppLock</string>
+    <string name="security_lock_to_open">Tap to turn on AppLock</string>
+    <string name="security_lock_to_stop">Tap to turn off AppLock</string>
     <string name="security_login_with_email">Verify your ID with Google Account to reset your password</string>
     <string name="security_my_close">Close</string>
     <string name="security_my_theme">Theme</string>
@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">Reduce 50% power consumption, extend phone standby time.</string>
 	<string name="security_service_title">Accessibility</string>
     <string name="security_service_description">Stable service and less power consumption.</string>
-	<string name="security_settings_preference">Permission center</string>
+	<string name="security_settings_preference">Advanced protection</string>
     <string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Your apps will not be protected if you stop AppLock service. Continue?</string>
     <string name="security_fingerprint">Fingerprint</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">To set up immediately</string>
     <string name="security_fingerprint_many_error">Please use password</string>
     <string name="security_password_short">6 digits is required</string>
+    <string name="security_slide_theme">Theme</string>
+	<string name="security_settings_preference_desc">In order to get perfect protection, we recommend you to enable all permissions.</string>
 </resources>

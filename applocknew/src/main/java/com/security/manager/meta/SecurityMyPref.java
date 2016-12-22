@@ -85,12 +85,9 @@ public class SecurityMyPref {
         } else {
             return "";
         }
-//        return App.getSharedPreferences().getString("pp", "");
     }
 
-//    public static String getPattern() {
-//        return SdkCache.cache().readText("applock_passwd_", false, false);
-//    }
+
 
     public static boolean isPasswdSet(boolean normal) {
 //        String string = App.getSharedPreferences().getString(normal ? "pp" : "pg", null);

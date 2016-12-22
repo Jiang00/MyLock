@@ -12,14 +12,14 @@ import java.lang.reflect.Method;
 /**
  * @author IceStar
  */
-public class c extends Service {
+public class ApplockC extends Service {
 
     @Override
     public IBinder onBind(Intent arg0) {
         return null;
     }
 
-    public static Notification a(Context paramContext) {
+    public static Notification applockA(Context paramContext) {
         try  {
             Class localClass = Class.forName("android.app.Notification$Builder");
             Constructor localConstructor = localClass.getDeclaredConstructor(new Class[] { Context.class });
@@ -58,10 +58,10 @@ public class c extends Service {
         return null;
     }
 
-    public static void a(Service service) {
+    public static void applockA(Service service) {
         if(service == null)return;
         try {
-            Notification localNotification = a(service.getApplicationContext());
+            Notification localNotification = applockA(service.getApplicationContext());
             if (localNotification != null)
                 service.startForeground(1220, localNotification);
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class c extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        a(this);
+        applockA(this);
         stopSelf();
     }
 

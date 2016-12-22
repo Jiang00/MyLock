@@ -1,6 +1,8 @@
 package com.security.manager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.WrapperListAdapter;
 
+import com.android.launcher3.theme.ThemeManager;
 import com.privacy.lock.R;
 import com.security.manager.db.SecurityProfileHelper;
 import com.security.manager.lib.Utils;
@@ -34,6 +37,7 @@ import com.security.manager.page.PatternFragmentSecurity;
 import com.security.manager.lib.io.ImageMaster;
 import com.security.manager.meta.SecuritProfiles;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,6 +89,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     @Override
     public void onResume() {
         switchTheme();
+//        selectOperation();
         notiIntent = getIntent();
 
 
@@ -99,8 +104,6 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         toggled = false;
         super.onStop();
     }
-
-
 
 
     public void unlockSuccess(boolean unlockMe) {
@@ -134,12 +137,12 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             case ACTION_UNLOCK_SELF:
 
                 startListApp();
-                if(notiIntent.hasExtra(Notification.NOTIFICATION)){
+                if (notiIntent.hasExtra(Notification.NOTIFICATION)) {
                     SecurityMyPref.setVisitor(false);
                     stopService(new Intent(this, NotificationService.class));
                     startService(new Intent(this, NotificationService.class));
-                    Toast.makeText(this,R.string.security_visitor_off,Toast.LENGTH_LONG).show();
-                    Tracker.sendEvent(Tracker.ACT_MODE,Tracker.ACT_MODE_NOTIFICATION,Tracker.ACT_MODE_OFF,1L);
+                    Toast.makeText(this, R.string.security_visitor_off, Toast.LENGTH_LONG).show();
+                    Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_NOTIFICATION, Tracker.ACT_MODE_OFF, 1L);
 
                 }
                 break;
@@ -201,18 +204,23 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     @Override
     public void setupView() {
+        Log.e("mynewname", getPackageName() + "-------");
+
         if (SecurityMyPref.isANewDay()) {
             Tracker.sendEvent(Tracker.CATE_ACTION, Tracker.ACT_DAILY_USE, Tracker.ACT_DAILY_USE, 1L);
         }
+        Tracker.sendEvent(Tracker.CATE_ACTION_OPEN_APP, Tracker.CATE_ACTION_OPEN_APP_TIME, Tracker.CATE_ACTION_OPEN_APP_TIME, 1L);
         SecurityMyPref.upgrade();
 
         Intent intent = getIntent();
-        if (intent.hasExtra("theme")) {
-            String theme = intent.getStringExtra("theme");
-            App.getSharedPreferences().edit().putString("theme", theme).putBoolean("theme-switched", true).apply();
-            SecurityTheBridge.needUpdate = true;
-            SecurityTheBridge.requestTheme = true;
-            switchTheme();
+        if (intent.hasExtra("theme_package_name")) {
+            String theme = intent.getStringExtra("theme_package_name");
+//            App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
+//            SecurityTheBridge.needUpdate = true;
+//            SecurityTheBridge.requestTheme = true;
+//            switchTheme();
+            selectOperation();
+            ThemeManager.applyTheme(this, theme);
         } else {
             selectOperation();
         }
@@ -438,7 +446,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 @Override
                 public void onClick(View v) {
                     startListApp();
-                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.ACT_LEDADER_OK,Tracker.ACT_LEDADER_OK,1L);
+                    Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEDADER_OK, Tracker.ACT_LEDADER_OK, 1L);
                 }
             });
         } else {
@@ -448,7 +456,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     firstSetup = true;
                     firstLaunchShowResult = true;
                     setGraphView();
-                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.ACT_LEADER_SETPASSWORD,Tracker.ACT_LEADER_SETPASSWORD,1L);
+                    Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEADER_SETPASSWORD, Tracker.ACT_LEADER_SETPASSWORD, 1L);
 
                 }
             });
@@ -511,6 +519,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     if (SecurityMyPref.isPasswdSet(true) || SecurityMyPref.isPasswdSet(false)) {
                         unlockApp = true;
                         setContentView(R.layout.security_password_container);
+//                        createThemeContextIfNecessary(this);
                         toggle(SecurityMyPref.isUseNormalPasswd());
                         toggled = true;
                     } else {
@@ -530,4 +539,52 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         SecurityBridgeImpl.clear();
         super.onDestroy();
     }
+
+//    public static void createThemeContextIfNecessary(Context context) {
+//
+//        context = context.getApplicationContext();
+//        SharedPreferences sp = App.getSharedPreferences();
+//        String themePkg = sp.getString("theme_package_name", null);
+//        if (themePkg != null && themePkg.equals("custom")) {
+//            SecurityTheBridge.themeContext = context;
+//        } else {
+//            if (themePkg != null) {
+//                try {
+//                    context.getPackageManager().getPackageInfo(themePkg, 0);
+//                } catch (PackageManager.NameNotFoundException e) {
+//                    sp.edit().remove("theme_package_name").apply();
+//                    SecurityTheBridge.themeContext = null;
+//                    e.printStackTrace();
+//                }
+//            }
+//            if (SecurityTheBridge.themeContext != null) return;
+//            try {
+//                Context themeContext = null;
+//                if (themePkg != null) {
+//                    try {
+//                        themeContext = context.createPackageContext(themePkg, CONTEXT_IGNORE_SECURITY);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        sp.edit().remove("theme_package_name").commit();
+////                        MyTracker.sendEvent(MyTracker.CATE_EXCEPTION, MyTracker.ACT_CRASH, Tools.getExceptionMessage(e), 0L);
+//                    }
+//                }
+//                if (themeContext == null)
+//                    themeContext = context;
+//                else {
+//                    Class c = ClassLoader.class;
+//                    Field parent = c.getDeclaredField("parent");
+//                    parent.setAccessible(true);
+//                    parent.set(themeContext.getClassLoader(), context.getApplicationContext().getClassLoader());
+//                }
+//
+//                SecurityTheBridge.themeContext = themeContext;
+//            } catch (Exception e) {
+//                SecurityTheBridge.themeContext = context;
+////                MyTracker.sendEvent(MyTracker.CATE_EXCEPTION, Tools.getExceptionMessage(e), "theme context", 0L);
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
 }

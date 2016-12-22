@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -33,8 +34,11 @@ import com.privacy.api.BuildConfig;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.UUID;
+
+import static android.content.Context.CONTEXT_IGNORE_SECURITY;
 
 /**
  * Created by SongHualin on 4/20/2015.
@@ -665,4 +669,10 @@ public class Utils {
             return false;
         }
     }
+
+
+
+
+
+
 }

@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">50% बिजली की खपत को कम करने, फोन अतिरिक्त समय का विस्तार।</string>
 	<string name="security_service_title">एक्सेसिबिलिटी</string>
     <string name="security_service_description">स्थिर सेवा और कम बिजली की खपत।</string>
-	<string name="security_settings_preference">अनुमति केंद्र</string>
+	<string name="security_settings_preference">उन्नत संरक्षण</string>
 	<string name="security_stop_applock">बंद करो Applock</string>
     <string name="security_stop_applock_information">अपनी क्षुधा यदि आप AppLock सेवा बंद संरक्षित नहीं किया जाएगा। जारी रहना?</string>
 	<string name="security_fingerprint">अंगुली की छाप</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">तुरंत सेट करने के लिए</string>
     <string name="security_fingerprint_many_error">पासवर्ड का उपयोग करें</string>
 	<string name="security_password_short">6 अंक की आवश्यकता है</string>
+	<string name="security_slide_theme">विषय</string>
+	<string name="security_settings_preference_desc">आदेश में पूर्ण सुरक्षा प्राप्त करने के लिए हम सभी अनुमतियों को सक्षम करने के लिए आपको सलाह देते हैं।</string>
 </resources>

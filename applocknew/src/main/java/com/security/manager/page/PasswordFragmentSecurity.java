@@ -1,8 +1,10 @@
 package com.security.manager.page;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.view.ViewStub;
 import android.widget.Button;
 
 
+import com.android.launcher3.theme.ThemeManager;
 import com.ivy.util.Constants;
 import com.ivy.util.Utility;
 import com.privacy.lock.R;
@@ -19,6 +22,7 @@ import com.security.manager.SecurityAppLock;
 import com.security.manager.SecurityPatternActivity;
 import com.security.manager.SecuritySettingsAdvance;
 import com.security.manager.Tools;
+import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
@@ -42,25 +46,29 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             @Override
             public void unLock() {
 
+
             }
 
         });
     }
 
     public View passwd;
-
     public static View getView(LayoutInflater inflater, ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
+
+
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
-        final View v = inflater.inflate(R.layout.security_number_password, container, false);
+        View v = inflate("security_number_password", container, inflater.getContext());
         ((MyFrameLayout) v).setOverflowCtrl(ctrl);
-        final NumberDot dot = (NumberDot) v.findViewById(R.id.passwd_dot_id);
+        final NumberDot dot = (NumberDot) v.findViewWithTag("passwd_dot_id");
         dot.init(new NumberDot.ICheckListener() {
             @Override
             public void match(String passwd) {
                 if (bridge.check(passwd, true)) {
                     if (callback != null) {
                         callback.onSuccess();
+                        Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__LOCK_SUSSFUL,Tracker.CATE_ACTION__LOCK_SUSSFUL,1);
+
                     }
                 }
             }
@@ -73,7 +81,7 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
         ((MyFrameLayout) v).addView(forbidden);
         errorBiddenView.init();
 
-        v.findViewById(R.id.setting_advance).setOnClickListener(new View.OnClickListener() {
+        v.findViewWithTag("setting_advance").setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -96,16 +104,16 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                 }
             }
         });
-        v.findViewById(R.id.use_pattern).setVisibility(View.GONE);
-        v.findViewById(R.id.backspace).setOnClickListener(new View.OnClickListener() {
+        v.findViewWithTag("use_pattern").setVisibility(View.GONE);
+        v.findViewWithTag("backspace").setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dot.backSpace();
             }
         });
-        int[] buttons = {
-                R.id.button0, R.id.button1, R.id.button2, R.id.button3, R.id.button4,
-                R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9,
+        String [] buttons = {
+                "button0", "button1", "button2", "button3", "button4",
+                "button5", "button6", "button7", "button8", "button9",
         };
         Tools.RandomNumpad(bridge, v, buttons);
         View.OnClickListener clickListener = new View.OnClickListener() {
@@ -114,13 +122,13 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                 dot.setNumber(((Button) v).getText().charAt(0));
             }
         };
-        for (int btn : buttons) {
-            v.findViewById(btn).setOnClickListener(clickListener);
+        for (String btn : buttons) {
+            v.findViewWithTag(btn).setOnClickListener(clickListener);
         }
 
         v.setOnClickListener(ctrl.hideOverflow);
 
-        v.findViewById(R.id.number_cancel).setOnClickListener(new View.OnClickListener() {
+        v.findViewWithTag("number_cancel").setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
@@ -149,7 +157,7 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
     public void onResume() {
         super.onResume();
         if (passwd != null) {
-            ((NumberDot) passwd.findViewById(R.id.passwd_dot_id)).reset();
+            ((NumberDot) passwd.findViewWithTag("passwd_dot_id")).reset();
         }
     }
 }

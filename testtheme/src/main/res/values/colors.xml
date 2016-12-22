@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="security_overflow_pressed">#aa858585</color>
+    <color name="security_app_name_color">@android:color/white</color>
+    <color name="security_theme_color">#5a5f70</color>
+    <color name="security_new_user_choose_app_bac">#5a5f70</color>
+    <color name="security_numpad_font_color">#8d8f9a</color>
+
+    <color name="security_pattern_inner_right_color">#ff00bbff</color>
+
+    <color name="security_bt_backg_dis">#ff858585</color>
+    <color name="button_bg_normal">#363d4f</color>
+    <color name="button_bg_clicked">#363d4f</color>
+    <color name="button_bg_disabled">#ff858585</color>
+    <color name="selected_dir">#74bbee</color>
+    <color name="menu_bg_new">#0E1C39</color>
+    <color name="share_btnbg_normal">#ff858585</color>
+    <color name="share_btnbg_clicked">#33b1ec</color>
+    <color name="security_bt_backg_normal">#5a5f70</color>
+    <color name="security_bt_back_cil">#282730</color>
+
+    <color name="security_switch_mode_btn">#ffffff</color>
+    <color name="security_switch_mode_btn_pressed">#aaffffff</color>
+    <color name="pattern_line_color_error">#55ff0000</color>
+    <color name="security_pattern_line_color_normal">#4cffffff</color>
+    <color name="password_wrong_dot">#9698a2</color>
+    <color name="security_app_password_nor_soild">#ffffff</color>
+    <color name="security_app_password_nor_pass">#ffffff</color>
+    <color name="security_app_password_right_soild">#00ff00</color>
+    <color name="security_app_password_right_stroke">#00ff00</color>
+    <color name="security_app_password_wang_soild">#ff6100</color>
+    <color name="security_app_password_wang_stroke">#ffff0000</color>
+    <color name="security_numpad_inf">#55ff0000</color>
+
+
+</resources>

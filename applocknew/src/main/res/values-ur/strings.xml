@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">50 فیصد بجلی کی کھپت کو کم فون یوز وقت میں توسیع.</string>
 	<string name="security_service_title">ایکسس</string>
     <string name="security_service_description">مستحکم سروس اور کم طاقت کی کھپت.</string>
-	<string name="security_settings_preference">اجازت مرکز</string>
+	<string name="security_settings_preference">اعلی درجے کی حفاظت</string>
 	<string name="security_stop_applock">سٹاپ Applock</string>
     <string name="security_stop_applock_information">آپ کے اطلاقات محفوظ نہیں کیا جائے گا، آپ AppLock سروس بند ہے تو. جاری رکھیں؟</string>
 	<string name="security_fingerprint">فنگرپرنٹ</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">فوری طور پر قائم کرنے کے لئے</string>
     <string name="security_fingerprint_many_error">پاس ورڈ استعمال کریں</string>
 	<string name="security_password_short">6 پوائنٹس درکار ہے</string>
+	<string name="security_slide_theme">موضوع</string>
+	<string name="security_settings_preference_desc">کامل تحفظ حاصل کرنے کے لئے، ہم تمام اجازت چالو کرنے کے لئے آپ کی سفارش.</string>
 </resources>

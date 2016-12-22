@@ -194,6 +194,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     public void onDestroy() {
         db = null;
         adShow = false;
+        AndroidSdk.onDestroy();
         super.onDestroy();
     }
 
@@ -276,8 +277,6 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             }
 
         }
-
-
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuSearch);
         searchView.setOnQueryTextListener(this);
         MenuItemCompat.setOnActionExpandListener(menuSearch, new MenuItemCompat.OnActionExpandListener() {
@@ -314,15 +313,12 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             }
         });
         super.onCreateOptionsMenu(menu, inflater);
-
     }
-
     @Override
     public boolean onQueryTextSubmit(String query) {
 
         return false;
     }
-
     @Override
     public boolean onQueryTextChange(String newText) {
         if (CloseSearch) {
@@ -333,13 +329,9 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             CloseSearch = false;
             searchResult = filter((ArrayList<SearchThread.SearchData>) MApps.getApps(locks), newText);
             refreshUI(refreshSearchResult);
-
         }
-
         return true;
     }
-
-
     Runnable refreshSearchResult = new Runnable() {
         @Override
         public void run() {

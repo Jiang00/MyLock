@@ -42,7 +42,6 @@
             android:id="@+id/permission_red"
             android:layout_width="8dp"
             android:layout_height="8dp"
-            android:background="@drawable/security_reddot_nostroke"
             />
 
     </LinearLayout>

@@ -406,13 +406,13 @@ public class Tools {
         }
     }
 
-    public static void RandomNumpad(ISecurityBridge bridge, View root, int[] buttons) {
+    public static void RandomNumpad(ISecurityBridge bridge, View root, String[] buttons) {
         if (!bridge.random()) return;
 
         ArrayList<IndexedDrawable> buttonBgs = new ArrayList<>();
         Button[] numpads = new Button[10];
         for (int i = 0; i < buttons.length; ++i) {
-            Button btn = (Button) root.findViewById(buttons[i]);
+            Button btn = (Button) root.findViewWithTag(buttons[i]);
             Drawable background = btn.getBackground();
             buttonBgs.add(new IndexedDrawable(i, background));
             numpads[i] = btn;

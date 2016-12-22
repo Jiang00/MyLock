@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">Reducir el consumo de energía del 50%, extender el tiempo de espera del teléfono.</string>
 	<string name="security_service_title">Accesibilidad</string>
     <string name="security_service_description">Servicio estable y menos consumo de energía.</string>
-	<string name="security_settings_preference">Centro de permisos</string>
+	<string name="security_settings_preference">Protección avanzada</string>
 	<string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Sus aplicaciones no estarán protegidas si detiene el servicio de AppLock. ¿Continuar?</string>
 	<string name="security_fingerprint">Huella dactilar</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">Para configurar inmediatamente</string>
     <string name="security_fingerprint_many_error">Por favor use la contraseña</string>
 	<string name="security_password_short">Se requieren 6 dígitos</string>
+	<string name="security_slide_theme">Tema</string>
+	<string name="security_settings_preference_desc">Para obtener una protección perfecta, le recomendamos que habilite todos los permisos.</string>
 </resources>

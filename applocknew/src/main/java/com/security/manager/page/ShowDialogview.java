@@ -78,7 +78,7 @@ public class ShowDialogview {
                 c.startActivity(transintent);
 
 //                View submitDialogView = View.inflate(v.getContext(), R.layout.security_permission_setting, null);
-//                final MyWidgetContainer w = new MyWidgetContainer(c, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+//                final MyWidgetContainer w = new MyWidgetContainer(ApplockC, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
 //                w.addView(submitDialogView);
 //                w.addToWindow();
 //
@@ -93,7 +93,7 @@ public class ShowDialogview {
 
                 Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
-//                 WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+//                 WindowManager wm = (WindowManager) ApplockC.getSystemService(Context.WINDOW_SERVICE);
 //
 //                attachToWindow(wm, submitDialogView);
             }

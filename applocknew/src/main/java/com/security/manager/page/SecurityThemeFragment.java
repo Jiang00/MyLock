@@ -1,5 +1,7 @@
 package com.security.manager.page;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -16,8 +18,10 @@ import android.widget.*;
 //import com.android.client.ClientNativeAd;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.launcher3.theme.ThemeManager;
 import com.privacy.lock.R;
 import com.security.manager.App;
+import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.lib.Utils;
 
@@ -73,12 +77,11 @@ public class SecurityThemeFragment extends Fragment {
         lp.leftMargin = Utils.getDimens(v.getContext(), 8);
         ((ViewGroup) v).addView(appName, lp);
         appName.setAlpha(0);
-        TextView appname = (TextView) v.findViewById(R.id.text_appname);
-        ImageView icon = (ImageView) v.findViewById(R.id.title);
-        ImageView statusicon = (ImageView) v.findViewById(R.id.app_icon);
+        TextView appname = (TextView) v.findViewWithTag("text_appname");
+        ImageView icon = (ImageView) v.findViewWithTag("title");
+        ImageView statusicon = (ImageView) v.findViewWithTag("app_icon");
         appname.setText(bridge.appName());
         icon.setBackgroundDrawable(bridge.icon());
-
 
 
         if (adView != null) {
@@ -135,7 +138,7 @@ public class SecurityThemeFragment extends Fragment {
 //            realAppName.setAlpha(1.0f);
 //            appName.setAlpha(0.0f);
 
-             adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
+            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 
@@ -154,6 +157,31 @@ public class SecurityThemeFragment extends Fragment {
             }
         }
 
+    }
+
+
+    public static MyFrameLayout inflate(String layoutId, ViewGroup container, Context c) {
+        Context themeContext = ThemeManager.currentTheme().getThemeContext();
+        LayoutInflater inflater = LayoutInflater.from(themeContext);
+        int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());
+        MyFrameLayout v = (MyFrameLayout) inflater.inflate(layout, container, false);
+
+//        ViewStub forbidden = new ViewStub(ApplicationModule.getModule().provideContext(), R.layout.forbidden);
+//        v.addView(forbidden);
+//        final ForbiddenView forbiddenView = new ForbiddenView(forbidden);
+//        v.setTag(forbiddenView);
+//        v.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                ApplicationModule.getModule().provideHandler().post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        forbiddenView.init();
+//                    }
+//                });
+//            }
+//        });
+        return v;
     }
 
 

@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">Mengurangi konsumsi daya 50%, memperpanjang telepon waktu siaga.</string>
 	<string name="security_service_title">Aksesibilitas</string>
     <string name="security_service_description">Layanan stabil dan konsumsi daya yang lebih kecil.</string>
-	<string name="security_settings_preference">Pusat izin</string>
+	<string name="security_settings_preference">Advanced perlindungan</string>
 	<string name="security_stop_applock">Berhenti AppLock</string>
     <string name="security_stop_applock_information">Aplikasi Anda tidak akan terjamin jika Anda menghentikan layanan AppLock. Terus?</string>
 	<string name="security_fingerprint">Sidik jari</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">Untuk segera menyiapkan</string>
     <string name="security_fingerprint_many_error">Gunakan sandi</string>
 	<string name="security_password_short">6 digit diperlukan</string>
+	<string name="security_slide_theme">Tema</string>
+	<string name="security_settings_preference_desc">Dalam rangka untuk mendapatkan perlindungan yang sempurna, kami sarankan Anda untuk mengaktifkan semua izin.</string>
 </resources>

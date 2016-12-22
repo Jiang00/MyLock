@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">تخفيض 50٪ من استهلاك الطاقة، تمديد الهاتف زمن الانتظار.</string>
 	<string name="security_service_title">إمكانية الوصول</string>
     <string name="security_service_description">خدمة مستقرة وأقل من استهلاك الطاقة.</string>
-	<string name="security_settings_preference">مركز إذن</string>
+	<string name="security_settings_preference">حماية متقدمة</string>
 	<string name="security_stop_applock">توقف Applock</string>
     <string name="security_stop_applock_information">لن تكون محمية التطبيقات الخاصة بك إذا قمت بإيقاف خدمة AppLock. استمر؟</string>
 	<string name="security_fingerprint">بصمة</string>
@@ -145,5 +145,7 @@
     <string name="security_go_open_fingerprint">لإعداد فورا</string>
     <string name="security_fingerprint_many_error">الرجاء استخدام كلمة المرور</string>
 	<string name="security_password_short">مطلوب 6 أرقام</string>
+	<string name="security_slide_theme">موضوع</string>
+	<string name="security_settings_preference_desc">من أجل الحصول على حماية كاملة، ونحن ننصح لتمكين كافة الأذونات.</string>
 </resources>
 

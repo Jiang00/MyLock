@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">50% ක් විදුලිය පරිභෝජනය අඩු, දුරකථන පොරොත්තු කාලය දීර්ඝ.</string>
 	<string name="security_service_title">ප්රවේශ</string>
     <string name="security_service_description">ස්ථාවර සේවා සහ අඩු ශක්ති පරිභෝජනය.</string>
-	<string name="security_settings_preference">අවසර මධ්යස්ථානය</string>
+	<string name="security_settings_preference">උසස් ආරක්ෂාව</string>
 	<string name="security_stop_applock">Applock නැවතුම්</string>
     <string name="security_stop_applock_information">ඔබ AppLock සේවා නතර නම් ඔබේ යෙදුම් සුරක්ෂිත කළ නොහැකි වනු ඇත. දිගටම කරගෙන යන්නද?</string>
 	<string name="security_fingerprint">ඇඟිලි සලකුණු</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">වහාම ආරම්භ කිරීමට</string>
     <string name="security_fingerprint_many_error">රහස් පදය භාවිතා කරන්න</string>
 	<string name="security_password_short">ඉලක්කම් 6 ක් අවශ්ය වේ</string>
+	<string name="security_slide_theme">තේමාව</string>
+	<string name="security_settings_preference_desc">පරිපූර්ණ ආරක්ෂාව ලබා ගැනීම සඳහා, අප සියලු අවසර සක්රිය කිරීමට ඔබ නිර්දේශ කරමු.</string>
 </resources>

@@ -16,7 +16,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.launcher3.theme.ThemeManager;
 import com.ivy.util.Constants;
 import com.ivy.util.Utility;
 import com.privacy.lock.R;
@@ -25,6 +27,7 @@ import com.security.manager.App;
 import com.security.manager.SecurityAppLock;
 import com.security.manager.SecurityPatternActivity;
 import com.security.manager.SecuritySettingsAdvance;
+import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
@@ -50,13 +53,10 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             @Override
             public void onSuccess() {
                 getActivity().finish();
-                Log.e("appname", "sussone");
             }
 
             @Override
             public void unLock() {
-                Log.e("appname", "unlock");
-
             }
 
         });
@@ -67,7 +67,7 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
     public void onResume() {
         super.onResume();
         if (pattern != null) {
-            ((SecurityPatternView) pattern.findViewById(R.id.lpv_lock)).resetPattern();
+            ((SecurityPatternView) pattern.findViewWithTag("lpv_lock")).resetPattern();
         }
     }
 
@@ -87,26 +87,24 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 
     public static View getView(LayoutInflater inflater, final ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
-        final View v = inflater.inflate(R.layout.security_pattern_view, container, false);
+        View v = inflate("security_pattern_view", container, inflater.getContext());
+
         ((MyFrameLayout) v).setOverflowCtrl(ctrl);
-        final ImageButton button = (ImageButton) v.findViewById(R.id.setting_advance);
+        final ImageButton button = (ImageButton) v.findViewWithTag("setting_advance");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
-
                     if (bridge != null) {
                         if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
                             Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
-
                         } else {
-                            Utility.goPermissionCenter(App.getContext(),"");
+                            Utility.goPermissionCenter(App.getContext(), "");
                         }
                     } else {
-                        Utility.goPermissionCenter(App.getContext(),"");
+                        Utility.goPermissionCenter(App.getContext(), "");
                     }
                     callback.unLock();
 
@@ -118,12 +116,12 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             }
         });
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
-        final SecurityPatternView lock = (SecurityPatternView) v.findViewById(R.id.lpv_lock);
+        final SecurityPatternView lock = (SecurityPatternView) v.findViewWithTag("lpv_lock");
         LinearLayout parent = (LinearLayout) lock.getParent();
         ((LinearLayout.LayoutParams) parent.getLayoutParams()).weight = 1.5f;
         parent.requestLayout();
 
-        v.findViewById(R.id.number_cancel).setVisibility(View.GONE);
+        v.findViewWithTag("number_cancel").setVisibility(View.GONE);
         final ViewStub forbidden = new ViewStub(App.getContext(), R.layout.security_myforbidden);
         ((MyFrameLayout) v).addView(forbidden);
         final ErrorBiddenView errorBiddenView = new ErrorBiddenView(forbidden);
@@ -146,6 +144,7 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
                 } else {
                     errorBiddenView.right();
                     callback.onSuccess();
+                    Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__LOCK_SUSSFUL, Tracker.CATE_ACTION__LOCK_SUSSFUL, 1);
                 }
             }
 
@@ -155,7 +154,6 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             public void onPatternCellAdded(List<SecurityPatternView.Cell> pattern) {
             }
         });
-
 
 
         lock.clearPattern();

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 
+import com.ivy.module.themestore.main.ThemeStoreBuilder;
 import com.ivy.util.Utility;
 import com.privacy.lock.*;
 import com.security.manager.SecurityAppLock;
@@ -40,11 +41,10 @@ public class SecurityMenu {
     public static final int MENU_SETTING = 9;
     public static final int MENU_ABOUT = 10;
     public static final int MENU_DAILY = 11;
-    public static final int MENU_FAQ = 4;
+    public static final int MENU_FAQ = 6;
     public static final String FACEBOOK = "https://www.facebook.com/IvyAppLock";
     public static final String GOOGLE = "https://plus.google.com/u/0/communities/113134139742239607331";
     public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=IVYMOBI";
-
 
 
     public static final String[] newidkeys = {
@@ -65,6 +65,8 @@ public class SecurityMenu {
             R.drawable.security_intrude_infomation,
 //            R.drawable.daily
             R.drawable.security_intrude_infomation,
+            R.drawable.security_intrude_infomation,
+            R.drawable.security_intrude_infomation,
             R.drawable.security_intrude_infomation
 
 
@@ -76,8 +78,8 @@ public class SecurityMenu {
 //    };
 
     public static int menus[] = {
-            R.string.security_lock_app, R.string.security_myfake, R.string.security_new_intruder,
-            R.string.security_tab_setting, R.string.security_facebook, R.string.security_google
+            R.string.security_lock_app, R.string.security_slide_theme, R.string.security_myfake, R.string.security_new_intruder,
+            R.string.security_settings_preference, R.string.security_tab_setting, R.string.security_facebook, R.string.security_google
     };
 
     public static byte[] seperator = {
@@ -103,9 +105,9 @@ public class SecurityMenu {
         int textColorNormal = resources.getColor(R.color.security_text_color);
 
         final Intent[] intents = new Intent[]{
-                new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
+                new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS), null,
                 new Intent(context, FakeSelectorActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
-                new Intent(context, IntruderActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
+                new Intent(context, IntruderActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS), null,
                 new Intent(context, SecuritySettings.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
 
         };
@@ -125,19 +127,31 @@ public class SecurityMenu {
 
                     }
 
-                    if(i==0){
-                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_APPLOCK,Tracker.ACT_APPLOCK,1L);
+                    if (i == 0) {
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK, 1L);
 
-                    }else if(i==1){
-                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_FAKE,Tracker.ACT_FAKE,1L);
-
-
-                    }else if(i==2){
-                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_INTRUDE,Tracker.ACT_INTRUDE,1L);
+                    } else if (i == 1) {
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.CATE_ACTION_OPEN_THEME, Tracker.CATE_ACTION_OPEN_THEME, 1L);
+                        ThemeStoreBuilder.openThemeStore(context);
+                        ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
 
 
-                    }else if(i==3){
-                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU,Tracker.ACT_SETTING_MENU,Tracker.ACT_SETTING_MENU,1L);
+                    } else if (i == 2) {
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FAKE, Tracker.ACT_FAKE, 1L);
+
+
+                    } else if (i == 3) {
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_INTRUDE, Tracker.ACT_INTRUDE, 1L);
+
+
+                    } else if (i == 4) {
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
+                        Utility.goPermissionCenter(context, "");
+                        ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
+//                        currentMenuIt = i;
+
+                    } else if (i == 5) {
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_MENU, 1L);
 
 
                     }
@@ -154,32 +168,25 @@ public class SecurityMenu {
                 View menuItem = inflater.inflate(R.layout.security_slide_menu_item, menuList, false);
                 ImageView icon = (ImageView) menuItem.findViewById(R.id.icon);
                 View red = (View) menuItem.findViewById(R.id.red);
-                if(i==2){
-                    if(SecurityMyPref.hasIntruder()){
+                if (i == 3) {
+                    if (SecurityMyPref.hasIntruder()) {
                         red.setVisibility(View.VISIBLE);
                         SecurityMyPref.setHasIntruder(false);
 
                     }
                 }
-
-                if(i==3){
-                    Log.e("mttstate",Utility.isGrantedAllPermission(context)+"---");
-                    if(!Utility.isGrantedAllPermission(context)){
+                if (i == 4) {
+                    if (!Utility.isGrantedAllPermission(context)) {
                         red.setVisibility(View.VISIBLE);
                     }
-
                 }
-
-
-
-
                 icon.setImageResource(icons[i]);
                 icon.setColorFilter(currentMenuIt == i ? iconColorSelected : iconColorNormal);
                 TextView text = (TextView) menuItem.findViewById(R.id.text);
                 text.setText(menus[i]);
                 menuItem.findViewById(R.id.blue).setVisibility(currentMenuIt == i ? View.VISIBLE : View.GONE);
 //                text.setTextColor(currentMenuIt == i ? textColorSelected : textColorNormal);
-                menuItem.findViewById(R.id.menu_it).setBackgroundResource(currentMenuIt==i?R.color.security_theme_change_bac:R.color.security_theme_primary);
+                menuItem.findViewById(R.id.menu_it).setBackgroundResource(currentMenuIt == i ? R.color.security_theme_slide_item_bac : R.color.security_theme_primary);
                 menuItem.setOnClickListener(listener);
 
                 menuItem.setTag(i);

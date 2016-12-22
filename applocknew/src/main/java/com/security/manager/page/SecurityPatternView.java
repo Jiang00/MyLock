@@ -53,6 +53,11 @@ public class SecurityPatternView extends View {
 
     private Paint mPaint = new Paint();
     private Paint mPathPaint = new Paint();
+    private int getId(String id, String type) {
+
+        return  getResources().getIdentifier(id,type,getContext().getPackageName());
+    }
+
 
     /**
      * How many milliseconds we spend animating each circle of a lock pattern
@@ -253,14 +258,14 @@ public class SecurityPatternView extends View {
         setClickable(true);
 
         //取消innnernormal 设置为透明
-        int innerNormal = attrs.getAttributeResourceValue(null, "inner", R.drawable.security_inner_normal);
-        int outerNormal = attrs.getAttributeResourceValue(null, "outer", R.drawable.security_patte_nor);
-        int outerSolid = attrs.getAttributeResourceValue(null, "outers", R.drawable.security_patt_right);
-        int wrong = attrs.getAttributeResourceValue(null, "outers", R.drawable.security_patt_wrong);
+        int innerNormal = attrs.getAttributeResourceValue(null, "inner", getId("security_inner_normal","drawable"));
+        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("security_patte_nor","drawable"));
+        int outerSolid = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_right","drawable"));
+        int wrong = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_wrong","drawable"));
 
         mPathPaint.setAntiAlias(true);
         mPathPaint.setDither(true);
-        mPathPaint.setColor(getResources().getColor(R.color.security_pattern_line_color_normal));   // TODO this should be from the style
+        mPathPaint.setColor(getResources().getColor(getId("security_pattern_line_color_normal","color")));   // TODO this should be from the style
         mPathPaint.setAlpha(mStrokeAlpha);
         mPathPaint.setStyle(Paint.Style.STROKE);
         mPathPaint.setStrokeJoin(Paint.Join.ROUND);
@@ -271,18 +276,18 @@ public class SecurityPatternView extends View {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        circleR = getResources().getDimensionPixelSize(R.dimen.pattern_circle_size);
+        circleR = getResources().getDimensionPixelSize(getId("pattern_circle_size","dimen"));
 
         //设置内圆尺寸为0 实现正确状态时不可见innerCircelR
-        innerCircelR = getResources().getDimensionPixelSize(R.dimen.pattern_inner_circle_size);
+        innerCircelR = getResources().getDimensionPixelSize(getId("pattern_inner_circle_size","dimen"));
         mBitmapWidth = mBitmapHeight = circleR;
         dot = getResources().getDrawable(innerNormal);
-        dotSolid = hidePath ? dot : getResources().getDrawable(R.drawable.security_inner_right);
+        dotSolid = hidePath ? dot : getResources().getDrawable(getId("security_inner_right","drawable"));
         circle = getResources().getDrawable(outerNormal);
         circleSolid = hidePath ? circle : getResources().getDrawable(outerSolid);
         circleRed = getResources().getDrawable(wrong);
-        mBitmapArrowGreenUp = getBitmapFor(R.drawable.security_green_up);
-        mBitmapArrowRedUp = getBitmapFor(R.drawable.security_red_up);
+        mBitmapArrowGreenUp = getBitmapFor(getId("security_green_up","drawable"));
+        mBitmapArrowRedUp = getBitmapFor(getId("security_red_up","drawable"));
 
         // lot's of bitmaps!
         /*
@@ -398,10 +403,11 @@ public class SecurityPatternView extends View {
             mInProgressX = getCenterXForColumn(first.getColumn());
             mInProgressY = getCenterYForRow(first.getRow());
             clearPatternDrawLookup();
+            //横线颜色值更改状态
         } else if (displayMode == DisplayMode.Wrong) {
-            mPathPaint.setColor(getResources().getColor(R.color.pattern_line_color_error));
+            mPathPaint.setColor(getResources().getColor(getId("pattern_line_color_error","color")));
         } else {
-            mPathPaint.setColor(hidePath ? 0x00000000 : getResources().getColor(R.color.security_pattern_line_color_normal));
+            mPathPaint.setColor(hidePath ? 0x00000000 : getResources().getColor(getId("security_pattern_line_color_normal","color")));
         }
         invalidate();
     }
@@ -440,7 +446,7 @@ public class SecurityPatternView extends View {
      * Clear the pattern.
      */
     public void clearPattern() {
-        if (!cleared){
+        if (!cleared) {
             resetPattern();
         }
     }
@@ -486,7 +492,7 @@ public class SecurityPatternView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 //        final int width = w - getPaddingLeft() - getPaddingRight();
 //        mSquareWidth = width / 3.0f;
-        mSquareWidth = (2 * mBitmapWidth + getResources().getDimensionPixelSize(R.dimen.numpad_margin));
+        mSquareWidth = (2 * mBitmapWidth + getResources().getDimensionPixelSize(getId("numpad_margin","dimen")));
 
 //        final int height = h - getPaddingTop() - getPaddingBottom();
         //mSquareHeight = height / 3.0f;
@@ -513,7 +519,7 @@ public class SecurityPatternView extends View {
     @Override
     protected int getSuggestedMinimumWidth() {
         // View should be large enough to contain 3 side-by-side target bitmaps
-        return 3 * (2 * mBitmapWidth + getResources().getDimensionPixelSize(R.dimen.numpad_margin));
+        return 3 * (2 * mBitmapWidth + getResources().getDimensionPixelSize(getId("numpad_margin","dimen")));
     }
 
     @Override
@@ -897,7 +903,7 @@ public class SecurityPatternView extends View {
         final float squareHeight = mSquareHeight;
 
         float radius = (squareWidth * mDiameterFactor * .5f);
-        mPathPaint.setStrokeWidth(getResources().getDimension(R.dimen.pattern_line_size));
+        mPathPaint.setStrokeWidth(getResources().getDimension(getId("pattern_line_size","dimen")));
 
         final Path currentPath = mCurrentPath;
         currentPath.rewind();
@@ -973,7 +979,6 @@ public class SecurityPatternView extends View {
                 drawArrow(canvas, leftX, topY, cell, next);
             }*/
         }
-
 
 
         mPaint.setFilterBitmap(oldFlag); // restore default flag

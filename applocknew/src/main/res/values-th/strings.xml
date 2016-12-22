@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">ลดการใช้พลังงาน 50% ขยายโทรศัพท์เวลาสแตนด์บาย</string>
 	<string name="security_service_title">การเข้าถึง</string>
     <string name="security_service_description">บริการที่มีเสถียรภาพและใช้พลังงานน้อยลง</string>
-	<string name="security_settings_preference">ศูนย์รับอนุญาต</string>
+	<string name="security_settings_preference">การป้องกันขั้นสูง</string>
 	<string name="security_stop_applock">หยุด applock</string>
     <string name="security_stop_applock_information">ปพลิเคชันของคุณจะไม่ได้รับการคุ้มครองถ้าคุณหยุดบริการ applock ต่อหรือไม่?</string>
 	<string name="security_fingerprint">ลายนิ้วมือ</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">ในการตั้งขึ้นมาทันที</string>
     <string name="security_fingerprint_many_error">โปรดใช้รหัสผ่าน</string>
 	<string name="security_password_short">6 หลักเป็นสิ่งจำเป็น</string>
+	<string name="security_slide_theme">กระทู้</string>
+	<string name="security_settings_preference_desc">เพื่อให้ได้รับการป้องกันที่สมบูรณ์แบบเราขอแนะนำให้คุณเปิดใช้สิทธิ์ทั้งหมด</string>
 </resources>

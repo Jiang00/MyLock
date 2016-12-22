@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">Снижение на 50% потребление электроэнергии, продлить время ожидания Phone.</string>
 	<string name="security_service_title">доступность</string>
     <string name="security_service_description">Стабильное обслуживание и меньше потребление энергии.</string>
-	<string name="security_settings_preference">Разрешение центр</string>
+	<string name="security_settings_preference">Улучшенная защита</string>
 	<string name="security_stop_applock">Стоп Applock</string>
     <string name="security_stop_applock_information">Ваши приложения не будут защищены, если вы прекратите AppLock обслуживание. Продолжать?</string>
 	<string name="security_fingerprint">отпечаток пальца</string>
@@ -145,5 +145,7 @@
     <string name="security_go_open_fingerprint">Чтобы установить немедленно</string>
     <string name="security_fingerprint_many_error">Пожалуйста, используйте пароль</string>
 	<string name="security_password_short">6 цифр требуется</string>
+	<string name="security_slide_theme">тема</string>
+	<string name="security_settings_preference_desc">Для того чтобы получить совершенную защиту, мы рекомендуем вам включить все разрешения.</string>
 </resources>
 

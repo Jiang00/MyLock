@@ -113,37 +113,15 @@ public class Tracker {
     public static final String ACT_MODE_OFF= "关";
     public static final String ACT_LEDADER_OK= "完成";
     public static final String ACT_INTRUDE_SHARE= "入侵者分享功能";
-    public static final String ACT_SETTING_PERMISSION= "权限中心";
+    public static final String ACT_SETTING_PERMISSION= "高级保护";
+    public static final String CATE_ACTION_OPEN_APP = "启动次数";
+    public static final String CATE_ACTION_OPEN_APP_TIME = "主包启动次数";
+    public static final String CATE_ACTION_OPEN_THEME = "主题商店";
+    public static final String CATE_ACTION_ADVER = "广告";
+    public static final String CATE_ACTION_ADVER_NATIVER = "native展示";
+    public static final String CATE_ACTION__LOCK_PAGE = "应用解锁界面";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static final String CATE_ACTION__LOCK_SUSSFUL = "应用解锁成功";
 
 
 

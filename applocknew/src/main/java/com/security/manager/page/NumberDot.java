@@ -20,6 +20,11 @@ public class NumberDot extends LinearLayout {
         public void match(String pass);
     }
 
+    private int getId(String id, String type) {
+
+        return  getResources().getIdentifier(id,type,getContext().getPackageName());
+    }
+
     public NumberDot(Context context) {
         super(context);
     }
@@ -29,11 +34,11 @@ public class NumberDot extends LinearLayout {
     public NumberDot(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        int drawable = attrs.getAttributeResourceValue(null, "drawable", R.drawable.security_password_dot_cre);
+        int drawable = attrs.getAttributeResourceValue(null, "drawable", getId("security_password_dot_cre","drawable"));
 
         setCount(6, drawable);
         realPasswd = SecurityMyPref.getPasswd().toCharArray();
-        a = AnimationUtils.loadAnimation(getContext(), R.anim.security_shake_dot);
+        a = AnimationUtils.loadAnimation(getContext(), getId("security_shake_dot","anim"));
         a.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -59,7 +64,7 @@ public class NumberDot extends LinearLayout {
     private void setCount(int count, int drawable) {
         passwd = new char[count];
         dots = new ImageView[count];
-        int size = getResources().getDimensionPixelSize(R.dimen.passwd_dot_size);
+        int size = getResources().getDimensionPixelSize(getId("passwd_dot_size","dimen"));
         for (int i = 0; i < count; ++i) {
             dots[i] = new ImageView(getContext());
             dots[i].setImageResource(drawable);

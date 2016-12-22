@@ -218,16 +218,13 @@ public class SecuritySettings extends ClientActivitySecurity {
 
                 } else if (i == SETTING_SETTING_ADVANCE) {
 
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it_permission, null, false);
-                    TextView it = (TextView) view.findViewById(R.id.security_abuout_bt_permission);
-                    LinearLayout lin = (LinearLayout) view.findViewById(R.id.permission_id);
-                    it.setText(items[i]);
-                    lin.setOnClickListener(onClickListener);
-                    lin.setId(i);
-                    if (Utility.isGrantedAllPermission(SecuritySettings.this)) {
-                        View redView = (View) view.findViewById(R.id.permission_red);
-                        redView.setVisibility(View.GONE);
-                    }
+                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_invade_line, null, false);
+                    LinearLayout it = (LinearLayout) view.findViewById(R.id.security_linera);
+
+                    ((TextView) it.findViewById(R.id.security_text_des)).setText(R.string.security_settings_preference_desc);
+                    ((TextView) it.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    it.setOnClickListener(onClickListener);
+                    it.setId(i);
                 } else if (i == SETTING_RATE) {
                     view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_new_it, null, false);
                     TextView it = (TextView) view.findViewById(R.id.security_abuout_bt);

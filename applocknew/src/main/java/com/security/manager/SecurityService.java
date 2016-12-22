@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.usage.UsageStats;
@@ -118,7 +117,7 @@ public class SecurityService extends Service {
             try {
                 packageName = getActivePackages();
 
-            } catch (Exception e) {
+            } catch (Exception | Error e) {
                 e.printStackTrace();
             }
             try {
@@ -126,7 +125,7 @@ public class SecurityService extends Service {
                     packageName = getTopPackage();
 
                 }
-            } catch (Exception e) {
+            } catch (Exception | Error e) {
                 e.printStackTrace();
             }
         } else {
@@ -394,7 +393,6 @@ public class SecurityService extends Service {
                         showWidgetIfNecessary(true);
                         if (unlocked) {
                             unlocked = false;
-                            showAd();
                         }
                         int slot = App.getSharedPreferences().getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
                         switch (slot) {
@@ -550,6 +548,8 @@ public class SecurityService extends Service {
             if (Utils.hasSystemAlertPermission(App.getContext())) {
                 alert = true;
                 SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
+//                SecurityPatternActivity.createThemeContextIfNecessary(SecurityService.this);
+
                 if (FakePresenter.isFakeCover()) {
                     try {
                         label = getPackageManager().getApplicationInfo(packageName, 0).loadLabel(getPackageManager());
@@ -567,7 +567,6 @@ public class SecurityService extends Service {
                     handler.post(alertRunner);
                 }
             } else {
-                Log.e("unlock", "unlock--------appname");
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
@@ -576,21 +575,7 @@ public class SecurityService extends Service {
         }
     }
 
-    private void showAd() {
-//        if (System.currentTimeMillis() / 1000L - AdConfig.lastShowAdTime.getValue() > (AdConfig.fullShowingRate.getValue() * 60)) {
-//            AdConfig.lastShowAdTime.setValue((int) (System.currentTimeMillis() / 1000L));
-//        handler.post(adRunner);
-//        }
-    }
 
-    private final Runnable adRunner = new Runnable() {
-        @Override
-        public void run() {
-            //showAD
-//            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-
-        }
-    };
 
     public String lastApp;
     HashMap<String, Boolean> homes = new HashMap<>();
@@ -796,7 +781,6 @@ public class SecurityService extends Service {
             return pkgname;
         } else {
             Collections.sort(usageStats, mRecentComp);
-
             return usageStats.get(0).getPackageName();
         }
     }
@@ -851,55 +835,11 @@ public class SecurityService extends Service {
         }
         Utils.init();
         handler = new Handler(getMainLooper());
-        c.a(this);
-        Intent serviceIntent = new Intent(this, c.class);
+        ApplockC.applockA(this);
+        Intent serviceIntent = new Intent(this, ApplockC.class);
         startService(serviceIntent);
         if (Build.VERSION.SDK_INT >= 21) {
             hasAccessUsagePermission = Utils.checkPermissionIsGrant(App.getContext(), Utils.OP_GET_USAGE_STATS) == AppOpsManager.MODE_ALLOWED;
-        }
-        String[] top25 = new String[]{
-                /*
-                "com.facebook.orca",
-                "com.google.android.apps.photos",
-                "com.facebook.katana",
-                "com.amazon.mShop.android.shopping",
-                "com.instagram.android",
-                "com.snapchat.android",
-                "com.netflix.mediaclient",
-                "com.whatsapp",
-                "com.skype.raider",
-                "com.pinterest",
-                "com.instagram.layout",
-                "com.twitter.android",
-                "com.yahoo.mobile.client.android.mail",
-                "com.ebay.mobile",
-                "com.badoo.mobile",
-                "jp.naver.line.android",
-                "com.google.android.apps.docs.editors.docs",
-                "com.viber.voip",
-                "com.google.android.youtube",
-                "com.dropbox.android",
-                "com.google.android.gm",
-                "com.paypal.android.p2pmobile",
-                "com.tencent.mm",
-                "com.kakao.talk",
-                "com.flipkart.android",
-                "in.amazon.mShop.android.shopping",
-                "com.facebook.lite",
-                "com.vkontakte.android",
-                "ru.ok.android",
-                "kik.android",
-                "com.ubercab",
-                "com.okcupid.okcupid",
-                "com.bbm",
-                "com.mxtech.videoplayer.ad",
-                "com.android.vending"
-                */
-        };
-        for (String top : top25) {
-            if (!SafeDB.defaultDB().getBool("dontask_" + top, false)) {
-                asks.put(top, true);
-            }
         }
         PackageManager pm = getPackageManager();
         SharedPreferences sp = App.getSharedPreferences();
@@ -915,13 +855,12 @@ public class SecurityService extends Service {
                 }
             }
         }.start();
-//        initWidget();
 
-        if (Build.VERSION.SDK_INT >= 20) {
+//        if (Build.VERSION.SDK_INT >= 20) {
 //            AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
 //            PendingIntent pi = PendingIntent.getService(this, 0, new Intent(this, SecurityService.class).putExtra("alarm", true), PendingIntent.FLAG_UPDATE_CURRENT);
 //            am.setRepeating(AlarmManager.RTC_WAKEUP, 1000, 1000, pi);
-        }
+//        }
 
         if (fadeout == null) {
             fadeout = AnimationUtils.loadAnimation(this, R.anim.security_fade_out);

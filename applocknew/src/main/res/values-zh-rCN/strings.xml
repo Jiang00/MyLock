@@ -40,8 +40,8 @@
     <string name="security_later_">以后再说</string>
     <string name="security_lock_app">锁应用</string>
     <string name="security_lock_success">%1$s已加锁</string>
-    <string name="security_lock_to_open">点击此处开启超级应用锁</string>
-    <string name="security_lock_to_stop">点击此处关闭超级应用锁</string>
+    <string name="security_lock_to_open">点击此处开启应用锁</string>
+    <string name="security_lock_to_stop">点击此处关闭应用锁</string>
     <string name="security_login_with_email">在重置您的密码前，请先登陆您的Google帐户ID确认您的身份。 </string>
     <string name="security_my_close">关闭</string>
     <string name="security_my_theme">皮肤</string>
@@ -137,7 +137,7 @@
     <string name="security_power_mode_des">减少50%电量消耗，延长待机时间。</string>
 	<string name="security_service_title">使用记录权限</string>
     <string name="security_service_description">服务更稳定，耗电量更少。</string>
-	<string name="security_settings_preference">权限中心</string>
+	<string name="security_settings_preference">高级保护</string>
 	<string name="security_stop_applock">停止应用锁</string>
     <string name="security_stop_applock_information">暂停使用AppLock,暂停后应用将失去保护。</string>
 	<string name="security_fingerprint">指纹</string>
@@ -145,4 +145,6 @@
     <string name="security_go_open_fingerprint">立即设置</string>
     <string name="security_fingerprint_many_error">请使用密码</string>
 	<string name="security_password_short">需要6位数字密码</string>
+	<string name="security_slide_theme">主题</string>
+	<string name="security_settings_preference_desc">建议开启高级保护所有功能，完美保护隐私，更安全！</string>
 </resources>

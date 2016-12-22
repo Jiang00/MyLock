@@ -1,0 +1,27 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="security_number_margin_top">0.5dp</dimen>
+    <dimen name="security_number_margin_left">1dp</dimen>
+    <dimen name="icon_size">72.0dip</dimen>
+    <dimen name="pattern_circle_size">32.0dip</dimen>
+    <dimen name="pattern_inner_circle_size">0.0dip</dimen>
+    <dimen name="numpad_margin">26.0dip</dimen>
+    <dimen name="pattern_line_size">8.0dip</dimen>
+    <dimen name="menu_height">48dp</dimen>
+    <dimen name="icon_padding_top">24dp</dimen>
+    <dimen name="bottom_ab_h">48dp</dimen>
+    <dimen name="lock_icon">41dp</dimen>
+    <dimen name="noti_icon">41dp</dimen>
+    <dimen name="passwd_dot">12dp</dimen>
+    <dimen name="numpad_size">48dip</dimen>
+    <dimen name="passwd_dot_size">12.0dip</dimen>
+    <dimen name="numpad_vertical_margin">12.0dip</dimen>
+    <dimen name="apply_button_corner_radius">2.0dip</dimen>
+    <dimen name="numpad_font_size">28sp</dimen>
+    <dimen name="numpad_stroke_width">1dp</dimen>
+    <dimen name="passwd_stroke_width">1dp</dimen>
+    <dimen name="pattern_outer_stroke_width">1dp</dimen>
+
+</resources>
