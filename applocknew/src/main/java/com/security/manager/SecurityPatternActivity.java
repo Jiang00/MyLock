@@ -204,7 +204,6 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     @Override
     public void setupView() {
-        Log.e("mynewname", getPackageName() + "-------");
 
         if (SecurityMyPref.isANewDay()) {
             Tracker.sendEvent(Tracker.CATE_ACTION, Tracker.ACT_DAILY_USE, Tracker.ACT_DAILY_USE, 1L);
@@ -215,11 +214,13 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         Intent intent = getIntent();
         if (intent.hasExtra("theme_package_name")) {
             String theme = intent.getStringExtra("theme_package_name");
-//            App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
-//            SecurityTheBridge.needUpdate = true;
-//            SecurityTheBridge.requestTheme = true;
-//            switchTheme();
+            App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
+            SecurityTheBridge.needUpdate = true;
+            SecurityTheBridge.requestTheme = true;
+            switchTheme();
             selectOperation();
+            ThemeManager.useTheme(this,theme);
+
             ThemeManager.applyTheme(this, theme);
         } else {
             selectOperation();

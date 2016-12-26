@@ -120,12 +120,8 @@ public class Tracker {
     public static final String CATE_ACTION_ADVER = "广告";
     public static final String CATE_ACTION_ADVER_NATIVER = "native展示";
     public static final String CATE_ACTION__LOCK_PAGE = "应用解锁界面";
-
     public static final String CATE_ACTION__LOCK_SUSSFUL = "应用解锁成功";
-
-
-
-
+    public static final String CATE_ACTION__LOCK_PAGE_PKG = "解锁界面应用包名";
     public static void sendEvent(String cateException, String actCrash, String s, long l) {
 
         AndroidSdk.track(cateException, actCrash, s, (int) l);

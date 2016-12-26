@@ -545,7 +545,8 @@ public class SecurityService extends Service {
 
         private void alertForUnlock(final String packageName) {
             lastApp = packageName;
-            if (Utils.hasSystemAlertPermission(App.getContext())) {
+            boolean haspermission = true;
+            if (haspermission) {
                 alert = true;
                 SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
 //                SecurityPatternActivity.createThemeContextIfNecessary(SecurityService.this);
@@ -566,7 +567,10 @@ public class SecurityService extends Service {
                 } else {
                     handler.post(alertRunner);
                 }
+                Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
             } else {
+//                handler.post(alertRunner);
+
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
@@ -574,7 +578,6 @@ public class SecurityService extends Service {
             }
         }
     }
-
 
 
     public String lastApp;

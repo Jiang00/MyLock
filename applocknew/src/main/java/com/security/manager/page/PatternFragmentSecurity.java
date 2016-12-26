@@ -115,7 +115,13 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 
             }
         });
+
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
+        try {
+            Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__LOCK_PAGE_PKG, SecurityTheBridge.bridge.currentPkg().toString() + "", 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         final SecurityPatternView lock = (SecurityPatternView) v.findViewWithTag("lpv_lock");
         LinearLayout parent = (LinearLayout) lock.getParent();
         ((LinearLayout.LayoutParams) parent.getLayoutParams()).weight = 1.5f;

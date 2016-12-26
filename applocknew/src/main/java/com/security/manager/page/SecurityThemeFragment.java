@@ -161,6 +161,10 @@ public class SecurityThemeFragment extends Fragment {
 
 
     public static MyFrameLayout inflate(String layoutId, ViewGroup container, Context c) {
+
+
+
+
         Context themeContext = ThemeManager.currentTheme().getThemeContext();
         LayoutInflater inflater = LayoutInflater.from(themeContext);
         int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());

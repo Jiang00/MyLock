@@ -55,8 +55,6 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
     public View passwd;
     public static View getView(LayoutInflater inflater, ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
-
-
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
         View v = inflate("security_number_password", container, inflater.getContext());
         ((MyFrameLayout) v).setOverflowCtrl(ctrl);
@@ -75,11 +73,17 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
         });
         dot.reset();
         ViewStub forbidden = new ViewStub(App.getContext(), R.layout.security_myforbidden);
-
         ErrorBiddenView errorBiddenView=new ErrorBiddenView(forbidden);
         dot.setErrorBiddenView(errorBiddenView);
         ((MyFrameLayout) v).addView(forbidden);
         errorBiddenView.init();
+
+
+        try {
+            Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__LOCK_PAGE_PKG,SecurityTheBridge.bridge.currentPkg().toString()+"",1);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         v.findViewWithTag("setting_advance").setOnClickListener(new View.OnClickListener() {
             @Override

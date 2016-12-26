@@ -231,6 +231,8 @@
 
 
         <activity
+            android:excludeFromRecents="true"
+
             android:name="com.security.manager.SecurityTogglePatternActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
