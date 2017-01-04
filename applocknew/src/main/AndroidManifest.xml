@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.privacy.lock">
+    package="com.ivymobi.applock.free">
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -26,6 +26,7 @@
         android:icon="@drawable/ic_launcher"
         android:manageSpaceActivity="com.security.manager.SecurityPatternActivity"
         android:persistent="true"
+        android:exported="true"
         android:theme="@style/activityTheme">
         <activity
             android:name="com.security.manager.SecurityAppLock"
@@ -61,12 +62,22 @@
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CustomTranslucent"></activity>
+
         <activity
             android:name="com.security.manager.SecuritySettings"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
+
+        <activity
+            android:name="com.security.manager.SecurityUnlockSettings"
+            android:launchMode="singleInstance"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+
 
         <activity
             android:name="com.security.manager.SecuritySettingsAdvance"
@@ -274,6 +285,7 @@
         <activity
             android:name="com.security.manager.UnlockApp"
             android:allowTaskReparenting="true"
+            android:launchMode="singleInstance"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"

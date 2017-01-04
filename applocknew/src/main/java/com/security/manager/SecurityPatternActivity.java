@@ -27,7 +27,7 @@ import android.widget.Toast;
 import android.widget.WrapperListAdapter;
 
 import com.android.launcher3.theme.ThemeManager;
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityProfileHelper;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
@@ -220,7 +220,6 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             switchTheme();
             selectOperation();
             ThemeManager.useTheme(this,theme);
-
             ThemeManager.applyTheme(this, theme);
         } else {
             selectOperation();

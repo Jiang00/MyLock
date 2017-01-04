@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -19,13 +20,19 @@ import android.widget.*;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.android.launcher3.theme.ThemeManager;
-import com.privacy.lock.R;
+import com.ivy.module.themestore.main.ThemeStoreBuilder;
+import com.ivymobi.applock.free.R;
+import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
 import com.security.manager.Tracker;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.lib.Utils;
 
 import com.security.manager.myinterface.ISecurityBridge;
+import com.squareup.picasso.Picasso;
+
+import me.xiaopan.sketch.SketchImageView;
 
 /**
  * Created by huale on 2014/11/20.
@@ -51,7 +58,9 @@ public class SecurityThemeFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
         afterViewCreated(view, ctrl);
+
 
     }
 
@@ -61,6 +70,8 @@ public class SecurityThemeFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         setupTitle(view);
     }
 
@@ -90,6 +101,7 @@ public class SecurityThemeFragment extends Fragment {
             statusicon.setBackgroundDrawable(bridge.icon());
         }
     }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -121,6 +133,12 @@ public class SecurityThemeFragment extends Fragment {
             group.removeAllViews();
         }
         super.onDestroyView();
+        try {
+            AndroidSdk.destroyNativeAdView(TAG_UNLOCK, adView);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected static void createAdView(ViewGroup view) {
@@ -159,12 +177,7 @@ public class SecurityThemeFragment extends Fragment {
 
     }
 
-
     public static MyFrameLayout inflate(String layoutId, ViewGroup container, Context c) {
-
-
-
-
         Context themeContext = ThemeManager.currentTheme().getThemeContext();
         LayoutInflater inflater = LayoutInflater.from(themeContext);
         int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());

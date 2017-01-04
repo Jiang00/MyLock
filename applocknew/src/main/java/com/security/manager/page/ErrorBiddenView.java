@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecuritySurface;
 
 import com.security.manager.db.SecurityPreference;

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.SecuritySetPattern;
 import com.security.manager.Tracker;

@@ -12,7 +12,7 @@ import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.LockPatternUtils;
 import com.security.manager.page.SecurityPatternView;
@@ -168,7 +168,9 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     public void onClick(View view) {
         Button v = (Button) view;
         passdot.setNumber(v.getText().charAt(0));
-        size++;
+        if (setProgress == 0 && size < 6) {
+            size++;
+        }
         if (togglePattern) {
             togglePattern = false;
             Button ok = (Button) findViewById(R.id.ok);
@@ -180,7 +182,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     }
 
     public void passwdIsEmpty() {
-//        Toast t = Toast.makeText(context, R.string.passwd_empty, Toast.LENGTH_SHORT);
+//        Toast t = Toast.makeText(context, R.string.awtwd_empty, Toast.LENGTH_SHORT);
 //        t.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 //        t.show();
     }
@@ -404,7 +406,6 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                 if (togglePattern) {
                     setGraphView();
                     Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
-
                     return;
                 }
                 if (setProgress == 0) {
@@ -450,7 +451,6 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
                 if (passdot.empty() && !togglePattern) {
                     togglePattern = true;
                     okBtn.setText(R.string.security_use_pattern);

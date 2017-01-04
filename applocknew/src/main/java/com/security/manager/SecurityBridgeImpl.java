@@ -7,13 +7,16 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.privacy.lock.R;
+import com.ivy.module.themestore.view.MyImageView;
+import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityDaily;
 import com.security.manager.meta.SecurityFlowMenu;
 import com.security.manager.meta.SecurityMyPref;
@@ -150,6 +153,8 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             addedToWindow[idx] = null;
         }
     }
+
+
 
     @Override
     public SecurityFlowMenu[] menus() {

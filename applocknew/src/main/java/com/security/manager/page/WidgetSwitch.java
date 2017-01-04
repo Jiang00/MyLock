@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

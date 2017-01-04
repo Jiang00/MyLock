@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.FakePresenter;
 import com.security.manager.page.MessageBox;

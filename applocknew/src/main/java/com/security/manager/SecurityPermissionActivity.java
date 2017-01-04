@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
+
 
 /**
  * Created by SongHualin on 6/12/2015.

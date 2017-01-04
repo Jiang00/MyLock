@@ -559,3 +559,14 @@
 -keep class com.google.gson.stream.** { *; }
 # Application classes that will be serialized/deserialized over Gson
 -keep class com.ivy.module.themestore.analy.** { *; }
+
+-dontwarn com.ivy.sketch.**
+-keep class com.ivy.sketch.** { *;}
+
+-dontwarn me.xiaopan.sketch.**
+-keep class me.xiaopan.sketch.** { *;}
+
+
+
+
+

@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.ShowDialogview;
@@ -104,20 +104,16 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
             @Override
             public int getCount() {
                 return items.length;
-
-
             }
 
             @Override
             public Object getItem(int i) {
                 return i;
             }
-
             @Override
             public long getItemId(int i) {
                 return i;
             }
-
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
 
@@ -126,7 +122,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                 if (SecurityMyPref.getshowLockAll()) {
 
                     if (i == SETTING_POWER_MODE) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
                         ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                         ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
                         final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
@@ -138,12 +134,8 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                                 ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
                             }
                         });
-
-
-
-
                     } else if (i == SETTING_NOTIFICATION) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
                         ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                         ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
                         final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
@@ -177,7 +169,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
 
 
                     else if (i == SETTING_PERMISSION) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
                         ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                         ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
                         final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
@@ -197,7 +189,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                 } else {
 
                     if (i == SETTING_POWER_MODE) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
                         ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                         ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
                         final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
@@ -212,7 +204,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
 
 
                     } else if (i == SETTING_PERMISSION) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
                         ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                         ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
                         final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
@@ -280,7 +272,6 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
             startActivity(nIntent);
         } else {
             this.finish();
-
         }
     }
 }

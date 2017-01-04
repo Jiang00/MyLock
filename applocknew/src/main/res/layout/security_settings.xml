@@ -35,8 +35,9 @@
             android:choiceMode="multipleChoice"
             android:divider="@drawable/security_category_divider"
             android:fastScrollEnabled="false"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:longClickable="false"
-            android:padding="8dp"
             android:visibility="gone" />
 
         <ProgressBar

@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.page.MessageBox;
 
 /**

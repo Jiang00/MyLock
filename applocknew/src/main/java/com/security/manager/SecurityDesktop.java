@@ -11,7 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.privacy.lock.R;
+
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.WidgetSwitch;

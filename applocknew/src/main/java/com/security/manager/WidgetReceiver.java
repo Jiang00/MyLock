@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 
 
 /**

@@ -10,7 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseActivity;
 import com.security.manager.meta.SecurityMyPref;

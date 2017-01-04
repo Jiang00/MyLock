@@ -67,7 +67,7 @@
     <!--</LinearLayout>-->
 
 
-    <View
+   <View
         android:layout_marginLeft="23dp"
         android:layout_marginBottom="22dp"
         android:background="#26ffffff"
@@ -97,7 +97,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
 
-
         <ImageView
             android:layout_weight="1"
             android:layout_marginLeft="34dp"
@@ -115,9 +114,6 @@
         android:id="@+id/slide_menu_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
-
     </FrameLayout>
 
 </LinearLayout>

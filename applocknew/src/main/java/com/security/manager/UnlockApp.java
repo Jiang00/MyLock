@@ -1,5 +1,6 @@
 package com.security.manager;
 
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,11 +11,14 @@ import com.security.manager.page.FakePresenter;
  * Created by superjoy on 2014/11/5.
  */
 public class UnlockApp extends SecurityPatternActivity {
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        finish();
+//    }
 
     @Override
     public void setupView() {
-
-        Log.e("unlocksussful","解锁成功");
 
         if (FakePresenter.isFakeCover()) {
             try {

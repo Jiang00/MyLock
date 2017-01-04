@@ -40,7 +40,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.privacy.lock.R;
 import com.privacy.lock.aidl.IWorker;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.db.SecurityProfileHelper;

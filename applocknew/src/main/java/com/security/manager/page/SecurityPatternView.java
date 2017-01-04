@@ -29,7 +29,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 
-import com.privacy.lock.R;
 import com.security.manager.App;
 
 import java.util.ArrayList;

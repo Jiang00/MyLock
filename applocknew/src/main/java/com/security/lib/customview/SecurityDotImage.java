@@ -29,7 +29,7 @@ public class SecurityDotImage extends ImageView {
 
     public SecurityDotImage(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+//        init(context);//添加画上红点功能
     }
 
     private void init(Context context) {

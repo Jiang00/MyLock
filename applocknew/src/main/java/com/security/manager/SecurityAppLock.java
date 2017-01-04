@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.android.client.AndroidSdk;
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.db.backgroundData;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.AppFragementSecurity;

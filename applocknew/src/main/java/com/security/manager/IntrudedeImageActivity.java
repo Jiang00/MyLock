@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.AnimationImageView;
 import com.security.manager.lib.BaseActivity;
 

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.App;
 import com.security.manager.FakeFourActivitySecurityPatternActivity;

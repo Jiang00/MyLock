@@ -410,4 +410,19 @@ public class SecurityMyPref {
     }
 
 
+
+    public static void setDailyUrl(String url) {
+        App.getSharedPreferences().edit().putString("daily_string_url", url).apply();
+    }
+
+    public static String getDailyUrl() {
+        return App.getSharedPreferences().getString("daily_string_url","");
+    }
+
+
+
+
+
+
+
 }

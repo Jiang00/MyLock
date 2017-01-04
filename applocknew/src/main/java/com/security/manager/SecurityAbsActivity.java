@@ -26,7 +26,7 @@ import android.widget.Toast;
 import com.android.client.AndroidSdk;
 
 import com.android.launcher3.theme.ThemeManager;
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SlideMenu;
@@ -39,6 +39,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+import me.xiaopan.sketch.Sketch;
+import me.xiaopan.sketch.display.TransitionImageDisplayer;
 
 /**
  * Created by superjoy on 2014/9/11.
@@ -96,7 +98,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
                 sw.append(thread.toString());
                 PrintWriter pw = new PrintWriter(sw);
                 ex.printStackTrace(pw);
-                Tracker.sendEvent(Tracker.CATE_EXCEPTION, Tracker.ACT_CRASH + versionName, sw.toString(), 0L);
+//                Tracker.sendEvent(Tracker.CATE_EXCEPTION, Tracker.ACT_CRASH + versionName, sw.toString(), 0L);
                 defaultHandler.uncaughtException(thread, ex);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -122,6 +124,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         }
     }
 
+
     protected abstract boolean hasHelp();
 
     public static final Thread.UncaughtExceptionHandler defaultHandler = Thread.getDefaultUncaughtExceptionHandler();
@@ -141,7 +144,8 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         } catch (Error e) {
             e.printStackTrace();
         }
-
+        Sketch.with(this).getConfiguration().setMobileNetworkGlobalPauseDownload(false).setDefaultImageDisplayer(new TransitionImageDisplayer());
+        Sketch.setDebugMode(true);
 
 
     }
@@ -167,7 +171,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void initNow() {
         AndroidSdk.onCreate(this);
         ThemeManager.onCreate(this);
-        ThemeManager.useTheme(this,"com.theme.testtheme.new");
         setupView();
 
     }
@@ -176,9 +179,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     protected void onResume() {
         try {
             AndroidSdk.onResumeWithoutTransition(this);
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

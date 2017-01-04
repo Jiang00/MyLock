@@ -13,7 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.App;
 import com.security.manager.lib.io.ImageMaster;
 import com.security.manager.lib.io.LoadIconFromApp;

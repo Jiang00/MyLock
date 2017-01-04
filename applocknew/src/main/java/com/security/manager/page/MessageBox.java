@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 
 
 /**

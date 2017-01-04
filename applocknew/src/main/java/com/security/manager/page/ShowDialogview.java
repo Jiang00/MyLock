@@ -7,7 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ListView;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.App;
 import com.security.manager.SecurityPermissionActivity;
@@ -39,7 +39,6 @@ public class ShowDialogview {
                         listview.removeHeaderView(AppFragementSecurity.headerView);
                     }
                 }
-
                 d.dismiss();
 
 //                Utils.rateUs(v.getContext());
@@ -66,9 +65,9 @@ public class ShowDialogview {
             @Override
             public void onClick(View v) {
                 d.cancel();
-                final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                c.startActivity(intent);
                 try {
+                    final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                    c.startActivity(intent);
                     new Thread().sleep(1500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -90,7 +89,6 @@ public class ShowDialogview {
 //
 //                    }
 //                });
-
                 Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
 //                 WindowManager wm = (WindowManager) ApplockC.getSystemService(Context.WINDOW_SERVICE);
@@ -108,33 +106,31 @@ public class ShowDialogview {
             }
         });
     }
-
-
     public static void showNewVersion(final Context context) {
-
-        final View alertDialogView = View.inflate(context, R.layout.security_show_newversion, null);
-
-
-        final MyDialog d = new MyDialog(context, 0, 0, alertDialogView, R.style.dialog);
-
-
-        d.show();
-
-        alertDialogView.findViewById(R.id.security_update).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.rate(context);
-
-            }
-        });
-    }
-
-
-    public static void showSaveMode(Context context) {
-        final  Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-        context.startActivity(intent);
-
         try {
+            final View alertDialogView = View.inflate(context, R.layout.security_show_newversion, null);
+
+
+            final MyDialog d = new MyDialog(context, 0, 0, alertDialogView, R.style.dialog);
+
+
+            d.show();
+
+            alertDialogView.findViewById(R.id.security_update).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Utils.rate(context);
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+    public static void showSaveMode(Context context) {
+        try {
+            final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            context.startActivity(intent);
             new Thread().sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -144,9 +140,10 @@ public class ShowDialogview {
     }
 
     public static void showSettingPermission50(Context context) {
-        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        context.startActivity(intent);
         try {
+            Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+            context.startActivity(intent);
+
             new Thread().sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -180,7 +177,6 @@ public class ShowDialogview {
             @Override
             public void onClick(View v) {
 //                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
-
                 d.cancel();
             }
         });

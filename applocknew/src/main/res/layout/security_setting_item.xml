@@ -2,17 +2,30 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="72dp"
     android:background="?android:attr/selectableItemBackground">
 
+
     <LinearLayout
+        android:layout_gravity="center|left"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="72dp">
+
+    <ImageView
+        android:layout_gravity="center|left"
+        android:id="@+id/setting_icon"
+        android:background="@drawable/security_brif_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginLeft="17dp"
         android:id="@+id/security_linera"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-
+        android:layout_height="72dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
         android:paddingRight="20dp">
 
         <TextView
@@ -29,9 +42,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/app_name"
             android:textColor="@color/security_ftl_black_38"
+            android:paddingRight="20dp"
             android:textSize="12sp" />
+    </LinearLayout>
     </LinearLayout>
 
     <ImageView
@@ -41,4 +55,5 @@
         android:layout_gravity="center_vertical|right"
         android:layout_marginRight="10dp"
         android:background="@drawable/security_ne" />
+
 </FrameLayout>

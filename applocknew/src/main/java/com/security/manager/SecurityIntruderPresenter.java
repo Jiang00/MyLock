@@ -2,7 +2,6 @@ package com.security.manager;
 
 import android.content.Intent;
 
-import com.privacy.lock.R;
 
 /**
  * Created by song on 15/8/18.

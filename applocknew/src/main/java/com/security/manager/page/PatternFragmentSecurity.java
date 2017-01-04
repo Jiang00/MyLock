@@ -1,6 +1,7 @@
 package com.security.manager.page;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,19 +19,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.client.AndroidSdk;
+import com.android.common.SdkCache;
 import com.android.launcher3.theme.ThemeManager;
+import com.ivy.module.themestore.main.ThemeStoreBuilder;
 import com.ivy.util.Constants;
 import com.ivy.util.Utility;
-import com.privacy.lock.R;
 
+import com.ivymobi.applock.free.R;
+import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
 import com.security.manager.SecurityAppLock;
 import com.security.manager.SecurityPatternActivity;
 import com.security.manager.SecuritySettingsAdvance;
+import com.security.manager.SecurityUnlockSettings;
 import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -96,17 +103,35 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             @Override
             public void onClick(View v) {
                 try {
+
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
-                    if (bridge != null) {
-                        if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
-                            Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
+                    if (Utility.isGrantedAllPermission(App.getContext())) {
+                        if (bridge != null) {
+                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
+                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.putExtra("lock_setting", true);
+                                App.getContext().startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                App.getContext().startActivity(intent);
+                            }
+                        }
+                    } else {
+                        if (bridge != null) {
+                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
+                                Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
+                            } else {
+                                Utility.goPermissionCenter(App.getContext(), "");
+
+                            }
                         } else {
                             Utility.goPermissionCenter(App.getContext(), "");
                         }
-                    } else {
-                        Utility.goPermissionCenter(App.getContext(), "");
                     }
                     callback.unLock();
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -119,9 +144,34 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         try {
             Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__LOCK_PAGE_PKG, SecurityTheBridge.bridge.currentPkg().toString() + "", 1);
+            SecurityDotImage dlyp = (SecurityDotImage) v.findViewWithTag("icon_persistent");
+//            Picasso.with(App.getContext()).load(SecurityMyPref.getDailyUrl()).into(dlyp);
+//            Utility.loadImg(App.getContext(),SecurityMyPref.getDailyUrl(),dlyp,App.getContext().getResources().getIdentifier("security_icon_daily", "drawable", App.getContext().getPackageName()));
+            String dailyUrl = SecurityMyPref.getDailyUrl();
+            Bitmap bitmap = SdkCache.cache().readBitmap(dailyUrl, null, true);
+            if (bitmap == null) {
+                dlyp.setImageDrawable(App.getContext().getResources().getDrawable(R.drawable.security_icon_daily));
+                SdkCache.cache().cacheUrl(dailyUrl, true);
+            } else {
+                dlyp.setImageBitmap(bitmap);
+            }
+            dlyp.setVisibility(View.VISIBLE);
+            dlyp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.e("opentheme", "open--------");
+
+                    ThemeStoreBuilder.openThemeStore(App.getContext(), "ivy.intent.action.pattern");
+                    callback.unLock();
+
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         final SecurityPatternView lock = (SecurityPatternView) v.findViewWithTag("lpv_lock");
         LinearLayout parent = (LinearLayout) lock.getParent();
         ((LinearLayout.LayoutParams) parent.getLayoutParams()).weight = 1.5f;
@@ -169,6 +219,11 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         return v;
     }
 
+
+    private int getId(String id, String type) {
+
+        return getResources().getIdentifier(id, type, getContext().getPackageName());
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

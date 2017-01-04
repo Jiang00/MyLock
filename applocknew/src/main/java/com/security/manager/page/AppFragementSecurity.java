@@ -25,6 +25,7 @@ import butterknife.OnItemClick;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.lib.customview.SecurityBaseFragment;
 import com.security.manager.App;
@@ -35,7 +36,6 @@ import com.security.manager.lib.Utils;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
 import com.security.lib.customview.SecurityloadImage;
-import com.privacy.lock.R;
 import com.security.manager.SearchThread;
 import com.privacy.lock.aidl.IWorker;
 import com.security.manager.db.SecurityProfileHelper;
@@ -194,8 +194,13 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     public void onDestroy() {
         db = null;
         adShow = false;
-        AndroidSdk.onDestroy();
         super.onDestroy();
+        try {
+            AndroidSdk.destroyNativeAdView(TAG_TOP_AD, scrollView);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -314,11 +319,13 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         });
         super.onCreateOptionsMenu(menu, inflater);
     }
+
     @Override
     public boolean onQueryTextSubmit(String query) {
 
         return false;
     }
+
     @Override
     public boolean onQueryTextChange(String newText) {
         if (CloseSearch) {
@@ -332,6 +339,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         }
         return true;
     }
+
     Runnable refreshSearchResult = new Runnable() {
         @Override
         public void run() {
@@ -523,9 +531,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
         }
 
-        return super.
-
-                onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
 
     }
 

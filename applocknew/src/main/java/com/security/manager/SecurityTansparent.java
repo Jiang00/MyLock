@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.db.backgroundData;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.io.SafeDB;
@@ -46,7 +46,7 @@ public class SecurityTansparent extends Activity {
         stopService(new Intent(this, NotificationService.class));
         startService(new Intent(this, NotificationService.class));
         SecurityMyPref.setVisitor(true);
-        Toast.makeText(this,R.string.security_visitor_on,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.security_visitor_on,Toast.LENGTH_LONG).show();
         Tracker.sendEvent(Tracker.ACT_MODE,Tracker.ACT_MODE_NOTIFICATION,Tracker.ACT_MODE_ON,1L);
 
 

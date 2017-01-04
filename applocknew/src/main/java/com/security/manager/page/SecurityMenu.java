@@ -13,6 +13,7 @@ import android.widget.*;
 
 import com.ivy.module.themestore.main.ThemeStoreBuilder;
 import com.ivy.util.Utility;
+import com.ivymobi.applock.free.R;
 import com.privacy.lock.*;
 import com.security.manager.SecurityAppLock;
 import com.security.manager.FakeSelectorActivitySecurity;
@@ -50,6 +51,7 @@ public class SecurityMenu {
     public static final String[] newidkeys = {
             "nlk", "np", "nv", "npr", "nfk", "npl", "nt", "nf", "nh", "ns", "na", "nd"
     };
+
 
     public static int icons[] = {
             R.drawable.security_intrude_infomation,

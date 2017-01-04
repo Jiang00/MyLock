@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.IntruderApi;

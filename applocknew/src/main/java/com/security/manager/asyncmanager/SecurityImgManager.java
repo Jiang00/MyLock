@@ -10,7 +10,7 @@ import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
 
-import com.privacy.lock.BuildConfig;
+import com.ivymobi.applock.free.BuildConfig;
 
 import java.io.File;
 import java.io.FileOutputStream;

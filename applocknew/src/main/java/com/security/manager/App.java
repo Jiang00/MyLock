@@ -19,6 +19,10 @@ import com.squareup.leakcanary.RefWatcher;
 
 import java.util.Locale;
 
+import me.xiaopan.sketch.Sketch;
+import me.xiaopan.sketch.SketchImageView;
+import me.xiaopan.sketch.display.TransitionImageDisplayer;
+
 /**
  * Created by SongHualin on 5/6/2015.
  */
@@ -54,6 +58,8 @@ public class App extends BaseApp{
         }
         MApps.init();
         SecuritProfiles.init();
+
+
     }
 
     static RefWatcher watcher;

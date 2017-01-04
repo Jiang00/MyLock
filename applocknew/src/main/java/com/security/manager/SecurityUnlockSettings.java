@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +31,7 @@ import butterknife.InjectView;
 /**
  * Created by superjoy on 2014/9/4.
  */
-public class SecuritySettings extends ClientActivitySecurity {
+public class SecurityUnlockSettings extends ClientActivitySecurity {
     public static byte idx = 0;
     public static byte SETTING_SLOT;
     public static byte SETTING_MODE;
@@ -69,7 +68,6 @@ public class SecuritySettings extends ClientActivitySecurity {
     Intent intent;
 
 
-
     @Override
     protected boolean hasHelp() {
         return false;
@@ -80,17 +78,15 @@ public class SecuritySettings extends ClientActivitySecurity {
         setContentView(R.layout.security_settings);
         ButterKnife.inject(this);
         setupToolbar();
+        intent = getIntent();
         SETTING_SLOT = 0;
-        SETTING_MODE = 1;
-        SETTING_HIDE_GRAPH_PATH = 2;
-        SETTING_LOCK_NEW = 3;
-        SETTING_NOTIFICATION = 4;
-
-        SETTING_SETTING_ADVANCE = 5;
-        SETTING_RATE = 6;
+        SETTING_HIDE_GRAPH_PATH = 1;
+        SETTING_LOCK_NEW = 2;
+        SETTING_NOTIFICATION = 3;
+        SETTING_SETTING_ADVANCE = 4;
+        SETTING_RATE = 5;
         items = new int[]{
                 R.string.security_over_short,
-                R.string.security_reset_password,
                 R.string.security_hide_path,
                 R.string.security_newapp_lock,
                 R.string.security_nofification,
@@ -101,7 +97,6 @@ public class SecuritySettings extends ClientActivitySecurity {
 
         icon = new int[]{
                 R.drawable.security_brif_setting,
-                R.drawable.security_reset_password,
                 R.drawable.security_hide_pattern,
                 R.drawable.security_lock_new,
                 R.drawable.security_notification,
@@ -115,7 +110,14 @@ public class SecuritySettings extends ClientActivitySecurity {
         normalTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                if (intent.getExtra("lock_setting") != null) {
+                    finish();
+                    Intent nIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
+                    nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(nIntent);
+                } else {
+                    finish();
+                }
             }
         });
         setViewVisible(View.GONE, R.id.search_button, R.id.bottom_action_bar, R.id.progressBar);
@@ -143,23 +145,8 @@ public class SecuritySettings extends ClientActivitySecurity {
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
 
-                if (i == SETTING_MODE) {
-                    view = getLayoutInflater().inflate(R.layout.security_setting_item, viewGroup, false);
-                    TextView title = (TextView) view.findViewById(R.id.security_title_bar_te);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-                    TextView desc = (TextView) view.findViewById(R.id.security_text_des);
-                    title.setText(R.string.security_reset_passwd_2_btn);
-                    desc.setText(SecurityMyPref.isUseNormalPasswd() ? R.string.security_password_lock : R.string.security_use_pattern);
-                    view.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-//                            setPasswd(true, !SharPre.isUseNormalPasswd());
-                            showDialog.showResetPasswordDialog(v.getContext());
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_RESETPAS, Tracker.ACT_SETTING_RESETPAS, 1L);
-                        }
-                    });
-                } else if (i == SETTING_SLOT) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item, null, false);
+              if (i == SETTING_SLOT) {
+                    view = LayoutInflater.from(SecurityUnlockSettings.this).inflate(R.layout.security_setting_item, null, false);
                     LinearLayout it = (LinearLayout) view.findViewById(R.id.security_linera);
                     int slot = App.getSharedPreferences().getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
                     ((TextView) it.findViewById(R.id.security_text_des)).setText(getResources().getStringArray(R.array.brief_slot)[slot]);
@@ -169,7 +156,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
                 } else if (i == SETTING_LOCK_NEW) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item_two, null, false);
+                    view = LayoutInflater.from(SecurityUnlockSettings.this).inflate(R.layout.security_setting_item_two, null, false);
                     ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                     ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
                     final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
@@ -199,7 +186,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     });
 
                 } else if (i == SETTING_NOTIFICATION) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item_two, null, false);
+                    view = LayoutInflater.from(SecurityUnlockSettings.this).inflate(R.layout.security_setting_item_two, null, false);
                     ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                     ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
                     view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
@@ -216,13 +203,13 @@ public class SecuritySettings extends ClientActivitySecurity {
                             if (SecurityMyPref.getNotification()) {
                                 checkbox.setImageResource(R.drawable.security_setting_not_check);
                                 SecurityMyPref.setNotification(false);
-                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
+                                stopService(new Intent(SecurityUnlockSettings.this, NotificationService.class));
 
                             } else {
                                 checkbox.setImageResource(R.drawable.security_setting_check);
                                 SecurityMyPref.setNotification(true);
-                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
-                                startService(new Intent(SecuritySettings.this, NotificationService.class));
+                                stopService(new Intent(SecurityUnlockSettings.this, NotificationService.class));
+                                startService(new Intent(SecurityUnlockSettings.this, NotificationService.class));
                             }
 
                             Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
@@ -233,7 +220,7 @@ public class SecuritySettings extends ClientActivitySecurity {
 
 
                 } else if (i == SETTING_SETTING_ADVANCE) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item, null, false);
+                    view = LayoutInflater.from(SecurityUnlockSettings.this).inflate(R.layout.security_setting_item, null, false);
                     view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
 
                     LinearLayout it = (LinearLayout) view.findViewById(R.id.security_linera);
@@ -242,7 +229,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
                 } else if (i == SETTING_RATE) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_rate_it, null, false);
+                    view = LayoutInflater.from(SecurityUnlockSettings.this).inflate(R.layout.security_rate_it, null, false);
                     view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
 
                     FrameLayout it = (FrameLayout) view.findViewById(R.id.security_rate);
@@ -251,7 +238,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     it.setOnClickListener(onClickListener);
                     it.setId(i);
                 } else if (i == SETTING_HIDE_GRAPH_PATH) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item_two, null, false);
+                    view = LayoutInflater.from(SecurityUnlockSettings.this).inflate(R.layout.security_setting_item_two, null, false);
                     view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
 
                     ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
@@ -285,9 +272,6 @@ public class SecuritySettings extends ClientActivitySecurity {
 
 
                 }
-
-                initclick();
-
                 return view;
             }
         });
@@ -298,16 +282,15 @@ public class SecuritySettings extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
-        intent=getIntent();
-        if (lv != null) {
-            try {
-                ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();
-                setupView();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
+//        if (lv != null) {
+//            try {
+//                ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();
+//                setupView();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
 
     }
 
@@ -352,7 +335,7 @@ public class SecuritySettings extends ClientActivitySecurity {
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
-                Utility.goPermissionCenter(SecuritySettings.this, "");
+                Utility.goPermissionCenter(SecurityUnlockSettings.this, "");
             }
         }
     };
@@ -401,7 +384,7 @@ public class SecuritySettings extends ClientActivitySecurity {
 
 
     private void setupToolbar() {
-        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
+        toolbar.setNavigationIcon(R.drawable.security_back);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -414,51 +397,27 @@ public class SecuritySettings extends ClientActivitySecurity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            SlideMenu.Status status = menu.getStatus();
-            if (status == SlideMenu.Status.Close)
-                menu.open();
-            else if (status == SlideMenu.Status.OpenRight) {
-                menu.close();
-            } else
-                askForExit();
+            if (intent.getExtra("lock_setting") != null) {
+                finish();
+                Intent nIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
+                nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(nIntent);
+            } else {
+                finish();
+            }
         }
         return true;
     }
 
-
-    public void initclick() {
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse(SecurityMenu.FACEBOOK);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FACEBOOK, Tracker.ACT_FACEBOOK, 1L);
-            }
-        });
-
-        google.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse(SecurityMenu.GOOGLE);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLUS, Tracker.ACT_GOOGLE_PLUS, 1L);
-
-            }
-        });
-
-        googleplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Uri uri = Uri.parse(SecurityMenu.GOOGLEPLAY);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLAY, Tracker.ACT_GOOGLE_PLAY, 1L);
-
-            }
-        });
-
+    @Override
+    public void onBackPressed() {
+        if (intent.getExtra("lock_setting") != null) {
+            finish();
+            Intent nIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
+            nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(nIntent);
+        } else {
+            finish();
+        }
     }
 }

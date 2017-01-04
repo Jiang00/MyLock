@@ -9,6 +9,7 @@ import android.app.Service;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,7 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.db.SecurityProfileHelper;
 import com.security.manager.meta.SecurityMyPref;
@@ -494,6 +495,7 @@ public class SecurityService extends Service {
                 alertContainer = null;
                 alertView = null;
             } catch (Exception ignore) {
+                ignore.printStackTrace();
             }
 //            if (Build.VERSION.SDK_INT >= 21) {
 //                v.setPadding(0, Utils.getDimens(SecurityService.this, 16), 0, 0);
@@ -546,27 +548,31 @@ public class SecurityService extends Service {
         private void alertForUnlock(final String packageName) {
             lastApp = packageName;
             boolean haspermission = true;
-            if (haspermission) {
+            if (Utils.hasSystemAlertPermission(App.getContext())) {
                 alert = true;
                 SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
 //                SecurityPatternActivity.createThemeContextIfNecessary(SecurityService.this);
+//                if (FakePresenter.isFakeCover()) {
+//                    try {
+//                        label = getPackageManager().getApplicationInfo(packageName, 0).loadLabel(getPackageManager());
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            FakePresenter.show(SecurityService.this, SecurityMyPref.getFakeCover(FakePresenter.FAKE_NONE), label, alertRunner, dismissRunner);
+//                        }
+//                    });
+//                } else {
+//                    handler.post(alertRunner);
+//                }
 
-                if (FakePresenter.isFakeCover()) {
-                    try {
-                        label = getPackageManager().getApplicationInfo(packageName, 0).loadLabel(getPackageManager());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            FakePresenter.show(SecurityService.this, SecurityMyPref.getFakeCover(FakePresenter.FAKE_NONE), label, alertRunner, dismissRunner);
-                        }
-                    });
-                } else {
-                    handler.post(alertRunner);
-                }
+                Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
+                        setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
+                        putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
+                   startActivity(intent);
                 Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
             } else {
 //                handler.post(alertRunner);
@@ -574,7 +580,9 @@ public class SecurityService extends Service {
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
-                mContext.startActivity(intent);
+                startActivity(intent);
+                Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
+
             }
         }
     }
@@ -781,12 +789,26 @@ public class SecurityService extends Service {
 
             String pkgname = getForegroundApp();
 
+
             return pkgname;
         } else {
             Collections.sort(usageStats, mRecentComp);
             return usageStats.get(0).getPackageName();
         }
     }
+
+    public boolean isAppOnForeground(String pkgname) {
+        List<ActivityManager.RunningTaskInfo> tasksInfo = mActivityManager.getRunningTasks(1);
+        if (tasksInfo.size() > 0) {
+            // 应用程序位于堆栈的顶层
+            if (pkgname.equals(tasksInfo.get(0).topActivity
+                    .getPackageName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     static UsageStatsManager mUsageStatsManager;
 

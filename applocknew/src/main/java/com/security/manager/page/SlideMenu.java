@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.privacy.lock.R;
+import com.ivymobi.applock.free.R;
 
 
 public class SlideMenu extends FrameLayout {
