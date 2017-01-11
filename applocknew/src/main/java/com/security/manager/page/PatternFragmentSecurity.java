@@ -106,28 +106,37 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
                     if (Utility.isGrantedAllPermission(App.getContext())) {
+                        Log.e("name","one");
                         if (bridge != null) {
+                            Log.e("name","two");
                             if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
                                 Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.putExtra("lock_setting", true);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 App.getContext().startActivity(intent);
                             } else {
+                                Log.e("name","three");
                                 Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 App.getContext().startActivity(intent);
                             }
+
                         }
                     } else {
+                        Log.e("name","four");
                         if (bridge != null) {
                             if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
+                                Log.e("name","five");
                                 Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
                             } else {
+                                Log.e("name","six");
                                 Utility.goPermissionCenter(App.getContext(), "");
 
                             }
                         } else {
+                            Log.e("name","seven");
                             Utility.goPermissionCenter(App.getContext(), "");
+
                         }
                     }
                     callback.unLock();
@@ -159,11 +168,8 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             dlyp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.e("opentheme", "open--------");
-
                     ThemeStoreBuilder.openThemeStore(App.getContext(), "ivy.intent.action.pattern");
                     callback.unLock();
-
                 }
             });
 
