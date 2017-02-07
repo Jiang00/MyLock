@@ -1,5 +1,6 @@
 package com.security.manager.page;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
@@ -132,7 +133,7 @@ public class ShowDialogview {
             final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
             context.startActivity(intent);
             new Thread().sleep(1500);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Intent transintent = new Intent(context, SecurityPermissionActivity.class);
@@ -145,7 +146,7 @@ public class ShowDialogview {
             context.startActivity(intent);
 
             new Thread().sleep(1500);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Intent transintent = new Intent(context, SecurityPermissionActivity.class);

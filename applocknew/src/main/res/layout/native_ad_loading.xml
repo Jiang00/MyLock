@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/niceshiaaaa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="0.5"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="270dp"
+            android:layout_height="160dp"
+            android:background="@drawable/security_show_newversion"
+            android:scaleType="centerCrop"
+            android:tag="ad_image" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_launcher"
+            android:tag="ad_icon" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-regular"
+        android:gravity="center_horizontal"
+        android:maxLength="45"
+        android:singleLine="true"
+        android:tag="ad_title"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        tools:text="Your see" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:tag="ad_desc"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        tools:text="Your see Your " />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/shape_ad"
+        android:gravity="center"
+        android:tag="ac_action_green"
+        android:text="Install"
+        android:textColor="#ffff"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/ac_action_click_change"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:tag="ac_action_click_change"
+        android:text="@string/security_click_change"
+        android:textColor="#439e4e"
+        android:textSize="18sp" />
+
+        <ImageView
+            android:tag="loading_native"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:background="@drawable/ad_loading"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </FrameLayout>
+</LinearLayout>

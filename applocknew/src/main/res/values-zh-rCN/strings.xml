@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">应用锁</string>
     <string name="security_app_pro_successful">保护成功</string>
-    <string name="security_applock_open">超级应用锁已开启</string>
-    <string name="security_applock_stop">超级应用锁已关闭</string>
+    <string name="security_applock_open">应用锁已开启</string>
+    <string name="security_applock_stop">应用锁已关闭</string>
     <string name="security_apply_">应用</string>
     <string name="security_ask_lock">%1$s 与您的隐私安全相关</string>
     <string name="security_ask_lock_protect">用超级应用锁保护一下吧！ </string>
@@ -147,4 +147,6 @@
 	<string name="security_password_short">需要6位数字密码</string>
 	<string name="security_slide_theme">主题</string>
 	<string name="security_settings_preference_desc">建议开启高级保护所有功能，完美保护隐私，更安全！</string>
+	<string name="security_loading_fullad_fail">广告加载失败，请稍后再试</string>
+    <string name="security_click_change">换一个看看</string>
 </resources>

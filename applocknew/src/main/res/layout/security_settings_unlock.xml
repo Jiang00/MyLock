@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+
+    <com.security.manager.page.MyRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/security_component_toolbar" />
+
+        <include
+            layout="@layout/security_myabout_bar"
+            android:visibility="gone" />
+
+        <include
+            layout="@layout/security_normal_actionbar"
+            android:visibility="gone"></include>
+
+        <ListView
+            android:id="@+id/my_abs_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:choiceMode="multipleChoice"
+            android:divider="@drawable/security_category_divider"
+            android:fastScrollEnabled="false"
+            android:longClickable="false"
+            android:padding="8dp"
+            />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <TextView
+
+            android:id="@+id/tips"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/security_list_bg"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <include layout="@layout/security_bootom_bar" />
+
+        <ImageButton
+            android:id="@+id/add"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/security_button_bg"
+            android:visibility="gone" />
+    </com.security.manager.page.MyRelativeLayout>
+
+
+
+</FrameLayout>
+

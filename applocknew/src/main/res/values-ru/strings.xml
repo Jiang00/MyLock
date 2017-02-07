@@ -147,5 +147,7 @@
 	<string name="security_password_short">6 цифр требуется</string>
 	<string name="security_slide_theme">тема</string>
 	<string name="security_settings_preference_desc">Для того чтобы получить совершенную защиту, мы рекомендуем вам включить все разрешения.</string>
+	<string name="security_loading_fullad_fail">Реклама загрузка не удалась, попробуйте еще раз позже</string>
+    <string name="security_click_change">Пожалуйста, попробуйте другой</string>
 </resources>
 

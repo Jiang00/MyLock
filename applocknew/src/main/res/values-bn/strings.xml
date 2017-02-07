@@ -147,4 +147,7 @@
 	<string name="security_password_short">6 ডিজিটের প্রয়োজন বোধ করা হয়</string>
 	<string name="security_slide_theme">বিষয়</string>
 	<string name="security_settings_preference_desc">অর্ডার নিখুঁত সুরক্ষা পাওয়ার জন্য, আমরা সব অনুমতি সক্ষম করার জন্য আপনাকে সুপারিশ.</string>
+	<string name="security_loading_fullad_fail">বিজ্ঞাপন লোড করতে ব্যর্থ হয়েছি, আবার পরে চেষ্টা করুন</string>
+    <string name="security_click_change">অন্য এক পরিবর্তন করুন</string>
 </resources>
+

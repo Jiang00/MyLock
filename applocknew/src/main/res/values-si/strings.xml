@@ -147,4 +147,7 @@
 	<string name="security_password_short">ඉලක්කම් 6 ක් අවශ්ය වේ</string>
 	<string name="security_slide_theme">තේමාව</string>
 	<string name="security_settings_preference_desc">පරිපූර්ණ ආරක්ෂාව ලබා ගැනීම සඳහා, අප සියලු අවසර සක්රිය කිරීමට ඔබ නිර්දේශ කරමු.</string>
+	<string name="security_loading_fullad_fail">දැන්වීමක් පැටවීම අසමත්, කරුණාකර පසුව නැවත උත්සාහ කරන්න</string>
+    <string name="security_click_change">තවත් එක් උත්සාහ කරන්න</string>
+	
 </resources>

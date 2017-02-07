@@ -147,5 +147,9 @@
 	<string name="security_password_short">مطلوب 6 أرقام</string>
 	<string name="security_slide_theme">موضوع</string>
 	<string name="security_settings_preference_desc">من أجل الحصول على حماية كاملة، ونحن ننصح لتمكين كافة الأذونات.</string>
+	<string name="security_loading_fullad_fail">تحميل الإعلان فشل، يرجى المحاولة مرة أخرى في وقت لاحق</string>
+    <string name="security_click_change">يرجى تغيير واحد آخر</string>
+	
+
 </resources>
 

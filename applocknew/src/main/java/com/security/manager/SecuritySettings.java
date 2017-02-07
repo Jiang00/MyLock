@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.ivy.util.Utility;
+//import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.SecurityMenu;
@@ -352,7 +352,7 @@ public class SecuritySettings extends ClientActivitySecurity {
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
-                Utility.goPermissionCenter(SecuritySettings.this, "");
+//                Utility.goPermissionCenter(SecuritySettings.this, "");
             }
         }
     };

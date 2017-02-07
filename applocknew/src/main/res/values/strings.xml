@@ -135,9 +135,9 @@
     <string name="security_nofification">Notification</string>
     <string name="security_power_mode">Power saving</string>
     <string name="security_power_mode_des">Reduce 50% power consumption, extend phone standby time.</string>
-	<string name="security_service_title">Accessibility</string>
+    <string name="security_service_title">Accessibility</string>
     <string name="security_service_description">Stable service and less power consumption.</string>
-	<string name="security_settings_preference">Advanced protection</string>
+    <string name="security_settings_preference">Advanced protection</string>
     <string name="security_stop_applock">Stop Applock</string>
     <string name="security_stop_applock_information">Your apps will not be protected if you stop AppLock service. Continue?</string>
     <string name="security_fingerprint">Fingerprint</string>
@@ -146,5 +146,8 @@
     <string name="security_fingerprint_many_error">Please use password</string>
     <string name="security_password_short">6 digits is required</string>
     <string name="security_slide_theme">Theme</string>
-	<string name="security_settings_preference_desc">In order to get perfect protection, we recommend you to enable all permissions.</string>
+    <string name="security_settings_preference_desc">In order to get perfect protection, we recommend you to enable all permissions.</string>
+    <string name="security_loading_fullad_fail">Advertisement loading failed, please try again later</string>
+    <string name="security_click_change">Next Ad</string>
+
 </resources>

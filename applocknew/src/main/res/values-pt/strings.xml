@@ -147,4 +147,6 @@
 	<string name="security_password_short">6 dígitos são necessários</string>
 	<string name="security_slide_theme">Tema</string>
 	<string name="security_settings_preference_desc">Para obter proteção perfeita, recomendamos que você ative todas as permissões.</string>
+	<string name="security_loading_fullad_fail">O carregamento da publicidade falhou. Tente novamente mais tarde</string>
+    <string name="security_click_change">Tente outro</string>
 </resources>

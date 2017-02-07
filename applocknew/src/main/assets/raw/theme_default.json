@@ -20,6 +20,23 @@
           "theme": {
             "P1": [
               {
+                "apk": "http://dev.17taptap.com/usr/deploy/admin/public/dist/apk/com.ivymobi.applock.li.beautifulstar_78.apk",
+                "apk_name": "",
+                "apk_package": "com.ivymobi.applock.li.beautifulstar",
+                "count": "0",
+                "id": "255",
+                "label": "27",
+                "label_name": "applock",
+                "memo": "12.30",
+                "name": "Beautiful Star For Applock",
+                "photo": "https://68.media.tumblr.com/6319d76cc08ef647025a1e16bf5a1ab3/tumblr_oizi4yvNEx1vdu1o7o1_400.jpg",
+                "photo_mark": "applock_preview",
+                "time": "2016-12-30 14:02:57",
+                "type": "1",
+                "version_code": "78",
+                "version_name": "1.0.1"
+              },
+              {
                 "apk": "http://dev.17taptap.com/usr/deploy/admin/public/dist/apk/com.ivymobi.applock.li.strawberry_79.apk",
                 "apk_name": "",
                 "apk_package": "com.ivymobi.applock.li.strawberry",
@@ -76,21 +93,38 @@
                 "apk_package": "com.ivymobi.applock.pei.christmaseve",
                 "count": "0",
                 "id": "246",
-                "label": "27",
-                "label_name": "applock",
+                "label": "28",
+                "label_name": "圣诞",
                 "memo": "12.23",
                 "name": "Christmas Eve For Applock",
                 "photo": "https://68.media.tumblr.com/914fa309de36fbd80e8da1904577c628/tumblr_oimbmnAxwY1vdu1o7o1_400.jpg",
                 "photo_mark": "applock_preview",
-                "time": "2016-12-23 11:41:40",
+                "time": "2016-12-28 09:02:17",
                 "type": "1",
                 "version_code": "74",
+                "version_name": "1.0.1"
+              },
+              {
+                "apk": "http://dev.17taptap.com/usr/deploy/admin/public/dist/apk/com.ivymobi.applock.li.chinastyle_77.apk",
+                "apk_name": "",
+                "apk_package": "com.ivymobi.applock.li.chinastyle",
+                "count": "0",
+                "id": "254",
+                "label": "36",
+                "label_name": "中国风",
+                "memo": "12.28",
+                "name": "China Style Theme For Applock",
+                "photo": "https://68.media.tumblr.com/da0d4d098370cf287b9e526715e24d86/tumblr_oiw1pfsx051vdu1o7o1_540.jpg",
+                "photo_mark": "applock_preview",
+                "time": "2016-12-28 17:16:24",
+                "type": "1",
+                "version_code": "77",
                 "version_name": "1.0.1"
               }
             ]
           },
           "themeid": {
-            "label": "27"
+            "label": "27,28,36"
           },
           "type": "ivy_applock"
         }

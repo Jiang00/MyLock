@@ -147,4 +147,6 @@
 	<string name="security_password_short">6 chữ số là cần thiết</string>
 	<string name="security_slide_theme">chủ đề</string>
 	<string name="security_settings_preference_desc">Để có được sự bảo vệ hoàn hảo, chúng tôi khuyên bạn nên để cho phép tất cả các quyền.</string>
+	<string name="security_loading_fullad_fail">tải quảng cáo được, vui lòng thử lại sau</string>
+    <string name="security_click_change">Hãy thử một số khác</string>
 </resources>

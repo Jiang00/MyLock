@@ -39,8 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import me.xiaopan.sketch.Sketch;
-import me.xiaopan.sketch.display.TransitionImageDisplayer;
+
 
 /**
  * Created by superjoy on 2014/9/11.
@@ -144,8 +143,8 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         } catch (Error e) {
             e.printStackTrace();
         }
-        Sketch.with(this).getConfiguration().setMobileNetworkGlobalPauseDownload(false).setDefaultImageDisplayer(new TransitionImageDisplayer());
-        Sketch.setDebugMode(true);
+//        Sketch.with(this).getConfiguration().setMobileNetworkGlobalPauseDownload(false).setDefaultImageDisplayer(new TransitionImageDisplayer());
+//        Sketch.setDebugMode(true);
 
 
     }
@@ -170,7 +169,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
 
     protected void initNow() {
         AndroidSdk.onCreate(this);
-        ThemeManager.onCreate(this);
         setupView();
 
     }

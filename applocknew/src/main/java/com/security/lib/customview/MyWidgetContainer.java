@@ -39,7 +39,7 @@ public class MyWidgetContainer extends FrameLayout implements View.OnClickListen
     public MyWidgetContainer(Context context, int gravity, int orientation, int width, int height, boolean movable) {
         super(context);
         this.movable = movable;
-        int type = Build.VERSION.SDK_INT >= 19 ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        int type = Build.VERSION.SDK_INT >= 19 ? WindowManager.LayoutParams.TYPE_SYSTEM_ALERT : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         int flag = Build.VERSION.SDK_INT >= 19 ? (WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR) : 0;
         lp = new WindowManager.LayoutParams(
                 width, height, type, flag,

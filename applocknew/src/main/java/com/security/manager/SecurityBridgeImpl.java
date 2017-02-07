@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.ivy.module.themestore.view.MyImageView;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityDaily;
 import com.security.manager.meta.SecurityFlowMenu;

@@ -147,4 +147,7 @@
 	<string name="security_password_short">6 หลักเป็นสิ่งจำเป็น</string>
 	<string name="security_slide_theme">กระทู้</string>
 	<string name="security_settings_preference_desc">เพื่อให้ได้รับการป้องกันที่สมบูรณ์แบบเราขอแนะนำให้คุณเปิดใช้สิทธิ์ทั้งหมด</string>
+	<string name="security_loading_fullad_fail">โหลดโฆษณาล้มเหลวโปรดลองอีกครั้งในภายหลัง</string>
+    <string name="security_click_change">โปรดลองอีกคนหนึ่ง</string>
+	
 </resources>

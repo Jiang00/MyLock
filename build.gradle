@@ -14,8 +14,11 @@ allprojects {
         jcenter()
         maven {
             url 'http://10.80.1.5:8081/repository/maven-releases/'
+
+
         }
         maven { url nexusReleaseUrl }
         maven { url nexusSnapshotUrl }
+
     }
 }

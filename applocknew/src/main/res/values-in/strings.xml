@@ -147,4 +147,7 @@
 	<string name="security_password_short">6 digit diperlukan</string>
 	<string name="security_slide_theme">Tema</string>
 	<string name="security_settings_preference_desc">Dalam rangka untuk mendapatkan perlindungan yang sempurna, kami sarankan Anda untuk mengaktifkan semua izin.</string>
+	<string name="security_loading_fullad_fail">Iklan memuat gagal, coba lagi nanti</string>
+    <string name="security_click_change">Silakan coba yang lain</string>
+	
 </resources>

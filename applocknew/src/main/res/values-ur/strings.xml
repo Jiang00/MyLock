@@ -147,4 +147,7 @@
 	<string name="security_password_short">6 پوائنٹس درکار ہے</string>
 	<string name="security_slide_theme">موضوع</string>
 	<string name="security_settings_preference_desc">کامل تحفظ حاصل کرنے کے لئے، ہم تمام اجازت چالو کرنے کے لئے آپ کی سفارش.</string>
+	<string name="security_loading_fullad_fail">اشتہار لوڈنگ کے ناکام، بعد میں دوبارہ کوشش کریں براہ مہربانی</string>
+    <string name="security_click_change">ایک اور ایک کی کوشش کریں</string>
+	
 </resources>

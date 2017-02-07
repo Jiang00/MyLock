@@ -441,21 +441,21 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                 shareFive.setFiveRate(true);
                 Utils.rate(getActivity());
 
-                if (!Utils.isEMUI()) {
-                    View alertDialogView = View.inflate(v.getContext(), R.layout.security_rate_result, null);
-                    final MyWidgetContainer w = new MyWidgetContainer(getActivity(), MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
-                    w.addView(alertDialogView);
-                    w.addToWindow();
-
-                    w.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            w.removeAllViews();
-                            w.removeFromWindow();
-
-                        }
-                    });
-                }
+//                if (!Utils.isEMUI()) {
+//                    View alertDialogView = View.inflate(v.getContext(), R.layout.security_rate_result, null);
+//                    final MyWidgetContainer w = new MyWidgetContainer(getActivity(), MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.MATCH_PARENT, MyWidgetContainer.PORTRAIT);
+//                    w.addView(alertDialogView);
+//                    w.addToWindow();
+//
+//                    w.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            w.removeAllViews();
+//                            w.removeFromWindow();
+//
+//                        }
+//                    });
+//                }
 
 
                 listView.removeHeaderView(headerView);

@@ -89,15 +89,15 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     @Override
     public void onResume() {
         switchTheme();
-//        selectOperation();
+//      selectOperation();
         notiIntent = getIntent();
-
-
         super.onResume();
     }
 
     @Override
     protected void onStop() {
+
+        Log.e("stop","stop");
         if (passFrag != null || patternFrag != null) {
             getSupportFragmentManager().beginTransaction().remove(normal ? passFrag : patternFrag).commitAllowingStateLoss();
         }
@@ -447,6 +447,8 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 public void onClick(View v) {
                     startListApp();
                     Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEDADER_OK, Tracker.ACT_LEDADER_OK, 1L);
+//                    ThemeManager.applyTheme(App.getContext(),"testtheme.apk",true);
+                    Log.e("loading","------");
                 }
             });
         } else {

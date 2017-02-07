@@ -1,1 +1,1 @@
-include ':applocknew', ':ByakuGallery', ':model', ':api', ':testtheme', 'fingerprint'
+include ':applocknew', ':ByakuGallery', ':model', ':api', ':testtheme', 'fingerprint','baselibrary'

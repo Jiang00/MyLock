@@ -20,7 +20,7 @@ import android.widget.*;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.android.launcher3.theme.ThemeManager;
-import com.ivy.module.themestore.main.ThemeStoreBuilder;
+//import com.ivy.module.themestore.main.ThemeStoreBuilder;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
@@ -30,15 +30,14 @@ import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.lib.Utils;
 
 import com.security.manager.myinterface.ISecurityBridge;
-import com.squareup.picasso.Picasso;
 
-import me.xiaopan.sketch.SketchImageView;
 
 /**
  * Created by huale on 2014/11/20.
  */
 public class SecurityThemeFragment extends Fragment {
     public static final String TAG_UNLOCK = "unlock";
+    public static final String TAG_LOADING = "loading";
     public static final String TAG_TLEF_AD = "Leftmenu";
     public static final String TAG_TOP_AD = "TopLocklist";
     public static View adView = null;
@@ -70,12 +69,8 @@ public class SecurityThemeFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         setupTitle(view);
     }
-
-
     public static void setupTitle(View v) {
         ISecurityBridge bridge = SecurityTheBridge.bridge;
         TextView appName = new TextView(v.getContext());
@@ -93,16 +88,12 @@ public class SecurityThemeFragment extends Fragment {
         ImageView statusicon = (ImageView) v.findViewWithTag("app_icon");
         appname.setText(bridge.appName());
         icon.setBackgroundDrawable(bridge.icon());
-
-
         if (adView != null) {
             icon.setVisibility(View.GONE);
             appname.setVisibility(View.GONE);
             statusicon.setBackgroundDrawable(bridge.icon());
         }
     }
-
-
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -185,24 +176,9 @@ public class SecurityThemeFragment extends Fragment {
             themeContext = c;
         }
         LayoutInflater inflater = LayoutInflater.from(themeContext);
+        Log.e("haha", "pkg " + themeContext.getPackageName());
         int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());
         MyFrameLayout v = (MyFrameLayout) inflater.inflate(layout, container, false);
-
-//        ViewStub forbidden = new ViewStub(ApplicationModule.getModule().provideContext(), R.layout.forbidden);
-//        v.addView(forbidden);
-//        final ForbiddenView forbiddenView = new ForbiddenView(forbidden);
-//        v.setTag(forbiddenView);
-//        v.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                ApplicationModule.getModule().provideHandler().post(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        forbiddenView.init();
-//                    }
-//                });
-//            }
-//        });
         return v;
     }
 

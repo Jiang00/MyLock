@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
 import com.android.client.AndroidSdk;
+import com.android.launcher3.theme.ThemeManager;
 import com.security.gallery.view.TileBitmapDrawable;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
@@ -26,7 +27,7 @@ import me.xiaopan.sketch.display.TransitionImageDisplayer;
 /**
  * Created by SongHualin on 5/6/2015.
  */
-public class App extends BaseApp{
+public class App extends BaseApp {
 
     @Override
     public void onCreate() {
@@ -46,6 +47,8 @@ public class App extends BaseApp{
                 getResources().updateConfiguration(cfg, getResources().getDisplayMetrics());
             }
         }
+        AndroidSdk.onCreate(this);
+        ThemeManager.onCreate(this);
         AppsCore.init(this, SecurityImgManager.ROOT);
         ImageManager.initialize(this);
         ImageMaster.imageCache = TileBitmapDrawable.initCache(this);

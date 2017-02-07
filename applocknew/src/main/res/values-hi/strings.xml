@@ -147,4 +147,7 @@
 	<string name="security_password_short">6 अंक की आवश्यकता है</string>
 	<string name="security_slide_theme">विषय</string>
 	<string name="security_settings_preference_desc">आदेश में पूर्ण सुरक्षा प्राप्त करने के लिए हम सभी अनुमतियों को सक्षम करने के लिए आपको सलाह देते हैं।</string>
+	<string name="security_loading_fullad_fail">विज्ञापन लोड करने में विफल, बाद में फिर से कोशिश करें</string>
+    <string name="security_click_change">एक दूसरे की कोशिश करें</string>
+	
 </resources>
