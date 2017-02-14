@@ -16,17 +16,17 @@
     <string name="security_draw_pattern_next">再繪製一次</string>
     <string name="security_enter_password">輸入密碼以取消鎖定此APP</string>
     <string name="security_every_time">每次上鎖</string>
-    <string name="security_fake_fails">偽裝未設置</string>
-    <string name="security_fake_fc">強制關閉</string>
-    <string name="security_fake_finger">指紋偽裝</string>
-    <string name="security_fake_force_close">非常抱歉 "%1$s"已經停止！</string>
-    <string name="security_fake_icon_1">時鐘</string>
-    <string name="security_fake_icon_2">計算器</string>
-    <string name="security_fake_icon_3">天氣</string>
-    <string name="security_fake_icon_default">默認</string>
-    <string name="security_fake_none">無偽裝</string>
-    <string name="security_fake_selector">替換應用圖標</string>
-    <string name="security_fake_setting_msg">請沿著“關閉”按鈕，從左到右移動手指來開啟偽裝</string>
+    <string name="security_pretent_fails">偽裝未設置</string>
+    <string name="security_pretent_fc">強制關閉</string>
+    <string name="security_pretent_finger">指紋偽裝</string>
+    <string name="security_pretent_force_close">非常抱歉 "%1$s"已經停止！</string>
+    <string name="security_pretent_icon_1">時鐘</string>
+    <string name="security_pretent_icon_2">計算器</string>
+    <string name="security_pretent_icon_3">天氣</string>
+    <string name="security_pretent_icon_default">默認</string>
+    <string name="security_pretent_none">無偽裝</string>
+    <string name="security_pretent_selector">替換應用圖標</string>
+    <string name="security_pretent_setting_msg">請沿著“關閉”按鈕，從左到右移動手指來開啟偽裝</string>
     <string name="security_finger_tip">雙擊且長按指紋按鈕開啟指紋偽裝</string>
     <string name="security_five_min">5分鐘</string>
     <string name="security_float_action_switch_widget">桌面widget</string>
@@ -96,7 +96,7 @@
     <string name="security_applock_permission_allow">允許</string>
     <string name="security_apps_open_permission">查找应用锁並啟用它</string>
     <string name="security_cancel">取消</string>
-    <string name="security_fake_calender">日曆</string>
+    <string name="security_pretent_calender">日曆</string>
     <string name="security_five_start">我們致力於保護您的隱私。你能給我們5星好評嗎？</string>
     <string name="security_input_password">請輸入6位PIN碼</string>
     <string name="security_intru_f_app">這傢伙正試圖打破你的%1$s。我們抓住了他。</string>
@@ -124,7 +124,7 @@
     <string name="security_reset_password">重置密碼</string>
     <string name="setting_category_pattern">模式</string>
     <string name="setting_digital_code">PIN碼</string>
-    <string name="security_fake_notepad">記事本</string>
+    <string name="security_pretent_notepad">記事本</string>
     <string name="security_start_rat">5星好評</string>
 	<string name="security_show_newversion">升級</string>
     <string name="security_show_newversion_inf">新版本已發佈，趕快升級！</string>
@@ -149,4 +149,5 @@
 	<string name="security_settings_preference_desc">建議開啟高級保護所有功能，完美保護隱私，更安全！</string>
 	<string name="security_loading_fullad_fail">廣告加載失敗，請稍後再試</string>
     <string name="security_click_change">換一個看看</string>
+	<string name="security_choose_theme">選擇皮膚</string>
 </resources>

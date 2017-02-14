@@ -86,9 +86,6 @@ public class SecurityMyPref {
             return "";
         }
     }
-
-
-
     public static boolean isPasswdSet(boolean normal) {
 //        String string = App.getSharedPreferences().getString(normal ? "pp" : "pg", null);
 //        return string != null && string.length() > 0;
@@ -421,7 +418,22 @@ public class SecurityMyPref {
 
 
 
+    public static void setThemeValue(int value) {
+        App.getSharedPreferences().edit().putInt("choose_theme_defaul_", value).apply();
+    }
 
+    public static int getThemeValue() {
+        return App.getSharedPreferences().getInt("choose_theme_defaul_",1);
+    }
+
+
+    public static void setClickOK(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("show_lock_al", yes).apply();
+    }
+
+    public static boolean getClickOK() {
+        return App.getSharedPreferences().getBoolean("show_lock_al", false);
+    }
 
 
 

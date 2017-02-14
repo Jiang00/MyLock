@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+//import com.ivy.util.Utility;
 import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;

@@ -16,19 +16,19 @@
     <string name="security_draw_pattern_next">رسم مرة أخرى</string>
     <string name="security_enter_password">أدخل كلمة المرور لفتح هذا التطبيق</string>
     <string name="security_every_time">قفل دائما</string>
-	<string name="security_fake_calender">Calendar</string>
-    <string name="security_fake_fails">جعلی احاطہ مقرر نہیں</string>
-    <string name="security_fake_fc">خطأ</string>
-    <string name="security_fake_finger">بصمات</string>
-    <string name="security_fake_force_close">"%1$s" توقف</string>
-    <string name="security_fake_icon_1">مرة</string>
-    <string name="security_fake_icon_2">آلة حاسبة</string>
-    <string name="security_fake_icon_3">طقس</string>
-    <string name="security_fake_icon_default">الافتراضي</string>
-    <string name="security_fake_none">لا قناع</string>
-	<string name="security_fake_notepad">Notepad</string>
-    <string name="security_fake_selector">استبدال رمز التطبيق</string>
-    <string name="security_fake_setting_msg">الرجاء حرك إصبعك من اليسار إلى اليمين على طول زر "إغلاق" لتشغيل قناع APP</string>
+	<string name="security_pretent_calender">Calendar</string>
+    <string name="security_pretent_fails">جعلی احاطہ مقرر نہیں</string>
+    <string name="security_pretent_fc">خطأ</string>
+    <string name="security_pretent_finger">بصمات</string>
+    <string name="security_pretent_force_close">"%1$s" توقف</string>
+    <string name="security_pretent_icon_1">مرة</string>
+    <string name="security_pretent_icon_2">آلة حاسبة</string>
+    <string name="security_pretent_icon_3">طقس</string>
+    <string name="security_pretent_icon_default">الافتراضي</string>
+    <string name="security_pretent_none">لا قناع</string>
+	<string name="security_pretent_notepad">Notepad</string>
+    <string name="security_pretent_selector">استبدال رمز التطبيق</string>
+    <string name="security_pretent_setting_msg">الرجاء حرك إصبعك من اليسار إلى اليمين على طول زر "إغلاق" لتشغيل قناع APP</string>
     <string name="security_finger_tip">اضغط على بصمات مرتين والاحتفاظ بها لتشغيل هذا القناع APP</string>
     <string name="security_five_min">5 دقائق</string>
     <string name="security_float_action_switch_widget">تعويم القطعة</string>
@@ -149,6 +149,7 @@
 	<string name="security_settings_preference_desc">من أجل الحصول على حماية كاملة، ونحن ننصح لتمكين كافة الأذونات.</string>
 	<string name="security_loading_fullad_fail">تحميل الإعلان فشل، يرجى المحاولة مرة أخرى في وقت لاحق</string>
     <string name="security_click_change">يرجى تغيير واحد آخر</string>
+	<string name="security_choose_theme">أختر موضوع</string>
 	
 
 </resources>

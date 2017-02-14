@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">আবার আঁকা</string>
     <string name="security_enter_password">এই অ্যাপ্লিকেশন আনলক পাসওয়ার্ড লিখুন</string>
     <string name="security_every_time">সর্বদা লক</string>
-    <string name="security_fake_fails">জাল কভার না সেট</string>
-    <string name="security_fake_fc">বল বন্ধ</string>
-    <string name="security_fake_finger">আঙুল প্রিন্ট</string>
-    <string name="security_fake_force_close">দুর্ভাগ্যবশত, "%1$s" বন্ধ করে দিয়েছে</string>
-    <string name="security_fake_icon_1">ঘড়ি</string>
-    <string name="security_fake_icon_2">ক্যালকুলেটর</string>
-    <string name="security_fake_icon_3">আবহাওয়া</string>
-    <string name="security_fake_icon_default">ডিফল্ট</string>
-    <string name="security_fake_none">কোন জাল কভার</string>
-    <string name="security_fake_selector">অ্যাপ আইকন প্রতিস্থাপন</string>
-    <string name="security_fake_setting_msg">জাল প্রচ্ছদে চালু "বন্ধ" বাটন বরাবর বাঁ দিক থেকে ডানদিকে আপনার আঙুল সরাতে অনুগ্রহ</string>
+    <string name="security_pretent_fails">জাল কভার না সেট</string>
+    <string name="security_pretent_fc">বল বন্ধ</string>
+    <string name="security_pretent_finger">আঙুল প্রিন্ট</string>
+    <string name="security_pretent_force_close">দুর্ভাগ্যবশত, "%1$s" বন্ধ করে দিয়েছে</string>
+    <string name="security_pretent_icon_1">ঘড়ি</string>
+    <string name="security_pretent_icon_2">ক্যালকুলেটর</string>
+    <string name="security_pretent_icon_3">আবহাওয়া</string>
+    <string name="security_pretent_icon_default">ডিফল্ট</string>
+    <string name="security_pretent_none">কোন জাল কভার</string>
+    <string name="security_pretent_selector">অ্যাপ আইকন প্রতিস্থাপন</string>
+    <string name="security_pretent_setting_msg">জাল প্রচ্ছদে চালু "বন্ধ" বাটন বরাবর বাঁ দিক থেকে ডানদিকে আপনার আঙুল সরাতে অনুগ্রহ</string>
     <string name="security_finger_tip">দুবার আঙুল মুদ্রণ ট্যাপ এবং এই আঙুল মুদ্রণ জাল প্রচ্ছদে চালু ধরে রাখে</string>
     <string name="security_five_min">5 মিনিট</string>
     <string name="security_float_action_switch_widget">ভাসা উইজেট</string>
@@ -93,7 +93,7 @@
     <string name="security_applock_permission_allow">মঞ্জুর করুন</string>
     <string name="security_apps_open_permission">AppLock খুঁজুন এবং এটি সক্রিয়</string>
     <string name="security_cancel">বাতিল</string>
-    <string name="security_fake_calender">পাঁজি</string>
+    <string name="security_pretent_calender">পাঁজি</string>
     <string name="security_five_start">আমরা আপনার গোপনীয়তা রক্ষা করতে প্রতিশ্রুতিবদ্ধ. আপনি আমাদের একটি 5 তারকা রেটিং দিতে পারেন?</string>
     <string name="security_input_password">6 টি সংখ্যা পিন কোড প্রবেশ করুন</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">পাসওয়ার্ড রিসেট করুন</string>
     <string name="setting_category_pattern">প্যাটার্ন</string>
     <string name="setting_digital_code">পিনকোড</string>
-    <string name="security_fake_notepad">নোটপ্যাড</string>
+    <string name="security_pretent_notepad">নোটপ্যাড</string>
     <string name="security_start_rat">5-তারার-রেটিং</string>
     <string name="security_update">ইনস্টল করুন</string>
     <string name="security_update_title">নতুন সংস্করণ আপডেট</string>
@@ -149,5 +149,6 @@
 	<string name="security_settings_preference_desc">অর্ডার নিখুঁত সুরক্ষা পাওয়ার জন্য, আমরা সব অনুমতি সক্ষম করার জন্য আপনাকে সুপারিশ.</string>
 	<string name="security_loading_fullad_fail">বিজ্ঞাপন লোড করতে ব্যর্থ হয়েছি, আবার পরে চেষ্টা করুন</string>
     <string name="security_click_change">অন্য এক পরিবর্তন করুন</string>
+	<string name="security_choose_theme">থিম পছন্দ করুন</string>
 </resources>
 

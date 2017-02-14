@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">перерисовывать</string>
     <string name="security_enter_password">введите пароль для разблокировки это приложение</string>
     <string name="security_every_time">Всегда запирайте</string>
-    <string name="security_fake_fails">App маска не установлен</string>
-    <string name="security_fake_fc">APP Ошибка</string>
-    <string name="security_fake_finger">отпечатков пальцев</string>
-    <string name="security_fake_force_close">К сожалению, "%1$s" остановился.</string>
-    <string name="security_fake_icon_1">часы</string>
-    <string name="security_fake_icon_2">калькулятор</string>
-    <string name="security_fake_icon_3">погода</string>
-    <string name="security_fake_icon_default">дефолт</string>
-    <string name="security_fake_none">нет маски</string>
-    <string name="security_fake_selector">Заменить иконку App</string>
-    <string name="security_fake_setting_msg">Пожалуйста, наведите палец слева направо вдоль кнопку "Закрыть", чтобы включить APP маски</string>
+    <string name="security_pretent_fails">App маска не установлен</string>
+    <string name="security_pretent_fc">APP Ошибка</string>
+    <string name="security_pretent_finger">отпечатков пальцев</string>
+    <string name="security_pretent_force_close">К сожалению, "%1$s" остановился.</string>
+    <string name="security_pretent_icon_1">часы</string>
+    <string name="security_pretent_icon_2">калькулятор</string>
+    <string name="security_pretent_icon_3">погода</string>
+    <string name="security_pretent_icon_default">дефолт</string>
+    <string name="security_pretent_none">нет маски</string>
+    <string name="security_pretent_selector">Заменить иконку App</string>
+    <string name="security_pretent_setting_msg">Пожалуйста, наведите палец слева направо вдоль кнопку "Закрыть", чтобы включить APP маски</string>
     <string name="security_finger_tip">Нажмите отпечаток пальца в два раза и удерживайте, чтобы включить маску APP</string>
     <string name="security_five_min">5 минут</string>
     <string name="security_float_action_switch_widget">поплавок виджет</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">Позволять</string>
     <string name="security_apps_open_permission">Найти AppLock и включить его</string>
     <string name="security_cancel">Отмена</string>
-    <string name="security_fake_calender">Календарь</string>
+    <string name="security_pretent_calender">Календарь</string>
     <string name="security_five_start">Мы стремимся защитить вашу личную жизнь. Не могли бы вы дать нам 5-звездочный рейтинг?</string>
     <string name="security_input_password">Пожалуйста, введите 6-ти значный PIN-код</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">Сброс пароля</string>
     <string name="setting_category_pattern">Шаблон</string>
     <string name="setting_digital_code">Пин-код</string>
-    <string name="security_fake_notepad">Блокнот</string>
+    <string name="security_pretent_notepad">Блокнот</string>
     <string name="security_start_rat">5-Stars-Рейтинг</string>
     <string name="security_update">устанавливать</string>
     <string name="security_update_title">Новое обновление версии</string>
@@ -149,5 +149,6 @@
 	<string name="security_settings_preference_desc">Для того чтобы получить совершенную защиту, мы рекомендуем вам включить все разрешения.</string>
 	<string name="security_loading_fullad_fail">Реклама загрузка не удалась, попробуйте еще раз позже</string>
     <string name="security_click_change">Пожалуйста, попробуйте другой</string>
+	<string name="security_choose_theme">Выбрать тему</string>
 </resources>
 

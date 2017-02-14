@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">फिर ड्रा</string>
     <string name="security_enter_password">इस एप्लिकेशन को अनलॉक करने के लिए अपना पासवर्ड दर्ज</string>
     <string name="security_every_time">हमेशा ताला</string>
-    <string name="security_fake_fails">अनुप्रयोग भेस सेट नहीं</string>
-    <string name="security_fake_fc">एपीपी त्रुटि</string>
-    <string name="security_fake_finger">फिंगर प्रिंट</string>
-    <string name="security_fake_force_close">क्षमा करें, "%1$s" बंद कर दिया गया है।</string>
-    <string name="security_fake_icon_1">घड़ी</string>
-    <string name="security_fake_icon_2">कैलकुलेटर</string>
-    <string name="security_fake_icon_3">मौसम</string>
-    <string name="security_fake_icon_default">चूक</string>
-    <string name="security_fake_none">कोई भेस</string>
-    <string name="security_fake_selector">अनुप्रयोग आइकन को बदलें</string>
-    <string name="security_fake_setting_msg">एपीपी भेस चालू करने के लिए "बंद" बटन के साथ बाएं से दाएं अपनी उंगली को स्थानांतरित करें</string>
+    <string name="security_pretent_fails">अनुप्रयोग भेस सेट नहीं</string>
+    <string name="security_pretent_fc">एपीपी त्रुटि</string>
+    <string name="security_pretent_finger">फिंगर प्रिंट</string>
+    <string name="security_pretent_force_close">क्षमा करें, "%1$s" बंद कर दिया गया है।</string>
+    <string name="security_pretent_icon_1">घड़ी</string>
+    <string name="security_pretent_icon_2">कैलकुलेटर</string>
+    <string name="security_pretent_icon_3">मौसम</string>
+    <string name="security_pretent_icon_default">चूक</string>
+    <string name="security_pretent_none">कोई भेस</string>
+    <string name="security_pretent_selector">अनुप्रयोग आइकन को बदलें</string>
+    <string name="security_pretent_setting_msg">एपीपी भेस चालू करने के लिए "बंद" बटन के साथ बाएं से दाएं अपनी उंगली को स्थानांतरित करें</string>
     <string name="security_finger_tip">फिंगर प्रिंट दो बार ठोकर और एपीपी भेस चालू करने के लिए पकड़</string>
     <string name="security_five_min">5 मिनट</string>
     <string name="security_float_action_switch_widget">नाव विजेट</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">अनुमति दें</string>
     <string name="security_apps_open_permission">AppLock का पता लगाएं और इसे सक्षम</string>
     <string name="security_cancel">रद्द करना</string>
-    <string name="security_fake_calender">कैलेंडर</string>
+    <string name="security_pretent_calender">कैलेंडर</string>
     <string name="security_five_start">आपकी निजता की रक्षा करने के लिए हम वचनबद्ध हैं। आप हमें एक 5 सितारा रेटिंग दे सकता है?</string>
     <string name="security_input_password">6 अंक पिन कोड दर्ज करें</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">पासवर्ड रीसेट</string>
     <string name="setting_category_pattern">पैटर्न</string>
     <string name="setting_digital_code">पिन कोड</string>
-    <string name="security_fake_notepad">नोटपैड</string>
+    <string name="security_pretent_notepad">नोटपैड</string>
     <string name="security_start_rat">5-स्टार रेटिंग</string>
     <string name="security_update">इंस्टॉल करें</string>
     <string name="security_update_title">नया संस्करण अद्यतन</string>
@@ -149,5 +149,6 @@
 	<string name="security_settings_preference_desc">आदेश में पूर्ण सुरक्षा प्राप्त करने के लिए हम सभी अनुमतियों को सक्षम करने के लिए आपको सलाह देते हैं।</string>
 	<string name="security_loading_fullad_fail">विज्ञापन लोड करने में विफल, बाद में फिर से कोशिश करें</string>
     <string name="security_click_change">एक दूसरे की कोशिश करें</string>
+	<string name="security_choose_theme">विषय चुनें</string>
 	
 </resources>

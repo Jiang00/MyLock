@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">Draw again</string>
     <string name="security_enter_password">Digite sua palavra-passe para para desbloquear este app.</string>
     <string name="security_every_time">Toda vez</string>
-    <string name="security_fake_fails">APP disfarce não definida</string>
-    <string name="security_fake_fc">APP Erro</string>
-    <string name="security_fake_finger">FingerPrint</string>
-    <string name="security_fake_force_close">Infelizmente, "%1$s" parou.</string>
-    <string name="security_fake_icon_1">Relógio</string>
-    <string name="security_fake_icon_2">Calculadora</string>
-    <string name="security_fake_icon_3">Tempo</string>
-    <string name="security_fake_icon_default">Padrão</string>
-    <string name="security_fake_none">Nenhum disfarce</string>
-    <string name="security_fake_selector">Substituir ícone da App</string>
-    <string name="security_fake_setting_msg">Por favor, aponta o dedo da esquerda para a direita ao longo do botão "fechar" para ligar APP disfarce</string>
+    <string name="security_pretent_fails">APP disfarce não definida</string>
+    <string name="security_pretent_fc">APP Erro</string>
+    <string name="security_pretent_finger">FingerPrint</string>
+    <string name="security_pretent_force_close">Infelizmente, "%1$s" parou.</string>
+    <string name="security_pretent_icon_1">Relógio</string>
+    <string name="security_pretent_icon_2">Calculadora</string>
+    <string name="security_pretent_icon_3">Tempo</string>
+    <string name="security_pretent_icon_default">Padrão</string>
+    <string name="security_pretent_none">Nenhum disfarce</string>
+    <string name="security_pretent_selector">Substituir ícone da App</string>
+    <string name="security_pretent_setting_msg">Por favor, aponta o dedo da esquerda para a direita ao longo do botão "fechar" para ligar APP disfarce</string>
     <string name="security_finger_tip">Toque a impressão digital duas vezes e segure para ligar o disfarce APP</string>
     <string name="security_five_min">5 minutos</string>
     <string name="security_float_action_switch_widget">Widget flutuador</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">Permitir</string>
     <string name="security_apps_open_permission">Localize o AppLock e ative-o</string>
     <string name="security_cancel">Cancelar</string>
-    <string name="security_fake_calender">Calendário</string>
+    <string name="security_pretent_calender">Calendário</string>
     <string name="security_five_start">Temos o compromisso de proteger sua privacidade. Você poderia nos dar uma classificação de 5 estrelas?</string>
     <string name="security_input_password">Introduza o código PIN de 6 dígitos</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">Trocar a senha</string>
     <string name="setting_category_pattern">Padrão</string>
     <string name="setting_digital_code">código PIN</string>
-    <string name="security_fake_notepad">Bloco de anotações</string>
+    <string name="security_pretent_notepad">Bloco de anotações</string>
     <string name="security_start_rat">Classificação 5 estrelas</string>
     <string name="security_update">Instalar</string>
     <string name="security_update_title">Atualização da nova versão</string>
@@ -149,4 +149,5 @@
 	<string name="security_settings_preference_desc">Para obter proteção perfeita, recomendamos que você ative todas as permissões.</string>
 	<string name="security_loading_fullad_fail">O carregamento da publicidade falhou. Tente novamente mais tarde</string>
     <string name="security_click_change">Tente outro</string>
+	<string name="security_choose_theme">Escolha o tema</string>
 </resources>

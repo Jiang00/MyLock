@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">วาดอีกครั้ง </string>
     <string name="security_enter_password">ป้อนรหัสผ่านเพื่อปลดล็อคการตรวจสอบนี้</string>
     <string name="security_every_time">ล็อคเสมอ</string>
-    <string name="security_fake_fails">ปลอมตัว APP ไม่ได้ตั้งค่า</string>
-    <string name="security_fake_fc">APP หยุด</string>
-    <string name="security_fake_finger">ลายนิ้วมือ</string>
-    <string name="security_fake_force_close">แต่น่าเสียดายที่ "%1$s" ได้หยุด</string>
-    <string name="security_fake_icon_1">นาฬิกา</string>
-    <string name="security_fake_icon_2">เครื่องคิดเลข</string>
-    <string name="security_fake_icon_3">สภาพอากาศ</string>
-    <string name="security_fake_icon_default">เริ่มต้น</string>
-    <string name="security_fake_none">ไม่มีการปลอมตัว</string>
-    <string name="security_fake_selector">เปลี่ยนไอคอน App</string>
-    <string name="security_fake_setting_msg">กรุณาเลื่อนนิ้วของคุณจากซ้ายไปขวาพร้อมปุ่ม "ปิด" เพื่อเปิดการปลอมตัว APP</string>
+    <string name="security_pretent_fails">ปลอมตัว APP ไม่ได้ตั้งค่า</string>
+    <string name="security_pretent_fc">APP หยุด</string>
+    <string name="security_pretent_finger">ลายนิ้วมือ</string>
+    <string name="security_pretent_force_close">แต่น่าเสียดายที่ "%1$s" ได้หยุด</string>
+    <string name="security_pretent_icon_1">นาฬิกา</string>
+    <string name="security_pretent_icon_2">เครื่องคิดเลข</string>
+    <string name="security_pretent_icon_3">สภาพอากาศ</string>
+    <string name="security_pretent_icon_default">เริ่มต้น</string>
+    <string name="security_pretent_none">ไม่มีการปลอมตัว</string>
+    <string name="security_pretent_selector">เปลี่ยนไอคอน App</string>
+    <string name="security_pretent_setting_msg">กรุณาเลื่อนนิ้วของคุณจากซ้ายไปขวาพร้อมปุ่ม "ปิด" เพื่อเปิดการปลอมตัว APP</string>
     <string name="security_finger_tip">ลายนิ้วมือแตะสองครั้งและค้างไว้เพื่อเปิด APP ลายนิ้วมือปลอม</string>
     <string name="security_five_min">5 นาที</string>
     <string name="security_float_action_switch_widget">เครื่องมือลอย</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">อนุญาต</string>
     <string name="security_apps_open_permission">ค้นหา applock และเปิดใช้งาน</string>
     <string name="security_cancel">ยกเลิก</string>
-    <string name="security_fake_calender">ปฏิทิน</string>
+    <string name="security_pretent_calender">ปฏิทิน</string>
     <string name="security_five_start">เรามีความมุ่งมั่นที่จะปกป้องความเป็นส่วนตัวของคุณ คุณสามารถให้เรา 5 ดาวคะแนน?</string>
     <string name="security_input_password">กรุณากรอกรหัส PIN 6 หลัก</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">รีเซ็ตรหัสผ่าน</string>
     <string name="setting_category_pattern">แบบแผน</string>
     <string name="setting_digital_code">รหัส PIN</string>
-    <string name="security_fake_notepad">Notepad</string>
+    <string name="security_pretent_notepad">Notepad</string>
     <string name="security_start_rat">5 ดาวเรตติ้ง</string>
     <string name="security_update">ติดตั้ง</string>
     <string name="security_update_title">รุ่นปรับปรุงใหม่</string>
@@ -149,5 +149,6 @@
 	<string name="security_settings_preference_desc">เพื่อให้ได้รับการป้องกันที่สมบูรณ์แบบเราขอแนะนำให้คุณเปิดใช้สิทธิ์ทั้งหมด</string>
 	<string name="security_loading_fullad_fail">โหลดโฆษณาล้มเหลวโปรดลองอีกครั้งในภายหลัง</string>
     <string name="security_click_change">โปรดลองอีกคนหนึ่ง</string>
+	<string name="security_choose_theme">เลือก ประเด็น</string>
 	
 </resources>

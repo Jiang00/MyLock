@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/intrude_set"
-        android:icon="@drawable/security_intruder_setting"
+        android:icon="@drawable/security_for_setting"
         android:title=""
         app:showAsAction="ifRoom|collapseActionView" />
 

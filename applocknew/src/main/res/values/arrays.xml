@@ -11,10 +11,10 @@
         <item>2</item>
     </string-array>
     <string-array name="fake_icons">
-        <item>@string/security_fake_icon_default</item>
-        <item>@string/security_fake_icon_1</item>
-        <item>@string/security_fake_icon_2</item>
-        <item>@string/security_fake_icon_3</item>
+        <item>@string/security_pretent_icon_default</item>
+        <item>@string/security_pretent_icon_1</item>
+        <item>@string/security_pretent_icon_2</item>
+        <item>@string/security_pretent_icon_3</item>
     </string-array>
 
 

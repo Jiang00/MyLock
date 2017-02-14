@@ -47,7 +47,7 @@
 
         <GridView
             android:paddingTop="20dp"
-            android:id="@+id/fake_cover_list"
+            android:id="@+id/pretent_cover_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:numColumns="2"
@@ -59,7 +59,7 @@
             android:layout_gravity="bottom"
             android:layout_margin="8dp"
             android:singleLine="true"
-            android:text="@string/security_fake_selector"
+            android:text="@string/security_pretent_selector"
             android:textColor="@color/accent_material_light"
             android:textSize="16sp"
             android:visibility="gone" />
@@ -68,7 +68,7 @@
             android:layout_marginTop="6dp"
             android:horizontalSpacing="6dp"
             android:verticalSpacing="6dp"
-            android:id="@+id/fake_icon_list"
+            android:id="@+id/pretent_icon_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="6dp"

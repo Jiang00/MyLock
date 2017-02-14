@@ -106,8 +106,9 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                 @Override
                 public void onClick(View v) {
 
-                    ThemeStoreBuilder.openThemeStore(App.getContext(), "ivy.intent.action.pattern");
-                    callback.unLock();
+                    String[] str = {"theme_preview_two"};
+
+                    ThemeStoreBuilder.openThemeStore(App.getContext(), "ivy.intent.action.pattern",str);                       callback.unLock();
 
                 }
             });

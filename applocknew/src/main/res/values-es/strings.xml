@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">Draw again</string>
     <string name="security_enter_password">Por favor, introduzca la contraseña para desbloquear la aplicación</string>
     <string name="security_every_time">Cada vez</string>
-    <string name="security_fake_fails">Disfraz App no establece</string>
-    <string name="security_fake_fc">APP error</string>
-    <string name="security_fake_finger">Huella digital</string>
-    <string name="security_fake_force_close">Por desgracia, "%1$s" se ha detenido.</string>
-    <string name="security_fake_icon_1">Reloj</string>
-    <string name="security_fake_icon_2">Calculadora</string>
-    <string name="security_fake_icon_3">Clima</string>
-    <string name="security_fake_icon_default">Defecto</string>
-    <string name="security_fake_none">Sin disfraz</string>
-    <string name="security_fake_selector">Vuelva a colocar el icono App</string>
-    <string name="security_fake_setting_msg">Por favor, mueva el dedo de izquierda a derecha a lo largo del botón "Cerrar" para encender APP disfraz</string>
+    <string name="security_pretent_fails">Disfraz App no establece</string>
+    <string name="security_pretent_fc">APP error</string>
+    <string name="security_pretent_finger">Huella digital</string>
+    <string name="security_pretent_force_close">Por desgracia, "%1$s" se ha detenido.</string>
+    <string name="security_pretent_icon_1">Reloj</string>
+    <string name="security_pretent_icon_2">Calculadora</string>
+    <string name="security_pretent_icon_3">Clima</string>
+    <string name="security_pretent_icon_default">Defecto</string>
+    <string name="security_pretent_none">Sin disfraz</string>
+    <string name="security_pretent_selector">Vuelva a colocar el icono App</string>
+    <string name="security_pretent_setting_msg">Por favor, mueva el dedo de izquierda a derecha a lo largo del botón "Cerrar" para encender APP disfraz</string>
     <string name="security_finger_tip">Toque en la huella digital dos veces y mantenga presionado para activar este dedo APP impresión disfraz</string>
     <string name="security_five_min">5 minutos</string>
     <string name="security_float_action_switch_widget">Widget flotante</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">Permitir</string>
     <string name="security_apps_open_permission">Buscar AppLock y habilitarlo</string>
     <string name="security_cancel">Cancelar</string>
-    <string name="security_fake_calender">Calendario</string>
+    <string name="security_pretent_calender">Calendario</string>
     <string name="security_five_start">Estamos comprometidos a proteger su privacidad. ¿Podría darnos una calificación de 5 estrellas?</string>
     <string name="security_input_password">Ingrese un código PIN de 6 dígitos</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">Restablecer la contraseña</string>
     <string name="setting_category_pattern">Patrón</string>
     <string name="setting_digital_code">Código PIN</string>
-    <string name="security_fake_notepad">Bloc</string>
+    <string name="security_pretent_notepad">Bloc</string>
     <string name="security_start_rat">Clasificación de 5 estrellas</string>
     <string name="security_update">Instalar</string>
     <string name="security_update_title">Actualización de la nueva versión</string>
@@ -149,4 +149,5 @@
 	<string name="security_settings_preference_desc">Para obtener una protección perfecta, le recomendamos que habilite todos los permisos.</string>
 	<string name="security_loading_fullad_fail">Error en la carga del anuncio, inténtalo de nuevo más tarde</string>
     <string name="security_click_change">Inténtalo con otro</string>
+	<string name="security_choose_theme">Escoge un tema</string>
 </resources>

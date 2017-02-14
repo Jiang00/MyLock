@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">Menggambar lagi</string>
     <string name="security_enter_password">Masukkan sandi Anda untuk membuka aplikasi ini</string>
     <string name="security_every_time">Selalu mengunci</string>
-    <string name="security_fake_fails">App menyamar tidak diatur</string>
-    <string name="security_fake_fc">Kekuatan dekat</string>
-    <string name="security_fake_finger">Finger Print</string>
-    <string name="security_fake_force_close">Sayangnya, "%1$s" telah berhenti.</string>
-    <string name="security_fake_icon_1">Jam</string>
-    <string name="security_fake_icon_2">Kalkulator</string>
-    <string name="security_fake_icon_3">Cuaca</string>
-    <string name="security_fake_icon_default">Kegagalan</string>
-    <string name="security_fake_none">Tidak ada menyamar</string>
-    <string name="security_fake_selector">Ganti ikon App</string>
-    <string name="security_fake_setting_msg">Silakan memindahkan jari Anda dari kiri ke kanan sepanjang "Close" tombol untuk mengaktifkan APP menyamar</string>
+    <string name="security_pretent_fails">App menyamar tidak diatur</string>
+    <string name="security_pretent_fc">Kekuatan dekat</string>
+    <string name="security_pretent_finger">Finger Print</string>
+    <string name="security_pretent_force_close">Sayangnya, "%1$s" telah berhenti.</string>
+    <string name="security_pretent_icon_1">Jam</string>
+    <string name="security_pretent_icon_2">Kalkulator</string>
+    <string name="security_pretent_icon_3">Cuaca</string>
+    <string name="security_pretent_icon_default">Kegagalan</string>
+    <string name="security_pretent_none">Tidak ada menyamar</string>
+    <string name="security_pretent_selector">Ganti ikon App</string>
+    <string name="security_pretent_setting_msg">Silakan memindahkan jari Anda dari kiri ke kanan sepanjang "Close" tombol untuk mengaktifkan APP menyamar</string>
     <string name="security_finger_tip">Tekan sidik jari dua kali dan tahan untuk menghidupkan APP menyamar</string>
     <string name="security_five_min">5 menit</string>
     <string name="security_float_action_switch_widget">Float Widget</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">Mengizinkan</string>
     <string name="security_apps_open_permission">Cari AppLock dan mengaktifkannya</string>
     <string name="security_cancel">Membatalkan</string>
-    <string name="security_fake_calender">Kalender</string>
+    <string name="security_pretent_calender">Kalender</string>
     <string name="security_five_start">Kami berkomitmen untuk melindungi privasi Anda. Bisakah Anda memberi kami 5-bintang rating?</string>
     <string name="security_input_password">Masukkan kode PIN 6-digit</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">ulang kata sandi</string>
     <string name="setting_category_pattern">Pola</string>
     <string name="setting_digital_code">Kode PIN</string>
-    <string name="security_fake_notepad">notes</string>
+    <string name="security_pretent_notepad">notes</string>
     <string name="security_start_rat">5-Bintang-Penilaian</string>
     <string name="security_update">Memasang</string>
     <string name="security_update_title">New Version Perbarui</string>
@@ -149,5 +149,6 @@
 	<string name="security_settings_preference_desc">Dalam rangka untuk mendapatkan perlindungan yang sempurna, kami sarankan Anda untuk mengaktifkan semua izin.</string>
 	<string name="security_loading_fullad_fail">Iklan memuat gagal, coba lagi nanti</string>
     <string name="security_click_change">Silakan coba yang lain</string>
+	<string name="security_choose_theme">Pilih tema</string>
 	
 </resources>

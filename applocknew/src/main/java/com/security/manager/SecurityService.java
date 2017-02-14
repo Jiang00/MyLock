@@ -9,7 +9,6 @@ import android.app.Service;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,7 +28,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +51,7 @@ import com.security.manager.lib.io.SafeDB;
 import com.privacy.lock.aidl.IWorker;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityTheBridge;
-import com.security.manager.page.FakePresenter;
+import com.security.manager.page.PretentPresenter;
 import com.security.manager.page.OverflowCtrl;
 import com.security.manager.page.PatternFragmentSecurity;
 import com.security.manager.page.SecurityThemeFragment;
@@ -157,8 +155,8 @@ public class SecurityService extends Service {
         final List<ActivityManager.RunningAppProcessInfo> processInfos = mActivityManager.getRunningAppProcesses();
         if (processInfos != null) {
             for (ActivityManager.RunningAppProcessInfo processInfo : processInfos) {
+//                if (processInfo.importanceReasonCode == 2) continue;
                 int anInt = processState.getInt(processInfo);
-
                 if (anInt == 2) return processInfo.pkgList[0];
             }
         }
@@ -317,8 +315,8 @@ public class SecurityService extends Service {
 
         @Override
         public void run() {
-            if (FakePresenter.isShowing()) {
-                FakePresenter.hide();
+            if (PretentPresenter.isShowing()) {
+                PretentPresenter.hide();
                 delayTime = 0;
             }
             if (alertView != null) {
@@ -552,7 +550,7 @@ public class SecurityService extends Service {
                 alert = true;
                 SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
 //                SecurityPatternActivity.createThemeContextIfNecessary(SecurityService.this);
-//                if (FakePresenter.isFakeCover()) {
+//                if (PretentPresenter.isFakeCover()) {
 //                    try {
 //                        label = getPackageManager().getApplicationInfo(packageName, 0).loadLabel(getPackageManager());
 //                    } catch (Exception e) {
@@ -562,7 +560,7 @@ public class SecurityService extends Service {
 //                    handler.post(new Runnable() {
 //                        @Override
 //                        public void run() {
-//                            FakePresenter.show(SecurityService.this, SecurityMyPref.getFakeCover(FakePresenter.FAKE_NONE), label, alertRunner, dismissRunner);
+//                            PretentPresenter.show(SecurityService.this, SecurityMyPref.getFakeCover(PretentPresenter.PRETENT_NONE), label, alertRunner, dismissRunner);
 //                        }
 //                    });
 //                } else {
@@ -942,8 +940,8 @@ public class SecurityService extends Service {
         receiverFilter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(sOnBroadcastReciver, receiverFilter);
 
-        excludesClasses.put(FakeOneActivitySecurityPatternActivity.class.getName(), true);
-        excludesClasses.put(FakeTwoActivitySecurityPatternActivity.class.getName(), true);
+        excludesClasses.put(PretentOneActivitySecurityPatternActivity.class.getName(), true);
+        excludesClasses.put(PretentTwoActivitySecurityPatternActivity.class.getName(), true);
         excludesClasses.put(SecurityPatternActivity.class.getName(), true);
         excludesClasses.put(SecurityTogglePatternActivity.class.getName(), true);
         excludesClasses.put(UnlockApp.class.getName(), true);

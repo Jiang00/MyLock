@@ -19,7 +19,6 @@ import com.android.common.SdkCache;
 import com.ivy.module.themestore.main.ThemeStoreBuilder;
 import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
-
 import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
 import com.security.manager.SecurityUnlockSettings;
@@ -159,8 +158,8 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             dlyp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ThemeStoreBuilder.openThemeStore(App.getContext(), "ivy.intent.action.pattern");
-                    callback.unLock();
+                    String[] str = {"theme_preview_two"};
+                    ThemeStoreBuilder.openThemeStore(App.getContext(), "ivy.intent.action.pattern",str);                    callback.unLock();
                 }
             });
 

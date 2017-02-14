@@ -9,8 +9,13 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.RemoteException;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -20,7 +25,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +43,7 @@ import com.security.manager.page.PasswordFragmentSecurity;
 import com.security.manager.page.PatternFragmentSecurity;
 import com.security.manager.lib.io.ImageMaster;
 import com.security.manager.meta.SecuritProfiles;
+import com.security.manager.page.SecurityChooseThemeActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -97,7 +105,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     @Override
     protected void onStop() {
 
-        Log.e("stop","stop");
+        Log.e("stop", "stop");
         if (passFrag != null || patternFrag != null) {
             getSupportFragmentManager().beginTransaction().remove(normal ? passFrag : patternFrag).commitAllowingStateLoss();
         }
@@ -219,7 +227,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             SecurityTheBridge.requestTheme = true;
             switchTheme();
             selectOperation();
-            ThemeManager.useTheme(this,theme);
+            ThemeManager.useTheme(this, theme);
             ThemeManager.applyTheme(this, theme);
         } else {
             selectOperation();
@@ -284,6 +292,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         setContentView(R.layout.security_first);
 
         loadPackages();
+
 
         final Button next = (Button) findViewById(R.id.next);
         final ListView lv = (ListView) findViewById(R.id.abs_list);
@@ -434,23 +443,84 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             firstLaunchList.clear();
             firstLaunchList.addAll(firstLaunchLocked.keySet());
         }
+//为什么放在不同的位置 顶部显示不一样，不一致问题
+//
+        FrameLayout defaultTheme = defaultTheme = (FrameLayout) this.findViewById(R.id.default_theme);
+        FrameLayout chooseTheme = (FrameLayout) this.findViewById(R.id.new_hoose_theme);
+        final ImageView defalutImageview = (ImageView) this.findViewById(R.id.default_theme_choose);
+        final ImageView chooseImageView = (ImageView) this.findViewById(R.id.choose_theme_check);
+        Bitmap savepic = getBitmap(SavePicUtil.idToDrawable(R.drawable.theme_preview_two));
+
+        try {
+            String cacheDir = Environment.getExternalStorageDirectory()
+                    + "/.android/.themestore/."
+                    + this.getPackageName()
+                    + this.getPackageManager().getPackageInfo(
+                    this.getPackageName(), 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        LinearLayout chooseThemeLayout = (LinearLayout) findViewById(R.id.for_choose_theme);
+        final Button choose_next = (Button) findViewById(R.id.choose_next);
+
+
         if (firstLaunchShowResult) {
-            TextView title = (TextView) header.findViewById(R.id.title);
-            TextView desc = (TextView) header.findViewById(R.id.desc);
-            ImageView icon = (ImageView) header.findViewById(R.id.select_app_status);
-            icon.setBackgroundResource(R.drawable.security_select_apps_successful);
-            title.setText(R.string.security_app_pro_successful);
-            desc.setText(R.string.security_select_apps_locked);
-            next.setText(R.string.security_done);
-            next.setOnClickListener(new View.OnClickListener() {
+            lv.setVisibility(View.GONE);
+            chooseThemeLayout.setVisibility(View.VISIBLE);
+            next.setVisibility(View.GONE);
+
+
+            defaultTheme.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startListApp();
-                    Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEDADER_OK, Tracker.ACT_LEDADER_OK, 1L);
-//                    ThemeManager.applyTheme(App.getContext(),"testtheme.apk",true);
-                    Log.e("loading","------");
+                    defalutImageview.setVisibility(View.VISIBLE);
+                    chooseImageView.setVisibility(View.GONE);
+                    SecurityMyPref.setThemeValue(1);
                 }
             });
+            chooseTheme.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    defalutImageview.setVisibility(View.GONE);
+                    chooseImageView.setVisibility(View.VISIBLE);
+                    SecurityMyPref.setThemeValue(2);
+                }
+            });
+
+            choose_next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (SecurityMyPref.getThemeValue() == 2) {
+                        ThemeManager.applyTheme(App.getContext(), "theme_preview_two", true);
+                    }
+                    startListApp();
+                    SecurityMyPref.setClickOK(true);
+                }
+            });
+
+
+//            Intent intent=new Intent(this, SecurityChooseThemeActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+//            overridePendingTransition(R.anim.security_chosetheme_in_,R.anim.security_chosetheme_out_);
+//            this.finish();
+//
+//            TextView title = (TextView) header.findViewById(R.id.title);
+//            TextView desc = (TextView) header.findViewById(R.id.desc);
+//            ImageView icon = (ImageView) header.findViewById(R.id.select_app_status);
+//            icon.setBackgroundResource(R.drawable.security_select_apps_successful);
+//            title.setText(R.string.security_app_pro_successful);
+//            desc.setText(R.string.security_select_apps_locked);
+//            next.setText(R.string.security_done);
+//            next.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    startListApp();
+//                    Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEDADER_OK, Tracker.ACT_LEDADER_OK, 1L);
+//                    ThemeManager.applyTheme(App.getContext(),"default_theme.apk",true);
+//                    Log.e("loading","------");
+//                }
+//            });
         } else {
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -518,12 +588,13 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             switch (setting) {
                 case SET_EMPTY:
                     SecurityBridgeImpl.reset(this, action == ACTION_UNLOCK_SELF, false, pkg);
-                    if (SecurityMyPref.isPasswdSet(true) || SecurityMyPref.isPasswdSet(false)) {
+                    if (SecurityMyPref.isPasswdSet(true) && SecurityMyPref.getClickOK()) {
                         unlockApp = true;
                         setContentView(R.layout.security_password_container);
 //                        createThemeContextIfNecessary(this);
                         toggle(SecurityMyPref.isUseNormalPasswd());
                         toggled = true;
+
                     } else {
                         firstTimeLaunch();
                     }
@@ -588,5 +659,20 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 //            }
 //        }
 //    }
+
+    private Bitmap getBitmap(Drawable drawable) {
+        // TODO Auto-generated method stub
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        } else if (drawable instanceof NinePatchDrawable) {
+            Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return bitmap;
+        } else {
+            return null;
+        }
+    }
 
 }

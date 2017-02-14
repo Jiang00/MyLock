@@ -3,10 +3,8 @@ package com.security.manager.page;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
@@ -14,17 +12,13 @@ import android.widget.*;
 import com.ivy.module.themestore.main.ThemeStoreBuilder;
 import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
-import com.privacy.lock.*;
+import com.security.manager.App;
+import com.security.manager.PretentSelectorActivitySecurity;
 import com.security.manager.SecurityAppLock;
-import com.security.manager.FakeSelectorActivitySecurity;
 import com.security.manager.IntruderActivitySecurity;
 import com.security.manager.SecuritySettings;
 import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
-
-import java.net.URI;
-import java.net.URL;
-import java.util.Locale;
 
 /**
  * Created by huale on 2014/12/22.
@@ -45,7 +39,7 @@ public class SecurityMenu {
     public static final int MENU_FAQ = 6;
     public static final String FACEBOOK = "https://www.facebook.com/IvyAppLock";
     public static final String GOOGLE = "https://plus.google.com/u/0/communities/113134139742239607331";
-    public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=IVYMOBI";
+    public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=IVYMOBILE";
 
 
     public static final String[] newidkeys = {
@@ -108,7 +102,7 @@ public class SecurityMenu {
 
         final Intent[] intents = new Intent[]{
                 new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS), null,
-                new Intent(context, FakeSelectorActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
+                new Intent(context, PretentSelectorActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
                 new Intent(context, IntruderActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS), null,
                 new Intent(context, SecuritySettings.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS),
 
@@ -133,18 +127,20 @@ public class SecurityMenu {
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK, 1L);
 
                     } else if (i == 1) {
-                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.CATE_ACTION_OPEN_THEME, Tracker.CATE_ACTION_OPEN_THEME, 1L);
-                        ThemeStoreBuilder.openThemeStore(context);
-                        ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
 
+
+                        String[] str = {"theme_preview_two"};
+
+                        ThemeStoreBuilder.openThemeStore(App.getContext(), null,str);
+
+                        Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.CATE_ACTION_OPEN_THEME, Tracker.CATE_ACTION_OPEN_THEME, 1L);
+                        ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
 
                     } else if (i == 2) {
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FAKE, Tracker.ACT_FAKE, 1L);
 
-
                     } else if (i == 3) {
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_INTRUDE, Tracker.ACT_INTRUDE, 1L);
-
 
                     } else if (i == 4) {
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
@@ -154,7 +150,6 @@ public class SecurityMenu {
 
                     } else if (i == 5) {
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_MENU, 1L);
-
 
                     }
 

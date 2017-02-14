@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">Vẽ lại</string>
     <string name="security_enter_password">Nhập mật khẩu để mở khóa ứng dụng này</string>
     <string name="security_every_time">Luôn khóa</string>
-    <string name="security_fake_fails">App mặt nạ không được thiết lập</string>
-    <string name="security_fake_fc">APP Lỗi</string>
-    <string name="security_fake_finger">vân tay</string>
-    <string name="security_fake_force_close">Thật không may, "%1$s" đã dừng lại.</string>
-    <string name="security_fake_icon_1">đồng hồ</string>
-    <string name="security_fake_icon_2">máy tính</string>
-    <string name="security_fake_icon_3">thời tiết</string>
-    <string name="security_fake_icon_default">vỡ nợ</string>
-    <string name="security_fake_none">Không có mặt nạ</string>
-    <string name="security_fake_selector">Thay biểu tượng ứng dụng</string>
-    <string name="security_fake_setting_msg">Xin hãy di chuyển ngón tay từ trái sang phải cùng nút "close" để bật APP mặt nạ</string>
+    <string name="security_pretent_fails">App mặt nạ không được thiết lập</string>
+    <string name="security_pretent_fc">APP Lỗi</string>
+    <string name="security_pretent_finger">vân tay</string>
+    <string name="security_pretent_force_close">Thật không may, "%1$s" đã dừng lại.</string>
+    <string name="security_pretent_icon_1">đồng hồ</string>
+    <string name="security_pretent_icon_2">máy tính</string>
+    <string name="security_pretent_icon_3">thời tiết</string>
+    <string name="security_pretent_icon_default">vỡ nợ</string>
+    <string name="security_pretent_none">Không có mặt nạ</string>
+    <string name="security_pretent_selector">Thay biểu tượng ứng dụng</string>
+    <string name="security_pretent_setting_msg">Xin hãy di chuyển ngón tay từ trái sang phải cùng nút "close" để bật APP mặt nạ</string>
     <string name="security_finger_tip">Chạm ngón tay in hai lần và giữ để bật APP mặt nạ vân tay</string>
     <string name="security_five_min">5 phút</string>
     <string name="security_float_action_switch_widget">phụ tùng nổi</string>
@@ -93,7 +93,7 @@
     <string name="security_applock_permission_allow">cho phép</string>
     <string name="security_apps_open_permission">Tìm AppLock và kích hoạt nó</string>
     <string name="security_cancel">hủy bỏ</string>
-    <string name="security_fake_calender">Lịch</string>
+    <string name="security_pretent_calender">Lịch</string>
     <string name="security_five_start">Chúng tôi cam kết bảo vệ sự riêng tư của bạn. Ông có thể cho chúng ta một 5-sao-giá?</string>
     <string name="security_input_password">Vui lòng nhập mã PIN 6-chữ số</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">Đặt lại mật khẩu</string>
     <string name="setting_category_pattern">Mẫu</string>
     <string name="setting_digital_code">Ma pin</string>
-    <string name="security_fake_notepad">Sổ tay</string>
+    <string name="security_pretent_notepad">Sổ tay</string>
     <string name="security_start_rat">5-sao-Đánh giá</string>
     <string name="security_update">cài đặt, dựng lên</string>
     <string name="security_update_title">Phiên bản mới cập nhật</string>
@@ -149,4 +149,5 @@
 	<string name="security_settings_preference_desc">Để có được sự bảo vệ hoàn hảo, chúng tôi khuyên bạn nên để cho phép tất cả các quyền.</string>
 	<string name="security_loading_fullad_fail">tải quảng cáo được, vui lòng thử lại sau</string>
     <string name="security_click_change">Hãy thử một số khác</string>
+	<string name="security_choose_theme">Chọn chủ đề</string>
 </resources>

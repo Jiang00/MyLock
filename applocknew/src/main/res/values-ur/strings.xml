@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">ایک بار پھر اپنی طرف متوجہ</string>
     <string name="security_enter_password">اس ایپ کو غیر مقفل کرنے اپنا پاس ورڈ درج</string>
     <string name="security_every_time">ہمیشہ مقفل</string>
-    <string name="security_fake_fails">اے پی پی چھپانے مقرر نہیں</string>
-    <string name="security_fake_fc">بند کر دیا</string>
-    <string name="security_fake_finger">فنگر پرنٹ</string>
-    <string name="security_fake_force_close">بدقسمتی سے، "%1$s" بند کر دیا ہے.</string>
-    <string name="security_fake_icon_1">گھڑی</string>
-    <string name="security_fake_icon_2">کیلکولیٹر</string>
-    <string name="security_fake_icon_3">موسم</string>
-    <string name="security_fake_icon_default">سٹینڈرڈ</string>
-    <string name="security_fake_none">کوئی بھیس</string>
-    <string name="security_fake_selector">اپلی کیشن کا آئکن کی جگہ لے لے</string>
-    <string name="security_fake_setting_msg">اے پی پی چھپانے پر تبدیل کرنے کے لئے "بند" کے بٹن کے ساتھ ساتھ بائیں سے دائیں اپنی انگلی کو منتقل کریں</string>
+    <string name="security_pretent_fails">اے پی پی چھپانے مقرر نہیں</string>
+    <string name="security_pretent_fc">بند کر دیا</string>
+    <string name="security_pretent_finger">فنگر پرنٹ</string>
+    <string name="security_pretent_force_close">بدقسمتی سے، "%1$s" بند کر دیا ہے.</string>
+    <string name="security_pretent_icon_1">گھڑی</string>
+    <string name="security_pretent_icon_2">کیلکولیٹر</string>
+    <string name="security_pretent_icon_3">موسم</string>
+    <string name="security_pretent_icon_default">سٹینڈرڈ</string>
+    <string name="security_pretent_none">کوئی بھیس</string>
+    <string name="security_pretent_selector">اپلی کیشن کا آئکن کی جگہ لے لے</string>
+    <string name="security_pretent_setting_msg">اے پی پی چھپانے پر تبدیل کرنے کے لئے "بند" کے بٹن کے ساتھ ساتھ بائیں سے دائیں اپنی انگلی کو منتقل کریں</string>
     <string name="security_finger_tip">فنگر پرنٹ دو بار ٹیپ اور اے پی پی بھیس فنگر پرنٹ پر تبدیل کرنے کے لئے منعقد</string>
     <string name="security_five_min">5 منٹ</string>
     <string name="security_float_action_switch_widget">فلوٹنگ ویجیٹ</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">اجازت دیں</string>
     <string name="security_apps_open_permission">AppLock تلاش کریں اور اسے فعال</string>
     <string name="security_cancel">منسوخ کریں</string>
-    <string name="security_fake_calender">کیلنڈر</string>
+    <string name="security_pretent_calender">کیلنڈر</string>
     <string name="security_five_start">ہم آپ کی پرائیویسی کی حفاظت کرنے کے لئے مصروف عمل ہیں. آپ ہمیں ایک 5 اسٹار کی درجہ بندی دے سکتا ہے؟</string>
     <string name="security_input_password">6 ہندسوں پن کوڈ درج کریں</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">پاس ورڈ ری سیٹ</string>
     <string name="setting_category_pattern">پاٹرن</string>
     <string name="setting_digital_code">خفیہ نمبر</string>
-    <string name="security_fake_notepad">نوٹ پیڈ</string>
+    <string name="security_pretent_notepad">نوٹ پیڈ</string>
     <string name="security_start_rat">5 ستارے درجہ بندی</string>
     <string name="security_update">انسٹال کریں</string>
     <string name="security_update_title">نئے ورژن کو اپ ڈیٹ</string>
@@ -149,5 +149,6 @@
 	<string name="security_settings_preference_desc">کامل تحفظ حاصل کرنے کے لئے، ہم تمام اجازت چالو کرنے کے لئے آپ کی سفارش.</string>
 	<string name="security_loading_fullad_fail">اشتہار لوڈنگ کے ناکام، بعد میں دوبارہ کوشش کریں براہ مہربانی</string>
     <string name="security_click_change">ایک اور ایک کی کوشش کریں</string>
+	<string name="security_choose_theme">موضوع کا انتخاب کریں</string>
 	
 </resources>

@@ -48,7 +48,6 @@ import com.security.manager.lib.io.SafeDB;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
-import com.security.manager.page.FakePresenter;
 import com.security.manager.page.MyFrameLayout;
 import com.security.manager.page.OverflowCtrl;
 import com.security.manager.page.PasswordFragmentSecurity;

@@ -19,19 +19,19 @@
     <string name="security_draw_pattern_next">Confirm pattern</string>
     <string name="security_enter_password">Enter your password to unlock this app</string>
     <string name="security_every_time">Always lock</string>
-    <string name="security_fake_calender">Calendar</string>
-    <string name="security_fake_fails">Fake cover isn\'t set</string>
-    <string name="security_fake_fc">Force Close</string>
-    <string name="security_fake_finger">FingerPrint</string>
-    <string name="security_fake_force_close">Unfortunately, "%1$s" has stopped</string>
-    <string name="security_fake_icon_1">Clock</string>
-    <string name="security_fake_icon_2">Calc</string>
-    <string name="security_fake_icon_3">Weather</string>
-    <string name="security_fake_icon_default">Default</string>
-    <string name="security_fake_none">No fake cover</string>
-    <string name="security_fake_notepad">Notepad</string>
-    <string name="security_fake_selector">Replace app icon</string>
-    <string name="security_fake_setting_msg"><![CDATA[Please <b>move your finger</b> from left to right along the "Close" button to turn on fake cover]]></string>
+    <string name="security_pretent_calender">Calendar</string>
+    <string name="security_pretent_fails">Fake cover isn\'t set</string>
+    <string name="security_pretent_fc">Force Close</string>
+    <string name="security_pretent_finger">FingerPrint</string>
+    <string name="security_pretent_force_close">Unfortunately, "%1$s" has stopped</string>
+    <string name="security_pretent_icon_1">Clock</string>
+    <string name="security_pretent_icon_2">Calc</string>
+    <string name="security_pretent_icon_3">Weather</string>
+    <string name="security_pretent_icon_default">Default</string>
+    <string name="security_pretent_none">No fake cover</string>
+    <string name="security_pretent_notepad">Notepad</string>
+    <string name="security_pretent_selector">Replace app icon</string>
+    <string name="security_pretent_setting_msg"><![CDATA[Please <b>move your finger</b> from left to right along the "Close" button to turn on fake cover]]></string>
     <string name="security_finger_tip">Tap the fingerprint twice and hold it to turn on fingerprint identification</string>
     <string name="security_five_min">5 minutes</string>
     <string name="security_five_start">We are committed to protecting your privacy. Could you give us a 5-star-rating? </string>
@@ -149,5 +149,6 @@
     <string name="security_settings_preference_desc">In order to get perfect protection, we recommend you to enable all permissions.</string>
     <string name="security_loading_fullad_fail">Advertisement loading failed, please try again later</string>
     <string name="security_click_change">Next Ad</string>
+	<string name="security_choose_theme">Choose theme</string>
 
 </resources>

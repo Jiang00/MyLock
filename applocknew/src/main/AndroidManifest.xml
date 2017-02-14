@@ -141,13 +141,13 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeTwoActivitySecurityPatternActivity"
+            android:name="com.security.manager.PretentTwoActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:icon="@drawable/security_myfake_2"
-            android:label="@string/security_fake_icon_2"
+            android:label="@string/security_pretent_icon_2"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme"
@@ -158,16 +158,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
+
+
         </activity>
         <activity
-            android:name="com.security.manager.FakeThreeActivitySecurityPatternActivity"
+            android:name="com.security.manager.PretentThreeActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
 
             android:icon="@drawable/security_myfake_3"
-            android:label="@string/security_fake_icon_3"
+            android:label="@string/security_pretent_icon_3"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme"
@@ -178,18 +187,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
         </activity>
 
 
         <activity
-            android:name="com.security.manager.FakeOneActivitySecurityPatternActivity"
+            android:name="com.security.manager.PretentOneActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
 
             android:icon="@drawable/security_myfake_1"
-            android:label="@string/security_fake_icon_1"
+            android:label="@string/security_pretent_icon_1"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme"
@@ -200,17 +216,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeFourActivitySecurityPatternActivity"
+            android:name="com.security.manager.PretentFourActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
 
             android:icon="@drawable/security_myfake_4"
-            android:label="@string/security_fake_calender"
+            android:label="@string/security_pretent_calender"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme"
@@ -221,16 +243,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
         </activity>
 
         <activity
-            android:name="com.security.manager.FakeFiveActivitySecurityPatternActivity"
+            android:name="com.security.manager.PretentFiveActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
             android:icon="@drawable/security_myfake_5"
-            android:label="@string/security_fake_notepad"
+            android:label="@string/security_pretent_notepad"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme"
@@ -240,6 +268,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+                <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
         </activity>
 
@@ -280,7 +314,7 @@
             android:theme="@style/activityTheme"></activity>
 
         <activity
-            android:name="com.security.manager.FakeSelectorActivitySecurity"
+            android:name="com.security.manager.PretentSelectorActivitySecurity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
@@ -307,6 +341,13 @@
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+
+        <activity
+            android:name="com.security.manager.page.SecurityChooseThemeActivity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 

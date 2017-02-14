@@ -40,7 +40,8 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+//          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.txt'
         }
     }
 
@@ -87,11 +88,10 @@ dependencies {
     compile project(':model')
 //    compile 'com.privacy.lib:common:1.1.0'
     compile 'com.core:empty:1.1.6'
-    compile 'com.ivy.ui:ivyui:1.4.1'
-    compile 'com.core:theme:1.1.8'
+    compile 'com.ivy.ui:ivyui:1.4.7'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':baselibrary')
-    compile('com.ivy.module:themestore:1.3.9', {
+    compile('com.ivy.module:themestore:1.5.5', {
         exclude group: 'com.google.code.gson', module: 'gson'
     })
 //    compile project(':fingerprint')

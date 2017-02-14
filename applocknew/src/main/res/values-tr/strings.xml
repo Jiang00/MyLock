@@ -15,17 +15,17 @@
     <string name="security_draw_pattern_next">tekrar çizmek</string>
     <string name="security_enter_password">Bu uygulamanın kilidini açmak için şifrenizi giriniz</string>
     <string name="security_every_time">Her zaman kilitle</string>
-    <string name="security_fake_fails">App maskesi ayarlı değil</string>
-    <string name="security_fake_fc">APP durdu</string>
-    <string name="security_fake_finger">Parmak izi</string>
-    <string name="security_fake_force_close">Ne yazık ki, "%1$s" durdu.</string>
-    <string name="security_fake_icon_1">Saat</string>
-    <string name="security_fake_icon_2">Hesaplanan.</string>
-    <string name="security_fake_icon_3">Hava</string>
-    <string name="security_fake_icon_default">Standart</string>
-    <string name="security_fake_none">Hiçbir maske</string>
-    <string name="security_fake_selector">Uygulama simgesini değiştirin</string>
-    <string name="security_fake_setting_msg">APP maske açmak için "close" butonuna boyunca soldan sağa doğru parmağınızı hareket ettirin Lütfen</string>
+    <string name="security_pretent_fails">App maskesi ayarlı değil</string>
+    <string name="security_pretent_fc">APP durdu</string>
+    <string name="security_pretent_finger">Parmak izi</string>
+    <string name="security_pretent_force_close">Ne yazık ki, "%1$s" durdu.</string>
+    <string name="security_pretent_icon_1">Saat</string>
+    <string name="security_pretent_icon_2">Hesaplanan.</string>
+    <string name="security_pretent_icon_3">Hava</string>
+    <string name="security_pretent_icon_default">Standart</string>
+    <string name="security_pretent_none">Hiçbir maske</string>
+    <string name="security_pretent_selector">Uygulama simgesini değiştirin</string>
+    <string name="security_pretent_setting_msg">APP maske açmak için "close" butonuna boyunca soldan sağa doğru parmağınızı hareket ettirin Lütfen</string>
     <string name="security_finger_tip">Parmak izi iki kez dokunun ve APP maske parmak izi açmak için basılı tutun</string>
     <string name="security_five_min">5 dakika</string>
     <string name="security_float_action_switch_widget">kayan Widget</string>
@@ -92,7 +92,7 @@
     <string name="security_applock_permission_allow">İzin vermek</string>
     <string name="security_apps_open_permission">AppLock bulun ve etkinleştirin</string>
     <string name="security_cancel">İptal etmek</string>
-    <string name="security_fake_calender">Takvim</string>
+    <string name="security_pretent_calender">Takvim</string>
     <string name="security_five_start">Biz gizliliğinizi korumayı taahhüt ediyoruz. Eğer bize 5-star-derecelendirme verebilir?</string>
     <string name="security_input_password">Lütfen 6 basamaklı PIN kodunu girin</string>
     <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
@@ -121,7 +121,7 @@
     <string name="security_reset_password">Şifreyi yenile</string>
     <string name="setting_category_pattern">model</string>
     <string name="setting_digital_code">PIN kodu</string>
-    <string name="security_fake_notepad">Not Defteri</string>
+    <string name="security_pretent_notepad">Not Defteri</string>
     <string name="security_start_rat">5-Yıldız-Değerlendirme</string>
     <string name="security_update">kurmak</string>
     <string name="security_update_title">Yeni Versiyon Güncelleme</string>
@@ -149,6 +149,7 @@
 	<string name="security_settings_preference_desc">Mükemmel koruma sağlamak için tüm izinleri etkinleştirmenizi öneririz.</string>
 	<string name="security_loading_fullad_fail">Reklam yüklenemedi, lütfen daha sonra tekrar deneyin</string>
     <string name="security_click_change">Lütfen başka bir tane deneyin</string>
+	<string name="security_choose_theme">Temayı seçin</string>
 	
 </resources>
 

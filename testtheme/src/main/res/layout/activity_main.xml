@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/numpad"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,13 +9,25 @@
     android:orientation="vertical">
 
     <ImageView
+        android:visibility="gone"
         android:background="@drawable/pic"
         android:layout_width="150dp"
         android:layout_height="wrap_content" />
 
     <ImageView
+        android:visibility="gone"
+
         android:background="@drawable/bac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:background="@drawable/img_0"
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_fileName="data.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
 
 </FrameLayout>
