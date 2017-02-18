@@ -147,5 +147,8 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
     </style>
 
-
+    <style name="take_photo_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/security_pop_exit_anim</item>
+        <item name="android:windowExitAnimation">@anim/security_pop_enter_anim</item>
+    </style>
 </resources>

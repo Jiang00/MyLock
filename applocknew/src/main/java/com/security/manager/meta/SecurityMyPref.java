@@ -86,6 +86,7 @@ public class SecurityMyPref {
             return "";
         }
     }
+
     public static boolean isPasswdSet(boolean normal) {
 //        String string = App.getSharedPreferences().getString(normal ? "pp" : "pg", null);
 //        return string != null && string.length() > 0;
@@ -407,15 +408,13 @@ public class SecurityMyPref {
     }
 
 
-
     public static void setDailyUrl(String url) {
         App.getSharedPreferences().edit().putString("daily_string_url", url).apply();
     }
 
     public static String getDailyUrl() {
-        return App.getSharedPreferences().getString("daily_string_url","");
+        return App.getSharedPreferences().getString("daily_string_url", "");
     }
-
 
 
     public static void setThemeValue(int value) {
@@ -423,7 +422,7 @@ public class SecurityMyPref {
     }
 
     public static int getThemeValue() {
-        return App.getSharedPreferences().getInt("choose_theme_defaul_",1);
+        return App.getSharedPreferences().getInt("choose_theme_defaul_", 1);
     }
 
 
@@ -435,6 +434,14 @@ public class SecurityMyPref {
         return App.getSharedPreferences().getBoolean("show_lock_al", false);
     }
 
+
+    public static void setFirstShowCorss(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("show_cross_f_al", yes).apply();
+    }
+
+    public static boolean getFirstShowCross() {
+        return App.getSharedPreferences().getBoolean("show_cross_f_al", false);
+    }
 
 
 }

@@ -1,28 +1,29 @@
 package com.security.manager.page;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Point;
-import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
 
-//import com.android.client.AndroidSdk;
-//import com.android.client.ClientNativeAd;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.android.launcher3.theme.ThemeManager;
-//import com.ivy.module.themestore.main.ThemeStoreBuilder;
+import com.ivy.module.huojian.CleanManager;
+import com.ivy.module.huojian.Huojian;
 import com.ivymobi.applock.free.R;
-import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
 import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
@@ -30,6 +31,9 @@ import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.lib.Utils;
 
 import com.security.manager.myinterface.ISecurityBridge;
+
+import ivy.battery.cooling.CoolingActivity;
+import ivy.battery.cooling.CrossTranslate;
 
 
 /**
@@ -41,6 +45,7 @@ public class SecurityThemeFragment extends Fragment {
     public static final String TAG_TLEF_AD = "Leftmenu";
     public static final String TAG_TOP_AD = "TopLocklist";
     public static View adView = null;
+    static CountDownTimer mytimer = null;
 
 
     public interface ICheckResult {
@@ -60,17 +65,21 @@ public class SecurityThemeFragment extends Fragment {
 
         afterViewCreated(view, ctrl);
 
-
     }
 
     public static void afterViewCreated(View view, OverflowCtrl ctrl) {
         try {
+            if (!SecurityMyPref.isUseNormalPasswd()) {
+                crossPromote((ViewGroup) view);
+            }
             createAdView((ViewGroup) view);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         setupTitle(view);
     }
+
     public static void setupTitle(View v) {
         ISecurityBridge bridge = SecurityTheBridge.bridge;
         TextView appName = new TextView(v.getContext());
@@ -94,6 +103,260 @@ public class SecurityThemeFragment extends Fragment {
             statusicon.setBackgroundDrawable(bridge.icon());
         }
     }
+
+
+    public static void crossPromote(ViewGroup v) {
+
+
+        boolean showCross = SecurityMyPref.getFirstShowCross();
+
+
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+        FrameLayout.LayoutParams trigonParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+
+        Point size = Utils.getScreenSize(v.getContext());
+
+        if (size.y < 854) {
+            layoutParams.bottomMargin = Utils.getDimens(v.getContext(), 5);
+        } else {
+            layoutParams.bottomMargin = Utils.getDimens(v.getContext(), 10);
+        }
+
+        LayoutInflater inflater = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View crossView = inflater.inflate(R.layout.security_cross_promote, null);
+        final View trigon = inflater.inflate(R.layout.security_trigon, null);
+
+        final View crossBattery = crossView.findViewById(R.id.cross_battery);
+        final View crossClear = crossView.findViewById(R.id.cross_clear);
+        final View crossOther = crossView.findViewById(R.id.cross_flash);
+        crossBattery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopCountimer();
+                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__CROSS_ONE,Tracker.CATE_ACTION__CROSS_ONE,1L);
+
+                Intent intent = new Intent(v.getContext(), CoolingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
+
+            }
+        });
+
+
+        crossClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopCountimer();
+                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__CROSS_TWO,Tracker.CATE_ACTION__CROSS_TWO,1L);
+                CleanManager.Instance().runClean(v.getContext(), new Huojian.CallbackListener() {
+                    @Override
+                    public void cleanSuccess(Context context, long size, boolean isXianshi) {
+                        ((Activity) context).finish();
+                        Intent intent = new Intent(context, CrossTranslate.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra("value", "ad2");
+                        context.startActivity(intent);
+                    }
+                });
+
+            }
+        });
+
+        crossOther.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__CROSS_THREE,Tracker.CATE_ACTION__CROSS_THREE,1L);
+                stopCountimer();
+                Intent intent = new Intent(v.getContext(), CrossTranslate.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("value", "ad3");
+                v.getContext().startActivity(intent);
+
+            }
+        });
+
+        crossBattery.setEnabled(false);
+        crossClear.setEnabled(false);
+        crossOther.setEnabled(false);
+
+        trigon.findViewById(R.id.trigon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trigon.setVisibility(View.GONE);
+                crossView.setVisibility(View.VISIBLE);
+                Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
+                crossView.startAnimation(animation);
+            }
+        });
+
+        trigon.findViewById(R.id.trigon_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trigon.setVisibility(View.GONE);
+                crossView.setVisibility(View.VISIBLE);
+                Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
+                crossView.startAnimation(animation);
+                crossBattery.setEnabled(true);
+                crossClear.setEnabled(true);
+                crossOther.setEnabled(true);
+            }
+        });
+
+        crossView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                float x1 = 0;
+                float x2 = 0;
+                float y1 = 0;
+                float y2 = 0;
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    //当手指按下的时候
+                    x1 = event.getX();
+                    y1 = event.getY();
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    //当手指离开的时候
+                    x2 = event.getX();
+                    y2 = event.getY();
+                    if (y1 - y2 > 40) {
+//                        Toast.makeText(App.getContext(), "向上滑", Toast.LENGTH_SHORT).show();
+                    } else if (y2 - y1 > 20) {
+                        Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
+                        crossView.setVisibility(View.GONE);
+                        crossView.startAnimation(animation);
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                trigon.setVisibility(View.VISIBLE);
+                                crossBattery.setEnabled(false);
+                                crossClear.setEnabled(false);
+                                crossOther.setEnabled(false);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+                        });
+                    }
+                }
+                return true;
+            }
+        });
+
+        trigon.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                float x1 = 0;
+                float x2 = 0;
+                float y1 = 0;
+                float y2 = 0;
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    //当手指按下的时候
+                    x1 = event.getX();
+                    y1 = event.getY();
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    //当手指离开的时候
+                    x2 = event.getX();
+                    y2 = event.getY();
+                    if (y1 - y2 > 30) {
+                        trigon.setVisibility(View.GONE);
+                        crossView.setVisibility(View.VISIBLE);
+                        Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
+                        crossView.startAnimation(animation);
+                        crossBattery.setEnabled(true);
+                        crossClear.setEnabled(true);
+                        crossOther.setEnabled(true);
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+                        });
+
+                    } else if (y2 - y1 > 50) {
+//                        Toast.makeText(App.getContext(), "向下滑", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+                return true;
+            }
+        });
+
+        crossView.setVisibility(View.GONE);
+        v.addView(trigon, trigonParams);
+        v.addView(crossView, layoutParams);
+
+
+        if (!showCross) {
+            trigon.setVisibility(View.GONE);
+            crossView.setVisibility(View.VISIBLE);
+            Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_delay_pop_enter_anim);
+            animation.setFillAfter(true);
+            crossView.startAnimation(animation);
+            crossBattery.setEnabled(true);
+            crossClear.setEnabled(true);
+            crossOther.setEnabled(true);
+
+            mytimer = new CountDownTimer(3000, 1000) {
+                @Override
+                public void onFinish() {
+                    Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
+                    crossView.startAnimation(animation);
+                    crossBattery.setEnabled(false);
+                    crossClear.setEnabled(false);
+                    crossOther.setEnabled(false);
+                    crossView.setVisibility(View.GONE);
+                    animation.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            trigon.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+
+                        }
+                    });
+                }
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+            };
+
+            mytimer.start();
+        }
+
+        SecurityMyPref.setFirstShowCorss(true);
+
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -124,12 +387,11 @@ public class SecurityThemeFragment extends Fragment {
             group.removeAllViews();
         }
         super.onDestroyView();
-        try {
-            AndroidSdk.destroyNativeAdView(TAG_UNLOCK, adView);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            AndroidSdk.destroyNativeAdView(TAG_UNLOCK, adView);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     protected static void createAdView(ViewGroup view) {
@@ -165,7 +427,6 @@ public class SecurityThemeFragment extends Fragment {
                 view.addView(adView, layoutParams);
             }
         }
-
     }
 
     public static MyFrameLayout inflate(String layoutId, ViewGroup container, Context c) {
@@ -180,6 +441,19 @@ public class SecurityThemeFragment extends Fragment {
         int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());
         MyFrameLayout v = (MyFrameLayout) inflater.inflate(layout, container, false);
         return v;
+    }
+
+
+    private static void stopCountimer(){
+        if(mytimer!=null){
+            Log.e("cancle","1");
+            mytimer.cancel();
+        }else{
+            Log.e("cancle","2");
+        }
+
+
+
     }
 
 

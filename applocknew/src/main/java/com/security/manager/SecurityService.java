@@ -1091,6 +1091,8 @@ public class SecurityService extends Service {
         stopForeground(true);
         stopTimer();
         super.onDestroy();
+
+
     }
 
 }

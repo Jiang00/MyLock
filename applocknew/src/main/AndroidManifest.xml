@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <supports-screens android:anyDensity="true" />
+
     <application
         android:name="com.security.manager.App"
         android:allowBackup="true"
@@ -37,7 +38,6 @@
         <activity
             android:name="com.security.manager.IntrudedeImageActivity"
             android:allowTaskReparenting="true"
-
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
@@ -49,30 +49,27 @@
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/acc" />
         </service>
-
         <service
             android:name="com.security.manager.ApplockC"
             android:process=":remote" />
-
 
         <activity
             android:name="com.security.manager.SecurityTansparent"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.CustomTranslucent"></activity>
-
+            android:theme="@style/Theme.CustomTranslucent" />
         <activity
             android:name="com.security.manager.SecuritySettings"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
-
         <activity
             android:name="com.security.manager.SecurityUnlockSettings"
             android:allowTaskReparenting="true"
@@ -80,8 +77,6 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
-
-
         <activity
             android:name="com.security.manager.SecuritySettingsAdvance"
             android:allowTaskReparenting="true"
@@ -95,9 +90,7 @@
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
-
-
+            android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name="com.security.manager.SecuritySetPattern"
             android:allowTaskReparenting="true"
@@ -105,7 +98,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name="com.security.manager.IntruderActivitySecurity"
             android:allowTaskReparenting="true"
@@ -129,17 +121,13 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
-
         </activity>
-
         <activity
             android:name="com.security.manager.PretentTwoActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
@@ -158,15 +146,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
-
-
-
         </activity>
         <activity
             android:name="com.security.manager.PretentThreeActivitySecurityPatternActivity"
@@ -174,7 +158,6 @@
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
-
             android:icon="@drawable/security_myfake_3"
             android:label="@string/security_pretent_icon_3"
             android:launchMode="singleInstance"
@@ -187,23 +170,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
-
         </activity>
-
-
         <activity
             android:name="com.security.manager.PretentOneActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
-
             android:icon="@drawable/security_myfake_1"
             android:label="@string/security_pretent_icon_1"
             android:launchMode="singleInstance"
@@ -216,21 +194,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
-                <category android:name="android.intent.category.DEFAULT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.security.manager.PretentFourActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
             android:excludeFromRecents="true"
-
             android:icon="@drawable/security_myfake_4"
             android:label="@string/security_pretent_calender"
             android:launchMode="singleInstance"
@@ -243,14 +218,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
-                <category android:name="android.intent.category.DEFAULT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.security.manager.PretentFiveActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
@@ -269,18 +242,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
-                <category android:name="android.intent.category.DEFAULT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name="com.security.manager.SecurityTogglePatternActivity"
-
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
@@ -293,10 +262,10 @@
             android:theme="@style/locktheme">
             <intent-filter>
                 <action android:name="android.intent.action.UNLOCK" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.security.manager.SecurityResetPattern"
             android:allowTaskReparenting="true"
@@ -304,22 +273,18 @@
             android:screenOrientation="portrait"
             android:taskAffinity=":remote"
             android:theme="@style/Theme.AppCompat.Dialog.Alert" />
-
         <activity
             android:name="com.security.manager.SecurityIntruderSetting"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/activityTheme"></activity>
-
+            android:theme="@style/activityTheme" />
         <activity
             android:name="com.security.manager.PretentSelectorActivitySecurity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
-
-
         <activity
             android:name="com.security.manager.FullScreenActivity"
             android:excludeFromRecents="true"
@@ -328,13 +293,10 @@
             android:theme="@style/nactivityTheme">
             <intent-filter>
                 <action android:name="ivy.intent.action.full" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
-
         </activity>
-
-
         <activity
             android:name="com.security.manager.UnlockApp"
             android:allowTaskReparenting="true"
@@ -343,7 +305,6 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
-
         <activity
             android:name="com.security.manager.page.SecurityChooseThemeActivity"
             android:allowTaskReparenting="true"
@@ -351,10 +312,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 
-
         <service android:name="com.security.manager.SecurityService" />
         <service android:name="com.security.manager.NotificationService" />
-
 
         <receiver android:name="com.security.manager.WidgetReceiver">
             <intent-filter>
@@ -380,6 +339,7 @@
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
@@ -387,8 +347,12 @@
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
+
     </application>
+
 </manifest>

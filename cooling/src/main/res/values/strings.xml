@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">cooling</string>
+
+    <string name="ivy_battery_cooling_on">Is cooling...</string>
+    <string name="ivy_battery_cooling_end">Has successfully cooled</string>
+    <string name="ivy_battery_clean_complete">Complete</string>
+
+</resources>

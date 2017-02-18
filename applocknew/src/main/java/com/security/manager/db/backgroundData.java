@@ -29,9 +29,13 @@ public class backgroundData {
     private static final backgroundData data = new backgroundData();
 
     public static void onReceiveData(Context context, String extraJson) {
+        Log.e("myurl","data---"+extraJson);
+
         try {
             JSONObject newData = new JSONObject(extraJson);
             data.onReceive(context, newData);
+
+            Log.e("data",newData.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -45,20 +49,27 @@ public class backgroundData {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        try {
-            if (newObj.has(KEY_NEW_VERSION)) {
-                Log.e("mtt", "version" + "");
-                int versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-                JSONObject version = newObj.getJSONObject(KEY_NEW_VERSION);
-                int serverCode = version.getInt(KEY_VERSION_CODE);
-                if (serverCode > versionCode) {
-                    ShowDialogview.showNewVersion(context);
-                }
-//                if (version.getInt(KEY_VERSION_CODE) > versionCode) {
-//                    sp.edit().putBoolean(KEY_NEW_VERSION, true).putString(KEY_VERSION_EDITION, version.getString(KEY_VERSION_EDITION))
-//                            .putString(KEY_NEW_VERSION_DESC, version.getString(KEY_NEW_VERSION_DESC)).apply();
 
-            }
+        Log.e("myurl","---------mynewurl");
+        if (newObj.has(KEY_THEME_ICON)) {
+            String dailyurl = newObj.getString(KEY_THEME_ICON);
+            Log.e("myurl",dailyurl+"------1");
+            SecurityMyPref.setDailyUrl(dailyurl);
+        }
+        try {
+//            if (newObj.has(KEY_NEW_VERSION)) {
+//                Log.e("mtt", "version" + "");
+//                int versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+//                JSONObject version = newObj.getJSONObject(KEY_NEW_VERSION);
+//                int serverCode = version.getInt(KEY_VERSION_CODE);
+//                if (serverCode > versionCode) {
+//                    ShowDialogview.showNewVersion(context);
+//                }
+////                if (version.getInt(KEY_VERSION_CODE) > versionCode) {
+////                    sp.edit().putBoolean(KEY_NEW_VERSION, true).putString(KEY_VERSION_EDITION, version.getString(KEY_VERSION_EDITION))
+////                            .putString(KEY_NEW_VERSION_DESC, version.getString(KEY_NEW_VERSION_DESC)).apply();
+//
+//            }
             if (newObj.has(KEY_SHOW_LOCK_ALL)) {
                 int lockvalue = newObj.getInt(KEY_SHOW_LOCK_ALL);
                 if (lockvalue == 1) {
@@ -67,16 +78,12 @@ public class backgroundData {
                     SecurityMyPref.setshowLockAll(false);
                 }
             }
-            if (newObj.has(KEY_THEME_ICON)) {
-                String dailyurl = newObj.getString(KEY_THEME_ICON);
-                SecurityMyPref.setDailyUrl(dailyurl);
 
-            }
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("exception", e.getMessage());
+            Log.e("dowloadexception", e.getMessage());
         }
 
 

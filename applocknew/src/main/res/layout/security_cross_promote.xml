@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@android:color/transparent"
+
+    android:gravity="center">
+
+
+    <ImageView
+        android:id="@+id/cross_battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/security_cross_battery" />
+
+
+    <ImageView
+        android:id="@+id/cross_clear"
+        android:layout_marginLeft="88dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/security_cross_clear" />
+
+
+    <ImageView
+        android:id="@+id/cross_flash"
+        android:layout_marginLeft="88dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/security_cross_more" />
+
+</LinearLayout>

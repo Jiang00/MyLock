@@ -19,4 +19,7 @@
     <dimen name="numpad_stroke_width">1dp</dimen>
     <dimen name="passwd_stroke_width">1dp</dimen>
     <dimen name="pattern_outer_stroke_width">1dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

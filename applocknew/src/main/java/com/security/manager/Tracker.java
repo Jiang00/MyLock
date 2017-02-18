@@ -122,6 +122,12 @@ public class Tracker {
     public static final String CATE_ACTION__LOCK_PAGE = "应用解锁界面";
     public static final String CATE_ACTION__LOCK_SUSSFUL = "应用解锁成功";
     public static final String CATE_ACTION__LOCK_PAGE_PKG = "解锁界面应用包名";
+    public static final String CATE_ACTION__CHOOSE_THEME = "皮肤选择";
+    public static final String CATE_ACTION__CHOOSE_THEME_ONE = "第一套皮肤点击";
+    public static final String CATE_ACTION__CHOOSE_THEME_TWO = "第二套皮肤点击";
+    public static final String CATE_ACTION__CROSS_ONE = "点击交叉推广位1";
+    public static final String CATE_ACTION__CROSS_TWO = "点击交叉推广位2";
+    public static final String CATE_ACTION__CROSS_THREE = "点击交叉推广位3";
     public static void sendEvent(String cateException, String actCrash, String s, long l) {
 
         AndroidSdk.track(cateException, actCrash, s, (int) l);

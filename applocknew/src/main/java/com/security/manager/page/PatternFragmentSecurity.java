@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -92,7 +93,6 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
             @Override
             public void onClick(View v) {
                 try {
-
                     ISecurityBridge bridge = SecurityTheBridge.bridge;
                     if (Utility.isGrantedAllPermission(App.getContext())) {
                         if (bridge != null) {
@@ -147,6 +147,7 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
 //            Picasso.with(App.getContext()).load(SecurityMyPref.getDailyUrl()).into(dlyp);
 //            Utility.loadImg(App.getContext(),SecurityMyPref.getDailyUrl(),dlyp,App.getContext().getResources().getIdentifier("security_icon_daily", "drawable", App.getContext().getPackageName()));
             String dailyUrl = SecurityMyPref.getDailyUrl();
+            Log.e("myurl",dailyUrl+"------2");
             Bitmap bitmap = SdkCache.cache().readBitmap(dailyUrl, null, true);
             if (bitmap == null) {
                 dlyp.setImageDrawable(App.getContext().getResources().getDrawable(R.drawable.security_icon_theme));

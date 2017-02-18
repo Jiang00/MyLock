@@ -476,6 +476,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     defalutImageview.setVisibility(View.VISIBLE);
                     chooseImageView.setVisibility(View.GONE);
                     SecurityMyPref.setThemeValue(1);
+                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.CATE_ACTION__CHOOSE_THEME,Tracker.CATE_ACTION__CHOOSE_THEME_ONE,1L);
                 }
             });
             chooseTheme.setOnClickListener(new View.OnClickListener() {
@@ -484,6 +485,8 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     defalutImageview.setVisibility(View.GONE);
                     chooseImageView.setVisibility(View.VISIBLE);
                     SecurityMyPref.setThemeValue(2);
+                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.CATE_ACTION__CHOOSE_THEME,Tracker.CATE_ACTION__CHOOSE_THEME_TWO,1L);
+
                 }
             });
 

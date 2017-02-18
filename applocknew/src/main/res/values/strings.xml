@@ -149,6 +149,6 @@
     <string name="security_settings_preference_desc">In order to get perfect protection, we recommend you to enable all permissions.</string>
     <string name="security_loading_fullad_fail">Advertisement loading failed, please try again later</string>
     <string name="security_click_change">Next Ad</string>
-	<string name="security_choose_theme">Choose theme</string>
+    <string name="security_choose_theme">Choose theme</string>
 
 </resources>

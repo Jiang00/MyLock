@@ -6,10 +6,324 @@
     "show_lockall":1,
     "daily": "com.lockstudio.lockscreen.pinkflowers&referrer=utm_source%3DgalaxyDaily",
     "unlock": "com.lockstudio.lockscreen.reddiamond&referrer=utm_source%3Dgalaxyunlock",
+    "version": 87,
     "icon": "https://65.media.tumblr.com/15e02ea64cd53ff4eaa2b447ed2c8e8b/tumblr_oerbqeAoVg1vdy83bo2_75sq.png",
     "icon_theme": "https://68.media.tumblr.com/51719b68e3e54eabea22b649217cc3ec/tumblr_oixy97baE51sxao59o1_75sq.png",
     "more": "http://moreapp.us/more",
     "cross": "market://details?id=com.privacylock.guest",
+
+    "promotionSequence": [
+      {
+        "adPosition": "ad1",
+        "sequence": [
+          2
+        ]
+      },
+      {
+        "adPosition": "ad2",
+        "sequence": [
+          4
+        ]
+      },
+      {
+        "adPosition": "ad3",
+        "sequence": [
+          7,
+          6,
+          5,
+          3,
+          0
+        ]
+      }
+    ],
+    "crossPromotion": [
+      {
+        "index": 0,
+        "pkg": "com.ivymobi.launcher.free",
+        "url": "com.ivymobi.launcher.free",
+        "appName": [
+          {
+            "lag": "en",
+            "content": "Launcher"
+          },
+          {
+            "lag": "es",
+            "content": "Launcher"
+          },
+          {
+            "lag": "pt",
+            "content": "Launcher"
+          }
+        ],
+        "appIconUrl": "https://68.media.tumblr.com/e2831fce3f7773c1bf4008451602a016/tumblr_oij3nlmk1B1sxao59o1_250.png",
+        "bannerUrl": "https://68.media.tumblr.com/5caa3777715a34867550057f4f4513c3/tumblr_oij3n9FN5t1sxao59o1_400.png",
+        "bannerContent": [
+          {
+            "lag": "en",
+            "content": [
+              "#1 Top Ranked Launcher",
+              "Small, Smart & Simple",
+              "Beautiful Wallpapers & Themes"
+            ]
+          },
+          {
+            "lag": "es",
+            "content": [
+              "# 1 Lanzador mejor clasificado",
+              "Peque帽o, inteligente y simple",
+              "Fondos y temas hermosos"
+            ]
+          },
+          {
+            "lag": "pt",
+            "content": [
+              "# 1 Lan莽ador com classifica莽茫o superior",
+              "Pequeno, inteligente e simples",
+              "Pap茅is de parede & temas bonitos"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "pkg": "com.ivymobi.applock.free",
+        "url": "com.ivymobi.applock.free",
+        "appName": [
+          {
+            "lag": "en",
+            "content": "AppLock"
+          },
+          {
+            "lag": "es",
+            "content": "Cerradura"
+          },
+          {
+            "lag": "pt",
+            "content": "Bloqueio"
+          }
+        ],
+        "appIconUrl": "https://68.media.tumblr.com/942711db89e968fb9e244988c9abbb32/tumblr_oij3iwZbTv1sxao59o1_250.png",
+        "bannerUrl": "https://68.media.tumblr.com/dfe241cef94717f0728f417e7cb1a5d6/tumblr_oij3ifCu271sxao59o1_400.png",
+        "bannerContent": [
+          {
+            "lag": "en",
+            "content": [
+              "Secure & free applock!",
+              "Lock apps, hide photos & videos!",
+              "Catch intruders to protect privacy!"
+            ]
+          },
+          {
+            "lag": "es",
+            "content": [
+              "Secure & free applock!",
+              "Lock apps, hide photos & videos!",
+              "Catch intruders to protect privacy!"
+            ]
+          },
+          {
+            "lag": "pt",
+            "content": [
+              "Secure & free applock!",
+              "Lock apps, hide photos & videos!",
+              "Catch intruders to protect privacy!"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "pkg": "com.ivymobi.battery.free",
+        "url": "com.ivymobi.battery.free",
+        "appName": [
+          {
+            "lag": "en",
+            "content": "Battery"
+          },
+          {
+            "lag": "es",
+            "content": "Battery"
+          },
+          {
+            "lag": "pt",
+            "content": "Battery"
+          }
+        ],
+        "appIconUrl": "https://68.media.tumblr.com/82402574b2f0b21cbbafe0e534fd00b5/tumblr_oij3jmyx0X1sxao59o1_250.png",
+        "bannerUrl": "https://68.media.tumblr.com/4e4f9006afd735608c24927cf6395767/tumblr_oij3j9P2dM1sxao59o1_400.png",
+        "bannerContent": [
+          {
+            "lag": "en",
+            "content": [
+              "Free Battery Saver",
+              "Monitor power consumption",
+              "Phone cooler & charging protector"
+            ]
+          },
+          {
+            "lag": "es",
+            "content": [
+              "Free Battery Saver",
+              "Monitor power consumption",
+              "Phone cooler & charging protector"
+            ]
+          },
+          {
+            "lag": "pt",
+            "content": [
+              "Free Battery Saver",
+              "Monitor power consumption",
+              "Phone cooler & charging protector"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "pkg": "com.ivymobi.cleaner.free",
+        "url": "com.ivymobi.cleaner.free",
+        "appName": [
+          {
+            "lag": "en",
+            "content": "Cleaner"
+          },
+          {
+            "lag": "es",
+            "content": "Cleaner"
+          },
+          {
+            "lag": "pt",
+            "content": "Cleaner"
+          }
+        ],
+        "appIconUrl": "https://68.media.tumblr.com/8da6449659651544d3e96b36c1ece739/tumblr_oij3mx6ApI1sxao59o1_250.png",
+        "bannerUrl": "https://68.media.tumblr.com/a921575a38ef8fffc977c7918898a876/tumblr_oij3mjdb0f1sxao59o1_400.png",
+        "bannerContent": [
+          {
+            "lag": "en",
+            "content": [
+              "Clean junk files!",
+              "RAM booster & CPU cooler!",
+              "Smart & Free Speed Cleaner!"
+            ]
+          },
+          {
+            "lag": "es",
+            "content": [
+              "Clean junk files!",
+              "RAM booster & CPU cooler!",
+              "Smart & Free Speed Cleaner!"
+            ]
+          },
+          {
+            "lag": "pt",
+            "content": [
+              "Clean junk files!",
+              "RAM booster & CPU cooler!",
+              "Smart & Free Speed Cleaner!"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "pkg": "com.ivymobi.alarmclock.free",
+        "url": "com.ivymobi.alarmclock.free",
+        "appName": [
+          {
+            "lag": "en",
+            "content": "Alarm Clock"
+          },
+          {
+            "lag": "es",
+            "content": "Alarm Clock"
+          },
+          {
+            "lag": "pt",
+            "content": "Alarm Clock"
+          }
+        ],
+        "appIconUrl": "https://68.media.tumblr.com/fa63e208897db57708dee250b60395d9/tumblr_oij3i1zDKZ1sxao59o1_250.png",
+        "bannerUrl": "https://68.media.tumblr.com/40a018583c589a81661706c353751c2a/tumblr_oij3hlDjvG1sxao59o1_400.png",
+        "bannerContent": [
+          {
+            "lag": "en",
+            "content": [
+              "Intuitive Alarm Clock!",
+              "LCD-style alarm clock display!",
+              "Timer & Stopwatch, more powerful!"
+            ]
+          },
+          {
+            "lag": "es",
+            "content": [
+              "Intuitive Alarm Clock!",
+              "LCD-style alarm clock display!",
+              "Timer & Stopwatch, more powerful!"
+            ]
+          },
+          {
+            "lag": "pt",
+            "content": [
+              "Intuitive Alarm Clock!",
+              "LCD-style alarm clock display!",
+              "Timer & Stopwatch, more powerful!"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "pkg": "com.ivymobi.recorder.free",
+        "url": "com.ivymobi.recorder.free",
+        "appName": [
+          {
+            "lag": "en",
+            "content": "Call Recorder"
+          },
+          {
+            "lag": "es",
+            "content": "Call Recorder"
+          },
+          {
+            "lag": "pt",
+            "content": "Call Recorder"
+          }
+        ],
+        "appIconUrl": "https://68.media.tumblr.com/4260e0635c59261140e5581db0e5ffaf/tumblr_oij3kow4p31sxao59o1_250.png",
+        "bannerUrl": "https://68.media.tumblr.com/6bcee37cd53a03c9832f7e19ee107796/tumblr_oij3k0yJPj1sxao59o1_400.png",
+        "bannerContent": [
+          {
+            "lag": "en",
+            "content": [
+              "Record calls as required!",
+              "Save records in MP3 format!",
+              "Easy to query call record list!"
+            ]
+          },
+          {
+            "lag": "es",
+            "content": [
+              "Record calls as required!",
+              "Save records in MP3 format!",
+              "Easy to query call record list!"
+            ]
+          },
+          {
+            "lag": "pt",
+            "content": [
+              "Record calls as required!",
+              "Save records in MP3 format!",
+              "Easy to query call record list!"
+            ]
+          }
+        ]
+      }
+    ],
+
+
+
+
     "themes": [
       {
         "url": "com.lockstudio.lockscreen.pinkmood&referrer=utm_source%3Dtheme7",

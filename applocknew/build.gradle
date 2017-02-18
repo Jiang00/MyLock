@@ -30,7 +30,7 @@ android {
         testApplicationId "com.security.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
         versionCode 1
-        versionName 'v2.3.2.1'
+        versionName 'v2.5.2.3'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
         buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
@@ -88,12 +88,15 @@ dependencies {
     compile project(':model')
 //    compile 'com.privacy.lib:common:1.1.0'
     compile 'com.core:empty:1.1.6'
-    compile 'com.ivy.ui:ivyui:1.4.7'
+    compile 'com.ivy.ui:ivyui:1.5.3'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':baselibrary')
-    compile('com.ivy.module:themestore:1.5.5', {
+    compile('com.ivy.module:themestore:1.5.6', {
         exclude group: 'com.google.code.gson', module: 'gson'
     })
 //    compile project(':fingerprint')
+    compile 'com.ivy.module:ivyhuojian:1.0.3'
+    compile project(':cooling')
+
 
 }

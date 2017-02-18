@@ -25,7 +25,6 @@ public class Notification {
     public Notification(Context context) {
         this.context = context;
         n = _getNotification(context);
-
     }
 
     public void updateNotification(int id) {
@@ -74,7 +73,7 @@ public class Notification {
         }
 
 
-        int requestCode = (int) SystemClock.uptimeMillis();
+        int requestCode = (int) System.currentTimeMillis();
 
         PendingIntent pendIntent = PendingIntent.getActivity(context, requestCode,
                 notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
