@@ -151,4 +151,35 @@
     <string name="security_click_change">ایک اور ایک کی کوشش کریں</string>
 	<string name="security_choose_theme">موضوع کا انتخاب کریں</string>
 	
+	<string name="security_user_center">کوئی اشتھارات</string>
+    <string name="security_user_pro">مکمل خصوصیت کی کوئی پریشان اشتھارات کے ساتھ دستیاب ہیں. محدود وقت کی پیشکش.</string>
+    <string name="security_user_free">مکمل خصوصیت دستیاب ہیں اور ہماری حمایت اشتھارات کو دیکھتے ہیں.</string>
+    <string name="security_user_limit">کوئی اشتہارات آپ کو پریشان، تاہم، صرف Lock اپلی کیشن دستیاب ہے.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">FREE</string>
+    <string name="security_user_limit_name">LIMIT</string>
+    <string name="security_user_pro_name_bootom">کوئی اشتہارات / لا محدود</string>
+    <string name="security_user_free_name_bootom">اشتہارات / لا محدود</string>
+    <string name="security_user_limit_name_bootom">کوئی اشتہارات / لمیٹڈ</string>
+    <string name="security_user_slide_text_inf">آپ اس سہولت کو استعمال کرنا چاہتے ہیں تو، آپ کی منصوبہ بندی کو اپ گریڈ کریں.</string>
+    <string name="security_user_slide_text_not">ابھی نہیں</string>
+    <string name="security_user_slide_text_upgrade">اپ گریڈ</string>
+    <string name="security_user_limit_des">انتخاب کریں اس حد کو ان کی خصوصیات کے استعمال سے محروم ہوجائیں گے کا مطلب ہے:</string>
+    <string name="security_user_limit_intruder">گھسپیٹھیوں کی تصویر کی گرفتاری ×</string>
+    <string name="security_user_limit_fake">AppLock کے آئکن کو تبدیل کریں ×</string>
+    <string name="security_user_limit_theme">خوبصورت موضوعات کے منتخب ٹن ×</string>
+    <string name="security_user_limit_confirm">تصدیق کریں</string>
+    <string name="security_user_limit_compare">کا موازنہ کریں</string>
+    <string name="security_user_compare_lockapp">لاک آپلیکیشنز</string>
+    <string name="security_user_compare_lockapp_inf">لاک فیس بک، وغیرہ</string>
+    <string name="security_user_no_ad_compare">کوئی اشتھارات</string>
+    <string name="security_user_compare_no_ad_inf">صاف UI لطف اٹھائیں</string>
+    <string name="security_user_compare_intruder_self">گھسپیٹھیی</string>
+    <string name="security_user_limit_intruder_self_inf">گھسپیٹھیا کی تصویر لے لو</string>
+    <string name="security_user_compare_fake_cover">جعلی کور</string>
+    <string name="security_user_compare_fake_cover_inf">تبدیل AppLock کا آئکن</string>
+    <string name="security_user_compare_theme_change">موضوعات</string>
+    <string name="security_user_compare_theme_inf">100+ خوبصورت موضوعات</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">مفت کے منتخب</string>
 </resources>

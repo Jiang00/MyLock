@@ -314,8 +314,9 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     }
 
     protected void askForExit() {
-        super.onBackPressed();
         AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+
+        super.onBackPressed();
 
     }
 
@@ -404,15 +405,22 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
         } else if (edit) {
             exitEditMode();
         } else if (menu != null && !menu.isLock()) {
+            Log.e("value","close1");
             SlideMenu.Status status = menu.getStatus();
-            if (status == SlideMenu.Status.Close)
-                menu.open();
+            if (status == SlideMenu.Status.Close) menu.open();
+
             else if (status == SlideMenu.Status.OpenRight) {
                 menu.close();
+                Log.e("value","close2");
+
             } else
                 askForExit();
+            Log.e("value","close3");
+
         } else
             super.onBackPressed();
+        Log.e("value","close4");
+
     }
 
     protected void exitEditMode() {

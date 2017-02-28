@@ -435,13 +435,22 @@ public class SecurityMyPref {
     }
 
 
-    public static void setFirstShowCorss(boolean yes) {
+    public static void setShowCross(boolean yes) {
         App.getSharedPreferences().edit().putBoolean("show_cross_f_al", yes).apply();
     }
 
-    public static boolean getFirstShowCross() {
-        return App.getSharedPreferences().getBoolean("show_cross_f_al", false);
+    public static boolean getShowCross() {
+        return App.getSharedPreferences().getBoolean("show_cross_f_al", true);
     }
+
+    public static void setUserCenter(int yes) {
+        App.getSharedPreferences().edit().putInt("show_user_c_f_al", yes).apply();
+    }
+
+    public static int getUserCenter() {
+        return App.getSharedPreferences().getInt("show_user_c_f_al", 1);
+    }
+
 
 
 }

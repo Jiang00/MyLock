@@ -151,4 +151,35 @@
     <string name="security_click_change">एक दूसरे की कोशिश करें</string>
 	<string name="security_choose_theme">विषय चुनें</string>
 	
+	<string name="security_user_center">विज्ञापन नहीं</string>
+    <string name="security_user_pro">पूर्ण सुविधा की कोई कष्टप्रद विज्ञापनों के साथ उपलब्ध हैं। सीमित समय पेशकश।</string>
+    <string name="security_user_free">पूर्ण सुविधा उपलब्ध हैं और हमें समर्थन करने के लिए विज्ञापनों को देखते हैं।</string>
+    <string name="security_user_limit">कोई विज्ञापन आपको परेशान, तथापि, केवल लॉक अनुप्रयोग उपलब्ध है।</string>
+    <string name="security_user_pro_name">समर्थक</string>
+    <string name="security_user_free_name">मुक्त</string>
+    <string name="security_user_limit_name">हद</string>
+    <string name="security_user_pro_name_bootom">कोई विज्ञापन / असीमित</string>
+    <string name="security_user_free_name_bootom">विज्ञापन / असीमित</string>
+    <string name="security_user_limit_name_bootom">कोई विज्ञापन / लिमिटेड</string>
+    <string name="security_user_slide_text_inf">आप इस सुविधा का उपयोग करना चाहते हैं, तो अपनी योजना अपग्रेड करें।</string>
+    <string name="security_user_slide_text_not">अभी नहीं</string>
+    <string name="security_user_slide_text_upgrade">नवीनीकरण</string>
+    <string name="security_user_limit_des">चुनें सीमा का मतलब है कि आप इन सुविधाओं का उपयोग खो देंगे:</string>
+    <string name="security_user_limit_intruder">× घुसपैठियों की छवि पर कब्जा</string>
+    <string name="security_user_limit_fake">× AppLock के आइकन बदलें</string>
+    <string name="security_user_limit_theme">× खूबसूरत विषयों के टन का चयन</string>
+    <string name="security_user_limit_confirm">की पुष्टि करें</string>
+    <string name="security_user_limit_compare">तुलना</string>
+    <string name="security_user_compare_lockapp">लॉक Apps</string>
+    <string name="security_user_compare_lockapp_inf">फेसबुक लॉक, आदि</string>
+    <string name="security_user_no_ad_compare">विज्ञापन नहीं</string>
+    <string name="security_user_compare_no_ad_inf">साफ यूआई का आनंद लें</string>
+    <string name="security_user_compare_intruder_self">घुसेड़नेवाला</string>
+    <string name="security_user_limit_intruder_self_inf">घुसपैठिए की तस्वीर ले लो</string>
+    <string name="security_user_compare_fake_cover">नकली आवरण</string>
+    <string name="security_user_compare_fake_cover_inf">AppLock बदलें आइकन</string>
+    <string name="security_user_compare_theme_change">विषय-वस्तु</string>
+    <string name="security_user_compare_theme_inf">100+ खूबसूरत विषयों</string>
+	<string name="security_user_compare_go_pro">समर्थक</string>
+    <string name="security_user_plan_free_click">मुक्त चुने गए</string>
 </resources>

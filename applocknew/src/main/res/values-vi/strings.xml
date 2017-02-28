@@ -150,4 +150,36 @@
 	<string name="security_loading_fullad_fail">tải quảng cáo được, vui lòng thử lại sau</string>
     <string name="security_click_change">Hãy thử một số khác</string>
 	<string name="security_choose_theme">Chọn chủ đề</string>
+	
+	<string name="security_user_center">Không quảng cáo</string>
+    <string name="security_user_pro">đầy đủ tính năng có sẵn không có quảng cáo gây phiền nhiễu. Giới hạn thời gian cung cấp.</string>
+    <string name="security_user_free">đầy đủ tính năng có sẵn và xem quảng cáo để ủng hộ chúng tôi.</string>
+    <string name="security_user_limit">Không có quảng cáo làm phiền bạn, tuy nhiên, chỉ Khóa ứng dụng có sẵn.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">MIỄN PHÍ</string>
+    <string name="security_user_limit_name">GIỚI HẠN</string>
+    <string name="security_user_pro_name_bootom">Không có quảng cáo / Unlimited</string>
+    <string name="security_user_free_name_bootom">Quảng cáo / giới hạn</string>
+    <string name="security_user_limit_name_bootom">Không có quảng cáo / Giới hạn</string>
+    <string name="security_user_slide_text_inf">Nếu bạn muốn sử dụng tính năng này, hãy nâng cấp kế hoạch của bạn.</string>
+    <string name="security_user_slide_text_not">Không</string>
+    <string name="security_user_slide_text_upgrade">nâng cấp</string>
+    <string name="security_user_limit_des">Chọn giới hạn có nghĩa là bạn sẽ mất việc sử dụng các tính năng:</string>
+    <string name="security_user_limit_intruder">× Chụp hình ảnh của những kẻ xâm nhập</string>
+    <string name="security_user_limit_fake">× Thay đổi biểu tượng của AppLock</string>
+    <string name="security_user_limit_theme">× Chọn tấn chủ đề đẹp</string>
+    <string name="security_user_limit_confirm">Xác nhận</string>
+    <string name="security_user_limit_compare">So sánh</string>
+    <string name="security_user_compare_lockapp">Khóa Apps</string>
+    <string name="security_user_compare_lockapp_inf">Khóa Facebook, vv</string>
+    <string name="security_user_no_ad_compare">Không quảng cáo</string>
+    <string name="security_user_compare_no_ad_inf">Giao diện người dùng sạch</string>
+    <string name="security_user_compare_intruder_self">Intruder</string>
+    <string name="security_user_limit_intruder_self_inf">Chụp ảnh mặt kẻ đột nhập</string>
+    <string name="security_user_compare_fake_cover">Bìa Fake</string>
+    <string name="security_user_compare_fake_cover_inf">Thay đổi biểu tượng AppLock</string>
+    <string name="security_user_compare_theme_change">chủ đề</string>
+    <string name="security_user_compare_theme_inf">100+ chủ đề đẹp</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">miễn phí chọn</string>
 </resources>

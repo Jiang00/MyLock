@@ -150,5 +150,37 @@
 	<string name="security_loading_fullad_fail">Реклама загрузка не удалась, попробуйте еще раз позже</string>
     <string name="security_click_change">Пожалуйста, попробуйте другой</string>
 	<string name="security_choose_theme">Выбрать тему</string>
+	
+	<string name="security_user_center">Без рекламы</string>
+    <string name="security_user_pro">Полные функции доступны без каких-либо раздражающих объявлений.</string>
+    <string name="security_user_free">Полные функции доступны и смотреть рекламу, чтобы поддержать нас.</string>
+    <string name="security_user_limit">Нет объявлений беспокоить вас, однако, только блокировка App доступна.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">СВОБОДНО</string>
+    <string name="security_user_limit_name">ПРЕДЕЛ</string>
+    <string name="security_user_pro_name_bootom">Нет объявлений / Неограниченный</string>
+    <string name="security_user_free_name_bootom">Объявления / Неограниченный</string>
+    <string name="security_user_limit_name_bootom">Нет объявлений / Limited</string>
+    <string name="security_user_slide_text_inf">Если вы хотите использовать эту функцию, пожалуйста, обновите ваш план.</string>
+    <string name="security_user_slide_text_not">Не сейчас</string>
+    <string name="security_user_slide_text_upgrade">Обновить</string>
+    <string name="security_user_limit_des">Выберите предел означает, что вы потеряете использование этих функций:</string>
+    <string name="security_user_limit_intruder">× Захват изображения злоумышленниками</string>
+    <string name="security_user_limit_fake">× Изменить иконку AppLock</string>
+    <string name="security_user_limit_theme">× Выбор тонны красивых тем</string>
+    <string name="security_user_limit_confirm">подтвердить</string>
+    <string name="security_user_limit_compare">сравнить</string>
+    <string name="security_user_compare_lockapp">Блокировка приложения</string>
+    <string name="security_user_compare_lockapp_inf">Блокировка Facebook и т.д.</string>
+    <string name="security_user_no_ad_compare">Без рекламы</string>
+    <string name="security_user_compare_no_ad_inf">Наслаждайтесь чистым UI</string>
+    <string name="security_user_compare_intruder_self">нарушитель</string>
+    <string name="security_user_limit_intruder_self_inf">Возьмите вторжении фото</string>
+    <string name="security_user_compare_fake_cover">Поддельный Обложка</string>
+    <string name="security_user_compare_fake_cover_inf">Значок Изменение AppLock</string>
+    <string name="security_user_compare_theme_change">Темы</string>
+    <string name="security_user_compare_theme_inf">100+ красивые темы</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">бесплатно выбран</string>
 </resources>
 

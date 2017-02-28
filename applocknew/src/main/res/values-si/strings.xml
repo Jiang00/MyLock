@@ -150,4 +150,36 @@
 	<string name="security_loading_fullad_fail">දැන්වීමක් පැටවීම අසමත්, කරුණාකර පසුව නැවත උත්සාහ කරන්න</string>
     <string name="security_click_change">තවත් එක් උත්සාහ කරන්න</string>
 	<string name="security_choose_theme">තේමාවක් තෝරාගැනීම</string>
+	
+	<string name="security_user_center">කිසිදු දැන්වීම්</string>
+    <string name="security_user_pro">පූර්ණ ලක්ෂණය කිසිදු දැන්වීම් කරදර කාරී සමග ලබා ගත හැකිය. සීමාසහිත කාල ඉල්ලුමට.</string>
+    <string name="security_user_free">පූර්ණ ලක්ෂණය ලබා ගත හැකි වන අතර අපට සහාය දැන්වීම් බලාගන්න.</string>
+    <string name="security_user_limit">කිසිදු දැන්වීම් චෝදනාව ඔබ පිළිගන්නේ, කෙසේ වෙතත්, එකම ලොක් ඇප් ලබා ගත හැක.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">නිදහස්</string>
+    <string name="security_user_limit_name">සීමාව</string>
+    <string name="security_user_pro_name_bootom">කිසිදු දැන්වීම් / අසීමිත</string>
+    <string name="security_user_free_name_bootom">දැන්වීම් / අසීමිත</string>
+    <string name="security_user_limit_name_bootom">දැන්වීම් / ලිමිටඩ්, අංක</string>
+    <string name="security_user_slide_text_inf">ඔබ මෙම අංගය භාවිතා කිරීමට අවශ්ය නම්, ඔබේ සැලසුම ප්රගමනය කරන්න.</string>
+    <string name="security_user_slide_text_not">දැන් නෙවෙයි</string>
+    <string name="security_user_slide_text_upgrade">උත්ශ්රේණි කිරීම</string>
+    <string name="security_user_limit_des">සීමාව මෙම විශේෂාංග භාවිතා කිරීම අහිමි වනු ඇත යන්නයි තෝරන්න:</string>
+    <string name="security_user_limit_intruder">× කොල්ලකරුවන් ප්රතිරූපය අල්ලා</string>
+    <string name="security_user_limit_fake">× AppLock ඇති අයිකනය වෙනස්</string>
+    <string name="security_user_limit_theme">× ලස්සන තේමා ටොන් තෝරන්න</string>
+    <string name="security_user_limit_confirm">තහවුරු කරන්න</string>
+    <string name="security_user_limit_compare">සසඳා බලන්න</string>
+    <string name="security_user_compare_lockapp">අගුලු යෙදුම්</string>
+    <string name="security_user_compare_lockapp_inf">ෆේස්බුක් ලොක් සහ වඩාත්</string>
+    <string name="security_user_no_ad_compare">කිසිදු දැන්වීම්</string>
+    <string name="security_user_compare_no_ad_inf">මගින් පිරිසිදු UI භුක්ති</string>
+    <string name="security_user_compare_intruder_self">අනවසරයෙන් ඇතුල්</string>
+    <string name="security_user_limit_intruder_self_inf">අනවසරයෙන් ඇතුල් වූ ඡායාරූපයක් ගන්න</string>
+    <string name="security_user_compare_fake_cover">ව්යාජ කවරය</string>
+    <string name="security_user_compare_fake_cover_inf">වෙනස් AppLock අයිකනය</string>
+    <string name="security_user_compare_theme_change">තේමාවන්</string>
+    <string name="security_user_compare_theme_inf">100+ ලස්සන තේමා</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">නොමිලේ තෝරාගත්</string>
 </resources>

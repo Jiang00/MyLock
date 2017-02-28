@@ -150,5 +150,37 @@
 	<string name="security_loading_fullad_fail">বিজ্ঞাপন লোড করতে ব্যর্থ হয়েছি, আবার পরে চেষ্টা করুন</string>
     <string name="security_click_change">অন্য এক পরিবর্তন করুন</string>
 	<string name="security_choose_theme">থিম পছন্দ করুন</string>
+	
+	<string name="security_user_center">কোন বিজ্ঞপ্তি</string>
+    <string name="security_user_pro">সম্পূর্ণ বৈশিষ্ট্য কোন বিরক্তিকর বিজ্ঞাপন সঙ্গে পাওয়া যায়. সীমিত সময়ের প্রস্তাব.</string>
+    <string name="security_user_free">সম্পূর্ণ বৈশিষ্ট্য পাওয়া যায় এবং আমাদের সমর্থন করার জন্য বিজ্ঞাপন পর্যবেক্ষণ.</string>
+    <string name="security_user_limit">কোন বিজ্ঞাপন আপনাকে বিরক্ত, তবে শুধুমাত্র লক অ্যাপ পাওয়া যায়.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">বিনামূল্যে</string>
+    <string name="security_user_limit_name">সীমা</string>
+    <string name="security_user_pro_name_bootom">কোন বিজ্ঞাপন / আনলিমিটেড</string>
+    <string name="security_user_free_name_bootom">বিজ্ঞপ্তি / আনলিমিটেড</string>
+    <string name="security_user_limit_name_bootom">কোন বিজ্ঞপ্তি / সীমিত</string>
+    <string name="security_user_slide_text_inf">যদি আপনি এই বৈশিষ্ট্যটি ব্যবহার করতে চান তাহলে, আপনি পরিকল্পনা আপগ্রেড করুন.</string>
+    <string name="security_user_slide_text_not">এখন না</string>
+    <string name="security_user_slide_text_upgrade">আপগ্রেড</string>
+    <string name="security_user_limit_des">চয়ন সীমা মানে এইসব বৈশিষ্ট্যের ব্যবহার হারাবেন:</string>
+    <string name="security_user_limit_intruder">× অনুপ্রবেশকারীদের এর প্রতিচ্ছবি</string>
+    <string name="security_user_limit_fake">× AppLock এর আইকন পরিবর্তন করুন</string>
+    <string name="security_user_limit_theme">× সুন্দর থিমগুলি নির্বাচন</string>
+    <string name="security_user_limit_confirm">নিশ্চিত করা</string>
+    <string name="security_user_limit_compare">তুলনা করা</string>
+    <string name="security_user_compare_lockapp">লক Apps এর</string>
+    <string name="security_user_compare_lockapp_inf">ফেসবুক লক, ইত্যাদি</string>
+    <string name="security_user_no_ad_compare">কোন বিজ্ঞপ্তি</string>
+    <string name="security_user_compare_no_ad_inf">পরিষ্কার UI তে উপভোগ করুন</string>
+    <string name="security_user_compare_intruder_self">অনধিকারপ্রবেশকারী</string>
+    <string name="security_user_limit_intruder_self_inf">প্রবেশকারী এর ছবি তুলুন</string>
+    <string name="security_user_compare_fake_cover">জাল কভার</string>
+    <string name="security_user_compare_fake_cover_inf">AppLock আইকন পরিবর্তন করুন</string>
+    <string name="security_user_compare_theme_change">থিমস</string>
+    <string name="security_user_compare_theme_inf">100+ সুন্দর থিম</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">বিনামূল্যে নির্বাচিত</string>
 </resources>
 

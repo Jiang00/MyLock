@@ -151,6 +151,36 @@
     <string name="security_click_change">يرجى تغيير واحد آخر</string>
 	<string name="security_choose_theme">أختر موضوع</string>
 	
-
+	<string name="security_user_center">لا اعلانات</string>
+    <string name="security_user_pro">تتوفر مع أي إعلانات مزعجة ميزة كاملة. عرض لوقت محدود.</string>
+    <string name="security_user_free">هي ميزة الكاملة المتوفرة ومشاهدة الإعلانات لدعم لنا.</string>
+    <string name="security_user_limit">لا توجد إعلانات يزعج لكم، ولكن فقط قفل التطبيق هو متاح.</string>
+    <string name="security_user_pro_name">طليعة</string>
+    <string name="security_user_free_name">حر</string>
+    <string name="security_user_limit_name">حد</string>
+    <string name="security_user_pro_name_bootom">لا توجد إعلانات / غير محدود</string>
+    <string name="security_user_free_name_bootom">الإعلانات / غير محدود</string>
+    <string name="security_user_limit_name_bootom">لا إعلانات / المحدودة</string>
+    <string name="security_user_slide_text_inf">إذا كنت ترغب في استخدام هذه الميزة، الرجاء الترقية كنت تخطط.</string>
+    <string name="security_user_slide_text_not">ليس الان</string>
+    <string name="security_user_slide_text_upgrade">تطوير</string>
+    <string name="security_user_limit_des">اختيار الحد يعني أنك سوف تفقد استخدام هذه الميزات:</string>
+    <string name="security_user_limit_intruder">التقاط صورة من الدخلاء ×</string>
+    <string name="security_user_limit_fake">تغيير رمز من AppLock ×</string>
+    <string name="security_user_limit_theme">اختر طن من المواضيع الجميلة ×</string>
+    <string name="security_user_limit_confirm">تؤكد</string>
+    <string name="security_user_limit_compare">قارن</string>
+    <string name="security_user_compare_lockapp">قفل التطبيقات</string>
+    <string name="security_user_compare_lockapp_inf">قفل الفيسبوك، الخ</string>
+    <string name="security_user_no_ad_compare">لا اعلانات</string>
+    <string name="security_user_compare_no_ad_inf">تتمتع واجهة المستخدم نظيفة</string>
+    <string name="security_user_compare_intruder_self">المتطفل</string>
+    <string name="security_user_limit_intruder_self_inf">أخذ صورة من الدخيل</string>
+    <string name="security_user_compare_fake_cover">تغطية وهمية</string>
+    <string name="security_user_compare_fake_cover_inf">رمز التغيير AppLock</string>
+    <string name="security_user_compare_theme_change">المواضيع</string>
+    <string name="security_user_compare_theme_inf">100+ المواضيع الجميلة</string>
+	<string name="security_user_compare_go_pro">طليعة</string>
+    <string name="security_user_plan_free_click">الحرة المختارة</string>
 </resources>
 

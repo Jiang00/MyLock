@@ -158,6 +158,17 @@
     <color name="security_numpad_inf">#8d8f9a</color>
     <color name="security_setting_line">#19ffffff</color>
 
+    <color name="security_user_center_name">#3198f5</color>
+    <color name="security_user_slide_menu_bac">#26ffffff</color>
+    <color name="security_black_38">#60000000</color>
+    <color name="security_black_56">#8e000000</color>
+    <color name="security_white_56">#8effffff</color>
+
+
+
+
+
+
 
 
 </resources>

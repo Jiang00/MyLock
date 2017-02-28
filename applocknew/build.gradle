@@ -22,7 +22,7 @@ android {
     }
 
     compileSdkVersion 23
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId "com.ivymobi.applock.free"
         minSdkVersion 11
@@ -30,7 +30,7 @@ android {
         testApplicationId "com.security.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
         versionCode 1
-        versionName 'v2.5.2.3'
+        versionName 'v2.5.2.3a'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
         buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
@@ -39,7 +39,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            shrinkResources true
+            shrinkResources false
 //          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.txt'
         }
@@ -88,14 +88,14 @@ dependencies {
     compile project(':model')
 //    compile 'com.privacy.lib:common:1.1.0'
     compile 'com.core:empty:1.1.6'
-    compile 'com.ivy.ui:ivyui:1.5.3'
+    compile 'com.ivy.ui:ivyui:1.5.6'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':baselibrary')
-    compile('com.ivy.module:themestore:1.5.6', {
+    compile('com.ivy.module:themestore:1.5.8', {
         exclude group: 'com.google.code.gson', module: 'gson'
     })
 //    compile project(':fingerprint')
-    compile 'com.ivy.module:ivyhuojian:1.0.3'
+    compile 'com.ivy.module:ivyhuojian:1.0.4'
     compile project(':cooling')
 
 

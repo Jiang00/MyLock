@@ -150,4 +150,36 @@
 	<string name="security_loading_fullad_fail">O carregamento da publicidade falhou. Tente novamente mais tarde</string>
     <string name="security_click_change">Tente outro</string>
 	<string name="security_choose_theme">Escolha o tema</string>
+	
+	<string name="security_user_center">Sem anúncios</string>
+    <string name="security_user_pro">O recurso completo está disponível sem anúncios irritantes. Tempo limitado de oferta.</string>
+    <string name="security_user_free">Os recursos completos estão disponíveis e veem os anúncios para nos ajudarem.</string>
+    <string name="security_user_limit">Nenhum anúncio o perturba, no entanto, apenas o Lock App está disponível.</string>
+    <string name="security_user_pro_name">PRÓ</string>
+    <string name="security_user_free_name">LIVRE</string>
+    <string name="security_user_limit_name">LIMITE</string>
+    <string name="security_user_pro_name_bootom">Sem anúncios / ilimitado</string>
+    <string name="security_user_free_name_bootom">Anúncios / ilimitados</string>
+    <string name="security_user_limit_name_bootom">Sem anúncios / limitado</string>
+    <string name="security_user_slide_text_inf">Se você quiser usar esse recurso, atualize seu plano.</string>
+    <string name="security_user_slide_text_not">Agora não</string>
+    <string name="security_user_slide_text_upgrade">Atualizar</string>
+    <string name="security_user_limit_des">Escolha limite significa que você perderá o uso desses recursos:</string>
+    <string name="security_user_limit_intruder">× Capture a imagem de intrusos</string>
+    <string name="security_user_limit_fake">× Alterar o ícone do AppLock</string>
+    <string name="security_user_limit_theme">× Selecione toneladas de belos temas</string>
+    <string name="security_user_limit_confirm">Confirme</string>
+    <string name="security_user_limit_compare">Comparar</string>
+    <string name="security_user_compare_lockapp">Bloquear aplicativos</string>
+    <string name="security_user_compare_lockapp_inf">Bloquear Facebook, etc.</string>
+    <string name="security_user_no_ad_compare">Sem anúncios</string>
+    <string name="security_user_compare_no_ad_inf">Desfrute da interface limpa</string>
+    <string name="security_user_compare_intruder_self">Intruso</string>
+    <string name="security_user_limit_intruder_self_inf">Tire uma foto do intruso</string>
+    <string name="security_user_compare_fake_cover">Capa falsa</string>
+    <string name="security_user_compare_fake_cover_inf">Alterar ícone do AppLock</string>
+    <string name="security_user_compare_theme_change">Temas</string>
+    <string name="security_user_compare_theme_inf">100+ belos temas</string>
+	<string name="security_user_compare_go_pro">PRÓ</string>
+    <string name="security_user_plan_free_click">GRÁTIS selecionado</string>
 </resources>

@@ -150,4 +150,36 @@
 	<string name="security_loading_fullad_fail">廣告加載失敗，請稍後再試</string>
     <string name="security_click_change">換一個看看</string>
 	<string name="security_choose_theme">選擇皮膚</string>
+	
+	<string name="security_user_center">去廣告</string>
+    <string name="security_user_pro">無廣告打擾，且可以使用全部功能，限時優惠中。</string>
+    <string name="security_user_free">可使用全部功能，並通過觀看廣告支持我們。</string>
+    <string name="security_user_limit">無廣告打擾，但僅能使用鎖應用功能。</string>
+    <string name="security_user_pro_name">高級版</string>
+    <string name="security_user_free_name">免費版</string>
+    <string name="security_user_limit_name">限制版</string>
+    <string name="security_user_pro_name_bootom">無廣告/無限制</string>
+    <string name="security_user_free_name_bootom">有廣告/無限制</string>
+    <string name="security_user_limit_name_bootom">無廣告/有限制</string>
+    <string name="security_user_slide_text_inf">如果你想使用此功能，請先升級應用鎖。</string>
+    <string name="security_user_slide_text_not">現在不</string>
+    <string name="security_user_slide_text_upgrade">升級</string>
+    <string name="security_user_limit_des">選擇限製版意味著你將無法使用以下功能：</string>
+    <string name="security_user_limit_intruder">× 抓拍入侵者</string>
+    <string name="security_user_limit_fake">× 更改應用鎖圖標</string>
+    <string name="security_user_limit_theme">× 享用精美的主題</string>
+    <string name="security_user_limit_confirm">確定</string>
+    <string name="security_user_limit_compare">比較</string>
+    <string name="security_user_compare_lockapp">鎖應用</string>
+    <string name="security_user_compare_lockapp_inf">鎖Facebook和其他程式</string>
+    <string name="security_user_no_ad_compare">無廣告</string>
+    <string name="security_user_compare_no_ad_inf">享受純淨的界面</string>
+    <string name="security_user_compare_intruder_self">入侵者拍照</string>
+    <string name="security_user_limit_intruder_self_inf">抓拍入侵者</string>
+    <string name="security_user_compare_fake_cover">應用偽裝</string>
+    <string name="security_user_compare_fake_cover_inf">更改應用鎖圖標</string>
+    <string name="security_user_compare_theme_change">主題</string>
+    <string name="security_user_compare_theme_inf">100多種精美主題</string>
+	<string name="security_user_compare_go_pro">升級到高級版</string>
+    <string name="security_user_plan_free_click">已選擇免費版</string>
 </resources>

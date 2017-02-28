@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 /**
- * Created by SongHualin on 6/12/2015.
+ * Created by mtt on 6/12/2015.
  */
 public abstract class CListViewAdaptor extends BaseAdapter{
     int layoutId;

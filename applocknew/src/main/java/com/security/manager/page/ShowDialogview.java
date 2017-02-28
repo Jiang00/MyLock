@@ -1,11 +1,13 @@
 package com.security.manager.page;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.ivymobi.applock.free.R;
@@ -107,6 +109,7 @@ public class ShowDialogview {
             }
         });
     }
+
     public static void showNewVersion(final Context context) {
         try {
             final View alertDialogView = View.inflate(context, R.layout.security_show_newversion, null);
@@ -128,6 +131,7 @@ public class ShowDialogview {
 
         }
     }
+
     public static void showSaveMode(Context context) {
         try {
             final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
@@ -182,5 +186,12 @@ public class ShowDialogview {
             }
         });
     }
+
+
+
+
+
+
+
 
 }

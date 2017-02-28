@@ -151,4 +151,35 @@
     <string name="security_click_change">โปรดลองอีกคนหนึ่ง</string>
 	<string name="security_choose_theme">เลือก ประเด็น</string>
 	
+	<string name="security_user_center">ไม่มีโฆษณา</string>
+    <string name="security_user_pro">คุณสมบัติเต็มรูปแบบที่สามารถใช้ได้กับไม่มีโฆษณาที่น่ารำคาญ มีเวลา จำกัด</string>
+    <string name="security_user_free">คุณสมบัติเต็มรูปแบบที่มีอยู่และดูโฆษณาให้การสนับสนุนเรา</string>
+    <string name="security_user_limit">ไม่มีโฆษณารบกวนคุณ แต่เพียงล็อค App สามารถใช้ได้</string>
+    <string name="security_user_pro_name">มือโปร</string>
+    <string name="security_user_free_name">ฟรี</string>
+    <string name="security_user_limit_name">ถูก จำกัด</string>
+    <string name="security_user_pro_name_bootom">ไม่มีโฆษณา / ไม่ จำกัด</string>
+    <string name="security_user_free_name_bootom">โฆษณา / ไม่ จำกัด</string>
+    <string name="security_user_limit_name_bootom">ไม่มีโฆษณา / จำกัด</string>
+    <string name="security_user_slide_text_inf">หากคุณต้องการใช้คุณลักษณะนี้โปรดปรับแผนของคุณ</string>
+    <string name="security_user_slide_text_not">ไม่ใช่ตอนนี้</string>
+    <string name="security_user_slide_text_upgrade">อัพเกรด</string>
+    <string name="security_user_limit_des">เลือกวงเงินหมายความว่าคุณจะสูญเสียการใช้งานของคุณสมบัติเหล่านี้:</string>
+    <string name="security_user_limit_intruder">× จับภาพของผู้บุกรุก</string>
+    <string name="security_user_limit_fake">× เปลี่ยนไอคอนของ applock</string>
+    <string name="security_user_limit_theme">× เลือกตันของรูปแบบที่สวยงาม</string>
+    <string name="security_user_limit_confirm">ยืนยัน</string>
+    <string name="security_user_limit_compare">เปรียบเทียบ</string>
+    <string name="security_user_compare_lockapp">ล็อคปพลิเคชัน</string>
+    <string name="security_user_compare_lockapp_inf">ล็อค Facebook, ฯลฯ</string>
+    <string name="security_user_no_ad_compare">ไม่มีโฆษณา</string>
+    <string name="security_user_compare_no_ad_inf">เพลิดเพลินไปกับ UI สะอาด</string>
+    <string name="security_user_compare_intruder_self">ผู้บุกรุก</string>
+    <string name="security_user_limit_intruder_self_inf">ถ่ายภาพของผู้บุกรุก</string>
+    <string name="security_user_compare_fake_cover">ปกปลอม</string>
+    <string name="security_user_compare_fake_cover_inf">ไอคอนเปลี่ยน AppLock</string>
+    <string name="security_user_compare_theme_change">ธีม</string>
+    <string name="security_user_compare_theme_inf">100+ รูปแบบที่สวยงาม</string>
+	<string name="security_user_compare_go_pro">มือโปร</string>
+    <string name="security_user_plan_free_click">ฟรีเลือก</string>
 </resources>

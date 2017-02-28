@@ -108,7 +108,7 @@ public class SecurityThemeFragment extends Fragment {
     public static void crossPromote(ViewGroup v) {
 
 
-        boolean showCross = SecurityMyPref.getFirstShowCross();
+        boolean showCross = SecurityMyPref.getShowCross();
 
 
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
@@ -129,11 +129,11 @@ public class SecurityThemeFragment extends Fragment {
         final View crossBattery = crossView.findViewById(R.id.cross_battery);
         final View crossClear = crossView.findViewById(R.id.cross_clear);
         final View crossOther = crossView.findViewById(R.id.cross_flash);
+        final View crossClose = crossView.findViewById(R.id.security_cross_close);
         crossBattery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopCountimer();
-                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__CROSS_ONE,Tracker.CATE_ACTION__CROSS_ONE,1L);
+                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_ONE, Tracker.CATE_ACTION__CROSS_ONE, 1L);
 
                 Intent intent = new Intent(v.getContext(), CoolingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -146,8 +146,7 @@ public class SecurityThemeFragment extends Fragment {
         crossClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopCountimer();
-                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__CROSS_TWO,Tracker.CATE_ACTION__CROSS_TWO,1L);
+                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_TWO, Tracker.CATE_ACTION__CROSS_TWO, 1L);
                 CleanManager.Instance().runClean(v.getContext(), new Huojian.CallbackListener() {
                     @Override
                     public void cleanSuccess(Context context, long size, boolean isXianshi) {
@@ -165,13 +164,41 @@ public class SecurityThemeFragment extends Fragment {
         crossOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE,Tracker.CATE_ACTION__CROSS_THREE,Tracker.CATE_ACTION__CROSS_THREE,1L);
-                stopCountimer();
+                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_THREE, Tracker.CATE_ACTION__CROSS_THREE, 1L);
                 Intent intent = new Intent(v.getContext(), CrossTranslate.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("value", "ad3");
                 v.getContext().startActivity(intent);
 
+            }
+        });
+
+        crossClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
+                crossView.setVisibility(View.GONE);
+                crossView.startAnimation(animation);
+                animation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        trigon.setVisibility(View.VISIBLE);
+                        crossBattery.setEnabled(false);
+                        crossClear.setEnabled(false);
+                        crossOther.setEnabled(false);
+                        SecurityMyPref.setShowCross(false);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                });
             }
         });
 
@@ -186,6 +213,8 @@ public class SecurityThemeFragment extends Fragment {
                 crossView.setVisibility(View.VISIBLE);
                 Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
                 crossView.startAnimation(animation);
+                SecurityMyPref.setShowCross(true);
+
             }
         });
 
@@ -199,6 +228,8 @@ public class SecurityThemeFragment extends Fragment {
                 crossBattery.setEnabled(true);
                 crossClear.setEnabled(true);
                 crossOther.setEnabled(true);
+                SecurityMyPref.setShowCross(true);
+
             }
         });
 
@@ -219,30 +250,32 @@ public class SecurityThemeFragment extends Fragment {
                     x2 = event.getX();
                     y2 = event.getY();
                     if (y1 - y2 > 40) {
-//                        Toast.makeText(App.getContext(), "向上滑", Toast.LENGTH_SHORT).show();
+                        //向上滑动
+
                     } else if (y2 - y1 > 20) {
-                        Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
-                        crossView.setVisibility(View.GONE);
-                        crossView.startAnimation(animation);
-                        animation.setAnimationListener(new Animation.AnimationListener() {
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-                                trigon.setVisibility(View.VISIBLE);
-                                crossBattery.setEnabled(false);
-                                crossClear.setEnabled(false);
-                                crossOther.setEnabled(false);
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-
-                            }
-                        });
+                        //向下滑动
+//                        Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
+//                        crossView.setVisibility(View.GONE);
+//                        crossView.startAnimation(animation);
+//                        animation.setAnimationListener(new Animation.AnimationListener() {
+//                            @Override
+//                            public void onAnimationEnd(Animation animation) {
+//                                trigon.setVisibility(View.VISIBLE);
+//                                crossBattery.setEnabled(false);
+//                                crossClear.setEnabled(false);
+//                                crossOther.setEnabled(false);
+//                            }
+//
+//                            @Override
+//                            public void onAnimationRepeat(Animation animation) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAnimationStart(Animation animation) {
+//
+//                            }
+//                        });
                     }
                 }
                 return true;
@@ -264,7 +297,7 @@ public class SecurityThemeFragment extends Fragment {
                 }
 
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    //当手指离开的时候
+                    //向上滑动
                     x2 = event.getX();
                     y2 = event.getY();
                     if (y1 - y2 > 30) {
@@ -278,6 +311,8 @@ public class SecurityThemeFragment extends Fragment {
                         animation.setAnimationListener(new Animation.AnimationListener() {
                             @Override
                             public void onAnimationEnd(Animation animation) {
+                                SecurityMyPref.setShowCross(true);
+
 
                             }
 
@@ -292,8 +327,6 @@ public class SecurityThemeFragment extends Fragment {
                             }
                         });
 
-                    } else if (y2 - y1 > 50) {
-//                        Toast.makeText(App.getContext(), "向下滑", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -303,57 +336,22 @@ public class SecurityThemeFragment extends Fragment {
         });
 
         crossView.setVisibility(View.GONE);
+        trigon.setVisibility(View.VISIBLE);
         v.addView(trigon, trigonParams);
         v.addView(crossView, layoutParams);
 
 
-        if (!showCross) {
+        if (showCross) {
             trigon.setVisibility(View.GONE);
             crossView.setVisibility(View.VISIBLE);
-            Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_delay_pop_enter_anim);
-            animation.setFillAfter(true);
-            crossView.startAnimation(animation);
+//            Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
+//            animation.setFillAfter(true);
+//            crossView.startAnimation(animation);
             crossBattery.setEnabled(true);
             crossClear.setEnabled(true);
             crossOther.setEnabled(true);
-
-            mytimer = new CountDownTimer(3000, 1000) {
-                @Override
-                public void onFinish() {
-                    Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
-                    crossView.startAnimation(animation);
-                    crossBattery.setEnabled(false);
-                    crossClear.setEnabled(false);
-                    crossOther.setEnabled(false);
-                    crossView.setVisibility(View.GONE);
-                    animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            trigon.setVisibility(View.VISIBLE);
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-
-                        }
-                    });
-                }
-
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
-            };
-
-            mytimer.start();
         }
 
-        SecurityMyPref.setFirstShowCorss(true);
 
     }
 
@@ -441,19 +439,6 @@ public class SecurityThemeFragment extends Fragment {
         int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());
         MyFrameLayout v = (MyFrameLayout) inflater.inflate(layout, container, false);
         return v;
-    }
-
-
-    private static void stopCountimer(){
-        if(mytimer!=null){
-            Log.e("cancle","1");
-            mytimer.cancel();
-        }else{
-            Log.e("cancle","2");
-        }
-
-
-
     }
 
 

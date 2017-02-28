@@ -151,4 +151,35 @@
     <string name="security_click_change">Silakan coba yang lain</string>
 	<string name="security_choose_theme">Pilih tema</string>
 	
+	<string name="security_user_center">Tanpa iklan</string>
+    <string name="security_user_pro">Fitur lengkap tersedia tanpa iklan yang mengganggu. Penawaran terbatas.</string>
+    <string name="security_user_free">Fitur lengkap tersedia dan menonton iklan untuk mendukung kami.</string>
+    <string name="security_user_limit">Tidak ada iklan mengganggu Anda, namun hanya Lock App tersedia.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">BEBAS</string>
+    <string name="security_user_limit_name">MEMBATASI</string>
+    <string name="security_user_pro_name_bootom">Tidak ada iklan / Terbatas</string>
+    <string name="security_user_free_name_bootom">Iklan / Terbatas</string>
+    <string name="security_user_limit_name_bootom">Tidak ada Iklan / Terbatas</string>
+    <string name="security_user_slide_text_inf">Jika Anda ingin menggunakan fitur ini, silakan upgrade rencana Anda.</string>
+    <string name="security_user_slide_text_not">Tidak sekarang</string>
+    <string name="security_user_slide_text_upgrade">Meningkatkan</string>
+    <string name="security_user_limit_des">Pilih batas berarti Anda akan kehilangan penggunaan fitur ini:</string>
+    <string name="security_user_limit_intruder">× Menangkap gambar dari penyusup</string>
+    <string name="security_user_limit_fake">× Mengubah ikon dari AppLock</string>
+    <string name="security_user_limit_theme">× Pilih ton tema yang indah</string>
+    <string name="security_user_limit_confirm">Memastikan</string>
+    <string name="security_user_limit_compare">Membandingkan</string>
+    <string name="security_user_compare_lockapp">Lock Apps</string>
+    <string name="security_user_compare_lockapp_inf">Mengunci Facebook, dll</string>
+    <string name="security_user_no_ad_compare">Tanpa iklan</string>
+    <string name="security_user_compare_no_ad_inf">Nikmati UI bersih</string>
+    <string name="security_user_compare_intruder_self">Pengacau</string>
+    <string name="security_user_limit_intruder_self_inf">Ambil foto dari penyusup</string>
+    <string name="security_user_compare_fake_cover">Penutup palsu</string>
+    <string name="security_user_compare_fake_cover_inf">ikon perubahan AppLock</string>
+    <string name="security_user_compare_theme_change">Tema</string>
+    <string name="security_user_compare_theme_inf">100+ tema yang indah</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">GRATIS dipilih</string>
 </resources>

@@ -42,7 +42,7 @@ public class FullScreenActivity extends MAppCompatActivity {
     LinearLayout close;
     ImageView newAdLoading;
     TextView changeLock;
-     Animation loadingAni;
+    Animation loadingAni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +98,7 @@ public class FullScreenActivity extends MAppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         reloadNativeAd();
+                        Tracker.sendEvent(Tracker.CATE_ACTION__NATIVE_FULL_SCREEN, Tracker.CATE_ACTION__NATIVE_NEXT, Tracker.CATE_ACTION__NATIVE_NEXT, 1L);
                         changeLock.setVisibility(View.INVISIBLE);
                         newAdLoading.setVisibility(View.VISIBLE);
                         newAdLoading.startAnimation(loadingAni);
@@ -127,8 +128,6 @@ public class FullScreenActivity extends MAppCompatActivity {
 //
 //                    }
 //                });
-
-
             }
 
             @Override
@@ -156,10 +155,11 @@ public class FullScreenActivity extends MAppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         reloadNativeAd();
-
                         changeLock.setVisibility(View.INVISIBLE);
                         newAdLoading.setVisibility(View.VISIBLE);
                         newAdLoading.startAnimation(loadingAni);
+                        Tracker.sendEvent(Tracker.CATE_ACTION__NATIVE_FULL_SCREEN, Tracker.CATE_ACTION__NATIVE_NEXT, Tracker.CATE_ACTION__NATIVE_NEXT, 1L);
+
                     }
                 });
             }

@@ -150,5 +150,36 @@
     <string name="security_loading_fullad_fail">Advertisement loading failed, please try again later</string>
     <string name="security_click_change">Next Ad</string>
     <string name="security_choose_theme">Choose theme</string>
-
+	
+    <string name="security_user_center">No Ads</string>
+    <string name="security_user_pro">Full feature are available with no annoying ads. Limited time offer.</string>
+    <string name="security_user_free">Full feature are available and watch ads to support us.</string>
+    <string name="security_user_limit">No ads disturb you, however, only Lock App is available.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">FREE</string>
+    <string name="security_user_limit_name">LIMIT</string>
+    <string name="security_user_pro_name_bootom">No ads/Unlimited</string>
+    <string name="security_user_free_name_bootom">Ads/Unlimited</string>
+    <string name="security_user_limit_name_bootom">No Ads/Limited</string>
+    <string name="security_user_slide_text_inf">If you want to use this feature, please upgrade your plan.</string>
+    <string name="security_user_slide_text_not">Not now</string>
+    <string name="security_user_slide_text_upgrade">Upgrade</string>
+    <string name="security_user_limit_des">Choose LIMIT means you will lose the use of these features:</string>
+    <string name="security_user_limit_intruder">× Capture the image of intruders</string>
+    <string name="security_user_limit_fake">× Change the icon of AppLock</string>
+    <string name="security_user_limit_theme">× Select tons of beautiful themes</string>
+    <string name="security_user_limit_confirm">Confirm</string>
+    <string name="security_user_limit_compare">Compare</string>
+    <string name="security_user_compare_lockapp">Lock Apps</string>
+    <string name="security_user_compare_lockapp_inf">Lock Facebook,etc.</string>
+    <string name="security_user_no_ad_compare">No Ads</string>
+    <string name="security_user_compare_no_ad_inf">Enjoy the clean UI</string>
+    <string name="security_user_compare_intruder_self">Intruder</string>
+    <string name="security_user_limit_intruder_self_inf">Take photo of intruder</string>
+    <string name="security_user_compare_fake_cover">Fake Cover</string>
+    <string name="security_user_compare_fake_cover_inf">Change AppLock icon</string>
+    <string name="security_user_compare_theme_change">Themes</string>
+    <string name="security_user_compare_theme_inf">100+ beautiful themes</string>
+	<string name="security_user_compare_go_pro">Go PRO!</string>
+    <string name="security_user_plan_free_click">FREE selected</string>
 </resources>

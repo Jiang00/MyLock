@@ -78,7 +78,6 @@
 </com.security.manager.page.MyRelativeLayout>
 
     <include
-
         android:id="@+id/left"
         layout="@layout/security_slide_menu" />
     </com.security.manager.page.SlideMenu>

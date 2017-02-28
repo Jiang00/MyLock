@@ -21,6 +21,8 @@ public class Tracker {
     public static final String ACT_FILE_MENU = "锁文件";
     public static final String ACT_HIDE_MENU = "隐藏应用";
     public static final String ACT_SETTING_MENU = "设置";
+    public static final String ACT_USER_CENTER = "用户中心";
+
     public static final String ACT_ABOUT_MENU = "关于我们";
     public static final String ACT_FAQ_MENU = "FAQ";
     public static final String CATE_ABOUT = "关于";
@@ -76,29 +78,29 @@ public class Tracker {
     public static final String ACT_PERMISSION_OPEN = "权限开启";
 
     public static final String ACT_PERMISSION = "权限";
-    public static final String ACT_PERMISSION_OK= "确认";
-    public static final String ACT_PERMISSION_CANCLE= "取消";
-    public static final String ACT_LEADER= "引导界面";
-    public static final String ACT_LEADER_SETPASSWORD= "设置密码";
-    public static final String ACT_LEADER_SETTINGPASS= "设置手势密码";
-    public static final String ACT_LEADER_SETTINGPASS_PASSWORD= "设置数字密码";
-    public static final String ACT_GOOD_RATE_GOOD= "GOOD";
-    public static final String ACT_GOOD_RATE_CLOSE= "关闭";
-    public static final String ACT_APPLOCK= "锁应用列表界面";
-    public static final String ACT_APPLOCK_UNLOCK= "解锁";
-    public static final String ACT_APPLOCK_LOCK= "加锁";
-    public static final String ACT_LLIDE_MENU= "侧边栏";
-    public static final String ACT_INTRUDE= "入侵者界面";
-    public static final String ACT_FAKE= "伪装界面";
-    public static final String ACT_SETTING_BRIEF= "加锁频率";
-    public static final String ACT_SETTING_PREFRENCE= "偏好设置";
+    public static final String ACT_PERMISSION_OK = "确认";
+    public static final String ACT_PERMISSION_CANCLE = "取消";
+    public static final String ACT_LEADER = "引导界面";
+    public static final String ACT_LEADER_SETPASSWORD = "设置密码";
+    public static final String ACT_LEADER_SETTINGPASS = "设置手势密码";
+    public static final String ACT_LEADER_SETTINGPASS_PASSWORD = "设置数字密码";
+    public static final String ACT_GOOD_RATE_GOOD = "GOOD";
+    public static final String ACT_GOOD_RATE_CLOSE = "关闭";
+    public static final String ACT_APPLOCK = "锁应用列表界面";
+    public static final String ACT_APPLOCK_UNLOCK = "解锁";
+    public static final String ACT_APPLOCK_LOCK = "加锁";
+    public static final String ACT_LLIDE_MENU = "侧边栏";
+    public static final String ACT_INTRUDE = "入侵者界面";
+    public static final String ACT_FAKE = "伪装界面";
+    public static final String ACT_SETTING_BRIEF = "加锁频率";
+    public static final String ACT_SETTING_PREFRENCE = "偏好设置";
 
-    public static final String ACT_SETTING_RESETPAS= "重置密码";
-    public static final String ACT_SETTING_HIDEPATH= "隐藏解锁路径";
-    public static final String ACT_SETTING_FINGER= "指纹解锁";
-    public static final String ACT_SETTING_LOCK_NEW= "新应用加锁";
-    public static final String ACT_SETTING_LOCK_NOTIFICAO= "通知";
-    public static final String ACT_GOOD_RATE= "好评";
+    public static final String ACT_SETTING_RESETPAS = "重置密码";
+    public static final String ACT_SETTING_HIDEPATH = "隐藏解锁路径";
+    public static final String ACT_SETTING_FINGER = "指纹解锁";
+    public static final String ACT_SETTING_LOCK_NEW = "新应用加锁";
+    public static final String ACT_SETTING_LOCK_NOTIFICAO = "通知";
+    public static final String ACT_GOOD_RATE = "好评";
     public static final String ACT_GOOGLE_PLUS = "google+";
     public static final String ACT_FACEBOOK = "facebook";
     public static final String ACT_GOOGLE_PLAY = "googleplay";
@@ -106,14 +108,14 @@ public class Tracker {
     public static final String ACT_SETTING_EVERY_TIME = "每次加锁";
     public static final String ACT_SETTING_FIVE_MINIUTE = "5分钟";
     public static final String ACT_SETTING_SCREEN_OFF = "屏幕关闭";
-    public static final String ACT_MODE= "情景模式";
-    public static final String ACT_MODE_APPS= "应用内开关";
-    public static final String ACT_MODE_NOTIFICATION= "通知栏开关";
-    public static final String ACT_MODE_ON= "开";
-    public static final String ACT_MODE_OFF= "关";
-    public static final String ACT_LEDADER_OK= "完成";
-    public static final String ACT_INTRUDE_SHARE= "入侵者分享功能";
-    public static final String ACT_SETTING_PERMISSION= "高级保护";
+    public static final String ACT_MODE = "情景模式";
+    public static final String ACT_MODE_APPS = "应用内开关";
+    public static final String ACT_MODE_NOTIFICATION = "通知栏开关";
+    public static final String ACT_MODE_ON = "开";
+    public static final String ACT_MODE_OFF = "关";
+    public static final String ACT_LEDADER_OK = "完成";
+    public static final String ACT_INTRUDE_SHARE = "入侵者分享功能";
+    public static final String ACT_SETTING_PERMISSION = "高级保护";
     public static final String CATE_ACTION_OPEN_APP = "启动次数";
     public static final String CATE_ACTION_OPEN_APP_TIME = "主包启动次数";
     public static final String CATE_ACTION_OPEN_THEME = "主题商店";
@@ -125,9 +127,34 @@ public class Tracker {
     public static final String CATE_ACTION__CHOOSE_THEME = "皮肤选择";
     public static final String CATE_ACTION__CHOOSE_THEME_ONE = "第一套皮肤点击";
     public static final String CATE_ACTION__CHOOSE_THEME_TWO = "第二套皮肤点击";
+    public static final String CATE_ACTION__CROSS_ONE_NOT_SAME = "交叉推广位1去重点击";
     public static final String CATE_ACTION__CROSS_ONE = "点击交叉推广位1";
     public static final String CATE_ACTION__CROSS_TWO = "点击交叉推广位2";
+    public static final String CATE_ACTION__CROSS_TWO_NOT_SAME = "交叉推广位2去重点击";
     public static final String CATE_ACTION__CROSS_THREE = "点击交叉推广位3";
+    public static final String CATE_ACTION__NATIVE_FULL_SCREEN = "native全屏";
+    public static final String CATE_ACTION__NATIVE_NEXT = "next_ad";
+    public static final String CATE_ACTION_SLIDE_DIALOG = "侧边栏提醒升级upgrade弹出";
+    public static final String CATE_ACTION_COMPONT = "比较界面";
+
+    public static final String CATE_ACTION_COMPONT_GO_PRO = "GO_PRO";
+    public static final String CATE_ACTION_USER_NO_AD_PAGE = "No Ads界面";
+    public static final String CATE_ACTION_USER_QUESTION = "No_Ads界面问号点击";
+    public static final String CATE_ACTION_USER_PRO = "PRO版点击";
+    public static final String CATE_ACTION_USER_FREE = "FREE版点击";
+    public static final String CATE_ACTION_USER_LIMIT = "LIMIT版点击";
+    public static final String CATE_ACTION_DIALOG_LIMIT = "点击LIMIT弹框";
+    public static final String CATE_ACTION_DIALOG_SLIDE= " 点击升级upgrade弹框";
+
+
+
+
+
+
+
+
+
+
     public static void sendEvent(String cateException, String actCrash, String s, long l) {
 
         AndroidSdk.track(cateException, actCrash, s, (int) l);

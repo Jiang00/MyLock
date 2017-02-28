@@ -1,6 +1,7 @@
 package ivy.battery.cooling;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class CrossTranslate extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    private String value="ad1";
+    private String value = "ad1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +58,25 @@ public class CrossTranslate extends AppCompatActivity {
 
             @Override
             public void onIsShowDialog(boolean b) {
-                if(!b){
+
+//                Log.e("tagvalue",value+"---"+b);
+//                if (value .equals("ad3")) {
+//                    if(!b){
+//                        Log.e("tagvalue",3+"-");
+//                        Uri uri = Uri.parse("https://play.google.com/store/apps/developer?id=IVYMOBILE");
+//                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                        startActivity(intent);
+//                        finish();
+//
+//                    }
+//
+//                } else {
+
+                if (!b) {
                     finish();
                 }
+                //}
+
 
             }
         });

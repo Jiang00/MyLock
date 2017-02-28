@@ -151,5 +151,36 @@
     <string name="security_click_change">Lütfen başka bir tane deneyin</string>
 	<string name="security_choose_theme">Temayı seçin</string>
 	
+	<string name="security_user_center">Reklamsız</string>
+    <string name="security_user_pro">Tam özellik rahatsız edici reklamlar olmadan kullanılabilir. Sınırlı zaman teklif.</string>
+    <string name="security_user_free">Tam özellik mevcuttur ve bizi destekleyen reklamları izleyin.</string>
+    <string name="security_user_limit">Hiçbir reklam sizi rahatsız etmez ancak yalnızca Uygulamayı Kilitle seçeneği kullanılabilir.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_free_name">ÜCRETSİZ</string>
+    <string name="security_user_limit_name">SINIR</string>
+    <string name="security_user_pro_name_bootom">Reklam yok / Sınırsız</string>
+    <string name="security_user_free_name_bootom">Reklamlar / Sınırsız</string>
+    <string name="security_user_limit_name_bootom">Reklam Yok / Sınırlı</string>
+    <string name="security_user_slide_text_inf">Bu özelliği kullanmak istiyorsanız lütfen planınızı yükseltin.</string>
+    <string name="security_user_slide_text_not">Şimdi değil</string>
+    <string name="security_user_slide_text_upgrade">Yükselt</string>
+    <string name="security_user_limit_des">Sınırı seçmek, bu özelliklerin kullanımını kaybedeceğiniz anlamına gelir:</string>
+    <string name="security_user_limit_intruder">× Davetsiz misafirlerin imajını yakalama</string>
+    <string name="security_user_limit_fake">× AppLock simgesini değiştirme</string>
+    <string name="security_user_limit_theme">× Tonlarca güzel temayı seçin</string>
+    <string name="security_user_limit_confirm">Onaylamak</string>
+    <string name="security_user_limit_compare">Karşılaştırmak</string>
+    <string name="security_user_compare_lockapp">Uygulamaları Kilitle</string>
+    <string name="security_user_compare_lockapp_inf">Facebook vb. Kilitle</string>
+    <string name="security_user_no_ad_compare">Reklamsız</string>
+    <string name="security_user_compare_no_ad_inf">Temiz UI \'nun keyfini çıkarın</string>
+    <string name="security_user_compare_intruder_self">Hırsız</string>
+    <string name="security_user_limit_intruder_self_inf">Hırsızın fotoğrafını çek</string>
+    <string name="security_user_compare_fake_cover">Sahte Kapak</string>
+    <string name="security_user_compare_fake_cover_inf">AppLock simgesini değiştir</string>
+    <string name="security_user_compare_theme_change">Temalar</string>
+    <string name="security_user_compare_theme_inf">100\'den fazla güzel temalar</string>
+	<string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_plan_free_click">ÜCRETSİZ seçildi</string>
 </resources>
 
