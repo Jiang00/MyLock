@@ -4,18 +4,17 @@ import android.content.SharedPreferences;
 
 import com.android.common.SdkCache;
 import com.security.manager.App;
-import com.security.manager.lib.Utils;
 import com.security.manager.lib.datatype.SInt;
 import com.security.manager.lib.io.SafeDB;
 import com.security.manager.page.SecurityMenu;
 
 /**
- * Created by huale on 2014/11/28.
+ * Created by mt on 2014/11/28.
  */
 public class SecurityMyPref {
     SharedPreferences.Editor editor;
 
-    static SecurityMyPref securityMyPref = new SecurityMyPref();
+    public static SecurityMyPref securityMyPref = new SecurityMyPref();
 
 
     public static void upgrade() {
@@ -443,14 +442,23 @@ public class SecurityMyPref {
         return App.getSharedPreferences().getBoolean("show_cross_f_al", true);
     }
 
-    public static void setUserCenter(int yes) {
-        App.getSharedPreferences().edit().putInt("show_user_c_f_al", yes).apply();
+
+    public static void setUseBatteryShowAD(int time) {
+        App.getSharedPreferences().edit().putInt("show_user_battery_show_ad", time).apply();
     }
 
-    public static int getUserCenter() {
-        return App.getSharedPreferences().getInt("show_user_c_f_al", 1);
+    public static int getUseBatteryShowAD() {
+        return App.getSharedPreferences().getInt("show_user_battery_show_ad", 0);
     }
 
+
+    public static void setUseClearShowAD(int time) {
+        App.getSharedPreferences().edit().putInt("show_user_clear_show_ad", time).apply();
+    }
+
+    public static int getUseClearShowAD() {
+        return App.getSharedPreferences().getInt("show_user_clear_show_ad", 0);
+    }
 
 
 }

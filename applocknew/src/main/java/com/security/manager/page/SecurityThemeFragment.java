@@ -104,10 +104,29 @@ public class SecurityThemeFragment extends Fragment {
         }
     }
 
-
     public static void crossPromote(ViewGroup v) {
+        CoolingActivity.getCool().setCoolLisenter(new CoolingActivity.BatteryCool() {
+            @Override
+            public void coolFinish() {
 
+                boolean newDay = SecurityMyPref.isANewDay();
+                int showAdTime = 0;
+                if (newDay) {
+                    SecurityMyPref.setUseBatteryShowAD(0);
+                    Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_ONE_NOT_SAME, Tracker.CATE_ACTION__CROSS_ONE_NOT_SAME, 1L);
 
+                } else {
+                    showAdTime = SecurityMyPref.getUseBatteryShowAD();
+                }
+                Intent intent = new Intent(App.getContext(), CrossTranslate.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("value", "ad1");
+                intent.putExtra("newday", newDay);
+                intent.putExtra("showad", showAdTime);
+                App.getContext().startActivity(intent);
+                SecurityMyPref.setUseBatteryShowAD(showAdTime + 1);
+            }
+        });
         boolean showCross = SecurityMyPref.getShowCross();
 
 
@@ -134,7 +153,6 @@ public class SecurityThemeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_ONE, Tracker.CATE_ACTION__CROSS_ONE, 1L);
-
                 Intent intent = new Intent(v.getContext(), CoolingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(intent);
@@ -151,10 +169,22 @@ public class SecurityThemeFragment extends Fragment {
                     @Override
                     public void cleanSuccess(Context context, long size, boolean isXianshi) {
                         ((Activity) context).finish();
-                        Intent intent = new Intent(context, CrossTranslate.class);
+                        boolean newDay = SecurityMyPref.isANewDay();
+                        int showAdTime = 0;
+                        if (newDay) {
+                            SecurityMyPref.setUseClearShowAD(0);
+                            Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_TWO_NOT_SAME, Tracker.CATE_ACTION__CROSS_TWO_NOT_SAME, 1L);
+
+                        } else {
+                            showAdTime = SecurityMyPref.getUseClearShowAD();
+                        }
+                        Intent intent = new Intent(App.getContext(), CrossTranslate.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.putExtra("value", "ad2");
-                        context.startActivity(intent);
+                        intent.putExtra("newday", newDay);
+                        intent.putExtra("showad", showAdTime);
+                        App.getContext().startActivity(intent);
+                        SecurityMyPref.setUseClearShowAD(showAdTime + 1);
                     }
                 });
 

@@ -155,7 +155,6 @@ public class SecurityService extends Service {
         final List<ActivityManager.RunningAppProcessInfo> processInfos = mActivityManager.getRunningAppProcesses();
         if (processInfos != null) {
             for (ActivityManager.RunningAppProcessInfo processInfo : processInfos) {
-//                if (processInfo.importanceReasonCode == 2) continue;
                 int anInt = processState.getInt(processInfo);
                 if (anInt == 2) return processInfo.pkgList[0];
             }
@@ -570,7 +569,7 @@ public class SecurityService extends Service {
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
-                   startActivity(intent);
+                startActivity(intent);
                 Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
             } else {
 //                handler.post(alertRunner);

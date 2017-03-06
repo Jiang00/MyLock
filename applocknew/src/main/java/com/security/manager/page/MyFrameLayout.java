@@ -2,6 +2,7 @@ package com.security.manager.page;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 
@@ -35,7 +36,11 @@ public class MyFrameLayout extends FrameLayout {
                 if (event.getAction() == KeyEvent.ACTION_UP){
                     if (this.listener != null){
                         this.listener.onClick(null);
+                        Log.e("onback","----two");
+
                     }
+                }else{
+                    Log.e("onback","----one");
                 }
                 return true;
 

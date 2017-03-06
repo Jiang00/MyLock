@@ -315,7 +315,6 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
 
     protected void askForExit() {
         AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-
         super.onBackPressed();
 
     }

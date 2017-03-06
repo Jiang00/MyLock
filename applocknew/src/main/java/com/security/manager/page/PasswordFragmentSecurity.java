@@ -16,7 +16,6 @@ import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
-import com.security.manager.FullScreenActivity;
 import com.security.manager.SecurityUnlockSettings;
 import com.security.manager.Tools;
 import com.security.manager.Tracker;

@@ -30,7 +30,7 @@ android {
         testApplicationId "com.security.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
         versionCode 1
-        versionName 'v2.5.2.3a'
+        versionName 'v2.7.3.1'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
         buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')

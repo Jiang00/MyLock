@@ -286,7 +286,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/nactivityTheme">
             <intent-filter>
-                <action android:name="ivy.intent.action.full.pro" />
+                <action android:name="ivy.intent.action.full" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

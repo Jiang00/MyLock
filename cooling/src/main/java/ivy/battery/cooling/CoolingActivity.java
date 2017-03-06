@@ -15,6 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Random;
 
 public class CoolingActivity extends AppCompatActivity {
@@ -24,7 +26,9 @@ public class CoolingActivity extends AppCompatActivity {
     private int cool = 0;
     private FlakeView flakeView;
     private static final int FLAKE_NUM = 5;
+    public static CoolingActivity coolingActivity = new CoolingActivity();
 
+    public static CoolingActivity.BatteryCool batterycool;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -34,12 +38,19 @@ public class CoolingActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+
+    public void setCoolLisenter(BatteryCool batteryCoolLis) {
+        this.batterycool = batteryCoolLis;
+
+    }
+
     private Handler mHandler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             if (flakeView != null) {
                 flakeView.addFlakes(FLAKE_NUM);
+
             }
         }
     };
@@ -173,25 +184,10 @@ public class CoolingActivity extends AppCompatActivity {
                 }
                 finish();
 
-//                DialogManager.showCrossPromotionDialog(CoolingActivity.this, AndroidSdk.getExtraData(), "ad1", new CrossPromotionDialog.OnClickListener() {
-//                    @Override
-//                    public void onCancelClick(CrossPromotionDialog crossPromotionDialog) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onInstallClick(CrossPromotionDialog crossPromotionDialog) {
-//
-//                    }
-//                });
 
-                Intent intent = new Intent(CoolingActivity.this, CrossTranslate.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("value","ad1");
-
-                startActivity(intent);
-
-
+                if (batterycool != null) {
+                    batterycool.coolFinish();
+                }
             }
 
             @Override
@@ -253,4 +249,17 @@ public class CoolingActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
+    public interface BatteryCool {
+
+        public void coolFinish();
+
+    }
+
+    public static CoolingActivity getCool() {
+        return coolingActivity;
+
+    }
+
 }

@@ -86,6 +86,8 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         setupToolbar();
         initclick();
 
+        listView.setFocusable(false);
+
         setup(R.string.security_intrude_five);
         intruderEntries = IntruderApi.getIntruders();
         if (intruderEntries.size() == 0) {
