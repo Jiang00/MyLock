@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="LinearLayout"><attr format="reference" name="nightDivider"/></declare-styleable>
-    <declare-styleable name="ListView"><attr format="reference" name="nightLVDivider"/></declare-styleable>
-    <declare-styleable name="TextView"><attr format="color|reference" name="nightTextColor"/><attr format="color|reference" name="nightTextColorHighlight"/><attr format="reference" name="nightTextAppearance"/><attr format="reference|color" name="nightTextColorLink"/><attr format="color|reference" name="nightTextColorHint"/></declare-styleable>
-    <declare-styleable name="View"><attr format="color|reference" name="nightBackground"/><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/></declare-styleable>
-</resources>

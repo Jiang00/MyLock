@@ -154,18 +154,19 @@ public class SecurityService extends Service {
      */
     public String getLauncherTopApp(Context context, ActivityManager activityManager) {
         if (!SecurityMyPref.getVisitor()) {
-            return "";
+            return null;
         }
         String packageName = null;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             List<ActivityManager.RunningTaskInfo> appTasks = activityManager.getRunningTasks(1);
             if (null != appTasks && !appTasks.isEmpty()) {
-                packageName = appTasks.get(0).topActivity.getPackageName();
-//                return appTasks.get(0).topActivity.getPackageName();
+                return appTasks.get(0).topActivity.getPackageName();
+            } else {
+                return null;
             }
         } else {
             //5.0以后需要用这方法
-/*            UsageStatsManager sUsageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+            UsageStatsManager sUsageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
             long endTime = System.currentTimeMillis();
             long beginTime = endTime - 10000;
             UsageEvents.Event event = new UsageEvents.Event();
@@ -175,9 +176,11 @@ public class SecurityService extends Service {
                 if (event.getEventType() == UsageEvents.Event.MOVE_TO_FOREGROUND) {
                     packageName = event.getPackageName();
                 }
-            }*/
+            }
 
+            return packageName;
 
+            /*
             UsageStatsManager usageStatsManager = (UsageStatsManager) context.getSystemService(USAGE_STATS_SERVICE);
             long ts = System.currentTimeMillis();
             List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST,ts-2000, ts);
@@ -194,14 +197,8 @@ public class SecurityService extends Service {
             }
             if (recentStats != null) {
                 packageName = recentStats.getPackageName();
-            }
-
+            }*/
         }
-        if (packageName != null && packageName.equals(getPackageName())) {
-            Log.d("TAG", "packageName == getPackageName");
-            packageName = null;
-        }
-        return packageName;
     }
 
 
@@ -437,7 +434,7 @@ public class SecurityService extends Service {
 //                final String packageName = getTopPackageName();
                 final String packageName = getLauncherTopApp(SecurityService.this, mActivityManager);
 
-                Log.d("TAG", "packageName = " + packageName);
+                Log.e("haha", "run: " + packageName);
 
                 if (packageName == null) {
                     try {
@@ -450,6 +447,7 @@ public class SecurityService extends Service {
 
                 if (!lastPackageName.equals(packageName)) {
                     if (homes.containsKey(packageName)) {
+                        Log.e("haha", "home occurs: " + packageName + " last: " + lastPackageName);
                         home = true;
                         showWidgetIfNecessary(true);
                         if (unlocked) {
@@ -606,11 +604,13 @@ public class SecurityService extends Service {
         CharSequence label;
 
         private void alertForUnlock(final String packageName) {
+            Log.e("haha", "last " + lastApp + " pkg " + packageName);
+            new Throwable().printStackTrace();
             lastApp = packageName;
             boolean haspermission = true;
+            SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
             if (Utils.hasSystemAlertPermission(App.getContext())) {
                 alert = true;
-                SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
 //                SecurityPatternActivity.createThemeContextIfNecessary(SecurityService.this);
 //                if (PretentPresenter.isFakeCover()) {
 //                    try {

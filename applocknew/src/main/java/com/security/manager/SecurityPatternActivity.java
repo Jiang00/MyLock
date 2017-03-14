@@ -65,6 +65,9 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     boolean normal = false;
     Intent notiIntent;
 
+    static Context context;
+
+
     public void toggle(boolean normal) {
         if (normal) {
             if (passFrag == null) {

@@ -12,7 +12,7 @@ public class UnlockApp extends SecurityPatternActivity {
 
     @Override
     public void setupView() {
-
+        context = this;
 //        if (PretentPresenter.isFakeCover()) {
 //            try {
 //                CharSequence label = getPackageManager().getApplicationInfo(pkg, 0).loadLabel(getPackageManager());

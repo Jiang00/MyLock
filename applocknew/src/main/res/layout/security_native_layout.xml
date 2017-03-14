@@ -7,14 +7,6 @@
     android:layout_marginRight="12dp"
     android:background="@drawable/security_shape_r">
 
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:tag="ad_choices"></FrameLayout>
-
     <com.android.view.RoundImageView
         leftBottom="false"
         rightBottom="false"
@@ -85,4 +77,11 @@
         android:text="Install"
         android:textColor="#fff"
         android:textSize="16sp" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:tag="ad_choices"/>
 </FrameLayout>

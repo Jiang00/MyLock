@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/security_bt_backg_dis" android:state_enabled="false"/>
-    <item android:drawable="@drawable/security_bt_back_cil" android:state_pressed="true"/>
-    <item android:drawable="@drawable/security_bt_back_cil" android:state_selected="true"/>
-    <item android:drawable="@drawable/security_bt_backg_normal" />
-</selector>

@@ -79,7 +79,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             } else {
                 if (context == null) {
                     try {
-                        ((SecurityPatternActivity) App.getContext()).unlockSuccess(unlockMe);
+                        ((SecurityPatternActivity) UnlockApp.context).unlockSuccess(unlockMe);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
