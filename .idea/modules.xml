@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Applock-aurora-v1.iml" filepath="$PROJECT_DIR$/Applock-aurora-v1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ByakuGallery/ByakuGallery.iml" filepath="$PROJECT_DIR$/ByakuGallery/ByakuGallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/applocknew/applocknew.iml" filepath="$PROJECT_DIR$/applocknew/applocknew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cooling/cooling.iml" filepath="$PROJECT_DIR$/cooling/cooling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+    </modules>
+  </component>
+</project>

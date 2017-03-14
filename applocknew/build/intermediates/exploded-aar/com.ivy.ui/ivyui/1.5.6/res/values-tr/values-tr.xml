@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Bu uygulamayı beğenirsen \ n bize 5 yıldızlı rating ver</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Şikayet</string>
+    <string name="ivy_module_ivyui_new_version_have">Yeni bir sürüm gereklidir \ nLütfen güncelleyin</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Güncelleştirme</string>
+    <string name="ivy_module_ivyui_promotion_app_install">kurmak</string>
+    <string name="ivy_permission">Gelişmiş Koruma</string>
+    <string name="ivy_permission_access_fine_location_des">Telefonunuzda GPS işlevini kullanarak tüm uygulamaları algılayın.</string>
+    <string name="ivy_permission_access_fine_location_title">GPS Monitörü</string>
+    <string name="ivy_permission_access_service_des">%50 güç tüketimini azaltın ve pil ömrünü uzatın.</string>
+    <string name="ivy_permission_access_service_title">Güç tasarrufu</string>
+    <string name="ivy_permission_application">Uygulama izin yönetimi</string>
+    <string name="ivy_permission_bind_device_admin_des">Davetsiz misafirler %s, daha güvenli kaldıramaz!</string>
+    <string name="ivy_permission_bind_device_admin_title">İstenmeyen Haklar</string>
+    <string name="ivy_permission_camera_des">Gizlemenize bakmaya çalışan davetsiz misafirlerin fotoğraflarını çekin.</string>
+    <string name="ivy_permission_camera_title">Kamera Kullanımı</string>
+    <string name="ivy_permission_desc">Mükemmel koruma sağlamak için tüm izinleri etkinleştirmenizi öneririz.</string>
+    <string name="ivy_permission_ok">tamam</string>
+    <string name="ivy_permission_read_contacts_des">Seçtiğiniz kişiden sesli arama kaydedin.</string>
+    <string name="ivy_permission_read_contacts_title">Kişileri Oku</string>
+    <string name="ivy_permission_record_audio_des">Arama kaydediciyi normalde gerçek zamanlı olarak çalıştırın.</string>
+    <string name="ivy_permission_record_audio_title">Ses Kaydet</string>
+    <string name="ivy_permission_skip">Atla</string>
+    <string name="ivy_permission_switch_dialog_title">%s bul ve etkinleştir</string>
+    <string name="ivy_permission_system_alert_window_des">AppLock\'u normal çalışmaya devam ettirmek ve mükemmel bir koruma sağlamak.</string>
+    <string name="ivy_permission_system_alert_window_title">Aniden belirmek</string>
+    <string name="ivy_permission_usage_access_settings_des">Gizliliğinizi gerçek zamanlı olarak korumak için %s\'yi yayınlamaya devam edin.</string>
+    <string name="ivy_permission_usage_access_settings_title">Kararlı Operasyon</string>
+</resources>

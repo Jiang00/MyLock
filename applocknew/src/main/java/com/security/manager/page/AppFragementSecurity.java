@@ -550,7 +550,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                 }
             });
             if (scrollView != null) {
-                App.getWatcher().watch(scrollView);
+//                App.getWatcher().watch(scrollView);
                 listView.addHeaderView(scrollView);
             }
         }

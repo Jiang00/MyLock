@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\ByakuGallery\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9454860cbf0afff4257e48c594e3d11d95928f2d">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-ByakuGallery-unspecified_5e02f9aee1ec54d84340dfd4f343e6f1879ff966.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-8.4.0_230b8229d005dbba7657baa9c627a45eb617b4d6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.core\common\1.0.9\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="993feb774dd03af04b09d8f6808b3b165f71cf6c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.core-common-1.0.9_b0d2490d8d98d5ba5b9fa4231c2fd70caf72b031.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.4.0_a0e6a808994a865f49c0343bfa18791338eb462d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy\sketch\1.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f2d679b1e70b9f6b0adafd659ca9ccf3c897bb34">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy-sketch-1.2.0_b39e78184ded054d637a64c87cd26dd71251bdd5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\butterknife-6.1.0_843751bfb4fcb07137a1405ac72c5d1e8f975b01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-8.4.0_230b8229d005dbba7657baa9c627a45eb617b4d6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\library-2.4.0_0f202e90ceb7c45a48fdc21b9be4d02b18bbdeba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.core\common\1.0.9\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="993feb774dd03af04b09d8f6808b3b165f71cf6c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.core-common-1.0.9_b0d2490d8d98d5ba5b9fa4231c2fd70caf72b031.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy\sketch\1.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f2d679b1e70b9f6b0adafd659ca9ccf3c897bb34">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy-sketch-1.2.0_b39e78184ded054d637a64c87cd26dd71251bdd5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy\gif\1.0.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27b907c85254984fb1522dd9fec61e148cdae90c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy-gif-1.0.4_50ba113efee487a3b93552527b250a98f68dcb76.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_cdd496d50a4d48c2f55cc2d20f45eff01950e364.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.3.0_803e51da9eaeaba934cb03c6a8c0c711b74e6e9c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\library-2.4.0_0f202e90ceb7c45a48fdc21b9be4d02b18bbdeba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\AndroidSdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\support-annotations-23.3.0_3b522adaf4e1b46e7448e343d05e73b3e2a2936f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\api\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="92918210cff27a92ad207796afafc4405946c59d">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-api-unspecified_1ee999b1f78c9c3e95d294d136c007f01afcd54c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\cooling\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8f6c830b1678803f3c899ca3abcf564980d8a31">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-cooling-unspecified_0c61d5774b3aff25ef46fe933bc9020230e952ff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy\gif\1.0.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="27b907c85254984fb1522dd9fec61e148cdae90c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy-gif-1.0.4_50ba113efee487a3b93552527b250a98f68dcb76.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.huxq17.xrefreshview\xrefreshview\3.5.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca60087952da80930f8f20233000944fdffcb723">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.huxq17.xrefreshview-xrefreshview-3.5.5_cf254dfc6d55bf99e03c1700dc2eaa015d5bfec2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\model\build\libs\model.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d10f9e3f4b58cb13e8d24d5ae8080f58cc913bc1">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\model_2621fc9dab91cebd0c0531f191c252738c5dc32d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\httpclient-4.3.6_9e4acad3c9004107942ac280871f6532eb6ee844.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.core\theme\1.1.9\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="81018a11a6d0c994d1cc5c235f7709831db8229a">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.core-theme-1.1.9_0b95b9ec8c217be891198ea9624e87b593e35027.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.module\themestore\1.5.8\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="23b05d6af7c382fc0cac2853d2bd573cf3169d18">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.module-themestore-1.5.8_34a148f73b4c6727b5312f7958c890d7d1bd3eb7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.core\empty\1.1.6\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="149b806607531812b95fe26122d2d408551b09bb">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.core-empty-1.1.6_e15f00722cd90b3a3441613b3682a6cd12f6f98b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\baselibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3f98eec8511d2392d439bd8dd159e4b500780545">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-baselibrary-unspecified_6c456c16595a2272845a1ac0d5c53558186718e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\picasso-2.5.2_b1abde609735ab278fe0eca6b65affe04a2ba354.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\butterknife-6.1.0_843751bfb4fcb07137a1405ac72c5d1e8f975b01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.util\async-http\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5797e325002853997fcbb456ad08b75bb4186999">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.util-async-http-1.0.1_bb008accc311544f12a7920e220978d409ba55c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.module\ivyhuojian\1.0.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d39464ac3f265637eb21fcf121de5eefdb977913">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.module-ivyhuojian-1.0.4_b127f5128e79eef3fb664b7b1f6da14e2dd8c8f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.core\empty\1.1.6\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="149b806607531812b95fe26122d2d408551b09bb">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.core-empty-1.1.6_e15f00722cd90b3a3441613b3682a6cd12f6f98b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.ui\ivyui\1.5.6\jars\libs\gson-2.2.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a3299979b796fd5f578f2674ac439eccf2946c6">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\gson-2.2.3_73c73c5d8cd10014597a746adc9a29c4bf730b12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\baselibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3f98eec8511d2392d439bd8dd159e4b500780545">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-baselibrary-unspecified_6c456c16595a2272845a1ac0d5c53558186718e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_b96cc62b80d408777975c5917160bfd65c09103b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\design\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-design-23.3.0_257b63bf364e72df9d444971666d1153e849a43a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.3.0_e10ef61a922f9c5ef808baaccd5e27c454d4636d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_3aadd6eda9a755fd216069eb08947d890bdd2b8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\design\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-design-23.3.0_257b63bf364e72df9d444971666d1153e849a43a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.util\async-http\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5797e325002853997fcbb456ad08b75bb4186999">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.util-async-http-1.0.1_bb008accc311544f12a7920e220978d409ba55c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.ui\ivyui\1.5.6\jars\libs\gson-2.2.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4a3299979b796fd5f578f2674ac439eccf2946c6">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\gson-2.2.3_73c73c5d8cd10014597a746adc9a29c4bf730b12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.module\ivyhuojian\1.0.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d39464ac3f265637eb21fcf121de5eefdb977913">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.module-ivyhuojian-1.0.4_b127f5128e79eef3fb664b7b1f6da14e2dd8c8f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.3.0_803e51da9eaeaba934cb03c6a8c0c711b74e6e9c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.core\theme\1.1.9\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="81018a11a6d0c994d1cc5c235f7709831db8229a">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.core-theme-1.1.9_0b95b9ec8c217be891198ea9624e87b593e35027.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\internal_impl-23.3.0_ab54b1f69b78ad8e4463c91da6a6ea60aa5e08a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_7c69f332799791429ad73a4ce448b03209feb91a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_5201c9999b9aae8b3ba28903d222b11355a95419.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\model\build\libs\model.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d10f9e3f4b58cb13e8d24d5ae8080f58cc913bc1">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\model_2621fc9dab91cebd0c0531f191c252738c5dc32d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.ui\ivyui\1.5.6\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1a9dcf23ee4806a06103d427d76c49c808a64be1">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.ui-ivyui-1.5.6_0fa653995e3cbfa8a07a05ced4b0c23e991472ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.module\themestore\1.5.8\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="23b05d6af7c382fc0cac2853d2bd573cf3169d18">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.module-themestore-1.5.8_34a148f73b4c6727b5312f7958c890d7d1bd3eb7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\internal_impl-23.3.0_ab54b1f69b78ad8e4463c91da6a6ea60aa5e08a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_7c69f332799791429ad73a4ce448b03209feb91a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_cdd496d50a4d48c2f55cc2d20f45eff01950e364.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\picasso-2.5.2_b1abde609735ab278fe0eca6b65affe04a2ba354.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.ivy.ui\ivyui\1.5.6\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1a9dcf23ee4806a06103d427d76c49c808a64be1">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.ivy.ui-ivyui-1.5.6_0fa653995e3cbfa8a07a05ced4b0c23e991472ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_5201c9999b9aae8b3ba28903d222b11355a95419.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="H:\AndroidSdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\support-annotations-23.3.0_3b522adaf4e1b46e7448e343d05e73b3e2a2936f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.huxq17.xrefreshview\xrefreshview\3.5.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ca60087952da80930f8f20233000944fdffcb723">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.huxq17.xrefreshview-xrefreshview-3.5.5_cf254dfc6d55bf99e03c1700dc2eaa015d5bfec2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\api\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="92918210cff27a92ad207796afafc4405946c59d">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-api-unspecified_1ee999b1f78c9c3e95d294d136c007f01afcd54c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.3.0_e10ef61a922f9c5ef808baaccd5e27c454d4636d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.4.0_a0e6a808994a865f49c0343bfa18791338eb462d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_b96cc62b80d408777975c5917160bfd65c09103b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\ByakuGallery\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9454860cbf0afff4257e48c594e3d11d95928f2d">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-ByakuGallery-unspecified_5e02f9aee1ec54d84340dfd4f343e6f1879ff966.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\Applock-aurora-v1\cooling\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f8f6c830b1678803f3c899ca3abcf564980d8a31">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\Applock-aurora-v1-cooling-unspecified_0c61d5774b3aff25ef46fe933bc9020230e952ff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_3aadd6eda9a755fd216069eb08947d890bdd2b8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\IVY\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="E:\Gitlab\Applock-aurora-v1\applocknew\build\intermediates\pre-dexed\debug\httpclient-4.3.6_9e4acad3c9004107942ac280871f6532eb6ee844.jar" />
+    </item>
+
+</items>

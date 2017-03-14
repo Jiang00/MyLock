@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\raw\\xdog",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\raw\\xdog"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\raw\\shutter.mp3",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\raw\\shutter.mp3"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\raw\\notices.txt",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\raw\\notices.txt"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\raw\\adog",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\raw\\adog"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\raw\\a7dog",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\raw\\a7dog"
+    }
+]

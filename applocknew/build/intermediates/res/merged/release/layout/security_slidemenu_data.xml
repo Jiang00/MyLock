@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.security.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <com.security.manager.page.MyRelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/security_component_toolbar" />
+
+                <include
+                    layout="@layout/security_myabout_bar"
+                    android:visibility="gone" />
+
+                <FrameLayout
+                    android:id="@+id/fragment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <View
+
+                android:id="@+id/tutorial_slide_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/security_home_pane_header"
+                android:clickable="true"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/security_list_bg"
+            android:gravity="center"
+            android:visibility="gone" />
+    </com.security.manager.page.MyRelativeLayout>
+
+    <include
+
+        android:id="@+id/left"
+        layout="@layout/security_slide_menu" />
+
+    <!--<include-->
+    <!--android:id="@+id/right"-->
+    <!--layout="@layout/help" />-->
+</com.security.manager.page.SlideMenu>

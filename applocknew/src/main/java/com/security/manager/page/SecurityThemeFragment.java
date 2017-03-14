@@ -451,7 +451,7 @@ public class SecurityThemeFragment extends Fragment {
                 }
             });
             if (adView != null) {
-                App.getWatcher().watch(adView);
+//                App.getWatcher().watch(adView);
                 view.addView(adView, layoutParams);
             }
         }

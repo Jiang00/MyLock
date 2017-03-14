@@ -247,7 +247,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         }
     }
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             if (intent.getExtra("launchname") != null) {
@@ -273,5 +273,5 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         } else {
             this.finish();
         }
-    }
+    }*/
 }

@@ -1,0 +1,8 @@
+E:/Gitlab/Applock-aurora-v1/applocknew/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/objs/core/core.o: \
+ E:/Gitlab/Applock-aurora-v1/applocknew/src/main/jni/core.cpp \
+ H:/AndroidSdk/android-ndk-r12b/build//../sources/cxx-stl/gnu-libstdc++/4.9/include/string \
+ E:/Gitlab/Applock-aurora-v1/applocknew/src/main/jni/sha256.h
+
+H:/AndroidSdk/android-ndk-r12b/build//../sources/cxx-stl/gnu-libstdc++/4.9/include/string:
+
+E:/Gitlab/Applock-aurora-v1/applocknew/src/main/jni/sha256.h:

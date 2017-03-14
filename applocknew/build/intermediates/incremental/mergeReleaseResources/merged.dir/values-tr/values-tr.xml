@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Ana ekrana git"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Yukarı git"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Diğer seçenekler"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Tamamlandı"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Tümünü göster"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Bir uygulama seçin"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"KAPAT"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"AÇ"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Ara…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Sorguyu temizle"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Arama sorgusu"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Ara"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Sorguyu gönder"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Sesli arama"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Şununla paylaş"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s ile paylaş"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Daralt"</string>
+    <string name="app_name">AppLock</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g>, şu anda kullanılamayan bir veya daha fazla Google Play hizmetini gerektiriyor. Yardım için lütfen geliştiriciyle iletişim kurun."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"Google Play hizmetlerini etkinleştir"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"Google Play hizmetlerini etkinleştirmezseniz <ns1:g id="APP_NAME">%1$s</ns1:g> çalışmaz."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"Google Play hizmetlerini etkinleştirin"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"Google Play hizmetlerini yükle"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"<ns1:g id="APP_NAME">%1$s</ns1:g>, şu anda telefonunuzda bulunmayan Google Play hizmetleri olmadan çalışmaz."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"<ns1:g id="APP_NAME">%1$s</ns1:g>, şu anda tabletinizde bulunmayan Google Play hizmetleri olmadan çalışmaz."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"Google Play hizmetlerini edinin"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"Belirtilen hesap bu cihazda mevcut değil. Lütfen farklı bir hesap seçin."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"Geçersiz Hesap"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"Google Play hizmetlerine bağlanmak için bir veri bağlantısı gerekiyor."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"Ağ Hatası"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"Google Play hizmetleri hatası"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"Kısıtlı bir profilden hesaplara erişim desteklenmiyor."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"Kısıtlı Profil"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"Belirtilen hesapta oturum açılırken hata oluştu. Lütfen farklı bir hesap seçin."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"Oturum açılamadı"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g>, Google Play hizmetleriyle ilgili sorun yaşıyor. Sorun devam ederse lütfen yardım için geliştiriciyle iletişim kurun."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g>, cihazınız tarafından desteklenmeyen Google Play hizmetlerine ihtiyaç duyuyor. Yardım için üreticiyle iletişim kurun."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"Google Play hizmetleri"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"Güncelle"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"Google Play hizmetlerini güncellemezseniz <ns1:g id="APP_NAME">%1$s</ns1:g> çalışmaz."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"Google Play hizmetlerini güncelleyin"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g>, şu anda güncellenmekte olan Google Play hizmetleri olmadan çalışmaz."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"Google Play hizmetleri güncelleniyor"</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"Google Play hizmetlerinin yeni sürümü gerekiyor. Kendisini kısa süre içinde güncelleyecektir."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"Telefonda aç"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"Oturum aç"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"Google\'da oturum aç"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Bu uygulamayı beğenirsen \ n bize 5 yıldızlı rating ver</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Şikayet</string>
+    <string name="ivy_module_ivyui_new_version_have">Yeni bir sürüm gereklidir \ nLütfen güncelleyin</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Güncelleştirme</string>
+    <string name="ivy_module_ivyui_promotion_app_install">kurmak</string>
+    <string name="ivy_permission">Gelişmiş Koruma</string>
+    <string name="ivy_permission_access_fine_location_des">Telefonunuzda GPS işlevini kullanarak tüm uygulamaları algılayın.</string>
+    <string name="ivy_permission_access_fine_location_title">GPS Monitörü</string>
+    <string name="ivy_permission_access_service_des">%50 güç tüketimini azaltın ve pil ömrünü uzatın.</string>
+    <string name="ivy_permission_access_service_title">Güç tasarrufu</string>
+    <string name="ivy_permission_application">Uygulama izin yönetimi</string>
+    <string name="ivy_permission_bind_device_admin_des">Davetsiz misafirler %s, daha güvenli kaldıramaz!</string>
+    <string name="ivy_permission_bind_device_admin_title">İstenmeyen Haklar</string>
+    <string name="ivy_permission_camera_des">Gizlemenize bakmaya çalışan davetsiz misafirlerin fotoğraflarını çekin.</string>
+    <string name="ivy_permission_camera_title">Kamera Kullanımı</string>
+    <string name="ivy_permission_desc">Mükemmel koruma sağlamak için tüm izinleri etkinleştirmenizi öneririz.</string>
+    <string name="ivy_permission_ok">tamam</string>
+    <string name="ivy_permission_read_contacts_des">Seçtiğiniz kişiden sesli arama kaydedin.</string>
+    <string name="ivy_permission_read_contacts_title">Kişileri Oku</string>
+    <string name="ivy_permission_record_audio_des">Arama kaydediciyi normalde gerçek zamanlı olarak çalıştırın.</string>
+    <string name="ivy_permission_record_audio_title">Ses Kaydet</string>
+    <string name="ivy_permission_skip">Atla</string>
+    <string name="ivy_permission_switch_dialog_title">%s bul ve etkinleştir</string>
+    <string name="ivy_permission_system_alert_window_des">AppLock\'u normal çalışmaya devam ettirmek ve mükemmel bir koruma sağlamak.</string>
+    <string name="ivy_permission_system_alert_window_title">Aniden belirmek</string>
+    <string name="ivy_permission_usage_access_settings_des">Gizliliğinizi gerçek zamanlı olarak korumak için %s\'yi yayınlamaya devam edin.</string>
+    <string name="ivy_permission_usage_access_settings_title">Kararlı Operasyon</string>
+    <string name="security_app_pro_successful">başarıyla koruyun</string>
+    <string name="security_applock_open">Süper App kilidini çalışıyor</string>
+    <string name="security_applock_permission">Daha iyi gizlilik koruma için, erişim izni izin verin.</string>
+    <string name="security_applock_permission_allow">İzin vermek</string>
+    <string name="security_applock_stop">Süper App kilidi durduruldu</string>
+    <string name="security_apply_">Kullanım</string>
+    <string name="security_apps_open_permission">AppLock bulun ve etkinleştirin</string>
+    <string name="security_ask_lock">Daha fazla güvenliği sağlamak için %1$s</string>
+    <string name="security_ask_lock_protect">Korumak için Süper AppLock kullanın</string>
+    <string name="security_btn_next">Sıradaki</string>
+    <string name="security_cancel">İptal etmek</string>
+    <string name="security_change_password">Şifre değiştir</string>
+    <string name="security_change_pattern">Şablon değiştir</string>
+    <string name="security_choose_theme">Temayı seçin</string>
+    <string name="security_click_change">Lütfen başka bir tane deneyin</string>
+    <string name="security_confirm_passwd_tip">Onaylamak için şifrenizi tekrar girin</string>
+    <string name="security_done">Yapıldı</string>
+    <string name="security_draw_pattern">Kilidi açacak bir şablon çiziniz</string>
+    <string name="security_draw_pattern_next">tekrar çizmek</string>
+    <string name="security_enter_password">Bu uygulamanın kilidini açmak için şifrenizi giriniz</string>
+    <string name="security_every_time">Her zaman kilitle</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_finger_tip">Parmak izi iki kez dokunun ve APP maske parmak izi açmak için basılı tutun</string>
+    <string name="security_fingerprint">Parmak izi</string>
+    <string name="security_fingerprint_many_error">Lütfen şifreyi kullan</string>
+    <string name="security_five_min">5 dakika</string>
+    <string name="security_five_start">Biz gizliliğinizi korumayı taahhüt ediyoruz. Eğer bize 5-star-derecelendirme verebilir?</string>
+    <string name="security_float_action_switch_widget">kayan Widget</string>
+    <string name="security_for_lock_new">\"%1$s\" kilitlemek istermisiniz?</string>
+    <string name="security_forget_password">Şifremi unuttum</string>
+    <string name="security_go_open_fingerprint">Hemen kurmak için</string>
+    <string name="security_google">Google+</string>
+    <string name="security_help_share">Beni derecelendir</string>
+    <string name="security_hide_path">Sakla desen kilidi yolu</string>
+    <string name="security_hide_successful">%1$s başarıyla gizlendi</string>
+    <string name="security_input_password">Lütfen 6 basamaklı PIN kodunu girin</string>
+    <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
+    <string name="security_intrude_five">5 kere</string>
+    <string name="security_intrude_five_rate">Sizin övgü bize daha iyisini teşvik edecektir.</string>
+    <string name="security_intrude_four">4 kere</string>
+    <string name="security_intrude_one">1 kez</string>
+    <string name="security_intrude_self">Hırsız Selfie</string>
+    <string name="security_intrude_shutter">deklanşör sesini etkinleştirme</string>
+    <string name="security_intrude_three">3 kere</string>
+    <string name="security_intrude_two">2 kez</string>
+    <string name="security_intruder_help">yardım et</string>
+    <string name="security_intruder_off">Hırsız dedektörü kapatılır</string>
+    <string name="security_intruder_off_new">Hırsız dedektörü kapalı</string>
+    <string name="security_intruder_on_new">Hırsız dedektörü açık olduğunu</string>
+    <string name="security_intruder_open">Sizin için yakalama davetsiz misafir</string>
+    <string name="security_intruder_setting">Hırsız selfie</string>
+    <string name="security_intruder_setting_new">Hırsız selfie ayarı</string>
+    <string name="security_intruder_tip">Yanlış kod girilirse</string>
+    <string name="security_later_">Daha sonra</string>
+    <string name="security_loading_fullad_fail">Reklam yüklenemedi, lütfen daha sonra tekrar deneyin</string>
+    <string name="security_lock_app">Uygulamayı kilitle</string>
+    <string name="security_lock_success">%1$s başarıyla kitlendi</string>
+    <string name="security_lock_to_open">Süper App kilidini açmak için tıklayınız</string>
+    <string name="security_lock_to_stop">Süper App kilidini kapatmak için tıklayınız</string>
+    <string name="security_login_with_email">Google Hesabı Kimliği önce şifrenizi sıfırlamak kontrol edin.</string>
+    <string name="security_my_close">Kapat</string>
+    <string name="security_my_theme">Tema</string>
+    <string name="security_myfake">App maskesi</string>
+    <string name="security_new_intruder">Davetsiz misafir</string>
+    <string name="security_newapp_lock">Yeni uygulamaları kilitle</string>
+    <string name="security_no_google_account">Telefonunuzda hiçbir mevcut Google hesabı vardır.</string>
+    <string name="security_no_intruder">bugüne kadar hiçbir davetsiz yoktur.</string>
+    <string name="security_nofification">Bildirim</string>
+    <string name="security_open_fingerprint">Parmak izi kullan</string>
+    <string name="security_over_short">Kısa kurulum</string>
+    <string name="security_password_lock">PIN kodu kilidi</string>
+    <string name="security_password_not_match">Şifre onayında hata</string>
+    <string name="security_password_setsuccessful">Şifre kurulumu başarılı</string>
+    <string name="security_password_short">6 hane gerekiyor</string>
+    <string name="security_pattern_lock">Model kilidi</string>
+    <string name="security_pattern_short">En az 3 nokta çizin</string>
+    <string name="security_pause_protect">Koruma sonl</string>
+    <string name="security_permission_grand">Hibe izni</string>
+    <string name="security_permission_msg">"Biz apps kilitlemek için izin gerekiyor! Bize izin verin!"</string>
+    <string name="security_power_mode">Güç tasarrufu</string>
+    <string name="security_power_mode_des">50% güç tüketimini azaltın, telefon bekleme süresini uzatın.</string>
+    <string name="security_pretent_calender">Takvim</string>
+    <string name="security_pretent_fails">App maskesi ayarlı değil</string>
+    <string name="security_pretent_fc">APP durdu</string>
+    <string name="security_pretent_finger">Parmak izi</string>
+    <string name="security_pretent_force_close">Ne yazık ki, "%1$s" durdu.</string>
+    <string name="security_pretent_icon_1">Saat</string>
+    <string name="security_pretent_icon_2">Hesaplanan.</string>
+    <string name="security_pretent_icon_3">Hava</string>
+    <string name="security_pretent_icon_default">Standart</string>
+    <string name="security_pretent_none">Hiçbir maske</string>
+    <string name="security_pretent_notepad">Not Defteri</string>
+    <string name="security_pretent_selector">Uygulama simgesini değiştirin</string>
+    <string name="security_pretent_setting_msg">APP maske açmak için "close" butonuna boyunca soldan sağa doğru parmağınızı hareket ettirin Lütfen</string>
+    <string name="security_protect">Korumak</string>
+    <string name="security_protect_apps">Bir şifre ile koruyun uygulamaları</string>
+    <string name="security_protecting">koruyucu</string>
+    <string name="security_rate_bad">KÖTÜ</string>
+    <string name="security_rate_good">İYİ</string>
+    <string name="security_rate_msg">Eğer AppLock isterseniz, bize bir 5-star-derecelendirme verin.</string>
+    <string name="security_rate_t">Puan Applock</string>
+    <string name="security_reset_passwd_2_btn">Şifreyi sıfırla</string>
+    <string name="security_reset_password">Şifreyi yenile</string>
+    <string name="security_security_set_fake_success">App maskesi başarıyla ayarlanmış</string>
+    <string name="security_select_apps">Korumak için uygulamaları seçin</string>
+    <string name="security_select_apps_locked">Bu uygulamalar kilitli</string>
+    <string name="security_service_description">Kararlı hizmet ve daha az güç tüketimi.</string>
+    <string name="security_service_title">Ulaşılabilirlik</string>
+    <string name="security_set_confirm_password">ŞİFRENİZİ ONAYLAYIN</string>
+    <string name="security_set_passwd_tip">Herhangi bir basamak girin</string>
+    <string name="security_set_password">ŞİFRENİZİ KURUN</string>
+    <string name="security_set_password_successful">Şifre kurulumu yapılamıyor </string>
+    <string name="security_set_pattern">Narysuj wzór </string>
+    <string name="security_settings_preference">Gelişmiş koruma</string>
+    <string name="security_settings_preference_desc">Mükemmel koruma sağlamak için tüm izinleri etkinleştirmenizi öneririz.</string>
+    <string name="security_short_exit">Hızlı çıkış</string>
+    <string name="security_short_exit_detail">Hızlı çıkıştan önce tekrar kilitleme</string>
+    <string name="security_short_exit_off">Ekran kapalı sonra yeniden kilitlemek</string>
+    <string name="security_short_exit_slot">Hızlı çıkış zaman limiti</string>
+    <string name="security_show_newversion">güncelleştirme</string>
+    <string name="security_show_newversion_inf">Yeni sürümü piyasaya sürüldü, güncellemek için acele edin!</string>
+    <string name="security_show_noti">Geçiş bildirimi</string>
+    <string name="security_show_noti_desc">Geçiş butonunu bildirimin içinde göster</string>
+    <string name="security_show_permission">Hibe izni</string>
+    <string name="security_show_successful">%1$s başarıyla gösterildi </string>
+    <string name="security_slide_theme">Tema</string>
+    <string name="security_start_rat">5-Yıldız-Değerlendirme</string>
+    <string name="security_stop_applock">Applock\'u durdur</string>
+    <string name="security_stop_applock_information">AppLock hizmetini durdurmanız durumunda uygulamalarınız korunmayacaktır. Devam et?</string>
+    <string name="security_tab_setting">Ayarlar</string>
+    <string name="security_to_save">Kaydet</string>
+    <string name="security_try_later">Lütfen daha sonra deneyin</string>
+    <string name="security_turnon_intruder">Saldırgan açın</string>
+    <string name="security_unlock_me">Bu uygulamanın kilidini aç</string>
+    <string name="security_unlock_success">%1$s başarıyla açıldı</string>
+    <string name="security_unlock_type">Açma tipi</string>
+    <string name="security_until_screen_off">Ekran kapanana kadar</string>
+    <string name="security_update">kurmak</string>
+    <string name="security_update_title">Yeni Versiyon Güncelleme</string>
+    <string name="security_use_normal">Şifre kilidi</string>
+    <string name="security_use_password">Şifre kilidi kullan</string>
+    <string name="security_use_pattern">Şablon kilidi</string>
+    <string name="security_use_pattern_">Şablon kilidi kullan</string>
+    <string name="security_use_theme_success">Bu tema kullanarak bir</string>
+    <string name="security_user_center">Reklamsız</string>
+    <string name="security_user_compare_fake_cover">Sahte Kapak</string>
+    <string name="security_user_compare_fake_cover_inf">AppLock simgesini değiştir</string>
+    <string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_compare_intruder_self">Hırsız</string>
+    <string name="security_user_compare_lockapp">Uygulamaları Kilitle</string>
+    <string name="security_user_compare_lockapp_inf">Facebook vb. Kilitle</string>
+    <string name="security_user_compare_no_ad_inf">Temiz UI \'nun keyfini çıkarın</string>
+    <string name="security_user_compare_theme_change">Temalar</string>
+    <string name="security_user_compare_theme_inf">100\'den fazla güzel temalar</string>
+    <string name="security_user_free">Tam özellik mevcuttur ve bizi destekleyen reklamları izleyin.</string>
+    <string name="security_user_free_name">ÜCRETSİZ</string>
+    <string name="security_user_free_name_bootom">Reklamlar / Sınırsız</string>
+    <string name="security_user_limit">Hiçbir reklam sizi rahatsız etmez ancak yalnızca Uygulamayı Kilitle seçeneği kullanılabilir.</string>
+    <string name="security_user_limit_compare">Karşılaştırmak</string>
+    <string name="security_user_limit_confirm">Onaylamak</string>
+    <string name="security_user_limit_des">Sınırı seçmek, bu özelliklerin kullanımını kaybedeceğiniz anlamına gelir:</string>
+    <string name="security_user_limit_fake">× AppLock simgesini değiştirme</string>
+    <string name="security_user_limit_intruder">× Davetsiz misafirlerin imajını yakalama</string>
+    <string name="security_user_limit_intruder_self_inf">Hırsızın fotoğrafını çek</string>
+    <string name="security_user_limit_name">SINIR</string>
+    <string name="security_user_limit_name_bootom">Reklam Yok / Sınırlı</string>
+    <string name="security_user_limit_theme">× Tonlarca güzel temayı seçin</string>
+    <string name="security_user_no_ad_compare">Reklamsız</string>
+    <string name="security_user_plan_free_click">ÜCRETSİZ seçildi</string>
+    <string name="security_user_pro">Tam özellik rahatsız edici reklamlar olmadan kullanılabilir. Sınırlı zaman teklif.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_pro_name_bootom">Reklam yok / Sınırsız</string>
+    <string name="security_user_slide_text_inf">Bu özelliği kullanmak istiyorsanız lütfen planınızı yükseltin.</string>
+    <string name="security_user_slide_text_not">Şimdi değil</string>
+    <string name="security_user_slide_text_upgrade">Yükselt</string>
+    <string name="security_verify">doğrulamak</string>
+    <string name="security_visitor_off">AppLock durduruldu</string>
+    <string name="security_visitor_on">AppLock çalışıyor</string>
+    <string name="setting_category_pattern">model</string>
+    <string name="setting_digital_code">PIN kodu</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ivy_module_ivyui_five_star_rating">#b1a1ff</color>
+    <color name="ivy_module_ivyui_tab_bg">#212435</color>
+    <color name="ivy_module_ivyui_tab_item_color">#495669</color>
+    <color name="ivy_module_ivyui_tab_item_selected_color">#ffffff</color>
+    <declare-styleable name="CustomerTypefaceTextView"><attr format="string" name="typeface"/></declare-styleable>
+    <declare-styleable name="LabelView"><attr format="string" name="lv_text"/><attr format="color" name="lv_text_color"/><attr format="dimension" name="lv_text_size"/><attr format="boolean" name="lv_text_bold"/><attr format="boolean" name="lv_text_all_caps"/><attr format="color" name="lv_background_color"/><attr format="dimension" name="lv_min_size"/><attr format="dimension" name="lv_padding"/><attr format="enum" name="lv_gravity">
+            <enum name="TOP_LEFT" value="51"/>
+            <enum name="TOP_RIGHT" value="53"/>
+            <enum name="BOTTOM_LEFT" value="83"/>
+            <enum name="BOTTOM_RIGHT" value="85"/>
+        </attr><attr format="boolean" name="lv_fill_triangle"/></declare-styleable>
+    <declare-styleable name="RoundImageView"><attr name="maskType">
+            <enum name="RECTANGLE" value="0"/>
+            <enum name="CIRCLE" value="1"/>
+            <enum name="ROUNDRECTANGLE" value="2"/>
+            <enum name="ROUNDRECTANGLETOP" value="3"/>
+        </attr><attr format="dimension" name="borderWidth_Ri"/><attr format="color|reference" name="borderColor_Ri"/></declare-styleable>
+    <declare-styleable name="TabContainer"><attr format="integer" name="default_index"/><attr format="integer" name="text_color"/><attr format="integer" name="selected_text_color"/></declare-styleable>
+    <string name="ivy_module_ivyui_five_star_rating_explain">If you like this app \nplease give us 5-star rating</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Complain</string>
+    <string name="ivy_module_ivyui_new_version_have">A new version is required \nPlease update</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Update</string>
+    <string name="ivy_module_ivyui_promotion_app_install">INSTALL</string>
+    <string name="ivy_permission">Advanced Protection</string>
+    <string name="ivy_permission_access_fine_location_des">Detect all apps using GPS function in your phone.</string>
+    <string name="ivy_permission_access_fine_location_title">GPS Monitor</string>
+    <string name="ivy_permission_access_service_des">Reduce 50% power consumption and extend battery life.</string>
+    <string name="ivy_permission_access_service_title">Power Saving</string>
+    <string name="ivy_permission_application">Application permission management</string>
+    <string name="ivy_permission_bind_device_admin_des">Intruders cannot uninstall %s, more secure!</string>
+    <string name="ivy_permission_bind_device_admin_title">Anti-Intruder</string>
+    <string name="ivy_permission_camera_des">Take photos of intruders trying to peep at your privacy.</string>
+    <string name="ivy_permission_camera_title">Camera Usage</string>
+    <string name="ivy_permission_desc">In order to get perfect protection, we recommend you to enable all permissions.</string>
+    <string name="ivy_permission_ok">OK</string>
+    <string name="ivy_permission_read_contacts_des">Record voice call from the contact person you selected.</string>
+    <string name="ivy_permission_read_contacts_title">Read Contacts</string>
+    <string name="ivy_permission_record_audio_des">Keep call recorder running normally in real time.</string>
+    <string name="ivy_permission_record_audio_title">Record Audio</string>
+    <string name="ivy_permission_skip">Skip</string>
+    <string name="ivy_permission_switch_dialog_title">Find %s and enable it</string>
+    <string name="ivy_permission_system_alert_window_des">To keep AppLock running normally and perfect protection.</string>
+    <string name="ivy_permission_system_alert_window_title">Popup</string>
+    <string name="ivy_permission_usage_access_settings_des">Keep %s running to protect your privacy in real time.</string>
+    <string name="ivy_permission_usage_access_settings_title">Stable Operation</string>
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="DimPanel" parent="DimPanelBase">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="DimPanelBase" parent="@android:style/Theme.Holo.Light.Panel">
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+</resources>

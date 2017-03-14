@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical"
+    android:background="@color/security_theme_primary"
+
+    >
+
+    <FrameLayout
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/security_theme_primary"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:id="@+id/normal_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:id="@+id/title_icon"
+                android:background="@drawable/security_bt_backg_"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp">
+
+            <ImageButton
+                android:clickable="true"
+                android:id="@+id/menu_icon"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/security_slide_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginRight="16dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="18dp"
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+
+                android:visibility="gone"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/security_button_bg"
+                android:clickable="true"
+                android:gravity="start|center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" />
+
+            <ImageButton
+
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/upgrade"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                tools:visibility="gone"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/security_button_bg"
+                />
+
+            <ImageButton
+
+                android:id="@+id/edit_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|end"
+                android:background="@drawable/security_button_bg"
+                android:layout_marginRight="4dp"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:visibility="gone"
+                android:id="@+id/search_button"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|end"
+                android:background="@drawable/security_button_bg"
+                android:layout_marginRight="4dp"
+                 />
+
+            <ImageButton
+                android:visibility="gone"
+                android:id="@+id/help"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|end"
+                android:background="@drawable/security_button_bg"
+                android:layout_marginRight="4dp"
+                 />
+
+            <ImageButton
+                android:id="@+id/setting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|end"
+                android:background="@drawable/security_button_bg"
+                android:layout_marginRight="4dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/search_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/search_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColorHint="@android:color/white"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/security_icon_cancle" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/reddot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/security_reddot"
+            android:visibility="invisible" />
+    </FrameLayout>
+</LinearLayout>

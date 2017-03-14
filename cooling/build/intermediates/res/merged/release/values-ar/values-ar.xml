@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"التنقل إلى الشاشة الرئيسية"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"التنقل إلى أعلى"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"خيارات إضافية"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"تم"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"عرض الكل"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"اختيار تطبيق"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"محو طلب البحث"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"طلب البحث"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"بحث"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"إرسال طلب البحث"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"البحث الصوتي"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"مشاركة مع"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"‏مشاركة مع %s"</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"‏يتطلب <ns1:g id="APP_NAME">%1$s</ns1:g> خدمة أو أكثر من خدمات Google Play والتي لا تتوفر حاليًا. يُرجى الاتصال بمطوّر البرامج للحصول على المساعدة."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"‏تمكين خدمات Google Play"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"‏لن يعمل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تمكين خدمات Google Play."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"‏تمكين خدمات Google Play"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"‏الحصول على خدمات Google Play"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي لا تتوفر على هاتفك."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي لا تتوفر على جهازك اللوحي."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"‏الحصول على خدمات Google Play"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"الحساب الذي تم تحديده غير موجود على الجهاز. الرجاء اختيار حساب آخر."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"حساب غير صالح"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"‏يتطلب الاتصال بخدمات Google Play وجود اتصال بيانات."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"حدث خطأ في الشبكة"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"‏حدث خطأ في خدمات Google Play"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"لا تتوفر إمكانية الوصول إلى الحسابات من ملف شخصي مقيَّد."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"ملف شخصي مقيَّد"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"حدث خطأ أثناء تسجيل الدخول إلى الحساب المحدد. الرجاء اختيار حساب مختلف."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"أخفق تسجيل الدخول"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"‏تواجه <ns1:g id="APP_NAME">%1$s</ns1:g> مشكلة في خدمات Google Play. إذا ظلت المشكلة قائمة، فيُرجى الاتصال بمطوِّر البرامج للحصول على مساعدة."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"‏يعتمد <ns1:g id="APP_NAME">%1$s</ns1:g> على خدمات Google Play والتي لا تتوافق مع جهازك. يمكنك الاتصال بجهة التصنيع للحصول على مساعدة."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"‏خدمات Google Play"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"تحديث"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تحديث خدمات Google Play."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"‏تحديث خدمات Google Play"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي يتم تحديثها حاليًا."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"‏يتم الآن تحديث خدمات Google Play."</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"‏يجب توفر إصدار جديد من خدمات Google Play. سيتم تحديثها تلقائيًا قريبًا."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"فتح على الهاتف"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"تسجل الدخول"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"‏تسجيل الدخول عبر Google"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">إذا كنت تحب هذا التطبيق \ n الرجاء تعطينا 5 نجوم تصنيف</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">لم يعجبنى</string>
+    <string name="ivy_module_ivyui_new_version_have">مطلوب إصدار جديد \ n الرجاء تحديث</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">تحديث</string>
+    <string name="ivy_module_ivyui_promotion_app_install">تثبيت</string>
+    <string name="ivy_permission">حماية متقدمة</string>
+    <string name="ivy_permission_access_fine_location_des">كشف جميع التطبيقات باستخدام وظيفة GPS في الهاتف.</string>
+    <string name="ivy_permission_access_fine_location_title">مراقبة نظام تحديد المواقع</string>
+    <string name="ivy_permission_access_service_des">تخفيض 50٪ من استهلاك الطاقة وإطالة عمر البطارية.</string>
+    <string name="ivy_permission_access_service_title">حفظ الطاقة</string>
+    <string name="ivy_permission_application">إدارة إذن التطبيق</string>
+    <string name="ivy_permission_bind_device_admin_des">منع التطبيق من كونها إلغاء بشكل غير متوقع.</string>
+    <string name="ivy_permission_bind_device_admin_title">مكافحة دخيل</string>
+    <string name="ivy_permission_camera_des">التقاط الصور من المتسللين في محاولة لزقزقة على خصوصيتك.</string>
+    <string name="ivy_permission_camera_title">كاميرا الاستخدام</string>
+    <string name="ivy_permission_desc">من أجل الحصول على حماية كاملة، ونحن ننصح لتمكين كافة الأذونات.</string>
+    <string name="ivy_permission_ok">حسنا</string>
+    <string name="ivy_permission_read_contacts_des">مكالمة صوتية قياسية من الشخص الذي يمكن الاتصال الذي حددته.</string>
+    <string name="ivy_permission_read_contacts_title">قراءة اتصالات</string>
+    <string name="ivy_permission_record_audio_des">إبقاء مسجل دعوة تشغيل عادة في الوقت الحقيقي.</string>
+    <string name="ivy_permission_record_audio_title">تسجيل صوتي</string>
+    <string name="ivy_permission_skip">تخطى</string>
+    <string name="ivy_permission_switch_dialog_title">العثور على التطبيق وتمكينها</string>
+    <string name="ivy_permission_system_alert_window_des">للحفاظ على AppLock يعمل بشكل طبيعي وحماية مثالية.</string>
+    <string name="ivy_permission_system_alert_window_title">يظهر فجأة</string>
+    <string name="ivy_permission_usage_access_settings_des">الاحتفاظ تطبيق قيد التشغيل بشكل مطرد.</string>
+    <string name="ivy_permission_usage_access_settings_title">عملية مستقرة</string>
+</resources>

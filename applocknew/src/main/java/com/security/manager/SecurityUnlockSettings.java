@@ -98,7 +98,7 @@ public class SecurityUnlockSettings extends AppCompatActivity {
             normalTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (intent.getExtra("lock_setting") != null) {
+                    if (intent.getBooleanExtra("lock_setting", false)) {
                         finish();
                         Intent nIntent = SecurityUnlockSettings.this.getPackageManager().getLaunchIntentForPackage(SecurityUnlockSettings.this.getPackageName() + "");
                         nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -372,7 +372,7 @@ public class SecurityUnlockSettings extends AppCompatActivity {
         }
     }
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             if (intent.getExtra("lock_setting") != null) {
@@ -397,5 +397,5 @@ public class SecurityUnlockSettings extends AppCompatActivity {
         } else {
             finish();
         }
-    }
+    }*/
 }

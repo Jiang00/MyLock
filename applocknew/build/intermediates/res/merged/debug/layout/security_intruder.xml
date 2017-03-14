@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="167dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:id="@+id/security_invade_ic"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_centerVertical="true"
+                    />
+                <ImageView
+                    android:id="@+id/intrude_new_i"
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/security_new_intruder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="12px"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="#5a5f70"
+                tools:text="2012/12/12"
+                android:gravity="center"
+                />
+
+            <ImageButton
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:layout_marginLeft="200dp"
+                android:id="@+id/security_backg_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/security_incade_cha"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="118dp">
+
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="#d2d2d2"
+                android:layout_width="1dp"
+                android:layout_height="118dp"></View>
+
+            <FrameLayout
+                android:layout_marginLeft="33dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <com.security.lib.customview.SecurityloadImage
+                    android:id="@+id/security_ima"
+                    android:layout_width="280dp"
+                    android:layout_height="126dp"
+                    android:scaleType="centerCrop"
+                    />
+
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--<ReloadableImageView-->
+        <!--android:id="@+id/icon"-->
+        <!--android:layout_width="280dp"-->
+        <!--android:layout_height="126dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:scaleType="fitXY"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/name"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:background="@color/body_text_3"-->
+        <!--android:textColor="@color/body_text_1_inverse"-->
+        <!--android:textSize="18sp"/>-->
+
+    <ImageButton
+        android:visibility="gone"
+        android:id="@+id/bg_sel"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="top|end"/>
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/security_invade_data"
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/security_invade_ic"
+        android:text="qqq"
+        android:textColor="@color/security_te_3"
+        android:textSize="15sp"/>
+</LinearLayout>

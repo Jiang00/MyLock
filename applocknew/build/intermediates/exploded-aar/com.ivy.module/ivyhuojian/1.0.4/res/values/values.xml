@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="white_35">#89ffffff</color>
+    <string name="app_name">ivyhuojian</string>
+    <string name="ivy_module_huojian_size">Clean</string>
+    <string name="ivy_module_huojian_size_danwei"> MB trash!</string>
+    <string name="ivy_module_huojian_size_n">Phone status is great!</string>
+    <string name="ivy_module_huojian_success_text2">Cleaned</string>
+    <style name="ivy_module_huojian_Transparent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="ivy_module_huojian_add_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="ivy_module_huojian_dialog_anim" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/ivy_module_huojian_dialog_appear</item>
+        <item name="android:windowExitAnimation">@anim/ivy_module_huojian_dialog_disappear</item>
+    </style>
+</resources>

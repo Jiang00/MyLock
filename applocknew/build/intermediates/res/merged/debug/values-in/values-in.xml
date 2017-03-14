@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Navigasi ke beranda"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Navigasi naik"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Opsi lain"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Selesai"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Lihat semua"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Pilih aplikasi"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"NONAKTIF"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"AKTIF"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Telusuri..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Hapus kueri"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Kueri penelusuran"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Telusuri"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Kirim kueri"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Penelusuran suara"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Bagikan dengan"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Bagikan dengan %s"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Ciutkan"</string>
+    <string name="app_name">AppLock</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> memerlukan satu atau beberapa layanan Google Play yang saat ini tidak tersedia. Hubungi pengembang untuk mendapatkan bantuan."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"Aktifkan layanan Google Play"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berfungsi jika layanan Google Play tidak diaktifkan."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"Aktifkan layanan Google Play"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"Dapatkan layanan Google Play"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berjalan tanpa layanan Google Play, yang tidak ada di ponsel Anda."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berjalan tanpa layanan Google Play, yang tidak ada di tablet Anda."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"Dapatkan layanan Google Play"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"Akun yang ditentukan tidak ada di perangkat ini. Pilih akun lain."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"Akun Tidak Valid"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"Perlu sambungan data untuk tersambung ke layanan Google Play."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"Kesalahan Jaringan"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"Kesalahan layanan Google Play"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"Mengakses akun dari profil yang dibatasi tidak didukung."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"Profil Dibatasi"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"Kesalahan saat masuk ke akun yang ditentukan. Pilih akun yang lain."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"Gagal masuk"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> kesulitan dengan layanan Google Play. Jika masalah terus berlanjut, hubungi pengembang untuk mendapatkan bantuan."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> memerlukan layanan Google Play, yang tidak didukung oleh perangkat Anda. Hubungi pabrikan untuk mendapat bantuan."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"Layanan Google Play"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"Perbarui"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berjalan jika layanan Google Play tidak diperbarui."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"Perbarui layanan Google Play"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berjalan tanpa layanan Google Play, yang saat ini sedang diperbarui."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"Layanan Google Play sedang diperbarui"</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"Perlu versi baru layanan Google Play. Akan segera memperbarui sendiri."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"Buka di ponsel"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"Masuk"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"Masuk dengan Google"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Jika Anda menyukai aplikasi ini \ nMohon memberi kami 5-bintang rating</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Mengeluh</string>
+    <string name="ivy_module_ivyui_new_version_have">Sebuah versi baru diperlukan \ pembaruan nSilakan</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Memperbarui</string>
+    <string name="ivy_module_ivyui_promotion_app_install">MEMASANG</string>
+    <string name="ivy_permission">Perlindungan canggih</string>
+    <string name="ivy_permission_access_fine_location_des">Mendeteksi semua aplikasi menggunakan fungsi GPS di ponsel Anda.</string>
+    <string name="ivy_permission_access_fine_location_title">GPS Memantau</string>
+    <string name="ivy_permission_access_service_des">Mengurangi konsumsi daya 50% dan memperpanjang hidup baterai.</string>
+    <string name="ivy_permission_access_service_title">Penghematan energi</string>
+    <string name="ivy_permission_application">manajemen izin aplikasi</string>
+    <string name="ivy_permission_bind_device_admin_des">Penyusup tidak dapat menghapus %s, lebih aman!</string>
+    <string name="ivy_permission_bind_device_admin_title">Anti-Intruder</string>
+    <string name="ivy_permission_camera_des">Mengambil foto dari penyusup mencoba untuk mengintip privasi Anda.</string>
+    <string name="ivy_permission_camera_title">kamera Penggunaan</string>
+    <string name="ivy_permission_desc">Dalam rangka untuk mendapatkan perlindungan yang sempurna, kami sarankan Anda untuk mengaktifkan semua izin.</string>
+    <string name="ivy_permission_ok">baik</string>
+    <string name="ivy_permission_read_contacts_des">panggilan suara rekaman dari orang kontak yang dipilih.</string>
+    <string name="ivy_permission_read_contacts_title">Baca Kontak</string>
+    <string name="ivy_permission_record_audio_des">Jauhkan panggilan perekam berjalan normal secara real time.</string>
+    <string name="ivy_permission_record_audio_title">Suara rekaman</string>
+    <string name="ivy_permission_skip">Melewatkan</string>
+    <string name="ivy_permission_switch_dialog_title">Cari %s dan mengaktifkannya</string>
+    <string name="ivy_permission_system_alert_window_des">Untuk menjaga AppLock berjalan normal dan perlindungan yang sempurna.</string>
+    <string name="ivy_permission_system_alert_window_title">Muncul</string>
+    <string name="ivy_permission_usage_access_settings_des">Jauhkan %s berjalan untuk melindungi privasi Anda secara real time.</string>
+    <string name="ivy_permission_usage_access_settings_title">Operasi stabil</string>
+    <string name="security_app_pro_successful">Lindungi berhasil</string>
+    <string name="security_applock_open">Super AppLock berjalan</string>
+    <string name="security_applock_permission">Untuk perlindungan privasi yang lebih baik, perkenankan izin akses.</string>
+    <string name="security_applock_permission_allow">Mengizinkan</string>
+    <string name="security_applock_stop">Super AppLock dihentikan</string>
+    <string name="security_apply_">Penggunaan</string>
+    <string name="security_apps_open_permission">Cari AppLock dan mengaktifkannya</string>
+    <string name="security_ask_lock">Untuk membuat %1$s lebih aman</string>
+    <string name="security_ask_lock_protect">Melindunginya oleh Super AppLock</string>
+    <string name="security_btn_next">Berikutnya</string>
+    <string name="security_cancel">Membatalkan</string>
+    <string name="security_change_password">Ganti Kata Sandi</string>
+    <string name="security_change_pattern">Ganti Kata Pola</string>
+    <string name="security_choose_theme">Pilih tema</string>
+    <string name="security_click_change">Silakan coba yang lain</string>
+    <string name="security_confirm_passwd_tip">mengkonfirmasi passcode Anda</string>
+    <string name="security_done">Selesai</string>
+    <string name="security_draw_pattern">Menggambar pola</string>
+    <string name="security_draw_pattern_next">Menggambar lagi</string>
+    <string name="security_enter_password">Masukkan sandi Anda untuk membuka aplikasi ini</string>
+    <string name="security_every_time">Selalu mengunci</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_finger_tip">Tekan sidik jari dua kali dan tahan untuk menghidupkan APP menyamar</string>
+    <string name="security_fingerprint">Sidik jari</string>
+    <string name="security_fingerprint_many_error">Gunakan sandi</string>
+    <string name="security_five_min">5 menit</string>
+    <string name="security_five_start">Kami berkomitmen untuk melindungi privasi Anda. Bisakah Anda memberi kami 5-bintang rating?</string>
+    <string name="security_float_action_switch_widget">Float Widget</string>
+    <string name="security_for_lock_new">Apakah Anda ingin mengunci \"%1$s\"?</string>
+    <string name="security_forget_password">Lupa kata sandi</string>
+    <string name="security_go_open_fingerprint">Untuk segera menyiapkan</string>
+    <string name="security_google">Google+</string>
+    <string name="security_help_share">Menilainya saya</string>
+    <string name="security_hide_path">Sembunyikan path pola menarik</string>
+    <string name="security_hide_successful">Sembunyikan %1$s sukses</string>
+    <string name="security_input_password">Masukkan kode PIN 6-digit</string>
+    <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
+    <string name="security_intrude_five">5 kali</string>
+    <string name="security_intrude_five_rate">pujian Anda akan mendorong kita berbuat lebih baik.</string>
+    <string name="security_intrude_four">4 kali</string>
+    <string name="security_intrude_one">1 kali</string>
+    <string name="security_intrude_self">intruder Selfie</string>
+    <string name="security_intrude_shutter">Aktifkan suara rana</string>
+    <string name="security_intrude_three">3 kali</string>
+    <string name="security_intrude_two">2 kali</string>
+    <string name="security_intruder_help">Membantu</string>
+    <string name="security_intruder_off">detektor penyusup dimatikan</string>
+    <string name="security_intruder_off_new">Detektor penyusup adalah off</string>
+    <string name="security_intruder_on_new">detektor penyusup dihidupkan</string>
+    <string name="security_intruder_open">Menangkap penyusup untuk Anda</string>
+    <string name="security_intruder_setting">selfie intruder</string>
+    <string name="security_intruder_setting_new">Pengaturan selfie Intruder</string>
+    <string name="security_intruder_tip">kode yang dimasukkan salah</string>
+    <string name="security_later_">Nanti Saja</string>
+    <string name="security_loading_fullad_fail">Iklan memuat gagal, coba lagi nanti</string>
+    <string name="security_lock_app">Mengunci App</string>
+    <string name="security_lock_success">Keberhasilan %1$s sukses </string>
+    <string name="security_lock_to_open">Tekan untuk mengaktifkan Super AppLock</string>
+    <string name="security_lock_to_stop">Tekan untuk mematikan Super AppLock</string>
+    <string name="security_login_with_email">Silakan verifikasi Google Account ID Anda sebelum mereset password Anda.</string>
+    <string name="security_my_close">Dekat</string>
+    <string name="security_my_theme">Tema</string>
+    <string name="security_myfake">APP menyamar</string>
+    <string name="security_new_intruder">Pengacau</string>
+    <string name="security_newapp_lock">Kunci aplikasi baru</string>
+    <string name="security_no_google_account">Tidak ada akun Google yang ada di ponsel Anda.</string>
+    <string name="security_no_intruder">Tidak ada penyusup sejauh ini.</string>
+    <string name="security_nofification">Pemberitahuan</string>
+    <string name="security_open_fingerprint">Gunakan sidik jari</string>
+    <string name="security_over_short">Pengaturan singkat</string>
+    <string name="security_password_lock">Kode PIN Lock</string>
+    <string name="security_password_not_match">Sandi tidak cocok</string>
+    <string name="security_password_setsuccessful">Sandi mengatur sukses</string>
+    <string name="security_password_short">6 digit diperlukan</string>
+    <string name="security_pattern_lock">Lock pola</string>
+    <string name="security_pattern_short">Menggambar setidaknya 3 titik</string>
+    <string name="security_pause_protect">Hentikan perlindungan</string>
+    <string name="security_permission_grand">Izin</string>
+    <string name="security_permission_msg">Tidak bisa mengunci aplikasi tanpa izin Anda, memberikan kepada kami silahkan</string>
+    <string name="security_power_mode">Penghematan energi</string>
+    <string name="security_power_mode_des">Mengurangi konsumsi daya 50%, memperpanjang telepon waktu siaga.</string>
+    <string name="security_pretent_calender">Kalender</string>
+    <string name="security_pretent_fails">App menyamar tidak diatur</string>
+    <string name="security_pretent_fc">Kekuatan dekat</string>
+    <string name="security_pretent_finger">Finger Print</string>
+    <string name="security_pretent_force_close">Sayangnya, "%1$s" telah berhenti.</string>
+    <string name="security_pretent_icon_1">Jam</string>
+    <string name="security_pretent_icon_2">Kalkulator</string>
+    <string name="security_pretent_icon_3">Cuaca</string>
+    <string name="security_pretent_icon_default">Kegagalan</string>
+    <string name="security_pretent_none">Tidak ada menyamar</string>
+    <string name="security_pretent_notepad">notes</string>
+    <string name="security_pretent_selector">Ganti ikon App</string>
+    <string name="security_pretent_setting_msg">Silakan memindahkan jari Anda dari kiri ke kanan sepanjang "Close" tombol untuk mengaktifkan APP menyamar</string>
+    <string name="security_protect">Melindungi</string>
+    <string name="security_protect_apps">Lindungi aplikasi dengan password</string>
+    <string name="security_protecting">melindungi</string>
+    <string name="security_rate_bad">BURUK</string>
+    <string name="security_rate_good">BAIK</string>
+    <string name="security_rate_msg">Jika Anda suka AppLock, tolong beri kami 5-bintang-rating.</string>
+    <string name="security_rate_t">tingkat AppLock</string>
+    <string name="security_reset_passwd_2_btn">Ulang sandi</string>
+    <string name="security_reset_password">ulang kata sandi</string>
+    <string name="security_security_set_fake_success">App menyamar diatur berhasil</string>
+    <string name="security_select_apps">Pilih aplikasi untuk melindungi</string>
+    <string name="security_select_apps_locked">Aplikasi ini terkunci</string>
+    <string name="security_service_description">Layanan stabil dan konsumsi daya yang lebih kecil.</string>
+    <string name="security_service_title">Aksesibilitas</string>
+    <string name="security_set_confirm_password">MEMASTIKAN SANDI</string>
+    <string name="security_set_passwd_tip">Masukkan setiap digit</string>
+    <string name="security_set_password">DITETAPKAN SANDI</string>
+    <string name="security_set_password_successful">"Tidak bisa mengatur sandi"</string>
+    <string name="security_set_pattern">Konfirmasi pola</string>
+    <string name="security_settings_preference">Advanced perlindungan</string>
+    <string name="security_settings_preference_desc">Dalam rangka untuk mendapatkan perlindungan yang sempurna, kami sarankan Anda untuk mengaktifkan semua izin.</string>
+    <string name="security_short_exit">Keluar singkat</string>
+    <string name="security_short_exit_detail">Belum mengunci kembali sebelum keluar singkat</string>
+    <string name="security_short_exit_off">mengunci lagi setelah layar off</string>
+    <string name="security_short_exit_slot">Batas waktu keluar singkat</string>
+    <string name="security_show_newversion">MEMPERBARUI</string>
+    <string name="security_show_newversion_inf">Versi baru telah dirilis, terburu-buru untuk memperbaruinya!</string>
+    <string name="security_show_noti">Pemberitahuan beralih</string>
+    <string name="security_show_noti_desc">Tampilkan tombol toggle dalam pemberitahuan</string>
+    <string name="security_show_permission">Mengizinkan</string>
+    <string name="security_show_successful">Tampilkan %1$s sukses</string>
+    <string name="security_slide_theme">Tema</string>
+    <string name="security_start_rat">5-Bintang-Penilaian</string>
+    <string name="security_stop_applock">Berhenti AppLock</string>
+    <string name="security_stop_applock_information">Aplikasi Anda tidak akan terjamin jika Anda menghentikan layanan AppLock. Terus?</string>
+    <string name="security_tab_setting">Pengaturan</string>
+    <string name="security_to_save">Simpan</string>
+    <string name="security_try_later">coba nanti</string>
+    <string name="security_turnon_intruder">Aktifkan penyusup</string>
+    <string name="security_unlock_me">Membuka App ini</string>
+    <string name="security_unlock_success">Membuka %1$s sukses</string>
+    <string name="security_unlock_type">Membuka jenis</string>
+    <string name="security_until_screen_off">Sampai layar off</string>
+    <string name="security_update">Memasang</string>
+    <string name="security_update_title">New Version Perbarui</string>
+    <string name="security_use_normal">Ganti Kata Sandi</string>
+    <string name="security_use_password">Gunakan Kata Sandi Untuk Aktifkan</string>
+    <string name="security_use_pattern">Ganti Kata Pola</string>
+    <string name="security_use_pattern_">Gunakan Pola Untuk Aktifkan</string>
+    <string name="security_use_theme_success">Tema berubah</string>
+    <string name="security_user_center">Tanpa iklan</string>
+    <string name="security_user_compare_fake_cover">Penutup palsu</string>
+    <string name="security_user_compare_fake_cover_inf">ikon perubahan AppLock</string>
+    <string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_compare_intruder_self">Pengacau</string>
+    <string name="security_user_compare_lockapp">Lock Apps</string>
+    <string name="security_user_compare_lockapp_inf">Mengunci Facebook, dll</string>
+    <string name="security_user_compare_no_ad_inf">Nikmati UI bersih</string>
+    <string name="security_user_compare_theme_change">Tema</string>
+    <string name="security_user_compare_theme_inf">100+ tema yang indah</string>
+    <string name="security_user_free">Fitur lengkap tersedia dan menonton iklan untuk mendukung kami.</string>
+    <string name="security_user_free_name">BEBAS</string>
+    <string name="security_user_free_name_bootom">Iklan / Terbatas</string>
+    <string name="security_user_limit">Tidak ada iklan mengganggu Anda, namun hanya Lock App tersedia.</string>
+    <string name="security_user_limit_compare">Membandingkan</string>
+    <string name="security_user_limit_confirm">Memastikan</string>
+    <string name="security_user_limit_des">Pilih batas berarti Anda akan kehilangan penggunaan fitur ini:</string>
+    <string name="security_user_limit_fake">× Mengubah ikon dari AppLock</string>
+    <string name="security_user_limit_intruder">× Menangkap gambar dari penyusup</string>
+    <string name="security_user_limit_intruder_self_inf">Ambil foto dari penyusup</string>
+    <string name="security_user_limit_name">MEMBATASI</string>
+    <string name="security_user_limit_name_bootom">Tidak ada Iklan / Terbatas</string>
+    <string name="security_user_limit_theme">× Pilih ton tema yang indah</string>
+    <string name="security_user_no_ad_compare">Tanpa iklan</string>
+    <string name="security_user_plan_free_click">GRATIS dipilih</string>
+    <string name="security_user_pro">Fitur lengkap tersedia tanpa iklan yang mengganggu. Penawaran terbatas.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_pro_name_bootom">Tidak ada iklan / Terbatas</string>
+    <string name="security_user_slide_text_inf">Jika Anda ingin menggunakan fitur ini, silakan upgrade rencana Anda.</string>
+    <string name="security_user_slide_text_not">Tidak sekarang</string>
+    <string name="security_user_slide_text_upgrade">Meningkatkan</string>
+    <string name="security_verify">memeriksa</string>
+    <string name="security_visitor_off">AppLock dihentikan</string>
+    <string name="security_visitor_on">AppLock berjalan</string>
+    <string name="setting_category_pattern">Pola</string>
+    <string name="setting_digital_code">Kode PIN</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

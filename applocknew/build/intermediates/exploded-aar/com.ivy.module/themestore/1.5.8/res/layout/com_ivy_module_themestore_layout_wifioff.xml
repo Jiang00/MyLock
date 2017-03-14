@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/com_ivy_module_thememstore_color_wifiview_bk"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/com_ivy_module_thememstore_id_wifi_off"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/com_ivy_module_themestore_drawable_wifi_warning" />
+
+        <TextView
+            android:id="@+id/com_ivy_module_thememstore_id_wifi_off_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/com_ivy_module_thememstore_string_wifi_off"
+            android:textColor="@color/com_ivy_module_thememstore_color_wifiview_text_colors"
+            android:textSize="18.0dip" />
+
+        <Button
+            android:id="@+id/com_ivy_module_thememstore_id_retry"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="@android:color/white"
+            android:text="@string/com_ivy_module_thememstore_string_wifi_retry"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+
+
+</FrameLayout>

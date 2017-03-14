@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7419ff">
+
+        <com.ivy.ui.gif.GifImageView
+            android:id="@+id/ivy_module_ivyui_evaluationHeadImage"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ivy_module_ivyui_comment" />
+
+        <ImageView
+            android:id="@+id/ivy_module_ivyui_five_star_rating_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:padding="6dp"
+            android:src="@mipmap/ivy_module_ivyui_five_star_cancel" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ivy_module_ivyui_praise_rectangle"
+        android:orientation="vertical">
+
+        <com.ivy.ui.textview.CustomerTypefaceTextView
+            android:id="@+id/ivy_module_ivyui_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="32dp"
+            android:text="@string/ivy_module_ivyui_five_star_rating_explain"
+            android:textColor="@color/ivy_module_ivyui_five_star_rating"
+            android:textSize="15sp"
+            app:typeface="MyriadPro-Regular.otf" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <com.ivy.ui.textview.CustomerTypefaceTextView
+                    android:id="@+id/ivy_module_ivyui_five_star_rating_unlike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/ivy_module_ivyui_five_star_rating_unlike"
+                    android:textColor="@color/ivy_module_ivyui_five_star_rating"
+                    android:textSize="16sp"
+                    app:typeface="MyriadPro-Regular.otf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivy_module_ivyui_five_star_rating_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ivy_module_ivyui_five_star_rating_praise" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

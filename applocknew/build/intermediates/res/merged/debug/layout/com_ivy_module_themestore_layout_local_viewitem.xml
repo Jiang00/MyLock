@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="3dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardElevation="4dp"
+    >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        >
+
+        <!--<ImageView-->
+            <!--android:layout_width="190dp"-->
+            <!--android:layout_height="316dp"-->
+            <!--android:background="@drawable/com_ivy_module_themestore_drawable_local_shadow" />-->
+
+        <com.ivy.module.themestore.view.MyImageView
+            android:id="@+id/com_ivy_module_themestore_id_local_img_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:layout_gravity="center"
+            android:descendantFocusability="beforeDescendants"
+            android:scaleType="centerCrop"
+             />
+
+        <ImageView
+            android:id="@+id/com_ivy_module_themestore_id_local_select_item"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|right"
+            android:background="@drawable/ivy_module_themestore_drawable_head_choosed"
+            android:visibility="gone" />
+
+    </FrameLayout>
+</android.support.v7.widget.CardView>

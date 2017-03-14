@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ivymobi.applock.free"
+    android:versionCode="1"
+    android:versionName="v2.7.3.1" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="ivy.permission.USAGE_ACCESS_SETTINGS" />
+    <uses-permission android:name="ivy.permission.access_service" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <supports-screens android:anyDensity="true" />
+
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" /> <!-- 快捷方式 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+
+    <application
+        android:name="com.security.manager.App"
+        android:allowBackup="true"
+        android:exported="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:manageSpaceActivity="com.security.manager.SecurityPatternActivity"
+        android:persistent="true"
+        android:supportsRtl="true"
+        android:theme="@style/activityTheme" >
+        <activity
+            android:name="com.security.manager.SecurityAppLock"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.IntrudedeImageActivity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+
+        <service
+            android:name="com.security.manager.AccessibilityService"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/acc" />
+        </service>
+        <service
+            android:name="com.security.manager.ApplockC"
+            android:process=":remote" />
+
+        <activity
+            android:name="com.security.manager.SecurityTansparent"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CustomTranslucent" />
+        <activity
+            android:name="com.security.manager.SecuritySettings"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.SecurityUnlockSettings"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.SecuritySettingsAdvance"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.SecurityPermissionActivity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name="com.security.manager.SecuritySetPattern"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.security.manager.IntruderActivitySecurity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=".theme"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.SecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.PretentTwoActivitySecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/security_myfake_2"
+            android:label="@string/security_pretent_icon_2"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.PretentThreeActivitySecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/security_myfake_3"
+            android:label="@string/security_pretent_icon_3"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+
+                <category android:name="android..category.DEFAULT" />
+            </intent-filter>
+intent
+        </activity>
+        <activity
+            android:name="com.security.manager.PretentOneActivitySecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/security_myfake_1"
+            android:label="@string/security_pretent_icon_1"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.PretentFourActivitySecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/security_myfake_4"
+            android:label="@string/security_pretent_calender"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.PretentFiveActivitySecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/security_myfake_5"
+            android:label="@string/security_pretent_notepad"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ivy.intent.action.pattern" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.SecurityTogglePatternActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme" />
+        <activity
+            android:name="com.security.manager.UnlockActivitySecurityPatternActivity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/locktheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.UNLOCK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.SecurityResetPattern"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=":remote"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
+        <activity
+            android:name="com.security.manager.SecurityIntruderSetting"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.PretentSelectorActivitySecurity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.FullScreenActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/nactivityTheme" >
+            <intent-filter>
+                <action android:name="ivy.intent.action.full" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.security.manager.UnlockApp"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+        <activity
+            android:name="com.security.manager.page.SecurityChooseThemeActivity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTheme" />
+
+        <service android:name="com.security.manager.SecurityService" />
+        <service android:name="com.security.manager.NotificationService" />
+
+        <receiver android:name="com.security.manager.WidgetReceiver" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/security_widget" />
+        </receiver>
+        <receiver
+            android:name="com.security.manager.SecurityBootReceiver"
+            android:exported="false" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.ivy.module.themestore.activity.ThemeStoreTabActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeBaseTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ivy.module.themestore.activity.LocalThemeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeBaseTheme" />
+        <activity
+            android:name="com.ivy.module.huojian.Huojian"
+            android:launchMode="singleInstance"
+            android:theme="@style/ivy_module_huojian_Transparent" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="intent.ivy.module.clean.huojian" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.CREATE_SHORTCUT" /> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name="ivy.battery.cooling.CoolingActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/coolstyle" />
+        <activity
+            android:name="ivy.battery.cooling.CrossTranslate"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/coolstyle" />
+        <activity
+            android:name="com.ivy.activity.PermissionCenterActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.ivy.activity.PermissionSwitchActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Dialog" />
+        <activity
+            android:name="com.ivy.activity.PermissionClickActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Dialog" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

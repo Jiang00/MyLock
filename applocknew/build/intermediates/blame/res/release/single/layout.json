@@ -1,0 +1,590 @@
+[
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_icon.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\activity_cooling.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\Applock-aurora-v1\\cooling\\unspecified\\res\\layout\\activity_cooling.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\xrefreshview_header.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.huxq17.xrefreshview\\xrefreshview\\3.5.5\\res\\layout\\xrefreshview_header.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_mainactivity.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_mainactivity.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_slide_menu_line.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_slide_menu_line.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_first_header.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_first_header.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myfake_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myfake_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_huojian_dialog_frame.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\ivyhuojian\\1.0.4\\res\\layout\\ivy_module_huojian_dialog_frame.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_toolbar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notifaction_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\notifaction_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_pattern_view_set.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_pattern_view_set.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_delete_bars.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_delete_bars.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_bootom_bar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_bootom_bar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_gallary_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_gallary_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_trigon.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_trigon.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_ivyui_tab_item_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\ivy_module_ivyui_tab_item_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myfake.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myfake.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_settings.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_settings.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_permission_setting.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_permission_setting.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_setting_item_two.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_setting_item_two.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\permission_translate.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\permission_translate.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_rate_it.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_rate_it.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_password_container.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_password_container.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_slide_menu_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_slide_menu_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\permission_click_activity.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\permission_click_activity.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_overflow_bar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_overflow_bar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_huojian_pop_libgdx.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\ivyhuojian\\1.0.4\\res\\layout\\ivy_module_huojian_pop_libgdx.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_item_header.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_menu_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_locked_apps.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_locked_apps.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_local_activity.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_local_activity.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_component_theme.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_component_theme.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myabout_bar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myabout_bar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myforbidden.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myforbidden.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_time.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_menu_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\choose_theme.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\choose_theme.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_search_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_action.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\top_app_native_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\top_app_native_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_activity_chooser_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_item_separator.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_stop_applock.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_stop_applock.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\xrefreshview_footer.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.huxq17.xrefreshview\\xrefreshview\\3.5.5\\res\\layout\\xrefreshview_footer.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_theme_progress.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_theme_progress.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myapp_list.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myapp_list.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_item_subheader.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_lines.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_ivyui_cross_promotion.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\ivy_module_ivyui_cross_promotion.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_setting_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_setting_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_layout_tab_text.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_main_title_rate.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_main_title_rate.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_ivyui_nativa_ad.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\ivy_module_ivyui_nativa_ad.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_native_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_native_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_huojian_native_ad.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\ivyhuojian\\1.0.4\\res\\layout\\ivy_module_huojian_native_ad.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_ivyui_five_star_rating.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\ivy_module_ivyui_five_star_rating.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_layout_snackbar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_component_toolbar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_component_toolbar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\permission_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\permission_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_main_five_rate_new.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_main_five_rate_new.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_settings_unlock.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_settings_unlock.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_theme_launch_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_theme_launch_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_apps_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_apps_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\permission_center_activity.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\permission_center_activity.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_show_permission.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_show_permission.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_radio.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_wifioff.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_wifioff.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_local_viewitem.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_local_viewitem.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\app_slide_native_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\app_slide_native_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_local_view_progress.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_local_view_progress.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_first.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_first.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_invade_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_invade_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\permission_switch_activity.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\permission_switch_activity.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_local_launch_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_local_launch_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\activity_cross_translate.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\Applock-aurora-v1\\cooling\\unspecified\\res\\layout\\activity_cross_translate.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_intruder_container.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_intruder_container.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_num_keyboard_create.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_num_keyboard_create.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\ivy_module_ivyui_new_version.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\ivy_module_ivyui_new_version.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_theme_refresh_header.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_theme_refresh_header.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_show_reset_password.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_show_reset_password.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_content_include.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_unlock_switch.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_unlock_switch.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_notica_it.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_notica_it.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_password_status_bar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_password_status_bar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myfinger.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myfinger.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_up_container.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_multichoice_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_menu_item_action_area.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_new_it_permission.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_new_it_permission.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_select_dialog_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\app_top_native_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\app_top_native_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\take_photo_pop.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\take_photo_pop.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_local_progress.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_local_progress.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_layout_tab_icon.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_number_password.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_number_password.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_normal_actionbar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_normal_actionbar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_cross_promote.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_cross_promote.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_alert_dialog_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_item_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\native_ad_fullscreen.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\native_ad_fullscreen.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\app_native_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\app_native_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_pattern_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_pattern_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_item.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_intrude_set.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_intrude_set.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_myfake_selector.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_myfake_selector.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_password_setting.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_password_setting.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_bar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_num_keyboard.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_num_keyboard.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\permission_footview.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.6\\res\\layout\\permission_footview.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_menu.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_local_applock_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_local_applock_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_theme_viewitem.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_theme_viewitem.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\native_ad_loading.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\native_ad_loading.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\design_layout_snackbar_include.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.3.0\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\setting_intruder.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\setting_intruder.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_mywidget_container.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_mywidget_container.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_toolbar.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_toolbar.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_intruder.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_intruder.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_menu_item_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_show_newversion.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_show_newversion.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_slidemenu_data.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_slidemenu_data.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_theme_refresh_footer.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_theme_refresh_footer.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_mywidget_switch.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_mywidget_switch.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_rate_result.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_rate_result.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_expanded_menu_layout.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\abc_dialog_title_material.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\com_ivy_module_themestore_layout_theme_applock_view.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.ivy.module\\themestore\\1.5.8\\res\\layout\\com_ivy_module_themestore_layout_theme_applock_view.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\layout\\security_slide_menu.xml",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\layout\\security_slide_menu.xml"
+    }
+]

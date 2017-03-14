@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Navegar para a página inicial"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Navegar para cima"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Mais opções"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Concluído"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Ver tudo"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Selecione um app"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"DESATIVAR"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ATIVAR"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Pesquisar..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Limpar consulta"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Consulta de pesquisa"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Pesquisar"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Pesquisa por voz"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Compartilhar com %s"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Recolher"</string>
+    <string name="app_name">AppLock</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> exige um ou mais serviços do Google Play que não estão disponíveis no momento. Entre em contato com o desenvolvedor para receber ajuda."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"Ativar o Google Play Services"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> só funciona com o Google Play Services ativado."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"Ativar o Google Play Services"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"Instalar o Google Play Services"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"<ns1:g id="APP_NAME">%1$s</ns1:g> não funciona sem o Google Play Services, o qual não está instalado no seu smartphone."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"<ns1:g id="APP_NAME">%1$s</ns1:g> não funciona sem o Google Play Services, o qual não está instalado no seu tablet."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"Instalar o Google Play Services"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"A conta especificada não existe no dispositivo. Escolha outra conta."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"Conta inválida"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"É necessária uma conexão de dados para conectar ao Google Play Services."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"Erro na rede"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"Erro do Google Play Services"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"O acesso a contas a partir de um perfil restrito não é compatível."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"Perfil restrito"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"Erro ao fazer login na conta especificada. Escolha outra conta."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"Falha de login"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> está tendo problemas com os serviços do Google Play. Se o problema persistir, entre em contato com o desenvolvedor para receber ajuda."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> depende do Google Play Services, o qual não é compatível com seu dispositivo. Entre em contato com o fabricante para receber ajuda."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"Google Play Services"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"Atualizar"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> só funciona com uma versão atualizada do Google Play Services."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"Atualizar o Google Play Services"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> não funciona sem o Google Play Services, o qual está sendo atualizado no momento."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"Google Play Services em atualização"</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"É necessária uma nova versão do Google Play Services. Ele será atualizado em breve."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"Abrir no smartphone"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"Fazer login"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"Fazer login com o Google"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Se você gostou deste app \nPor favor nos dê 5 estrelas</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Reclamar</string>
+    <string name="ivy_module_ivyui_new_version_have">É necessária uma nova versão \ nPor favor, atualize</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Atualizar</string>
+    <string name="ivy_module_ivyui_promotion_app_install">INSTALAR</string>
+    <string name="ivy_permission">Proteção Avançada</string>
+    <string name="ivy_permission_access_fine_location_des">Detectar todos os aplicativos usando a função GPS em seu telefone.</string>
+    <string name="ivy_permission_access_fine_location_title">Monitor GPS</string>
+    <string name="ivy_permission_access_service_des">Reduza o consumo de energia de 50% e prolongue a vida da bateria.</string>
+    <string name="ivy_permission_access_service_title">Economia de energia</string>
+    <string name="ivy_permission_application">Gerenciamento de permissão de aplicativos</string>
+    <string name="ivy_permission_bind_device_admin_des">Intruders não podem desinstalar %s, mais seguro!</string>
+    <string name="ivy_permission_bind_device_admin_title">Anti-intrusão</string>
+    <string name="ivy_permission_camera_des">Tire fotos de intrusos tentando espreitar sua privacidade.</string>
+    <string name="ivy_permission_camera_title">Uso da câmera</string>
+    <string name="ivy_permission_desc">Para obter proteção perfeita, recomendamos que você ative todas as permissões.</string>
+    <string name="ivy_permission_ok">Está bem</string>
+    <string name="ivy_permission_read_contacts_des">Gravar chamada de voz da pessoa de contato selecionada.</string>
+    <string name="ivy_permission_read_contacts_title">Ler contatos</string>
+    <string name="ivy_permission_record_audio_des">Mantenha o gravador de chamadas funcionando normalmente em tempo real.</string>
+    <string name="ivy_permission_record_audio_title">Gravar audio</string>
+    <string name="ivy_permission_skip">Pular</string>
+    <string name="ivy_permission_switch_dialog_title">Encontre %s e ative-o</string>
+    <string name="ivy_permission_system_alert_window_des">Para manter AppLock funcionando normalmente e proteção perfeita.</string>
+    <string name="ivy_permission_system_alert_window_title">Aparecer</string>
+    <string name="ivy_permission_usage_access_settings_des">Mantenha %s em execução para proteger sua privacidade em tempo real.</string>
+    <string name="ivy_permission_usage_access_settings_title">Operação estável</string>
+    <string name="security_app_pro_successful">Proteja com sucesso</string>
+    <string name="security_applock_open">Super AppLock está sendo executado</string>
+    <string name="security_applock_permission">Para uma melhor protecção da privacidade, permita a permissão de acesso.</string>
+    <string name="security_applock_permission_allow">Permitir</string>
+    <string name="security_applock_stop">Super AppLock está parado</string>
+    <string name="security_apply_">Aplicar</string>
+    <string name="security_apps_open_permission">Localize o AppLock e ative-o</string>
+    <string name="security_ask_lock">Fazer %1$s mais seguro</string>
+    <string name="security_ask_lock_protect">Protegê-lo por Super AppLock</string>
+    <string name="security_btn_next">Depois</string>
+    <string name="security_cancel">Cancelar</string>
+    <string name="security_change_password">Mudar para bloqueio com palavra-passe</string>
+    <string name="security_change_pattern">Mudar para bloqueio com padrão</string>
+    <string name="security_choose_theme">Escolha o tema</string>
+    <string name="security_click_change">Tente outro</string>
+    <string name="security_confirm_passwd_tip">confirmar a sua senha</string>
+    <string name="security_done">Feito</string>
+    <string name="security_draw_pattern">Desenhe um padrão de desbloqueio</string>
+    <string name="security_draw_pattern_next">Draw again</string>
+    <string name="security_enter_password">Digite sua palavra-passe para para desbloquear este app.</string>
+    <string name="security_every_time">Toda vez</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_finger_tip">Toque a impressão digital duas vezes e segure para ligar o disfarce APP</string>
+    <string name="security_fingerprint">Impressão digital</string>
+    <string name="security_fingerprint_many_error">Por favor use a senha</string>
+    <string name="security_five_min">5 minutos</string>
+    <string name="security_five_start">Temos o compromisso de proteger sua privacidade. Você poderia nos dar uma classificação de 5 estrelas?</string>
+    <string name="security_float_action_switch_widget">Widget flutuador</string>
+    <string name="security_for_lock_new">Você deseja bloquear\"%1$s\"？</string>
+    <string name="security_forget_password">Esqueceu a palavra-passe</string>
+    <string name="security_go_open_fingerprint">Para configurar imediatamente</string>
+    <string name="security_google">Google+</string>
+    <string name="security_help_share">Avalie me</string>
+    <string name="security_hide_path">Ocultar caminho padrão empate</string>
+    <string name="security_hide_successful">Oculto:%1$s</string>
+    <string name="security_input_password">Introduza o código PIN de 6 dígitos</string>
+    <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
+    <string name="security_intrude_five">5 vezes</string>
+    <string name="security_intrude_five_rate">Seu elogio nos encorajará a fazer melhor.</string>
+    <string name="security_intrude_four">4 vezes</string>
+    <string name="security_intrude_one">1 vez</string>
+    <string name="security_intrude_self">Intruder Selfie</string>
+    <string name="security_intrude_shutter">Ativar som do obturador</string>
+    <string name="security_intrude_three">Três vezes</string>
+    <string name="security_intrude_two">2 vezes</string>
+    <string name="security_intruder_help">Socorro</string>
+    <string name="security_intruder_off">O detector de intrusão está desligado</string>
+    <string name="security_intruder_off_new">Detector de intrusão está fora</string>
+    <string name="security_intruder_on_new">O detector de intrusão está ligado</string>
+    <string name="security_intruder_open">Pegar intruso para você</string>
+    <string name="security_intruder_setting">Intruso selfie</string>
+    <string name="security_intruder_setting_new">Configuração selfie do intruso</string>
+    <string name="security_intruder_tip">Código incorreto inserido</string>
+    <string name="security_later_">Mais tarde</string>
+    <string name="security_loading_fullad_fail">O carregamento da publicidade falhou. Tente novamente mais tarde</string>
+    <string name="security_lock_app">Lock app</string>
+    <string name="security_lock_success">Bloqueado:%1$s</string>
+    <string name="security_lock_to_open">Toque para ligar Super AppLock</string>
+    <string name="security_lock_to_stop">Toque para desligar Super AppLock</string>
+    <string name="security_login_with_email">Por favor, verifique a sua Conta Google ID antes de redefinir sua senha.</string>
+    <string name="security_my_close">Fechar</string>
+    <string name="security_my_theme">Tema</string>
+    <string name="security_myfake">APP disfarce</string>
+    <string name="security_new_intruder">Intruso</string>
+    <string name="security_newapp_lock">Bloquear a nova aplicação</string>
+    <string name="security_no_google_account">Não existe nenhuma conta do Google existente no telefone.</string>
+    <string name="security_no_intruder">Não há nenhum intruso até agora.</string>
+    <string name="security_nofification">Notificação</string>
+    <string name="security_open_fingerprint">Usar impressão digital</string>
+    <string name="security_over_short">Breve  Configuração</string>
+    <string name="security_password_lock">Bloqueio do código PIN</string>
+    <string name="security_password_not_match">Palavra-passe de confirmação está incorreta</string>
+    <string name="security_password_setsuccessful">Configuração bem sucedida</string>
+    <string name="security_password_short">6 dígitos são necessários</string>
+    <string name="security_pattern_lock">Padrão de bloqueio</string>
+    <string name="security_pattern_short">Desenhe pelo menos 3 pontos.</string>
+    <string name="security_pause_protect">Terminar a proteção</string>
+    <string name="security_permission_grand">Conceder permissão</string>
+    <string name="security_permission_msg">"Não é possível bloquear aplicativos sem a sua permissão. Conceda-nos por favor."</string>
+    <string name="security_power_mode">Economia de energia</string>
+    <string name="security_power_mode_des">Reduza o consumo de energia de 50%, estenda o tempo de espera do telefone.</string>
+    <string name="security_pretent_calender">Calendário</string>
+    <string name="security_pretent_fails">APP disfarce não definida</string>
+    <string name="security_pretent_fc">APP Erro</string>
+    <string name="security_pretent_finger">FingerPrint</string>
+    <string name="security_pretent_force_close">Infelizmente, "%1$s" parou.</string>
+    <string name="security_pretent_icon_1">Relógio</string>
+    <string name="security_pretent_icon_2">Calculadora</string>
+    <string name="security_pretent_icon_3">Tempo</string>
+    <string name="security_pretent_icon_default">Padrão</string>
+    <string name="security_pretent_none">Nenhum disfarce</string>
+    <string name="security_pretent_notepad">Bloco de anotações</string>
+    <string name="security_pretent_selector">Substituir ícone da App</string>
+    <string name="security_pretent_setting_msg">Por favor, aponta o dedo da esquerda para a direita ao longo do botão "fechar" para ligar APP disfarce</string>
+    <string name="security_protect">Proteger</string>
+    <string name="security_protect_apps">Proteja aplicativos com uma senha</string>
+    <string name="security_protecting">protegendo</string>
+    <string name="security_rate_bad">MAU</string>
+    <string name="security_rate_good">BOA</string>
+    <string name="security_rate_msg">Se você gosta de AppLock, por favor nos dê uma classificação de 5 estrelas.</string>
+    <string name="security_rate_t">Rate Applock</string>
+    <string name="security_reset_passwd_2_btn">Repor palavra-passe</string>
+    <string name="security_reset_password">Trocar a senha</string>
+    <string name="security_security_set_fake_success">APP disfarce é definido com êxito</string>
+    <string name="security_select_apps">Selecione aplicativos para proteger</string>
+    <string name="security_select_apps_locked">Esses aplicativos são bloqueados</string>
+    <string name="security_service_description">Serviço estável e menor consumo de energia.</string>
+    <string name="security_service_title">Acessibilidade</string>
+    <string name="security_set_confirm_password">Confirme palavra-passe</string>
+    <string name="security_set_passwd_tip">Digite os dígitos como senha</string>
+    <string name="security_set_password">Por favor, crie sua palavra-passe primeiro</string>
+    <string name="security_set_password_successful">"Definição da palavra-passe falhou"</string>
+    <string name="security_set_pattern">Desenhe padrão</string>
+    <string name="security_settings_preference">Proteção avançada</string>
+    <string name="security_settings_preference_desc">Para obter proteção perfeita, recomendamos que você ative todas as permissões.</string>
+    <string name="security_short_exit">Permitir uma breve saída</string>
+    <string name="security_short_exit_detail">Não é necessário voltar a bloquear quando regressar de uma breve saída</string>
+    <string name="security_short_exit_off">Bloquear novamente após tela off</string>
+    <string name="security_short_exit_slot">Limite de tempo de saída breve </string>
+    <string name="security_show_newversion">ATUALIZAR</string>
+    <string name="security_show_newversion_inf">A nova versão foi lançada, pressa para atualizá-lo!</string>
+    <string name="security_show_noti"> Barra de notificação</string>
+    <string name="security_show_noti_desc">Exibido na barra de notificação</string>
+    <string name="security_show_permission">Permissão</string>
+    <string name="security_show_successful">Mostrado:%1$s</string>
+    <string name="security_slide_theme">Tema</string>
+    <string name="security_start_rat">Classificação 5 estrelas</string>
+    <string name="security_stop_applock">Stop Applock</string>
+    <string name="security_stop_applock_information">Se você parar o serviço AppLock, seus aplicativos não serão protegidos. Continuar?</string>
+    <string name="security_tab_setting">Definições</string>
+    <string name="security_to_save">Salvar</string>
+    <string name="security_try_later">tente depois</string>
+    <string name="security_turnon_intruder">Permitir intruso tirar fotos</string>
+    <string name="security_unlock_me">Desbloquear Este App</string>
+    <string name="security_unlock_success">Desbloqueado:%1$s</string>
+    <string name="security_unlock_type">Desbloquear tipo</string>
+    <string name="security_until_screen_off">Até que o ecrã esteja bloqueado</string>
+    <string name="security_update">Instalar</string>
+    <string name="security_update_title">Atualização da nova versão</string>
+    <string name="security_use_normal">Palavra-passe</string>
+    <string name="security_use_password">Usá palavra-passe</string>
+    <string name="security_use_pattern">Bloqueio Padrão</string>
+    <string name="security_use_pattern_">Utilizar padrão</string>
+    <string name="security_use_theme_success">Tema é alterado.</string>
+    <string name="security_user_center">Sem anúncios</string>
+    <string name="security_user_compare_fake_cover">Capa falsa</string>
+    <string name="security_user_compare_fake_cover_inf">Alterar ícone do AppLock</string>
+    <string name="security_user_compare_go_pro">PRÓ</string>
+    <string name="security_user_compare_intruder_self">Intruso</string>
+    <string name="security_user_compare_lockapp">Bloquear aplicativos</string>
+    <string name="security_user_compare_lockapp_inf">Bloquear Facebook, etc.</string>
+    <string name="security_user_compare_no_ad_inf">Desfrute da interface limpa</string>
+    <string name="security_user_compare_theme_change">Temas</string>
+    <string name="security_user_compare_theme_inf">100+ belos temas</string>
+    <string name="security_user_free">Os recursos completos estão disponíveis e veem os anúncios para nos ajudarem.</string>
+    <string name="security_user_free_name">LIVRE</string>
+    <string name="security_user_free_name_bootom">Anúncios / ilimitados</string>
+    <string name="security_user_limit">Nenhum anúncio o perturba, no entanto, apenas o Lock App está disponível.</string>
+    <string name="security_user_limit_compare">Comparar</string>
+    <string name="security_user_limit_confirm">Confirme</string>
+    <string name="security_user_limit_des">Escolha limite significa que você perderá o uso desses recursos:</string>
+    <string name="security_user_limit_fake">× Alterar o ícone do AppLock</string>
+    <string name="security_user_limit_intruder">× Capture a imagem de intrusos</string>
+    <string name="security_user_limit_intruder_self_inf">Tire uma foto do intruso</string>
+    <string name="security_user_limit_name">LIMITE</string>
+    <string name="security_user_limit_name_bootom">Sem anúncios / limitado</string>
+    <string name="security_user_limit_theme">× Selecione toneladas de belos temas</string>
+    <string name="security_user_no_ad_compare">Sem anúncios</string>
+    <string name="security_user_plan_free_click">GRÁTIS selecionado</string>
+    <string name="security_user_pro">O recurso completo está disponível sem anúncios irritantes. Tempo limitado de oferta.</string>
+    <string name="security_user_pro_name">PRÓ</string>
+    <string name="security_user_pro_name_bootom">Sem anúncios / ilimitado</string>
+    <string name="security_user_slide_text_inf">Se você quiser usar esse recurso, atualize seu plano.</string>
+    <string name="security_user_slide_text_not">Agora não</string>
+    <string name="security_user_slide_text_upgrade">Atualizar</string>
+    <string name="security_verify">verificar</string>
+    <string name="security_visitor_off">AppLock é interrompido</string>
+    <string name="security_visitor_on">O AppLock está em execução</string>
+    <string name="setting_category_pattern">Padrão</string>
+    <string name="setting_digital_code">código PIN</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

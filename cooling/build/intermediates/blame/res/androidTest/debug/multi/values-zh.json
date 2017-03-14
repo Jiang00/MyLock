@@ -1,0 +1,520 @@
+[
+    {
+        "outputFile": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zh\\values-zh.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 96,
+                    "endOffset": 147
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 96,
+                        "endOffset": 147
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 152,
+                    "endColumn": 72,
+                    "endOffset": 220
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 152,
+                        "endColumn": 72,
+                        "endOffset": 220
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 225,
+                    "endColumn": 78,
+                    "endOffset": 299
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 225,
+                        "endColumn": 78,
+                        "endOffset": 299
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 304,
+                    "endColumn": 70,
+                    "endOffset": 370
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 304,
+                        "endColumn": 70,
+                        "endOffset": 370
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 375,
+                    "endColumn": 69,
+                    "endOffset": 440
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 375,
+                        "endColumn": 69,
+                        "endOffset": 440
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 445,
+                    "endColumn": 47,
+                    "endOffset": 488
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 445,
+                        "endColumn": 47,
+                        "endOffset": 488
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 493,
+                    "endColumn": 88,
+                    "endOffset": 577
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 493,
+                        "endColumn": 88,
+                        "endOffset": 577
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 582,
+                    "endColumn": 75,
+                    "endOffset": 653
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 582,
+                        "endColumn": 75,
+                        "endOffset": 653
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 658,
+                    "endColumn": 82,
+                    "endOffset": 736
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 658,
+                        "endColumn": 82,
+                        "endOffset": 736
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 741,
+                    "endColumn": 70,
+                    "endOffset": 807
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 741,
+                        "endColumn": 70,
+                        "endOffset": 807
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 812,
+                    "endColumn": 61,
+                    "endOffset": 869
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 812,
+                        "endColumn": 61,
+                        "endOffset": 869
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 874,
+                    "endColumn": 91,
+                    "endOffset": 961
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 874,
+                        "endColumn": 91,
+                        "endOffset": 961
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 966,
+                    "endColumn": 73,
+                    "endOffset": 1035
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 966,
+                        "endColumn": 73,
+                        "endOffset": 1035
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1040,
+                    "endColumn": 85,
+                    "endOffset": 1121
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1040,
+                        "endColumn": 85,
+                        "endOffset": 1121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1126,
+                    "endColumn": 61,
+                    "endOffset": 1183
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1126,
+                        "endColumn": 61,
+                        "endOffset": 1183
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1188,
+                    "endColumn": 72,
+                    "endOffset": 1256
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1188,
+                        "endColumn": 72,
+                        "endOffset": 1256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1261,
+                    "endColumn": 48,
+                    "endOffset": 1305
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1261,
+                        "endColumn": 48,
+                        "endOffset": 1305
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1310,
+                    "endColumn": 84,
+                    "endOffset": 1390
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1310,
+                        "endColumn": 84,
+                        "endOffset": 1390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1395,
+                    "endColumn": 70,
+                    "endOffset": 1461
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1395,
+                        "endColumn": 70,
+                        "endOffset": 1461
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1466,
+                    "endColumn": 75,
+                    "endOffset": 1537
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1466,
+                        "endColumn": 75,
+                        "endOffset": 1537
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1542,
+                    "endColumn": 68,
+                    "endOffset": 1606
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1542,
+                        "endColumn": 68,
+                        "endOffset": 1606
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1611,
+                    "endColumn": 50,
+                    "endOffset": 1657
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1611,
+                        "endColumn": 50,
+                        "endOffset": 1657
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1662,
+                    "endColumn": 70,
+                    "endOffset": 1728
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1662,
+                        "endColumn": 70,
+                        "endOffset": 1728
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1733,
+                    "endColumn": 94,
+                    "endOffset": 1823
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1733,
+                        "endColumn": 94,
+                        "endOffset": 1823
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1828,
+                    "endColumn": 74,
+                    "endOffset": 1898
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1828,
+                        "endColumn": 74,
+                        "endOffset": 1898
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1903,
+                    "endColumn": 103,
+                    "endOffset": 2002
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1903,
+                        "endColumn": 103,
+                        "endOffset": 2002
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 2007,
+                    "endColumn": 77,
+                    "endOffset": 2080
+                },
+                "from": {
+                    "file": "E:\\Gitlab\\Applock-aurora-v1\\cooling\\build\\intermediates\\exploded-aar\\com.ivy.ui\\ivyui\\1.5.3\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 2007,
+                        "endColumn": 77,
+                        "endOffset": 2080
+                    }
+                }
+            }
+        ]
+    }
+]

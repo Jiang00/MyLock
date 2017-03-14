@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ivy_module_ivyui_five_star_rating_explain">आप इस app की तरह \nहमें 5-स्टार रेटिंग दे कृपया</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">शिकायत</string>
+    <string name="ivy_module_ivyui_new_version_have">एक नए संस्करण की आवश्यकता है \nकृपया अद्यतन करें</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">अद्यतन</string>
+    <string name="ivy_module_ivyui_promotion_app_install">इंस्टॉल करें</string>
+    <string name="ivy_permission">उन्नत सुरक्षा</string>
+    <string name="ivy_permission_access_fine_location_des">अपने फोन में जीपीएस समारोह का उपयोग सभी क्षुधा का पता लगाने।</string>
+    <string name="ivy_permission_access_fine_location_title">जीपीएस मॉनिटर</string>
+    <string name="ivy_permission_access_service_des">50% बिजली की खपत को कम करने और बैटरी जीवन का विस्तार।</string>
+    <string name="ivy_permission_access_service_title">बिजली की बचत</string>
+    <string name="ivy_permission_application">आवेदन अनुमति प्रबंधन</string>
+    <string name="ivy_permission_bind_device_admin_des">घुसपैठियों %s की स्थापना रद्द नहीं कर सकते हैं, अधिक सुरक्षित!</string>
+    <string name="ivy_permission_bind_device_admin_title">एंटी घुसपैठिये</string>
+    <string name="ivy_permission_camera_des">आपकी गोपनीयता में झांकने की कोशिश कर रहे घुसपैठियों की तस्वीरें ले लो।</string>
+    <string name="ivy_permission_camera_title">कैमरे के उपयोग</string>
+    <string name="ivy_permission_desc">आदेश में पूर्ण सुरक्षा प्राप्त करने के लिए हम सभी अनुमतियों को सक्षम करने के लिए आपको सलाह देते हैं।</string>
+    <string name="ivy_permission_ok">ठीक</string>
+    <string name="ivy_permission_read_contacts_des">रिकॉर्ड आवाज कॉल संपर्क व्यक्ति से आप का चयन किया।</string>
+    <string name="ivy_permission_read_contacts_title">संपर्क पढ़ें</string>
+    <string name="ivy_permission_record_audio_des">वास्तविक समय में सामान्य रूप से कॉल रिकॉर्डर चालू रखने के लिए।</string>
+    <string name="ivy_permission_record_audio_title">रिकार्ड ऑडियो</string>
+    <string name="ivy_permission_skip">छोड़ें</string>
+    <string name="ivy_permission_switch_dialog_title">%s पता है और इसे सक्षम</string>
+    <string name="ivy_permission_system_alert_window_des">AppLock सामान्य रूप से और पूर्ण सुरक्षा चालू रखने के लिए।</string>
+    <string name="ivy_permission_system_alert_window_title">पॉप अप</string>
+    <string name="ivy_permission_usage_access_settings_des">%s वास्तविक समय में आपकी गोपनीयता की रक्षा करने के लिए चालू रखने के लिए।</string>
+    <string name="ivy_permission_usage_access_settings_title">स्थिर आपरेशन</string>
+</resources>

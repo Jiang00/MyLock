@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Điều hướng về trang chủ"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Điều hướng lên trên"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Thêm tùy chọn"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Xong"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Xem tất cả"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Chọn một ứng dụng"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"TẮT"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"BẬT"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Tìm kiếm…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Xóa truy vấn"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Tìm kiếm truy vấn"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Tìm kiếm"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Gửi truy vấn"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Tìm kiếm bằng giọng nói"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Chia sẻ với"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Chia sẻ với %s"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Thu gọn"</string>
+    <string name="app_name">AppLock</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> yêu cầu một hoặc nhiều dịch vụ của Google Play hiện không có sẵn. Vui lòng liên hệ với nhà phát triển để được hỗ trợ."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"Bật dịch vụ của Google Play"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không hoạt động nếu bạn không bật dịch vụ của Google Play."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"Bật dịch vụ của Google Play"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"Cài đặt dịch vụ của Google Play"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy nếu không có dịch vụ của Google Play. Điện thoại của bạn bị thiếu dịch vụ này."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy nếu không có dịch vụ của Google Play. Máy tính bảng của bạn bị thiếu dịch vụ này."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"Cài đặt dịch vụ của Google Play"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"Tài khoản đã chỉ định không tồn tại trên thiết bị này. Vui lòng chọn một tài khoản khác."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"Tài khoản không hợp lệ"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"Cần có kết nối dữ liệu để kết nối với các dịch vụ của Google Play."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"Lỗi mạng"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"Lỗi dịch vụ của Google Play"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"Không hỗ trợ truy cập tài khoản từ hồ sơ bị hạn chế."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"Hồ sơ bị hạn chế"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"Lỗi khi đăng nhập vào tài khoản được chỉ định. Vui lòng chọn một tài khoản khác."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"Đăng nhập không thành công"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> đang gặp sự cố với các dịch vụ của Google Play. Nếu sự cố còn tiếp diễn, vui lòng liên hệ với nhà phát triển để được trợ giúp."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> chạy trên dịch vụ của Google Play không được thiết bị của bạn hỗ trợ. Hãy liên hệ với nhà sản xuất để được hỗ trợ."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"Dịch vụ của Google Play"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"Cập nhật"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy trừ khi bạn cập nhật dịch vụ của Google Play."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"Cập nhật dịch vụ của Google Play"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> sẽ không chạy nếu không có dịch vụ của Google Play. Dịch vụ này hiện đang cập nhật."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"Dịch vụ của Google Play đang cập nhật"</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"Cần phiên bản mới của dịch vụ Google Play. Dịch vụ sẽ sớm tự động cập nhật."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"Mở trên điện thoại"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"Đăng nhập"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"Đăng nhập bằng Google"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Nếu bạn thích ứng dụng này \ nHãy cung cấp cho chúng tôi 5 sao giá</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Than phiền</string>
+    <string name="ivy_module_ivyui_new_version_have">Một phiên bản mới là cần thiết \ nHãy cập nhật</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">cập nhật</string>
+    <string name="ivy_module_ivyui_promotion_app_install">CÀI ĐẶT</string>
+    <string name="ivy_permission">bảo vệ nâng cao</string>
+    <string name="ivy_permission_access_fine_location_des">Phát hiện tất cả các ứng dụng sử dụng chức năng GPS trong điện thoại của bạn.</string>
+    <string name="ivy_permission_access_fine_location_title">GPS Monitor</string>
+    <string name="ivy_permission_access_service_des">Giảm tiêu thụ điện năng 50% và kéo dài tuổi thọ pin.</string>
+    <string name="ivy_permission_access_service_title">Tiết kiệm năng lượng</string>
+    <string name="ivy_permission_application">quản lý cho phép ứng dụng</string>
+    <string name="ivy_permission_bind_device_admin_des">Những kẻ xâm nhập không thể gỡ bỏ cài đặt %s, an toàn hơn!</string>
+    <string name="ivy_permission_bind_device_admin_title">Anti-Intruder</string>
+    <string name="ivy_permission_camera_des">Chụp ảnh của những kẻ xâm nhập cố gắng để nhìn trộm vào sự riêng tư của bạn.</string>
+    <string name="ivy_permission_camera_title">Cách sử dụng máy ảnh</string>
+    <string name="ivy_permission_desc">Để có được sự bảo vệ hoàn hảo, chúng tôi khuyên bạn nên để cho phép tất cả các quyền.</string>
+    <string name="ivy_permission_ok">được</string>
+    <string name="ivy_permission_read_contacts_des">Ghi cuộc gọi thoại từ người liên hệ bạn đã chọn.</string>
+    <string name="ivy_permission_read_contacts_title">Ðọc Liên hệ</string>
+    <string name="ivy_permission_record_audio_des">Giữ cuộc gọi ghi âm đang chạy bình thường trong thời gian thực.</string>
+    <string name="ivy_permission_record_audio_title">Ghi âm</string>
+    <string name="ivy_permission_skip">nhảy</string>
+    <string name="ivy_permission_switch_dialog_title">Tìm %s và kích hoạt nó</string>
+    <string name="ivy_permission_system_alert_window_des">Để giữ AppLock chạy bình thường và bảo vệ hoàn hảo.</string>
+    <string name="ivy_permission_system_alert_window_title">Popup</string>
+    <string name="ivy_permission_usage_access_settings_des">Giữ %s đang chạy để bảo vệ sự riêng tư của bạn trong thời gian thực.</string>
+    <string name="ivy_permission_usage_access_settings_title">Vận hành ổn định</string>
+    <string name="security_app_pro_successful">bảo vệ thành công</string>
+    <string name="security_applock_open">Privacy Lock đang chạy</string>
+    <string name="security_applock_permission">Để bảo vệ quyền riêng tư tốt hơn, xin vui lòng cho phép cấp quyền truy cập.</string>
+    <string name="security_applock_permission_allow">cho phép</string>
+    <string name="security_applock_stop">Privacy Lock được dừng lại</string>
+    <string name="security_apply_">ứng dụng</string>
+    <string name="security_apps_open_permission">Tìm AppLock và kích hoạt nó</string>
+    <string name="security_ask_lock">Để đảm bảo an ninh hơn cho %1$s</string>
+    <string name="security_ask_lock_protect">Bảo vệ nó bởi Super AppLock</string>
+    <string name="security_btn_next">Kế tiếp</string>
+    <string name="security_cancel">hủy bỏ</string>
+    <string name="security_change_password">Thay đổi mật khẩu</string>
+    <string name="security_change_pattern">Thay đổi mẫu</string>
+    <string name="security_choose_theme">Chọn chủ đề</string>
+    <string name="security_click_change">Hãy thử một số khác</string>
+    <string name="security_confirm_passwd_tip">xác nhận mật mã của bạn</string>
+    <string name="security_done">Làm xong</string>
+    <string name="security_draw_pattern">Vẽ một mô hình</string>
+    <string name="security_draw_pattern_next">Vẽ lại</string>
+    <string name="security_enter_password">Nhập mật khẩu để mở khóa ứng dụng này</string>
+    <string name="security_every_time">Luôn khóa</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_finger_tip">Chạm ngón tay in hai lần và giữ để bật APP mặt nạ vân tay</string>
+    <string name="security_fingerprint">vân tay</string>
+    <string name="security_fingerprint_many_error">Vui lòng sử dụng mật khẩu</string>
+    <string name="security_five_min">5 phút</string>
+    <string name="security_five_start">Chúng tôi cam kết bảo vệ sự riêng tư của bạn. Ông có thể cho chúng ta một 5-sao-giá?</string>
+    <string name="security_float_action_switch_widget">phụ tùng nổi</string>
+    <string name="security_for_lock_new">Bạn có muốn khóa \"%1$s\"?</string>
+    <string name="security_forget_password">Quên mật khẩu</string>
+    <string name="security_go_open_fingerprint">Để thiết lập ngay lập tức</string>
+    <string name="security_google">Google+</string>
+    <string name="security_help_share">Rate tôi</string>
+    <string name="security_hide_path">Hide con đường mô hình hòa</string>
+    <string name="security_hide_successful">Giấu %1$s thành công</string>
+    <string name="security_input_password">Vui lòng nhập mã PIN 6-chữ số</string>
+    <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
+    <string name="security_intrude_five">5 lần</string>
+    <string name="security_intrude_five_rate">lời khen ngợi của bạn sẽ khuyến khích chúng ta làm tốt hơn.</string>
+    <string name="security_intrude_four">4 lần</string>
+    <string name="security_intrude_one">1 lần</string>
+    <string name="security_intrude_self">Intruder chụp ảnh tự sướng</string>
+    <string name="security_intrude_shutter">Bật âm thanh màn trập</string>
+    <string name="security_intrude_three">3 lần</string>
+    <string name="security_intrude_two">2 lần</string>
+    <string name="security_intruder_help">Cứu giúp</string>
+    <string name="security_intruder_off">phát hiện kẻ xâm nhập đang tắt</string>
+    <string name="security_intruder_off_new">Máy phát hiện kẻ xâm nhập là tắt</string>
+    <string name="security_intruder_on_new">Máy phát hiện kẻ xâm nhập là trên</string>
+    <string name="security_intruder_open">Bắt kẻ đột nhập cho bạn</string>
+    <string name="security_intruder_setting">tự sướng Intruder</string>
+    <string name="security_intruder_setting_new">thiết lập chụp ảnh tự sướng Intruder</string>
+    <string name="security_intruder_tip">Mã không đúng vào</string>
+    <string name="security_later_">Sau</string>
+    <string name="security_loading_fullad_fail">tải quảng cáo được, vui lòng thử lại sau</string>
+    <string name="security_lock_app">Khóa App</string>
+    <string name="security_lock_success">Khóa %1$s thành công</string>
+    <string name="security_lock_to_open">Bấm để bật Privacy Lock</string>
+    <string name="security_lock_to_stop">Bấm để tắt Privacy Lock</string>
+    <string name="security_login_with_email">Hãy kiểm tra ID tài khoản Google của bạn trước khi thiết lập lại mật khẩu của bạn.</string>
+    <string name="security_my_close">Gần</string>
+    <string name="security_my_theme">Chủ đề</string>
+    <string name="security_myfake">App mặt nạ</string>
+    <string name="security_new_intruder">Kẻ đột nhập</string>
+    <string name="security_newapp_lock">Khóa các ứng dụng mới</string>
+    <string name="security_no_google_account">Không có tài khoản Google hiện có trong điện thoại của bạn.</string>
+    <string name="security_no_intruder">Không có kẻ đột nhập cho đến nay.</string>
+    <string name="security_nofification">thông báo</string>
+    <string name="security_open_fingerprint">sử dụng dấu vân tay</string>
+    <string name="security_over_short">Giới thiệu tóm tắt Thiết</string>
+    <string name="security_password_lock">PIN Mã Khóa</string>
+    <string name="security_password_not_match">Mật khẩu không phù hợp</string>
+    <string name="security_password_setsuccessful">Mật khẩu thiết lập thành công</string>
+    <string name="security_password_short">6 chữ số là cần thiết</string>
+    <string name="security_pattern_lock">Lock Pattern</string>
+    <string name="security_pattern_short">Vẽ ít nhất 3 dấu chấm</string>
+    <string name="security_pause_protect">Dừng bảo vệ</string>
+    <string name="security_permission_grand">Sự cho phép</string>
+    <string name="security_permission_msg">Không thể khóa các ứng dụng mà không cần sự cho phép của bạn, ban nó cho chúng ta vui lòng</string>
+    <string name="security_power_mode">Tiết kiệm năng lượng</string>
+    <string name="security_power_mode_des">Giảm tiêu thụ điện năng 50%, kéo dài thời gian chờ điện thoại.</string>
+    <string name="security_pretent_calender">Lịch</string>
+    <string name="security_pretent_fails">App mặt nạ không được thiết lập</string>
+    <string name="security_pretent_fc">APP Lỗi</string>
+    <string name="security_pretent_finger">vân tay</string>
+    <string name="security_pretent_force_close">Thật không may, "%1$s" đã dừng lại.</string>
+    <string name="security_pretent_icon_1">đồng hồ</string>
+    <string name="security_pretent_icon_2">máy tính</string>
+    <string name="security_pretent_icon_3">thời tiết</string>
+    <string name="security_pretent_icon_default">vỡ nợ</string>
+    <string name="security_pretent_none">Không có mặt nạ</string>
+    <string name="security_pretent_notepad">Sổ tay</string>
+    <string name="security_pretent_selector">Thay biểu tượng ứng dụng</string>
+    <string name="security_pretent_setting_msg">Xin hãy di chuyển ngón tay từ trái sang phải cùng nút "close" để bật APP mặt nạ</string>
+    <string name="security_protect">bảo vệ</string>
+    <string name="security_protect_apps">Bảo vệ ứng dụng bằng mật khẩu</string>
+    <string name="security_protecting">Bảo vệ</string>
+    <string name="security_rate_bad">XẤU</string>
+    <string name="security_rate_good">TỐT</string>
+    <string name="security_rate_msg">Nếu bạn thích AppLock, xin vui lòng cung cấp cho chúng ta một 5-sao-đánh giá.</string>
+    <string name="security_rate_t">Tỷ AppLock</string>
+    <string name="security_reset_passwd_2_btn">Đặt lại Mật khẩu</string>
+    <string name="security_reset_password">Đặt lại mật khẩu</string>
+    <string name="security_security_set_fake_success">App mặt nạ được thiết lập thành công</string>
+    <string name="security_select_apps">Chọn ứng dụng để bảo vệ</string>
+    <string name="security_select_apps_locked">Những ứng dụng này đã được khóa</string>
+    <string name="security_service_description">dịch vụ ổn định và tiêu thụ ít điện năng hơn.</string>
+    <string name="security_service_title">Khả năng tiếp cận</string>
+    <string name="security_set_confirm_password">Xác nhận mật khẩu</string>
+    <string name="security_set_passwd_tip">Nhập bất kỳ chữ số</string>
+    <string name="security_set_password">Đặt mật khẩu</string>
+    <string name="security_set_password_successful">"Không thể thiết lập mật khẩu"</string>
+    <string name="security_set_pattern">vẽ hình</string>
+    <string name="security_settings_preference">Nâng cao bảo vệ</string>
+    <string name="security_settings_preference_desc">Để có được sự bảo vệ hoàn hảo, chúng tôi khuyên bạn nên để cho phép tất cả các quyền.</string>
+    <string name="security_short_exit">Lối ra ngắn</string>
+    <string name="security_short_exit_detail">Không để relock trước một lối ra ngắn</string>
+    <string name="security_short_exit_off">Khóa lại sau khi tắt màn hình</string>
+    <string name="security_short_exit_slot">Giới hạn thời gian lối ra ngắn</string>
+    <string name="security_show_newversion">cập nhật</string>
+    <string name="security_show_newversion_inf">Các phiên bản mới đã được phát hành, vội vàng để cập nhật nó!</string>
+    <string name="security_show_noti">Thông báo chuyển đổi</string>
+    <string name="security_show_noti_desc">Hiển thị nút chuyển đổi trong thông báo</string>
+    <string name="security_show_permission">cho phép</string>
+    <string name="security_show_successful">Hiện %1$s thành công</string>
+    <string name="security_slide_theme">chủ đề</string>
+    <string name="security_start_rat">5-sao-Đánh giá</string>
+    <string name="security_stop_applock">dừng AppLock</string>
+    <string name="security_stop_applock_information">ứng dụng của bạn sẽ không được bảo vệ nếu bạn ngừng dịch vụ AppLock. Tiếp tục?</string>
+    <string name="security_tab_setting">Cài đặt</string>
+    <string name="security_to_save">Lưu</string>
+    <string name="security_try_later">Hãy thử lại sau</string>
+    <string name="security_turnon_intruder">Bật kẻ đột nhập</string>
+    <string name="security_unlock_me">Mở khóa App này</string>
+    <string name="security_unlock_success">Mở khóa %1$s thành công</string>
+    <string name="security_unlock_type">Mở khóa loại</string>
+    <string name="security_until_screen_off">Cho đến khi màn hình của</string>
+    <string name="security_update">cài đặt, dựng lên</string>
+    <string name="security_update_title">Phiên bản mới cập nhật</string>
+    <string name="security_use_normal">Thay đổi mật khẩu</string>
+    <string name="security_use_password">Sử dụng Password Unlock</string>
+    <string name="security_use_pattern">Thay đổi mẫu</string>
+    <string name="security_use_pattern_">Sử dụng mô hình để mở khóa</string>
+    <string name="security_use_theme_success">Chủ đề được thay đổi</string>
+    <string name="security_user_center">Không quảng cáo</string>
+    <string name="security_user_compare_fake_cover">Bìa Fake</string>
+    <string name="security_user_compare_fake_cover_inf">Thay đổi biểu tượng AppLock</string>
+    <string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_compare_intruder_self">Intruder</string>
+    <string name="security_user_compare_lockapp">Khóa Apps</string>
+    <string name="security_user_compare_lockapp_inf">Khóa Facebook, vv</string>
+    <string name="security_user_compare_no_ad_inf">Giao diện người dùng sạch</string>
+    <string name="security_user_compare_theme_change">chủ đề</string>
+    <string name="security_user_compare_theme_inf">100+ chủ đề đẹp</string>
+    <string name="security_user_free">đầy đủ tính năng có sẵn và xem quảng cáo để ủng hộ chúng tôi.</string>
+    <string name="security_user_free_name">MIỄN PHÍ</string>
+    <string name="security_user_free_name_bootom">Quảng cáo / giới hạn</string>
+    <string name="security_user_limit">Không có quảng cáo làm phiền bạn, tuy nhiên, chỉ Khóa ứng dụng có sẵn.</string>
+    <string name="security_user_limit_compare">So sánh</string>
+    <string name="security_user_limit_confirm">Xác nhận</string>
+    <string name="security_user_limit_des">Chọn giới hạn có nghĩa là bạn sẽ mất việc sử dụng các tính năng:</string>
+    <string name="security_user_limit_fake">× Thay đổi biểu tượng của AppLock</string>
+    <string name="security_user_limit_intruder">× Chụp hình ảnh của những kẻ xâm nhập</string>
+    <string name="security_user_limit_intruder_self_inf">Chụp ảnh mặt kẻ đột nhập</string>
+    <string name="security_user_limit_name">GIỚI HẠN</string>
+    <string name="security_user_limit_name_bootom">Không có quảng cáo / Giới hạn</string>
+    <string name="security_user_limit_theme">× Chọn tấn chủ đề đẹp</string>
+    <string name="security_user_no_ad_compare">Không quảng cáo</string>
+    <string name="security_user_plan_free_click">miễn phí chọn</string>
+    <string name="security_user_pro">đầy đủ tính năng có sẵn không có quảng cáo gây phiền nhiễu. Giới hạn thời gian cung cấp.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_pro_name_bootom">Không có quảng cáo / Unlimited</string>
+    <string name="security_user_slide_text_inf">Nếu bạn muốn sử dụng tính năng này, hãy nâng cấp kế hoạch của bạn.</string>
+    <string name="security_user_slide_text_not">Không</string>
+    <string name="security_user_slide_text_upgrade">nâng cấp</string>
+    <string name="security_verify">xác nhận</string>
+    <string name="security_visitor_off">AppLock là dừng lại</string>
+    <string name="security_visitor_on">AppLock đang chạy</string>
+    <string name="setting_category_pattern">Mẫu</string>
+    <string name="setting_digital_code">Ma pin</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

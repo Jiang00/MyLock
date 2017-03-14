@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Перейти вверх"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Другие параметры"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Показать все"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Выбрать приложение"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"ОТКЛ."</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ВКЛ."</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Поиск"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Удалить запрос"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Поисковый запрос"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Поиск"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Отправить запрос"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Голосовой поиск"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Открыть доступ"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Открыть доступ пользователю %s"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string name="app_name">AppLock</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"Сервисы Google Play, необходимые для работы с приложением \"<ns1:g id="APP_NAME">%1$s</ns1:g>\", сейчас недоступны. Обратитесь за помощью к разработчику."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"Включить"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"Для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\" требуется включить сервисы Google Play."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"Включите сервисы Google Play"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"Установить"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"Для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\" требуется установить сервисы Google Play."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"Для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\" требуется установить сервисы Google Play."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"Установите сервисы Google Play"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"Этого аккаунта нет на устройстве. Выберите другой."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"Недействительный аккаунт"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"Для работы с Google Play требуется подключение к сети передачи данных."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"Ошибка сети"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"Ошибка сервисов Google Play"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"У вашего профиля нет доступа к аккаунтам."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"Профиль с ограниченным доступом"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"При входе в указанный аккаунт произошла ошибка. Выберите другой."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"Ошибка входа"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"Приложению \"<ns1:g id="APP_NAME">%1$s</ns1:g>\" не удается подключиться к сервисам Google Play. Если проблема не исчезнет, обратитесь к разработчику."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"Сервисы Google Play, необходимые для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\", не поддерживаются на вашем устройстве. Обратитесь к производителю."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"Сервисы Google Play"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"Обновить"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"Для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\" требуется обновить сервисы Google Play."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"Обновите сервисы Google Play"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"Сервисы Google Play, необходимые для работы приложения \"<ns1:g id="APP_NAME">%1$s</ns1:g>\", в настоящий момент обновляются."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"Обновление сервисов Google Play…"</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"Версия сервисов Google Play устарела. Они автоматически обновятся в ближайшее время."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"Открыть на телефоне"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"Войти"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"Войти через аккаунт Google"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Если вам нравится это приложение \ nПожалуйста дать нам 5-звездочный рейтинг</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Жаловаться</string>
+    <string name="ivy_module_ivyui_new_version_have">Новая версия требуется \ обновление Nplease</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Обновить</string>
+    <string name="ivy_module_ivyui_promotion_app_install">УСТАНОВИТЬ</string>
+    <string name="ivy_permission">Улучшенная защита</string>
+    <string name="ivy_permission_access_fine_location_des">Обнаружение всех приложений с помощью функции GPS в телефоне.</string>
+    <string name="ivy_permission_access_fine_location_title">GPS-монитор</string>
+    <string name="ivy_permission_access_service_des">Снижение на 50% потребление энергии и продлить срок службы батареи.</string>
+    <string name="ivy_permission_access_service_title">Энергосбережение</string>
+    <string name="ivy_permission_application">Управление разрешениями приложений</string>
+    <string name="ivy_permission_bind_device_admin_des">Нарушители не удается удалить %s, более безопасным!</string>
+    <string name="ivy_permission_bind_device_admin_title">Анти-Intruder</string>
+    <string name="ivy_permission_camera_des">Возьмите фотографии злоумышленников, пытающихся заглянуть в вашу частную жизнь.</string>
+    <string name="ivy_permission_camera_title">Использование камеры</string>
+    <string name="ivy_permission_desc">Для того чтобы получить совершенную защиту, мы рекомендуем вам включить все разрешения.</string>
+    <string name="ivy_permission_ok">ОК</string>
+    <string name="ivy_permission_read_contacts_des">Запись голосового вызова от контактного лица вы выбрали.</string>
+    <string name="ivy_permission_read_contacts_title">Читать Контакты</string>
+    <string name="ivy_permission_record_audio_des">Keep Call Recorder работает нормально в режиме реального времени.</string>
+    <string name="ivy_permission_record_audio_title">Запись аудио</string>
+    <string name="ivy_permission_skip">Пропускать</string>
+    <string name="ivy_permission_switch_dialog_title">Найти %s и включить его</string>
+    <string name="ivy_permission_system_alert_window_des">Чтобы сохранить AppLock работает нормально и совершенную защиту.</string>
+    <string name="ivy_permission_system_alert_window_title">Выскакивать</string>
+    <string name="ivy_permission_usage_access_settings_des">Продолжать работать %s, чтобы защитить вашу частную жизнь в режиме реального времени.</string>
+    <string name="ivy_permission_usage_access_settings_title">Устойчивое функционирование</string>
+    <string name="security_app_pro_successful">Защитите успешно</string>
+    <string name="security_applock_open">Супер App Блокировка работает</string>
+    <string name="security_applock_permission">Для лучшей защиты частной жизни, пожалуйста, позвольте разрешение на доступ.</string>
+    <string name="security_applock_permission_allow">Позволять</string>
+    <string name="security_applock_stop">Супер App Блокировка остановлен</string>
+    <string name="security_apply_">Применить</string>
+    <string name="security_apps_open_permission">Найти AppLock и включить его</string>
+    <string name="security_ask_lock">Делать %1$s  более безопасным</string>
+    <string name="security_ask_lock_protect">Используйте супер AppLock для защиты</string>
+    <string name="security_btn_next">следующий</string>
+    <string name="security_cancel">Отмена</string>
+    <string name="security_change_password">Изменить Пароль</string>
+    <string name="security_change_pattern">Изменение шаблон</string>
+    <string name="security_choose_theme">Выбрать тему</string>
+    <string name="security_click_change">Пожалуйста, попробуйте другой</string>
+    <string name="security_confirm_passwd_tip">подтвердите свой пароль</string>
+    <string name="security_done">сделано</string>
+    <string name="security_draw_pattern">Нарисовать шаблон разблокировки</string>
+    <string name="security_draw_pattern_next">перерисовывать</string>
+    <string name="security_enter_password">введите пароль для разблокировки это приложение</string>
+    <string name="security_every_time">Всегда запирайте</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_finger_tip">Нажмите отпечаток пальца в два раза и удерживайте, чтобы включить маску APP</string>
+    <string name="security_fingerprint">отпечаток пальца</string>
+    <string name="security_fingerprint_many_error">Пожалуйста, используйте пароль</string>
+    <string name="security_five_min">5 минут</string>
+    <string name="security_five_start">Мы стремимся защитить вашу личную жизнь. Не могли бы вы дать нам 5-звездочный рейтинг?</string>
+    <string name="security_float_action_switch_widget">поплавок виджет</string>
+    <string name="security_for_lock_new">Хотите, чтобы зафиксировать \"%1$S\"?</string>
+    <string name="security_forget_password">Забыли пароль</string>
+    <string name="security_go_open_fingerprint">Чтобы установить немедленно</string>
+    <string name="security_google">Google+</string>
+    <string name="security_help_share">Оценить мне</string>
+    <string name="security_hide_path">Скрыть модели ничья путь</string>
+    <string name="security_hide_successful">Скрыть %1$S успех</string>
+    <string name="security_input_password">Пожалуйста, введите 6-ти значный PIN-код</string>
+    <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
+    <string name="security_intrude_five">5 раз</string>
+    <string name="security_intrude_five_rate">Ваша похвала будет побуждать нас делать лучше.</string>
+    <string name="security_intrude_four">4 раза</string>
+    <string name="security_intrude_one">1 раз</string>
+    <string name="security_intrude_self">Intruder селфи</string>
+    <string name="security_intrude_shutter">Включить звук затвора</string>
+    <string name="security_intrude_three">3 раза</string>
+    <string name="security_intrude_two">2 раза</string>
+    <string name="security_intruder_help">Помогите</string>
+    <string name="security_intruder_off">Intruder детектор выключен</string>
+    <string name="security_intruder_off_new">Извещатель выключен</string>
+    <string name="security_intruder_on_new">Intruder детектор включен</string>
+    <string name="security_intruder_open">Поймайте взломщик для вас</string>
+    <string name="security_intruder_setting">Intruder селфи</string>
+    <string name="security_intruder_setting_new">Intruder установка селфи</string>
+    <string name="security_intruder_tip">Неверный код введен</string>
+    <string name="security_later_">позже</string>
+    <string name="security_loading_fullad_fail">Реклама загрузка не удалась, попробуйте еще раз позже</string>
+    <string name="security_lock_app">Блокировка App</string>
+    <string name="security_lock_success">Блокировка успех %1$S</string>
+    <string name="security_lock_to_open">Коснитесь для включить Супер App блокировки</string>
+    <string name="security_lock_to_stop">Коснитесь для выключить Супер App Блокировка</string>
+    <string name="security_login_with_email">Пожалуйста, проверьте ваш аккаунт Google ID, прежде чем сбросить пароль.</string>
+    <string name="security_my_close">Закрыть</string>
+    <string name="security_my_theme">тема</string>
+    <string name="security_myfake">App маска</string>
+    <string name="security_new_intruder">нарушитель</string>
+    <string name="security_newapp_lock">Блокировка новых приложений</string>
+    <string name="security_no_google_account">Там нет существующей учетной записи Google в телефоне.</string>
+    <string name="security_no_intruder">Там нет взломщик до сих пор.</string>
+    <string name="security_nofification">уведомление</string>
+    <string name="security_open_fingerprint">отпечатков пальцев</string>
+    <string name="security_over_short">Краткое Настройка</string>
+    <string name="security_password_lock">PIN-код блокировки</string>
+    <string name="security_password_not_match">Подтвердите пароль неправильную.</string>
+    <string name="security_password_setsuccessful">Пароль устанавливается успех</string>
+    <string name="security_password_short">6 цифр требуется</string>
+    <string name="security_pattern_lock">шаблон блокировки</string>
+    <string name="security_pattern_short">Draw at least 3 dots</string>
+    <string name="security_pause_protect">Завершить защиты</string>
+    <string name="security_permission_grand">Grant</string>
+    <string name="security_permission_msg">"Can't lock apps without your permission, grant it to us please"</string>
+    <string name="security_power_mode">Энергосбережение</string>
+    <string name="security_power_mode_des">Снижение на 50% потребление электроэнергии, продлить время ожидания Phone.</string>
+    <string name="security_pretent_calender">Календарь</string>
+    <string name="security_pretent_fails">App маска не установлен</string>
+    <string name="security_pretent_fc">APP Ошибка</string>
+    <string name="security_pretent_finger">отпечатков пальцев</string>
+    <string name="security_pretent_force_close">К сожалению, "%1$s" остановился.</string>
+    <string name="security_pretent_icon_1">часы</string>
+    <string name="security_pretent_icon_2">калькулятор</string>
+    <string name="security_pretent_icon_3">погода</string>
+    <string name="security_pretent_icon_default">дефолт</string>
+    <string name="security_pretent_none">нет маски</string>
+    <string name="security_pretent_notepad">Блокнот</string>
+    <string name="security_pretent_selector">Заменить иконку App</string>
+    <string name="security_pretent_setting_msg">Пожалуйста, наведите палец слева направо вдоль кнопку "Закрыть", чтобы включить APP маски</string>
+    <string name="security_protect">защищать</string>
+    <string name="security_protect_apps">Защита приложений с помощью пароля</string>
+    <string name="security_protecting">под защитой</string>
+    <string name="security_rate_bad">ПЛОХО</string>
+    <string name="security_rate_good">ХОРОШО</string>
+    <string name="security_rate_msg">Если вы любите AppLock, пожалуйста, дайте нам 5-звездочный рейтинг.</string>
+    <string name="security_rate_t">Оценить блокировка приложения</string>
+    <string name="security_reset_passwd_2_btn">Сбросить пароль</string>
+    <string name="security_reset_password">Сброс пароля</string>
+    <string name="security_security_set_fake_success">App маска успешно установлен</string>
+    <string name="security_select_apps">Выберите приложения для защиты</string>
+    <string name="security_select_apps_locked">Эти приложения блокируются</string>
+    <string name="security_service_description">Стабильное обслуживание и меньше потребление энергии.</string>
+    <string name="security_service_title">доступность</string>
+    <string name="security_set_confirm_password">ПОДТВЕРДИТЕ ПАРОЛЬ</string>
+    <string name="security_set_passwd_tip">Введите любые цифры</string>
+    <string name="security_set_password">набор пароль</string>
+    <string name="security_set_password_successful">"Невозможно задать пароль"</string>
+    <string name="security_set_pattern">Подтвердите шаблон </string>
+    <string name="security_settings_preference">Улучшенная защита</string>
+    <string name="security_settings_preference_desc">Для того чтобы получить совершенную защиту, мы рекомендуем вам включить все разрешения.</string>
+    <string name="security_short_exit">Краткие Выход из</string>
+    <string name="security_short_exit_detail">Не его автоматической блокировке прежде краткого выхода</string>
+    <string name="security_short_exit_off">заблокировать после отключения экрана</string>
+    <string name="security_short_exit_slot">Временных ограничений Краткое Выход из</string>
+    <string name="security_show_newversion">ОБНОВИТЬ</string>
+    <string name="security_show_newversion_inf">Новая версия была выпущена, спешит обновить его!</string>
+    <string name="security_show_noti">Переключить уведомления</string>
+    <string name="security_show_noti_desc">Показать кнопка-переключатель в уведомлении</string>
+    <string name="security_show_permission">Permission</string>
+    <string name="security_show_successful">Показать %1$S успех</string>
+    <string name="security_slide_theme">тема</string>
+    <string name="security_start_rat">5-Stars-Рейтинг</string>
+    <string name="security_stop_applock">Стоп Applock</string>
+    <string name="security_stop_applock_information">Ваши приложения не будут защищены, если вы прекратите AppLock обслуживание. Продолжать?</string>
+    <string name="security_tab_setting">настройки</string>
+    <string name="security_to_save">Сохранить</string>
+    <string name="security_try_later">попробуй позже</string>
+    <string name="security_turnon_intruder">Включите нарушителя</string>
+    <string name="security_unlock_me">Разблокируйте это приложение</string>
+    <string name="security_unlock_success">Разблокируйте успех %1$S</string>
+    <string name="security_unlock_type">Разблокируйте тип</string>
+    <string name="security_until_screen_off">Вплоть до выключенным экраном</string>
+    <string name="security_update">устанавливать</string>
+    <string name="security_update_title">Новое обновление версии</string>
+    <string name="security_use_normal">пароль</string>
+    <string name="security_use_password">Использовать пароль для разблокировки</string>
+    <string name="security_use_pattern">рисунок</string>
+    <string name="security_use_pattern_">Используйте шаблон для разблокировки</string>
+    <string name="security_use_theme_success">theme is changed</string>
+    <string name="security_user_center">Без рекламы</string>
+    <string name="security_user_compare_fake_cover">Поддельный Обложка</string>
+    <string name="security_user_compare_fake_cover_inf">Значок Изменение AppLock</string>
+    <string name="security_user_compare_go_pro">PRO</string>
+    <string name="security_user_compare_intruder_self">нарушитель</string>
+    <string name="security_user_compare_lockapp">Блокировка приложения</string>
+    <string name="security_user_compare_lockapp_inf">Блокировка Facebook и т.д.</string>
+    <string name="security_user_compare_no_ad_inf">Наслаждайтесь чистым UI</string>
+    <string name="security_user_compare_theme_change">Темы</string>
+    <string name="security_user_compare_theme_inf">100+ красивые темы</string>
+    <string name="security_user_free">Полные функции доступны и смотреть рекламу, чтобы поддержать нас.</string>
+    <string name="security_user_free_name">СВОБОДНО</string>
+    <string name="security_user_free_name_bootom">Объявления / Неограниченный</string>
+    <string name="security_user_limit">Нет объявлений беспокоить вас, однако, только блокировка App доступна.</string>
+    <string name="security_user_limit_compare">сравнить</string>
+    <string name="security_user_limit_confirm">подтвердить</string>
+    <string name="security_user_limit_des">Выберите предел означает, что вы потеряете использование этих функций:</string>
+    <string name="security_user_limit_fake">× Изменить иконку AppLock</string>
+    <string name="security_user_limit_intruder">× Захват изображения злоумышленниками</string>
+    <string name="security_user_limit_intruder_self_inf">Возьмите вторжении фото</string>
+    <string name="security_user_limit_name">ПРЕДЕЛ</string>
+    <string name="security_user_limit_name_bootom">Нет объявлений / Limited</string>
+    <string name="security_user_limit_theme">× Выбор тонны красивых тем</string>
+    <string name="security_user_no_ad_compare">Без рекламы</string>
+    <string name="security_user_plan_free_click">бесплатно выбран</string>
+    <string name="security_user_pro">Полные функции доступны без каких-либо раздражающих объявлений.</string>
+    <string name="security_user_pro_name">PRO</string>
+    <string name="security_user_pro_name_bootom">Нет объявлений / Неограниченный</string>
+    <string name="security_user_slide_text_inf">Если вы хотите использовать эту функцию, пожалуйста, обновите ваш план.</string>
+    <string name="security_user_slide_text_not">Не сейчас</string>
+    <string name="security_user_slide_text_upgrade">Обновить</string>
+    <string name="security_verify">проверить</string>
+    <string name="security_visitor_off">AppLock остановлен</string>
+    <string name="security_visitor_on">AppLock работает</string>
+    <string name="setting_category_pattern">Шаблон</string>
+    <string name="setting_digital_code">Пин-код</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">">999"</string>
+</resources>

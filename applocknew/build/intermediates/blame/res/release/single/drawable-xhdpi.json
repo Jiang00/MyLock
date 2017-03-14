@@ -1,0 +1,266 @@
+[
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_five_rat.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_five_rat.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_light_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_light_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_light_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_dark_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_light_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_press_bac.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_press_bac.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_select_apps_successful.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_select_apps_successful.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_light_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_4.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_4.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_rate.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_rate.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_dark_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_slide_menu_red.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_slide_menu_red.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_new_intruder.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_new_intruder.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_myfake_finger.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_myfake_finger.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_5.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_5.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_dark_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_right.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_right.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_setpassword_icon.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_setpassword_icon.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_incade_cha.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_incade_cha.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_right_press.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_right_press.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\setting_reset_password.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\setting_reset_password.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_dark_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_dark_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_dark_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_patt_wrong.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_patt_wrong.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_dark_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_light_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_select_apps.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_select_apps.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_light_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_left.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_left.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_dark_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_dark_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_patte_nor.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_patte_nor.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_light_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_full_open_on_phone.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_1.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_1.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_five_dialo.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_five_dialo.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_light_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_show_newversion.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_show_newversion.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_light_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_shadow_app.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_shadow_app.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_2.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_2.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_dark_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_light_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_light_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_3.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_3.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_intruder_del.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_intruder_del.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_6.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_6.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_search_white.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_search_white.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_slide_menu.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_slide_menu.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_patt_right.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_patt_right.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_incade_de.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_incade_de.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\setting_pattern_icon.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\setting_pattern_icon.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\setting_reset_pattern.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\setting_reset_pattern.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_dark_normal.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_light_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_text_light_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_light_pressed.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_google_signin_btn_icon_dark_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_focused.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\common_plus_signin_btn_text_light_disabled.9.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xhdpi\\common_plus_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi\\security_num_0.png",
+        "source": "E:\\Gitlab\\Applock-aurora-v1\\applocknew\\src\\main\\res\\drawable-xhdpi\\security_num_0.png"
+    }
+]

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<GridView-->
+        <!--android:id="@+id/com_ivy_module_themestore_id_base_grid"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginLeft="0.5dp"-->
+        <!--android:layout_marginRight="0.5dp"-->
+        <!--android:gravity="center"-->
+        <!--android:horizontalSpacing="5dp"-->
+        <!--android:numColumns="2"-->
+        <!--android:scrollbars="none"-->
+        <!--android:stretchMode="columnWidth"-->
+        <!--android:verticalSpacing="3dp" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/com_ivy_module_themestore_id_base_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/com_ivy_module_themestore_layout_local_progress"
+        android:id="@+id/com_ivy_module_themestore_id_local_cache_progressbar_layout"
+        android:visibility="gone"/>
+
+
+
+</FrameLayout>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"मुख्यपृष्ठ पर नेविगेट करें"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"ऊपर नेविगेट करें"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"अधिक विकल्प"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"पूर्ण"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"कोई एप्‍लिकेशन चुनें"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"बंद"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"चालू"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"खोजा जा रहा है…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"क्‍वेरी साफ़ करें"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"खोज क्वेरी"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"खोजें"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"ध्वनि खोज"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"इसके द्वारा साझा करें"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s के साथ साझा करें"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"संक्षिप्त करें"</string>
+    <string name="app_name">AppLock</string>
+    <string msgid="2785372108150982144" name="common_google_play_services_api_unavailable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> को ऐसी एक या अधिक Google Play सेवाओं की आवश्यकता है जो वर्तमान में उपलब्ध नहीं हैं. कृपया सहायता के लिए डेवलपर से संपर्क करें."</string>
+    <string msgid="7334167077229901382" name="common_google_play_services_enable_button">"Google Play सेवाएं सक्षम करें"</string>
+    <string msgid="2016066508617425489" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> तब तक कार्य नहीं करेगा जब तक आप Google Play सेवाओं को सक्षम नहीं करते."</string>
+    <string msgid="4763733806837472840" name="common_google_play_services_enable_title">"Google Play सेवाएं सक्षम करना"</string>
+    <string msgid="5765996826213593005" name="common_google_play_services_install_button">"Google Play सेवाएं प्राप्त करें"</string>
+    <string msgid="1545874412485515659" name="common_google_play_services_install_text_phone">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो आपके फ़ोन में उपलब्ध नहीं हैं."</string>
+    <string msgid="2742131317258851812" name="common_google_play_services_install_text_tablet">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो आपके टैबलेट में उपलब्ध नहीं हैं."</string>
+    <string msgid="2110712637922504348" name="common_google_play_services_install_title">"Google Play सेवाएं प्राप्त करना"</string>
+    <string msgid="8004809446015217370" name="common_google_play_services_invalid_account_text">"निर्दिष्ट खाता इस डिवाइस पर मौजूद नहीं है. कृपया कोई भिन्न खाता चुनें."</string>
+    <string msgid="9894539456463288" name="common_google_play_services_invalid_account_title">"अमान्य खाता"</string>
+    <string msgid="2602915190038884860" name="common_google_play_services_network_error_text">"Google Play सेवाओं से कनेक्ट करने के लिए डेटा कनेक्शन की आवश्यकता है."</string>
+    <string msgid="5183831421651758225" name="common_google_play_services_network_error_title">"नेटवर्क त्रुटि"</string>
+    <string msgid="3936796119014022295" name="common_google_play_services_notification_ticker">"Google Play सेवाएं त्रुटि"</string>
+    <string msgid="6951442375899151085" name="common_google_play_services_restricted_profile_text">"किसी प्रतिबंधित प्रोफ़ाइल से खातों को ऐक्सेस किया जाना समर्थित नहीं है."</string>
+    <string msgid="4958149393843193760" name="common_google_play_services_restricted_profile_title">"प्रतिबंधित प्रोफ़ाइल"</string>
+    <string msgid="59739986196915578" name="common_google_play_services_sign_in_failed_text">"निर्दिष्‍ट खाते में प्रवेश करने में त्रुटि. कृपया कोई भिन्‍न खाता चुनें."</string>
+    <string msgid="8431204498860131150" name="common_google_play_services_sign_in_failed_title">"प्रवेश करना विफल रहा"</string>
+    <string msgid="7170719956698345984" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> को Google Play सेवाओं के साथ समस्या है. यदि समस्या बनी रहती है, तो कृपया सहायता के लिए डेवलपर से संपर्क करें."</string>
+    <string msgid="4291190028362992831" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं पर निर्भर है जो आपके डिवाइस द्वारा समर्थित नहीं हैं. सहायता के लिए निर्माता से संपर्क करें."</string>
+    <string msgid="909734065366822541" name="common_google_play_services_unsupported_title">"Google Play सेवाएं"</string>
+    <string msgid="2221302284291941971" name="common_google_play_services_update_button">"अपडेट करें"</string>
+    <string msgid="6230553430311881723" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> तब तक नहीं चलेगा जब तक आप Google Play सेवाओं को अपडेट नहीं करते."</string>
+    <string msgid="2926201203597631481" name="common_google_play_services_update_title">"Google Play सेवाओं को अपडेट करें"</string>
+    <string msgid="1576144479907495032" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो वर्तमान में अपडेट हो रही हैं."</string>
+    <string msgid="1604540693139938838" name="common_google_play_services_updating_title">"Google Play सेवाएं अपडेट हो रही हैं"</string>
+    <string msgid="8334920661858223093" name="common_google_play_services_wear_update_text">"Google Play सेवाओं के नए वर्शन की आवश्यकता है. यह स्वयं को जल्दी ही अपडेट करेगा."</string>
+    <string msgid="311697239335516384" name="common_open_on_phone">"फ़ोन पर खोलें"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"प्रवेश करें"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"Google के साथ प्रवेश करें"</string>
+    <string name="ivy_module_ivyui_five_star_rating_explain">आप इस app की तरह \nहमें 5-स्टार रेटिंग दे कृपया</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">शिकायत</string>
+    <string name="ivy_module_ivyui_new_version_have">एक नए संस्करण की आवश्यकता है \nकृपया अद्यतन करें</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">अद्यतन</string>
+    <string name="ivy_module_ivyui_promotion_app_install">इंस्टॉल करें</string>
+    <string name="ivy_permission">उन्नत सुरक्षा</string>
+    <string name="ivy_permission_access_fine_location_des">अपने फोन में जीपीएस समारोह का उपयोग सभी क्षुधा का पता लगाने।</string>
+    <string name="ivy_permission_access_fine_location_title">जीपीएस मॉनिटर</string>
+    <string name="ivy_permission_access_service_des">50% बिजली की खपत को कम करने और बैटरी जीवन का विस्तार।</string>
+    <string name="ivy_permission_access_service_title">बिजली की बचत</string>
+    <string name="ivy_permission_application">आवेदन अनुमति प्रबंधन</string>
+    <string name="ivy_permission_bind_device_admin_des">घुसपैठियों %s की स्थापना रद्द नहीं कर सकते हैं, अधिक सुरक्षित!</string>
+    <string name="ivy_permission_bind_device_admin_title">एंटी घुसपैठिये</string>
+    <string name="ivy_permission_camera_des">आपकी गोपनीयता में झांकने की कोशिश कर रहे घुसपैठियों की तस्वीरें ले लो।</string>
+    <string name="ivy_permission_camera_title">कैमरे के उपयोग</string>
+    <string name="ivy_permission_desc">आदेश में पूर्ण सुरक्षा प्राप्त करने के लिए हम सभी अनुमतियों को सक्षम करने के लिए आपको सलाह देते हैं।</string>
+    <string name="ivy_permission_ok">ठीक</string>
+    <string name="ivy_permission_read_contacts_des">रिकॉर्ड आवाज कॉल संपर्क व्यक्ति से आप का चयन किया।</string>
+    <string name="ivy_permission_read_contacts_title">संपर्क पढ़ें</string>
+    <string name="ivy_permission_record_audio_des">वास्तविक समय में सामान्य रूप से कॉल रिकॉर्डर चालू रखने के लिए।</string>
+    <string name="ivy_permission_record_audio_title">रिकार्ड ऑडियो</string>
+    <string name="ivy_permission_skip">छोड़ें</string>
+    <string name="ivy_permission_switch_dialog_title">%s पता है और इसे सक्षम</string>
+    <string name="ivy_permission_system_alert_window_des">AppLock सामान्य रूप से और पूर्ण सुरक्षा चालू रखने के लिए।</string>
+    <string name="ivy_permission_system_alert_window_title">पॉप अप</string>
+    <string name="ivy_permission_usage_access_settings_des">%s वास्तविक समय में आपकी गोपनीयता की रक्षा करने के लिए चालू रखने के लिए।</string>
+    <string name="ivy_permission_usage_access_settings_title">स्थिर आपरेशन</string>
+    <string name="security_app_pro_successful">सफलतापूर्वक सुरक्षित रखें</string>
+    <string name="security_applock_open">सुपर AppLock चल रहा है</string>
+    <string name="security_applock_permission">बेहतर गोपनीयता की सुरक्षा के लिए, कृपया पहुँच की अनुमति देते हैं।</string>
+    <string name="security_applock_permission_allow">अनुमति दें</string>
+    <string name="security_applock_stop">सुपर AppLock बंद कर दिया है</string>
+    <string name="security_apply_">यूज़</string>
+    <string name="security_apps_open_permission">AppLock का पता लगाएं और इसे सक्षम</string>
+    <string name="security_ask_lock">अधिक सुरक्षित बनाने के लिए %1$s</string>
+    <string name="security_ask_lock_protect">सुपर AppLock द्वारा इसे सुरक्षित रखें</string>
+    <string name="security_btn_next">अगली</string>
+    <string name="security_cancel">रद्द करना</string>
+    <string name="security_change_password">पासवर्ड बदलें</string>
+    <string name="security_change_pattern">बदले पैटर्न</string>
+    <string name="security_choose_theme">विषय चुनें</string>
+    <string name="security_click_change">एक दूसरे की कोशिश करें</string>
+    <string name="security_confirm_passwd_tip">अपने पासकोड की पुष्टि</string>
+    <string name="security_done">पूरा</string>
+    <string name="security_draw_pattern">एक पैटर्न ड्रा</string>
+    <string name="security_draw_pattern_next">फिर ड्रा</string>
+    <string name="security_enter_password">इस एप्लिकेशन को अनलॉक करने के लिए अपना पासवर्ड दर्ज</string>
+    <string name="security_every_time">हमेशा ताला</string>
+    <string name="security_facebook">Facebook</string>
+    <string name="security_finger_tip">फिंगर प्रिंट दो बार ठोकर और एपीपी भेस चालू करने के लिए पकड़</string>
+    <string name="security_fingerprint">अंगुली की छाप</string>
+    <string name="security_fingerprint_many_error">पासवर्ड का उपयोग करें</string>
+    <string name="security_five_min">5 मिनट</string>
+    <string name="security_five_start">आपकी निजता की रक्षा करने के लिए हम वचनबद्ध हैं। आप हमें एक 5 सितारा रेटिंग दे सकता है?</string>
+    <string name="security_float_action_switch_widget">नाव विजेट</string>
+    <string name="security_for_lock_new">आप लॉक करने के लिए करना चाहते हैं \"%1$s\"？</string>
+    <string name="security_forget_password">पासवर्ड भूल गए</string>
+    <string name="security_go_open_fingerprint">तुरंत सेट करने के लिए</string>
+    <string name="security_google">Google+</string>
+    <string name="security_help_share">☆मुझे 5 सितारों को रेट</string>
+    <string name="security_hide_path">छुपाएं पैटर्न आकर्षित पथ</string>
+    <string name="security_hide_successful">%1$s सफलता छिपाने</string>
+    <string name="security_input_password">6 अंक पिन कोड दर्ज करें</string>
+    <string name="security_intru_f_app">This guy is trying to break in your %1$s. We catched him.</string>
+    <string name="security_intrude_five">5 बार</string>
+    <string name="security_intrude_five_rate">अपनी प्रशंसा के लिए हमें बेहतर कर प्रोत्साहित करेंगे।</string>
+    <string name="security_intrude_four">4 बार</string>
+    <string name="security_intrude_one">एक बार</string>
+    <string name="security_intrude_self">घुसपैठिये सेल्फी</string>
+    <string name="security_intrude_shutter">शटर ध्वनि सक्षम करें</string>
+    <string name="security_intrude_three">3 बार</string>
+    <string name="security_intrude_two">2 बार</string>
+    <string name="security_intruder_help">मदद</string>
+    <string name="security_intruder_off">घुसपैठिये डिटेक्टर बंद कर दिया है</string>
+    <string name="security_intruder_off_new">घुसपैठिये डिटेक्टर बंद है</string>
+    <string name="security_intruder_on_new">घुसपैठिये डिटेक्टर चालू है</string>
+    <string name="security_intruder_open">आप के लिए पकड़ो घुसपैठिया</string>
+    <string name="security_intruder_setting">घुसपैठिये सेल्फी</string>
+    <string name="security_intruder_setting_new">घुसपैठिये सेल्फी सेटिंग</string>
+    <string name="security_intruder_tip">गलत कोड में प्रवेश किया</string>
+    <string name="security_later_">बाद में</string>
+    <string name="security_loading_fullad_fail">विज्ञापन लोड करने में विफल, बाद में फिर से कोशिश करें</string>
+    <string name="security_lock_app">लॉक ऐप</string>
+    <string name="security_lock_success">%1$s ताला सफलता</string>
+    <string name="security_lock_to_open">सुपर AppLock पर बारी करने के लिए टैप</string>
+    <string name="security_lock_to_stop">सुपर AppLock बंद करने के लिए टैप करें</string>
+    <string name="security_login_with_email">अपने Google खाते आईडी से पहले अपना पासवर्ड रीसेट की पुष्टि करें।</string>
+    <string name="security_my_close">बंद करे</string>
+    <string name="security_my_theme">विषय</string>
+    <string name="security_myfake">एपीपी भेस</string>
+    <string name="security_new_intruder">घुसेड़नेवाला</string>
+    <string name="security_newapp_lock">नए क्षुधा ताला</string>
+    <string name="security_no_google_account">अपने फोन में कोई मौजूदा Google खाता नहीं है।</string>
+    <string name="security_no_intruder">इसमें कोई घुसपैठिया इतनी दूर है।</string>
+    <string name="security_nofification">अधिसूचना</string>
+    <string name="security_open_fingerprint">उपयोग फिंगरप्रिंट</string>
+    <string name="security_over_short">संक्षिप्त सेटिंग</string>
+    <string name="security_password_lock">पिन कोड लॉक</string>
+    <string name="security_password_not_match">पासवर्ड मेल नहीं</string>
+    <string name="security_password_setsuccessful">पासवर्ड सेट सफलता</string>
+    <string name="security_password_short">6 अंक की आवश्यकता है</string>
+    <string name="security_pattern_lock">आकृति ताला</string>
+    <string name="security_pattern_short">कम से कम 3 डॉट्स ड्रा</string>
+    <string name="security_pause_protect">की रक्षा करना बंद करें</string>
+    <string name="security_permission_grand">अनुदान</string>
+    <string name="security_permission_msg">आपकी अनुमति के बिना क्षुधा बंद नहीं कर सकते। यह हमारे लिए कृपया दे दो!</string>
+    <string name="security_power_mode">बिजली की बचत</string>
+    <string name="security_power_mode_des">50% बिजली की खपत को कम करने, फोन अतिरिक्त समय का विस्तार।</string>
+    <string name="security_pretent_calender">कैलेंडर</string>
+    <string name="security_pretent_fails">अनुप्रयोग भेस सेट नहीं</string>
+    <string name="security_pretent_fc">एपीपी त्रुटि</string>
+    <string name="security_pretent_finger">फिंगर प्रिंट</string>
+    <string name="security_pretent_force_close">क्षमा करें, "%1$s" बंद कर दिया गया है।</string>
+    <string name="security_pretent_icon_1">घड़ी</string>
+    <string name="security_pretent_icon_2">कैलकुलेटर</string>
+    <string name="security_pretent_icon_3">मौसम</string>
+    <string name="security_pretent_icon_default">चूक</string>
+    <string name="security_pretent_none">कोई भेस</string>
+    <string name="security_pretent_notepad">नोटपैड</string>
+    <string name="security_pretent_selector">अनुप्रयोग आइकन को बदलें</string>
+    <string name="security_pretent_setting_msg">एपीपी भेस चालू करने के लिए "बंद" बटन के साथ बाएं से दाएं अपनी उंगली को स्थानांतरित करें</string>
+    <string name="security_protect">रक्षा करना</string>
+    <string name="security_protect_apps">एक पासवर्ड के साथ क्षुधा को सुरक्षित रखें</string>
+    <string name="security_protecting">रक्षा</string>
+    <string name="security_rate_bad">खराब</string>
+    <string name="security_rate_good">अच्छा</string>
+    <string name="security_rate_msg">आप AppLock चाहते हैं, तो हमें एक 5 सितारा रेटिंग दे दीजिए।</string>
+    <string name="security_rate_t">दर Applock</string>
+    <string name="security_reset_passwd_2_btn">पासवर्ड रीसेट करें</string>
+    <string name="security_reset_password">पासवर्ड रीसेट</string>
+    <string name="security_security_set_fake_success">अनुप्रयोग भेस सफलतापूर्वक सेट किया गया है</string>
+    <string name="security_select_apps">रक्षा के लिए क्षुधा का चयन करें</string>
+    <string name="security_select_apps_locked">ये एप्लिकेशन बंद कर रहे हैं</string>
+    <string name="security_service_description">स्थिर सेवा और कम बिजली की खपत।</string>
+    <string name="security_service_title">एक्सेसिबिलिटी</string>
+    <string name="security_set_confirm_password">पासवर्ड की पुष्टि कीजिये</string>
+    <string name="security_set_passwd_tip">किसी भी अंक दर्ज करें</string>
+    <string name="security_set_password">पासवर्ड बनाएँ</string>
+    <string name="security_set_password_successful">पासवर्ड सेट नहीं कर सकता</string>
+    <string name="security_set_pattern">पैटर्न ड्रा</string>
+    <string name="security_settings_preference">उन्नत संरक्षण</string>
+    <string name="security_settings_preference_desc">आदेश में पूर्ण सुरक्षा प्राप्त करने के लिए हम सभी अनुमतियों को सक्षम करने के लिए आपको सलाह देते हैं।</string>
+    <string name="security_short_exit">संक्षिप्त बाहर निकलें</string>
+    <string name="security_short_exit_detail">एक संक्षिप्त बाहर निकलने के बाद ताला नहीं</string>
+    <string name="security_short_exit_off">स्क्रीन बंद के बाद ताला</string>
+    <string name="security_short_exit_slot">संक्षिप्त बाहर निकलने के समय सीमा</string>
+    <string name="security_show_newversion">अद्यतन</string>
+    <string name="security_show_newversion_inf">नया संस्करण जारी किया गया है, यह अद्यतन करने के लिए जल्दी करो!</string>
+    <string name="security_show_noti">टॉगल अधिसूचना</string>
+    <string name="security_show_noti_desc">अधिसूचना में दिखाएं टॉगल बटन</string>
+    <string name="security_show_permission">अनुमति</string>
+    <string name="security_show_successful">%1$sसफलता दिखाने</string>
+    <string name="security_slide_theme">विषय</string>
+    <string name="security_start_rat">5-स्टार रेटिंग</string>
+    <string name="security_stop_applock">बंद करो Applock</string>
+    <string name="security_stop_applock_information">अपनी क्षुधा यदि आप AppLock सेवा बंद संरक्षित नहीं किया जाएगा। जारी रहना?</string>
+    <string name="security_tab_setting">सेटिंग्स</string>
+    <string name="security_to_save">सेव</string>
+    <string name="security_try_later">बाद में कोशिश करें</string>
+    <string name="security_turnon_intruder">घुसपैठिए को चालू करें</string>
+    <string name="security_unlock_me">इस एप्लिकेशन के अनलॉक</string>
+    <string name="security_unlock_success">%1$s सफलता अनलॉक</string>
+    <string name="security_unlock_type">मोड अनलॉक</string>
+    <string name="security_until_screen_off">बंद स्क्रीन तक</string>
+    <string name="security_update">इंस्टॉल करें</string>
+    <string name="security_update_title">नया संस्करण अद्यतन</string>
+    <string name="security_use_normal">पासवर्ड लॉक</string>
+    <string name="security_use_password">अनलॉक करने के लिए पासवर्ड का उपयोग</string>
+    <string name="security_use_pattern">पैटर्न लॉक</string>
+    <string name="security_use_pattern_">अनलॉक करने के लिए पैटर्न का उपयोग</string>
+    <string name="security_use_theme_success">विषय बदल रहा है</string>
+    <string name="security_user_center">विज्ञापन नहीं</string>
+    <string name="security_user_compare_fake_cover">नकली आवरण</string>
+    <string name="security_user_compare_fake_cover_inf">AppLock बदलें आइकन</string>
+    <string name="security_user_compare_go_pro">समर्थक</string>
+    <string name="security_user_compare_intruder_self">घुसेड़नेवाला</string>
+    <string name="security_user_compare_lockapp">लॉक Apps</string>
+    <string name="security_user_compare_lockapp_inf">फेसबुक लॉक, आदि</string>
+    <string name="security_user_compare_no_ad_inf">साफ यूआई का आनंद लें</string>
+    <string name="security_user_compare_theme_change">विषय-वस्तु</string>
+    <string name="security_user_compare_theme_inf">100+ खूबसूरत विषयों</string>
+    <string name="security_user_free">पूर्ण सुविधा उपलब्ध हैं और हमें समर्थन करने के लिए विज्ञापनों को देखते हैं।</string>
+    <string name="security_user_free_name">मुक्त</string>
+    <string name="security_user_free_name_bootom">विज्ञापन / असीमित</string>
+    <string name="security_user_limit">कोई विज्ञापन आपको परेशान, तथापि, केवल लॉक अनुप्रयोग उपलब्ध है।</string>
+    <string name="security_user_limit_compare">तुलना</string>
+    <string name="security_user_limit_confirm">की पुष्टि करें</string>
+    <string name="security_user_limit_des">चुनें सीमा का मतलब है कि आप इन सुविधाओं का उपयोग खो देंगे:</string>
+    <string name="security_user_limit_fake">× AppLock के आइकन बदलें</string>
+    <string name="security_user_limit_intruder">× घुसपैठियों की छवि पर कब्जा</string>
+    <string name="security_user_limit_intruder_self_inf">घुसपैठिए की तस्वीर ले लो</string>
+    <string name="security_user_limit_name">हद</string>
+    <string name="security_user_limit_name_bootom">कोई विज्ञापन / लिमिटेड</string>
+    <string name="security_user_limit_theme">× खूबसूरत विषयों के टन का चयन</string>
+    <string name="security_user_no_ad_compare">विज्ञापन नहीं</string>
+    <string name="security_user_plan_free_click">मुक्त चुने गए</string>
+    <string name="security_user_pro">पूर्ण सुविधा की कोई कष्टप्रद विज्ञापनों के साथ उपलब्ध हैं। सीमित समय पेशकश।</string>
+    <string name="security_user_pro_name">समर्थक</string>
+    <string name="security_user_pro_name_bootom">कोई विज्ञापन / असीमित</string>
+    <string name="security_user_slide_text_inf">आप इस सुविधा का उपयोग करना चाहते हैं, तो अपनी योजना अपग्रेड करें।</string>
+    <string name="security_user_slide_text_not">अभी नहीं</string>
+    <string name="security_user_slide_text_upgrade">नवीनीकरण</string>
+    <string name="security_verify">सत्यापित</string>
+    <string name="security_visitor_off">AppLock बंद कर दिया है</string>
+    <string name="security_visitor_on">AppLock चल रहा है</string>
+    <string name="setting_category_pattern">पैटर्न</string>
+    <string name="setting_digital_code">पिन कोड</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

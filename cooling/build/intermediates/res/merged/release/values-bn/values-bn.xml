@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ivy_module_ivyui_five_star_rating_explain">আপনি এই অ্যাপ্লিকেশন চাই \nআমাদের 5 তারকা রেটিং দিতে দয়া করে</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">অভিযোগ করা</string>
+    <string name="ivy_module_ivyui_new_version_have">একটি নতুন সংস্করণ প্রয়োজন বোধ করা হয়\nআপডেট করুন</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">হালনাগাদ</string>
+    <string name="ivy_module_ivyui_promotion_app_install">INSTALL</string>
+    <string name="ivy_permission">উন্নত সুরক্ষা</string>
+    <string name="ivy_permission_access_fine_location_des">আপনার ফোনের জিপিএস ফাংশন ব্যবহার করে সব অ্যাপ্লিকেশান সনাক্ত.</string>
+    <string name="ivy_permission_access_fine_location_title">জিপিএস মনিটর</string>
+    <string name="ivy_permission_access_service_des">50% শক্তি খরচ কমাতে এবং ব্যাটারি জীবন প্রসারিত.</string>
+    <string name="ivy_permission_access_service_title">শক্তি সঞ্চয়</string>
+    <string name="ivy_permission_application">আবেদন অনুমতির ব্যবস্থাপনা</string>
+    <string name="ivy_permission_bind_device_admin_des">অনুপ্রবেশকারীদের% s- আনইনস্টল করতে পারবেন না, আরো বেশি নিরাপদ!</string>
+    <string name="ivy_permission_bind_device_admin_title">এন্টি অনধিকারপ্রবেশকারী</string>
+    <string name="ivy_permission_camera_des">আপনার গোপনীয়তা এ উঁকি মারা করার চেষ্টা অনুপ্রবেশকারীদের এর ছবি তুলুন.</string>
+    <string name="ivy_permission_camera_title">ক্যামেরা ব্যবহারের</string>
+    <string name="ivy_permission_desc">অর্ডার নিখুঁত সুরক্ষা পাওয়ার জন্য, আমরা সব অনুমতি সক্ষম করার জন্য আপনাকে সুপারিশ.</string>
+    <string name="ivy_permission_ok">ঠিক আছে</string>
+    <string name="ivy_permission_read_contacts_des">রেকর্ড ভয়েস কল যোগাযোগের ব্যক্তি থেকে নির্বাচন করেছেন.</string>
+    <string name="ivy_permission_read_contacts_title">পরিচিতিতে পড়ুন</string>
+    <string name="ivy_permission_record_audio_des">বাস্তব সময় স্বাভাবিকভাবে কল রেকর্ডার চলমান রাখুন.</string>
+    <string name="ivy_permission_record_audio_title">রেকর্ড অডিও</string>
+    <string name="ivy_permission_skip">লাফালাফি করা</string>
+    <string name="ivy_permission_switch_dialog_title">%s- খুঁজুন এবং এটি সক্রিয়</string>
+    <string name="ivy_permission_system_alert_window_des">AppLock স্বাভাবিকভাবে এবং নিখুঁত সুরক্ষা চলমান রাখা.</string>
+    <string name="ivy_permission_system_alert_window_title">পপআপ</string>
+    <string name="ivy_permission_usage_access_settings_des">%s এর বাস্তব সময়ে আপনার গোপনীয়তা রক্ষা করার জন্য চলমান রাখুন.</string>
+    <string name="ivy_permission_usage_access_settings_title">স্থিতিশীল অপারেশন</string>
+</resources>

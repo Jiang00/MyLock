@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.security.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+
+    <com.security.manager.page.MyRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <include
+                layout="@layout/security_component_toolbar"/>
+            <include
+                layout="@layout/security_myabout_bar"
+                android:visibility="gone" />
+
+
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <View
+                        android:background="@drawable/security_intrude_infomation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <com.security.manager.page.ListViewForScrollView
+                        android:layout_marginTop="20dp"
+                        android:divider="@null"
+                        android:id="@+id/abs_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <TextView
+                android:visibility="gone"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:id="@+id/tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/security_no_intruder"
+                android:textColor="@color/security_theme_primary"
+                android:textSize="15sp"
+                android:typeface="sans" />
+
+        </LinearLayout>
+    </com.security.manager.page.MyRelativeLayout>
+
+    <include
+        android:id="@+id/left"
+        layout="@layout/security_slide_menu" />
+</com.security.manager.page.SlideMenu>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ivy_module_ivyui_five_star_rating_explain">إذا كنت تحب هذا التطبيق \ n الرجاء تعطينا 5 نجوم تصنيف</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">لم يعجبنى</string>
+    <string name="ivy_module_ivyui_new_version_have">مطلوب إصدار جديد \ n الرجاء تحديث</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">تحديث</string>
+    <string name="ivy_module_ivyui_promotion_app_install">تثبيت</string>
+    <string name="ivy_permission">حماية متقدمة</string>
+    <string name="ivy_permission_access_fine_location_des">كشف جميع التطبيقات باستخدام وظيفة GPS في الهاتف.</string>
+    <string name="ivy_permission_access_fine_location_title">مراقبة نظام تحديد المواقع</string>
+    <string name="ivy_permission_access_service_des">تخفيض 50٪ من استهلاك الطاقة وإطالة عمر البطارية.</string>
+    <string name="ivy_permission_access_service_title">حفظ الطاقة</string>
+    <string name="ivy_permission_application">إدارة إذن التطبيق</string>
+    <string name="ivy_permission_bind_device_admin_des">منع التطبيق من كونها إلغاء بشكل غير متوقع.</string>
+    <string name="ivy_permission_bind_device_admin_title">مكافحة دخيل</string>
+    <string name="ivy_permission_camera_des">التقاط الصور من المتسللين في محاولة لزقزقة على خصوصيتك.</string>
+    <string name="ivy_permission_camera_title">كاميرا الاستخدام</string>
+    <string name="ivy_permission_desc">من أجل الحصول على حماية كاملة، ونحن ننصح لتمكين كافة الأذونات.</string>
+    <string name="ivy_permission_ok">حسنا</string>
+    <string name="ivy_permission_read_contacts_des">مكالمة صوتية قياسية من الشخص الذي يمكن الاتصال الذي حددته.</string>
+    <string name="ivy_permission_read_contacts_title">قراءة اتصالات</string>
+    <string name="ivy_permission_record_audio_des">إبقاء مسجل دعوة تشغيل عادة في الوقت الحقيقي.</string>
+    <string name="ivy_permission_record_audio_title">تسجيل صوتي</string>
+    <string name="ivy_permission_skip">تخطى</string>
+    <string name="ivy_permission_switch_dialog_title">العثور على التطبيق وتمكينها</string>
+    <string name="ivy_permission_system_alert_window_des">للحفاظ على AppLock يعمل بشكل طبيعي وحماية مثالية.</string>
+    <string name="ivy_permission_system_alert_window_title">يظهر فجأة</string>
+    <string name="ivy_permission_usage_access_settings_des">الاحتفاظ تطبيق قيد التشغيل بشكل مطرد.</string>
+    <string name="ivy_permission_usage_access_settings_title">عملية مستقرة</string>
+</resources>

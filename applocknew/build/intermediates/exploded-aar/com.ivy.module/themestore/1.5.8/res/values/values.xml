@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="com_ivy_module_thememstore_color_background">#eeedf2</color>
+    <color name="com_ivy_module_thememstore_color_progress_text_color">#000000</color>
+    <color name="com_ivy_module_thememstore_color_test">#00212121</color>
+    <color name="com_ivy_module_thememstore_color_wifiview_bk">#FFE5E5E5</color>
+    <color name="com_ivy_module_thememstore_color_wifiview_text_colors">#ff212121</color>
+    <color name="com_ivy_module_themestore_color_select">#ffffff</color>
+    <color name="com_ivy_module_themestore_color_tablayout_background">#20bdeb</color>
+    <color name="com_ivy_module_themestore_color_underline">#eeff41</color>
+    <color name="com_ivy_module_themestore_color_unselect">#dfdaee</color>
+    <color name="com_ivy_module_themestore_color_white">#ffffff</color>
+    <string name="app_name">themestore</string>
+    <string name="com_ivy_module_thememstore_string_click_for_more">点击加载更多</string>
+    <string name="com_ivy_module_thememstore_string_free_for_more">松开加载更多</string>
+    <string name="com_ivy_module_thememstore_string_free_get_result">松开刷新数据</string>
+    <string name="com_ivy_module_thememstore_string_get_data">收到数据</string>
+    <string name="com_ivy_module_thememstore_string_get_data_failed">获取数据失败</string>
+    <string name="com_ivy_module_thememstore_string_lauchtheme">桌面</string>
+    <string name="com_ivy_module_thememstore_string_load_failed">无更多数据</string>
+    <string name="com_ivy_module_thememstore_string_load_local_theme">进入主题中</string>
+    <string name="com_ivy_module_thememstore_string_load_more_failed">加载失败，请重试</string>
+    <string name="com_ivy_module_thememstore_string_load_more_success">加载成功</string>
+    <string name="com_ivy_module_thememstore_string_load_success">加载完成</string>
+    <string name="com_ivy_module_thememstore_string_load_theme_data">获取主题中</string>
+    <string name="com_ivy_module_thememstore_string_loading">正在加载</string>
+    <string name="com_ivy_module_thememstore_string_local">Local</string>
+    <string name="com_ivy_module_thememstore_string_local_apply_success">应用成功</string>
+    <string name="com_ivy_module_thememstore_string_more_theme">加载更多主题</string>
+    <string name="com_ivy_module_thememstore_string_never_refresh">从未刷新</string>
+    <string name="com_ivy_module_thememstore_string_no_connected">无网络连接</string>
+    <string name="com_ivy_module_thememstore_string_no_more_data">已无更多数据</string>
+    <string name="com_ivy_module_thememstore_string_no_more_themes">无更多主题</string>
+    <string name="com_ivy_module_thememstore_string_now_is_latest">已经是最新数据啦</string>
+    <string name="com_ivy_module_thememstore_string_pull_down_refresh">下拉刷新</string>
+    <string name="com_ivy_module_thememstore_string_receive_data_failed">获取数据失败</string>
+    <string name="com_ivy_module_thememstore_string_refresh_days">%1s天之前刷新</string>
+    <string name="com_ivy_module_thememstore_string_refresh_hours">%1s小时之前刷新</string>
+    <string name="com_ivy_module_thememstore_string_refresh_just_now">刚刚刷新</string>
+    <string name="com_ivy_module_thememstore_string_refresh_local_theme">正在刷新本地列表</string>
+    <string name="com_ivy_module_thememstore_string_refresh_minutes">%1s分钟之前刷新</string>
+    <string name="com_ivy_module_thememstore_string_screentheme">锁屏</string>
+    <string name="com_ivy_module_thememstore_string_theme_store">    Store</string>
+    <string name="com_ivy_module_thememstore_string_wallchangertheme">壁纸</string>
+    <string name="com_ivy_module_thememstore_string_widgettheme">小组件</string>
+    <string name="com_ivy_module_thememstore_string_wifi_off">请检查网络并重试</string>
+    <string name="com_ivy_module_thememstore_string_wifi_retry">重试</string>
+    <style name="ThemeBaseTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- customize the color palette -->
+        <item name="colorPrimary">@color/com_ivy_module_themestore_color_tablayout_background</item>
+        <item name="colorPrimaryDark">@color/com_ivy_module_themestore_color_tablayout_background</item>
+        <!--<item name="colorAccent">@color/com_ivy_module_color_white</item>-->
+        <item name="android:windowBackground">@color/com_ivy_module_themestore_color_white</item>
+    </style>
+</resources>

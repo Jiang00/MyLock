@@ -6,6 +6,7 @@ import android.app.AppOpsManager;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.app.usage.UsageEvents;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
@@ -26,8 +27,10 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.service.notification.NotificationListenerService;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -144,6 +147,64 @@ public class SecurityService extends Service {
 
         return packageName;
     }
+
+
+    /**
+     * 获取栈顶应用包名
+     */
+    public String getLauncherTopApp(Context context, ActivityManager activityManager) {
+        if (!SecurityMyPref.getVisitor()) {
+            return "";
+        }
+        String packageName = null;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            List<ActivityManager.RunningTaskInfo> appTasks = activityManager.getRunningTasks(1);
+            if (null != appTasks && !appTasks.isEmpty()) {
+                packageName = appTasks.get(0).topActivity.getPackageName();
+//                return appTasks.get(0).topActivity.getPackageName();
+            }
+        } else {
+            //5.0以后需要用这方法
+/*            UsageStatsManager sUsageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+            long endTime = System.currentTimeMillis();
+            long beginTime = endTime - 10000;
+            UsageEvents.Event event = new UsageEvents.Event();
+            UsageEvents usageEvents = sUsageStatsManager.queryEvents(beginTime, endTime);
+            while (usageEvents.hasNextEvent()) {
+                usageEvents.getNextEvent(event);
+                if (event.getEventType() == UsageEvents.Event.MOVE_TO_FOREGROUND) {
+                    packageName = event.getPackageName();
+                }
+            }*/
+
+
+            UsageStatsManager usageStatsManager = (UsageStatsManager) context.getSystemService(USAGE_STATS_SERVICE);
+            long ts = System.currentTimeMillis();
+            List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST,ts-2000, ts);
+            if (queryUsageStats == null || queryUsageStats.isEmpty()) {
+                packageName = null;
+            }
+            UsageStats recentStats = null;
+            if (queryUsageStats != null) {
+                for (UsageStats usageStats : queryUsageStats) {
+                    if(recentStats == null || recentStats.getLastTimeUsed() < usageStats.getLastTimeUsed()){
+                        recentStats = usageStats;
+                    }
+                }
+            }
+            if (recentStats != null) {
+                packageName = recentStats.getPackageName();
+            }
+
+        }
+        if (packageName != null && packageName.equals(getPackageName())) {
+            Log.d("TAG", "packageName == getPackageName");
+            packageName = null;
+        }
+        return packageName;
+    }
+
+
 
     private ActivityManager mActivityManager;
 
@@ -373,8 +434,10 @@ public class SecurityService extends Service {
                 }
 
 
-                final String packageName = getTopPackageName();
+//                final String packageName = getTopPackageName();
+                final String packageName = getLauncherTopApp(SecurityService.this, mActivityManager);
 
+                Log.d("TAG", "packageName = " + packageName);
 
                 if (packageName == null) {
                     try {
@@ -1056,7 +1119,8 @@ public class SecurityService extends Service {
     HashMap<String, Boolean> excludesClasses = new HashMap<>();
 
     public void onWakeUp() {
-        String pkgName = getTopPackageName();
+//        String pkgName = getTopPackageName();
+        String pkgName = getLauncherTopApp(this, mActivityManager);
         if (getPackageName().equals(pkgName)) {
             String className = mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
             if (!excludesClasses.containsKey(className)) {

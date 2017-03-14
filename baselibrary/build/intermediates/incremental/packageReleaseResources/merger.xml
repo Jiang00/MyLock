@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\src\main\res"/><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\build\generated\res\rs\release"/><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\build\generated\res\resValues\release"/></dataSet><dataSet config="release$Generated" generated="true"><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\src\release\res"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\src\main\res"><file path="E:\Gitlab\Applock-aurora-v1\baselibrary\src\main\res\values\attr_base_libirary.xml" qualifiers=""><declare-styleable name="TextView">
+        <attr format="color|reference" name="nightTextColor"/>
+        <attr format="color|reference" name="nightTextColorHighlight"/>
+        <attr format="reference" name="nightTextAppearance"/>
+        <attr format="reference|color" name="nightTextColorLink"/>
+        <attr format="color|reference" name="nightTextColorHint"/>
+    </declare-styleable><declare-styleable name="View">
+        <attr format="color|reference" name="nightBackground"/>
+        <attr format="dimension" name="paddingStart"/>
+        <attr format="dimension" name="paddingEnd"/>
+        <attr name="android:focusable"/>
+        <attr format="reference" name="theme"/>
+        <attr name="android:theme"/>
+    </declare-styleable><declare-styleable name="LinearLayout">
+        <attr format="reference" name="nightDivider"/>
+    </declare-styleable><declare-styleable name="ListView">
+        <attr format="reference" name="nightLVDivider"/>
+    </declare-styleable></file></source><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\build\generated\res\rs\release"/><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\build\generated\res\resValues\release"/></dataSet><dataSet config="release" generated-set="release$Generated"><source path="E:\Gitlab\Applock-aurora-v1\baselibrary\src\release\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="ListView"><attr format="reference" name="nightLVDivider"/></declare-styleable><declare-styleable name="TextView"><attr format="color|reference" name="nightTextColor"/><attr format="color|reference" name="nightTextColorHighlight"/><attr format="reference" name="nightTextAppearance"/><attr format="reference|color" name="nightTextColorLink"/><attr format="color|reference" name="nightTextColorHint"/></declare-styleable><declare-styleable name="View"><attr format="color|reference" name="nightBackground"/><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/></declare-styleable><declare-styleable name="LinearLayout"><attr format="reference" name="nightDivider"/></declare-styleable></configuration></mergedItems></merger>

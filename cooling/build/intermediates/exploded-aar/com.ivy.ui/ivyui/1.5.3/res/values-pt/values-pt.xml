@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ivy_module_ivyui_five_star_rating_explain">Se você gostou deste app \nPor favor nos dê 5 estrelas</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">Reclamar</string>
+    <string name="ivy_module_ivyui_new_version_have">É necessária uma nova versão \ nPor favor, atualize</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">Atualizar</string>
+    <string name="ivy_module_ivyui_promotion_app_install">INSTALAR</string>
+    <string name="ivy_permission">Proteção Avançada</string>
+    <string name="ivy_permission_access_fine_location_des">Detectar todos os aplicativos usando a função GPS em seu telefone.</string>
+    <string name="ivy_permission_access_fine_location_title">Monitor GPS</string>
+    <string name="ivy_permission_access_service_des">Reduza o consumo de energia de 50% e prolongue a vida da bateria.</string>
+    <string name="ivy_permission_access_service_title">Economia de energia</string>
+    <string name="ivy_permission_application">Gerenciamento de permissão de aplicativos</string>
+    <string name="ivy_permission_bind_device_admin_des">Intruders não podem desinstalar %s, mais seguro!</string>
+    <string name="ivy_permission_bind_device_admin_title">Anti-intrusão</string>
+    <string name="ivy_permission_camera_des">Tire fotos de intrusos tentando espreitar sua privacidade.</string>
+    <string name="ivy_permission_camera_title">Uso da câmera</string>
+    <string name="ivy_permission_desc">Para obter proteção perfeita, recomendamos que você ative todas as permissões.</string>
+    <string name="ivy_permission_ok">Está bem</string>
+    <string name="ivy_permission_read_contacts_des">Gravar chamada de voz da pessoa de contato selecionada.</string>
+    <string name="ivy_permission_read_contacts_title">Ler contatos</string>
+    <string name="ivy_permission_record_audio_des">Mantenha o gravador de chamadas funcionando normalmente em tempo real.</string>
+    <string name="ivy_permission_record_audio_title">Gravar audio</string>
+    <string name="ivy_permission_skip">Pular</string>
+    <string name="ivy_permission_switch_dialog_title">Encontre %s e ative-o</string>
+    <string name="ivy_permission_system_alert_window_des">Para manter AppLock funcionando normalmente e proteção perfeita.</string>
+    <string name="ivy_permission_system_alert_window_title">Aparecer</string>
+    <string name="ivy_permission_usage_access_settings_des">Mantenha %s em execução para proteger sua privacidade em tempo real.</string>
+    <string name="ivy_permission_usage_access_settings_title">Operação estável</string>
+</resources>

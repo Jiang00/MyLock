@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ivy_module_ivyui_five_star_rating_explain">หากคุณต้องการ app นี้ \ n โปรดให้เราประเมินระดับ 5 ดาว</string>
+    <string name="ivy_module_ivyui_five_star_rating_unlike">บ่น</string>
+    <string name="ivy_module_ivyui_new_version_have">รุ่นใหม่จะต้อง \ n โปรดอัปเดต</string>
+    <string name="ivy_module_ivyui_new_version_update_btn">ปรับปรุง</string>
+    <string name="ivy_module_ivyui_promotion_app_install">ติดตั้ง</string>
+    <string name="ivy_permission">การป้องกันขั้นสูง</string>
+    <string name="ivy_permission_access_fine_location_des">ตรวจสอบปพลิเคชันทั้งหมดที่ใช้ฟังก์ชั่นจีพีเอสในโทรศัพท์ของคุณ</string>
+    <string name="ivy_permission_access_fine_location_title">จีพีเอสตรวจสอบ</string>
+    <string name="ivy_permission_access_service_des">ลดการใช้พลังงาน 50% และยืดอายุแบตเตอรี่</string>
+    <string name="ivy_permission_access_service_title">ประหยัดพลังงาน</string>
+    <string name="ivy_permission_application">แอพลิเคชันได้รับอนุญาตการจัดการ</string>
+    <string name="ivy_permission_bind_device_admin_des">ผู้บุกรุกไม่สามารถถอนการติดตั้ง% s ปลอดภัยมากขึ้น!</string>
+    <string name="ivy_permission_bind_device_admin_title">ป้องกันผู้บุกรุก</string>
+    <string name="ivy_permission_camera_des">ถ่ายภาพของผู้บุกรุกพยายามที่จะมองลอดที่เป็นส่วนตัวของคุณ</string>
+    <string name="ivy_permission_camera_title">การใช้งานกล้อง</string>
+    <string name="ivy_permission_desc">เพื่อให้ได้รับการป้องกันที่สมบูรณ์แบบเราขอแนะนำให้คุณเปิดใช้สิทธิ์ทั้งหมด</string>
+    <string name="ivy_permission_ok">ตกลง</string>
+    <string name="ivy_permission_read_contacts_des">การโทรด้วยเสียงบันทึกเสียงจากผู้ติดต่อที่คุณเลือก</string>
+    <string name="ivy_permission_read_contacts_title">อ่านรายชื่อ</string>
+    <string name="ivy_permission_record_audio_des">เก็บบันทึกการโทรทำงานตามปกติในเวลาจริง</string>
+    <string name="ivy_permission_record_audio_title">บันทึกเสียง</string>
+    <string name="ivy_permission_skip">กระโดด</string>
+    <string name="ivy_permission_switch_dialog_title">ค้นหา% s และเปิดใช้งาน</string>
+    <string name="ivy_permission_system_alert_window_des">เพื่อให้ applock ทำงานตามปกติและการป้องกันที่สมบูรณ์แบบ</string>
+    <string name="ivy_permission_system_alert_window_title">ป๊อปอัพ</string>
+    <string name="ivy_permission_usage_access_settings_des">ให้ทำงาน %s เพื่อปกป้องความเป็นส่วนตัวของคุณในเวลาจริง</string>
+    <string name="ivy_permission_usage_access_settings_title">ดำเนินงานที่มั่นคง</string>
+</resources>
