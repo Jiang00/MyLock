@@ -13,28 +13,8 @@ public class UnlockApp extends SecurityPatternActivity {
     @Override
     public void setupView() {
         context = this;
-//        if (PretentPresenter.isFakeCover()) {
-//            try {
-//                CharSequence label = getPackageManager().getApplicationInfo(pkg, 0).loadLabel(getPackageManager());
-//                PretentPresenter.show(this, SecurityMyPref.getFakeCover(PretentPresenter.PRETENT_NONE), label, new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        UnlockApp.super.setupView();
-//                        PretentPresenter.hide();
-//                    }
-//                }, new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        onBackPressed();
-//                        PretentPresenter.hide();
-//                    }
-//                });
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        } else {
+
             super.setupView();
-       // }
         Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
     }
 }

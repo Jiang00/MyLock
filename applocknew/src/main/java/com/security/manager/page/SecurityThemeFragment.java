@@ -69,10 +69,12 @@ public class SecurityThemeFragment extends Fragment {
 
     public static void afterViewCreated(View view, OverflowCtrl ctrl) {
         try {
+
+            createAdView((ViewGroup) view);
+
             if (!SecurityMyPref.isUseNormalPasswd()) {
                 crossPromote((ViewGroup) view);
             }
-            createAdView((ViewGroup) view);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -284,28 +286,7 @@ public class SecurityThemeFragment extends Fragment {
 
                     } else if (y2 - y1 > 20) {
                         //向下滑动
-//                        Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
-//                        crossView.setVisibility(View.GONE);
-//                        crossView.startAnimation(animation);
-//                        animation.setAnimationListener(new Animation.AnimationListener() {
-//                            @Override
-//                            public void onAnimationEnd(Animation animation) {
-//                                trigon.setVisibility(View.VISIBLE);
-//                                crossBattery.setEnabled(false);
-//                                crossClear.setEnabled(false);
-//                                crossOther.setEnabled(false);
-//                            }
-//
-//                            @Override
-//                            public void onAnimationRepeat(Animation animation) {
-//
-//                            }
-//
-//                            @Override
-//                            public void onAnimationStart(Animation animation) {
-//
-//                            }
-//                        });
+
                     }
                 }
                 return true;
@@ -415,11 +396,12 @@ public class SecurityThemeFragment extends Fragment {
             group.removeAllViews();
         }
         super.onDestroyView();
-//        try {
-//            AndroidSdk.destroyNativeAdView(TAG_UNLOCK, adView);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            AndroidSdk.destroyNativeAdView(TAG_UNLOCK, adView);
+            adView=null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected static void createAdView(ViewGroup view) {
@@ -431,11 +413,6 @@ public class SecurityThemeFragment extends Fragment {
             } else {
                 layoutParams.topMargin = Utils.getDimens(view.getContext(), 48);
             }
-//            final TextView realAppName = (TextView) view.findViewWithTag("realAppName");
-////            final TextView appName = (TextView) view.findViewById(R.id.app_name);
-//            final ImageView icon = (ImageView) view.findViewById(R.id.title);
-//            realAppName.setAlpha(1.0f);
-//            appName.setAlpha(0.0f);
 
             adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
@@ -445,13 +422,11 @@ public class SecurityThemeFragment extends Fragment {
             }, new ClientNativeAd.NativeAdScrollListener() {
                 @Override
                 public void onNativeAdScrolled(float v) {
-//                    icon.setAlpha(1 - v);
-//                    appName.setAlpha(1 - v);
-//                    realAppName.setAlpha(v);
+
                 }
             });
             if (adView != null) {
-//                App.getWatcher().watch(adView);
+                App.getWatcher().watch(adView);
                 view.addView(adView, layoutParams);
             }
         }

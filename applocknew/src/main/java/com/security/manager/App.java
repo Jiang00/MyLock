@@ -15,6 +15,9 @@ import com.security.manager.asyncmanager.SecurityImgManager;
 import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
+
 import java.util.Locale;
 
 import me.xiaopan.sketch.Sketch;
@@ -34,7 +37,7 @@ public class App extends BaseApp {
             return;
         }
 
-//        watcher = LeakCanary.install(this);
+        watcher = LeakCanary.install(this);
         SDataType.init(this);
 
         if (SecurityMyPref.isEnglish()){
@@ -62,11 +65,11 @@ public class App extends BaseApp {
 
     }
 
-//    static RefWatcher watcher;
+    static RefWatcher watcher;
 
-/*    public static RefWatcher getWatcher() {
+    public static RefWatcher getWatcher() {
         return watcher;
-    }*/
+    }
 
     public static SharedPreferences getSharedPreferences() {
         return App.getContext().getSharedPreferences("cf", MODE_MULTI_PROCESS);

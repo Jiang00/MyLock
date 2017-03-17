@@ -27,7 +27,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.service.notification.NotificationListenerService;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -70,11 +69,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * Created by superjoy on 2014/8/25.
  */
 public class SecurityService extends Service {
     boolean home = false;
+    boolean alterShow = false;
     public static final String EXTRA_WORKING = "_work_";
     public static final String EXTRA_LOCK_PKG = "_pkg_";
     public static final int WORKING_LOCK_NEW = 1;
@@ -108,54 +109,52 @@ public class SecurityService extends Service {
         }
     };
 
-    public String getTopPackageName() {
-        String packageName = null;
+//    public String getTopPackageName() {
+//        String packageName = null;
+//
+//        if (!SecurityMyPref.getVisitor()) {
+//            return "";
+//        }
+//
+//        if (Build.VERSION.SDK_INT > 19) {
+//            try {
+//                packageName = getActivePackages();
+//
+//            } catch (Exception | Error e) {
+//                e.printStackTrace();
+//            }
+//            try {
+//                if (packageName == null) {
+//                    packageName = getTopPackage();
+//
+//                }
+//            } catch (Exception | Error e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            List<ActivityManager.RunningTaskInfo> lst = mActivityManager.getRunningTasks(1);
+//            if (lst != null && lst.size() > 0) {
+//                ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
+//                if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
+//                    packageName = runningTaskInfo.topActivity.getPackageName();
+//                }
+//            }
+//        }
+//        if (packageName != null) {
+//            if (packageName.equals(getPackageName())) {
+//                packageName = null;
+//            }
+//        }
+//
+//        return packageName;
+//    }
 
-        if (!SecurityMyPref.getVisitor()) {
-            return "";
-        }
 
-        if (Build.VERSION.SDK_INT > 19) {
-            try {
-                packageName = getActivePackages();
-
-            } catch (Exception | Error e) {
-                e.printStackTrace();
-            }
-            try {
-                if (packageName == null) {
-                    packageName = getTopPackage();
-
-                }
-            } catch (Exception | Error e) {
-                e.printStackTrace();
-            }
-        } else {
-            List<ActivityManager.RunningTaskInfo> lst = mActivityManager.getRunningTasks(1);
-            if (lst != null && lst.size() > 0) {
-                ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
-                if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
-                    packageName = runningTaskInfo.topActivity.getPackageName();
-                }
-            }
-        }
-        if (packageName != null) {
-            if (packageName.equals(getPackageName())) {
-                packageName = null;
-            }
-        }
-
-        return packageName;
-    }
-
-
-    /**
-     * 获取栈顶应用包名
-     */
     public String getLauncherTopApp(Context context, ActivityManager activityManager) {
         if (!SecurityMyPref.getVisitor()) {
             return null;
         }
+
         String packageName = null;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             List<ActivityManager.RunningTaskInfo> appTasks = activityManager.getRunningTasks(1);
@@ -178,47 +177,32 @@ public class SecurityService extends Service {
                 }
             }
 
-            return packageName;
+            if (alterShow) {
+                return "show";
+            }
 
-            /*
-            UsageStatsManager usageStatsManager = (UsageStatsManager) context.getSystemService(USAGE_STATS_SERVICE);
-            long ts = System.currentTimeMillis();
-            List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST,ts-2000, ts);
-            if (queryUsageStats == null || queryUsageStats.isEmpty()) {
-                packageName = null;
-            }
-            UsageStats recentStats = null;
-            if (queryUsageStats != null) {
-                for (UsageStats usageStats : queryUsageStats) {
-                    if(recentStats == null || recentStats.getLastTimeUsed() < usageStats.getLastTimeUsed()){
-                        recentStats = usageStats;
-                    }
-                }
-            }
-            if (recentStats != null) {
-                packageName = recentStats.getPackageName();
-            }*/
+            return packageName;
         }
     }
-
 
 
     private ActivityManager mActivityManager;
 
-    String getActivePackages() throws NoSuchFieldException, IllegalAccessException {
-        if (processState == null) {
-            processState = ActivityManager.RunningAppProcessInfo.class.getDeclaredField("processState");
-            processState.setAccessible(true);
-        }
-        final List<ActivityManager.RunningAppProcessInfo> processInfos = mActivityManager.getRunningAppProcesses();
-        if (processInfos != null) {
-            for (ActivityManager.RunningAppProcessInfo processInfo : processInfos) {
-                int anInt = processState.getInt(processInfo);
-                if (anInt == 2) return processInfo.pkgList[0];
-            }
-        }
-        return null;
-    }
+//    String getActivePackages() throws NoSuchFieldException, IllegalAccessException {
+//        if (processState == null) {
+//            processState = ActivityManager.RunningAppProcessInfo.class.getDeclaredField("processState");
+//            processState.setAccessible(true);
+//        }
+//        final List<ActivityManager.RunningAppProcessInfo> processInfos = mActivityManager.getRunningAppProcesses();
+//        if (processInfos != null) {
+//            for (ActivityManager.RunningAppProcessInfo processInfo : processInfos) {
+////                if (processInfo.importanceReasonCode == 2) continue;
+//                int anInt = processState.getInt(processInfo);
+//                if (anInt == 2) return processInfo.pkgList[0];
+//            }
+//        }
+//        return null;
+//    }
 
 
     /**
@@ -240,95 +224,92 @@ public class SecurityService extends Service {
         excludes.put("com.android.soundrecorder", true);
     }
 
-    public static String getForegroundApp() {
-        File[] files = new File("/proc").listFiles();
-        int lowestOomScore = Integer.MAX_VALUE;
-        String foregroundProcess = null;
+//    public static String getForegroundApp() {
+//        File[] files = new File("/proc").listFiles();
+//        int lowestOomScore = Integer.MAX_VALUE;
+//        String foregroundProcess = null;
+//
+//        for (File file : files) {
+//            int pid;
+//            String name = file.getName();
+//            try {
+//                pid = Integer.parseInt(name);
+//            } catch (NumberFormatException e) {
+//                continue;
+//            }
+//
+//            try {
+//                String cgroup = read(String.format("/proc/%d/cgroup", pid));
+//                if (cgroup.contains("bg_non_interactive")) {
+//                    continue;
+//                }
+//
+//                if (!cgroup.endsWith(name)) {
+//                    continue;
+//                }
+//
+//                int uid = Integer.parseInt(cgroup.substring(cgroup.indexOf("uid_") + 4, cgroup.lastIndexOf("/")));
+//                if (uid >= 1000 && uid <= 1038) {
+//                    // system process
+//                    continue;
+//                }
+//
+//                int appId = uid - AID_APP;
+//                // loop until we get the correct user id.
+//                // 100000 is the offset for each user.
+//                while (appId > AID_USER) {
+//                    appId -= AID_USER;
+//                }
+//
+//                if (appId < 0) {
+//                    continue;
+//                }
+//
+//                String cmdline = read(String.format("/proc/%d/cmdline", pid));
+//                if (excludes.containsKey(cmdline)) {
+//                    continue;
+//                }
+//
+//                // u{user_id}_a{app_id} is used on API 17+ for multiple user account support.
+//                // String uidName = String.format("u%d_a%d", userId, appId);
+//
+//                File oomScoreAdj = new File(String.format("/proc/%d/oom_score_adj", pid));
+//                if (oomScoreAdj.canRead()) {
+//                    int oomAdj = Integer.parseInt(read(oomScoreAdj.getAbsolutePath()));
+//                    if (oomAdj != 0) {
+//                        continue;
+//                    }
+//                }
+//
+//                int oomscore = Integer.parseInt(read(String.format("/proc/%d/oom_score", pid)));
+//                if (oomscore < lowestOomScore) {
+//                    lowestOomScore = oomscore;
+//                    foregroundProcess = cmdline;
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//
+//        return foregroundProcess;
+//    }
 
-        for (File file : files) {
-            int pid;
-            String name = file.getName();
-            try {
-                pid = Integer.parseInt(name);
-            } catch (NumberFormatException e) {
-                continue;
-            }
-
-            try {
-                String cgroup = read(String.format("/proc/%d/cgroup", pid));
-                if (cgroup.contains("bg_non_interactive")) {
-                    continue;
-                }
-
-                if (!cgroup.endsWith(name)) {
-                    continue;
-                }
-
-                int uid = Integer.parseInt(cgroup.substring(cgroup.indexOf("uid_") + 4, cgroup.lastIndexOf("/")));
-                if (uid >= 1000 && uid <= 1038) {
-                    // system process
-                    continue;
-                }
-
-                int appId = uid - AID_APP;
-                // loop until we get the correct user id.
-                // 100000 is the offset for each user.
-                while (appId > AID_USER) {
-                    appId -= AID_USER;
-                }
-
-                if (appId < 0) {
-                    continue;
-                }
-
-                String cmdline = read(String.format("/proc/%d/cmdline", pid));
-                if (excludes.containsKey(cmdline)) {
-                    continue;
-                }
-
-                // u{user_id}_a{app_id} is used on API 17+ for multiple user account support.
-                // String uidName = String.format("u%d_a%d", userId, appId);
-
-                File oomScoreAdj = new File(String.format("/proc/%d/oom_score_adj", pid));
-                if (oomScoreAdj.canRead()) {
-                    int oomAdj = Integer.parseInt(read(oomScoreAdj.getAbsolutePath()));
-                    if (oomAdj != 0) {
-                        continue;
-                    }
-                }
-
-                int oomscore = Integer.parseInt(read(String.format("/proc/%d/oom_score", pid)));
-                if (oomscore < lowestOomScore) {
-                    lowestOomScore = oomscore;
-                    foregroundProcess = cmdline;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        return foregroundProcess;
-    }
-
-    private static String read(String path) throws IOException {
-        BufferedReader reader = null;
-        try {
-            StringBuilder output = new StringBuilder();
-            reader = new BufferedReader(new FileReader(path));
-            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-                output.append(line);
-            }
-            return output.toString().trim();
-        } finally {
-            if (reader != null) {
-                reader.close();
-            }
-        }
-    }
-
-
-    Field processState = null;
+    //    private static String read(String path) throws IOException {
+//        BufferedReader reader = null;
+//        try {
+//            StringBuilder output = new StringBuilder();
+//            reader = new BufferedReader(new FileReader(path));
+//            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+//                output.append(line);
+//            }
+//            return output.toString().trim();
+//        } finally {
+//            if (reader != null) {
+//                reader.close();
+//            }
+//        }
+//    }
     boolean sleep = false;
 
     public void backHome() {
@@ -337,6 +318,7 @@ public class SecurityService extends Service {
     }
 
     private void backHome_() {
+        alterShow = false;
         Intent setIntent = new Intent(Intent.ACTION_MAIN);
         setIntent.addCategory(Intent.CATEGORY_HOME);
         setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_FROM_BACKGROUND | Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
@@ -419,22 +401,23 @@ public class SecurityService extends Service {
 
             running = true;
             while (running) {
-                /**
-                 * @design
-                 *  because this thread run 5 times for each second
-                 *
-                 *  therefore, 300 seconds will run 300 * 5 times
-                 */
                 if (++lastAsyncTime > 1500) {
                     lastAsyncTime = 0;
-//                    ServerData.fetchIfNecessary(getApplicationContext());
                 }
-
-
-//                final String packageName = getTopPackageName();
                 final String packageName = getLauncherTopApp(SecurityService.this, mActivityManager);
+                Log.e("appname", packageName + "------");
 
-                Log.e("haha", "run: " + packageName);
+
+                if (packageName != null && packageName.equals("show")) {
+                    try {
+                        alterShow=false;
+                        new Thread().sleep(600);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else{
+                    alterShow=false;
+                }
 
                 if (packageName == null) {
                     try {
@@ -447,12 +430,16 @@ public class SecurityService extends Service {
 
                 if (!lastPackageName.equals(packageName)) {
                     if (homes.containsKey(packageName)) {
-                        Log.e("haha", "home occurs: " + packageName + " last: " + lastPackageName);
                         home = true;
                         showWidgetIfNecessary(true);
                         if (unlocked) {
                             unlocked = false;
                         }
+
+
+//                        if(alterShow){
+//                            alterShow=false;
+//                        }
                         int slot = App.getSharedPreferences().getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
                         switch (slot) {
                             case SecurityMyPref.PREF_BRIEF_EVERY_TIME:
@@ -472,7 +459,6 @@ public class SecurityService extends Service {
                     }
                     lastPackageName = packageName;
                 }
-
                 if (sleep) {
                     try {
                         Thread.sleep(1000);
@@ -529,119 +515,66 @@ public class SecurityService extends Service {
             }
         }
 
-        public void attachToWindow(WindowManager wm, View v) {
-            SecurityThemeFragment.afterViewCreated(v, ctrl);
-            ((MyFrameLayout) v).setOnBackListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    backHome();
-                }
-            });
-            WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
-                    WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
-                    0,
-                    PixelFormat.TRANSLUCENT);
-            lp.gravity = Gravity.CENTER;
-            lp.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-            try {
-                if (alertContainer != null) {
-                    wm.removeViewImmediate(alertContainer);
-                    alertContainer.removeAllViews();
-                }
-                alertContainer = null;
-                alertView = null;
-            } catch (Exception ignore) {
-                ignore.printStackTrace();
-            }
-//            if (Build.VERSION.SDK_INT >= 21) {
-//                v.setPadding(0, Utils.getDimens(SecurityService.this, 16), 0, 0);
+//        public void attachToWindow(WindowManager wm, View v) {
+//            SecurityThemeFragment.afterViewCreated(v, ctrl);
+//            ((MyFrameLayout) v).setOnBackListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    backHome();
+//                }
+//            });
+//            WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
+//                    WindowManager.LayoutParams.MATCH_PARENT,
+//                    WindowManager.LayoutParams.MATCH_PARENT,
+//                    WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+//                    0,
+//                    PixelFormat.TRANSLUCENT);
+//            lp.gravity = Gravity.CENTER;
+//            lp.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+//            try {
+//                if (alertContainer != null) {
+//                    wm.removeViewImmediate(alertContainer);
+//                    alertContainer.removeAllViews();
+//                }
+//                alertContainer = null;
+//                alertView = null;
+//            } catch (Exception ignore) {
+//                ignore.printStackTrace();
 //            }
-            wm.addView(v, lp);
-            alertContainer = (FrameLayout) v;
-            v = ((FrameLayout) v).getChildAt(0);
-            alertView = v;
-        }
+////            if (Build.VERSION.SDK_INT >= 21) {
+////                v.setPadding(0, Utils.getDimens(SecurityService.this, 16), 0, 0);
+////            }
+//            wm.addView(v, lp);
+//            alertContainer = (FrameLayout) v;
+//            v = ((FrameLayout) v).getChildAt(0);
+//            alertView = v;
+//        }
 
         public int lastAsyncTime;
-        OverflowCtrl ctrl = new OverflowCtrl();
-        Runnable dismissRunner = new Runnable() {
-            @Override
-            public void run() {
-                delayTime = 500;
-                backHome_();
-            }
-        };
-        Runnable alertRunner = new Runnable() {
-            SecurityThemeFragment.ICheckResult callback = new SecurityThemeFragment.ICheckResult() {
-                @Override
-                public void onSuccess() {
-                    unlockLastApplication(lastApp, false);
-                    hideAlertIfPossible(false);
-                }
 
-                @Override
-                public void unLock() {
-                    unlockLastApplication("", false);
-                    hideAlertIfPossible(false);
-                }
-            };
-
-            @Override
-            public void run() {
-                alert = true;
-                final WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
-                LayoutInflater from = LayoutInflater.from(SecurityTheBridge.themeContext == null ? App.getContext() : SecurityTheBridge.themeContext);
-                if (SecurityMyPref.isUseNormalPasswd()) {
-                    attachToWindow(wm, PasswordFragmentSecurity.getView(from, null, ctrl, callback));
-                } else {
-                    attachToWindow(wm, PatternFragmentSecurity.getView(from, null, ctrl, callback));
-                }
-            }
-        };
-
-        CharSequence label;
-
+        //        Runnable dismissRunner = new Runnable() {
+//            @Override
+//            public void run() {
+//                delayTime = 500;
+//                backHome_();
+//            }
+//        };
         private void alertForUnlock(final String packageName) {
-            Log.e("haha", "last " + lastApp + " pkg " + packageName);
-            new Throwable().printStackTrace();
             lastApp = packageName;
-            boolean haspermission = true;
-            SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
+            alterShow = true;
             if (Utils.hasSystemAlertPermission(App.getContext())) {
                 alert = true;
-//                SecurityPatternActivity.createThemeContextIfNecessary(SecurityService.this);
-//                if (PretentPresenter.isFakeCover()) {
-//                    try {
-//                        label = getPackageManager().getApplicationInfo(packageName, 0).loadLabel(getPackageManager());
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            PretentPresenter.show(SecurityService.this, SecurityMyPref.getFakeCover(PretentPresenter.PRETENT_NONE), label, alertRunner, dismissRunner);
-//                        }
-//                    });
-//                } else {
-//                    handler.post(alertRunner);
-//                }
-
+                SecurityBridgeImpl.reset(SecurityService.this, false, true, packageName);
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
                 startActivity(intent);
-                Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
             } else {
-//                handler.post(alertRunner);
 
                 Intent intent = new Intent(mContext.getApplicationContext(), UnlockApp.class).
                         setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION).
                         putExtra("action", UnlockApp.ACTION_UNLOCK_OTHER).putExtra("pkg", packageName);
                 startActivity(intent);
-                Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_UNLOCK, Tracker.ACT_UNLOCK, 1L);
 
             }
         }
@@ -667,7 +600,6 @@ public class SecurityService extends Service {
 
         @Override
         public void toggleProtectStatus() throws RemoteException {
-            toggleProtect();
         }
 
         @Override
@@ -700,36 +632,9 @@ public class SecurityService extends Service {
 
         @Override
         public void notifyShowWidget() throws RemoteException {
-//            initWidget();
         }
     };
 
-    public void toggleProtect() {
-        sleep = !sleep;
-        SecurityMyPref.stopProtect(sleep);
-        if (sleep) {
-            onStopProtect();
-        }
-        if (App.getSharedPreferences().getBoolean("sn", false)) {
-            showNotification(true);
-        } else {
-            if (sleep) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), R.string.security_applock_stop, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            } else {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), R.string.security_applock_open, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }
-    }
 
     public void showWidgetIfNecessary(boolean show) {
         if (App.getSharedPreferences().getBoolean(SecurityMyPref.PREF_SHOW_WIDGET, false)) {
@@ -746,7 +651,6 @@ public class SecurityService extends Service {
     }
 
     SecurityWidget securityWidget;
-    SecurityWidget toggleContainer;
 
     public void notifyLockedAppsUpdate() {
         try {
@@ -764,6 +668,7 @@ public class SecurityService extends Service {
 
     public void unlockSuccess(boolean unlockMe) {
         unlocked = true;
+        alterShow = false;
         if (unlockMe) {
             try {
                 long profileId = SafeDB.defaultDB().getLong(SecurityMyPref.PREF_ACTIVE_PROFILE_ID, 1L);
@@ -837,49 +742,49 @@ public class SecurityService extends Service {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    String getTopPackage() {
-        long ts = System.currentTimeMillis();
-        if (mUsageStatsManager == null) {
-            mUsageStatsManager = (UsageStatsManager) getSystemService("usagestats");
-        }
-        List<UsageStats> usageStats = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, ts - 10000, ts);
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//    String getTopPackage() {
+//        long ts = System.currentTimeMillis();
+//        if (mUsageStatsManager == null) {
+//            mUsageStatsManager = (UsageStatsManager) getSystemService("usagestats");
+//        }
+//        List<UsageStats> usageStats = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, ts - 10000, ts);
+//
+//        if (usageStats == null || usageStats.size() == 0) {
+//
+//            String pkgname = getForegroundApp();
+//
+//
+//            return pkgname;
+//        } else {
+//            Collections.sort(usageStats, mRecentComp);
+//            return usageStats.get(0).getPackageName();
+//        }
+//    }
 
-        if (usageStats == null || usageStats.size() == 0) {
-
-            String pkgname = getForegroundApp();
-
-
-            return pkgname;
-        } else {
-            Collections.sort(usageStats, mRecentComp);
-            return usageStats.get(0).getPackageName();
-        }
-    }
-
-    public boolean isAppOnForeground(String pkgname) {
-        List<ActivityManager.RunningTaskInfo> tasksInfo = mActivityManager.getRunningTasks(1);
-        if (tasksInfo.size() > 0) {
-            // 应用程序位于堆栈的顶层
-            if (pkgname.equals(tasksInfo.get(0).topActivity
-                    .getPackageName())) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean isAppOnForeground(String pkgname) {
+//        List<ActivityManager.RunningTaskInfo> tasksInfo = mActivityManager.getRunningTasks(1);
+//        if (tasksInfo.size() > 0) {
+//            // 应用程序位于堆栈的顶层
+//            if (pkgname.equals(tasksInfo.get(0).topActivity
+//                    .getPackageName())) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
 
     static UsageStatsManager mUsageStatsManager;
 
-    Comparator<UsageStats> mRecentComp = new Comparator<UsageStats>() {
-
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        @Override
-        public int compare(UsageStats lhs, UsageStats rhs) {
-            return (lhs.getLastTimeUsed() > rhs.getLastTimeUsed()) ? -1 : ((lhs.getLastTimeUsed() == rhs.getLastTimeUsed()) ? 0 : 1);
-        }
-    };
+//    Comparator<UsageStats> mRecentComp = new Comparator<UsageStats>() {
+//
+//        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//        @Override
+//        public int compare(UsageStats lhs, UsageStats rhs) {
+//            return (lhs.getLastTimeUsed() > rhs.getLastTimeUsed()) ? -1 : ((lhs.getLastTimeUsed() == rhs.getLastTimeUsed()) ? 0 : 1);
+//        }
+//    };
 
     LockTask task;
 
@@ -1034,7 +939,6 @@ public class SecurityService extends Service {
                         break;
 
                     case WORK_TURN_ON_PROTECT:
-                        toggleProtect();
                         return START_STICKY;
                 }
             }
@@ -1053,17 +957,6 @@ public class SecurityService extends Service {
             String msg = getString(R.string.security_ask_lock, label) + protect;
             Drawable icon = pi.applicationInfo.loadIcon(getPackageManager());
 
-            /*View view = LayoutInflater.from(this).inflate(R.layout.ask_lock, null, false);
-            view.findViewById(R.id.icon).setBackgroundDrawable(icon);
-            ((TextView)view.findViewById(R.id.name)).setText(label);
-            ((TextView)view.findViewById(R.id.msg)).setText(Html.fromHtml(msg));
-            dontaskagain = false;
-            ((CheckBox)view.findViewById(R.id.dont_ask_forever)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    dontaskagain = isChecked;
-                }
-            });*/
             View view = new TextView(null);
 
             AlertDialog dialog = new AlertDialog.Builder(this, R.style.MessageBox)
@@ -1120,7 +1013,8 @@ public class SecurityService extends Service {
 
     public void onWakeUp() {
 //        String pkgName = getTopPackageName();
-        String pkgName = getLauncherTopApp(this, mActivityManager);
+        String pkgName = getLauncherTopApp(SecurityService.this, mActivityManager);
+
         if (getPackageName().equals(pkgName)) {
             String className = mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
             if (!excludesClasses.containsKey(className)) {

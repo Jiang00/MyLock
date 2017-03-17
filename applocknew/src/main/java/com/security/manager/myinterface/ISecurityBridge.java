@@ -18,25 +18,8 @@ public interface ISecurityBridge {
 
     Resources res();
 
-    int resId(String name, String type);
 
     boolean random();
-
-    SecurityFlowMenu[] menus();
-
-    SecurityDaily daily();
-
-    void visitDaily(boolean persistent);
-
-    void toggle(boolean normal);
-
-    boolean hasPattern();
-
-    boolean hasPasswd();
-
-    void back();
-
-    void switchTheme();
 
     String currentPkg();
 }
