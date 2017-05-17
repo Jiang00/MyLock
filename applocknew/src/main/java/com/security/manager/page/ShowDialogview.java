@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
+import android.util.ExceptionUtils;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
@@ -72,7 +73,7 @@ public class ShowDialogview {
                     final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                     c.startActivity(intent);
                     new Thread().sleep(1500);
-                } catch (InterruptedException e) {
+                } catch (Exception|Error e) {
                     e.printStackTrace();
                 }
 

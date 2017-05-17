@@ -28,7 +28,9 @@ import com.security.manager.lib.ImageTools;
 import com.security.mymodule.FileType;
 import com.security.mymodule.IntruderEntry;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -92,7 +94,7 @@ public class IntrudedeImageActivity extends BaseActivity {
     public static void launch(Context context, IntruderEntry entity) {
         Intent i = new Intent(context, IntrudedeImageActivity.class);
         i.putExtra(EXTRA_KEY_URL, entity.url);
-        i.putExtra(EXTRA_KEY_DATE, entity.date);
+        i.putExtra(EXTRA_KEY_DATE, entity.simdate);
         i.putExtra(EXTRA_KEY_PKG, entity.pkg);
         context.startActivity(i);
     }
@@ -173,7 +175,9 @@ public class IntrudedeImageActivity extends BaseActivity {
         dateIcon.setBackgroundDrawable(icon == null ? getResources().getDrawable(R.drawable.ic_launcher) : icon);
         blockImage.setImage(url, 0L, FileType.TYPE_PIC, bacbitmap, IntrudedeImageActivity.this, date);
 //        messageView.setText(getResources().getString(R.string.block_intruder_for_app, label));
-        dateView.setText(date);
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault());
+        dateView.setText(df.format(new Date(date)));
 
     }
 

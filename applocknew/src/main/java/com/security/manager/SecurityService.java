@@ -405,7 +405,7 @@ public class SecurityService extends Service {
                     lastAsyncTime = 0;
                 }
                 final String packageName = getLauncherTopApp(SecurityService.this, mActivityManager);
-                Log.e("appname", packageName + "------");
+//                Log.e("appname", packageName + "------");
 
 
                 if (packageName != null && packageName.equals("show")) {

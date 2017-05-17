@@ -1,11 +1,14 @@
 package com.security.manager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
 import com.android.client.AndroidSdk;
 import com.android.launcher3.theme.ThemeManager;
+import com.ivy.kpa.DaemonClient;
+import com.ivy.kpa.DaemonConfigurations;
 import com.security.gallery.view.TileBitmapDrawable;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
@@ -61,8 +64,29 @@ public class App extends BaseApp {
         }
         MApps.init();
         SecuritProfiles.init();
+    }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        DaemonClient mDaemonClient = new DaemonClient(base, new DaemonConfigurations.DaemonListener() {
+            @Override
+            public void onPersistentStart(Context context) {
 
+            }
+
+            @Override
+            public void onDaemonAssistantStart(Context context) {
+
+            }
+
+            @Override
+            public void onWatchDaemonDead() {
+
+            }
+        });
+
+        mDaemonClient.onAttachBaseContext(base);
     }
 
     static RefWatcher watcher;
