@@ -10,7 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.client.AndroidSdk;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.ivy.dialog.CrossPromotionDialog;
 import com.ivy.dialog.DialogManager;
 
@@ -22,7 +21,6 @@ public class CrossTranslate extends AppCompatActivity {
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-    private GoogleApiClient client;
     private String value = "ad1";
     private boolean newDay;
     private int showAdTime;

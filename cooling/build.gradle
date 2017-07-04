@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         minSdkVersion 11
-        targetSdkVersion 23
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -16,17 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dependencies {
-        compile 'com.android.support:appcompat-v7:22.2.1'
-        compile 'com.core:empty:1.1.6'
-        compile 'com.ivy.ui:ivyui:1.5.3'
-
-
-    }
-
 }
 
-
 dependencies {
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.core:empty:1.1.6'
+    compile 'com.ivy.ui:ivyui:1.5.3'
 }

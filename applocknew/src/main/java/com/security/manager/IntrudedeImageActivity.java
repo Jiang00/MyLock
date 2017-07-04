@@ -177,7 +177,7 @@ public class IntrudedeImageActivity extends BaseActivity {
 //        messageView.setText(getResources().getString(R.string.block_intruder_for_app, label));
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault());
-        dateView.setText(df.format(new Date(date)));
+        dateView.setText(df.format(new Date(Long.parseLong(date))));
 
     }
 

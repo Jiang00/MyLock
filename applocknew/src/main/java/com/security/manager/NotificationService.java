@@ -20,7 +20,7 @@ public class NotificationService extends Service {
                 Notification n = new Notification(this);
                 startForeground(101, n.getNotification());
                 n.updateNotification(101);
-            } catch (Exception e) {
+            } catch (Exception|Error e) {
                 e.printStackTrace();
             }
 

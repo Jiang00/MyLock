@@ -64,7 +64,7 @@ public class ApplockC extends Service {
             Notification localNotification = applockA(service.getApplicationContext());
             if (localNotification != null)
                 service.startForeground(1220, localNotification);
-        } catch (Exception e) {
+        } catch (Exception|Error e) {
         }
     }
 

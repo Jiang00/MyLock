@@ -110,7 +110,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                         public void onClick(View v) {
                             Intent intent = new Intent(IntruderActivitySecurity.this, IntrudedeImageActivity.class);
                             intent.putExtra("url", entry.url);
-                            intent.putExtra("date", entry.date);
+                            intent.putExtra("date", entry.simdate);
                             intent.putExtra("pkg", entry.pkg);
                             intent.putExtra("position", position);
                             startActivityForResult(intent, 1);

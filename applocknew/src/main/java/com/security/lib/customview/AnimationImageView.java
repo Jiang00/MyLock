@@ -69,8 +69,7 @@ public class AnimationImageView extends ImageView {
             try {
                 Bitmap bitmap = BitmapFactory.decodeFile(url);
                 setImageBitmap(bitmap, false);
-                Date mydate = new Date(data);
-                mydate.toString();
+                Date mydate = new Date(Long.parseLong(data));
                 long time = mydate.getTime();
                 Bitmap bm = ImageTools.Watermark(bitmap,255, bacbitmap, context);
                 ImageTools.saveMyBitmap(time+"", bm);
