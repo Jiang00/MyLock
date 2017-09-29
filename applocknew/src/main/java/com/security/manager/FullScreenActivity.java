@@ -3,9 +3,7 @@ package com.security.manager;
 
 import android.os.Build;
 import android.os.Bundle;
-
 import android.support.v7.app.MAppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -84,6 +82,7 @@ public class FullScreenActivity extends MAppCompatActivity {
 
             }
         });
+
         AndroidSdk.loadNativeAd(TAG_LOADING, R.layout.native_ad_loading, new ClientNativeAd.NativeAdLoadListener() {
             @Override
             public void onNativeAdLoadSuccess(View view) {
@@ -92,81 +91,57 @@ public class FullScreenActivity extends MAppCompatActivity {
                 newAdLoading = (ImageView) nativeView.findViewWithTag("loading_native");
                 changeLock = (TextView) nativeView.findViewWithTag("ac_action_click_change");
                 changeLock.setVisibility(View.VISIBLE);
-                newAdLoading.setVisibility(View.INVISIBLE);
-                newAdLoading.clearAnimation();
                 changeLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         reloadNativeAd();
-                        Tracker.sendEvent(Tracker.CATE_ACTION__NATIVE_FULL_SCREEN, Tracker.CATE_ACTION__NATIVE_NEXT, Tracker.CATE_ACTION__NATIVE_NEXT, 1L);
-                        changeLock.setVisibility(View.INVISIBLE);
-                        newAdLoading.setVisibility(View.VISIBLE);
-                        newAdLoading.startAnimation(loadingAni);
                     }
                 });
                 newAdLoading.setVisibility(View.GONE);
-                adView.findViewById(R.id.ad_loading).setVisibility(View.GONE);
                 adLoading.clearAnimation();
                 adLoading.setVisibility(View.GONE);
-//                nativeView.findViewWithTag("ad_closeme").setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        CRAnimation crA = new CircularRevealCompat(adView).circularReveal(adIcon.getLeft() + adIcon.getWidth() / 2, adIcon.getTop() + adIcon.getHeight() / 2, adView.getHeight(), 0);
-//
-//                        if (crA != null) {
-//                            crA.addListener(new SimpleAnimListener() {
-//                                @Override
-//                                public void onAnimationEnd(CRAnimation animation) {
-//                                    super.onAnimationEnd(animation);
-//                                    adView.setVisibility(View.GONE);
-//                                    finish();
-//                                }
-//                            });
-//                            crA.start();
-//
-//                        }
-//
-//                    }
-//                });
             }
 
             @Override
             public void onNativeAdLoadFails() {
                 Log.e("inf", "fail");
                 adLoading.clearAnimation();
-                adLoading.setVisibility(View.INVISIBLE);
+                adLoading.setVisibility(View.GONE);
                 adView.findViewById(R.id.ad_loading).setVisibility(View.GONE);
-                finish();
                 Toast.makeText(adView.getContext(), R.string.security_loading_fullad_fail, Toast.LENGTH_LONG).show();
+                finish();
                 nativeView = null;
             }
         });
     }
 
     public void reloadNativeAd() {
+        Tracker.sendEvent(Tracker.CATE_ACTION__NATIVE_FULL_SCREEN, Tracker.CATE_ACTION__NATIVE_NEXT, Tracker.CATE_ACTION__NATIVE_NEXT, 1L);
+        changeLock.setVisibility(View.INVISIBLE);
+        newAdLoading.setVisibility(View.VISIBLE);
+        newAdLoading.startAnimation(loadingAni);
         AndroidSdk.reLoadNativeAd(TAG_LOADING, nativeView, new ClientNativeAd.NativeAdLoadListener() {
             @Override
             public void onNativeAdLoadSuccess(View view) {
                 Log.e("inf", "reload success");
-                changeLock.setVisibility(View.VISIBLE);
-                newAdLoading.setVisibility(View.GONE);
-                newAdLoading.clearAnimation();
-                view.findViewWithTag("ac_action_click_change").setOnClickListener(new View.OnClickListener() {
+                changeLock.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         reloadNativeAd();
-                        changeLock.setVisibility(View.INVISIBLE);
-                        newAdLoading.setVisibility(View.VISIBLE);
-                        newAdLoading.startAnimation(loadingAni);
-                        Tracker.sendEvent(Tracker.CATE_ACTION__NATIVE_FULL_SCREEN, Tracker.CATE_ACTION__NATIVE_NEXT, Tracker.CATE_ACTION__NATIVE_NEXT, 1L);
-
                     }
                 });
+                changeLock.setVisibility(View.VISIBLE);
+                newAdLoading.clearAnimation();
+                newAdLoading.setVisibility(View.GONE);
             }
 
             @Override
             public void onNativeAdLoadFails() {
                 Log.e("inf", "reload fails");
+                changeLock.setVisibility(View.VISIBLE);
+                newAdLoading.clearAnimation();
+                newAdLoading.setVisibility(View.GONE);
+                Toast.makeText(adView.getContext(), R.string.security_loading_fullad_fail, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -185,7 +160,6 @@ public class FullScreenActivity extends MAppCompatActivity {
                     }
                 });
                 crA.start();
-
             }
         } else {
             super.onBackPressed();

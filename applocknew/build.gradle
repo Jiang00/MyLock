@@ -21,11 +21,11 @@ android {
             variant.outputs[0].outputFile = new File(file.parent, file.name.replace("applocknew", "applock-mobile"))
     }
 
-    compileSdkVersion 23
+    compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.ivymobi.applock.free"
-        minSdkVersion 11
+        minSdkVersion 15
         targetSdkVersion 21
         testApplicationId "com.security.applock.tests"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
@@ -88,13 +88,20 @@ dependencies {
     compile project(':model')
     compile 'com.ivy:keepalive:1.0.4'
 //    compile 'com.privacy.lib:common:1.1.0'
-    compile 'com.core:empty:1.1.6'
     compile 'com.ivy.ui:ivyui:1.5.6'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':baselibrary')
-    compile('com.ivy.module:themestore:1.5.8', {
-        exclude group: 'com.google.code.gson', module: 'gson'
-    })
+//    compile('com.ivy.module:themestore:1.5.8', {
+//        exclude group: 'com.google.code.gson', module: 'gson'
+//    })
+    compile 'com.core:themeshop:1.2.6:ivyshopRelease@aar'
+    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'org.byteam.superadapter:superadapter:3.6.5'
+    compile 'com.core:empty:5.0.3'
+    compile 'com.ivy.module:lottie:1.0.0'
+    compile 'com.android.support:cardview-v7:25.3.0'
 //    compile project(':fingerprint')
     compile 'com.ivy.module:ivyhuojian:1.0.4'
     compile project(':cooling')

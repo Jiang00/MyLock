@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.v4.util.ArrayMap;
-import android.support.v7.internal.view.ContextThemeWrapper;
+import android.support.v7.view.ContextThemeWrapper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.InflateException;
@@ -185,11 +185,10 @@ public class MAppCompatViewInflater {
         }
         a.recycle();
 
-        if (themeId != 0 && (!(context instanceof ContextThemeWrapper)
-                || ((ContextThemeWrapper) context).getThemeResId() != themeId)) {
+        if (themeId != 0) {
             // If the context isn't a ContextThemeWrapper, or it is but does not have
             // the same theme as we need, wrap it in a new wrapper
-            context = new ContextThemeWrapper(context, themeId);
+//            context = new ContextThemeWrapper(context, themeId);
         }
         return context;
     }

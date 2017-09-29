@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:tag="ad_choices"></FrameLayout>
+        android:tag="ad_choices"/>
 
 
     <TextView
@@ -65,13 +65,11 @@
         android:textSize="10sp"
         tools:text="Your see Your see Your see Your see"/>
 
-    <com.android.view.RoundImageView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="136dp"
         android:layout_gravity="center_horizontal"
         android:scaleType="centerCrop"
-        rightBottom="false"
-        leftBottom="false"
         android:tag="ad_image"/>
 
     <TextView

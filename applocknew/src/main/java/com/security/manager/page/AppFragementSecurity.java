@@ -536,9 +536,9 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     }
 
     void ininShowAD() {
-        if (AndroidSdk.hasNativeAd(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (AndroidSdk.hasNativeAd(TAG_TOP_AD)) {
 
-            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.app_top_native_layout, new ClientNativeAd.NativeAdClickListener() {
+            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.HIDE_BEHAVIOR_NO_HIDE, R.layout.app_top_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 

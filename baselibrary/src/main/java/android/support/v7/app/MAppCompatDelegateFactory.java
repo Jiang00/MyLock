@@ -39,7 +39,8 @@ public abstract class MAppCompatDelegateFactory extends android.support.v7.app.A
         } else if (sdk >= 11) {
             return new MAppCompatDelegateImplV11(context, window, callback);
         } else {
-            return new MAppCompatDelegateImplV7(context, window, callback);
+//            return new MAppCompatDelegateImplV7(context, window, callback);
+            return null;
         }
     }
 }

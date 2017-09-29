@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.internal.app.AppCompatViewInflater;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.Window;
@@ -50,7 +49,7 @@ public class MAppCompatDelegateImplV11 extends AppCompatDelegateImplV11 {
 
             try {
 
-                field = AppCompatDelegateImplV7.class.getDeclaredField("mSubDecorInstalled");
+                field = AppCompatDelegateImplV14.class.getDeclaredField("mSubDecorInstalled");
                 field.setAccessible(true);
                 Object o = field.get(this);
                 return (boolean) o;

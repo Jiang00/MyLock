@@ -33,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.WrapperListAdapter;
 
-import com.android.launcher3.theme.ThemeManager;
+import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityProfileHelper;
 import com.security.manager.lib.Utils;
@@ -230,8 +230,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             SecurityTheBridge.requestTheme = true;
             switchTheme();
             selectOperation();
-            ThemeManager.useTheme(this, theme);
-            ThemeManager.applyTheme(this, theme);
+            ShopMaster.applyTheme(this, theme, false);
         } else {
             selectOperation();
         }
@@ -497,7 +496,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 @Override
                 public void onClick(View v) {
                     if (SecurityMyPref.getThemeValue() == 2) {
-                        ThemeManager.applyTheme(App.getContext(), "theme_preview_two", true);
+                        ShopMaster.applyTheme(App.getContext(), "theme_preview_two", true);
                     }
                     startListApp();
                     SecurityMyPref.setClickOK(true);

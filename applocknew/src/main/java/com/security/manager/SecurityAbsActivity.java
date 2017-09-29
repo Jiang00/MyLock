@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,18 +19,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-//import com.android.client.AndroidSdk;
 import com.android.client.AndroidSdk;
-
-import com.android.launcher3.theme.ThemeManager;
 import com.ivymobi.applock.free.R;
-import com.security.manager.lib.Utils;
-import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.SlideMenu;
-import com.security.manager.page.SecurityMenu;
 import com.security.manager.lib.BaseActivity;
+import com.security.manager.meta.SecurityMyPref;
+import com.security.manager.page.SecurityMenu;
+import com.security.manager.page.SlideMenu;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -39,6 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+
+//import com.android.client.AndroidSdk;
 
 
 /**
@@ -314,7 +310,7 @@ public abstract class SecurityAbsActivity extends BaseActivity implements Search
     }
 
     protected void askForExit() {
-        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
         super.onBackPressed();
 
     }

@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.android.launcher3.theme.ThemeManager;
+import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.security.manager.App;
 import com.security.manager.SavePicUtil;
@@ -86,7 +86,7 @@ public class SecurityChooseThemeActivity extends AppCompatActivity {
 //                }
 
                 if (chooseValue == 2) {
-                    ThemeManager.applyTheme(App.getContext(), "theme_preview_two", true);
+                    ShopMaster.applyTheme(App.getContext(), "theme_preview_two", true);
                 }
                 SecurityMyPref.launchNow();
                 Intent intent = new Intent();

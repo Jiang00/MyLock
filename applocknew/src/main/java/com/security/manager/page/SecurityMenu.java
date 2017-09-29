@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 
-import com.ivy.module.themestore.main.ThemeStoreBuilder;
+import com.android.theme.internal.data.Theme;
+import com.ivy.ivyshop.ShopMaster;
 import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.manager.App;
@@ -127,11 +128,9 @@ public class SecurityMenu {
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK, 1L);
 
                     } else if (i == 1) {
-
-
-                        String[] str = {"theme_preview_two"};
-
-                        ThemeStoreBuilder.openThemeStore(App.getContext(), null,str);
+                        ShopMaster.launch(App.getContext(),
+                                new Theme(R.raw.theme_preview, App.getContext().getPackageName()),
+                                new Theme(R.raw.theme_preview_two, "theme_preview_two"));
 
                         Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.CATE_ACTION_OPEN_THEME, Tracker.CATE_ACTION_OPEN_THEME, 1L);
                         ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);

@@ -20,7 +20,7 @@ import android.widget.*;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.launcher3.theme.ThemeManager;
+import com.ivy.ivyshop.ShopMaster;
 import com.ivy.module.huojian.CleanManager;
 import com.ivy.module.huojian.Huojian;
 import com.ivymobi.applock.free.R;
@@ -405,7 +405,7 @@ public class SecurityThemeFragment extends Fragment {
     }
 
     protected static void createAdView(ViewGroup view) {
-        if (AndroidSdk.hasNativeAd(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (AndroidSdk.hasNativeAd(TAG_UNLOCK)) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
             Point size = Utils.getScreenSize(view.getContext());
             if (size.y < 854) {
@@ -414,7 +414,7 @@ public class SecurityThemeFragment extends Fragment {
                 layoutParams.topMargin = Utils.getDimens(view.getContext(), 48);
             }
 
-            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
+            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.HIDE_BEHAVIOR_NO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 
@@ -435,7 +435,7 @@ public class SecurityThemeFragment extends Fragment {
     public static MyFrameLayout inflate(String layoutId, ViewGroup container, Context c) {
         Context themeContext = null;
         try {
-            themeContext = ThemeManager.currentTheme().getThemeContext();
+            themeContext = ShopMaster.currentTheme().getThemeContext();
         } catch (Exception e) {
             themeContext = c;
         }

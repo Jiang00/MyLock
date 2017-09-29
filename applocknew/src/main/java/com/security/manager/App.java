@@ -6,15 +6,15 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
 import com.android.client.AndroidSdk;
-import com.android.launcher3.theme.ThemeManager;
+import com.ivy.ivyshop.ShopMaster;
 import com.ivy.kpa.DaemonClient;
 import com.ivy.kpa.DaemonConfigurations;
 import com.security.gallery.view.TileBitmapDrawable;
+import com.security.manager.asyncmanager.SecurityImgManager;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
 import com.security.manager.lib.datatype.SDataType;
 import com.security.manager.lib.io.ImageMaster;
-import com.security.manager.asyncmanager.SecurityImgManager;
 import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
@@ -22,10 +22,6 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 import java.util.Locale;
-
-import me.xiaopan.sketch.Sketch;
-import me.xiaopan.sketch.SketchImageView;
-import me.xiaopan.sketch.display.TransitionImageDisplayer;
 
 /**
  * Created by SongHualin on 5/6/2015.
@@ -51,7 +47,7 @@ public class App extends BaseApp {
             }
         }
         AndroidSdk.onCreate(this);
-        ThemeManager.onCreate(this);
+        ShopMaster.onCreate(this);
         AppsCore.init(this, SecurityImgManager.ROOT);
         ImageManager.initialize(this);
         ImageMaster.imageCache = TileBitmapDrawable.initCache(this);

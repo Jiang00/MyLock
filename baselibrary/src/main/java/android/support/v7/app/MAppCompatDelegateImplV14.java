@@ -49,7 +49,7 @@ public class MAppCompatDelegateImplV14 extends AppCompatDelegateImplV14 {
 
             try {
 
-                field = AppCompatDelegateImplV7.class.getDeclaredField("mSubDecorInstalled");
+                field = AppCompatDelegateImplV9.class.getDeclaredField("mSubDecorInstalled");
                 field.setAccessible(true);
                 Object o = field.get(this);
                 return (boolean) o;

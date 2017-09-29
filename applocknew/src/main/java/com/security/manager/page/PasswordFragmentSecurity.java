@@ -11,7 +11,8 @@ import android.widget.Button;
 
 
 import com.android.common.SdkCache;
-import com.ivy.module.themestore.main.ThemeStoreBuilder;
+import com.android.theme.internal.data.Theme;
+import com.ivy.ivyshop.ShopMaster;
 import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityDotImage;
@@ -104,13 +105,10 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             dlyp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    String[] str = {"theme_preview_two"};
-
-                    ThemeStoreBuilder.openThemeStore(App.getContext(), "",str);
+                    ShopMaster.launch(App.getContext(),
+                            new Theme(R.raw.theme_preview, App.getContext().getPackageName()),
+                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
                     callback.unLock();
-
-
                 }
             });
 
