@@ -42,7 +42,9 @@ public class MyWidgetContainer extends FrameLayout implements View.OnClickListen
         int type = Build.VERSION.SDK_INT >= 19 ? WindowManager.LayoutParams.TYPE_SYSTEM_ALERT : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         int flag = Build.VERSION.SDK_INT >= 19 ? (WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR) : 0;
         lp = new WindowManager.LayoutParams(
-                width, height, type, flag,
+                width, height, type,
+                movable ? WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD :
+                        (WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN),
                 PixelFormat.TRANSLUCENT);
         lp.gravity = gravity;
         lp.screenOrientation = orientation;
@@ -107,6 +109,7 @@ public class MyWidgetContainer extends FrameLayout implements View.OnClickListen
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
+        removeFromWindow();
         switch (event.getKeyCode()) {
             case KeyEvent.KEYCODE_BACK:
                 if (event.getAction() == KeyEvent.ACTION_UP) {
@@ -167,7 +170,7 @@ public class MyWidgetContainer extends FrameLayout implements View.OnClickListen
         }
     }
 
-    public  Point getScreenSize(Context context) {
+    public Point getScreenSize(Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Point size = new Point();
         if (Build.VERSION.SDK_INT >= 13) {

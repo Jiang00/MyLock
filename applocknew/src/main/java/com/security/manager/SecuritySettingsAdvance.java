@@ -1,13 +1,19 @@
 package com.security.manager;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
+import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -16,9 +22,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ivymobi.applock.free.R;
+import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.ShowDialogview;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -31,6 +37,8 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
     public static int SETTING_PERMISSION;
     public static byte SETTING_NOTIFICATION;
     public static byte SETTING_POWER_MODE;
+    private static final int REQUSETSET = 110;
+    private static final int REQUSETSET2 = 120;
 
 
     ListView lv;
@@ -42,6 +50,8 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
     Toolbar toolbar;
 
     Intent intent;
+    private Handler handler;
+    private MyWidgetContainer wc;
 
 
     @Override
@@ -52,6 +62,10 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
     @Override
     public void setupView() {
         setContentView(R.layout.security_settings);
+
+        registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
+                Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+        handler = new Handler();
         intent = getIntent();
         final int[] items;
         if (Build.VERSION.SDK_INT >= 21) {
@@ -110,10 +124,12 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
             public Object getItem(int i) {
                 return i;
             }
+
             @Override
             public long getItemId(int i) {
                 return i;
             }
+
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
 
@@ -131,7 +147,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                         view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
+                                showSaveMode(SecuritySettingsAdvance.this);
                             }
                         });
                     } else if (i == SETTING_NOTIFICATION) {
@@ -165,10 +181,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
 
                             }
                         });
-                    }
-
-
-                    else if (i == SETTING_PERMISSION) {
+                    } else if (i == SETTING_PERMISSION) {
                         view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
                         ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
                         ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
@@ -181,7 +194,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                         checkbox.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                ShowDialogview.showSettingPermission50(SecuritySettingsAdvance.this);
+                                showSettingPermission50(SecuritySettingsAdvance.this);
                             }
                         });
                     }
@@ -198,7 +211,7 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                         view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                ShowDialogview.showSaveMode(SecuritySettingsAdvance.this);
+                                showSaveMode(SecuritySettingsAdvance.this);
                             }
                         });
 
@@ -216,19 +229,102 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                         checkbox.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                ShowDialogview.showSettingPermission50(SecuritySettingsAdvance.this);
+                                showSettingPermission50(SecuritySettingsAdvance.this);
                             }
                         });
                     }
-
-
                 }
-
                 return view;
             }
         });
     }
 
+    public void showSaveMode(Context context) {
+        try {
+//            Log.e("chfq", "==省电模式==");
+            final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, REQUSETSET2);
+            handler.postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    wc = new MyWidgetContainer(getApplicationContext(),
+                            Gravity.START | Gravity.BOTTOM,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            false);
+                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate2, null);
+
+
+                    wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
+                        @Override
+                        public boolean onBackPressed() {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onMenuPressed() {
+                            return false;
+                        }
+
+                        @Override
+                        public void onClick() {
+                            wc.removeFromWindow();
+                            wc = null;
+                        }
+                    });
+                    wc.addView(alertDialogView);
+                    wc.addToWindow();
+                }
+            }, 1500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showSettingPermission50(Context context) {
+        //使用记录，和5.0权限一样
+        try {
+            Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+            startActivityForResult(intent, REQUSETSET);
+            handler.postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    wc = new MyWidgetContainer(getApplicationContext(),
+                            Gravity.START | Gravity.BOTTOM,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            false);
+                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate, null);
+
+
+                    wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
+                        @Override
+                        public boolean onBackPressed() {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onMenuPressed() {
+                            return false;
+                        }
+
+                        @Override
+                        public void onClick() {
+                            wc.removeFromWindow();
+                            wc = null;
+                        }
+                    });
+                    wc.addView(alertDialogView);
+                    wc.addToWindow();
+                }
+            }, 1500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
     @Override
@@ -247,31 +343,73 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         }
     }
 
-/*    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            if (intent.getExtra("launchname") != null) {
-                this.finish();
-                Intent nIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
-                nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(nIntent);
-            } else {
-                this.finish();
+    BroadcastReceiver mHomeKeyEventReceiver = new BroadcastReceiver() {
 
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (wc != null) {
+                    wc.removeFromWindow();
+                }
             }
         }
-        return true;
+    };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e("chfq", "==requestCode======" + requestCode);
+        if (requestCode == REQUSETSET) {
+            Log.e("chfq", "=110=");
+            if (!Utils.requireCheckAccessPermission(this)) {
+                Log.e("chfq", "==true==");
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, "偏好设置", "使用记录权限开启", 1L);
+            }
+        } else if (requestCode == REQUSETSET2) {
+            Log.e("chfq", "=120=");
+            if (isAccessibilitySettingsOn(this)) {
+                Log.e("chfq", "==true==");
+                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, "偏好设置", "省电模式开启", 1L);
+            }
+        }
+    }
+
+    private boolean isAccessibilitySettingsOn(Context mContext) {
+        int accessibilityEnabled = 0;
+        // TestService为对应的服务
+        final String service = getPackageName() + "/" + AccessibilityService.class.getCanonicalName();
+//        Log.e("chfq", "service:" + service);
+        // com.z.buildingaccessibilityservices/android.accessibilityservice.AccessibilityService
+        try {
+            accessibilityEnabled = Settings.Secure.getInt(mContext.getApplicationContext().getContentResolver(),
+                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+        } catch (Settings.SettingNotFoundException e) {
+        }
+        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+
+        if (accessibilityEnabled == 1) {
+            String settingValue = Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(),
+                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+            // com.z.buildingaccessibilityservices/com.z.buildingaccessibilityservices.TestService
+            if (settingValue != null) {
+                mStringColonSplitter.setString(settingValue);
+                while (mStringColonSplitter.hasNext()) {
+                    String accessibilityService = mStringColonSplitter.next();
+                    if (accessibilityService.equalsIgnoreCase(service)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     @Override
-    public void onBackPressed() {
-        if (intent.getExtra("launchname") != null) {
-            this.finish();
-            Intent nIntent = new Intent(this, SecurityPatternActivity.class);
-            nIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(nIntent);
-        } else {
-            this.finish();
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mHomeKeyEventReceiver);
+        if (wc != null) {
+            wc.removeFromWindow();
         }
-    }*/
+    }
 }

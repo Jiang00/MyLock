@@ -1,32 +1,37 @@
 package com.security.manager;
 
 import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.client.AndroidSdk;
 import com.ivymobi.applock.free.R;
+import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.db.backgroundData;
-import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.AppFragementSecurity;
-import com.security.manager.page.SlideMenu;
-import com.security.manager.page.SecurityMenu;
-import com.security.manager.page.ShowDialogview;
 import com.security.manager.lib.Utils;
 import com.security.manager.lib.io.SafeDB;
 import com.security.manager.meta.SecuritProfiles;
+import com.security.manager.meta.SecurityMyPref;
+import com.security.manager.page.AppFragementSecurity;
+import com.security.manager.page.SecurityMenu;
+import com.security.manager.page.SlideMenu;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -36,6 +41,9 @@ import butterknife.InjectView;
  * Created by SongHualin on 6/12/2015.
  */
 public class SecurityAppLock extends ClientActivitySecurity {
+
+    private MyWidgetContainer wc;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,21 +78,62 @@ public class SecurityAppLock extends ClientActivitySecurity {
             if (Utils.requireCheckAccessPermission(this)) {
                 final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-//                    startActivity(intent);
-                    ShowDialogview.showPermission(this);
-//                    if (Utils.isEMUI() || inf.contains("ZTE")) {
-//                        new android.app.AlertDialog.Builder(this).setTitle(R.string.security_show_permission)
-//                                .setMessage(R.string.security_permission_msg)
-//                                .setPositiveButton(R.string.security_permission_grand, new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
-//
-//                                    }
-//                                }).setNegativeButton(android.R.string.cancel, null).create().show();
-//
-//                    } else {
-//                    }
+//                    ShowDialogview.showPermission(this);
+                    final View alertDialogView = View.inflate(this, R.layout.security_show_permission, null);
+                    final AlertDialog d = new AlertDialog.Builder(this, R.style.dialog).create();
+                    d.setView(alertDialogView);
+                    d.setCanceledOnTouchOutside(false);
+                    d.show();
+                    alertDialogView.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            d.cancel();
+                            startActivity(intent);
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    wc = new MyWidgetContainer(getApplicationContext(),
+                                            Gravity.START | Gravity.BOTTOM,
+                                            ViewGroup.LayoutParams.MATCH_PARENT,
+                                            ViewGroup.LayoutParams.MATCH_PARENT,
+                                            false);
+                                    View alertDialogView = View.inflate(SecurityAppLock.this, R.layout.permission_translate, null);
+
+                                    wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
+                                        @Override
+                                        public boolean onBackPressed() {
+                                            return false;
+                                        }
+
+                                        @Override
+                                        public boolean onMenuPressed() {
+                                            return false;
+                                        }
+
+                                        @Override
+                                        public void onClick() {
+                                            wc.removeFromWindow();
+                                            wc = null;
+                                        }
+                                    });
+                                    wc.addView(alertDialogView);
+                                    wc.addToWindow();
+                                }
+                            }, 1500);
+
+                            Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
+
+                        }
+                    });
+
+                    alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
+
+                            d.cancel();
+                        }
+                    });
                 }
             }
 
@@ -135,6 +184,9 @@ public class SecurityAppLock extends ClientActivitySecurity {
     public void setupView() {
         setContentView(R.layout.security_slidemenu_data);
         ButterKnife.inject(this);
+        handler = new Handler();
+        registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
+                Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         setupToolbar();
         SecurityMenu.currentMenuIt = SecurityMenu.MENU_LOCK_APP;
         setup(R.string.security_lock_app);
@@ -222,6 +274,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
         }
     }
+
     public void initclick() {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -252,11 +305,29 @@ public class SecurityAppLock extends ClientActivitySecurity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_GOOGLE_PLAY, Tracker.ACT_GOOGLE_PLAY, 1L);
-
-
             }
         });
-
     }
 
+    BroadcastReceiver mHomeKeyEventReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (wc != null) {
+                    wc.removeFromWindow();
+                }
+            }
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mHomeKeyEventReceiver);
+        if (wc != null) {
+            wc.removeFromWindow();
+        }
+    }
 }

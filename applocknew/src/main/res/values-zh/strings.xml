@@ -182,4 +182,5 @@
     <string name="security_user_compare_theme_inf">100多種精美主題</string>
 	<string name="security_user_compare_go_pro">升級到高級版</string>
     <string name="security_user_plan_free_click">已選擇免費版</string>
+    <string name="pre_tip">請找到應用鎖並開啟輔助功能權限，結束後台耗電應用並延長待機時間</string>
 </resources>

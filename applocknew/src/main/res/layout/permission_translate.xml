@@ -3,6 +3,7 @@
     android:id="@+id/onclick"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#80000000"
     android:gravity="center">
 
     <FrameLayout
@@ -28,9 +29,7 @@
                     android:fontFamily="sans-serif"
                     android:text="@string/security_apps_open_permission"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
-
-                    />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -138,10 +137,10 @@
 
 
         <ImageView
-            android:layout_marginRight="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="12dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/security_permission_finger" />
     </FrameLayout>

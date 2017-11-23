@@ -182,4 +182,5 @@
     <string name="security_user_compare_theme_inf">100+ beautiful themes</string>
 	<string name="security_user_compare_go_pro">Go PRO!</string>
     <string name="security_user_plan_free_click">FREE selected</string>
+    <string name="pre_tip">Please find AppLock and enable Accessbility Service to stop battery draining apps and extend battery life.</string>
 </resources>

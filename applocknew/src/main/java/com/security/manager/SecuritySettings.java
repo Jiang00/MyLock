@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -67,7 +66,6 @@ public class SecuritySettings extends ClientActivitySecurity {
     BaseAdapter adapter;
 
     Intent intent;
-
 
 
     @Override
@@ -298,7 +296,7 @@ public class SecuritySettings extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
-        intent=getIntent();
+        intent = getIntent();
         if (lv != null) {
             try {
                 ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();

@@ -73,7 +73,7 @@ public class SecurityThemeFragment extends Fragment {
             createAdView((ViewGroup) view);
 
             if (!SecurityMyPref.isUseNormalPasswd()) {
-                crossPromote((ViewGroup) view);
+//                crossPromote((ViewGroup) view);
             }
 
         } catch (Exception e) {
