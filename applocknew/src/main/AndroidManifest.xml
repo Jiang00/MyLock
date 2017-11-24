@@ -117,6 +117,8 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
@@ -167,7 +169,7 @@
             <intent-filter>
                 <action android:name="ivy.intent.action.pattern" />
                 <category android:name="android..category.DEFAULT" />
-            </intent-filter>intent
+            </intent-filter>
         </activity>
         <activity
             android:name="com.security.manager.PretentOneActivitySecurityPatternActivity"
