@@ -223,17 +223,25 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         SecurityMyPref.upgrade();
 
         Intent intent = getIntent();
-        if (intent.hasExtra("theme_package_name")) {
-            String theme = intent.getStringExtra("theme_package_name");
-            App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
-            SecurityTheBridge.needUpdate = true;
-            SecurityTheBridge.requestTheme = true;
-            switchTheme();
-            selectOperation();
-            ShopMaster.applyTheme(this, theme, false);
+        if (isApplyTheme(intent)) {
+            applyTheme(intent);
         } else {
             selectOperation();
         }
+    }
+
+    private boolean isApplyTheme(Intent intent) {
+        return intent.hasExtra("theme_package_name");
+    }
+
+    private void applyTheme(Intent intent) {
+        String theme = intent.getStringExtra("theme_package_name");
+        App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
+        SecurityTheBridge.needUpdate = true;
+        SecurityTheBridge.requestTheme = true;
+        switchTheme();
+        selectOperation();
+        ShopMaster.applyTheme(this, theme, false);
     }
 
     ArrayList<String> firstLaunchList;
@@ -579,6 +587,10 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     @Override
     protected void onIntent(Intent intent) {
+        if (isApplyTheme(intent)) {
+            recreate();
+            return;
+        }
         action = intent.getIntExtra("action", intent.hasExtra("pkg") ? ACTION_UNLOCK_OTHER : ACTION_UNLOCK_SELF);
         pkg = intent.getStringExtra("pkg");
         setting = intent.getByteExtra("set", SET_EMPTY);
