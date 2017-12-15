@@ -2,7 +2,6 @@ package com.security.manager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -36,16 +35,13 @@ import android.widget.WrapperListAdapter;
 import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityProfileHelper;
-import com.security.manager.lib.Utils;
+import com.security.manager.lib.io.ImageMaster;
+import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.page.PasswordFragmentSecurity;
 import com.security.manager.page.PatternFragmentSecurity;
-import com.security.manager.lib.io.ImageMaster;
-import com.security.manager.meta.SecuritProfiles;
-import com.security.manager.page.SecurityChooseThemeActivity;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -223,17 +219,25 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         SecurityMyPref.upgrade();
 
         Intent intent = getIntent();
-        if (intent.hasExtra("theme_package_name")) {
-            String theme = intent.getStringExtra("theme_package_name");
-            App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
-            SecurityTheBridge.needUpdate = true;
-            SecurityTheBridge.requestTheme = true;
-            switchTheme();
-            selectOperation();
-            ShopMaster.applyTheme(this, theme, false);
+        if (isApplyTheme(intent)) {
+            applyTheme(intent);
         } else {
             selectOperation();
         }
+    }
+
+    private boolean isApplyTheme(Intent intent) {
+        return intent.hasExtra("theme_package_name");
+    }
+
+    private void applyTheme(Intent intent) {
+        String theme = intent.getStringExtra("theme_package_name");
+        App.getSharedPreferences().edit().putString("theme_package_name", theme).putBoolean("theme-switched", true).apply();
+        ShopMaster.applyTheme(this, theme, false);
+        SecurityTheBridge.needUpdate = true;
+        SecurityTheBridge.requestTheme = true;
+        switchTheme();
+        selectOperation();
     }
 
     ArrayList<String> firstLaunchList;
@@ -579,6 +583,13 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
     @Override
     protected void onIntent(Intent intent) {
+        if (isApplyTheme(intent)) {
+            ShopMaster.applyTheme(this, intent.getStringExtra("theme_package_name"), false);
+            SecurityTheBridge.needUpdate = true;
+            SecurityTheBridge.requestTheme = true;
+            recreate();
+            return;
+        }
         action = intent.getIntExtra("action", intent.hasExtra("pkg") ? ACTION_UNLOCK_OTHER : ACTION_UNLOCK_SELF);
         pkg = intent.getStringExtra("pkg");
         setting = intent.getByteExtra("set", SET_EMPTY);

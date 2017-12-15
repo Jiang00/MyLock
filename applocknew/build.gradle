@@ -87,8 +87,8 @@ dependencies {
     compile project(':api')
     compile project(':model')
     compile 'com.ivy:keepalive:1.0.4'
-//    compile 'com.privacy.lib:common:1.1.0'
-    compile 'com.ivy.ui:ivyui:1.6.1'
+
+    compile 'com.ivy.ui:ivyui:1.6.4'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':baselibrary')
 //    compile('com.ivy.module:themestore:1.5.8', {
