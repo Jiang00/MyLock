@@ -88,7 +88,7 @@ public static void putTagScreenlock(boolean value){
     }
 
     public static boolean isShutterSoundEnabled() {
-        return sharedPreferences.getBoolean("intrd_soun_en", true);
+        return sharedPreferences.getBoolean("intrd_soun_en", false);
     }
 
     public static void setShutterSoundEnabled(boolean enable) {

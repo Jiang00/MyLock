@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-   <declare-styleable name="SecurityPatternView">
+    <declare-styleable name="SecurityPatternView">
         <attr name="aspect" format="string" />
+    </declare-styleable>
+    <declare-styleable name="CustomerTypefaceTextView">
+        <!-- 设置文字内容 -->
+        <attr name="typeface" format="string" />
+    </declare-styleable>
+    <declare-styleable name="RoundAngleImageView">
+        <attr name="roundWidth" format="dimension"/>
+        <attr name="roundHeight" format="dimension"/>
     </declare-styleable>
 </resources>

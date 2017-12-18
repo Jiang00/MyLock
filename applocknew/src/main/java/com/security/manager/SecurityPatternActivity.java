@@ -1,5 +1,8 @@
 package com.security.manager;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -13,9 +16,12 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.RemoteException;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,15 +29,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.WrapperListAdapter;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityProfileHelper;
@@ -62,6 +68,11 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     Intent notiIntent;
 
     static Context context;
+    private LottieAnimationView frist1_lottie;
+    private int lockSize = 0;
+    private Handler handler;
+    private boolean onPause;
+    private LottieAnimationView choose_theme_lottie;
 
 
     public void toggle(boolean normal) {
@@ -99,6 +110,12 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 //      selectOperation();
         notiIntent = getIntent();
         super.onResume();
+        if (onPause) {
+            onPause = false;
+            if (frist1_lottie != null) {
+                frist1_lottie.playAnimation();
+            }
+        }
     }
 
     @Override
@@ -299,14 +316,35 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
         loadPackages();
 
-
-        final Button next = (Button) findViewById(R.id.next);
+        final TextView next = (TextView) findViewById(R.id.next);
+        final LinearLayout next_ll = (LinearLayout) findViewById(R.id.next_ll);
+        final TextView next_size = (TextView) findViewById(R.id.next_size);
         final ListView lv = (ListView) findViewById(R.id.abs_list);
 
-        View header = getLayoutInflater().inflate(R.layout.security_first_header, null, false);
+        final View header = getLayoutInflater().inflate(R.layout.security_first_header, null, false);
         lv.addHeaderView(header, null, false);
+        handler = new Handler();
+
+        frist1_lottie = (LottieAnimationView) header.findViewById(R.id.frist1_lottie);
+        frist1_lottie.setAnimation("frist1.json");
+        frist1_lottie.setScale(0.5f);//相对原大小的0.2倍
+        frist1_lottie.setSpeed(0.7f);
+        frist1_lottie.loop(true);
+        frist1_lottie.playAnimation();
 
         final boolean clickable = !firstLaunchShowResult;
+        for (String app : firstLaunchList) {
+            if (firstLaunchLocked.containsKey(app)) {
+                lockSize++;
+            }
+
+        }
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                next_size.setText(lockSize + "");
+            }
+        }, 300);
 
         lv.setAdapter(new BaseAdapter() {
             @Override
@@ -334,19 +372,22 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 return 0;
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                ViewHolder holder;
+                FristViewHolder holder;
 
                 if (convertView == null) {
-                    convertView = LayoutInflater.from(SecurityPatternActivity.this).inflate(R.layout.security_locked_apps, parent, false);
-                    holder = new ViewHolder();
+                    convertView = LayoutInflater.from(SecurityPatternActivity.this).inflate(R.layout.security_apps_item2, parent, false);
+                    holder = new FristViewHolder();
                     holder.icon = (android.widget.ImageView) convertView.findViewById(R.id.icon);
                     holder.appName = (TextView) convertView.findViewById(R.id.name);
-                    holder.encrypted = convertView.findViewById(R.id.bg_sel);
+                    holder.unlock_yuan = (ImageView) convertView.findViewById(R.id.unlock_yuan);
+                    holder.unlock_yuan2 = (ImageView) convertView.findViewById(R.id.unlock_yuan2);
+                    holder.lock = (ImageView) convertView.findViewById(R.id.lock);
                     convertView.setTag(holder);
                 } else {
-                    holder = (ViewHolder) convertView.getTag();
+                    holder = (FristViewHolder) convertView.getTag();
                 }
 
                 String pkg = firstLaunchList.get(position);
@@ -362,11 +403,13 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 }
                 holder.icon.setImageBitmap(icon);
                 holder.appName.setText(firstLaunchLabels.get(pkg));
-                holder.encrypted.setEnabled(firstLaunchLocked.containsKey(pkg));
-                if (!clickable) {
-                    holder.encrypted.setSelected(false);
+                holder.lock.setEnabled(firstLaunchLocked.containsKey(pkg));
+                if (firstLaunchLocked.containsKey(pkg)) {
+                    holder.unlock_yuan2.setVisibility(View.VISIBLE);
+                    holder.unlock_yuan.setVisibility(View.GONE);
                 } else {
-                    holder.encrypted.setSelected(true);
+                    holder.unlock_yuan2.setVisibility(View.GONE);
+                    holder.unlock_yuan.setVisibility(View.VISIBLE);
                 }
 
                 return convertView;
@@ -375,23 +418,97 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
         if (!firstLaunchShowResult) {
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     if (position == 0) return;
+                    final FristViewHolder holder = (FristViewHolder) view.getTag();
                     --position;
                     String pkg = firstLaunchList.get(position);
                     boolean locked = firstLaunchLocked.containsKey(pkg);
+
                     if (locked) {
                         firstLaunchLocked.remove(pkg);
+                        lockSize--;
+                        next_size.setText(lockSize + "");
+
+                        ObjectAnimator scaleX = ObjectAnimator.ofFloat(holder.unlock_yuan2, "scaleX", 1f, 0.4f);
+                        ObjectAnimator scaleY = ObjectAnimator.ofFloat(holder.unlock_yuan2, "scaleY", 1f, 0.4f);
+                        AnimatorSet animSet = new AnimatorSet();
+                        animSet.play(scaleX).with(scaleY);
+                        animSet.setDuration(200);
+                        animSet.start();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                holder.unlock_yuan2.setVisibility(View.GONE);
+                                holder.unlock_yuan.setVisibility(View.VISIBLE);
+                                holder.lock.setEnabled(false);
+                                ObjectAnimator scaleX2 = ObjectAnimator.ofFloat(holder.unlock_yuan, "scaleX", 0.4f, 1f);
+                                ObjectAnimator scaleY2 = ObjectAnimator.ofFloat(holder.unlock_yuan, "scaleY", 0.4f, 1f);
+                                AnimatorSet animSet2 = new AnimatorSet();
+                                animSet2.play(scaleX2).with(scaleY2);
+                                animSet2.setDuration(200);
+                                animSet2.start();
+                            }
+                        }, 100);
                     } else {
+                        lockSize++;
+                        next_size.setText(lockSize + "");
                         firstLaunchLocked.put(pkg, true);
+
+                        ObjectAnimator rotate = ObjectAnimator.ofFloat(holder.unlock_yuan, "rotation", 0f, 60f);
+                        rotate.setDuration(150);
+                        rotate.start();
+                        rotate.addListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationCancel(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                ObjectAnimator scaleX = ObjectAnimator.ofFloat(holder.unlock_yuan, "scaleX", 1f, 0.4f);
+                                ObjectAnimator scaleY = ObjectAnimator.ofFloat(holder.unlock_yuan, "scaleY", 1f, 0.4f);
+                                AnimatorSet animSet = new AnimatorSet();
+                                animSet.play(scaleX).with(scaleY);
+                                animSet.setDuration(200);
+                                animSet.start();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        holder.unlock_yuan.setVisibility(View.GONE);
+                                        holder.unlock_yuan2.setVisibility(View.VISIBLE);
+                                        holder.lock.setEnabled(true);
+                                        ObjectAnimator scaleX2 = ObjectAnimator.ofFloat(holder.unlock_yuan2, "scaleX", 0.4f, 1f);
+                                        ObjectAnimator scaleY2 = ObjectAnimator.ofFloat(holder.unlock_yuan2, "scaleY", 0.4f, 1f);
+                                        AnimatorSet animSet2 = new AnimatorSet();
+                                        animSet2.play(scaleX2).with(scaleY2);
+                                        animSet2.setDuration(300);
+                                        animSet2.start();
+                                    }
+                                }, 100);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationStart(Animator animation) {
+
+                            }
+                        });
+
                     }
+
                     if (firstLaunchLocked.size() > 0) {
-                        next.setEnabled(true);
+                        next_ll.setEnabled(true);
                     } else {
-                        next.setEnabled(false);
+                        next_ll.setEnabled(false);
                     }
-                    ((BaseAdapter) ((WrapperListAdapter) lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+//                    ((BaseAdapter) ((WrapperListAdapter) lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
                 }
             });
             new Thread() {
@@ -445,14 +562,14 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 }
             }.start();
         } else {
-            next.setEnabled(true);
+            next_ll.setEnabled(true);
             firstLaunchList.clear();
             firstLaunchList.addAll(firstLaunchLocked.keySet());
         }
 //为什么放在不同的位置 顶部显示不一样，不一致问题
 //
-        FrameLayout defaultTheme = defaultTheme = (FrameLayout) this.findViewById(R.id.default_theme);
-        FrameLayout chooseTheme = (FrameLayout) this.findViewById(R.id.new_hoose_theme);
+        RelativeLayout defaultTheme = (RelativeLayout) this.findViewById(R.id.default_theme);
+        RelativeLayout chooseTheme = (RelativeLayout) this.findViewById(R.id.new_hoose_theme);
         final ImageView defalutImageview = (ImageView) this.findViewById(R.id.default_theme_choose);
         final ImageView chooseImageView = (ImageView) this.findViewById(R.id.choose_theme_check);
         Bitmap savepic = getBitmap(SavePicUtil.idToDrawable(R.drawable.theme_preview_two));
@@ -467,14 +584,18 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             e.printStackTrace();
         }
         LinearLayout chooseThemeLayout = (LinearLayout) findViewById(R.id.for_choose_theme);
-        final Button choose_next = (Button) findViewById(R.id.choose_next);
-
+        final TextView choose_next = (TextView) findViewById(R.id.choose_next);
+        choose_theme_lottie = (LottieAnimationView) findViewById(R.id.choose_theme_lottie);
+        choose_theme_lottie.setAnimation("frist4.json");
+        choose_theme_lottie.setScale(1.1f);//相对原大小的0.2倍
+        choose_theme_lottie.loop(false);//是否循环，true循环
+        choose_theme_lottie.setSpeed(0.7f);//播放速度
 
         if (firstLaunchShowResult) {
             lv.setVisibility(View.GONE);
             chooseThemeLayout.setVisibility(View.VISIBLE);
-            next.setVisibility(View.GONE);
-
+            next_ll.setVisibility(View.GONE);
+            choose_theme_lottie.playAnimation();
 
             defaultTheme.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -482,7 +603,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     defalutImageview.setVisibility(View.VISIBLE);
                     chooseImageView.setVisibility(View.GONE);
                     SecurityMyPref.setThemeValue(1);
-                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.CATE_ACTION__CHOOSE_THEME,Tracker.CATE_ACTION__CHOOSE_THEME_ONE,1L);
+                    Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.CATE_ACTION__CHOOSE_THEME, Tracker.CATE_ACTION__CHOOSE_THEME_ONE, 1L);
                 }
             });
             chooseTheme.setOnClickListener(new View.OnClickListener() {
@@ -491,7 +612,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     defalutImageview.setVisibility(View.GONE);
                     chooseImageView.setVisibility(View.VISIBLE);
                     SecurityMyPref.setThemeValue(2);
-                    Tracker.sendEvent(Tracker.ACT_LEADER,Tracker.CATE_ACTION__CHOOSE_THEME,Tracker.CATE_ACTION__CHOOSE_THEME_TWO,1L);
+                    Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.CATE_ACTION__CHOOSE_THEME, Tracker.CATE_ACTION__CHOOSE_THEME_TWO, 1L);
 
                 }
             });
@@ -531,9 +652,12 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 //                }
 //            });
         } else {
-            next.setOnClickListener(new View.OnClickListener() {
+            next_ll.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (frist1_lottie != null) {
+                        frist1_lottie.cancelAnimation();
+                    }
                     firstSetup = true;
                     firstLaunchShowResult = true;
                     setGraphView();
@@ -623,10 +747,29 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        if (frist1_lottie != null) {
+            frist1_lottie.cancelAnimation();
+        }
+        if (choose_theme_lottie != null) {
+            choose_theme_lottie.cancelAnimation();
+        }
+        onPause = true;
+    }
+
+    @Override
     protected void onDestroy() {
         SecurityTheBridge.themeContext = null;
         SecurityBridgeImpl.clear();
         super.onDestroy();
+        if (frist1_lottie != null) {
+            frist1_lottie.cancelAnimation();
+        }
+        if (choose_theme_lottie != null) {
+            choose_theme_lottie.cancelAnimation();
+        }
+        lockSize = 0;
     }
 
 //    public static void createThemeContextIfNecessary(Context context) {

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/d280"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bj"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d48"
+            android:layout_marginLeft="@dimen/d20"
+            android:gravity="center_vertical"
+            android:text="@string/security_over_short"
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s17" />
+
+        <FrameLayout
+            android:id="@+id/pattern"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d40"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d20"
+                android:text="@string/security_every_time"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s14" />
+
+            <ImageView
+                android:id="@+id/every_time_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="@dimen/d20"
+                android:src="@drawable/uncheck" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/five_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d40"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d20"
+                android:text="@string/security_five_min2"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s14" />
+
+            <ImageView
+                android:id="@+id/five_time_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="@dimen/d20"
+                android:src="@drawable/uncheck" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/digital"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d40"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d20"
+                android:text="@string/security_until_screen_off"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s14" />
+
+            <ImageView
+                android:id="@+id/lock_screen_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="@dimen/d20"
+                android:src="@drawable/uncheck" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

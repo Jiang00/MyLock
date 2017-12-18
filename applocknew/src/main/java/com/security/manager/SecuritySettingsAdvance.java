@@ -1,15 +1,20 @@
 package com.security.manager;
 
 
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -20,100 +25,92 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.lib.Utils;
-import com.security.manager.meta.SecurityMyPref;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by superjoy on 2014/9/4.
  */
-public class SecuritySettingsAdvance extends ClientActivitySecurity {
+public class SecuritySettingsAdvance extends AppCompatActivity {
     public static byte idx = 0;
-    public static int SETTING_PERMISSION;
-    public static byte SETTING_NOTIFICATION;
-    public static byte SETTING_POWER_MODE;
+    public static int SETTING_PERMISSION;//使用记录，和5.0权限一样
+    public static int SETTING_POWER_MODE;//省电模式
+    public static int SETTING_CAMERA;//照相机权限
+    public static int SETTING_ALERT_WINDOW;//悬浮窗权限
     private static final int REQUSETSET = 110;
     private static final int REQUSETSET2 = 120;
+    private static final int REQUSETSET3 = 130;
+    private static final int REQUSETSET4 = 140;
+    private boolean permissionFlag = false;
+    private boolean powerFlag = false;
+    private boolean windowFlag = false;
+
+    private MyWidgetContainer wc;
 
 
     ListView lv;
 
-    @InjectView(R.id.normal_title_name)
-    TextView normalTitle;
-
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
-
     Intent intent;
     private Handler handler;
-    private MyWidgetContainer wc;
-
-
-    @Override
-    protected boolean hasHelp() {
-        return false;
-    }
+    private boolean onPause;
 
     @Override
-    public void setupView() {
-        setContentView(R.layout.security_settings);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.security_settings_advance);
 
         registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
                 Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-        handler = new Handler();
+
+        registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
+                Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         intent = getIntent();
         final int[] items;
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (SecurityMyPref.getshowLockAll()) {
-                SETTING_PERMISSION = 0;
-                SETTING_NOTIFICATION = 1;
-                SETTING_POWER_MODE = 2;
-                items = new int[]{
-                        R.string.security_service_title,
-                        R.string.security_nofification,
-                        R.string.security_power_mode,
-                };
-            } else {
-                SETTING_PERMISSION = 0;
-                SETTING_POWER_MODE = 1;
-                items = new int[]{
-                        R.string.security_service_title,
-                        R.string.security_power_mode,
-                };
+        handler = new Handler();
+        //6.0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            SETTING_PERMISSION = 0;
+            SETTING_POWER_MODE = 1;
+            SETTING_CAMERA = 2;
+            SETTING_ALERT_WINDOW = 3;
+            items = new int[]{
+                    R.string.security_service_title2,
+                    R.string.security_power_mode,
+                    R.string.open_camera,
+                    R.string.open_suspension_window,
+            };
+        } else if (Build.VERSION.SDK_INT >= 21) {//5.0
 
-            }
-
+            SETTING_PERMISSION = 0;
+            SETTING_POWER_MODE = 1;
+            SETTING_CAMERA = 2;
+            SETTING_ALERT_WINDOW = 3;
+            items = new int[]{
+                    R.string.security_service_title,
+                    R.string.security_power_mode,
+            };
         } else {
-
-            if (SecurityMyPref.getshowLockAll()) {
-                SETTING_NOTIFICATION = 0;
-                SETTING_POWER_MODE = 1;
-                items = new int[]{
-                        R.string.security_nofification,
-                        R.string.security_power_mode,
-                };
-            } else {
-                SETTING_POWER_MODE = 0;
-                items = new int[]{
-                        R.string.security_power_mode,
-                };
-            }
+            SETTING_POWER_MODE = 0;
+            SETTING_PERMISSION = 1;
+            SETTING_CAMERA = 2;
+            SETTING_ALERT_WINDOW = 3;
+            items = new int[]{
+                    R.string.security_power_mode,
+            };
         }
 
-        ButterKnife.inject(this);
-        setupToolbar();
+        findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
-        setup(R.string.security_settings_preference);
-        setViewVisible(View.GONE, R.id.search_button, R.id.bottom_action_bar, R.id.progressBar);
-        findViewById(R.id.abs_list).setVisibility(View.VISIBLE);
 
-
-        lv = (ListView) findViewById(R.id.abs_list);
+        lv = (ListView) this.findViewById(R.id.my_abs_list);
         lv.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -130,120 +127,153 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                 return i;
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
 
-                Log.e("ivalue", i + "---");
-
-                if (SecurityMyPref.getshowLockAll()) {
-
-                    if (i == SETTING_POWER_MODE) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
-                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
-                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-
-                        checkbox.setImageResource(R.drawable.security_ne);
-                        view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                showSaveMode(SecuritySettingsAdvance.this);
+                if (i == SETTING_POWER_MODE) {
+                    //省电模式
+                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des2);
+                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                    if (isAccessibilitySettingsOn(SecuritySettingsAdvance.this)) {
+                        checkbox.setImageResource(R.drawable.security_setting_check);
+                        powerFlag = true;
+                    } else {
+                        powerFlag = false;
+                        checkbox.setImageResource(R.drawable.security_setting_not_check);
+                    }
+                    view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!isAccessibilitySettingsOn(SecuritySettingsAdvance.this)) {
+                                showSaveMode(SecuritySettingsAdvance.this, SETTING_POWER_MODE);
+                                Log.e("chfq", "==showSaveMode===");
+                                //启动服务
+                                Intent intent = new Intent(SecuritySettingsAdvance.this, PreferenceService.class);
+                                intent.putExtra("setting_power_mode", true);
+                                startService(intent);
+                            } else {
+                                Toast.makeText(SecuritySettingsAdvance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
                             }
-                        });
-                    } else if (i == SETTING_NOTIFICATION) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
-                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                        ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                        if (SecurityMyPref.getNotification()) {
-                            checkbox.setImageResource(R.drawable.security_setting_check);
-                        } else {
-                            checkbox.setImageResource(R.drawable.security_setting_not_check);
+
                         }
-                        checkbox.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if (SecurityMyPref.getNotification()) {
-                                    checkbox.setImageResource(R.drawable.security_setting_not_check);
-                                    SecurityMyPref.setNotification(false);
-                                    stopService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
-
-                                } else {
-                                    checkbox.setImageResource(R.drawable.security_setting_check);
-                                    SecurityMyPref.setNotification(true);
-                                    stopService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
-                                    startService(new Intent(SecuritySettingsAdvance.this, NotificationService.class));
-
-                                }
-
-                                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
-
-
-                            }
-                        });
-                    } else if (i == SETTING_PERMISSION) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
-                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
-                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                        if (!Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
-                            checkbox.setImageResource(R.drawable.security_setting_check);
-                        } else {
-                            checkbox.setImageResource(R.drawable.security_setting_not_check);
-                        }
-                        checkbox.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
+                    });
+                } else if (i == SETTING_PERMISSION) {
+                    //5.0权限
+                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description2);
+                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                    if (!Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
+                        checkbox.setImageResource(R.drawable.security_setting_check);
+                        permissionFlag = true;
+                    } else {
+                        permissionFlag = false;
+                        checkbox.setImageResource(R.drawable.security_setting_not_check);
+                    }
+                    view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
                                 showSettingPermission50(SecuritySettingsAdvance.this);
+                                //启动服务
+                                Intent intent = new Intent(SecuritySettingsAdvance.this, PreferenceService.class);
+                                intent.putExtra("setting_permission", true);
+                                startService(intent);
+                            } else {
+                                Toast.makeText(SecuritySettingsAdvance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
                             }
-                        });
+
+                        }
+                    });
+                } else if (i == SETTING_CAMERA) {
+                    //照相机
+                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.open_camera_describe);
+                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                    if (ContextCompat.checkSelfPermission(SecuritySettingsAdvance.this,
+                            android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                        //先判断有没有权限
+                        checkbox.setImageResource(R.drawable.security_setting_check);
+                    } else {
+                        checkbox.setImageResource(R.drawable.security_setting_not_check);
                     }
 
-                } else {
-
-                    if (i == SETTING_POWER_MODE) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
-                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_power_mode_des);
-                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-
-                        checkbox.setImageResource(R.drawable.security_ne);
-                        view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                showSaveMode(SecuritySettingsAdvance.this);
+                    view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (ContextCompat.checkSelfPermission(SecuritySettingsAdvance.this,
+                                    android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                                Toast.makeText(SecuritySettingsAdvance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
+                            } else {
+                                showSaveMode(SecuritySettingsAdvance.this, SETTING_CAMERA);
+                                //启动服务
+                                Intent intent = new Intent(SecuritySettingsAdvance.this, PreferenceService.class);
+                                intent.putExtra("setting_camera", true);
+                                startService(intent);
                             }
-                        });
-
-
-                    } else if (i == SETTING_PERMISSION) {
-                        view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_setting_item_two, null, false);
-                        ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                        ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.security_service_description);
-                        final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                        if (!Utils.requireCheckAccessPermission(SecuritySettingsAdvance.this)) {
-                            checkbox.setImageResource(R.drawable.security_setting_check);
-                        } else {
-                            checkbox.setImageResource(R.drawable.security_setting_not_check);
                         }
-                        checkbox.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                showSettingPermission50(SecuritySettingsAdvance.this);
-                            }
-                        });
+                    });
+                } else if (i == SETTING_ALERT_WINDOW) {
+                    //悬浮窗
+                    view = LayoutInflater.from(SecuritySettingsAdvance.this).inflate(R.layout.security_notica, null, false);
+                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
+                    ((TextView) view.findViewById(R.id.security_text_des)).setText(R.string.open_suspension_window_describe);
+                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
+                    if (Settings.canDrawOverlays(SecuritySettingsAdvance.this)) {
+                        checkbox.setImageResource(R.drawable.security_setting_check);
+                        windowFlag = true;
+                    } else {
+                        windowFlag = false;
+                        checkbox.setImageResource(R.drawable.security_setting_not_check);
                     }
+                    view.findViewById(R.id.layout).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!Settings.canDrawOverlays(SecuritySettingsAdvance.this)) {
+                                showSaveMode(SecuritySettingsAdvance.this, SETTING_ALERT_WINDOW);
+                                //启动服务
+                                Intent intent = new Intent(SecuritySettingsAdvance.this, PreferenceService.class);
+                                intent.putExtra("setting_alert_window", true);
+                                startService(intent);
+                            } else {
+                                Toast.makeText(SecuritySettingsAdvance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
                 }
                 return view;
             }
         });
     }
 
-    public void showSaveMode(Context context) {
+    public void showSaveMode(Context context, final int pre) {
         try {
 //            Log.e("chfq", "==省电模式==");
-            final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivityForResult(intent, REQUSETSET2);
+            if (pre == SETTING_CAMERA) {
+                try {
+                    //Open the specific App Info page:
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    intent.setData(Uri.parse("package:" + context.getPackageName()));
+                    startActivityForResult(intent, REQUSETSET3);
+                } catch (ActivityNotFoundException e) {
+                    //Open the generic Apps page:
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+                    startActivityForResult(intent, REQUSETSET3);
+                }
+                //申请WRITE_EXTERNAL_STORAGE权限
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+            } else if (pre == SETTING_ALERT_WINDOW) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, REQUSETSET4);
+            } else {
+                final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                startActivityForResult(intent, REQUSETSET2);
+            }
             handler.postDelayed(new Runnable() {
 
                 @Override
@@ -253,8 +283,18 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             false);
-                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate2, null);
+                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate, null);
+                    TextView per_tip = (TextView) alertDialogView.findViewById(R.id.per_tip);
+//                    TextView cancle = (TextView) alertDialogView.findViewById(R.id.cancle);
 
+                    if (pre == SETTING_POWER_MODE) {
+//                        per_tip.setText(getResources().getString(R.string.pre_tip3));
+//                        cancle.setVisibility(View.VISIBLE);
+                    } else {
+//                        per_tip.setText(getResources().getString(R.string.pre_tip2));
+//                        cancle.setVisibility(View.GONE);
+                    }
+                    per_tip.setVisibility(View.VISIBLE);
 
                     wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
                         @Override
@@ -269,8 +309,10 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
 
                         @Override
                         public void onClick() {
-                            wc.removeFromWindow();
-                            wc = null;
+                            if (wc != null) {
+                                wc.removeFromWindow();
+                                wc = null;
+                            }
                         }
                     });
                     wc.addView(alertDialogView);
@@ -282,8 +324,8 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         }
     }
 
+    //使用记录，和5.0权限一样
     public void showSettingPermission50(Context context) {
-        //使用记录，和5.0权限一样
         try {
             Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
             startActivityForResult(intent, REQUSETSET);
@@ -298,7 +340,6 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
                             false);
                     View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate, null);
 
-
                     wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
                         @Override
                         public boolean onBackPressed() {
@@ -312,8 +353,10 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
 
                         @Override
                         public void onClick() {
-                            wc.removeFromWindow();
-                            wc = null;
+                            if (wc != null) {
+                                wc.removeFromWindow();
+                                wc = null;
+                            }
                         }
                     });
                     wc.addView(alertDialogView);
@@ -326,20 +369,19 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onPause = true;
+    }
 
     @Override
     protected void onResume() {
 //        lv.getAdapter().notify();
         super.onResume();
-    }
-
-    private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(R.string.security_tab_setting);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-
+        if (onPause) {
+            onPause = false;
+            stopService(new Intent(this, PreferenceService.class));
         }
     }
 
@@ -411,5 +453,6 @@ public class SecuritySettingsAdvance extends ClientActivitySecurity {
         if (wc != null) {
             wc.removeFromWindow();
         }
+        stopService(new Intent(this, PreferenceService.class));
     }
 }

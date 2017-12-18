@@ -48,9 +48,19 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/per_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d18"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:layout_marginTop="@dimen/d24"
+                android:text="@string/pre_tip"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s15" />
 
             <RelativeLayout
-
                 android:id="@+id/ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

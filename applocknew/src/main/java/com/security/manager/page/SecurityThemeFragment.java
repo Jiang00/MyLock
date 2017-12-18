@@ -1,8 +1,6 @@
 package com.security.manager.page;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -11,29 +9,22 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.ivy.ivyshop.ShopMaster;
-import com.ivy.module.huojian.CleanManager;
-import com.ivy.module.huojian.Huojian;
 import com.ivymobi.applock.free.R;
 import com.security.manager.App;
-import com.security.manager.Tracker;
+import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
-import com.security.manager.lib.Utils;
-
 import com.security.manager.myinterface.ISecurityBridge;
-
-import ivy.battery.cooling.CoolingActivity;
-import ivy.battery.cooling.CrossTranslate;
 
 
 /**
@@ -104,266 +95,6 @@ public class SecurityThemeFragment extends Fragment {
             appname.setVisibility(View.GONE);
             statusicon.setBackgroundDrawable(bridge.icon());
         }
-    }
-
-    public static void crossPromote(ViewGroup v) {
-        CoolingActivity.getCool().setCoolLisenter(new CoolingActivity.BatteryCool() {
-            @Override
-            public void coolFinish() {
-
-                boolean newDay = SecurityMyPref.isANewDay();
-                int showAdTime = 0;
-                if (newDay) {
-                    SecurityMyPref.setUseBatteryShowAD(0);
-                    Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_ONE_NOT_SAME, Tracker.CATE_ACTION__CROSS_ONE_NOT_SAME, 1L);
-
-                } else {
-                    showAdTime = SecurityMyPref.getUseBatteryShowAD();
-                }
-                Intent intent = new Intent(App.getContext(), CrossTranslate.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("value", "ad1");
-                intent.putExtra("newday", newDay);
-                intent.putExtra("showad", showAdTime);
-                App.getContext().startActivity(intent);
-                SecurityMyPref.setUseBatteryShowAD(showAdTime + 1);
-            }
-        });
-        boolean showCross = SecurityMyPref.getShowCross();
-
-
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-        FrameLayout.LayoutParams trigonParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-
-        Point size = Utils.getScreenSize(v.getContext());
-
-        if (size.y < 854) {
-            layoutParams.bottomMargin = Utils.getDimens(v.getContext(), 5);
-        } else {
-            layoutParams.bottomMargin = Utils.getDimens(v.getContext(), 10);
-        }
-
-        LayoutInflater inflater = (LayoutInflater) App.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View crossView = inflater.inflate(R.layout.security_cross_promote, null);
-        final View trigon = inflater.inflate(R.layout.security_trigon, null);
-
-        final View crossBattery = crossView.findViewById(R.id.cross_battery);
-        final View crossClear = crossView.findViewById(R.id.cross_clear);
-        final View crossOther = crossView.findViewById(R.id.cross_flash);
-        final View crossClose = crossView.findViewById(R.id.security_cross_close);
-        crossBattery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_ONE, Tracker.CATE_ACTION__CROSS_ONE, 1L);
-                Intent intent = new Intent(v.getContext(), CoolingActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                v.getContext().startActivity(intent);
-
-            }
-        });
-
-
-        crossClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_TWO, Tracker.CATE_ACTION__CROSS_TWO, 1L);
-                CleanManager.Instance().runClean(v.getContext(), new Huojian.CallbackListener() {
-                    @Override
-                    public void cleanSuccess(Context context, long size, boolean isXianshi) {
-                        ((Activity) context).finish();
-                        boolean newDay = SecurityMyPref.isANewDay();
-                        int showAdTime = 0;
-                        if (newDay) {
-                            SecurityMyPref.setUseClearShowAD(0);
-                            Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_TWO_NOT_SAME, Tracker.CATE_ACTION__CROSS_TWO_NOT_SAME, 1L);
-
-                        } else {
-                            showAdTime = SecurityMyPref.getUseClearShowAD();
-                        }
-                        Intent intent = new Intent(App.getContext(), CrossTranslate.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra("value", "ad2");
-                        intent.putExtra("newday", newDay);
-                        intent.putExtra("showad", showAdTime);
-                        App.getContext().startActivity(intent);
-                        SecurityMyPref.setUseClearShowAD(showAdTime + 1);
-                    }
-                });
-
-            }
-        });
-
-        crossOther.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__CROSS_THREE, Tracker.CATE_ACTION__CROSS_THREE, 1L);
-                Intent intent = new Intent(v.getContext(), CrossTranslate.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("value", "ad3");
-                v.getContext().startActivity(intent);
-
-            }
-        });
-
-        crossClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_exit_anim);
-                crossView.setVisibility(View.GONE);
-                crossView.startAnimation(animation);
-                animation.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        trigon.setVisibility(View.VISIBLE);
-                        crossBattery.setEnabled(false);
-                        crossClear.setEnabled(false);
-                        crossOther.setEnabled(false);
-                        SecurityMyPref.setShowCross(false);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                });
-            }
-        });
-
-        crossBattery.setEnabled(false);
-        crossClear.setEnabled(false);
-        crossOther.setEnabled(false);
-
-        trigon.findViewById(R.id.trigon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                trigon.setVisibility(View.GONE);
-                crossView.setVisibility(View.VISIBLE);
-                Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
-                crossView.startAnimation(animation);
-                SecurityMyPref.setShowCross(true);
-
-            }
-        });
-
-        trigon.findViewById(R.id.trigon_icon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                trigon.setVisibility(View.GONE);
-                crossView.setVisibility(View.VISIBLE);
-                Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
-                crossView.startAnimation(animation);
-                crossBattery.setEnabled(true);
-                crossClear.setEnabled(true);
-                crossOther.setEnabled(true);
-                SecurityMyPref.setShowCross(true);
-
-            }
-        });
-
-        crossView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x1 = 0;
-                float x2 = 0;
-                float y1 = 0;
-                float y2 = 0;
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    //当手指按下的时候
-                    x1 = event.getX();
-                    y1 = event.getY();
-                }
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    //当手指离开的时候
-                    x2 = event.getX();
-                    y2 = event.getY();
-                    if (y1 - y2 > 40) {
-                        //向上滑动
-
-                    } else if (y2 - y1 > 20) {
-                        //向下滑动
-
-                    }
-                }
-                return true;
-            }
-        });
-
-        trigon.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x1 = 0;
-                float x2 = 0;
-                float y1 = 0;
-                float y2 = 0;
-
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    //当手指按下的时候
-                    x1 = event.getX();
-                    y1 = event.getY();
-                }
-
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    //向上滑动
-                    x2 = event.getX();
-                    y2 = event.getY();
-                    if (y1 - y2 > 30) {
-                        trigon.setVisibility(View.GONE);
-                        crossView.setVisibility(View.VISIBLE);
-                        Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
-                        crossView.startAnimation(animation);
-                        crossBattery.setEnabled(true);
-                        crossClear.setEnabled(true);
-                        crossOther.setEnabled(true);
-                        animation.setAnimationListener(new Animation.AnimationListener() {
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-                                SecurityMyPref.setShowCross(true);
-
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-
-                            }
-                        });
-
-                    }
-                }
-
-
-                return true;
-            }
-        });
-
-        crossView.setVisibility(View.GONE);
-        trigon.setVisibility(View.VISIBLE);
-        v.addView(trigon, trigonParams);
-        v.addView(crossView, layoutParams);
-
-
-        if (showCross) {
-            trigon.setVisibility(View.GONE);
-            crossView.setVisibility(View.VISIBLE);
-//            Animation animation = AnimationUtils.loadAnimation(App.getContext(), R.anim.security_pop_enter_anim);
-//            animation.setFillAfter(true);
-//            crossView.startAnimation(animation);
-            crossBattery.setEnabled(true);
-            crossClear.setEnabled(true);
-            crossOther.setEnabled(true);
-        }
-
-
     }
 
     @Override

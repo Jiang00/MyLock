@@ -7,7 +7,7 @@ import java.util.List;
  * Created by superjoy on 2014/9/23.
  */
 public class SearchThread extends Thread {
-    public interface OnSearchResult{
+    public interface OnSearchResult {
         void onResult(ArrayList<SearchData> list);
     }
 
@@ -23,8 +23,8 @@ public class SearchThread extends Thread {
     String key;
     List<SearchData> list;
     OnSearchResult listener;
-    public void waittingForSearch(String key, List<SearchData> list, OnSearchResult listener)
-    {
+
+    public void waittingForSearch(String key, List<SearchData> list, OnSearchResult listener) {
         wait = true;
         this.key = key.toLowerCase();
         this.list = list;
@@ -34,26 +34,21 @@ public class SearchThread extends Thread {
 
     @Override
     public void run() {
-        while (running)
-        {
+        while (running) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ignore) {
 
             }
-            if (wait)
-            {
+            if (wait) {
                 wait = false;
                 continue;
             }
-            if (list != null)
-            {
+            if (list != null) {
                 ArrayList<SearchData> lst = new ArrayList<>();
                 final String k = key;
-                for(SearchData s : list)
-                {
-                    if (s.label.toLowerCase().contains(k))
-                    {
+                for (SearchData s : list) {
+                    if (s.label.toLowerCase().contains(k)) {
                         lst.add(s);
                     }
                     if (wait) {
@@ -61,12 +56,9 @@ public class SearchThread extends Thread {
                         break;
                     }
                 }
-                if (wait)
-                {
+                if (wait) {
                     wait = false;
-                }
-                else
-                {
+                } else {
                     listener.onResult(lst);
                 }
                 list = null;

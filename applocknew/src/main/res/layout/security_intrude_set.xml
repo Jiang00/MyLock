@@ -1,20 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/menu"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/security_component_toolbar"/>
-    <FrameLayout
-        android:id="@+id/suo_frag_co"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="@dimen/d56"
+        android:background="@color/A1"
+        android:elevation="@dimen/d4">
 
-    <ProgressBar
-        android:id="@+id/setprogress"
-        android:visibility="gone"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/d16"
+            android:paddingRight="@dimen/d16"
+            android:src="@drawable/back" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/security_intruder_setting_new"
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s18" />
+    </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/intrude_open_fl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d72"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d56"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/security_new_intruder"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s17" />
+
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:id="@+id/intrude_open"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d6"
+                android:text="@string/security_intruder_on_new"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s11" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/intrude_open_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@drawable/security_setting_check" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="bottom"
+            android:background="@color/A4" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/intrude_time_fl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d72"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d56"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/security_intruder_tip"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s17" />
+
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:id="@+id/intrude_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d6"
+                android:text="@string/security_intrude_one"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s11" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@drawable/security_item_action_next" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="bottom"
+            android:background="@color/A4" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/setting_shutter_fl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d72"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d56"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/security_intrude_shutter"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s17" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/intruder_shutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@drawable/security_setting_check" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_gravity="bottom"
+            android:background="@color/A4" />
+    </FrameLayout>
 </LinearLayout>

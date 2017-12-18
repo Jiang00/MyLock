@@ -48,7 +48,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        tips();
     }
 
     AppFragementSecurity fragment;
@@ -56,9 +55,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
     private String profileName;
 
     boolean hide;
-
-//    @InjectView(R.id.slide_menu_ad)
-//    FrameLayout ADView;
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
@@ -78,7 +74,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
             if (Utils.requireCheckAccessPermission(this)) {
                 final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-//                    ShowDialogview.showPermission(this);
                     final View alertDialogView = View.inflate(this, R.layout.security_show_permission, null);
                     final AlertDialog d = new AlertDialog.Builder(this, R.style.dialog).create();
                     d.setView(alertDialogView);
@@ -112,8 +107,10 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
                                         @Override
                                         public void onClick() {
-                                            wc.removeFromWindow();
-                                            wc = null;
+                                            if (wc != null) {
+                                                wc.removeFromWindow();
+                                                wc = null;
+                                            }
                                         }
                                     });
                                     wc.addView(alertDialogView);
@@ -177,9 +174,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
                 e.printStackTrace();
             }
         }
-
     }
-
 
     public void setupView() {
         setContentView(R.layout.security_slidemenu_data);
@@ -206,13 +201,9 @@ public class SecurityAppLock extends ClientActivitySecurity {
         }
         requirePermission();
 
-        //侧边栏广告取消
-//        ininShowAD();
         initclick();
 
         initgetData();
-
-
     }
 
     @Override
@@ -224,19 +215,7 @@ public class SecurityAppLock extends ClientActivitySecurity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-
-
     }
-
-//    void ininShowAD() {
-//        if (AndroidSdk.hasNativeAd(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-//            View scrollView = AndroidSdk.peekNativeAdViewWithLayout(TAG_TLEF_AD, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.app_slide_native_layout, null);
-//            if (scrollView != null) {
-//                ADView.addView(scrollView);
-//            }
-//        }
-//
-//    }
 
     private void setupToolbar() {
         if (SecurityMyPref.hasIntruder()) {

@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_processinfo"
     android:layout_width="match_parent"
     android:layout_height="96dp"
     android:gravity="center"
     android:orientation="vertical">
-    <ImageView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:id="@+id/icon"/>
 
-    <TextView
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@drawable/security_font_color"
-        android:gravity="center"
-        android:textSize="14sp"
-        android:id="@+id/title"/>
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/d54"
+        android:layout_height="@dimen/d64"
+        android:src="@drawable/widget" />
+
 </LinearLayout>

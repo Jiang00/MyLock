@@ -1,30 +1,24 @@
 package com.security.manager;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.ivymobi.applock.free.R;
-import com.security.manager.lib.Utils;
-import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.ListViewForScrollView;
+import com.security.lib.customview.SecurityloadImage;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
-import com.security.lib.customview.SecurityloadImage;
+import com.security.manager.myview.MyGridView;
 import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.SlideMenu;
 import com.security.mymodule.FileType;
@@ -40,7 +34,7 @@ import butterknife.InjectView;
  */
 public class IntruderActivitySecurity extends ClientActivitySecurity {
     @InjectView(R.id.abs_list)
-    ListViewForScrollView listView;
+    MyGridView listView;
 
     @InjectView(R.id.tip)
     TextView tip;
@@ -74,8 +68,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -95,8 +87,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
             tip.setVisibility(View.VISIBLE);
         } else {
             tip.setVisibility(View.GONE);
-            ListView lv = listView;
-            adapter = new CListViewAdaptor(new CListViewScroller(lv), R.layout.security_intruder) {
+            adapter = new CListViewAdaptor(new CListViewScroller(listView), R.layout.security_intruder) {
                 @Override
                 protected void onUpdate(final int position, Object holderObject, boolean scroll) {
                     ViewHolder holder = (ViewHolder) holderObject;
@@ -114,6 +105,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                             intent.putExtra("pkg", entry.pkg);
                             intent.putExtra("position", position);
                             startActivityForResult(intent, 1);
+                            overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                         }
                     });
 
@@ -153,9 +145,8 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
                 }
             };
 
-            lv.setAdapter(adapter);
+            listView.setAdapter(adapter);
         }
-
     }
 
 
@@ -182,9 +173,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
             intruderEntries.clear();
             intruderEntries= IntruderApi.getIntruders();
             adapter.notifyDataSetChanged();
-
         }
-
     }
 
 
@@ -195,7 +184,6 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         if (actionBar != null) {
             actionBar.setTitle(R.string.security_new_intruder);
             actionBar.setDisplayHomeAsUpEnabled(true);
-
         }
     }
 
@@ -211,7 +199,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
         if (item.getItemId() == R.id.intrude_set) {
             Intent i = new Intent(this, SecurityIntruderSetting.class);
             startActivity(i);
-
+            overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
         } else if (item.getItemId() == android.R.id.home) {
             SlideMenu.Status status = menu.getStatus();
             if (status == SlideMenu.Status.Close)

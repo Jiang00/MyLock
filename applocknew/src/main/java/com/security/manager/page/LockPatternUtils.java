@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,6 +30,7 @@ public class LockPatternUtils {
 
     /**
      * Deserialize a pattern.
+     *
      * @param string The pattern serialized with {@link #patternToString}
      * @return The pattern.
      */
@@ -45,6 +47,7 @@ public class LockPatternUtils {
 
     /**
      * Serialize a pattern.
+     *
      * @param pattern The pattern.
      * @return The pattern in string form.
      */
@@ -62,25 +65,25 @@ public class LockPatternUtils {
         return Arrays.toString(res);
     }
 
-    public void saveLockPattern(List<SecurityPatternView.Cell> pattern){
+    public void saveLockPattern(List<SecurityPatternView.Cell> pattern) {
         Editor editor = preference.edit();
         editor.putString(KEY_LOCK_PWD, patternToString(pattern));
         editor.commit();
     }
 
-    public String getLockPaternString(){
+    public String getLockPaternString() {
         return preference.getString(KEY_LOCK_PWD, "");
     }
 
     public boolean checkPattern(List<SecurityPatternView.Cell> pattern) {
         String stored = getLockPaternString();
-        if(stored.length() > 0){
+        if (stored.length() > 0) {
             return stored.equals(patternToString(pattern));
         } else return false;
     }
 
-    public static boolean checkPattern(List<SecurityPatternView.Cell> p1, List<SecurityPatternView.Cell> p2)
-    {
+    public static boolean checkPattern(List<SecurityPatternView.Cell> p1, List<SecurityPatternView.Cell> p2) {
+        Log.e("chfq", "==patternToString(p1)==" + patternToString(p1));
         return patternToString(p1).equals(patternToString(p2));
     }
 

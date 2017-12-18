@@ -6,49 +6,79 @@
     android:orientation="vertical">
 
     <TextView
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:gravity="center"
         android:background="@color/security_theme_primary"
+        android:gravity="center"
         android:text="@string/app_name"
         android:textColor="#fff"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <ListView
-        android:layout_marginBottom="18dp"
         android:id="@+id/abs_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:divider="@drawable/security_app_listview_driver"
-        android:headerDividersEnabled="false"
-        android:dividerHeight="1px"
         android:choiceMode="multipleChoice"
-        android:longClickable="false"/>
+        android:divider="@drawable/security_app_listview_driver"
+        android:dividerHeight="0dp"
+        android:headerDividersEnabled="false"
+        android:longClickable="false" />
 
-    <Button
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="center"
-        android:layout_width="312dp"
-        android:layout_height="49dp"
-        android:textSize="18sp"
-        android:background="@drawable/security_select_button"
-        android:text="@string/security_set_password"
-        android:id="@+id/next"
-        android:textColor="#fff"/>
     <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/for_choose_theme"
+        android:id="@+id/next_ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <include layout="@layout/choose_theme"></include>
+        android:layout_height="@dimen/d46"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/d6"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
+        android:background="@drawable/security_select_button"
+        android:gravity="center">
 
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/frist_ok"
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s17" />
 
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d6"
+            android:gravity="center"
+            android:text="("
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s17" />
+
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:id="@+id/next_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s17" />
+
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=")"
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s17" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/for_choose_theme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
-
-
-
+        <include layout="@layout/choose_theme" />
+    </LinearLayout>
 </LinearLayout>

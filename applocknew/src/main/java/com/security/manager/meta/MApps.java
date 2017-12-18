@@ -8,35 +8,40 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
 import com.security.manager.App;
-import com.security.manager.lib.async.LoadingTask;
 import com.security.manager.SearchThread;
+import com.security.manager.lib.async.LoadingTask;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by SongHualin on 6/26/2015.
  */
 public class MApps {
-    public static void init(){
+    public static void init() {
         loadingTask.start();
     }
 
-    public static void setWaiting(Runnable waiting){
+    public static void setWaiting(Runnable waiting) {
         loadingTask.waiting(waiting);
     }
 
-    public static void add(Context context, String pkg){
-        if (loadingTask.isFinished()){
+    public static void add(Context context, String pkg) {
+        if (loadingTask.isFinished()) {
             SearchThread.SearchData data = new SearchThread.SearchData();
             try {
                 data.pkg = pkg;
                 ApplicationInfo applicationInfo = context.getPackageManager().getPackageInfo(pkg, 0).applicationInfo;
                 data.label = applicationInfo.loadLabel(context.getPackageManager()).toString();
                 data.system = (applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
-                if (data.system){
+                if (data.system) {
                     systems.add(data);
                     Collections.sort(systems, comparator);
-                } else{
+                } else {
                     thirdparties.add(data);
                     Collections.sort(thirdparties, comparator);
                 }
@@ -48,9 +53,9 @@ public class MApps {
         }
     }
 
-    private static boolean remove(List<SearchThread.SearchData> pool, String pkg){
-        for(int i=pool.size()-1; i>=0; --i){
-            if (pool.get(i).pkg.equals(pkg)){
+    private static boolean remove(List<SearchThread.SearchData> pool, String pkg) {
+        for (int i = pool.size() - 1; i >= 0; --i) {
+            if (pool.get(i).pkg.equals(pkg)) {
                 pool.remove(i);
                 return true;
             }
@@ -58,8 +63,8 @@ public class MApps {
         return false;
     }
 
-    public static void removed(String pkg){
-        if (loadingTask.isFinished()){
+    public static void removed(String pkg) {
+        if (loadingTask.isFinished()) {
             if (remove(thirdparties, pkg)) return;
             if (remove(predefined, pkg)) return;
             remove(systems, pkg);
@@ -68,12 +73,12 @@ public class MApps {
         }
     }
 
-    public static void show(SearchThread.SearchData data){
+    public static void show(SearchThread.SearchData data) {
         hiddens.remove(data);
-        if (data.predefined){
+        if (data.predefined) {
             predefined.add(data);
             Collections.sort(predefined, comparator);
-        } else if (data.system){
+        } else if (data.system) {
             systems.add(data);
             Collections.sort(systems, comparator);
         } else {
@@ -82,22 +87,22 @@ public class MApps {
         }
     }
 
-    public static void hide(SearchThread.SearchData data){
+    public static void hide(SearchThread.SearchData data) {
         hiddens.add(data);
         Collections.sort(hiddens, comparator);
-        if (data.predefined){
+        if (data.predefined) {
             predefined.remove(data);
-        } else if (data.system){
+        } else if (data.system) {
             systems.remove(data);
         } else {
             thirdparties.remove(data);
         }
     }
 
-    public static List<SearchThread.SearchData> getHiddenApps(Map<String, Boolean> outHiddens){
+    public static List<SearchThread.SearchData> getHiddenApps(Map<String, Boolean> outHiddens) {
         List<SearchThread.SearchData> apps = new ArrayList<>();
         outHiddens.clear();
-        for(SearchThread.SearchData data : hiddens){
+        for (SearchThread.SearchData data : hiddens) {
             outHiddens.put(data.pkg, true);
         }
         apps.addAll(hiddens);
@@ -108,27 +113,26 @@ public class MApps {
     }
 
     /**
-     *
      * @param filter locked apps
      * @return
      */
-    public static List<SearchThread.SearchData> getApps(Map<String, Boolean> filter){
+    public static List<SearchThread.SearchData> getApps(Map<String, Boolean> filter) {
         List<SearchThread.SearchData> apps = new ArrayList<>();
         List<SearchThread.SearchData> left = new ArrayList<>();
         apps.addAll(top);
-        filter(filter, predefined, apps, left);
+//        filter(filter, predefined, apps, left);
         filter(filter, thirdparties, apps, left);
         filter(filter, systems, apps, left);
         apps.addAll(left);
         return apps;
     }
 
-    private static void filter(Map<String, Boolean> filter, List<SearchThread.SearchData> pool, List<SearchThread.SearchData> filtered, List<SearchThread.SearchData> left){
-        if (filter.size() == 0){
+    private static void filter(Map<String, Boolean> filter, List<SearchThread.SearchData> pool, List<SearchThread.SearchData> filtered, List<SearchThread.SearchData> left) {
+        if (filter.size() == 0) {
             left.addAll(pool);
         } else {
-            for(SearchThread.SearchData data : pool){
-                if (filter.containsKey(data.pkg)){
+            for (SearchThread.SearchData data : pool) {
+                if (filter.containsKey(data.pkg)) {
                     filtered.add(data);
                 } else {
                     left.add(data);
@@ -227,7 +231,8 @@ public class MApps {
                     if (!pkg.equals("com.android.phone")) {
                         predefinedData_.add(data);
                     }
-                } catch (Exception ignore) {}
+                } catch (Exception ignore) {
+                }
             }
 
             for (ResolveInfo app : apps_) {
@@ -241,14 +246,14 @@ public class MApps {
                 //锁应用列表界面去除掉了设置实现
                 // 引导界面需要添加设置需要去相关patternactivity设置
 //                if(!pkg.equals("com.android.settings")){
-                    if ((app.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                        data.system = true;
-                        systems_.add(data);
-                    } else {
-                        data.system = false;
-                        thirdParties_.add(data);
-                    }
-               // }
+                if ((app.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    data.system = true;
+                    systems_.add(data);
+                } else {
+                    data.system = false;
+                    thirdParties_.add(data);
+                }
+                // }
 
 
             }

@@ -3,6 +3,17 @@
   "v_pub": 1,
   "domain": "https://admob-app-id-5748796808.firebaseio.com/data.json",
   "data": {
+    "show_theme":1,//主题商店
+    "show_applock_stop":1,//停止应用锁
+    "show_fakecover":1,//应用伪装
+    "show_intruder":1,//入侵者
+    "show_vault":1,//图片/视频/文件保险箱
+    "show_fingerprint":1,//设置_指纹识别
+    "show_notification":1,//通知栏
+    "show_charging":1,//充电屏保
+    "show_widget":1,//桌面Widget
+
+
     "show_lockall":1,
     "daily": "com.lockstudio.lockscreen.pinkflowers&referrer=utm_source%3DgalaxyDaily",
     "unlock": "com.lockstudio.lockscreen.reddiamond&referrer=utm_source%3Dgalaxyunlock",
@@ -321,10 +332,6 @@
         ]
       }
     ],
-
-
-
-
     "themes": [
       {
         "url": "com.lockstudio.lockscreen.pinkmood&referrer=utm_source%3Dtheme7",

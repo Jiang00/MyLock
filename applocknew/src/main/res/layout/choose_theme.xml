@@ -7,57 +7,73 @@
     android:orientation="vertical"
     android:tag="security_pattern">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/security_new_user_choose_app_bac"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="@dimen/d56"
+        android:background="@color/A1">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/frist_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/frist3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d141"
+        android:background="@color/A1">
+
+        <TextView
+            android:id="@+id/tip"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@null"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/d13"
             android:gravity="center"
-            android:orientation="vertical">
+            android:tag="tip"
+            android:text="请选择您喜欢的主题"
+            android:textColor="@color/A6"
+            android:textSize="@dimen/s13" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/choose_theme_clothing" />
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tip"
+            android:layout_marginBottom="@dimen/d6"
+            android:gravity="center"
+            android:tag="title"
+            android:text="还差最后一步！"
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s16" />
 
-            <TextView
-                android:id="@+id/tip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:tag="tip"
-                android:text="@string/security_choose_theme"
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/choose_theme_lottie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/d10" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="6"
-        android:background="@android:color/white"
-        android:gravity="center"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <RelativeLayout
             android:id="@+id/default_theme"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d16">
 
             <ImageView
-                android:layout_width="164dp"
-                android:layout_height="294dp"
+                android:layout_width="@dimen/d155"
+                android:layout_height="@dimen/d277"
                 android:background="@drawable/theme_preview" />
 
             <ImageView
@@ -68,42 +84,41 @@
                 android:layout_marginBottom="11dp"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/security_theme_choose" />
-        </FrameLayout>
+        </RelativeLayout>
 
-        <FrameLayout
+        <RelativeLayout
             android:id="@+id/new_hoose_theme"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d16">
 
             <ImageView
-                android:layout_width="164dp"
-                android:layout_height="294dp"
-                android:layout_marginLeft="12dp"
+                android:layout_width="@dimen/d155"
+                android:layout_height="@dimen/d277"
                 android:background="@drawable/theme_preview_two" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/choose_theme_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:layout_marginBottom="11dp"
                 android:layout_marginRight="11dp"
-                android:background="@drawable/security_theme_choose" />
-
-        </FrameLayout>
-
+                android:background="@drawable/security_theme_choose"
+                android:visibility="gone" />
+        </RelativeLayout>
     </LinearLayout>
 
-    <Button
+    <com.security.lib.customview.CustomerTypefaceTextView
         android:id="@+id/choose_next"
-        android:layout_width="312dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="18dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d46"
+        android:layout_marginBottom="@dimen/d6"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:background="@drawable/security_select_button"
+        android:gravity="center"
         android:text="@string/security_done"
-        android:textColor="#fff"
-        android:textSize="18sp" />
+        android:textColor="@color/A3"
+        android:textSize="@dimen/s17" />
 </LinearLayout>

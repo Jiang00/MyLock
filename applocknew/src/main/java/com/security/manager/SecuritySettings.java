@@ -1,29 +1,27 @@
 package com.security.manager;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.ivy.util.Utility;
+import com.android.client.AndroidSdk;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
+import com.security.manager.page.MyDialog;
 import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.SlideMenu;
-import com.security.manager.page.showDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -32,22 +30,6 @@ import butterknife.InjectView;
  * Created by superjoy on 2014/9/4.
  */
 public class SecuritySettings extends ClientActivitySecurity {
-    public static byte idx = 0;
-    public static byte SETTING_SLOT;
-    public static byte SETTING_MODE;
-    public static byte SETTING_FINGERPRINT;
-    public static byte SETTING_HIDE_GRAPH_PATH;
-    public static byte SETTING_NOTIFICATION;
-
-    public static byte SETTING_LOCK_NEW;
-    public static byte SETTING_SETTING_ADVANCE;
-    public static byte SETTING_RATE;
-
-    int[] items;
-    int[] icon;
-
-    ListView lv;
-
     @InjectView(R.id.normal_title_name)
     TextView normalTitle;
 
@@ -63,9 +45,36 @@ public class SecuritySettings extends ClientActivitySecurity {
     @InjectView(R.id.googleplay)
     ImageView googleplay;
 
-    BaseAdapter adapter;
-
     Intent intent;
+    private FrameLayout setting_frequency_fl;
+    private TextView setting_frequency;
+    private SharedPreferences sp;
+    private FrameLayout setting_rebuild_fl;
+    private TextView setting_rebuild;
+    private FrameLayout setting_hide_fl;
+    private ImageView setting_hide_iv;
+    private boolean hideFlag;
+    private FrameLayout setting_newlock_fl;
+    private ImageView setting_newlock_iv;
+    private boolean newLockFlag;
+    private FrameLayout setting_notice_fl;
+    private ImageView setting_notice_iv;
+    private boolean noticeFlag;
+    private FrameLayout setting_fingerprint_fl;
+    private ImageView setting_fingerprint_iv;
+    private boolean fingerprintFlag;
+    private FrameLayout setting_battery_fl;
+    private ImageView setting_battery_iv;
+    private boolean batteryFlag;
+    private FrameLayout setting_widget_fl;
+    private ImageView setting_widget_iv;
+    private boolean widgetFlag;
+    private FrameLayout setting_power_fl;
+    private FrameLayout setting_rote_fl;
+    private int show_fingerprint;
+    private int show_notification;
+    private int show_charging;
+    private int show_widget;
 
 
     @Override
@@ -78,35 +87,6 @@ public class SecuritySettings extends ClientActivitySecurity {
         setContentView(R.layout.security_settings);
         ButterKnife.inject(this);
         setupToolbar();
-        SETTING_SLOT = 0;
-        SETTING_MODE = 1;
-        SETTING_HIDE_GRAPH_PATH = 2;
-        SETTING_LOCK_NEW = 3;
-        SETTING_NOTIFICATION = 4;
-
-        SETTING_SETTING_ADVANCE = 5;
-        SETTING_RATE = 6;
-        items = new int[]{
-                R.string.security_over_short,
-                R.string.security_reset_password,
-                R.string.security_hide_path,
-                R.string.security_newapp_lock,
-                R.string.security_nofification,
-                R.string.security_settings_preference,
-                R.string.security_help_share
-        };
-
-
-        icon = new int[]{
-                R.drawable.security_brif_setting,
-                R.drawable.security_reset_password,
-                R.drawable.security_hide_pattern,
-                R.drawable.security_lock_new,
-                R.drawable.security_notification,
-                R.drawable.security_permission_center,
-                R.drawable.security_rate_me
-        };
-
         setup(R.string.security_tab_setting);
         normalTitle.setText("   " + getResources().getString(R.string.security_tab_setting));
         normalTitle.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.security_back), null, null, null);
@@ -116,179 +96,110 @@ public class SecuritySettings extends ClientActivitySecurity {
                 onBackPressed();
             }
         });
-        setViewVisible(View.GONE, R.id.search_button, R.id.bottom_action_bar, R.id.progressBar);
-        findViewById(R.id.abs_list).setVisibility(View.VISIBLE);
+        setViewVisible(View.GONE, R.id.search_button, R.id.bottom_action_bar);
+
+        sp = App.getSharedPreferences();
+//锁定设置
+        setting_frequency_fl = (FrameLayout) findViewById(R.id.setting_frequency_fl);
+        setting_frequency = (TextView) findViewById(R.id.setting_frequency);
+        int slot = sp.getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
+        setting_frequency.setText(getResources().getStringArray(R.array.brief_slot)[slot]);
+        //重设密码
+        setting_rebuild_fl = (FrameLayout) findViewById(R.id.setting_rebuild_fl);
+        setting_rebuild = (TextView) findViewById(R.id.setting_rebuild);
+        setting_rebuild.setText(SecurityMyPref.isUseNormalPasswd() ? R.string.security_password_lock : R.string.security_use_pattern);
+        //隐藏图形路径
+        setting_hide_fl = (FrameLayout) findViewById(R.id.setting_hide_fl);
+        setting_hide_iv = (ImageView) findViewById(R.id.setting_hide_iv);
+        hideFlag = sp.getBoolean("hide_path", false);
+        if (hideFlag) {
+            setting_hide_iv.setImageResource(R.drawable.security_setting_check);
+        } else {
+            setting_hide_iv.setImageResource(R.drawable.security_setting_not_check);
+        }
+        //新应用加锁
+        setting_newlock_fl = (FrameLayout) findViewById(R.id.setting_newlock_fl);
+        setting_newlock_iv = (ImageView) findViewById(R.id.setting_newlock_iv);
+        newLockFlag = sp.getBoolean(SecurityMyPref.LOCK_NEW, SecurityMyPref.LOCK_DEFAULT);
+        if (newLockFlag) {
+            setting_newlock_iv.setImageResource(R.drawable.security_setting_check);
+        } else {
+            setting_newlock_iv.setImageResource(R.drawable.security_setting_not_check);
+        }
+        //通知栏
+        setting_notice_fl = (FrameLayout) findViewById(R.id.setting_notice_fl);
+        setting_notice_iv = (ImageView) findViewById(R.id.setting_notice_iv);
+        noticeFlag = SecurityMyPref.getNotification();
+        if (noticeFlag) {
+            setting_notice_iv.setImageResource(R.drawable.security_setting_check);
+        } else {
+            setting_notice_iv.setImageResource(R.drawable.security_setting_not_check);
+        }
+        //指纹
+        setting_fingerprint_fl = (FrameLayout) findViewById(R.id.setting_fingerprint_fl);
+        setting_fingerprint_iv = (ImageView) findViewById(R.id.setting_fingerprint_iv);
+//        fingerprintFlag = SecurityMyPref.getNotification();
+        if (fingerprintFlag) {
+            setting_fingerprint_iv.setImageResource(R.drawable.security_setting_check);
+        } else {
+            setting_fingerprint_iv.setImageResource(R.drawable.security_setting_not_check);
+        }
+        //充电屏保
+        setting_battery_fl = (FrameLayout) findViewById(R.id.setting_battery_fl);
+        setting_battery_iv = (ImageView) findViewById(R.id.setting_battery_iv);
+//        batteryFlag = SecurityMyPref.getNotification();
+        if (batteryFlag) {
+            setting_battery_iv.setImageResource(R.drawable.security_setting_check);
+        } else {
+            setting_battery_iv.setImageResource(R.drawable.security_setting_not_check);
+        }
+        //桌面widget
+        setting_widget_fl = (FrameLayout) findViewById(R.id.setting_widget_fl);
+        setting_widget_iv = (ImageView) findViewById(R.id.setting_widget_iv);
+//        widgetFlag = SecurityMyPref.getNotification();
+        if (widgetFlag) {
+            setting_widget_iv.setImageResource(R.drawable.security_setting_check);
+        } else {
+            setting_widget_iv.setImageResource(R.drawable.security_setting_not_check);
+        }
+        //权限中心
+        setting_power_fl = (FrameLayout) findViewById(R.id.setting_power_fl);
+        //评价
+        setting_rote_fl = (FrameLayout) findViewById(R.id.setting_rote_fl);
+
+        try {
+            JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
+            show_fingerprint = jsonObject.getInt("show_fingerprint");
+            show_notification = jsonObject.getInt("show_notification");
+            show_charging = jsonObject.getInt("show_charging");
+            show_widget = jsonObject.getInt("show_widget");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (show_fingerprint == 0) {
+            setting_fingerprint_fl.setVisibility(View.GONE);
+        }
+        if (show_notification == 0) {
+            setting_notice_fl.setVisibility(View.GONE);
+        }
+        if (show_charging == 0) {
+            setting_battery_fl.setVisibility(View.GONE);
+        }
+        if (show_widget == 0) {
+            setting_widget_fl.setVisibility(View.GONE);
+        }
 
 
-        lv = (ListView) findViewById(R.id.abs_list);
-        lv.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return items.length;
-            }
-
-            @Override
-            public Object getItem(int i) {
-                return i;
-            }
-
-            @Override
-            public long getItemId(int i) {
-                return i;
-            }
-
-
-            @Override
-            public View getView(int i, View view, ViewGroup viewGroup) {
-
-                if (i == SETTING_MODE) {
-                    view = getLayoutInflater().inflate(R.layout.security_setting_item, viewGroup, false);
-                    TextView title = (TextView) view.findViewById(R.id.security_title_bar_te);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-                    TextView desc = (TextView) view.findViewById(R.id.security_text_des);
-                    title.setText(R.string.security_reset_passwd_2_btn);
-                    desc.setText(SecurityMyPref.isUseNormalPasswd() ? R.string.security_password_lock : R.string.security_use_pattern);
-                    view.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-//                            setPasswd(true, !SharPre.isUseNormalPasswd());
-                            showDialog.showResetPasswordDialog(v.getContext());
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_RESETPAS, Tracker.ACT_SETTING_RESETPAS, 1L);
-                        }
-                    });
-                } else if (i == SETTING_SLOT) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item, null, false);
-                    LinearLayout it = (LinearLayout) view.findViewById(R.id.security_linera);
-                    int slot = App.getSharedPreferences().getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
-                    ((TextView) it.findViewById(R.id.security_text_des)).setText(getResources().getStringArray(R.array.brief_slot)[slot]);
-                    ((TextView) it.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-
-                    it.setOnClickListener(onClickListener);
-                    it.setId(i);
-                } else if (i == SETTING_LOCK_NEW) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item_two, null, false);
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-
-                    if (App.getSharedPreferences().getBoolean(SecurityMyPref.LOCK_NEW, SecurityMyPref.LOCK_DEFAULT)) {
-                        checkbox.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        checkbox.setImageResource(R.drawable.security_setting_not_check);
-                    }
-                    checkbox.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (App.getSharedPreferences().getBoolean(SecurityMyPref.LOCK_NEW, SecurityMyPref.LOCK_DEFAULT)) {
-                                checkbox.setImageResource(R.drawable.security_setting_not_check);
-//                                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_NEW_APP, MyTrack.ACT_NEW_APP, 1L);
-                                App.getSharedPreferences().edit().putBoolean(SecurityMyPref.LOCK_NEW, false).apply();
-
-                            } else {
-                                checkbox.setImageResource(R.drawable.security_setting_check);
-//                                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_NEW_APP, MyTrack.ACT_NEW_APP, 1L);
-                                App.getSharedPreferences().edit().putBoolean(SecurityMyPref.LOCK_NEW, true).apply();
-                            }
-
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NEW, Tracker.ACT_SETTING_LOCK_NEW, 1L);
-                        }
-                    });
-
-                } else if (i == SETTING_NOTIFICATION) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item_two, null, false);
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-
-                    final ImageView checkbox = (ImageView) view.findViewById(R.id.security_set_checked);
-                    if (SecurityMyPref.getNotification()) {
-                        checkbox.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        checkbox.setImageResource(R.drawable.security_setting_not_check);
-                    }
-                    checkbox.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (SecurityMyPref.getNotification()) {
-                                checkbox.setImageResource(R.drawable.security_setting_not_check);
-                                SecurityMyPref.setNotification(false);
-                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
-
-                            } else {
-                                checkbox.setImageResource(R.drawable.security_setting_check);
-                                SecurityMyPref.setNotification(true);
-                                stopService(new Intent(SecuritySettings.this, NotificationService.class));
-                                startService(new Intent(SecuritySettings.this, NotificationService.class));
-                            }
-
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
-
-
-                        }
-                    });
-
-
-                } else if (i == SETTING_SETTING_ADVANCE) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item, null, false);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-
-                    LinearLayout it = (LinearLayout) view.findViewById(R.id.security_linera);
-                    ((TextView) it.findViewById(R.id.security_text_des)).setText(R.string.security_settings_preference_desc);
-                    ((TextView) it.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    it.setOnClickListener(onClickListener);
-                    it.setId(i);
-                } else if (i == SETTING_RATE) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_rate_it, null, false);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-
-                    FrameLayout it = (FrameLayout) view.findViewById(R.id.security_rate);
-                    TextView textRate = (TextView) view.findViewById(R.id.security_rate_text);
-                    textRate.setText(items[i]);
-                    it.setOnClickListener(onClickListener);
-                    it.setId(i);
-                } else if (i == SETTING_HIDE_GRAPH_PATH) {
-                    view = LayoutInflater.from(SecuritySettings.this).inflate(R.layout.security_setting_item_two, null, false);
-                    view.findViewById(R.id.setting_icon).setBackgroundResource(icon[i]);
-
-                    ((TextView) view.findViewById(R.id.security_title_bar_te)).setText(items[i]);
-                    ((TextView) view.findViewById(R.id.security_text_des)).setVisibility(View.GONE);
-                    final ImageView b = (ImageView) view.findViewById(R.id.security_set_checked);
-                    if (App.getSharedPreferences().getBoolean("hide_path", false)) {
-                        b.setImageResource(R.drawable.security_setting_check);
-                    } else {
-                        b.setImageResource(R.drawable.security_setting_not_check);
-                    }
-                    b.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (App.getSharedPreferences().getBoolean("hide_path", false)) {
-//                                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_HIDE_PATH, MyTrack.ACT_HIDE_PATH, 1L);
-                                App.getSharedPreferences().edit().putBoolean("hide_path", false).apply();
-                                b.setImageResource(R.drawable.security_setting_not_check);
-
-
-                            } else {
-//                                MyTrack.sendEvent(MyTrack.CATE_SETTING, MyTrack.ACT_HIDE_PATH, MyTrack.ACT_HIDE_PATH, 1L);
-                                App.getSharedPreferences().edit().putBoolean("hide_path", true).apply();
-                                b.setImageResource(R.drawable.security_setting_check);
-
-                            }
-
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_HIDEPATH, Tracker.ACT_SETTING_HIDEPATH, 1L);
-
-                        }
-                    });
-
-
-                }
-
-                initclick();
-
-                return view;
-            }
-        });
+        setting_frequency_fl.setOnClickListener(onClickListener);
+        setting_rebuild_fl.setOnClickListener(onClickListener);
+        setting_hide_fl.setOnClickListener(onClickListener);
+        setting_newlock_fl.setOnClickListener(onClickListener);
+        setting_notice_fl.setOnClickListener(onClickListener);
+        setting_fingerprint_fl.setOnClickListener(onClickListener);
+        setting_battery_fl.setOnClickListener(onClickListener);
+        setting_widget_fl.setOnClickListener(onClickListener);
+        setting_power_fl.setOnClickListener(onClickListener);
+        setting_rote_fl.setOnClickListener(onClickListener);
 
     }
 
@@ -297,61 +208,108 @@ public class SecuritySettings extends ClientActivitySecurity {
     protected void onResume() {
         super.onResume();
         intent = getIntent();
-        if (lv != null) {
-            try {
-                ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();
-                setupView();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
-        }
 
     }
 
     public View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int id = view.getId();
-            if (id == SETTING_SLOT) {
-                SharedPreferences sp = App.getSharedPreferences();
-                int idx = sp.getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
-                new AlertDialog.Builder(context).setTitle(R.string.security_short_exit_slot).setSingleChoiceItems(R.array.brief_slot, idx, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        App.getSharedPreferences().edit().putInt(SecurityMyPref.PREF_BRIEF_SLOT, i).apply();
-                        notifyDatasetChanged();
-                        dialogInterface.dismiss();
-                        if (i == 0) {
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_EVERY_TIME, Tracker.ACT_SETTING_EVERY_TIME, 1L);
+            switch (view.getId()) {
+                case R.id.setting_frequency_fl:
+                    showFrequencyDialog(SecuritySettings.this);
 
-                        } else if (i == 1) {
-                            Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_FIVE_MINIUTE, Tracker.ACT_SETTING_FIVE_MINIUTE, 1L);
-
-                        } else if (i == 2) {
-                            Tracker.sendEvent(Tracker.ACT_SETTING_SCREEN_OFF, Tracker.ACT_SETTING_SCREEN_OFF, Tracker.ACT_SETTING_FIVE_MINIUTE, 1L);
-
-                        }
-
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_BRIEF, Tracker.ACT_SETTING_BRIEF, 1L);
+                    break;
+                case R.id.setting_rebuild_fl:
+                    showResetPasswordDialog(SecuritySettings.this);
+                    break;
+                case R.id.setting_hide_fl:
+                    if (hideFlag) {
+                        hideFlag = false;
+                        sp.edit().putBoolean("hide_path", false).apply();
+                        setting_hide_iv.setImageResource(R.drawable.security_setting_not_check);
+                    } else {
+                        hideFlag = true;
+                        sp.edit().putBoolean("hide_path", true).apply();
+                        setting_hide_iv.setImageResource(R.drawable.security_setting_check);
                     }
-                }).create().show();
-                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_BRIEF, Tracker.ACT_SETTING_BRIEF, 1L);
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_HIDEPATH, Tracker.ACT_SETTING_HIDEPATH, 1L);
+                    break;
+                case R.id.setting_newlock_fl:
+                    if (newLockFlag) {
+                        newLockFlag = false;
+                        sp.edit().putBoolean(SecurityMyPref.LOCK_NEW, false).apply();
+                        setting_newlock_iv.setImageResource(R.drawable.security_setting_not_check);
+                    } else {
+                        newLockFlag = true;
+                        sp.edit().putBoolean(SecurityMyPref.LOCK_NEW, true).apply();
+                        setting_newlock_iv.setImageResource(R.drawable.security_setting_check);
+                    }
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NEW, Tracker.ACT_SETTING_LOCK_NEW, 1L);
+                    break;
+                case R.id.setting_notice_fl:
+                    if (noticeFlag) {
+                        noticeFlag = false;
+                        SecurityMyPref.setNotification(false);
+                        stopService(new Intent(SecuritySettings.this, NotificationService.class));
+                        setting_notice_iv.setImageResource(R.drawable.security_setting_not_check);
+                    } else {
+                        noticeFlag = true;
+                        SecurityMyPref.setNotification(true);
+                        stopService(new Intent(SecuritySettings.this, NotificationService.class));
+                        startService(new Intent(SecuritySettings.this, NotificationService.class));
+                        setting_notice_iv.setImageResource(R.drawable.security_setting_check);
+                    }
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_LOCK_NOTIFICAO, Tracker.ACT_SETTING_LOCK_NOTIFICAO, 1L);
+                    break;
+                case R.id.setting_fingerprint_fl:
+                    //指纹
+                    if (fingerprintFlag) {
+                        fingerprintFlag = false;
+                        setting_fingerprint_iv.setImageResource(R.drawable.security_setting_not_check);
+                    } else {
+                        fingerprintFlag = true;
+                        setting_fingerprint_iv.setImageResource(R.drawable.security_setting_check);
+                    }
+                    break;
+                case R.id.setting_battery_fl:
+                    //充电屏保
+                    if (batteryFlag) {
+                        batteryFlag = false;
+                        setting_battery_iv.setImageResource(R.drawable.security_setting_not_check);
+                    } else {
+                        batteryFlag = true;
+                        setting_battery_iv.setImageResource(R.drawable.security_setting_check);
+                    }
+                    break;
+                case R.id.setting_widget_fl:
+                    if (widgetFlag) {
+                        widgetFlag = false;
+                        setting_widget_iv.setImageResource(R.drawable.security_setting_not_check);
+                    } else {
+                        widgetFlag = true;
+                        setting_widget_iv.setImageResource(R.drawable.security_setting_check);
+                    }
+                    break;
+                case R.id.setting_power_fl:
+                    //权限中心
+                    Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
+                    break;
+                case R.id.setting_rote_fl:
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE, 1L);
+                    SecurityShare.rate(context);
+                    break;
 
 
-            } else if (id == SETTING_RATE) {
-                if (!SecurityMyPref.isOptionPressed(SecurityMyPref.OPT_RATE_REDDOT)) {
-                    SecurityMyPref.pressOption(SecurityMyPref.OPT_RATE_REDDOT);
-                }
-                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE, 1L);
-                SecurityShare.rate(context);
-                notifyDatasetChanged();
-            } else if (id == SETTING_SETTING_ADVANCE) {
+            }
 //                Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
-                Utility.goPermissionCenter(SecuritySettings.this, "");
-            }
+//                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
+//                Utility.goPermissionCenter(SecuritySettings.this, "");
         }
     };
 
@@ -390,13 +348,6 @@ public class SecuritySettings extends ClientActivitySecurity {
 //        super.onPostResume();
 //        notifyDatasetChanged();
 //    }
-
-    public void notifyDatasetChanged() {
-        if (lv != null) {
-            ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();
-        }
-    }
-
 
     private void setupToolbar() {
         toolbar.setNavigationIcon(R.drawable.security_slide_menu);
@@ -458,5 +409,115 @@ public class SecuritySettings extends ClientActivitySecurity {
             }
         });
 
+    }
+
+    public void showFrequencyDialog(final Context c) {
+        final View alertDialogView = View.inflate(c, R.layout.security_show_frequency, null);
+        final MyDialog d = new MyDialog(c, 0, 0, alertDialogView, R.style.dialog);
+
+        FrameLayout resetPattern = (FrameLayout) alertDialogView.findViewById(R.id.pattern);
+        FrameLayout resetPassword = (FrameLayout) alertDialogView.findViewById(R.id.digital);
+        FrameLayout five_time = (FrameLayout) alertDialogView.findViewById(R.id.five_time);
+        ImageView every_time_iv = (ImageView) alertDialogView.findViewById(R.id.every_time_iv);
+        ImageView five_time_iv = (ImageView) alertDialogView.findViewById(R.id.five_time_iv);
+        ImageView lock_screen_iv = (ImageView) alertDialogView.findViewById(R.id.lock_screen_iv);
+        int idx = sp.getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
+        if (idx == 0) {
+            every_time_iv.setImageResource(R.drawable.check);
+            five_time_iv.setImageResource(R.drawable.uncheck);
+            lock_screen_iv.setImageResource(R.drawable.uncheck);
+        } else if (idx == 2) {
+            every_time_iv.setImageResource(R.drawable.uncheck);
+            five_time_iv.setImageResource(R.drawable.uncheck);
+            lock_screen_iv.setImageResource(R.drawable.check);
+        } else if (idx == 1) {
+            every_time_iv.setImageResource(R.drawable.uncheck);
+            five_time_iv.setImageResource(R.drawable.check);
+            lock_screen_iv.setImageResource(R.drawable.uncheck);
+        }
+
+        d.getWindow().setWindowAnimations(R.style.dialog_animation);
+        d.getWindow().setGravity(Gravity.CENTER);
+        d.show();
+
+        try {
+            resetPattern.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+                    sp.edit().putInt(SecurityMyPref.PREF_BRIEF_SLOT, 0).apply();
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_EVERY_TIME, Tracker.ACT_SETTING_EVERY_TIME, 1L);
+                    setting_frequency.setText(getResources().getStringArray(R.array.brief_slot)[0]);
+                }
+            });
+
+            resetPassword.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+                    sp.edit().putInt(SecurityMyPref.PREF_BRIEF_SLOT, 2).apply();
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_EVERY_TIME, Tracker.ACT_SETTING_FIVE_MINIUTE, 1L);
+                    setting_frequency.setText(getResources().getStringArray(R.array.brief_slot)[2]);
+                }
+            });
+            five_time.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+                    sp.edit().putInt(SecurityMyPref.PREF_BRIEF_SLOT, 1).apply();
+                    Tracker.sendEvent(Tracker.ACT_SETTING_SCREEN_OFF, Tracker.ACT_SETTING_SCREEN_OFF, Tracker.ACT_SETTING_FIVE_MINIUTE, 1L);
+                    setting_frequency.setText(getResources().getStringArray(R.array.brief_slot)[1]);
+
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showResetPasswordDialog(final Context c) {
+        final View alertDialogView = View.inflate(c, R.layout.security_show_reset_password, null);
+        final MyDialog d = new MyDialog(c, 0, 0, alertDialogView, R.style.dialog);
+
+        FrameLayout resetPattern = (FrameLayout) alertDialogView.findViewById(R.id.pattern);
+        FrameLayout resetPassword = (FrameLayout) alertDialogView.findViewById(R.id.digital);
+
+        d.getWindow().setWindowAnimations(R.style.dialog_animation);
+        d.getWindow().setGravity(Gravity.CENTER);
+        d.show();
+
+        try {
+            resetPattern.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+
+                    Intent intent = new Intent(c, SecuritySetPattern.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("set", SecuritySetPattern.SET_GRAPH_PASSWD);
+                    c.startActivity(intent);
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
+
+
+                }
+            });
+
+            resetPassword.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+
+                    Intent intent = new Intent(c, SecuritySetPattern.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("set", SecuritySetPattern.SET_NORMAL_PASSWD);
+                    c.startActivity(intent);
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_LEADER_SETTINGPASS_PASSWORD, Tracker.ACT_LEADER_SETTINGPASS_PASSWORD, 1L);
+
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

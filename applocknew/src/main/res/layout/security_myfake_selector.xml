@@ -1,85 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.security.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
     android:clipToPadding="true"
     android:fitsSystemWindows="true">
 
-
-
-
-<com.security.manager.page.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/security_gray_background"
-    android:orientation="vertical">
-
-    <LinearLayout
+    <com.security.manager.page.MyRelativeLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/security_component_toolbar"
-             />
-        <include
-            layout="@layout/security_myabout_bar"
-            android:visibility="gone" />
-
-        <include
-            android:visibility="gone"
-            layout="@layout/security_normal_actionbar" />
-
-        <TextView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="8dp"
-            android:singleLine="true"
-            android:text="@string/security_myfake"
-            android:textColor="@color/accent_material_light"
-            android:textSize="16sp"
-            android:visibility="gone" />
+            android:layout_height="match_parent">
 
-        <GridView
-            android:paddingTop="20dp"
-            android:id="@+id/pretent_cover_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="2"
-            android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="8dp"
-            android:singleLine="true"
-            android:text="@string/security_pretent_selector"
-            android:textColor="@color/accent_material_light"
-            android:textSize="16sp"
-            android:visibility="gone" />
+                <include layout="@layout/security_component_toolbar" />
 
-        <GridView
-            android:layout_marginTop="6dp"
-            android:horizontalSpacing="6dp"
-            android:verticalSpacing="6dp"
-            android:id="@+id/pretent_icon_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:numColumns="2" />
-    </LinearLayout>
-</com.security.manager.page.MyRelativeLayout>
+                <include
+                    layout="@layout/security_myabout_bar"
+                    android:visibility="gone" />
+
+                <include
+                    layout="@layout/security_normal_actionbar"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="8dp"
+                    android:singleLine="true"
+                    android:text="@string/security_myfake"
+                    android:textColor="@color/accent_material_light"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <GridView
+                    android:id="@+id/pretent_cover_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="2"
+                    android:paddingTop="20dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="8dp"
+                    android:singleLine="true"
+                    android:text="@string/security_pretent_selector"
+                    android:textColor="@color/accent_material_light"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <GridView
+                    android:id="@+id/pretent_icon_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/A1"
+                    android:numColumns="2" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/fake_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/fakes_lottie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+        </FrameLayout>
+    </com.security.manager.page.MyRelativeLayout>
 
     <include
         android:id="@+id/left"
         layout="@layout/security_slide_menu" />
-    </com.security.manager.page.SlideMenu>
+</com.security.manager.page.SlideMenu>
 
 

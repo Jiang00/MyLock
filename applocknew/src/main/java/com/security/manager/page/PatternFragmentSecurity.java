@@ -177,7 +177,6 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
         ((LinearLayout.LayoutParams) parent.getLayoutParams()).weight = 1.5f;
         parent.requestLayout();
 
-        patternView.findViewWithTag("number_cancel").setVisibility(View.GONE);
         final ViewStub forbidden = new ViewStub(App.getContext(), R.layout.security_myforbidden);
         ((MyFrameLayout) patternView).addView(forbidden);
         final ErrorBiddenView errorBiddenView = new ErrorBiddenView(forbidden);

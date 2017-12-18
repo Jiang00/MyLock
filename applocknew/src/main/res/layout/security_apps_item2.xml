@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d72"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="@dimen/d40"
+        android:layout_height="@dimen/d40"
+        android:layout_marginLeft="@dimen/d16"
+        android:background="@drawable/main_item"
+        android:elevation="@dimen/d2">
+
+        <com.security.lib.customview.SecurityloadImage
+            android:id="@+id/icon"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:scaleType="fitCenter"
+            app:roundHeight="@dimen/d10"
+            app:roundWidth="@dimen/d10" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="good"
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s16" />
+
+        <com.security.lib.customview.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d4"
+            android:text="@string/main_tip"
+            android:textColor="@color/A5"
+            android:textSize="@dimen/s11" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lock_rl"
+        android:layout_width="@dimen/d24"
+        android:layout_height="@dimen/d24"
+        android:layout_marginRight="@dimen/d16">
+
+        <ImageView
+            android:id="@+id/unlock_yuan2"
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
+            android:layout_centerInParent="true"
+            android:background="@drawable/lock_yuan"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/unlock_yuan"
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
+            android:layout_centerInParent="true"
+            android:background="@drawable/unlock_yuan" />
+
+        <ImageView
+            android:id="@+id/lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:enabled="false"
+            android:background="@drawable/security_lock_bg2" />
+    </RelativeLayout>
+</LinearLayout>

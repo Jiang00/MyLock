@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="locktheme" parent="@style/activityTheme">
         <item name="android:windowAnimationStyle">@style/MyAnimation.Window</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -127,8 +128,8 @@
     </style>
 
     <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:textSize">15sp</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/s20</item>
+        <item name="android:textColor">@color/A3</item>
     </style>
 
 

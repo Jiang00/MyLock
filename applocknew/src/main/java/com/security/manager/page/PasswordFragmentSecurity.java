@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.Button;
-
 
 import com.android.common.SdkCache;
 import com.android.theme.internal.data.Theme;
@@ -158,7 +156,6 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
 
             }
         });
-        passwordView.findViewWithTag("use_pattern").setVisibility(View.GONE);
         passwordView.findViewWithTag("backspace").setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,7 +170,8 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dot.setNumber(((Button) v).getText().charAt(0));
+                int length = v.getTag().toString().length();
+                dot.setNumber(v.getTag().toString().charAt(length - 1));
             }
         };
         for (String btn : buttons) {
@@ -181,17 +179,6 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
         }
 
         passwordView.setOnClickListener(ctrl.hideOverflow);
-
-        passwordView.findViewWithTag("number_cancel").setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                App.getContext().startActivity(intent);
-//                callback.unLock();
-            }
-        });
-
         return passwordView;
     }
 

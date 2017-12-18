@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.security.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
     android:clipToPadding="true"
     android:fitsSystemWindows="true">
 
-
     <com.security.manager.page.MyRelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
         android:orientation="vertical">
 
         <include layout="@layout/security_component_toolbar" />
@@ -25,50 +20,472 @@
 
         <include
             layout="@layout/security_normal_actionbar"
-            android:visibility="gone"></include>
+            android:visibility="gone" />
 
-        <ListView
-            android:id="@+id/abs_list"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:choiceMode="multipleChoice"
-            android:divider="@drawable/security_category_divider"
-            android:fastScrollEnabled="false"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:longClickable="false"
-            android:visibility="gone" />
+            android:background="@color/A3"
+            android:scrollbars="vertical">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--锁定设置-->
+                <FrameLayout
+                    android:id="@+id/setting_frequency_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tips"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@color/security_list_bg"
-            android:gravity="center"
-            android:visibility="gone" />
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d56"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.security.lib.customview.CustomerTypefaceTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/security_over_short"
+                            android:textColor="@color/A1"
+                            android:textSize="@dimen/s17" />
+
+                        <com.security.lib.customview.CustomerTypefaceTextView
+                            android:id="@+id/setting_frequency"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="@string/security_every_time"
+                            android:textColor="@color/A5"
+                            android:textSize="@dimen/s11" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_item_action_next" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--重设密码-->
+                <FrameLayout
+                    android:id="@+id/setting_rebuild_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d56"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.security.lib.customview.CustomerTypefaceTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/security_reset_passwd_2_btn"
+                            android:textColor="@color/A1"
+                            android:textSize="@dimen/s17" />
+
+                        <com.security.lib.customview.CustomerTypefaceTextView
+                            android:id="@+id/setting_rebuild"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="@string/security_change_pattern"
+                            android:textColor="@color/A5"
+                            android:textSize="@dimen/s11" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_item_action_next" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--隐藏图形路径-->
+                <FrameLayout
+                    android:id="@+id/setting_hide_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/security_hide_path"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:id="@+id/setting_hide_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_setting_check" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--新应用加锁-->
+                <FrameLayout
+                    android:id="@+id/setting_newlock_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/security_newapp_lock"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:id="@+id/setting_newlock_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_setting_check" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--通知消息-->
+                <FrameLayout
+                    android:id="@+id/setting_notice_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/security_nofification"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:id="@+id/setting_notice_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_setting_check" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--指纹识别-->
+                <FrameLayout
+                    android:id="@+id/setting_fingerprint_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/setting_fingerprint"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:id="@+id/setting_fingerprint_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_setting_check" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--充电屏保-->
+                <FrameLayout
+                    android:id="@+id/setting_battery_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/setting_battery"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:id="@+id/setting_battery_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_setting_check" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--桌面widget-->
+                <FrameLayout
+                    android:id="@+id/setting_widget_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/security_float_action_switch_widget"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:id="@+id/setting_widget_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_setting_check" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--权限中心-->
+                <FrameLayout
+                    android:id="@+id/setting_power_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d56"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.security.lib.customview.CustomerTypefaceTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/setting_power"
+                            android:textColor="@color/A1"
+                            android:textSize="@dimen/s17" />
+
+                        <com.security.lib.customview.CustomerTypefaceTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="@string/setting_power_tip"
+                            android:textColor="@color/A5"
+                            android:textSize="@dimen/s11" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_item_action_next" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+
+                <!--评价-->
+                <FrameLayout
+                    android:id="@+id/setting_rote_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:background="@drawable/security_brif_setting" />
+
+                    <com.security.lib.customview.CustomerTypefaceTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d75"
+                        android:text="@string/security_help_share"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s17" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@drawable/security_item_action_next" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_gravity="bottom"
+                        android:background="@color/A4" />
+                </FrameLayout>
+            </LinearLayout>
+        </ScrollView>
 
         <include layout="@layout/security_bootom_bar" />
-
-        <ImageButton
-            android:id="@+id/add"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/security_button_bg"
-            android:visibility="gone" />
     </com.security.manager.page.MyRelativeLayout>
 
     <include
-
         android:id="@+id/left"
         layout="@layout/security_slide_menu" />
-
 </com.security.manager.page.SlideMenu>
 

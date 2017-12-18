@@ -4,22 +4,28 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
-import android.os.*;
-import android.util.Log;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-
+import com.airbnb.lottie.LottieAnimationView;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.LockPatternUtils;
-import com.security.manager.page.SecurityPatternView;
 import com.security.manager.page.NumberDot;
+import com.security.manager.page.SecurityPatternView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * Created by superjoy on 2014/10/24.
@@ -31,6 +37,8 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     public static final byte SET_NORMAL_PASSWD = 1;
     public static final byte SET_GRAPH_PASSWD = 2;
     public static final byte SET_EMAIL = 3;
+    private LottieAnimationView setpattern_lottie;
+    private LottieAnimationView setpassword_lottie;
 
     @Override
     protected boolean hasHelp() {
@@ -93,71 +101,6 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     }
 
     public void setEmail() {
-        /*
-        setContentView(R.layout.email_settle);
-        email_address = (EditText) findViewById(R.id.passwd);
-        email_address.setFocusableInTouchMode(true);
-        View back = findViewById(R.id.back);
-        if (firstSetup){
-            back.setVisibility(View.GONE);
-        }
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
-        int len = 0;
-        String e = sp.getString("email", "");
-        if (emailPattern.matcher(e).matches()) {
-            email_address.setText(e);
-            len = e.length();
-        } else {
-            Account[] accounts = AccountManager.get(context).getAccounts();
-            for (Account account : accounts) {
-                if (emailPattern.matcher(account.name).matches()) {
-                    String accountName = account.name;
-                    email_address.setText(accountName);
-                    len = accountName.length();
-                    break;
-                }
-            }
-        }
-        email_address.setSelection(len);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showSoftKeyboard(context, email_address, true);
-            }
-        }, 200);
-        findViewById(R.id.save).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final String email = email_address.getText().toString();
-                if (email.length() == 0) {
-                    new AlertDialog.Builder(context).setCancelable(true).setMessage(R.string.sure_no_email).setNegativeButton(android.R.string.no, null)
-                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    showSoftKeyboard(context, null, false);
-                                    sp.edit().putString("email", email).apply();
-                                    Http.executeGetResult(null, "http://52joyapp.com/superapplock/Mobile.sv.php", "a", "set", "email", email);
-                                    startListApp();
-                                }
-                            }).create().show();
-                } else if (!email.matches("[a-zA-Z0-9_.-]{1,32}+@[a-zA-Z0-9_-]+(\\.[a-zA-Z]+){1,6}")) {
-                    new AlertDialog.Builder(context).setCancelable(true).setMessage(R.string.email_address_invalid).setIcon(R.drawable.icon).setPositiveButton(android.R.string.ok, null).create().show();
-                } else {
-                    showSoftKeyboard(context, null, false);
-                    sp.edit().putString("email", email).apply();
-                    Http.executeGetResult(null, "http://52joyapp.com/superapplock/Mobile.sv.php", "a", "set", "email", email);
-                    Tracker.sendEvent(Tracker.CATE_DEFAULT, Tracker.ACT_EMAIL, Tracker.ACT_EMAIL, 1L);
-                    startListApp();
-                }
-            }
-        });
-        */
         startListApp();
     }
 
@@ -166,18 +109,16 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
 
     @Override
     public void onClick(View view) {
-        Button v = (Button) view;
-        passdot.setNumber(v.getText().charAt(0));
+        TextView v = (TextView) view;
+        int length = v.getTag().toString().length();
+        passdot.setNumber(v.getTag().toString().charAt(length - 1));
         if (setProgress == 0 && size < 6) {
             size++;
         }
         if (togglePattern) {
             togglePattern = false;
-            Button ok = (Button) findViewById(R.id.ok);
+            TextView ok = (TextView) findViewById(R.id.ok);
             ok.setText(R.string.security_btn_next);
-            ok.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
-//            ok.setBackgroundResource(R.drawable.button_bg);
-
         }
     }
 
@@ -227,7 +168,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
     public boolean confirmMode = false;
 
     @InjectView(R.id.number_cancel)
-    Button cancel;
+    TextView cancel;
 
     @InjectView(R.id.tip)
     TextView tip;
@@ -238,12 +179,14 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         tip.setText(R.string.security_draw_pattern);
         tip.setVisibility(View.VISIBLE);
         cancel.setVisibility(View.VISIBLE);
-        cancel.setText(R.string.security_use_normal);
-        cancel.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
+        cancel.setText(R.string.switch_password);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setPasswdView();
+                if (setpattern_lottie != null) {
+                    setpattern_lottie.cancelAnimation();
+                }
                 Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_LEADER_SETTINGPASS_PASSWORD, Tracker.ACT_LEADER_SETTINGPASS_PASSWORD, 1L);
             }
         });
@@ -268,18 +211,24 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
             Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
         } else {
             Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
-
         }
         setContentView(R.layout.security_pattern_view_set);
         ButterKnife.inject(this);
         View back = findViewById(R.id.back);
-        if (firstSetup) {
-            back.setVisibility(View.GONE);
-        }
+
         securityPatternView = (SecurityPatternView) findViewById(R.id.lpv_lock);
+        setpattern_lottie = (LottieAnimationView) findViewById(R.id.setpattern_lottie);
+        setpattern_lottie.setAnimation("frist2.json");
+        setpattern_lottie.setScale(0.5f);//相对原大小的0.2倍
+        setpattern_lottie.setSpeed(0.7f);
+        setpattern_lottie.loop(true);
+        setpattern_lottie.playAnimation();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (setpattern_lottie != null) {
+                    setpattern_lottie.cancelAnimation();
+                }
                 onBackPressed();
             }
         });
@@ -309,7 +258,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                             @Override
                             public void run() {
                                 securityPatternView.clearPattern();
-                                tip.setTextColor(getResources().getColor(R.color.security_body_text_1_inverse));
+                                tip.setTextColor(getResources().getColor(R.color.A3));
                                 tip.setText(R.string.security_draw_pattern_next);
                             }
                         }, 700);
@@ -338,7 +287,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                             @Override
                             public void run() {
                                 securityPatternView.clearPattern();
-                                tip.setTextColor(getResources().getColor(R.color.security_body_text_1_inverse));
+                                tip.setTextColor(getResources().getColor(R.color.A3));
                                 tip.setText(R.string.security_draw_pattern_next);
                             }
                         }, 700);
@@ -365,9 +314,12 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
         setContentView(R.layout.security_password_setting);
 //        randomNumpadIfPossible();
         View back = findViewById(R.id.back);
-        if (firstSetup) {
-            back.setVisibility(View.GONE);
-        }
+        setpassword_lottie = (LottieAnimationView) findViewById(R.id.setpassword_lottie);
+        setpassword_lottie.setAnimation("frist3.json");
+        setpassword_lottie.setScale(0.5f);//相对原大小的0.2倍
+        setpassword_lottie.setSpeed(0.7f);
+        setpassword_lottie.loop(true);
+        setpassword_lottie.playAnimation();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -394,17 +346,18 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                 }
             }
         });
-        final Button okBtn = (Button) findViewById(R.id.ok);
-        okBtn.setText(R.string.security_use_pattern);
+        final TextView okBtn = (TextView) findViewById(R.id.ok);
+        okBtn.setText(R.string.switch_pattern);
         okBtn.setVisibility(View.VISIBLE);
-        okBtn.setBackgroundDrawable(null);
-        okBtn.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
         okBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 if (togglePattern) {
                     setGraphView();
+                    if (setpassword_lottie != null) {
+                        setpassword_lottie.cancelAnimation();
+                    }
                     Tracker.sendEvent(Tracker.CATE_SETTING, Tracker.ACT_LEADER_SETTINGPASS, Tracker.ACT_LEADER_SETTINGPASS, 1L);
                     return;
                 }
@@ -425,8 +378,6 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
 
 //                    okBtn.setVisibility(View.INVISIBLE);
                     okBtn.setText(R.string.security_reset_passwd_2_btn);
-                    okBtn.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
-                    okBtn.setBackgroundDrawable(null);
                     ((TextView) findViewById(R.id.title)).setText(R.string.security_set_confirm_password);
                     ((TextView) findViewById(R.id.tip)).setText(R.string.security_confirm_passwd_tip);
                 } else if (setProgress == 1) {
@@ -434,7 +385,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                     passdot.setFlag(false);
                     passdot.reset();
                     togglePattern = true;
-                    okBtn.setText(R.string.security_use_pattern);
+                    okBtn.setText(R.string.switch_pattern);
                     ((TextView) findViewById(R.id.title)).setText(R.string.security_set_password);
                     ((TextView) findViewById(R.id.tip)).setText(R.string.security_set_passwd_tip);
                 }
@@ -453,24 +404,7 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
                 }
                 if (passdot.empty() && !togglePattern) {
                     togglePattern = true;
-                    okBtn.setText(R.string.security_use_pattern);
-                    okBtn.setBackgroundDrawable(null);
-                    okBtn.setTextColor(getResources().getColor(R.color.security_numpad_font_color));
-                }
-            }
-        });
-
-        //ignore
-        findViewById(R.id.number_cancel).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (setProgress == 0) {
-                    onBackPressed();
-                } else {
-                    --setProgress;
-                    passdot.reset();
-                    ((TextView) findViewById(R.id.title)).setText(R.string.security_set_password);
-                    okBtn.setVisibility(View.INVISIBLE);
+                    okBtn.setText(R.string.switch_pattern);
                 }
             }
         });
@@ -482,4 +416,26 @@ public class SecuritySetPattern extends ClientActivitySecurity implements View.O
 
     public List<SecurityPatternView.Cell> pattern1, pattern2;
     public byte setProgress = 0;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (setpattern_lottie != null) {
+            setpattern_lottie.cancelAnimation();
+        }
+        if (setpassword_lottie != null) {
+            setpassword_lottie.cancelAnimation();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (setpattern_lottie != null) {
+            setpattern_lottie.cancelAnimation();
+        }
+        if (setpassword_lottie != null) {
+            setpassword_lottie.cancelAnimation();
+        }
+    }
 }

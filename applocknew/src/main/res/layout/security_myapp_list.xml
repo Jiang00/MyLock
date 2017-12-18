@@ -1,22 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/main_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/refresh">
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <FrameLayout
+                android:id="@+id/main_good_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/abs_list"
-        android:layout_weight="1"
-        android:divider="@drawable/security_list_driver"
-        android:headerDividersEnabled="false"
-        android:dividerHeight="1px"
-        android:choiceMode="multipleChoice"
-        android:longClickable="false"
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:id="@+id/main_recom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d37"
+                android:layout_marginLeft="@dimen/d16"
+                android:gravity="center_vertical"
+                android:text="@string/main_recom"
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s13" />
 
-        />
+            <com.security.lib.customview.MyListView
+                android:id="@+id/abs_list2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:choiceMode="multipleChoice"
+                android:divider="@drawable/security_list_driver"
+                android:dividerHeight="0dp"
+                android:headerDividersEnabled="false"
+                android:longClickable="false" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A4" />
+
+            <com.security.lib.customview.CustomerTypefaceTextView
+                android:id="@+id/allapps"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d37"
+                android:layout_marginLeft="@dimen/d16"
+                android:gravity="center_vertical"
+                android:text="@string/otherapps"
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s13" />
+
+            <com.security.lib.customview.MyListView
+                android:id="@+id/abs_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:choiceMode="multipleChoice"
+                android:divider="@drawable/security_list_driver"
+                android:dividerHeight="0dp"
+                android:headerDividersEnabled="false"
+                android:longClickable="false" />
+        </LinearLayout>
+    </ScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

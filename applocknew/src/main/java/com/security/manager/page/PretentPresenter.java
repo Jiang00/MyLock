@@ -17,13 +17,15 @@ import android.view.animation.AnimationUtils;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityWidget;
 import com.security.manager.App;
+import com.security.manager.PretentFiveActivitySecurityPatternActivity;
 import com.security.manager.PretentFourActivitySecurityPatternActivity;
 import com.security.manager.PretentOneActivitySecurityPatternActivity;
+import com.security.manager.PretentSevenActivitySecurityPatternActivity;
+import com.security.manager.PretentSixActivitySecurityPatternActivity;
 import com.security.manager.PretentThreeActivitySecurityPatternActivity;
 import com.security.manager.PretentTwoActivitySecurityPatternActivity;
 import com.security.manager.SecurityPatternActivity;
 import com.security.manager.lib.Utils;
-import com.security.manager.PretentFiveActivitySecurityPatternActivity;
 
 /**
  * Created by song on 15/8/14.
@@ -39,9 +41,11 @@ public class PretentPresenter {
     public static final int PRETENT_ICON_PRETENT2 = 2;
     public static final int PRETENT_ICON_PRETENT4 = 4;
     public static final int PRETENT_ICON_PRETENT5 = 5;
+    public static final int PRETENT_ICON_PRETENT6 = 6;
+    public static final int PRETENT_ICON_PRETENT7 = 7;
     public static final int PRETENT_ICON_PRETENT3 = 3;
 
-    public static final int PRETENT_ICON_COUNT = 6;
+    public static final int PRETENT_ICON_COUNT = 8;
 
     private static SecurityWidget container;
     private static View fingerprint;
@@ -240,6 +244,8 @@ public class PretentPresenter {
                 classes[3] = SecurityPatternActivity.class;
                 classes[4] = PretentFourActivitySecurityPatternActivity.class;
                 classes[5] = PretentFiveActivitySecurityPatternActivity.class;
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
                 break;
 
             case PRETENT_ICON_PRETENT2:
@@ -249,6 +255,8 @@ public class PretentPresenter {
                 classes[3] = SecurityPatternActivity.class;
                 classes[4] = PretentFourActivitySecurityPatternActivity.class;
                 classes[5] = PretentFiveActivitySecurityPatternActivity.class;
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
                 break;
 
             case PRETENT_ICON_NORMAL:
@@ -258,6 +266,8 @@ public class PretentPresenter {
                 classes[4] = PretentFourActivitySecurityPatternActivity.class;
                 classes[5] = PretentFiveActivitySecurityPatternActivity.class;
                 classes[0] = SecurityPatternActivity.class;
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
                 break;
 
             case PRETENT_ICON_PRETENT3:
@@ -267,8 +277,8 @@ public class PretentPresenter {
                 classes[4] = PretentFourActivitySecurityPatternActivity.class;
                 classes[5] = PretentFiveActivitySecurityPatternActivity.class;
                 classes[1] = SecurityPatternActivity.class;
-
-
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
                 break;
 
             case PRETENT_ICON_PRETENT4:
@@ -278,6 +288,8 @@ public class PretentPresenter {
                 classes[3] = PretentTwoActivitySecurityPatternActivity.class;
                 classes[2] = PretentThreeActivitySecurityPatternActivity.class;
                 classes[1] = SecurityPatternActivity.class;
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
                 break;
 
             case PRETENT_ICON_PRETENT5:
@@ -287,6 +299,28 @@ public class PretentPresenter {
                 classes[3] = PretentTwoActivitySecurityPatternActivity.class;
                 classes[2] = PretentThreeActivitySecurityPatternActivity.class;
                 classes[1] = SecurityPatternActivity.class;
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
+                break;
+            case PRETENT_ICON_PRETENT6:
+                classes[0] = PretentSixActivitySecurityPatternActivity.class;
+                classes[4] = PretentFourActivitySecurityPatternActivity.class;
+                classes[5] = PretentOneActivitySecurityPatternActivity.class;
+                classes[3] = PretentTwoActivitySecurityPatternActivity.class;
+                classes[2] = PretentThreeActivitySecurityPatternActivity.class;
+                classes[1] = SecurityPatternActivity.class;
+                classes[6] = PretentFiveActivitySecurityPatternActivity.class;
+                classes[7] = PretentSevenActivitySecurityPatternActivity.class;
+                break;
+            case PRETENT_ICON_PRETENT7:
+                classes[0] = PretentSevenActivitySecurityPatternActivity.class;
+                classes[4] = PretentFourActivitySecurityPatternActivity.class;
+                classes[5] = PretentOneActivitySecurityPatternActivity.class;
+                classes[3] = PretentTwoActivitySecurityPatternActivity.class;
+                classes[2] = PretentThreeActivitySecurityPatternActivity.class;
+                classes[1] = SecurityPatternActivity.class;
+                classes[6] = PretentSixActivitySecurityPatternActivity.class;
+                classes[7] = PretentFiveActivitySecurityPatternActivity.class;
                 break;
         }
         switchLauncher(classes);
@@ -318,6 +352,8 @@ public class PretentPresenter {
 
     public static int pretentIconIdx() {
         Class[] classes = new Class[PRETENT_ICON_COUNT];
+        classes[7] = PretentSevenActivitySecurityPatternActivity.class;
+        classes[6] = PretentSixActivitySecurityPatternActivity.class;
         classes[5] = PretentFiveActivitySecurityPatternActivity.class;
         classes[4] = PretentFourActivitySecurityPatternActivity.class;
         classes[3] = PretentThreeActivitySecurityPatternActivity.class;

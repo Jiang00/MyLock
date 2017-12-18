@@ -165,7 +165,18 @@
     <color name="security_white_56">#8effffff</color>
 
 
-
+    <!--软件主色调颜色-->
+    <color name="A0">#ffffff</color>
+    <color name="A1">#36465d</color>
+    <color name="A2">#2c85ff</color>
+    <color name="A3">#ffffff</color>
+    <color name="A4">#edeff2</color>
+    <color name="A5">#636f7f</color>
+    <color name="A6">#b0b7c1</color>
+    <color name="A7">#f55454</color>
+    <color name="A8">#1a000000</color>
+    <color name="A9">#ffd675</color>
+    <color name="A10">#33ffffff</color>
 
 
 

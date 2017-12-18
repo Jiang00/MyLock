@@ -4,11 +4,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.SystemClock;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
@@ -40,6 +39,32 @@ public class Notification {
         return n;
     }
 
+    public static int getInstallNum(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        long firstInstallTime = System.currentTimeMillis();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            firstInstallTime = packageInfo.firstInstallTime;//应用第一次安装的时间
+//           int versionCode=packageInfo.versionCode;//应用现在的版本号
+//           String versionName=packageInfo.versionName;//应用现在的版本名称
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        long time_ = firstInstallTime % 86400000;
+        long installTime = System.currentTimeMillis() - firstInstallTime + time_;
+        if (firstInstallTime == 0) {
+            return -1;
+        } else {
+            return millTransFate(installTime) + 1;
+        }
+    }
+
+    //多少天
+    public static int millTransFate(long millisecond) {
+        long day = millisecond / 86400000;
+        return (int) day;
+    }
+
     private android.app.Notification _getNotification(Context context) {
         mBuilder = new NotificationCompat.Builder(context);
         Intent notifyIntent = null;
@@ -50,23 +75,25 @@ public class Notification {
                 notifyIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName() + "");
                 notifyIntent.putExtra(NOTIFICATION, true);
                 notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                remoteView.setImageViewResource(R.id.right_icon, R.drawable.security_visitor_on);
-                CharSequence status = context.getResources().getString(R.string.security_visitor_on);
+                remoteView.setImageViewResource(R.id.notice_fl, R.drawable.notice_bj1);
+                remoteView.setImageViewResource(R.id.notice_bj_circle1, R.drawable.notice_bj_circle);
+                remoteView.setImageViewResource(R.id.notice_bj_circle2, R.drawable.notice_bj_circle);
+                int day = getInstallNum(context);
+                CharSequence status = context.getString(R.string.security_visitor_on2, day + "");
                 remoteView.setTextViewText(R.id.applock_run, status);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
             mBuilder.setSmallIcon(R.drawable.security_notification_lock);
-
-
         } else {
             notifyIntent = new Intent(context, SecurityTansparent.class);
             notifyIntent.putExtra(NOTIFICATION, true);
             notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                     | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            remoteView.setImageViewResource(R.id.right_icon, R.drawable.security_visitor_off);
-            CharSequence status = context.getResources().getString(R.string.security_visitor_off);
+            remoteView.setImageViewResource(R.id.notice_fl, R.drawable.notice_bj2);
+            remoteView.setImageViewResource(R.id.notice_bj_circle1, R.drawable.notice_bj_circle2);
+            remoteView.setImageViewResource(R.id.notice_bj_circle2, R.drawable.notice_bj_circle2);
+            CharSequence status = context.getResources().getString(R.string.security_visitor_off2);
             remoteView.setTextViewText(R.id.applock_run, status);
             mBuilder.setSmallIcon(R.drawable.security_notification_unlock);
 

@@ -24,6 +24,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
@@ -52,9 +53,10 @@ public class SecurityPatternView extends View {
 
     private Paint mPaint = new Paint();
     private Paint mPathPaint = new Paint();
+
     private int getId(String id, String type) {
 
-        return  getResources().getIdentifier(id,type,getContext().getPackageName());
+        return getResources().getIdentifier(id, type, getContext().getPackageName());
     }
 
 
@@ -257,14 +259,14 @@ public class SecurityPatternView extends View {
         setClickable(true);
 
         //取消innnernormal 设置为透明
-        int innerNormal = attrs.getAttributeResourceValue(null, "inner", getId("security_inner_normal","drawable"));
-        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("security_patte_nor","drawable"));
-        int outerSolid = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_right","drawable"));
-        int wrong = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_wrong","drawable"));
+        int innerNormal = attrs.getAttributeResourceValue(null, "inner", getId("security_inner_normal", "drawable"));
+        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("security_patte_nor", "drawable"));
+        int outerSolid = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_right", "drawable"));
+        int wrong = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_wrong", "drawable"));
 
         mPathPaint.setAntiAlias(true);
         mPathPaint.setDither(true);
-        mPathPaint.setColor(getResources().getColor(getId("security_pattern_line_color_normal","color")));   // TODO this should be from the style
+        mPathPaint.setColor(getResources().getColor(getId("security_pattern_line_color_normal", "color")));   // TODO this should be from the style
         mPathPaint.setAlpha(mStrokeAlpha);
         mPathPaint.setStyle(Paint.Style.STROKE);
         mPathPaint.setStrokeJoin(Paint.Join.ROUND);
@@ -275,18 +277,18 @@ public class SecurityPatternView extends View {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        circleR = getResources().getDimensionPixelSize(getId("pattern_circle_size","dimen"));
+        circleR = getResources().getDimensionPixelSize(getId("pattern_circle_size", "dimen"));
 
         //设置内圆尺寸为0 实现正确状态时不可见innerCircelR
-        innerCircelR = getResources().getDimensionPixelSize(getId("pattern_inner_circle_size","dimen"));
+        innerCircelR = getResources().getDimensionPixelSize(getId("pattern_inner_circle_size", "dimen"));
         mBitmapWidth = mBitmapHeight = circleR;
         dot = getResources().getDrawable(innerNormal);
-        dotSolid = hidePath ? dot : getResources().getDrawable(getId("security_inner_right","drawable"));
+        dotSolid = hidePath ? dot : getResources().getDrawable(getId("security_inner_right", "drawable"));
         circle = getResources().getDrawable(outerNormal);
         circleSolid = hidePath ? circle : getResources().getDrawable(outerSolid);
         circleRed = getResources().getDrawable(wrong);
-        mBitmapArrowGreenUp = getBitmapFor(getId("security_green_up","drawable"));
-        mBitmapArrowRedUp = getBitmapFor(getId("security_red_up","drawable"));
+        mBitmapArrowGreenUp = getBitmapFor(getId("security_green_up", "drawable"));
+        mBitmapArrowRedUp = getBitmapFor(getId("security_red_up", "drawable"));
 
         // lot's of bitmaps!
         /*
@@ -356,8 +358,7 @@ public class SecurityPatternView extends View {
      *
      * @param onPatternListener The call back.
      */
-    public void setOnPatternListener(
-            OnPatternListener onPatternListener) {
+    public void setOnPatternListener(OnPatternListener onPatternListener) {
         mOnPatternListener = onPatternListener;
     }
 
@@ -404,9 +405,9 @@ public class SecurityPatternView extends View {
             clearPatternDrawLookup();
             //横线颜色值更改状态
         } else if (displayMode == DisplayMode.Wrong) {
-            mPathPaint.setColor(getResources().getColor(getId("pattern_line_color_error","color")));
+            mPathPaint.setColor(getResources().getColor(getId("pattern_line_color_error", "color")));
         } else {
-            mPathPaint.setColor(hidePath ? 0x00000000 : getResources().getColor(getId("security_pattern_line_color_normal","color")));
+            mPathPaint.setColor(hidePath ? 0x00000000 : getResources().getColor(getId("security_pattern_line_color_normal", "color")));
         }
         invalidate();
     }
@@ -491,7 +492,7 @@ public class SecurityPatternView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 //        final int width = w - getPaddingLeft() - getPaddingRight();
 //        mSquareWidth = width / 3.0f;
-        mSquareWidth = (2 * mBitmapWidth + getResources().getDimensionPixelSize(getId("numpad_margin","dimen")));
+        mSquareWidth = (2 * mBitmapWidth + getResources().getDimensionPixelSize(getId("numpad_margin", "dimen")));
 
 //        final int height = h - getPaddingTop() - getPaddingBottom();
         //mSquareHeight = height / 3.0f;
@@ -518,7 +519,7 @@ public class SecurityPatternView extends View {
     @Override
     protected int getSuggestedMinimumWidth() {
         // View should be large enough to contain 3 side-by-side target bitmaps
-        return 3 * (2 * mBitmapWidth + getResources().getDimensionPixelSize(getId("numpad_margin","dimen")));
+        return 3 * (2 * mBitmapWidth + getResources().getDimensionPixelSize(getId("numpad_margin", "dimen")));
     }
 
     @Override
@@ -693,31 +694,21 @@ public class SecurityPatternView extends View {
         if (!mInputEnabled || !isEnabled()) {
             return false;
         }
-
+        Log.e("chfq", "==onTouchEvent==");
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                Log.e("chfq", "==ACTION_DOWN==");
                 handleActionDown(event);
                 return true;
             case MotionEvent.ACTION_UP:
                 handleActionUp(event);
+                Log.e("chfq", "==ACTION_UP==");
                 return true;
             case MotionEvent.ACTION_MOVE:
+                Log.e("chfq", "==ACTION_MOVE==");
                 handleActionMove(event);
                 return true;
             case MotionEvent.ACTION_CANCEL:
-                /*
-                if (mPatternInProgress) {
-                    mPatternInProgress = false;
-                    resetPattern();
-                    notifyPatternCleared();
-                }
-                if (PROFILE_DRAWING) {
-                    if (mDrawingProfilingStarted) {
-                        Debug.stopMethodTracing();
-                        mDrawingProfilingStarted = false;
-                    }
-                }
-                */
                 return true;
         }
         return false;
@@ -902,7 +893,7 @@ public class SecurityPatternView extends View {
         final float squareHeight = mSquareHeight;
 
         float radius = (squareWidth * mDiameterFactor * .5f);
-        mPathPaint.setStrokeWidth(getResources().getDimension(getId("pattern_line_size","dimen")));
+        mPathPaint.setStrokeWidth(getResources().getDimension(getId("pattern_line_size", "dimen")));
 
         final Path currentPath = mCurrentPath;
         currentPath.rewind();

@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="brief_slot">
         <item>@string/security_every_time</item>
-        <item>@string/security_five_min</item>
+        <item>@string/security_five_min2</item>
         <item>@string/security_until_screen_off</item>
     </string-array>
     <string-array name="brief_slot_idx" >
