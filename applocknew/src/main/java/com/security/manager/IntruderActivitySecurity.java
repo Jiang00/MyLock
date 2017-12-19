@@ -76,6 +76,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     public void setupView() {
         setContentView(R.layout.security_intruder_container);
         ButterKnife.inject(this);
+        SecurityMenu.currentMenuIt = 3;
 
         setupToolbar();
         initclick();

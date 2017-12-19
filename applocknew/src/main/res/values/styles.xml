@@ -110,7 +110,7 @@
 
     </style>
 
-    <style name="zhiwen_dialog" parent="@android:style/Theme.Dialog">
+    <style name="dialog2" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
 
     </style>

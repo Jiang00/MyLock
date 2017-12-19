@@ -391,11 +391,10 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     }
 
     private void setAdaptor() {
-
+        apps = MApps.getApps(locks);
         adaptor = new CListViewAdaptor(scroller, R.layout.security_apps_item) {
 
             private void updateUI(int position, ViewHolder h, boolean forceLoading) {
-                apps = MApps.getApps(locks);
                 if (apps.size() != 0) {
                     list = searchResult == null ? apps : searchResult;
                     if (position >= list.size()) return;

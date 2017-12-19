@@ -39,22 +39,22 @@
 
     <RelativeLayout
         android:id="@+id/lock_rl"
-        android:layout_width="@dimen/d24"
-        android:layout_height="@dimen/d24"
+        android:layout_width="@dimen/d32"
+        android:layout_height="@dimen/d32"
         android:layout_marginRight="@dimen/d16">
 
         <ImageView
             android:id="@+id/unlock_yuan2"
-            android:layout_width="@dimen/d24"
-            android:layout_height="@dimen/d24"
+            android:layout_width="@dimen/d32"
+            android:layout_height="@dimen/d32"
             android:layout_centerInParent="true"
             android:background="@drawable/lock_yuan"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/unlock_yuan"
-            android:layout_width="@dimen/d24"
-            android:layout_height="@dimen/d24"
+            android:layout_width="@dimen/d32"
+            android:layout_height="@dimen/d32"
             android:layout_centerInParent="true"
             android:background="@drawable/unlock_yuan" />
 
