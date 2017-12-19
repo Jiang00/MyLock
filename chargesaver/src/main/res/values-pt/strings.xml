@@ -1,0 +1,21 @@
+<resources>
+
+    <!--common-->
+    <string name="charge_screen_save">Carregador de tela</string>
+    <string name="charging_on_left">%1$d h %2$d min carregada</string>
+    <string name="charging_use_left">%1$d h %2$d min esquerda</string>
+    <string name="unlock">Deslize para desbloquear</string>
+
+    <!--type one start-->
+    <!--type one end-->
+
+    <!--type two start-->
+    <string name="talk">Duração da chamada</string>
+    <string name="internet">Wifi</string>
+    <string name="game">jogos</string>
+    <string name="temp">Temperatura</string>
+    
+    <string name="ram">RAM</string>
+    <!--type two end-->
+    <string name="charging_ing">carga</string>
+</resources>

@@ -4,13 +4,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -20,16 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-//import com.ivy.util.Utility;
 import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.SecurityMenu;
-import com.security.manager.page.SlideMenu;
-import com.security.manager.page.showDialog;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
 
 /**
  * Created by superjoy on 2014/9/4.

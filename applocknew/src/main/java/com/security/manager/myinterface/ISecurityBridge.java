@@ -3,9 +3,6 @@ package com.security.manager.myinterface;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
-import com.security.manager.meta.SecurityDaily;
-import com.security.manager.meta.SecurityFlowMenu;
-
 /**
  * Created by huale on 2014/11/20.
  */

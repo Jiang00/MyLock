@@ -13,17 +13,14 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.android.common.SdkCache;
 import com.android.theme.internal.data.Theme;
 import com.ivy.ivyshop.ShopMaster;
-import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
-import com.security.manager.SecurityUnlockSettings;
 import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
@@ -85,49 +82,8 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
     public static View getView(LayoutInflater inflater, final ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
 
-
         final View patternView = inflate("security_pattern_view", container, inflater.getContext());
         ((MyFrameLayout) patternView).setOverflowCtrl(ctrl);
-        final ImageButton button = (ImageButton) patternView.findViewWithTag("setting_advance");
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    ISecurityBridge bridge = SecurityTheBridge.bridge;
-                    if (Utility.isGrantedAllPermission(App.getContext())) {
-                        if (bridge != null) {
-                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
-                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
-                                intent.putExtra("lock_setting", true);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                App.getContext().startActivity(intent);
-                            } else {
-                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                App.getContext().startActivity(intent);
-                            }
-
-                        }
-                    } else {
-                        if (bridge != null) {
-                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
-                                Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
-                            } else {
-                                Utility.goPermissionCenter(App.getContext(), "");
-                            }
-                        } else {
-                            Utility.goPermissionCenter(App.getContext(), "");
-                        }
-                    }
-                    callback.unLock();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        });
 
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         try {

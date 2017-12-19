@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ import android.widget.Toast;
 import android.widget.WrapperListAdapter;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.android.client.AndroidSdk;
 import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.security.manager.db.SecurityProfileHelper;
@@ -45,8 +47,12 @@ import com.security.manager.lib.io.ImageMaster;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
+import com.security.manager.page.FingerprintUtil;
 import com.security.manager.page.PasswordFragmentSecurity;
 import com.security.manager.page.PatternFragmentSecurity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,6 +79,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     private Handler handler;
     private boolean onPause;
     private LottieAnimationView choose_theme_lottie;
+    private int show_fingerprint;
 
 
     public void toggle(boolean normal) {
@@ -88,6 +95,57 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, patternFrag).commitAllowingStateLoss();
         }
         this.normal = normal;
+        try {
+            String flurryString = AndroidSdk.getExtraData();
+            JSONObject baseJson = new JSONObject(flurryString);
+            show_fingerprint = baseJson.getInt("show_fingerprint");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (show_fingerprint == 1) {
+            FingerprintManagerCompat managerCompat = FingerprintManagerCompat.from(App.getContext());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                if (!managerCompat.isHardwareDetected() || !managerCompat.hasEnrolledFingerprints()) {
+                } else {
+                    onFingerprintClick();
+                }
+            }
+        }
+    }
+
+    //指纹识别
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void onFingerprintClick() {
+
+        FingerprintUtil.callFingerPrint(new FingerprintUtil.OnCallBackListenr() {
+            @Override
+            public void onAuthenticationStart() {
+            }
+
+            @Override
+            public void onAuthenticationError(int errMsgId, CharSequence errString) {
+                showToast(errString.toString());
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+
+            }
+
+            @Override
+            public void onAuthenticationHelp(int helpMsgId, CharSequence helpString) {
+                showToast(helpString.toString());
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
+                unlockSuccess(false);
+            }
+        });
+    }
+
+    public static void showToast(String name) {
+        Toast.makeText(App.getContext(), name, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -133,6 +191,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
     public void unlockSuccess(boolean unlockMe) {
         switch (action) {
             case ACTION_SWITCH_PROFILE:
+                Log.e("chfq", "===ACTION_SWITCH_PROFILE===");
                 for (SecurityProfileHelper.ProfileEntry entry : SecuritProfiles.getEntries()) {
                     if (entry.name.equals(profileName)) {
                         SecuritProfiles.switchProfile(entry, server);
@@ -142,6 +201,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 finish();
                 break;
             case ACTION_TOGGLE_PROTECT:
+                Log.e("chfq", "===ACTION_TOGGLE_PROTECT===");
                 try {
                     server.toggleProtectStatus();
                     finish();
@@ -150,6 +210,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 }
                 break;
             case ACTION_UNLOCK_OTHER:
+                Log.e("chfq", "===ACTION_UNLOCK_OTHER===");
                 try {
                     server.unlockLastApp(unlockMe);
                 } catch (Exception e) {
@@ -159,13 +220,15 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 break;
 
             case ACTION_UNLOCK_SELF:
+                Log.e("chfq", "===解锁成功===");
 
                 startListApp();
                 if (notiIntent.hasExtra(Notification.NOTIFICATION)) {
-                    SecurityMyPref.setVisitor(false);
-                    stopService(new Intent(this, NotificationService.class));
-                    startService(new Intent(this, NotificationService.class));
-                    Toast.makeText(this, R.string.security_visitor_off, Toast.LENGTH_LONG).show();
+
+//                    SecurityMyPref.setVisitor(false);
+//                    stopService(new Intent(this, NotificationService.class));
+//                    startService(new Intent(this, NotificationService.class));
+//                    Toast.makeText(this, R.string.security_visitor_off, Toast.LENGTH_LONG).show();
                     Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_NOTIFICATION, Tracker.ACT_MODE_OFF, 1L);
 
                 }
@@ -190,7 +253,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
             firstLaunchShowResult = false;
             return;
         }
-        SecurityMyPref.launchNow();
+//        SecurityMyPref.launchNow();
         Intent intent = new Intent();
         intent.setClassName(getPackageName(), SecurityAppLock.class.getName());
         intent.putExtra("hide", false);

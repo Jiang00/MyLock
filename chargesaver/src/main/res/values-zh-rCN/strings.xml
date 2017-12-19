@@ -1,0 +1,22 @@
+<resources>
+
+    <!--common-->
+    <string name="charge_screen_save">充电屏保</string>
+    <string name="charging_on_left">%1$d h %2$d min 可充满</string>
+
+    <string name="charging_use_left">%1$d h %2$d min 可用</string>
+    <string name="unlock">滑动解锁</string>
+
+    <!--type one start-->
+    <!--type one end-->
+
+    <!--type two start-->
+    <string name="talk">可用通话时间</string>
+    <string name="internet">可用网络时间</string>
+    <string name="game">可用游戏时间</string>
+    <string name="temp">温度</string>
+
+    <string name="ram">內存</string>
+    <!--type two end-->
+    <string name="charging_ing">正在充电</string>
+</resources>

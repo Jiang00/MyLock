@@ -6,10 +6,12 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+
 import com.ivymobi.applock.free.R;
 
 
@@ -161,7 +163,11 @@ public class SlideMenu extends FrameLayout {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 //        super.onLayout(changed, left, top, right, bottom);
         vg_left.layout(-range, 0, 0, height);
+//        try {
         vg_main.layout(mainLeft, 0, mainLeft + width, height);
+//        } catch (Exception e) {
+//
+//        }
 //        vg_right.layout(width, 0, (width + range), height);
     }
 
@@ -187,9 +193,7 @@ public class SlideMenu extends FrameLayout {
 
     private void animateView(float percent) {
         float f1 = 1 - percent * .7f;
-//        ViewHelper.setScaleX(vg_main, f1);
-//        ViewHelper.setScaleY(vg_main, f1);
-//        ViewHelper.setX(vg_main, 0);
+        Log.e("chfq", "==f1===" + f1);
         vg_main.setX(0);
 //        ViewHelper.setAlpha(vg_main, f1);
         vg_main.setAlpha(f1);

@@ -15,7 +15,6 @@ import com.security.manager.meta.SecurityFlowMenu;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
-import com.security.manager.page.MessageBox;
 
 /**
  * Created by huale on 2015/2/2.
@@ -66,7 +65,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
     }
 
     @Override
-    public boolean check(String passwd, boolean normal) {
+    public boolean check(String passwd, boolean normal){
         if (SecurityMyPref.checkPasswd(passwd, normal)) {
             if (context instanceof Activity) {
                 ((SecurityPatternActivity) context).unlockSuccess(unlockMe);

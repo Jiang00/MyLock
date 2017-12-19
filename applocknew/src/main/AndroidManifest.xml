@@ -19,6 +19,7 @@
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <supports-screens android:anyDensity="true" />
 
@@ -70,7 +71,6 @@
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
-
 
         <activity
             android:name="com.security.manager.SecurityUnlockSettings"
@@ -332,6 +332,7 @@
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity

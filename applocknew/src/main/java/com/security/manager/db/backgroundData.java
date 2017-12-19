@@ -1,13 +1,9 @@
 package com.security.manager.db;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
-
 import com.security.manager.meta.SecurityMyPref;
-import com.security.manager.page.ShowDialogview;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -17,7 +17,13 @@ package com.security.manager.page;
 
 
 import android.content.Context;
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Debug;
 import android.os.Parcel;
@@ -30,6 +36,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 
+import com.ivymobi.applock.free.R;
 import com.security.manager.App;
 
 import java.util.ArrayList;
@@ -260,7 +267,7 @@ public class SecurityPatternView extends View {
 
         //取消innnernormal 设置为透明
         int innerNormal = attrs.getAttributeResourceValue(null, "inner", getId("security_inner_normal", "drawable"));
-        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("security_patte_nor", "drawable"));
+        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("security_inner_normal", "drawable"));
         int outerSolid = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_right", "drawable"));
         int wrong = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_wrong", "drawable"));
 
@@ -277,80 +284,22 @@ public class SecurityPatternView extends View {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        circleR = getResources().getDimensionPixelSize(getId("pattern_circle_size", "dimen"));
+        circleR = App.getContext().getResources().getDimensionPixelSize(R.dimen.d32);//32
 
         //设置内圆尺寸为0 实现正确状态时不可见innerCircelR
         innerCircelR = getResources().getDimensionPixelSize(getId("pattern_inner_circle_size", "dimen"));
         mBitmapWidth = mBitmapHeight = circleR;
         dot = getResources().getDrawable(innerNormal);
-        dotSolid = hidePath ? dot : getResources().getDrawable(getId("security_inner_right", "drawable"));
+        dotSolid = hidePath ? dot : getResources().getDrawable(getId("security_patt_right", "drawable"));
         circle = getResources().getDrawable(outerNormal);
         circleSolid = hidePath ? circle : getResources().getDrawable(outerSolid);
         circleRed = getResources().getDrawable(wrong);
         mBitmapArrowGreenUp = getBitmapFor(getId("security_green_up", "drawable"));
         mBitmapArrowRedUp = getBitmapFor(getId("security_red_up", "drawable"));
-
-        // lot's of bitmaps!
-        /*
-        mBitmapBtnDefault = getBitmapFor(R.drawable.btn_code_lock_default_holo);
-        mBitmapBtnTouched = getBitmapFor(R.drawable.btn_code_lock_touched_holo);
-        mBitmapCircleDefault = getBitmapFor(R.drawable.indicator_code_lock_point_area_default_holo);
-        mBitmapCircleGreen = getBitmapFor(R.drawable.indicator_code_lock_point_area_green_holo);
-        mBitmapCircleRed = getBitmapFor(R.drawable.indicator_code_lock_point_area_red_holo);
-
-        mBitmapArrowGreenUp = getBitmapFor(R.drawable.indicator_code_lock_drag_direction_green_up);
-        mBitmapArrowRedUp = getBitmapFor(R.drawable.indicator_code_lock_drag_direction_red_up);
-        */
-
-        // bitmaps have the size of the largest bitmap in this group
-        /*
-        final Bitmap bitmaps[] = { mBitmapBtnDefault, mBitmapBtnTouched, mBitmapCircleDefault,
-                mBitmapCircleGreen, mBitmapCircleRed };
-
-        for (Bitmap bitmap : bitmaps) {
-            mBitmapWidth = Math.max(mBitmapWidth, bitmap.getWidth());
-            mBitmapHeight = Math.max(mBitmapHeight, bitmap.getHeight());
-        }
-        */
-
     }
 
     private Bitmap getBitmapFor(int resId) {
         return BitmapFactory.decodeResource(getContext().getResources(), resId);
-    }
-
-    /**
-     * @return Whether the view is in stealth mode.
-     */
-    public boolean isInStealthMode() {
-        return mInStealthMode;
-    }
-
-    /**
-     * @return Whether the view has tactile feedback enabled.
-     */
-    public boolean isTactileFeedbackEnabled() {
-        return mEnableHapticFeedback;
-    }
-
-    /**
-     * Set whether the view is in stealth mode.  If true, there will be no
-     * visible feedback as the user enters the pattern.
-     *
-     * @param inStealthMode Whether in stealth mode.
-     */
-    public void setInStealthMode(boolean inStealthMode) {
-        mInStealthMode = inStealthMode;
-    }
-
-    /**
-     * Set whether the view will use tactile feedback.  If true, there will be
-     * tactile feedback as the user enters the pattern.
-     *
-     * @param tactileFeedbackEnabled Whether tactile feedback is enabled
-     */
-    public void setTactileFeedbackEnabled(boolean tactileFeedbackEnabled) {
-        mEnableHapticFeedback = tactileFeedbackEnabled;
     }
 
     /**
@@ -893,7 +842,7 @@ public class SecurityPatternView extends View {
         final float squareHeight = mSquareHeight;
 
         float radius = (squareWidth * mDiameterFactor * .5f);
-        mPathPaint.setStrokeWidth(getResources().getDimension(getId("pattern_line_size", "dimen")));
+        mPathPaint.setStrokeWidth(getResources().getDimension(getId("d4", "dimen")));
 
         final Path currentPath = mCurrentPath;
         currentPath.rewind();

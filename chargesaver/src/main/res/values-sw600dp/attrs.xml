@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<declare-styleable name="CustomerTypefaceTextView">-->
+        <!--&lt;!&ndash; 设置文字内容 &ndash;&gt;-->
+        <!--<attr name="typeface" format="string" />-->
+    <!--</declare-styleable>-->
+
+    <!--<declare-styleable name="BeerProgressView">-->
+        <!--<attr name="bubbleColor" format="color"/>-->
+        <!--<attr name="beerColor" format="color"/>-->
+        <!--<attr name="beerProgress" format="integer"/>-->
+        <!--<attr name="waveBorderWidth" format="dimension"/>-->
+        <!--<attr name="waveBorderRadius" format="dimension"/>-->
+        <!--<attr name="waveAmplitude" format="dimension"/>-->
+        <!--<attr name="waveMax" format="integer"/>-->
+    <!--</declare-styleable>-->
+
+    <!--<declare-styleable name="Charge_Label">-->
+        <!--&lt;!&ndash; 设置文字内容 &ndash;&gt;-->
+        <!--<attr name="charge_text" format="string"/>-->
+        <!--&lt;!&ndash; 设置文字颜色,默认#ffffff &ndash;&gt;-->
+        <!--<attr name="charge_text_color" format="color"/>-->
+        <!--&lt;!&ndash; 设置文字大小,默认11sp &ndash;&gt;-->
+        <!--<attr name="charge_text_size" format="dimension"/>-->
+        <!--&lt;!&ndash; 设置文字是否支持加粗,默认true &ndash;&gt;-->
+        <!--<attr name="charge_text_bold" format="boolean"/>-->
+        <!--&lt;!&ndash; 设置文字是否支持全部大写,默认true&ndash;&gt;-->
+        <!--<attr name="charge_text_all_caps" format="boolean"/>-->
+        <!--&lt;!&ndash; 设置背景颜色,默认"#FF4081"&ndash;&gt;-->
+        <!--<attr name="charge_background_color" format="color"/>-->
+        <!--&lt;!&ndash; 设置Labeadiew所在矩形最小宽高,默认mFillTriangle?35dp:50dp&ndash;&gt;-->
+        <!--<attr name="charge_min_size" format="dimension"/>-->
+        <!--&lt;!&ndash; 设置文字上下padding,默认3.5dp,mFillTriangle为true时无效&ndash;&gt;-->
+        <!--<attr name="charge_padding" format="dimension"/>-->
+        <!--&lt;!&ndash; 设置Labeadiew方向 &ndash;&gt;-->
+        <!--<attr name="charge_gravity" format="enum">-->
+            <!--<enum name="TOP_LEFT" value="51"/>-->
+            <!--<enum name="TOP_RIGHT" value="53"/>-->
+            <!--<enum name="BOTTOM_LEFT" value="83"/>-->
+            <!--<enum name="BOTTOM_RIGHT" value="85"/>-->
+        <!--</attr>-->
+        <!--&lt;!&ndash; 设置是否填充三角区域,默认false &ndash;&gt;-->
+        <!--<attr name="charge_fill_triangle" format="boolean"/>-->
+
+    <!--</declare-styleable>-->
+
+
+</resources>

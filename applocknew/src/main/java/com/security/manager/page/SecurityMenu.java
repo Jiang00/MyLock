@@ -43,8 +43,10 @@ public class SecurityMenu {
     private static int show_fakecover;
     private static int show_intruder;
     private static int show_vault;
+    static SlideMenu menu1;
 
     public static void attach(final SlideMenu menu, final View reddot) {
+        menu1 = menu;
         context = menu.getContext();
         FrameLayout side_applcok = (FrameLayout) menu.findViewById(R.id.side_applcok);
         FrameLayout side_shop = (FrameLayout) menu.findViewById(R.id.side_shop);
@@ -134,6 +136,10 @@ public class SecurityMenu {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.side_applcok:
+                    if (currentMenuIt == 0) {
+                        menu1.close();
+                        return;
+                    }
                     context.startActivity(new Intent(context, SecurityAppLock.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     currentMenuIt = 0;
@@ -148,6 +154,10 @@ public class SecurityMenu {
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     break;
                 case R.id.side_fakes:
+                    if (currentMenuIt == 2) {
+                        menu1.close();
+                        return;
+                    }
                     Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FAKE, Tracker.ACT_FAKE, 1L);
                     context.startActivity(new Intent(context, PretentSelectorActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
@@ -155,6 +165,10 @@ public class SecurityMenu {
                     ((Activity) context).finish();
                     break;
                 case R.id.side_intruder:
+                    if (currentMenuIt == 3) {
+                        menu1.close();
+                        return;
+                    }
                     Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_INTRUDE, Tracker.ACT_INTRUDE, 1L);
                     context.startActivity(new Intent(context, IntruderActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
@@ -162,15 +176,31 @@ public class SecurityMenu {
                     ((Activity) context).finish();
                     break;
                 case R.id.side_picture:
+                    if (currentMenuIt == 4) {
+                        menu1.close();
+                        return;
+                    }
                     currentMenuIt = 4;
                     break;
                 case R.id.side_video:
+                    if (currentMenuIt == 5) {
+                        menu1.close();
+                        return;
+                    }
                     currentMenuIt = 5;
                     break;
                 case R.id.side_files:
+                    if (currentMenuIt == 6) {
+                        menu1.close();
+                        return;
+                    }
                     currentMenuIt = 6;
                     break;
                 case R.id.side_setting:
+                    if (currentMenuIt == 7) {
+                        menu1.close();
+                        return;
+                    }
                     context.startActivity(new Intent(context, SecuritySettings.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     currentMenuIt = 7;

@@ -16,6 +16,10 @@
     <style name="MessageBox" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="buttonBarPositiveButtonStyle">@style/PostiveButtonStyle</item>
     </style>
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/B1</item>
+        <item name="colorControlActivated">@color/B1</item>
+    </style>
 
     <style name="ForceClose" parent="Theme.AppCompat.Dialog">
         <item name="windowFixedWidthMajor">100%</item>

@@ -9,62 +9,114 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <FrameLayout
-                android:id="@+id/main_good_ad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <com.security.lib.customview.CustomerTypefaceTextView
-                android:id="@+id/main_recom"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d37"
-                android:layout_marginLeft="@dimen/d16"
-                android:gravity="center_vertical"
-                android:text="@string/main_recom"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s13" />
-
-            <com.security.lib.customview.MyListView
-                android:id="@+id/abs_list2"
+            <LinearLayout
+                android:id="@+id/applock_ll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:choiceMode="multipleChoice"
-                android:divider="@drawable/security_list_driver"
-                android:dividerHeight="0dp"
-                android:headerDividersEnabled="false"
-                android:longClickable="false" />
+                android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d8"
-                android:background="@color/A4" />
+                <FrameLayout
+                    android:id="@+id/main_good_ad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <com.security.lib.customview.CustomerTypefaceTextView
-                android:id="@+id/allapps"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d37"
-                android:layout_marginLeft="@dimen/d16"
-                android:gravity="center_vertical"
-                android:text="@string/otherapps"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s13" />
+                <com.security.lib.customview.CustomerTypefaceTextView
+                    android:id="@+id/main_recom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d37"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:gravity="center_vertical"
+                    android:text="@string/main_recom"
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s13" />
 
-            <com.security.lib.customview.MyListView
-                android:id="@+id/abs_list"
+                <com.security.lib.customview.MyListView
+                    android:id="@+id/abs_list2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:choiceMode="multipleChoice"
+                    android:divider="@drawable/security_list_driver"
+                    android:dividerHeight="0dp"
+                    android:headerDividersEnabled="false"
+                    android:longClickable="false" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d8"
+                    android:background="@color/A4" />
+
+                <com.security.lib.customview.CustomerTypefaceTextView
+                    android:id="@+id/allapps"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d37"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:gravity="center_vertical"
+                    android:text="@string/otherapps"
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s13" />
+
+                <com.security.lib.customview.MyListView
+                    android:id="@+id/abs_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:choiceMode="multipleChoice"
+                    android:divider="@drawable/security_list_driver"
+                    android:dividerHeight="0dp"
+                    android:headerDividersEnabled="false"
+                    android:longClickable="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/applock_fl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:choiceMode="multipleChoice"
-                android:divider="@drawable/security_list_driver"
-                android:dividerHeight="0dp"
-                android:headerDividersEnabled="false"
-                android:longClickable="false" />
-        </LinearLayout>
+                android:background="@color/A1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d131"
+                    android:src="@drawable/main_applock" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d30"
+                    android:text="@string/security_applock_stop"
+                    android:textColor="@color/A3"
+                    android:textSize="@dimen/s14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d9"
+                    android:text="@string/security_applock_stop2"
+                    android:textColor="@color/A3"
+                    android:textSize="@dimen/s14" />
+
+                <com.security.lib.customview.CustomerTypefaceTextView
+                    android:id="@+id/open_lock"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d46"
+                    android:layout_marginBottom="@dimen/d6"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d16"
+                    android:layout_marginTop="@dimen/d90"
+                    android:background="@drawable/main_unlock_bj"
+                    android:gravity="center"
+                    android:text="@string/open_lock"
+                    android:textColor="@color/A3"
+                    android:textSize="@dimen/s17" />
+            </LinearLayout>
+        </FrameLayout>
     </ScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

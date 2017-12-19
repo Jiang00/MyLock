@@ -3,10 +3,14 @@ package com.security.manager.page;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.MenuItemCompat;
@@ -20,9 +24,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -38,7 +45,6 @@ import com.security.lib.customview.SecurityloadImage;
 import com.security.manager.App;
 import com.security.manager.NotificationService;
 import com.security.manager.SearchThread;
-import com.security.manager.SecurityAppLock;
 import com.security.manager.Tracker;
 import com.security.manager.db.SecurityProfileHelper;
 import com.security.manager.lib.Utils;
@@ -48,6 +54,9 @@ import com.security.manager.lib.io.RefreshList;
 import com.security.manager.meta.MApps;
 import com.security.manager.meta.SecuritProfiles;
 import com.security.manager.meta.SecurityMyPref;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,6 +89,10 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     ScrollView main_scrollview;
     @InjectView(R.id.main_good_ad)
     FrameLayout main_good_ad;
+    @InjectView(R.id.applock_fl)
+    LinearLayout applock_fl;
+    @InjectView(R.id.open_lock)
+    TextView open_lock;
 
     private boolean CloseSearch = true;
 
@@ -111,6 +124,14 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     private String[] predefinedpkgs;
     private Handler handler;
     private List<SearchThread.SearchData> list;
+    private int show_applock_stop;
+    private AlertDialog dialog1;
+    private boolean questionFlag4;
+    private boolean questionFlag3;
+    private boolean questionFlag2;
+    private boolean questionFlag1;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -172,6 +193,38 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         showAdOrFive();
         recyclerSetAdapter();
         setAdaptor();
+        try {
+            String flurryString = AndroidSdk.getExtraData();
+            JSONObject baseJson = new JSONObject(flurryString);
+            show_applock_stop = baseJson.getInt("show_applock_stop");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (show_applock_stop == 1) {
+            if (!SecurityMyPref.getVisitor()) {
+                applock_fl.setVisibility(View.VISIBLE);
+            }
+        }
+
+        open_lock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                applock_fl.setVisibility(View.GONE);
+                visitorState.setIcon(R.drawable.security_notification_lock);
+                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+                SecurityMyPref.setVisitor(true);
+                if (SecurityMyPref.getNotification()) {
+                    getActivity().stopService(new Intent(getActivity(), NotificationService.class));
+                    getActivity().startService(new Intent(getActivity(), NotificationService.class));
+                }
+            }
+        });
+        applock_fl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return v;
     }
 
@@ -183,7 +236,9 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     }
 
     void showAdOrFive() {
-        if (!shareFive.getFiveRate()) {
+        preferences = getActivity().getSharedPreferences("five_", Context.MODE_PRIVATE);
+        editor = preferences.edit();
+        if (!shareFive.getFiveRate() || preferences.getBoolean("five_rate_close_a", false)) {
             main_good_ad.addView(headerView);
             headerClick(headerView);
         } else {
@@ -320,11 +375,10 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     }
 
     private void setAdaptor() {
-
+        apps = MApps.getApps(locks);
         adaptor = new CListViewAdaptor(scroller, R.layout.security_apps_item) {
 
             private void updateUI(int position, ViewHolder h, boolean forceLoading) {
-                apps = MApps.getApps(locks);
                 if (apps.size() != 0) {
                     list = searchResult == null ? apps : searchResult;
                     if (position >= list.size()) return;
@@ -348,7 +402,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             @Override
             protected void onUpdate(int position, Object holder, boolean scrolling) {
                 ViewHolder h = (ViewHolder) holder;
-                        updateUI(position, h, !scrolling);
+                updateUI(position, h, !scrolling);
 
             }
 
@@ -453,6 +507,10 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         menuSearch = menu.findItem(R.id.action_search);
         visitorState = menu.findItem(R.id.menuvisitor);
 
+        if (show_applock_stop == 0) {
+            visitorState.setVisible(false);
+        }
+
         if (SecurityMyPref.getshowLockAll()) {
             if (SecurityMyPref.getVisitor()) {
                 visitorState.setIcon(R.drawable.security_notification_lock).setVisible(true);
@@ -490,13 +548,12 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
                 CloseSearch = true;
-                searchResult = null;
+
                 menuSearch.setVisible(true);
                 if (SecurityMyPref.getshowLockAll()) {
                     visitorState.setVisible(true);
                 } else {
                     visitorState.setVisible(false);
-
                 }
 
                 showAdOrFive();
@@ -515,11 +572,13 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     @Override
     public boolean onQueryTextChange(String newText) {
         if (CloseSearch) {
-            refreshUI(refreshSearchResult);
+            searchResult = null;
+//            refreshUI(refreshSearchResult);
             apps = MApps.getApps(locks);
+            adaptor.notifyDataSetChanged();
             CloseSearch = false;
         } else {
-            Log.e("CloseSearch","CloseSearch");
+            Log.e("CloseSearch", "CloseSearch");
             CloseSearch = false;
             searchResult = filter((ArrayList<SearchThread.SearchData>) MApps.getApps(locks), newText);
             refreshUI(refreshSearchResult);
@@ -609,98 +668,190 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
 
     private void headerClick(final View headerView) {
-
         lottie_good = (LottieAnimationView) headerView.findViewById(R.id.lottie_good);
-
         lottie_good.setAnimation("good.json");
         lottie_good.setScale(0.3f);//相对原大小的0.2倍
         lottie_good.loop(true);
         lottie_good.playAnimation();
 
-        headerView.findViewById(R.id.security_bad_tit).setOnClickListener(new View.OnClickListener(
-
-        ) {
+        headerView.findViewById(R.id.security_bad_tit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                listView.removeHeaderView(headerView);
+                main_good_ad.removeView(headerView);
                 shareFive.setFiveRate(true);
-                getActivity().finish();
-                Intent intent = new Intent(getActivity(), SecurityAppLock.class);
-                startActivity(intent);
+                editor.putBoolean("five_rate_close_a", false).commit();
+//                sendEmail("iebuznel@gmail.com", getActivity());
+                showBadDialog();
                 Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_PERMISSION_CANCLE, 1L);
-
-
             }
         });
-
-
         headerView.findViewById(R.id.security_good_tit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 shareFive.setFiveRate(true);
+                editor.putBoolean("five_rate_close_a", false).commit();
                 Utils.rate(getActivity());
-
                 listView.removeHeaderView(headerView);
                 Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_GOOD_RATE_GOOD, 1L);
 
             }
         });
-
-
         headerView.findViewById(R.id.security_rat_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listView.removeHeaderView(headerView);
+                main_good_ad.removeView(headerView);
                 shareFive.setFiveRate(true);
-                getActivity().finish();
-                Intent intent = new Intent(getActivity(), SecurityAppLock.class);
-                startActivity(intent);
-                Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_GOOD_RATE_CLOSE, 1L);
 
+                if (preferences.getBoolean("five_rate_close_a", false)) {
+                    editor.putBoolean("five_rate_close_a", false).commit();
+                    editor.putBoolean("five_rate_close_f", false).commit();
+                } else {
+                    editor.putBoolean("five_rate_close_f", true).commit();
+                }
+//                if (shareFive.getFiveRate()) {
+//                    shareFive.setFiveRate2(true);
+//                } else {
+//                }
+                Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_GOOD_RATE_CLOSE, 1L);
+            }
+        });
+    }
+
+    //差评反馈
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void showBadDialog() {
+        View view = View.inflate(getActivity(), R.layout.dialog_bad, null);
+        LinearLayout question1 = (LinearLayout) view.findViewById(R.id.question1);
+        LinearLayout question2 = (LinearLayout) view.findViewById(R.id.question2);
+        LinearLayout question3 = (LinearLayout) view.findViewById(R.id.question3);
+        LinearLayout question4 = (LinearLayout) view.findViewById(R.id.question4);
+        final ImageView question_v1 = (ImageView) view.findViewById(R.id.question_v1);
+        final ImageView question_v2 = (ImageView) view.findViewById(R.id.question_v2);
+        final ImageView question_v3 = (ImageView) view.findViewById(R.id.question_v3);
+        final ImageView question_v4 = (ImageView) view.findViewById(R.id.question_v4);
+        final EditText edittext = (EditText) view.findViewById(R.id.edittext);
+        ImageView good_close = (ImageView) view.findViewById(R.id.good_close);
+        TextView main_bad = (TextView) view.findViewById(R.id.main_bad);
+        TextView main_good = (TextView) view.findViewById(R.id.main_good);
+
+        final MyDialog d1 = new MyDialog(getActivity(), 0, 0, view, R.style.dialog);
+        d1.show();
+
+        question1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (questionFlag1) {
+                    questionFlag1 = false;
+                    question_v1.setImageResource(R.drawable.uncheck);
+                } else {
+                    questionFlag1 = true;
+                    question_v1.setImageResource(R.drawable.check);
+                }
+            }
+        });
+        question2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (questionFlag2) {
+                    questionFlag2 = false;
+                    question_v2.setImageResource(R.drawable.uncheck);
+                } else {
+                    questionFlag2 = true;
+                    question_v2.setImageResource(R.drawable.check);
+                }
+            }
+        });
+        question3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (questionFlag3) {
+                    questionFlag3 = false;
+                    question_v3.setImageResource(R.drawable.uncheck);
+                } else {
+                    questionFlag3 = true;
+                    question_v3.setImageResource(R.drawable.check);
+                }
+            }
+        });
+        question4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (questionFlag4) {
+                    questionFlag4 = false;
+                    question_v4.setImageResource(R.drawable.uncheck);
+                } else {
+                    questionFlag4 = true;
+                    question_v4.setImageResource(R.drawable.check);
+                }
+            }
+        });
+        main_bad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d1.dismiss();
+                Tracker.sendEvent("锁应用界面展示", "差评反馈点击", "放弃点击", 1L);
+            }
+        });
+        good_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d1.dismiss();
+                Tracker.sendEvent("锁应用界面展示", "差评反馈点击", "叉号点击", 1L);
+            }
+        });
+        main_good.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str = "";
+                if (questionFlag1) {
+                    str += "1广告";
+                }
+                if (questionFlag2) {
+                    str += "2不锁";
+                }
+                if (questionFlag3) {
+                    str += "3界面";
+                }
+                if (questionFlag4) {
+                    str += "4其他";
+                }
+                Log.e("chfq", "===edittext.getText().toString().isEmpty()==" + edittext.getText().toString().isEmpty());
+                if (str.isEmpty() && edittext.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), getString(R.string.least_question), Toast.LENGTH_SHORT).show();
+                } else {
+                    d1.dismiss();
+                    if (!edittext.getText().toString().isEmpty()) {
+                        Tracker.sendEvent("锁应用界面展示", "差评反馈点击", "提交点击" + edittext.getText().toString(), 1L);
+                    } else {
+                        Tracker.sendEvent("锁应用界面展示", "差评反馈点击", "提交点击" + str, 1L);
+                    }
+                }
             }
         });
 
-
     }
 
-    /**/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menuvisitor) {
             if (SecurityMyPref.getVisitor()) {
-                final View alertDialogView = View.inflate(getActivity(), R.layout.security_stop_applock, null);
-                final AlertDialog d = new AlertDialog.Builder(getActivity(), R.style.dialog).create();
-                d.setView(alertDialogView);
-                d.setCanceledOnTouchOutside(false);
-                d.show();
+                applock_fl.setVisibility(View.VISIBLE);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", -applock_fl.getWidth(), 0f);
+                animator.setDuration(400);
+                animator.setInterpolator(new AccelerateInterpolator());
+                animator.start();
+                SecurityMyPref.setVisitor(false);
+                visitorState.setIcon(R.drawable.security_notification_unlock);
+                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
 
-                alertDialogView.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        d.cancel();
-                        SecurityMyPref.setVisitor(false);
-                        visitorState.setIcon(R.drawable.security_notification_unlock);
-                        Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
-
-                        Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
-                        if (SecurityMyPref.getNotification()) {
-                            getActivity().stopService(new Intent(getActivity(), NotificationService.class));
-                            getActivity().startService(new Intent(getActivity(), NotificationService.class));
-                        }
-                    }
-                });
-
-                alertDialogView.findViewById(R.id.cancle).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        d.cancel();
-                    }
-                });
-//                visitorState.setIcon(R.drawable.security_app_visitor_off);
-
+                Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
+                if (SecurityMyPref.getNotification()) {
+                    getActivity().stopService(new Intent(getActivity(), NotificationService.class));
+                    getActivity().startService(new Intent(getActivity(), NotificationService.class));
+                }
 
             } else {
+                applock_fl.setVisibility(View.GONE);
                 visitorState.setIcon(R.drawable.security_notification_lock);
                 Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
                 SecurityMyPref.setVisitor(true);
@@ -709,18 +860,14 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                     getActivity().startService(new Intent(getActivity(), NotificationService.class));
                 }
                 Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_ON, 1L);
-
             }
-
         }
-
         return super.onOptionsItemSelected(item);
-
     }
 
     void ininShowAD() {
         if (AndroidSdk.hasNativeAd(TAG_TOP_AD)) {
-            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_TOP_AD, AndroidSdk.HIDE_BEHAVIOR_NO_HIDE, R.layout.app_top_native_layout, new ClientNativeAd.NativeAdClickListener() {
+            scrollView = AndroidSdk.peekNativeAdScrollViewWithLayout("rating", AndroidSdk.HIDE_BEHAVIOR_NO_HIDE, R.layout.app_top_native_layout, new ClientNativeAd.NativeAdClickListener() {
                 @Override
                 public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
 

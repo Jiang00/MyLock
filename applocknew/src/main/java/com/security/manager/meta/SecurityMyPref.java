@@ -196,7 +196,7 @@ public class SecurityMyPref {
     }
 
     public static boolean tip4Rate() {
-        return App.getSharedPreferences().getInt("rate", 0) >= 12 && !App.getSharedPreferences().contains("rate_showed");
+        return App.getSharedPreferences().getInt("rate", 0) >1 && !App.getSharedPreferences().contains("rate_showed");
     }
 
     public static boolean tip4Security() {
@@ -349,7 +349,7 @@ public class SecurityMyPref {
     }
 
     public static boolean getVisitor() {
-        return App.getSharedPreferences().getBoolean("visitor_op_", true);
+        return App.getSharedPreferences().getBoolean("visitor_op_", false);
     }
 
 
@@ -452,12 +452,12 @@ public class SecurityMyPref {
     }
 
 
-    public static void setUseClearShowAD(int time) {
-        App.getSharedPreferences().edit().putInt("show_user_clear_show_ad", time).apply();
+    public static void setFingerprintl(boolean yes) {
+        App.getSharedPreferences().edit().putBoolean("fingerprintflag", yes).apply();
     }
 
-    public static int getUseClearShowAD() {
-        return App.getSharedPreferences().getInt("show_user_clear_show_ad", 0);
+    public static boolean getFingerprintl() {
+        return App.getSharedPreferences().getBoolean("fingerprintflag", false);
     }
 
 

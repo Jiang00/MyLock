@@ -1,0 +1,24 @@
+<resources>
+
+    <!--common-->
+    <string name="charge_screen_save">layar Charger</string>
+    <string name="charging_on_left">%1$d h %2$d min membebankan</string>
+    <string name="charging_use_left">%1$d h %2$d min kiri</string>
+    <string name="unlock">Geser untuk membuka</string>
+
+    <!--type one start-->
+    <!--type one end-->
+
+    <!--type two start-->
+    <string name="talk">waktu panggilan</string>
+    <string name="internet">Wifi</string>
+    <string name="game">Permainan</string>
+    <string name="temp">Suhu</string>
+   
+    <string name="ram">RAM</string>
+    <!--type two end-->
+    <string name="charging_ing">pengisian</string>
+</resources>
+
+
+

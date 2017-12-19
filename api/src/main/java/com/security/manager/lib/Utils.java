@@ -7,7 +7,6 @@ import android.app.Dialog;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -34,11 +33,8 @@ import com.privacy.api.BuildConfig;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.UUID;
-
-import static android.content.Context.CONTEXT_IGNORE_SECURITY;
 
 /**
  * Created by SongHualin on 4/20/2015.
@@ -435,6 +431,9 @@ public class Utils {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static boolean requireCheckAccessPermission(Context context) {
+        if (Build.VERSION.SDK_INT < 21) {
+            return true;
+        }
         int result = checkPermissionIsGrant(context, OP_GET_USAGE_STATS);
         return result != -1 && result != AppOpsManager.MODE_ALLOWED;
     }

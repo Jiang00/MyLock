@@ -149,7 +149,7 @@
     <string name="security_loading_fullad_fail">Advertisement loading failed, please try again later</string>
     <string name="security_click_change">Next Ad</string>
     <string name="security_choose_theme">Choose theme</string>
-	
+
     <string name="security_user_center">No Ads</string>
     <string name="security_user_pro">Full feature are available with no annoying ads. Limited time offer.</string>
     <string name="security_user_free">Full feature are available and watch ads to support us.</string>
@@ -179,7 +179,7 @@
     <string name="security_user_compare_fake_cover_inf">Change AppLock icon</string>
     <string name="security_user_compare_theme_change">Themes</string>
     <string name="security_user_compare_theme_inf">100+ beautiful themes</string>
-	<string name="security_user_compare_go_pro">Go PRO!</string>
+    <string name="security_user_compare_go_pro">Go PRO!</string>
     <string name="security_user_plan_free_click">FREE selected</string>
     <string name="pre_tip">Please find AppLock and enable Accessibility Service to stop battery draining apps and extend battery life.</string>
     <string name="rote_support">好评支持</string>
@@ -219,4 +219,22 @@
     <string name="max_delect">删除</string>
     <string name="security_visitor_on2">Applock已经保护隐私%1$s天</string>
     <string name="security_visitor_off2">手机隐私需要安全保护</string>
+    <string name="security_applock_stop2">所有应用已解锁</string>
+    <string name="open_lock">启动应用锁</string>
+    <string name="security_applock_permission2">没有使用量数据访问权限，应用锁无法正确运行。</string>
+    <string name="pre_tip3">Enable Accessibility Service to stop auto start apps and enjoy power saving feature.</string>
+    <string name="security_fingerprint_setup">前去录入</string>
+    <string name="finger_tip">您还未录入指纹</string>
+    <string name="help_sug">联系我们</string>
+    <string name="setting_follow">关注我们</string>
+    <string name="setting_no_email">手机没有邮箱</string>
+    <string name="least_question">请选择至少一个</string>
+    <string name="bad_tip">有什么不满意的地方，请反馈给我们吧！</string>
+    <string name="question1">广告太多</string>
+    <string name="question2">应用不上锁</string>
+    <string name="question3">界面不喜欢</string>
+    <string name="question4">其他</string>
+    <string name="fangqi">放弃</string>
+    <string name="tijiao">提交</string>
+    <string name="security_change_pattern2">数字解锁</string>
 </resources>

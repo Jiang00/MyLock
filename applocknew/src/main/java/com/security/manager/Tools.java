@@ -379,6 +379,29 @@ public class Tools {
         launchApp(context, url + pkg, i);
     }
 
+    public static void openPlayStore(Context context, String pkg, String url) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+
+        if (pkg.startsWith("http")) {
+            pkg = pkg.replace(url, "");
+            if (pkg.startsWith("http")) {
+                launchApp(context, pkg, i);
+                return;
+            }
+        }
+
+        try {
+            if (context.getPackageManager().getApplicationEnabledSetting("com.android.vending") == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT) {
+                url = "market://details?id=";
+                i.setPackage("com.android.vending");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        launchApp(context, url + pkg, i);
+    }
+
     public static void launchApp(Context context, String url, Intent i) {
         i.setData(Uri.parse(url));
         try {

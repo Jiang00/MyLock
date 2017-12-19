@@ -183,4 +183,5 @@
     <string name="security_user_compare_go_pro">升级到高级版</string>
     <string name="security_user_plan_free_click">已选择免费版</string>
     <string name="pre_tip">请找到应用锁并开启辅助功能权限，结束后台耗电应用并延长待机时间。</string>
+    <string name="pre_tip3">开启辅助权限，终止自启动应用并享用高级省电功能。</string>
 </resources>

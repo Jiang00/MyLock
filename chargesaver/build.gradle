@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    compile project(path: ':lottie')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.core:empty:5.0.6'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'org.byteam.superadapter:superadapter:3.6.5'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    //compile 'com.android.support:support-vector-drawable:23.4.0'
+}

@@ -60,7 +60,7 @@ public class PreferenceService extends Service {
                     Log.e("chfq", "==PreferenceService=requireCheckAccessPermission=");
                     stopService(new Intent(PreferenceService.this, PreferenceService.class));
                     Intent intent = new Intent(PreferenceService.this, SecuritySettingsAdvance.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     handler.removeCallbacks(runnable);
                 } else {
@@ -95,7 +95,7 @@ public class PreferenceService extends Service {
                 if (ContextCompat.checkSelfPermission(PreferenceService.this,
                         android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     Intent intent = new Intent(PreferenceService.this, SecuritySettingsAdvance.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     handler.removeCallbacks(runnable);
                 } else {
@@ -110,7 +110,7 @@ public class PreferenceService extends Service {
             } else if (setting_alert_window) {
                 if (Settings.canDrawOverlays(PreferenceService.this)) {
                     Intent intent = new Intent(PreferenceService.this, SecuritySettingsAdvance.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     handler.removeCallbacks(runnable);
                 } else {
@@ -127,7 +127,7 @@ public class PreferenceService extends Service {
                 Log.e("chfq", "====isAccessibilitySettingsOn====" + isAccessibilitySettingsOn(PreferenceService.this));
                 if (isAccessibilitySettingsOn(PreferenceService.this)) {
                     Intent intent = new Intent(PreferenceService.this, SecuritySettingsAdvance.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     handler.removeCallbacks(runnable);
                 } else {

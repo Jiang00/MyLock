@@ -1,19 +1,32 @@
 package com.security.manager;
 
+import android.app.AlertDialog;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.client.AndroidSdk;
+import com.auroras.module.charge.saver.aurorasutils.AurorasUtils;
+import com.auroras.module.charge.saver.aurorasutils.BatteryConstants;
 import com.ivymobi.applock.free.R;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.page.MyDialog;
@@ -72,9 +85,11 @@ public class SecuritySettings extends ClientActivitySecurity {
     private FrameLayout setting_power_fl;
     private FrameLayout setting_rote_fl;
     private int show_fingerprint;
-    private int show_notification;
-    private int show_charging;
-    private int show_widget;
+    private FingerprintManagerCompat managerCompat;
+    private KeyguardManager keyguardManager;
+    private FrameLayout setting_family;
+    private FrameLayout help_sug;
+    private FrameLayout setting_follow;
 
 
     @Override
@@ -138,7 +153,18 @@ public class SecuritySettings extends ClientActivitySecurity {
         //指纹
         setting_fingerprint_fl = (FrameLayout) findViewById(R.id.setting_fingerprint_fl);
         setting_fingerprint_iv = (ImageView) findViewById(R.id.setting_fingerprint_iv);
-//        fingerprintFlag = SecurityMyPref.getNotification();
+        fingerprintFlag = SecurityMyPref.getFingerprintl();
+        managerCompat = FingerprintManagerCompat.from(App.getContext());
+        keyguardManager = (KeyguardManager) App.getContext().getSystemService(App.getContext().KEYGUARD_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (!managerCompat.isHardwareDetected()) { //判断设备是否支持
+                setting_fingerprint_fl.setVisibility(View.GONE);
+            } else if (!managerCompat.hasEnrolledFingerprints()) {
+                fingerprintFlag = false;
+            }
+        } else {
+            setting_fingerprint_fl.setVisibility(View.GONE);
+        }
         if (fingerprintFlag) {
             setting_fingerprint_iv.setImageResource(R.drawable.security_setting_check);
         } else {
@@ -147,7 +173,7 @@ public class SecuritySettings extends ClientActivitySecurity {
         //充电屏保
         setting_battery_fl = (FrameLayout) findViewById(R.id.setting_battery_fl);
         setting_battery_iv = (ImageView) findViewById(R.id.setting_battery_iv);
-//        batteryFlag = SecurityMyPref.getNotification();
+        batteryFlag = (Boolean) AurorasUtils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
         if (batteryFlag) {
             setting_battery_iv.setImageResource(R.drawable.security_setting_check);
         } else {
@@ -166,29 +192,22 @@ public class SecuritySettings extends ClientActivitySecurity {
         setting_power_fl = (FrameLayout) findViewById(R.id.setting_power_fl);
         //评价
         setting_rote_fl = (FrameLayout) findViewById(R.id.setting_rote_fl);
+        //family
+        setting_family = (FrameLayout) findViewById(R.id.setting_family);
+        //联系我们
+        help_sug = (FrameLayout) findViewById(R.id.help_sug);
+        //关注我们
+        setting_follow = (FrameLayout) findViewById(R.id.setting_follow);
 
         try {
             JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
             show_fingerprint = jsonObject.getInt("show_fingerprint");
-            show_notification = jsonObject.getInt("show_notification");
-            show_charging = jsonObject.getInt("show_charging");
-            show_widget = jsonObject.getInt("show_widget");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         if (show_fingerprint == 0) {
             setting_fingerprint_fl.setVisibility(View.GONE);
         }
-        if (show_notification == 0) {
-            setting_notice_fl.setVisibility(View.GONE);
-        }
-        if (show_charging == 0) {
-            setting_battery_fl.setVisibility(View.GONE);
-        }
-        if (show_widget == 0) {
-            setting_widget_fl.setVisibility(View.GONE);
-        }
-
 
         setting_frequency_fl.setOnClickListener(onClickListener);
         setting_rebuild_fl.setOnClickListener(onClickListener);
@@ -200,6 +219,9 @@ public class SecuritySettings extends ClientActivitySecurity {
         setting_widget_fl.setOnClickListener(onClickListener);
         setting_power_fl.setOnClickListener(onClickListener);
         setting_rote_fl.setOnClickListener(onClickListener);
+        setting_family.setOnClickListener(onClickListener);
+        help_sug.setOnClickListener(onClickListener);
+        setting_follow.setOnClickListener(onClickListener);
 
     }
 
@@ -212,6 +234,7 @@ public class SecuritySettings extends ClientActivitySecurity {
 
     }
 
+    private LottieAnimationView fingerprint;
     public View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -265,23 +288,65 @@ public class SecuritySettings extends ClientActivitySecurity {
                     break;
                 case R.id.setting_fingerprint_fl:
                     //指纹
-                    if (fingerprintFlag) {
-                        fingerprintFlag = false;
-                        setting_fingerprint_iv.setImageResource(R.drawable.security_setting_not_check);
+                    Log.e("chfq", "===");
+                    if (!managerCompat.hasEnrolledFingerprints()) { //判断设备是否已经注册过指纹
+                        final View alert = View.inflate(SecuritySettings.this, R.layout.security_fingerprint_alert, null);
+                        final AlertDialog alertDialog = new AlertDialog.Builder(SecuritySettings.this,R.style.dialog).create();
+                        alertDialog.setView(alert);
+                        alertDialog.setCanceledOnTouchOutside(false);
+                        alertDialog.show();
+                        fingerprint = (LottieAnimationView) alert.findViewById(R.id.setting_lottie);
+                        fingerprint.setAnimation("fingerprint.json");
+//                        fingerprint.setScale(0.07f);//相对原大小的0.2倍
+                        fingerprint.loop(true);
+                        fingerprint.playAnimation();
+
+                        alert.findViewById(R.id.security_cancel).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                alertDialog.cancel();
+                                fingerprintFlag = false;
+                                SecurityMyPref.setFingerprintl(false);
+                                setting_fingerprint_iv.setImageResource(R.drawable.security_setting_not_check);
+                            }
+                        });
+                        alert.findViewById(R.id.security_setup).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                alertDialog.dismiss();
+                                Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+                                startActivityForResult(intent, 110);
+                            }
+                        });
                     } else {
-                        fingerprintFlag = true;
-                        setting_fingerprint_iv.setImageResource(R.drawable.security_setting_check);
+                        Log.e("chfq", "=====");
+                        if (fingerprintFlag) {
+                            Log.e("chfq", "===false==");
+                            fingerprintFlag = false;
+                            setting_fingerprint_iv.setImageResource(R.drawable.security_setting_not_check);
+                            SecurityMyPref.setFingerprintl(false);
+                        } else {
+                            Log.e("chfq", "===true==");
+                            fingerprintFlag = true;
+                            setting_fingerprint_iv.setImageResource(R.drawable.security_setting_check);
+                            SecurityMyPref.setFingerprintl(true);
+                        }
                     }
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, "指纹点击", "", 1L);
+
                     break;
                 case R.id.setting_battery_fl:
                     //充电屏保
                     if (batteryFlag) {
                         batteryFlag = false;
                         setting_battery_iv.setImageResource(R.drawable.security_setting_not_check);
+                        AurorasUtils.writeData(SecuritySettings.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
                     } else {
                         batteryFlag = true;
                         setting_battery_iv.setImageResource(R.drawable.security_setting_check);
+                        AurorasUtils.writeData(SecuritySettings.this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
                     }
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, "充电屏保点击", "", 1L);
                     break;
                 case R.id.setting_widget_fl:
                     if (widgetFlag) {
@@ -297,57 +362,53 @@ public class SecuritySettings extends ClientActivitySecurity {
                     Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
+                    Tracker.sendEvent(Tracker.ACT_SETTING_MENU, "权限中心点击", "", 1L);
                     break;
                 case R.id.setting_rote_fl:
                     Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE, 1L);
                     SecurityShare.rate(context);
                     break;
+                case R.id.setting_family:
+                    //family    https://play.google.com/store/search?q=CLEANMOBI&c=apps
+                    Tools.openPlayStore(SecuritySettings.this, getPackageName(), "https://play.google.com/store/apps/developer?id=VectorApps_Team");
+                    break;
+                case R.id.help_sug:
+                    //联系我们
+                    sendEmail("iebuznel@gmail.com", SecuritySettings.this);
+                    break;
+                case R.id.setting_follow:
+                    //关注我们
+                    Intent intentfb = newFacebookIntent(SecuritySettings.this.getPackageManager(), "https://www.facebook.com/Applock_VectorApps-832626453583360/");
+                    startActivity(intentfb);
+                    break;
 
 
             }
-//                Intent intent = new Intent(SecuritySettings.this, SecuritySettingsAdvance.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//                Tracker.sendEvent(Tracker.ACT_SETTING_MENU, Tracker.ACT_SETTING_PERMISSION, Tracker.ACT_SETTING_PERMISSION, 1L);
-//                Utility.goPermissionCenter(SecuritySettings.this, "");
         }
     };
 
-//    public void setPasswd(boolean forResult, boolean pattern) {
-//        if (forResult)
-//            startActivityForResult(new Intent(context, SecuritySetPasswordActivity.class).putExtra("set", pattern ? SecuritySetPasswordActivity.SET_GRAPH_PASSWD : SecuritySetPasswordActivity.SET_NORMAL_PASSWD), pattern ? REQ_CODE_PATTERN : REQ_CODE_PASS);
-//        else
-//            startActivity(new Intent(context, SecuritySetPasswordActivity.class).putExtra("set", pattern ? SecuritySetPasswordActivity.SET_GRAPH_PASSWD : SecuritySetPasswordActivity.SET_NORMAL_PASSWD));
-//        overridePendingTransition(R.anim.security_huadong_left_in, R.anim.security_huadong_right_out);
-//    }
+    public static void sendEmail(String email, Context context) {
+        Intent data = new Intent(Intent.ACTION_SENDTO);
+        data.setData(Uri.parse("mailto:" + email));
+        try {
+            context.startActivity(data);
+        } catch (Exception e) {
+            Toast.makeText(context, context.getResources().getString(R.string.setting_no_email), Toast.LENGTH_SHORT).show();
+        }
+    }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        switch (requestCode) {
-//
-//            case REQ_CODE_PATTERN:
-//                if (resultCode == 1) {
-////                    SharPre.begin().useNormalPasswd(false).commit();
-//                    notifyDatasetChanged();
-//                }
-//                break;
-//            case REQ_CODE_PASS:
-//                if (resultCode == 1) {
-////                    SharPre.begin().useNormalPasswd(true).commit();
-//                    notifyDatasetChanged();
-//                }
-//                break;
-//            default:
-//                super.onActivityResult(requestCode, resultCode, data);
-//                break;
-//        }
-//    }
-
-//    @Override
-//    protected void onPostResume() {
-//        super.onPostResume();
-//        notifyDatasetChanged();
-//    }
+    public static Intent newFacebookIntent(PackageManager pm, String url) {
+        Uri uri = Uri.parse(url);
+        try {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
+            if (applicationInfo.enabled) {
+// http://stackoverflow.com/a/24547437/1048340
+                uri = Uri.parse("fb://facewebmodal/f?href=" + url);
+            }
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+        return new Intent(Intent.ACTION_VIEW, uri);
+    }
 
     private void setupToolbar() {
         toolbar.setNavigationIcon(R.drawable.security_slide_menu);
@@ -518,6 +579,16 @@ public class SecuritySettings extends ClientActivitySecurity {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onReceiveActivityResult(int requestCode, int resultCode, @NonNull Intent data) {
+        if (requestCode == 110) {
+            if (managerCompat.hasEnrolledFingerprints()) { //判断设备是否已经注册过指纹
+                SecurityMyPref.setFingerprintl(true);
+                setting_fingerprint_iv.setImageResource(R.drawable.security_setting_check);
+            }
         }
     }
 }

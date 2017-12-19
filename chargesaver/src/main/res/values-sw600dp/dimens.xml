@@ -1,0 +1,73 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="duck_2">29dp</dimen>
+    <dimen name="duck_25">150dp</dimen>
+    <dimen name="duck_28">72dp</dimen>
+    <dimen name="duck_48">130dp</dimen>
+    <dimen name="duck_3">5dp</dimen>
+    <dimen name="duck_9">23dp</dimen>
+    <dimen name="duck_320">728dp</dimen>
+    <dimen name="duck_250">364dp</dimen>
+    <dimen name="duck_18">37dp</dimen>
+    <dimen name="duck_76">152dp</dimen>
+    <dimen name="duck_74">74dp</dimen>
+    <dimen name="duck_text_22">43sp</dimen>
+    <dimen name="duck_16">34dp</dimen>
+    <dimen name="duck_26">72dp</dimen>
+    <dimen name="duck_text_43">101sp</dimen>
+    <dimen name="duck_text_13">32sp</dimen>
+    <dimen name="duck_8">24dp</dimen>
+    <dimen name="duck_11">30dp</dimen>
+    <dimen name="duck_13">30dp</dimen>
+    <dimen name="duck_4">48dp</dimen>
+    <dimen name="duck_text_one_13">30sp</dimen>
+    <dimen name="duck_36">102dp</dimen>
+    <dimen name="duck_12">24dp</dimen>
+    <dimen name="duck_one_8">16dp</dimen>
+    <dimen name="duck_32">48dp</dimen>
+    <dimen name="duck_text_9">28px</dimen>
+    <dimen name="duck_text_two_13">35px</dimen>
+    <dimen name="duck_316">728dp</dimen>
+
+    <dimen name="native_4">27dp</dimen>
+    <dimen name="native_one_4">16dp</dimen>
+    <dimen name="native_text_14">34sp</dimen>
+    <dimen name="native_text_10">30sp</dimen>
+
+    <dimen name="saver_26">72dp</dimen>
+    <dimen name="saver_8">24dp</dimen>
+    <dimen name="saver_11">30dp</dimen>
+    <dimen name="saver_4">24dp</dimen>
+    <dimen name="saver_text_13">30sp</dimen>
+    <dimen name="saver_13">30dp</dimen>
+    <dimen name="saver_18">58dp</dimen>
+    <dimen name="saver_text_50">150dp</dimen>
+    <dimen name="saver_text_15">35sp</dimen>
+    <dimen name="saver_14">48dp</dimen>
+    <dimen name="saver_one_26">48dp</dimen>
+    <dimen name="saver_text_22">45sp</dimen>
+    <dimen name="saver_250">324dp</dimen>
+    <dimen name="saver_40">108dp</dimen>
+    <dimen name="saver_36">102dp</dimen>
+    <dimen name="saver_12">24dp</dimen>
+    <dimen name="saver_one_8">16dp</dimen>
+    <dimen name="saver_32">48dp</dimen>
+
+    <dimen name="msg_250">324dp</dimen>
+    <dimen name="msg_16">54dp</dimen>
+    <dimen name="msg_one_16">24dp</dimen>
+    <dimen name="msg_40">108dp</dimen>
+    <dimen name="msg_text_12">25sp</dimen>
+    <dimen name="msg_text_15">30sp</dimen>
+
+    <dimen name="charge_left">10px</dimen>
+    <dimen name="charge_right">20px</dimen>
+    <dimen name="charge_top">10px</dimen>
+    <dimen name="charge_bottom">10px</dimen>
+    <dimen name="charge_radius">10px</dimen>
+
+</resources>

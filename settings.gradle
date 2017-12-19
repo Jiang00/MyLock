@@ -1,1 +1,1 @@
-include ':applocknew', ':ByakuGallery', ':model', ':api', 'baselibrary'
+include ':applocknew', ':ByakuGallery', ':model', ':api', 'baselibrary', 'chargesaver'

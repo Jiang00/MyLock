@@ -1,0 +1,20 @@
+<resources>
+
+    <!--common-->
+    <string name="charge_screen_save">Charging Screen</string>
+    <string name="charging_on_left">Charging Left: %1$d h %2$d min</string>
+    <string name="charging_use_left">%1$d h %2$d min available</string>
+    <string name="unlock">Slide to unlock</string>
+
+    <!--type one-->
+
+
+    <!--type two-->
+    <string name="game">Game time</string>
+    <string name="talk">Calling time</string>
+    <string name="internet">Surfing time</string>
+    <string name="temp">TEMP</string>
+    <string name="cpu">CPU</string>
+    <string name="ram">RAM</string>
+    <string name="charging_ing">Charging</string>
+</resources>

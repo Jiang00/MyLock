@@ -15,15 +15,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:background="@color/security_new_user_choose_app_bac"
+            android:layout_height="@dimen/d220"
+            android:background="@color/A1"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/title"
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
+                android:layout_width="@dimen/d66"
+                android:layout_height="@dimen/d66"
                 android:background="@drawable/ic_launcher"
                 android:tag="title" />
 
@@ -31,11 +31,10 @@
                 android:id="@+id/text_appname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif"
+                android:layout_marginTop="@dimen/d13"
                 android:tag="text_appname"
-                android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:textColor="@color/A3"
+                android:textSize="@dimen/s14" />
 
             <TextView
                 android:id="@+id/tip"
@@ -47,12 +46,20 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/password_ad_native"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:tag="password_ad_native" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2.5"
+            android:layout_weight="1"
             android:gravity="center">
 
             <com.security.manager.page.SecurityPatternView
@@ -60,7 +67,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="lpv_lock" />
-
         </LinearLayout>
 
         <TextView
@@ -73,4 +79,18 @@
             android:textSize="20sp"
             android:visibility="gone" />
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:tag="ad_full_fl"
+        android:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:tag="ad_full" />
+    </FrameLayout>
 </com.security.manager.page.MyFrameLayout>

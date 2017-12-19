@@ -91,6 +91,7 @@ dependencies {
     compile 'com.ivy.ui:ivyui:1.6.4'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':baselibrary')
+    compile project(':chargesaver')
 //    compile('com.ivy.module:themestore:1.5.8', {
 //        exclude group: 'com.google.code.gson', module: 'gson'
 //    })

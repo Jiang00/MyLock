@@ -1,0 +1,21 @@
+<resources>
+
+    <!--common-->
+    <string name="charge_screen_save">充電スクリーンセーバー</string>
+    <string name="charging_on_left">%1$d h %2$d min 後充電完了</string>
+    <string name="charging_use_left">%1$d h %2$d min 余剰</string>
+    <string name="unlock">スワイプでアンロック</string>
+
+    <!--type one start-->
+    <!--type one end-->
+
+    <!--type two start-->
+    <string name="talk">余剰通話時間</string>
+    <string name="internet">余剰インタネット時間</string>
+    <string name="game">余剰ゲーム時間</string>
+    <string name="temp">温度</string>
+  
+    <string name="ram">メモリ</string>
+    <!--type two end-->
+    <string name="charging_ing">充電</string>
+</resources>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.auroras.module.charge.saver.protectview.ProtectBatteryView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/battery_charge_save"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#36465d">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/battery_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/d20"
+            android:layout_marginTop="@dimen/d43"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-1dp"
+                android:background="@mipmap/battery_sanjiao" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d48"
+                android:background="@drawable/rectangle_back_ad"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/s10"
+                    android:text="@string/charge_screen_save"
+                    android:textColor="#5e5e5e" />
+
+                <CheckBox
+                    android:id="@+id/battery_switch_check"
+                    style="@style/SettingCheckbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d10" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--开关-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56">
+
+                <ImageView
+                    android:id="@+id/battery_icon"
+                    android:layout_width="@dimen/d18"
+                    android:layout_height="@dimen/d18"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/battery_check" />
+
+                <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:id="@+id/battery_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/d4"
+                    android:layout_toRightOf="@id/battery_icon"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s14"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <!--小时-->
+                    <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:id="@+id/battery_now_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="17:24"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s22"
+                        android:textStyle="bold" />
+                    <!--年月日星期-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/d3"
+                        android:orientation="horizontal">
+                        <!--年-->
+                        <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s10"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            app:typeface="ROBOTO-LIGHT.TTF" />
+                        <!--星期-->
+                        <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_week"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fri"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s10"
+                            android:textStyle="bold" />
+                        <!--月-->
+                        <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d4"
+                            android:text="09"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s10"
+                            android:textStyle="bold" />
+
+                        <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d4"
+                            android:text="/"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s10"
+                            android:textStyle="bold" />
+                        <!--日-->
+                        <com.auroras.module.charge.saver.protectview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d4"
+                            android:text="03"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s10"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/battery_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d16">
+
+                    <ImageView
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
+                        android:src="@mipmap/battery_more" />
+                </LinearLayout>
+            </RelativeLayout>
+            <!--电量-->
+            <com.auroras.module.charge.saver.protectview.ChargWaterView
+                android:id="@+id/battertext"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d100"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d56" />
+
+            <!--充满时间-->
+            <TextView
+                android:id="@+id/battery_now_battery_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d10"
+                android:text="1h 39min left"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s13"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/battery_ad_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d176"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:layout_marginTop="@dimen/d8"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <com.auroras.module.charge.saver.protectview.BubbleLayout
+                    android:id="@+id/main_bubble"
+                    android:layout_width="@dimen/d50"
+                    android:layout_height="@dimen/d100"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/d11"
+                    android:text="@string/unlock"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s13"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.auroras.module.charge.saver.protectview.ProtectBatteryView>

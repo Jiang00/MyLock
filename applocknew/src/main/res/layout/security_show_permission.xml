@@ -1,100 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="330dp"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:gravity="center"
     android:orientation="vertical">
 
 
-     <FrameLayout
-         android:background="@drawable/normal_rectangle"
-         android:layout_gravity="center_horizontal"
-         android:layout_width="330dp"
-         android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="@dimen/d301"
+        android:layout_height="@dimen/d144"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/normal_rectangle">
 
-         <ImageView
-             android:id="@+id/linbac"
-             android:layout_width="match_parent"
-             android:layout_height="64dp" />
-
-          <LinearLayout
-              android:background="@drawable/normal_rectangle"
-              android:layout_gravity="center_vertical|center_horizontal"
-              android:layout_width="wrap_content"
-              android:layout_height="match_parent"
-              android:gravity="center_vertical"
-             >
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:fontFamily="sans-serif"
-                  android:text="@string/security_show_permission"
-                  android:textColor="@android:color/white"
-                  android:textSize="18sp"
-                  />
-
-          </LinearLayout>
-
-     </FrameLayout>
-
-    <LinearLayout
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-
-
-    <TextView
-        android:lineSpacingExtra="4dp"
-        android:paddingRight="20dp"
-        android:layout_width="match_parent"
-        android:paddingLeft="20dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif"
-        android:gravity="left"
-        android:text="@string/security_applock_permission"
-        android:textColor="@color/security_security_black_87"
-        android:textSize="15sp" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/cancle"
-            android:textColor="#93a9b7"
-            android:layout_width="0dp"
+        <View
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="@string/security_cancel"
-            android:textSize="15sp" />
+            android:layout_marginLeft="@dimen/d40"
+            android:layout_marginRight="@dimen/d40"
+            android:background="#000000" />
 
-        <TextView
-            android:layout_marginRight="10dp"
-            android:background="@drawable/security_theme_color_rectangle"
-            android:id="@+id/ok"
-            android:textColor="@android:color/white"
-            android:layout_width="153dp"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="@string/security_applock_permission_allow"
-            android:textSize="15sp" />
+            android:orientation="vertical">
 
-    </LinearLayout>
-</LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d50"
+                android:layout_marginRight="@dimen/d50"
+                android:layout_marginTop="@dimen/d4"
+                android:background="@color/A3" />
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d50"
+                android:layout_marginRight="@dimen/d50"
+                android:layout_marginTop="@dimen/d4"
+                android:scaleType="fitXY"
+                android:src="@drawable/pre_iv" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv"
+                android:layout_marginLeft="@dimen/d50">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d43"
+                    android:layout_marginRight="@dimen/d50"
+                    android:background="@drawable/pre_line" />
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="@dimen/d30"
+                    android:layout_height="@dimen/d30"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_marginTop="@dimen/d7"
+                    android:src="@drawable/ic_launcher" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/d43"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_toRightOf="@id/icon"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/app_name"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d2"
+                        android:gravity="center"
+                        android:text="@string/security_my_close"
+                        android:textColor="@color/A5"
+                        android:textSize="@dimen/s8" />
+                </LinearLayout>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/pre_lottie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d30"
+                    android:layout_marginTop="@dimen/d15" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
 
     <LinearLayout
+        android:layout_width="@dimen/d301"
+        android:layout_height="wrap_content"
         android:background="@drawable/security_normal_bootom_rectangle"
-        android:layout_width="match_parent"
-        android:layout_height="13dp">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pre_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d16"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="@dimen/d2"
+            android:paddingLeft="@dimen/d16"
+            android:paddingRight="@dimen/d16"
+            android:text="@string/security_applock_permission2"
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d30"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginTop="@dimen/d27"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/security_cancel"
+                android:textColor="#93a9b7"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="@dimen/d152"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/security_theme_color_rectangle"
+                android:gravity="center"
+                android:text="@string/security_applock_permission_allow"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>
 

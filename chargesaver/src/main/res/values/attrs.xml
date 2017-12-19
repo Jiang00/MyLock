@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--IndicatorView相关-->
+    <!--普通指示器图片-->
+    <attr name="normalDrawable" format="reference"/>
+    <!--选中指示器图片-->
+    <attr name="selectDrawable" format="reference"/>
+    <!--指示器间隔-->
+    <attr name="indicatorInterval" format="dimension"/>
+    <!--普通指示器颜色-->
+    <attr name="normalColor" format="color"/>
+    <!--选中指示器颜色-->
+    <attr name="selectColor" format="color"/>
+    <!--圆点弧度-->
+    <attr name="indicatorRadius" format="integer"/>
+    <declare-styleable name="IndicatorView">
+        <attr name="normalDrawable"/>
+        <attr name="selectDrawable"/>
+        <attr name="indicatorInterval"/>
+        <attr name="normalColor"/>
+        <attr name="selectColor"/>
+        <attr name="indicatorRadius"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="LottieAnimationView">
+        <attr name="lottie_fileName" format="string"/>
+        <attr name="lottie_autoPlay" format="boolean" />
+        <attr name="lottie_loop" format="boolean" />
+        <attr name="lottie_imageAssetsFolder" format="string" />
+        <attr name="lottie_progress" format="float" />
+        <attr name="lottie_cacheStrategy" format="enum">
+            <enum name="none" value="0" />
+            <enum name="weak" value="1" />
+            <enum name="strong" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CustomerTypefaceTextView">
+        <!-- 设置文字内容 -->
+        <attr name="typeface" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="BeerProgressView">
+        <attr name="bubbleColor" format="color"/>
+        <attr name="beerColor" format="color"/>
+        <attr name="beerProgress" format="integer"/>
+        <attr name="waveBorderWidth" format="dimension"/>
+        <attr name="waveBorderRadius" format="dimension"/>
+        <attr name="waveAmplitude" format="dimension"/>
+        <attr name="waveMax" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="Charge_Label">
+        <!-- 设置文字内容 -->
+        <attr name="charge_text" format="string"/>
+        <!-- 设置文字颜色,默认#ffffff -->
+        <attr name="charge_text_color" format="color"/>
+        <!-- 设置文字大小,默认11sp -->
+        <attr name="charge_text_size" format="dimension"/>
+        <!-- 设置文字是否支持加粗,默认true -->
+        <attr name="charge_text_bold" format="boolean"/>
+        <!-- 设置文字是否支持全部大写,默认true-->
+        <attr name="charge_text_all_caps" format="boolean"/>
+        <!-- 设置背景颜色,默认"#FF4081"-->
+        <attr name="charge_background_color" format="color"/>
+        <!-- 设置Labeadiew所在矩形最小宽高,默认mFillTriangle?35dp:50dp-->
+        <attr name="charge_min_size" format="dimension"/>
+        <!-- 设置文字上下padding,默认3.5dp,mFillTriangle为true时无效-->
+        <attr name="charge_padding" format="dimension"/>
+        <!-- 设置Labeadiew方向 -->
+        <attr name="charge_gravity" format="enum">
+            <enum name="TOP_LEFT" value="51"/>
+            <enum name="TOP_RIGHT" value="53"/>
+            <enum name="BOTTOM_LEFT" value="83"/>
+            <enum name="BOTTOM_RIGHT" value="85"/>
+        </attr>
+        <!-- 设置是否填充三角区域,默认false -->
+        <attr name="charge_fill_triangle" format="boolean"/>
+
+    </declare-styleable>
+
+
+</resources>

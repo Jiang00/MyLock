@@ -27,6 +27,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.MyWidgetContainer;
 import com.security.manager.lib.Utils;
@@ -56,6 +57,7 @@ public class SecuritySettingsAdvance extends AppCompatActivity {
     Intent intent;
     private Handler handler;
     private boolean onPause;
+    private LottieAnimationView pre_lottie2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,18 +285,22 @@ public class SecuritySettingsAdvance extends AppCompatActivity {
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             false);
-                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate, null);
-                    TextView per_tip = (TextView) alertDialogView.findViewById(R.id.per_tip);
+                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.security_show_permission, null);
+                    TextView pre_tip = (TextView) alertDialogView.findViewById(R.id.pre_tip);
 //                    TextView cancle = (TextView) alertDialogView.findViewById(R.id.cancle);
-
+                    pre_lottie2 = (LottieAnimationView) alertDialogView.findViewById(R.id.pre_lottie);
+                    pre_lottie2.setAnimation("pre.json");
+                    pre_lottie2.setScale(0.4f);//相对原大小的0.2倍
+//                    pre_lottie.setSpeed(0.7f);
+                    pre_lottie2.loop(true);
+                    pre_lottie2.playAnimation();
                     if (pre == SETTING_POWER_MODE) {
-//                        per_tip.setText(getResources().getString(R.string.pre_tip3));
+                        pre_tip.setText(getResources().getString(R.string.pre_tip3));
 //                        cancle.setVisibility(View.VISIBLE);
                     } else {
 //                        per_tip.setText(getResources().getString(R.string.pre_tip2));
 //                        cancle.setVisibility(View.GONE);
                     }
-                    per_tip.setVisibility(View.VISIBLE);
 
                     wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
                         @Override
@@ -309,6 +315,10 @@ public class SecuritySettingsAdvance extends AppCompatActivity {
 
                         @Override
                         public void onClick() {
+                            if (pre_lottie2 != null) {
+                                pre_lottie2.cancelAnimation();
+                                pre_lottie2 = null;
+                            }
                             if (wc != null) {
                                 wc.removeFromWindow();
                                 wc = null;
@@ -338,8 +348,13 @@ public class SecuritySettingsAdvance extends AppCompatActivity {
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             false);
-                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.permission_translate, null);
-
+                    View alertDialogView = View.inflate(SecuritySettingsAdvance.this, R.layout.security_show_permission, null);
+                    pre_lottie2 = (LottieAnimationView) alertDialogView.findViewById(R.id.pre_lottie);
+                    pre_lottie2.setAnimation("pre.json");
+                    pre_lottie2.setScale(0.4f);//相对原大小的0.2倍
+//                    pre_lottie.setSpeed(0.7f);
+                    pre_lottie2.loop(true);
+                    pre_lottie2.playAnimation();
                     wc.setWidgetListener(new MyWidgetContainer.IWidgetListener() {
                         @Override
                         public boolean onBackPressed() {
@@ -353,6 +368,10 @@ public class SecuritySettingsAdvance extends AppCompatActivity {
 
                         @Override
                         public void onClick() {
+                            if (pre_lottie2 != null) {
+                                pre_lottie2.cancelAnimation();
+                                pre_lottie2 = null;
+                            }
                             if (wc != null) {
                                 wc.removeFromWindow();
                                 wc = null;
@@ -401,6 +420,10 @@ public class SecuritySettingsAdvance extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.e("chfq", "==requestCode======" + requestCode);
+        if (pre_lottie2 != null) {
+            pre_lottie2.cancelAnimation();
+            pre_lottie2 = null;
+        }
         if (requestCode == REQUSETSET) {
             Log.e("chfq", "=110=");
             if (!Utils.requireCheckAccessPermission(this)) {
