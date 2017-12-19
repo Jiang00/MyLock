@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="@dimen/d301"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/d12"
+        android:layout_marginTop="@dimen/d6"
         android:gravity="center_vertical">
 
         <ImageView
@@ -31,14 +31,13 @@
         <LinearLayout
             android:id="@+id/security_rat_close"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
-            android:paddingLeft="@dimen/d16"
-            android:paddingRight="@dimen/d16">
+            android:padding="@dimen/d12">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/d8"
+                android:layout_height="@dimen/d8"
                 android:background="@drawable/security_incade_cha" />
         </LinearLayout>
     </LinearLayout>

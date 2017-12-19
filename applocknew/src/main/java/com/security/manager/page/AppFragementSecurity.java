@@ -309,11 +309,16 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             try {
                 PackageInfo pi = getActivity().getPackageManager().getPackageInfo(pkg, PackageManager.GET_ACTIVITIES);
                 labels.put(pkg, pi.applicationInfo.loadLabel(getActivity().getPackageManager()).toString());
-                commons.add(pkg);
+                if (locks.containsKey(pkg)) {
+                    commons.add(0, pkg);
+                } else {
+                    commons.add(pkg);
+                }
             } catch (Exception ignore) {
             }
             filter.put(pkg, true);//是否选中的
         }
+
         adaptor2 = new CListViewAdaptor(scroller, R.layout.security_apps_item2) {
 
             private void updateUI(int position, ViewHolder h, boolean forceLoading) {
