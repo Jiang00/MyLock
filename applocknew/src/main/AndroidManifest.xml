@@ -95,7 +95,6 @@
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name="com.security.manager.SecuritySetPattern"
-            android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme"
@@ -329,10 +328,8 @@
             android:theme="@style/Theme.AppCompat.Dialog.Alert" />
         <activity
             android:name="com.security.manager.SecurityIntruderSetting"
-            android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
