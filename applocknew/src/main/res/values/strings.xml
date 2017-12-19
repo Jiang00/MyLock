@@ -237,4 +237,6 @@
     <string name="fangqi">放弃</string>
     <string name="tijiao">提交</string>
     <string name="security_change_pattern2">数字解锁</string>
+    <string name="theme">主题选择</string>
+    <string name="overf_brief">锁定设置</string>
 </resources>

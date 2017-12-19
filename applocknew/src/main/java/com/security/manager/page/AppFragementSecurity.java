@@ -331,6 +331,10 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                         h.unlock_yuan2.setVisibility(View.GONE);
                         h.unlock_yuan.setVisibility(View.VISIBLE);
                     }
+                    h.unlock_yuan.setScaleY(1);
+                    h.unlock_yuan.setScaleX(1);
+                    h.unlock_yuan2.setScaleY(1);
+                    h.unlock_yuan2.setScaleX(1);
                 }
             }
 
@@ -396,6 +400,10 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                         h.unlock_yuan2.setVisibility(View.GONE);
                         h.unlock_yuan.setVisibility(View.VISIBLE);
                     }
+                    h.unlock_yuan.setScaleY(1);
+                    h.unlock_yuan.setScaleX(1);
+                    h.unlock_yuan2.setScaleY(1);
+                    h.unlock_yuan2.setScaleX(1);
                 }
             }
 

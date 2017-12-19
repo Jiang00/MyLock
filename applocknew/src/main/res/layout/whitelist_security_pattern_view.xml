@@ -93,4 +93,8 @@
             android:layout_gravity="center"
             android:tag="ad_full" />
     </FrameLayout>
+
+    <include
+        layout="@layout/security_overflow_bar"
+        android:visibility="gone" />
 </com.security.manager.page.MyFrameLayout>

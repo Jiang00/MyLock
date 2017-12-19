@@ -7,7 +7,8 @@
     android:layout_gravity="end"
     android:layout_marginEnd="8dp"
     android:layout_marginRight="8dp"
-    android:layout_marginTop="36dp"
-    android:orientation="vertical"
     android:tag="overflow_stub"
+    android:layout_marginTop="36dp"
+    android:background="@drawable/abs__menu_dropdown_panel_holo_light"
+    android:orientation="vertical"
     android:visibility="invisible" />

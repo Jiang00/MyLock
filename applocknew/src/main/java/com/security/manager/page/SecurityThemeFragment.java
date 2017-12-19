@@ -1,7 +1,6 @@
 package com.security.manager.page;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,7 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,7 +29,6 @@ import com.android.client.ClientNativeAd;
 import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.security.manager.App;
-import com.security.manager.SecuritySettingsAdvance;
 import com.security.manager.db.PreData;
 import com.security.manager.lib.Utils;
 import com.security.manager.meta.SecurityMyPref;
@@ -53,7 +54,7 @@ public class SecurityThemeFragment extends Fragment {
     private static LottieAnimationView ad_full;
     private static FrameLayout ad_full_fl;
     private static Handler handler;
-    private static ImageView password_pre;
+//    private static ImageView password_pre;
     private static int show_fingerprint;
     private static LinearLayout password_ad_native;
 
@@ -79,6 +80,65 @@ public class SecurityThemeFragment extends Fragment {
 
     public static void afterViewCreated(View view, OverflowCtrl ctrl) {
         setupTitle(view);
+        setupOverflow(view, ctrl);
+    }
+
+    public static void setupOverflow(View root, final OverflowCtrl ctrl) {
+        Context context = App.getContext();
+        ISecurityBridge bridge = SecurityTheBridge.bridge;
+        ctrl.overflowStub = (LinearLayout) root.findViewWithTag("overflow_stub");
+        ctrl.overflowStub.removeAllViews();
+        ((ViewGroup) root).removeView(ctrl.overflowStub);
+        ((ViewGroup) root).addView(ctrl.overflowStub);
+        OverflowMenu[] menus = bridge.menus();
+        for (final OverflowMenu menu : menus) {
+//            Button button = (Button) LayoutInflater.from(context).inflate(R.layout.overflow_menu, null, false);
+            Button button = (Button) LayoutInflater.from(App.getContext()).inflate(R.layout.overflow_menu, null);
+
+            if (menu.checkable) {
+                checkMenu(button, menu.checked);
+            }
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ctrl.ovf.performClick();
+                    menu.onClick(v);
+                    if (menu.checkable) {
+                        checkMenu((Button) v, menu.checked);
+                    }
+                }
+            });
+            button.setText(bridge.res().getText(menu.title));
+            ctrl.overflowStub.addView(button);
+        }
+        if (out == null)
+            out = AnimationUtils.loadAnimation(context, R.anim.overflow_out);
+        if (in == null)
+            in = AnimationUtils.loadAnimation(context, R.anim.overflow_in);
+        ctrl.ovf = (ImageButton) root.findViewWithTag("password_pre");
+        ctrl.ovf.setOnClickListener(new View.OnClickListener() {
+            boolean show = false;
+
+            @Override
+            public void onClick(View v) {
+                if (show) {
+                    ctrl.overflowStub.setVisibility(View.INVISIBLE);
+                    ctrl.overflowStub.startAnimation(out);
+                    show = false;
+                } else {
+                    ctrl.overflowStub.setVisibility(View.VISIBLE);
+                    ctrl.overflowStub.startAnimation(in);
+                    show = true;
+                }
+            }
+        });
+    }
+
+    public static void checkMenu(Button button, boolean check) {
+        if (check)
+            button.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.check, 0);
+        else
+            button.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.uncheck, 0);
     }
 
     public static void setupTitle(View v) {
@@ -94,7 +154,7 @@ public class SecurityThemeFragment extends Fragment {
             e.printStackTrace();
         }
         handler = new Handler();
-        password_pre = (ImageView) v.findViewWithTag("password_pre");
+//        password_pre = (ImageView) v.findViewWithTag("password_pre");
         ad_full_fl = (FrameLayout) v.findViewWithTag("ad_full_fl");
         ad_full = (LottieAnimationView) v.findViewWithTag("ad_full");
         password_main_ad = (LottieAnimationView) v.findViewWithTag("password_main_ad");
@@ -140,14 +200,14 @@ public class SecurityThemeFragment extends Fragment {
                 showFullAnimator();
             }
         });
-        password_pre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                v.getContext().startActivity(intent);
-            }
-        });
+//        password_pre.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                v.getContext().startActivity(intent);
+//            }
+//        });
         try {
             String flurryString = AndroidSdk.getExtraData();
             JSONObject baseJson = new JSONObject(flurryString);
