@@ -3,7 +3,7 @@
 
     <translate
         android:fillAfter="true"
-        android:fromYDelta="100%p"
+        android:fromXDelta="100%p"
         android:duration="300"
         android:toYDelta="0%p" />
 

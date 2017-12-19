@@ -159,6 +159,7 @@
                     android:layout_marginRight="@dimen/d16"
                     android:background="#1a000000"
                     android:focusable="true"
+                    android:gravity="top"
                     android:focusableInTouchMode="true"
                     android:theme="@style/MyEditText" />
             </LinearLayout>
