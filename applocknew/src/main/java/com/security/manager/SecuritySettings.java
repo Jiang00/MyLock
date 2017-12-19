@@ -1,6 +1,5 @@
 package com.security.manager;
 
-import android.app.AlertDialog;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +12,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
@@ -291,7 +291,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     Log.e("chfq", "===");
                     if (!managerCompat.hasEnrolledFingerprints()) { //判断设备是否已经注册过指纹
                         final View alert = View.inflate(SecuritySettings.this, R.layout.security_fingerprint_alert, null);
-                        final AlertDialog alertDialog = new AlertDialog.Builder(SecuritySettings.this,R.style.dialog).create();
+                        final AlertDialog alertDialog = new AlertDialog.Builder(SecuritySettings.this,R.style.dialog2).create();
                         alertDialog.setView(alert);
                         alertDialog.setCanceledOnTouchOutside(false);
                         alertDialog.show();

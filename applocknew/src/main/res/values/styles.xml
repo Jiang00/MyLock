@@ -110,6 +110,13 @@
 
     </style>
 
+    <style name="dialog2" parent="@android:style/Theme.Dialog">
+
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
+
 
     <style name="dialog_animation" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/security_dialog_show_animation</item>

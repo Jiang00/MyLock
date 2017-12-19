@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:id="@+id/battery_switch"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/d176"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginRight="@dimen/d20"
@@ -20,14 +20,8 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="-1dp"
-                android:background="@mipmap/battery_sanjiao" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/d176"
                 android:layout_height="@dimen/d48"
                 android:background="@drawable/rectangle_back_ad"
                 android:gravity="center_vertical">
@@ -38,7 +32,8 @@
                     android:layout_weight="1"
                     android:paddingLeft="@dimen/s10"
                     android:text="@string/charge_screen_save"
-                    android:textColor="#5e5e5e" />
+                    android:textColor="#36465d"
+                    android:textSize="@dimen/s16" />
 
                 <CheckBox
                     android:id="@+id/battery_switch_check"

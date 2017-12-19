@@ -74,6 +74,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     public void setupView() {
         setContentView(R.layout.security_intruder_container);
         ButterKnife.inject(this);
+        SecurityMenu.currentMenuIt = 3;
 
         setupToolbar();
         initclick();
@@ -169,9 +170,9 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(adapter!=null){
+        if (adapter != null) {
             intruderEntries.clear();
-            intruderEntries= IntruderApi.getIntruders();
+            intruderEntries = IntruderApi.getIntruders();
             adapter.notifyDataSetChanged();
         }
     }

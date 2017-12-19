@@ -464,8 +464,12 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
     private void setupToolbar() {
         if (SecurityMyPref.hasIntruder()) {
+            SecurityMyPref.setHasIntruder(false);
+            SecurityMenu.currentMenuIt = 3;
             Intent intent = new Intent(SecurityAppLock.this, IntruderActivitySecurity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
+            finish();
         }
         toolbar.setNavigationIcon(R.drawable.security_slide_menu);
 
@@ -473,7 +477,6 @@ public class SecurityAppLock extends ClientActivitySecurity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.app_name);
-
         }
     }
 

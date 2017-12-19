@@ -34,7 +34,8 @@
                 android:layout_marginTop="@dimen/d13"
                 android:tag="text_appname"
                 android:textColor="@color/A3"
-                android:textSize="@dimen/s14" />
+                android:textSize="@dimen/s14"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tip"

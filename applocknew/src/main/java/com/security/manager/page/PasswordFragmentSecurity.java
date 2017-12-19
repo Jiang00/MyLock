@@ -58,7 +58,6 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                     if (callback != null) {
                         callback.onSuccess();
                         Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__LOCK_SUSSFUL, Tracker.CATE_ACTION__LOCK_SUSSFUL, 1);
-
                     }
                 }
             }

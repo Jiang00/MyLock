@@ -6,8 +6,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -28,6 +30,7 @@ import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
+import com.security.manager.AccessibilityService;
 import com.security.manager.App;
 import com.security.manager.db.PreData;
 import com.security.manager.lib.Utils;
@@ -54,7 +57,7 @@ public class SecurityThemeFragment extends Fragment {
     private static LottieAnimationView ad_full;
     private static FrameLayout ad_full_fl;
     private static Handler handler;
-//    private static ImageView password_pre;
+    //    private static ImageView password_pre;
     private static int show_fingerprint;
     private static LinearLayout password_ad_native;
 
@@ -116,6 +119,16 @@ public class SecurityThemeFragment extends Fragment {
         if (in == null)
             in = AnimationUtils.loadAnimation(context, R.anim.overflow_in);
         ctrl.ovf = (ImageButton) root.findViewWithTag("password_pre");
+
+        if (isAccessibilitySettingsOn(App.getContrext()) && !Utils.requireCheckAccessPermission(App.getContrext())) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (Settings.canDrawOverlays(App.getContrext())) {
+                    ctrl.ovf.setVisibility(View.GONE);
+                }
+            } else {
+                ctrl.ovf.setVisibility(View.GONE);
+            }
+        }
         ctrl.ovf.setOnClickListener(new View.OnClickListener() {
             boolean show = false;
 
@@ -450,5 +463,35 @@ public class SecurityThemeFragment extends Fragment {
         int layout = themeContext.getResources().getIdentifier(layoutId, "layout", themeContext.getPackageName());
         MyFrameLayout v = (MyFrameLayout) inflater.inflate(layout, container, false);
         return v;
+    }
+
+    private static boolean isAccessibilitySettingsOn(Context mContext) {
+        int accessibilityEnabled = 0;
+        // TestService为对应的服务
+        final String service = App.getContrext().getPackageName() + "/" + AccessibilityService.class.getCanonicalName();
+//        Log.e("chfq", "service:" + service);
+        // com.z.buildingaccessibilityservices/android.accessibilityservice.AccessibilityService
+        try {
+            accessibilityEnabled = Settings.Secure.getInt(mContext.getApplicationContext().getContentResolver(),
+                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+        } catch (Settings.SettingNotFoundException e) {
+        }
+        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+
+        if (accessibilityEnabled == 1) {
+            String settingValue = Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(),
+                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+            // com.z.buildingaccessibilityservices/com.z.buildingaccessibilityservices.TestService
+            if (settingValue != null) {
+                mStringColonSplitter.setString(settingValue);
+                while (mStringColonSplitter.hasNext()) {
+                    String accessibilityService = mStringColonSplitter.next();
+                    if (accessibilityService.equalsIgnoreCase(service)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

@@ -2,6 +2,7 @@ package com.security.manager;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -143,13 +144,15 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             OverflowMenu theme = new OverflowMenu() {
                 @Override
                 public OverflowMenu init() {
-                    title = R.string.theme;
+                    title = R.string.setting_power;
                     return this;
                 }
 
                 @Override
                 public void onClick(View dummy) {
-
+                    Intent intent = new Intent(context, SecuritySettingsAdvance.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
                 }
             }.init();
             OverflowMenu brief = new OverflowMenu() {
@@ -168,9 +171,9 @@ public class SecurityBridgeImpl implements ISecurityBridge {
 //                v.getContext().startActivity(intent);
                 }
             }.init();
-            menus = new OverflowMenu[]{theme, brief};
+            menus = new OverflowMenu[]{theme};
         }
-        return new OverflowMenu[]{menus[1], menus[0]};
+        return new OverflowMenu[]{/*menus[1],*/ menus[0]};
     }
 
     public static void clear() {
