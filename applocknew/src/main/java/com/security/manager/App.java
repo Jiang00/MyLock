@@ -1,12 +1,9 @@
 package com.security.manager;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Parcelable;
 
 import com.android.client.AndroidSdk;
@@ -19,6 +16,7 @@ import com.ivy.kpa.DaemonConfigurations;
 import com.ivymobi.applock.free.R;
 import com.security.gallery.view.TileBitmapDrawable;
 import com.security.manager.asyncmanager.SecurityImgManager;
+import com.security.manager.db.PreData;
 import com.security.manager.db.SecurityPreference;
 import com.security.manager.lib.BaseApp;
 import com.security.manager.lib.datatype.SDataType;
@@ -98,31 +96,11 @@ public class App extends BaseApp {
             startService(new Intent(this, NotificationService.class));
         }
         //创建快捷方式
-        if (!isInstallShortcut()) {
+//        if (!isInstallShortcut()) {
+        if (PreData.getDB(this, "isInstallShortcut", false)) {
+            PreData.putDB(this, "isInstallShortcut", true);
             createShortCut();
         }
-    }
-    /**
-     * 判断是否已有快捷方式
-     *
-     * @return
-     */
-    private boolean isInstallShortcut() {
-        // TODO Auto-generated method stub
-        boolean isInstallShortcut = false;
-        final ContentResolver cr = getContentResolver();
-        final String AUTHORITY = "com.android.launcher2.settings";
-        final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
-                + "/favorites?notify=true");
-
-        Cursor c = cr.query(CONTENT_URI,
-                new String[]{"title", "iconResource"}, "title=?",
-                new String[]{getResources().getString(R.string.app_name)},
-                null);
-        if (c != null && c.getCount() > 0) {
-            isInstallShortcut = true;
-        }
-        return isInstallShortcut;
     }
 
     public void createShortCut() {

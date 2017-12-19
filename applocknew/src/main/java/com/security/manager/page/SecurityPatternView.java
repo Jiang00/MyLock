@@ -266,14 +266,14 @@ public class SecurityPatternView extends View {
         setClickable(true);
 
         //取消innnernormal 设置为透明
-        int innerNormal = attrs.getAttributeResourceValue(null, "inner", getId("security_inner_normal", "drawable"));
-        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("security_inner_normal", "drawable"));
-        int outerSolid = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_right", "drawable"));
-        int wrong = attrs.getAttributeResourceValue(null, "outers", getId("security_patt_wrong", "drawable"));
+        int innerNormal = attrs.getAttributeResourceValue(null, "inner", getId("whitelist_security_inner_normal", "drawable"));
+        int outerNormal = attrs.getAttributeResourceValue(null, "outer", getId("whitelist_security_inner_normal", "drawable"));
+        int outerSolid = attrs.getAttributeResourceValue(null, "outers", getId("whitelist_security_patt_right", "drawable"));
+        int wrong = attrs.getAttributeResourceValue(null, "outers", getId("whitelist_security_patt_wrong", "drawable"));
 
         mPathPaint.setAntiAlias(true);
         mPathPaint.setDither(true);
-        mPathPaint.setColor(getResources().getColor(getId("security_pattern_line_color_normal", "color")));   // TODO this should be from the style
+        mPathPaint.setColor(getResources().getColor(getId("whitelist_security_pattern_line_color_normal", "color")));   // TODO this should be from the style
         mPathPaint.setAlpha(mStrokeAlpha);
         mPathPaint.setStyle(Paint.Style.STROKE);
         mPathPaint.setStrokeJoin(Paint.Join.ROUND);
@@ -290,7 +290,7 @@ public class SecurityPatternView extends View {
         innerCircelR = getResources().getDimensionPixelSize(getId("pattern_inner_circle_size", "dimen"));
         mBitmapWidth = mBitmapHeight = circleR;
         dot = getResources().getDrawable(innerNormal);
-        dotSolid = hidePath ? dot : getResources().getDrawable(getId("security_patt_right", "drawable"));
+        dotSolid = hidePath ? dot : getResources().getDrawable(getId("whitelist_security_patt_right", "drawable"));
         circle = getResources().getDrawable(outerNormal);
         circleSolid = hidePath ? circle : getResources().getDrawable(outerSolid);
         circleRed = getResources().getDrawable(wrong);
@@ -354,9 +354,9 @@ public class SecurityPatternView extends View {
             clearPatternDrawLookup();
             //横线颜色值更改状态
         } else if (displayMode == DisplayMode.Wrong) {
-            mPathPaint.setColor(getResources().getColor(getId("pattern_line_color_error", "color")));
+            mPathPaint.setColor(getResources().getColor(getId("whitelist_pattern_line_color_error", "color")));
         } else {
-            mPathPaint.setColor(hidePath ? 0x00000000 : getResources().getColor(getId("security_pattern_line_color_normal", "color")));
+            mPathPaint.setColor(hidePath ? 0x00000000 : getResources().getColor(getId("whitelist_security_pattern_line_color_normal", "color")));
         }
         invalidate();
     }

@@ -82,7 +82,7 @@ public class PatternFragmentSecurity extends SecurityThemeFragment {
     public static View getView(LayoutInflater inflater, final ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
 
-        final View patternView = inflate("security_pattern_view", container, inflater.getContext());
+        final View patternView = inflate("whitelist_security_pattern_view", container, inflater.getContext());
         ((MyFrameLayout) patternView).setOverflowCtrl(ctrl);
 
         final ISecurityBridge bridge = SecurityTheBridge.bridge;

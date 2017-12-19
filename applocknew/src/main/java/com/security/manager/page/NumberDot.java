@@ -2,12 +2,10 @@ package com.security.manager.page;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 
 import com.security.manager.meta.SecurityMyPref;
 
@@ -37,7 +35,7 @@ public class NumberDot extends LinearLayout {
 
         setCount(6, drawable);
         realPasswd = SecurityMyPref.getPasswd().toCharArray();
-        a = AnimationUtils.loadAnimation(getContext(), getId("security_shake_dot","anim"));
+        a = AnimationUtils.loadAnimation(getContext(), getId("whitelist_security_shake_dot","anim"));
         a.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

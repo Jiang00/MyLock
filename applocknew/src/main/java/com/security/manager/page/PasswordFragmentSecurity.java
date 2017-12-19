@@ -11,11 +11,9 @@ import android.view.ViewStub;
 import com.android.common.SdkCache;
 import com.android.theme.internal.data.Theme;
 import com.ivy.ivyshop.ShopMaster;
-import com.ivy.util.Utility;
 import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityDotImage;
 import com.security.manager.App;
-import com.security.manager.SecurityUnlockSettings;
 import com.security.manager.Tools;
 import com.security.manager.Tracker;
 import com.security.manager.meta.SecurityMyPref;
@@ -50,7 +48,7 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
     public static View getView(LayoutInflater inflater, ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
-        View passwordView = inflate("security_number_password", container, inflater.getContext());
+        View passwordView = inflate("whitelist_security_number_password", container, inflater.getContext());
         ((MyFrameLayout) passwordView).setOverflowCtrl(ctrl);
         final NumberDot dot = (NumberDot) passwordView.findViewWithTag("passwd_dot_id");
         dot.init(new NumberDot.ICheckListener() {
@@ -114,48 +112,48 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             e.printStackTrace();
         }
 
-        passwordView.findViewWithTag("setting_advance").setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-
-                    ISecurityBridge bridge = SecurityTheBridge.bridge;
-                    if (Utility.isGrantedAllPermission(App.getContext())) {
-                        if (bridge != null) {
-                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
-                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
-                                intent.putExtra("lock_setting", true);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                App.getContext().startActivity(intent);
-                            } else {
-                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                App.getContext().startActivity(intent);
-                            }
-
-                        }
-                    } else {
-                        if (bridge != null) {
-                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
-                                Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
-                            } else {
-                                Utility.goPermissionCenter(App.getContext(), "");
-
-                            }
-                        } else {
-                            Utility.goPermissionCenter(App.getContext(), "");
-
-                        }
-                    }
-                    callback.unLock();
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
+//        passwordView.findViewWithTag("setting_advance").setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//
+//                    ISecurityBridge bridge = SecurityTheBridge.bridge;
+//                    if (Utility.isGrantedAllPermission(App.getContext())) {
+//                        if (bridge != null) {
+//                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
+//                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
+//                                intent.putExtra("lock_setting", true);
+//                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                App.getContext().startActivity(intent);
+//                            } else {
+//                                Intent intent = new Intent(App.getContext(), SecurityUnlockSettings.class);
+//                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                App.getContext().startActivity(intent);
+//                            }
+//
+//                        }
+//                    } else {
+//                        if (bridge != null) {
+//                            if (bridge.currentPkg().equals(App.getContext().getPackageName())) {
+//                                Utility.goPermissionCenter(App.getContext(), "ivy.intent.action.pattern");
+//                            } else {
+//                                Utility.goPermissionCenter(App.getContext(), "");
+//
+//                            }
+//                        } else {
+//                            Utility.goPermissionCenter(App.getContext(), "");
+//
+//                        }
+//                    }
+//                    callback.unLock();
+//
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        });
         passwordView.findViewWithTag("backspace").setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

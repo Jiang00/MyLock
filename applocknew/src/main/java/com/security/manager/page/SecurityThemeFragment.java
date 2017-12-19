@@ -100,7 +100,7 @@ public class SecurityThemeFragment extends Fragment {
         password_main_ad = (LottieAnimationView) v.findViewWithTag("password_main_ad");
         password_main_ad.setAnimation("ad.json");
         password_main_ad.setScale(0.7f);//相对原大小的0.2倍
-//        password_main_ad.setSpeed(0.7f);
+        password_main_ad.setSpeed(0.7f);
         password_main_ad.loop(true);
         password_main_ad.playAnimation();
         fingerprint = (LottieAnimationView) v.findViewWithTag("fingerprint");

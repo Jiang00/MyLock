@@ -102,8 +102,8 @@
     <color name="security_theme_transp">#66000000</color>
     <color name="security_overflow_menu_item_normal">#00181e13</color>
     <color name="security_overflow_menu_pressed">#aa858585</color>
-    <color name="security_pattern_line_color_normal">#36465d</color>
-    <color name="pattern_line_color_error">#55ff0000</color>
+    <color name="whitelist_security_pattern_line_color_normal">#36465d</color>
+    <color name="whitelist_pattern_line_color_error">#55ff0000</color>
     <color name="security_apply_button_normal_down">#ff23b529</color>
     <color name="security_apply_button_normal_up">#ff23c035</color>
     <color name="security_apply_button_pressed_down">#ff65b529</color>
