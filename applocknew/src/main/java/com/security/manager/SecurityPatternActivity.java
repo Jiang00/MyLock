@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -383,9 +384,11 @@ public class SecurityPatternActivity extends SecuritySetPattern {
         final LinearLayout next_ll = (LinearLayout) findViewById(R.id.next_ll);
         final TextView next_size = (TextView) findViewById(R.id.next_size);
         final ListView lv = (ListView) findViewById(R.id.abs_list);
+        final FrameLayout header_view = (FrameLayout) findViewById(R.id.header_view);
 
         final View header = getLayoutInflater().inflate(R.layout.security_first_header, null, false);
-        lv.addHeaderView(header, null, false);
+//        lv.addHeaderView(header, null, true);
+        header_view.addView(header);
         handler = new Handler();
 
         frist1_lottie = (LottieAnimationView) header.findViewById(R.id.frist1_lottie);
@@ -474,6 +477,10 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                     holder.unlock_yuan2.setVisibility(View.GONE);
                     holder.unlock_yuan.setVisibility(View.VISIBLE);
                 }
+                holder.unlock_yuan.setScaleY(1);
+                holder.unlock_yuan.setScaleX(1);
+                holder.unlock_yuan2.setScaleY(1);
+                holder.unlock_yuan2.setScaleX(1);
 
                 return convertView;
             }
@@ -484,9 +491,12 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0) return;
+                    if (lv.getHeaderViewsCount() > 0) {
+                        if (position == 0) return;
+                        --position;
+                    }
+
                     final FristViewHolder holder = (FristViewHolder) view.getTag();
-                    --position;
                     String pkg = firstLaunchList.get(position);
                     boolean locked = firstLaunchLocked.containsKey(pkg);
 
@@ -616,7 +626,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
                                         apps_.clear();
                                         firstLaunchLabels.putAll(labels_);
                                         labels_.clear();
-                                        ((BaseAdapter) ((WrapperListAdapter) lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+                                        ((BaseAdapter) (lv.getAdapter())).notifyDataSetChanged();
                                     }
                                 });
                             }
@@ -656,6 +666,7 @@ public class SecurityPatternActivity extends SecuritySetPattern {
 
         if (firstLaunchShowResult) {
             lv.setVisibility(View.GONE);
+            header_view.setVisibility(View.GONE);
             chooseThemeLayout.setVisibility(View.VISIBLE);
             next_ll.setVisibility(View.GONE);
             choose_theme_lottie.playAnimation();
