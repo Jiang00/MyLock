@@ -7,14 +7,15 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.ivymobi.applock.free.R;
-import com.security.manager.meta.SecurityFlowMenu;
 import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.meta.SecurityTheBridge;
 import com.security.manager.myinterface.ISecurityBridge;
+import com.security.manager.page.OverflowMenu;
 
 /**
  * Created by huale on 2015/2/2.
@@ -65,7 +66,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
     }
 
     @Override
-    public boolean check(String passwd, boolean normal){
+    public boolean check(String passwd, boolean normal) {
         if (SecurityMyPref.checkPasswd(passwd, normal)) {
             if (context instanceof Activity) {
                 ((SecurityPatternActivity) context).unlockSuccess(unlockMe);
@@ -97,7 +98,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
         return App.getSharedPreferences().getBoolean("random", false);
     }
 
-    SecurityFlowMenu[] menus;
+    OverflowMenu[] menus;
     public static final int MENU_IDX_ALL = -1;
     public static final int MENU_IDX_BRIEF = 0;
     public static final int MENU_IDX_UNLOCKME = 1;
@@ -130,9 +131,46 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             addedToWindow[idx] = null;
         }
     }
+
     @Override
     public String currentPkg() {
         return pkgName;
+    }
+
+    @Override
+    public OverflowMenu[] menus() {
+        if (menus == null) {
+            OverflowMenu theme = new OverflowMenu() {
+                @Override
+                public OverflowMenu init() {
+                    title = R.string.theme;
+                    return this;
+                }
+
+                @Override
+                public void onClick(View dummy) {
+
+                }
+            }.init();
+            OverflowMenu brief = new OverflowMenu() {
+                @Override
+                public OverflowMenu init() {
+                    title = R.string.overf_brief;//锁定设置
+                    return this;
+                }
+
+                @Override
+                public void onClick(View v) {
+                    Log.e("chfq", "==passord more 锁定设置AlertDialog=");
+//                    setSlotTime();
+//                    Intent intent = new Intent(v.getContext(), SecuritySettingsAdvance.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                v.getContext().startActivity(intent);
+                }
+            }.init();
+            menus = new OverflowMenu[]{theme, brief};
+        }
+        return new OverflowMenu[]{menus[1], menus[0]};
     }
 
     public static void clear() {

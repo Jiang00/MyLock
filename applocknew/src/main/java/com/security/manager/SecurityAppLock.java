@@ -227,10 +227,10 @@ public class SecurityAppLock extends ClientActivitySecurity {
                 d.dismiss();
                 lottie_good.cancelAnimation();
                 shareFive.setFiveRate(true);
-                if(preferences.getBoolean("five_rate_close_f", false)){
+                if (preferences.getBoolean("five_rate_close_f", false)) {
                     editor.putBoolean("five_rate_close_f", false).commit();
                     editor.putBoolean("five_rate_close_a", false).commit();
-                }else {
+                } else {
                     editor.putBoolean("five_rate_close_a", true).commit();
                 }
                 Tracker.sendEvent(Tracker.ACT_GOOD_RATE, Tracker.ACT_GOOD_RATE_GOOD, Tracker.ACT_GOOD_RATE_CLOSE, 1L);
@@ -464,10 +464,10 @@ public class SecurityAppLock extends ClientActivitySecurity {
 
     private void setupToolbar() {
         if (SecurityMyPref.hasIntruder()) {
-            toolbar.setNavigationIcon(R.drawable.security_slide_menu_red);
-        } else {
-            toolbar.setNavigationIcon(R.drawable.security_slide_menu);
+            Intent intent = new Intent(SecurityAppLock.this, IntruderActivitySecurity.class);
+            startActivity(intent);
         }
+        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
