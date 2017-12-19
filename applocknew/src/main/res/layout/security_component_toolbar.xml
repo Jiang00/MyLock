@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/d56"
+    android:layout_height="?attr/actionBarSize"
     android:background="@color/A1"
     android:elevation="@dimen/d4"
     android:fitsSystemWindows="true"

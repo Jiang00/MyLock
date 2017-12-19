@@ -91,6 +91,8 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     FrameLayout main_good_ad;
     @InjectView(R.id.applock_fl)
     LinearLayout applock_fl;
+    @InjectView(R.id.applock_ll)
+    LinearLayout applock_ll;
     @InjectView(R.id.open_lock)
     TextView open_lock;
 
@@ -189,7 +191,8 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         });
         scroller = new CListViewScroller(listView);
         handler = new Handler();
-
+        preferences = getActivity().getSharedPreferences("five_", Context.MODE_PRIVATE);
+        editor = preferences.edit();
         showAdOrFive();
         recyclerSetAdapter();
         setAdaptor();
@@ -210,6 +213,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             @Override
             public void onClick(View v) {
                 applock_fl.setVisibility(View.GONE);
+                applock_ll.setVisibility(View.VISIBLE);
                 visitorState.setIcon(R.drawable.security_notification_lock);
                 Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
                 SecurityMyPref.setVisitor(true);
@@ -236,9 +240,12 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     }
 
     void showAdOrFive() {
-        preferences = getActivity().getSharedPreferences("five_", Context.MODE_PRIVATE);
-        editor = preferences.edit();
+
         if (!shareFive.getFiveRate() || preferences.getBoolean("five_rate_close_a", false)) {
+            ViewGroup viewParent = (ViewGroup) headerView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
             main_good_ad.addView(headerView);
             headerClick(headerView);
         } else {
@@ -384,10 +391,11 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     }
 
     private void setAdaptor() {
-        apps = MApps.getApps(locks);
+
         adaptor = new CListViewAdaptor(scroller, R.layout.security_apps_item) {
 
             private void updateUI(int position, ViewHolder h, boolean forceLoading) {
+                apps = MApps.getApps(locks);
                 if (apps.size() != 0) {
                     list = searchResult == null ? apps : searchResult;
                     if (position >= list.size()) return;
@@ -546,7 +554,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
 //                menuSearch.setVisible(false);
                 CloseSearch = false;
-                if (!shareFive.getFiveRate()) {
+                if (!shareFive.getFiveRate() || preferences.getBoolean("five_rate_close_a", false)) {
 //                    listView.removeHeaderView(headerView);
                     main_good_ad.removeAllViews();
                 } else {
@@ -849,6 +857,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         if (item.getItemId() == R.id.menuvisitor) {
             if (SecurityMyPref.getVisitor()) {
                 applock_fl.setVisibility(View.VISIBLE);
+                applock_ll.setVisibility(View.GONE);
                 ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", -applock_fl.getWidth(), 0f);
                 animator.setDuration(400);
                 animator.setInterpolator(new AccelerateInterpolator());
@@ -865,6 +874,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
             } else {
                 applock_fl.setVisibility(View.GONE);
+                applock_ll.setVisibility(View.VISIBLE);
                 visitorState.setIcon(R.drawable.security_notification_lock);
                 Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
                 SecurityMyPref.setVisitor(true);

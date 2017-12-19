@@ -291,7 +291,7 @@ public class SecuritySettings extends ClientActivitySecurity {
                     Log.e("chfq", "===");
                     if (!managerCompat.hasEnrolledFingerprints()) { //判断设备是否已经注册过指纹
                         final View alert = View.inflate(SecuritySettings.this, R.layout.security_fingerprint_alert, null);
-                        final AlertDialog alertDialog = new AlertDialog.Builder(SecuritySettings.this,R.style.dialog).create();
+                        final AlertDialog alertDialog = new AlertDialog.Builder(SecuritySettings.this,R.style.zhiwen_dialog).create();
                         alertDialog.setView(alert);
                         alertDialog.setCanceledOnTouchOutside(false);
                         alertDialog.show();

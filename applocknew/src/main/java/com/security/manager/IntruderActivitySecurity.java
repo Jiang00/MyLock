@@ -18,6 +18,7 @@ import com.ivymobi.applock.free.R;
 import com.security.lib.customview.SecurityloadImage;
 import com.security.manager.lib.controller.CListViewAdaptor;
 import com.security.manager.lib.controller.CListViewScroller;
+import com.security.manager.meta.SecurityMyPref;
 import com.security.manager.myview.MyGridView;
 import com.security.manager.page.SecurityMenu;
 import com.security.manager.page.SlideMenu;
@@ -68,6 +69,7 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SecurityMyPref.setHasIntruder(false);
     }
 
     @Override
@@ -169,9 +171,9 @@ public class IntruderActivitySecurity extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(adapter!=null){
+        if (adapter != null) {
             intruderEntries.clear();
-            intruderEntries= IntruderApi.getIntruders();
+            intruderEntries = IntruderApi.getIntruders();
             adapter.notifyDataSetChanged();
         }
     }

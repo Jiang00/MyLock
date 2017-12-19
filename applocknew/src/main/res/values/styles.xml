@@ -16,6 +16,7 @@
     <style name="MessageBox" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="buttonBarPositiveButtonStyle">@style/PostiveButtonStyle</item>
     </style>
+
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/B1</item>
         <item name="colorControlActivated">@color/B1</item>
@@ -46,7 +47,6 @@
         <item name="colorPrimary">@color/security_theme_primary</item>
         <item name="colorPrimaryDark">@color/security_theme_primary</item>
         <item name="colorAccent">@color/security_theme_primary</item>
-
     </style>
 
 
@@ -110,6 +110,11 @@
 
     </style>
 
+    <style name="zhiwen_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
+
 
     <style name="dialog_animation" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/security_dialog_show_animation</item>
@@ -132,7 +137,7 @@
     </style>
 
     <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:textSize">@dimen/s20</item>
+        <item name="android:textSize">@dimen/s18</item>
         <item name="android:textColor">@color/A3</item>
     </style>
 
