@@ -192,6 +192,7 @@ public class PretentSelectorActivitySecurity extends BaseAbsActivity {
             @Override
             public void onAnimationEnd(com.nineoldandroids.animation.Animator animation) {
                 fakes_lottie.setVisibility(View.GONE);
+                fakes_lottie2.setVisibility(View.VISIBLE);
                 fakes_lottie2.setAnimation("frist4.json");
                 fakes_lottie2.setScale(2f);//相对原大小的0.2倍
                 fakes_lottie2.loop(false);//是否循环，true循环
@@ -207,6 +208,7 @@ public class PretentSelectorActivitySecurity extends BaseAbsActivity {
                     public void onAnimationEnd(Animator animation) {
                         fakes_lottie.setVisibility(View.VISIBLE);
                         fake_loading.setVisibility(View.GONE);
+                        fakes_lottie2.setVisibility(View.GONE);
                     }
 
                     @Override
