@@ -1,6 +1,6 @@
-package com.android.kpa.nativ;
+package com.keepa.kpa.nativ;
 
-import com.android.kpa.NativeDaemonBase;
+import com.keepa.kpa.NativeDaemonBase;
 
 import android.content.Context;
 

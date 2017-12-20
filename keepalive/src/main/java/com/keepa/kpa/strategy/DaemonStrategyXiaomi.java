@@ -1,4 +1,4 @@
-package com.android.kpa.strategy;
+package com.keepa.kpa.strategy;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,9 +18,9 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.kpa.DaemonConfigurations;
-import com.android.kpa.IDaemonStrategy;
-import com.android.kpa.nativ.NativeDaemonAPIK;
+import com.keepa.kpa.DaemonConfigurations;
+import com.keepa.kpa.IDaemonStrategy;
+import com.keepa.kpa.nativ.NativeDaemonAPIK;
 
 /**
  * the strategy in Mi.

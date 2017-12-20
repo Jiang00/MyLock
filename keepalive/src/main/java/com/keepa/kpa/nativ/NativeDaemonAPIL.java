@@ -1,6 +1,6 @@
-package com.android.kpa.nativ;
+package com.keepa.kpa.nativ;
 
-import com.android.kpa.NativeDaemonBase;
+import com.keepa.kpa.NativeDaemonBase;
 
 import android.content.Context;
 
@@ -9,7 +9,7 @@ import android.content.Context;
  * @author renqingyou
  *
  */
-public class NativeDaemonAPIL extends NativeDaemonBase{
+public class NativeDaemonAPIL extends NativeDaemonBase {
 
 	public NativeDaemonAPIL(Context context) {
 		super(context);

@@ -1,4 +1,4 @@
-package com.android.kpa;
+package com.keepa.kpa;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;

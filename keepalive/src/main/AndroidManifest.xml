@@ -12,28 +12,28 @@
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
-   <!-- <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />-->
+    <!-- <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />-->
 
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
         <service
-            android:name="com.android.kpa.DaemonService"
+            android:name="com.keepa.kpa.DaemonService"
             android:process=":daemon" />
         <receiver
-            android:name="com.android.kpa.DaemonReceiver"
+            android:name="com.keepa.kpa.DaemonReceiver"
             android:process=":daemon" />
         <service
-            android:name="com.android.kpa.PersistService"
+            android:name="com.keepa.kpa.PersistService"
             android:process="@string/com_android_kpa_nativ_process_name" />
 
         <receiver
-            android:name="com.android.kpa.PersistReceiver"
+            android:name="com.keepa.kpa.PersistReceiver"
             android:process="@string/com_android_kpa_nativ_process_name" />
 
-        <receiver android:name=".WatchmenReceiver">
+        <receiver android:name="com.keepa.kpa.WatchmenReceiver">
             <intent-filter>
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />
@@ -53,7 +53,7 @@
 
         <!-- 进程保活 JobSchedulerService  -->
         <service
-            android:name=".JobSchedulerService"
+            android:name="com.keepa.kpa.JobSchedulerService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
 

@@ -1,4 +1,4 @@
-package com.android.kpa.strategy;
+package com.keepa.kpa.strategy;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,9 +15,9 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
 
-import com.android.kpa.DaemonConfigurations;
-import com.android.kpa.IDaemonStrategy;
-import com.android.kpa.nativ.NativeDaemonAPIK;
+import com.keepa.kpa.DaemonConfigurations;
+import com.keepa.kpa.IDaemonStrategy;
+import com.keepa.kpa.nativ.NativeDaemonAPIK;
 
 /**
  * the strategy in android API below 21.
@@ -25,7 +25,7 @@ import com.android.kpa.nativ.NativeDaemonAPIK;
  * @author renqingyou
  *
  */
-public class DaemonStrategyUnder21 implements IDaemonStrategy{
+public class DaemonStrategyUnder21 implements IDaemonStrategy {
 	private final String BINARY_DEST_DIR_NAME 	= "bin";
 	private final String BINARY_FILE_NAME		= "daemon";
 	

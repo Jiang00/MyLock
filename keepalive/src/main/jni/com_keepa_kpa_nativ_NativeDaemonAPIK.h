@@ -12,7 +12,7 @@ extern "C" {
  * Method:    doDaemon
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_com_android_kpa_nativ_NativeDaemonAPIK_doDaemon
+JNIEXPORT void JNICALL Java_com_keepa_kpa_nativ_NativeDaemonAPIK_doDaemon
   (JNIEnv *, jobject, jstring, jstring, jstring);
 
 #ifdef __cplusplus

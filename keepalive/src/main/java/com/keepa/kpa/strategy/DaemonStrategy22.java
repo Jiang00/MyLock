@@ -1,4 +1,4 @@
-package com.android.kpa.strategy;
+package com.keepa.kpa.strategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,16 +14,17 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.android.kpa.DaemonConfigurations;
-import com.android.kpa.IDaemonStrategy;
-import com.android.kpa.nativ.NativeDaemonAPIL;
+import com.keepa.kpa.DaemonConfigurations;
+import com.keepa.kpa.IDaemonStrategy;
+import com.keepa.kpa.nativ.NativeDaemonAPIL;
+
 /**
  * the strategy in android API 22.
  * 
  * @author renqingyou
  *
  */
-public class DaemonStrategy22 implements IDaemonStrategy{
+public class DaemonStrategy22 implements IDaemonStrategy {
 	private final static String INDICATOR_DIR_NAME 					= "indicators";
 	private final static String INDICATOR_PERSISTENT_FILENAME 		= "indicator_p";
 	private final static String INDICATOR_DAEMON_ASSISTANT_FILENAME = "indicator_d";
@@ -32,7 +33,7 @@ public class DaemonStrategy22 implements IDaemonStrategy{
 	
 	private IBinder 				mRemote;
 	private Parcel					mServiceData;
-	private DaemonConfigurations 	mConfigs;
+	private DaemonConfigurations mConfigs;
 
 	@Override
 	public boolean onInitialization(Context context) {

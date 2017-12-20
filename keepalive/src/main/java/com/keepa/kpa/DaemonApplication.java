@@ -1,4 +1,4 @@
-package com.android.kpa;
+package com.keepa.kpa;
 
 import android.app.Application;
 import android.content.Context;

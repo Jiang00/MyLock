@@ -1,4 +1,4 @@
-package com.android.kpa.strategy;
+package com.keepa.kpa.strategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,9 +15,9 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.android.kpa.DaemonConfigurations;
-import com.android.kpa.IDaemonStrategy;
-import com.android.kpa.nativ.NativeDaemonAPIL;
+import com.keepa.kpa.DaemonConfigurations;
+import com.keepa.kpa.IDaemonStrategy;
+import com.keepa.kpa.nativ.NativeDaemonAPIL;
 
 /**
  * the strategy in android API 23.

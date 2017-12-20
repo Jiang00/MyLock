@@ -1,10 +1,10 @@
-package com.android.kpa;
+package com.keepa.kpa;
 
-import com.android.kpa.strategy.DaemonStrategy21;
-import com.android.kpa.strategy.DaemonStrategy22;
-import com.android.kpa.strategy.DaemonStrategy23;
-import com.android.kpa.strategy.DaemonStrategyUnder21;
-import com.android.kpa.strategy.DaemonStrategyXiaomi;
+import com.keepa.kpa.strategy.DaemonStrategy21;
+import com.keepa.kpa.strategy.DaemonStrategy22;
+import com.keepa.kpa.strategy.DaemonStrategy23;
+import com.keepa.kpa.strategy.DaemonStrategyUnder21;
+import com.keepa.kpa.strategy.DaemonStrategyXiaomi;
 
 import android.content.Context;
 import android.os.Build;

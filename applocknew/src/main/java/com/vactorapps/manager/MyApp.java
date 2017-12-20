@@ -7,13 +7,14 @@ import android.content.res.Configuration;
 import android.os.Parcelable;
 
 import com.android.client.AndroidSdk;
-import com.android.kpa.DaemonClient;
-import com.android.kpa.KeepLiveManager;
-import com.android.kpa.PersistService;
 import com.batteryvactorapps.module.charge.saver.protectservicevac.ServiceBattery;
 import com.batteryvactorapps.module.charge.saver.utilsvac.BatteryConstants;
 import com.batteryvactorapps.module.charge.saver.utilsvac.MyUtils;
 import com.ivymobi.applock.free.R;
+import com.keepa.kpa.DaemonClient;
+import com.keepa.kpa.DaemonConfigurations;
+import com.keepa.kpa.KeepLiveManager;
+import com.keepa.kpa.PersistService;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.themesvactor.eshop.ShopMaster;
@@ -127,7 +128,22 @@ public class MyApp extends BaseApp {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        DaemonClient mDaemonClient = new DaemonClient(base,null);
+        DaemonClient mDaemonClient = new DaemonClient(base, new DaemonConfigurations.DaemonListener() {
+            @Override
+            public void onPersistentStart(Context context) {
+
+            }
+
+            @Override
+            public void onDaemonAssistantStart(Context context) {
+
+            }
+
+            @Override
+            public void onWatchDaemonDead() {
+
+            }
+        });
 
         mDaemonClient.onAttachBaseContext(base);
     }
