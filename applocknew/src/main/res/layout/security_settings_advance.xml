@@ -8,32 +8,8 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d56"
-        android:background="@color/A1"
-        android:elevation="@dimen/d4">
 
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:paddingLeft="@dimen/d16"
-            android:paddingRight="@dimen/d16"
-            android:src="@drawable/back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d72"
-            android:text="@string/setting_power"
-            android:textColor="@color/A3"
-            android:textSize="@dimen/s18" />
-    </FrameLayout>
-
+    <include layout="@layout/security_component_toolbar" />
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/d12"
