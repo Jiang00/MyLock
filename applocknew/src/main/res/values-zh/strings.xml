@@ -250,4 +250,7 @@
     <string name="end">還差最後一步！ </string>
     <string name="exit_ok">退出</string>
     <string name="exit_ok2">是否退出AppLock？</string>
+    <string name="close_lock_cancle">Lock</string>
+    <string name="finger_tip2">Try again</string>
+    <string name="share_title">This person tried to unlock your %1$s</string>
 </resources>

@@ -3,6 +3,7 @@ package com.vactorapps.manager.page;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -63,13 +64,16 @@ public class VacMenu {
         ImageView side_setting_select = (ImageView) menu.findViewById(R.id.side_setting_select);
         ImageView side_fakes_select_red = (ImageView) menu.findViewById(R.id.side_fakes_select_red);
         ImageView side_intruder_red = (ImageView) menu.findViewById(R.id.side_intruder_red);
-        if (VacPref.hasIntruder() || VacPref.getFristred()) {
+        Log.e("chfq", "==VacPref.hasIntruder()===" + VacPref.hasIntruder() + "==VacPref.getFristred()==" + VacPref.getFristred());
+        if (VacPref.hasIntruder()) {
             side_intruder_red.setVisibility(View.VISIBLE);
         } else {
             side_intruder_red.setVisibility(View.GONE);
         }
         if (VacPref.getFristred()) {
-
+            side_fakes_select_red.setVisibility(View.VISIBLE);
+        } else {
+            side_fakes_select_red.setVisibility(View.GONE);
         }
         try {
             JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
@@ -165,6 +169,7 @@ public class VacMenu {
                         return;
                     }
                     Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_FAKE, Tracker.ACT_FAKE, 1L);
+                    VacPref.setFristred(false);
                     context.startActivity(new Intent(context, PretentSelectorActivitySecurity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     currentMenuIt = 2;

@@ -247,4 +247,7 @@
 <string name="exit_ok2">Apakah Anda Akan Keluar dari AppLock?</string>
 <string name = "close_lock"> Ya! </string>
 <string name = "security_applock_stop3"> Anda yakin untuk menutup AppLock? </string>
+    <string name="close_lock_cancle">Mengunci</string>
+    <string name="finger_tip2">Coba lagi</string>
+    <string name="share_title">Orang ini mencoba membuka %1$s Anda</string>
 </resources>

@@ -107,9 +107,8 @@
                     android:id="@+id/side_fakes_select_red"
                     android:layout_width="@dimen/d8"
                     android:layout_height="@dimen/d8"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d16"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d234"
                     android:src="@drawable/security_reddot_nostroke" />
             </FrameLayout>
 
@@ -140,9 +139,8 @@
                     android:id="@+id/side_intruder_red"
                     android:layout_width="@dimen/d8"
                     android:layout_height="@dimen/d8"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d16"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d234"
                     android:src="@drawable/security_reddot_nostroke" />
             </FrameLayout>
 

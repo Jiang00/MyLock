@@ -248,5 +248,8 @@
 <string name = "exit_ok2"> AppLock\'tan Çıkıyor musunuz? </string>
 <string name = "close_lock"> Evet! </string>
 <string name = "security_applock_stop3"> AppLock\'u kapattığınızdan emin misiniz? </string>
+    <string name="close_lock_cancle">Kilit</string>
+    <string name="finger_tip2">Tekrar deneyin</string>
+    <string name="share_title">Bu kişi %1$s kilidini açmaya çalıştı.</string>
 </resources>
 

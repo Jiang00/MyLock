@@ -248,4 +248,7 @@
 <string name = "exit_ok2"> Você está indo para sair do AppLock? </string>
 <string name = "close_lock"> Sim! </string>
 <string name = "security_applock_stop3"> Você tem certeza de fechar o AppLock? </string>
+    <string name="close_lock_cancle">Bloqueio</string>
+    <string name="finger_tip2">Tente novamente</string>
+    <string name="share_title">Essa pessoa tentou desbloquear seu %1$s</string>
 </resources>

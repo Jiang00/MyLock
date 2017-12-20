@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.batteryvactorapps.module.charge.saver.R;
@@ -82,7 +81,6 @@ public class QiuBubbleLayout extends View {
             new Thread() {
                 public void run() {
                     while (starting && thread) {
-                        Log.e("MyTest", "bubble Thread");
                         Bubble bubble = new Bubble();
                         int radius = random.nextInt(30);
                         while (radius == 0) {
@@ -139,9 +137,12 @@ public class QiuBubbleLayout extends View {
 
         paint.reset();
         paint.setColor(0X669999);//灰白色
-
-
-        List<Bubble> list = new ArrayList<Bubble>(bubbles);
+        List<Bubble> list = null;
+        if (bubbles != null) {
+            list = new ArrayList<Bubble>(bubbles);
+        } else {
+            list = new ArrayList<Bubble>();
+        }
         //依次绘制气泡
         for (Bubble bubble : list) {
             //碰到上边界从数组中移除

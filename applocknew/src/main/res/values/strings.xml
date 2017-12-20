@@ -243,8 +243,9 @@
     <string name="security_over_short2">Frequency</string>
     <string name="exit_ok">Exit</string>
     <string name="exit_ok2">Are You Going To Exit AppLock?</string>
-    <string name="close_lock">Yes!</string>
+    <string name="close_lock">Unlock!</string>
     <string name="security_applock_stop3">Are you sure to close AppLock?</string>
-    <string name="close_lock_cancle">继续使用</string>
-    <string name="finger_tip2">再试一次</string>
+    <string name="close_lock_cancle">Lock</string>
+    <string name="finger_tip2">Try again</string>
+    <string name="share_title">This person tried to unlock your %1$s</string>
 </resources>

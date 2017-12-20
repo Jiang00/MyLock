@@ -245,6 +245,8 @@
 <string name="security_over_short2">تكرر</string> 
 <string name="exit_ok">ىخرج</string>
 <string name="exit_ok2">هل تذهب إلى الخروج أبلوك؟</string>
-
+    <string name="close_lock_cancle">قفل</string>
+    <string name="finger_tip2">حاول ثانية</string>
+    <string name="share_title">%1$s حاول هذا الشخص إلغاء تأمين</string>
 </resources>
 
