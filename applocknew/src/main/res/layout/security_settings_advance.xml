@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <include layout="@layout/security_component_toolbar" />
 
         <View

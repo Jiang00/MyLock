@@ -23,6 +23,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -36,8 +37,6 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.ivymobi.applock.free.R;
 import com.vactorapps.lib.customview.VacWidgetContainer;
 import com.vactorappsapi.manager.lib.Utils;
-
-import butterknife.InjectView;
 
 /**
  * Created by superjoy on 2014/9/4.
@@ -309,6 +308,14 @@ public class VacPrevance extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
 
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 
     public void showSaveMode(Context context, final int pre) {
