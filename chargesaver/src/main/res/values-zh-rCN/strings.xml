@@ -19,4 +19,6 @@
     <string name="ram">內存</string>
     <!--type two end-->
     <string name="charging_ing">正在充电</string>
+    <string name="charging_on_left2">充电剩余时间：%1$d h %2$d min</string>
+    <string name="charging_on_left3">充电已完成</string>
 </resources>

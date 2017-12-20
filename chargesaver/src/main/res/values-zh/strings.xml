@@ -14,8 +14,11 @@
     <string name="internet">可用網絡時間</string>
     <string name="game">可用遊戲時間</string>
     <string name="temp">溫度</string>
-    
+
     <string name="ram">內存</string>
     <!--type two end-->
     <string name="charging_ing">正在充電</string>
+    <string name="charging_on_left2">充電剩餘時間：%1$d h %2$d min</string>
+     
+    <string name="charging_on_left3">充電已完成</string>
 </resources>

@@ -167,7 +167,6 @@ public class FristActivity extends VacSetPattern {
         switchTheme();
 //      selectOperation();
         notiIntent = getIntent();
-        AndroidSdk.onResumeWithoutTransition(this);
         super.onResume();
         if (onPause) {
             onPause = false;

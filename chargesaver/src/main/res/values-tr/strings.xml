@@ -18,4 +18,7 @@
     <string name="ram">RAM</string>
     <!--type two end-->
     <string name="charging_ing">Charging</string>
+    <string name="charging_on_left2"> Şarj işlemi kaldı:%1$d h %2$d min</string>
+     
+    <string name="charging_on_left3"> Tamamlandı </string>
 </resources>

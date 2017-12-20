@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -240,7 +241,9 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         super.onResume();
         MApps.setWaiting(action);
         updateLocks();
+        main_scrollview.setScrollY(0);
     }
+
 
     void showAdOrFive() {
         if (!shareFive.getFiveRate() || preferences.getBoolean("five_rate_close_a", false)) {
@@ -254,7 +257,6 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
             ininShowAD();
         }
         main_scrollview.setScrollY(0);
-        main_scrollview.setScaleY(1f);
     }
 
     public void saveOrCreateProfile(String profileName, IWorker server) {
@@ -716,6 +718,7 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
             listView.setVisibility(View.VISIBLE);
             refreshLayout.setRefreshing(false);
             Utils.notifyDataSetChanged(listView);
+            main_scrollview.setScrollY(0);
         }
     };
 

@@ -14,8 +14,11 @@
     <string name="internet">余剰インタネット時間</string>
     <string name="game">余剰ゲーム時間</string>
     <string name="temp">温度</string>
-  
+
     <string name="ram">メモリ</string>
     <!--type two end-->
     <string name="charging_ing">充電</string>
+    <string name="charging_on_left2">左に充電中：%1$d h %2$d min</string>
+     
+    <string name="charging_on_left3">完了</string>
 </resources>
