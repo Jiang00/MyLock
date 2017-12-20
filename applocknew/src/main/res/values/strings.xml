@@ -149,6 +149,8 @@
     <string name="security_loading_fullad_fail">Advertisement loading failed, please try again later</string>
     <string name="security_click_change">Next Ad</string>
     <string name="security_choose_theme">Choose theme</string>
+    <string name="check_theme">Please select your favorite theme</string>
+    <string name="end">Still the last step!</string>
 
     <string name="security_user_center">No Ads</string>
     <string name="security_user_pro">Full feature are available with no annoying ads. Limited time offer.</string>
@@ -202,7 +204,7 @@
     <string name="setting_battery">Charging Screen</string>
     <string name="setting_power_tip">Recommend to enable all permissions to protect privacy!</string>
     <string name="security_five_min2">5 minutes</string>
-    <string name="now">Default</string>
+    <string name="now">Now</string>
     <string name="fakes_email">Email</string>
     <string name="fakes_compass">Compass</string>
     <string name="fakes_camera">Camera</string>
@@ -218,7 +220,7 @@
     <string name="security_service_title2">Keep AppLock working</string>
     <string name="max_share">Share</string>
     <string name="max_delect">Delete</string>
-    <string name="security_visitor_on2">AppLock protect privacy %1$s day(s) </string><!--翻译短一点-->
+    <string name="security_visitor_on2">protect privacy %1$s day(s) </string><!--翻译短一点-->
     <string name="security_visitor_off2">Phone privacy needs to be protected</string>
     <string name="security_applock_stop2">All apps are locked</string>
     <string name="open_lock">Open AppLock</string>
@@ -243,7 +245,7 @@
     <string name="security_over_short2">Frequency</string>
     <string name="exit_ok">Exit</string>
     <string name="exit_ok2">Are You Going To Exit AppLock?</string>
-    <string name="close_lock">Unlock!</string>
+    <string name="close_lock">Unlock</string>
     <string name="security_applock_stop3">Are you sure to close AppLock?</string>
 
     <string name="close_lock_cancle">Lock</string>
