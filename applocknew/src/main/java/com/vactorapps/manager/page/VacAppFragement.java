@@ -254,6 +254,7 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
             ininShowAD();
         }
         main_scrollview.setScrollY(0);
+        main_scrollview.setScaleY(1f);
     }
 
     public void saveOrCreateProfile(String profileName, IWorker server) {
