@@ -314,7 +314,7 @@ public class VacPref {
     }
 
     public static boolean hasIntruder() {
-        return MyApp.getSharedPreferences().getBoolean("intruder", false);
+        return MyApp.getSharedPreferences().getBoolean("intruder", true);
     }
 
     public static void setHasIntruder(boolean yes) {

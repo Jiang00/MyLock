@@ -5,36 +5,51 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="@dimen/d301"
         android:layout_height="wrap_content"
-        android:background="@drawable/normal_rectangle2">
+        android:background="@drawable/normal_rectangle2"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/main_good_tv"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d16"
-            android:layout_marginRight="@dimen/d16"
-            android:layout_marginTop="@dimen/d12"
-            android:gravity="center"
-            android:lineSpacingExtra="@dimen/d2"
-            android:text="@string/exit_ok"
-            android:textColor="@color/A5"
-            android:textSize="@dimen/s20" />
+            android:layout_marginLeft="@dimen/d26"
+            android:layout_marginTop="@dimen/d26"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/d30"
+                android:layout_height="@dimen/d30"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/main_good_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d14"
+                android:layout_marginRight="@dimen/d16"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/d2"
+                android:text="@string/app_name"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/main_good_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d16"
             android:layout_below="@id/main_good_tv"
-            android:layout_marginRight="@dimen/d16"
-            android:layout_marginTop="@dimen/d14"
+            android:layout_marginLeft="@dimen/d26"
+            android:layout_marginRight="@dimen/d26"
+            android:layout_marginTop="@dimen/d30"
             android:gravity="center"
             android:lineSpacingExtra="@dimen/d2"
             android:text="@string/exit_ok2"
-            android:textColor="@color/A5"
+            android:textColor="@color/A1"
             android:textSize="@dimen/s14" />
 
 
@@ -42,31 +57,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/main_good_tv2"
-            android:layout_marginBottom="@dimen/d12"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginRight="@dimen/d24"
-            android:layout_marginTop="@dimen/d22"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/d8"
+            android:paddingTop="@dimen/d12">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/main_bad"
-                android:layout_width="@dimen/d1"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
+                android:padding="@dimen/d18"
                 android:text="@string/security_cancel"
-                android:textColor="@color/A6"
+                android:textColor="#459bbb"
                 android:textSize="@dimen/s14" />
 
             <TextView
                 android:id="@+id/main_good"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/d8"
                 android:gravity="center"
+                android:padding="@dimen/d18"
                 android:text="@string/security_user_limit_confirm"
-                android:textColor="@color/A5"
+                android:textColor="#459bbb"
                 android:textSize="@dimen/s14" />
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

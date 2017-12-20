@@ -30,7 +30,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
@@ -643,18 +642,14 @@ public class PatternViewVac extends View {
         if (!mInputEnabled || !isEnabled()) {
             return false;
         }
-        Log.e("chfq", "==onTouchEvent==");
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e("chfq", "==ACTION_DOWN==");
                 handleActionDown(event);
                 return true;
             case MotionEvent.ACTION_UP:
                 handleActionUp(event);
-                Log.e("chfq", "==ACTION_UP==");
                 return true;
             case MotionEvent.ACTION_MOVE:
-                Log.e("chfq", "==ACTION_MOVE==");
                 handleActionMove(event);
                 return true;
             case MotionEvent.ACTION_CANCEL:

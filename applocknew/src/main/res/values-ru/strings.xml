@@ -249,5 +249,8 @@
     <string name="check_theme"> Выберите свою любимую тему </string>
      
     <string name="end"> Последний шаг! </string>
+    <string name="close_lock_cancle">Замок</string>
+    <string name="finger_tip2">Попробуй еще раз</string>
+    <string name="share_title">Этот человек пытался разблокировать ваши %1$s</string>
 </resources>
 
