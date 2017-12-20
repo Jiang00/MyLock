@@ -212,11 +212,13 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         open_lock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                VacPref.setVisitor(false);
+                visitorState.setIcon(R.drawable.security_notification_unlock);
                 applock_fl.setVisibility(View.GONE);
                 applock_ll.setVisibility(View.VISIBLE);
-                visitorState.setIcon(R.drawable.security_notification_lock);
-                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
-                VacPref.setVisitor(true);
+                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
+                adaptor.notifyDataSetChanged();
+                adaptor2.notifyDataSetChanged();
                 if (VacPref.getNotification()) {
                     getActivity().stopService(new Intent(getActivity(), VacNotificationService.class));
                     getActivity().startService(new Intent(getActivity(), VacNotificationService.class));
@@ -226,7 +228,8 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         applock_fl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                applock_fl.setVisibility(View.GONE);
+                applock_ll.setVisibility(View.VISIBLE);
             }
         });
         return v;
@@ -334,12 +337,17 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
                     String pkgName = commons.get(position);
                     h.icon.setImageIcon(pkgName, forceLoading);
                     h.name.setText(labels.get(pkgName));
-                    h.lock.setImageResource(R.drawable.security_lock_bg2);
-                    h.lock.setEnabled(locks.containsKey(pkgName));
-                    if (locks.containsKey(pkgName)) {
-                        h.unlock_yuan2.setVisibility(View.VISIBLE);
-                        h.unlock_yuan.setVisibility(View.GONE);
+                    if (VacPref.getVisitor()) {
+                        h.lock.setEnabled(locks.containsKey(pkgName));
+                        if (locks.containsKey(pkgName)) {
+                            h.unlock_yuan2.setVisibility(View.VISIBLE);
+                            h.unlock_yuan.setVisibility(View.GONE);
+                        } else {
+                            h.unlock_yuan2.setVisibility(View.GONE);
+                            h.unlock_yuan.setVisibility(View.VISIBLE);
+                        }
                     } else {
+                        h.lock.setEnabled(false);
                         h.unlock_yuan2.setVisibility(View.GONE);
                         h.unlock_yuan.setVisibility(View.VISIBLE);
                     }
@@ -373,6 +381,18 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String pkgName = commons.get(position);
                 final ViewHolder holder = (ViewHolder) view.getTag();
+                if (!VacPref.getVisitor()) {
+                    VacPref.setVisitor(true);
+                    visitorState.setIcon(R.drawable.security_notification_lock);
+                    Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+                    adaptor.notifyDataSetChanged();
+                    adaptor2.notifyDataSetChanged();
+                    if (VacPref.getNotification()) {
+                        getActivity().stopService(new Intent(getActivity(), VacNotificationService.class));
+                        getActivity().startService(new Intent(getActivity(), VacNotificationService.class));
+                    }
+                    return;
+                }
                 if (locks.containsKey(pkgName)) {
                     locks.remove(pkgName);
                     unlockAnimation(holder);
@@ -402,13 +422,17 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
                     String pkgName = data.pkg;
                     h.icon.setImageIcon(pkgName, forceLoading);
                     h.name.setText(data.label);
-
-                    h.lock.setImageResource(R.drawable.security_lock_bg2);
-                    h.lock.setEnabled(locks.containsKey(pkgName));
-                    if (locks.containsKey(pkgName)) {
-                        h.unlock_yuan2.setVisibility(View.VISIBLE);
-                        h.unlock_yuan.setVisibility(View.GONE);
+                    if (VacPref.getVisitor()) {
+                        h.lock.setEnabled(locks.containsKey(pkgName));
+                        if (locks.containsKey(pkgName)) {
+                            h.unlock_yuan2.setVisibility(View.VISIBLE);
+                            h.unlock_yuan.setVisibility(View.GONE);
+                        } else {
+                            h.unlock_yuan2.setVisibility(View.GONE);
+                            h.unlock_yuan.setVisibility(View.VISIBLE);
+                        }
                     } else {
+                        h.lock.setEnabled(false);
                         h.unlock_yuan2.setVisibility(View.GONE);
                         h.unlock_yuan.setVisibility(View.VISIBLE);
                     }
@@ -646,6 +670,18 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         if (count > 0) {
             which--;
         }
+        if (!VacPref.getVisitor()) {
+            VacPref.setVisitor(true);
+            visitorState.setIcon(R.drawable.security_notification_lock);
+            Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+            adaptor.notifyDataSetChanged();
+            adaptor2.notifyDataSetChanged();
+            if (VacPref.getNotification()) {
+                getActivity().stopService(new Intent(getActivity(), VacNotificationService.class));
+                getActivity().startService(new Intent(getActivity(), VacNotificationService.class));
+            }
+            return;
+        }
         ViewHolder holder = (ViewHolder) view.getTag();
 //        List<SearchThread.SearchData> list = searchResult == null ? apps : searchResult;
         if (which >= list.size()) return;
@@ -861,15 +897,6 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
                 animator.setDuration(400);
                 animator.setInterpolator(new AccelerateInterpolator());
                 animator.start();
-                VacPref.setVisitor(false);
-                visitorState.setIcon(R.drawable.security_notification_unlock);
-                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
-
-                Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
-                if (VacPref.getNotification()) {
-                    getActivity().stopService(new Intent(getActivity(), VacNotificationService.class));
-                    getActivity().startService(new Intent(getActivity(), VacNotificationService.class));
-                }
 
             } else {
                 applock_fl.setVisibility(View.GONE);
@@ -877,6 +904,8 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
                 visitorState.setIcon(R.drawable.security_notification_lock);
                 Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
                 VacPref.setVisitor(true);
+                adaptor.notifyDataSetChanged();
+                adaptor2.notifyDataSetChanged();
                 if (VacPref.getNotification()) {
                     getActivity().stopService(new Intent(getActivity(), VacNotificationService.class));
                     getActivity().startService(new Intent(getActivity(), VacNotificationService.class));

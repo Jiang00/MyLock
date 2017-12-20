@@ -91,16 +91,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d30"
-                    android:text="@string/security_applock_stop"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d9"
-                    android:text="@string/security_applock_stop2"
+                    android:text="@string/security_applock_stop3"
                     android:textColor="@color/A3"
                     android:textSize="@dimen/s14" />
 
@@ -114,7 +106,7 @@
                     android:layout_marginTop="@dimen/d90"
                     android:background="@drawable/main_unlock_bj"
                     android:gravity="center"
-                    android:text="@string/open_lock"
+                    android:text="@string/close_lock"
                     android:textColor="@color/A3"
                     android:textSize="@dimen/s17" />
             </LinearLayout>

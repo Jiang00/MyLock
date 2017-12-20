@@ -46,7 +46,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:background="@drawable/security_intrude_infomation" />
+                            android:src="@drawable/security_intrude_infomation" />
                     </LinearLayout>
 
                     <com.vactorapps.manager.myview.MyGridView

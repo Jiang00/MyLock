@@ -104,7 +104,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@drawable/ad_loading"
             android:tag="loading_native"
             android:visibility="invisible" />
 

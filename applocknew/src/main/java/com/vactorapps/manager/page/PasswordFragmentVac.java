@@ -71,7 +71,7 @@ public class PasswordFragmentVac extends VacThemeFragment {
         try {
             Tracker.sendEvent(Tracker.CATE_ACTION__LOCK_PAGE, Tracker.CATE_ACTION__LOCK_PAGE_PKG, TheBridgeVac.bridge.currentPkg().toString() + "", 1);
             SecurityDotImage mydly = (SecurityDotImage) passwordView.findViewWithTag("dly");
-            mydly.setImageDrawable(MyApp.getContext().getResources().getDrawable(R.drawable.security_icon_daily));
+//            mydly.setImageDrawable(MyApp.getContext().getResources().getDrawable(R.drawable.security_icon_daily));
             mydly.setVisibility(View.VISIBLE);
             mydly.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,7 +89,7 @@ public class PasswordFragmentVac extends VacThemeFragment {
             String dailyUrl = VacPref.getDailyUrl();
             Bitmap bitmap = SdkCache.cache().readBitmap(dailyUrl, null, true);
             if (bitmap == null) {
-                dlyp.setImageDrawable(MyApp.getContext().getResources().getDrawable(R.drawable.security_icon_theme));
+//                dlyp.setImageDrawable(MyApp.getContext().getResources().getDrawable(R.drawable.security_icon_theme));
                 SdkCache.cache().cacheUrl(dailyUrl, true);
             } else {
                 dlyp.setImageBitmap(bitmap);
