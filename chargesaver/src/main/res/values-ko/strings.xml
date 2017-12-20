@@ -18,5 +18,8 @@
     <string name="ram">RAM</string>
     <!--type two end-->
     <string name="charging_ing">충전</string>
+    <string name="charging_on_left2"> 왼쪽 충전 :%1$d h %2$d min</string>
+     
+    <string name="charging_on_left3"> 완료 </string>
 </resources>
 

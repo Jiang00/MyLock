@@ -14,10 +14,13 @@
     <string name="internet">Wifi</string>
     <string name="game">Permainan</string>
     <string name="temp">Suhu</string>
-   
+
     <string name="ram">RAM</string>
     <!--type two end-->
     <string name="charging_ing">pengisian</string>
+    <string name="charging_on_left2"> Pengisian kiri:%1$d h %2$d min</string>
+     
+    <string name="charging_on_left3"> Selesaikan </string>
 </resources>
 
 

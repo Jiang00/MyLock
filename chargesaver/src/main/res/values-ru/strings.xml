@@ -14,10 +14,13 @@
     <string name="internet">Wifi</string>
     <string name="game">Игра</string>
     <string name="temp">Температура</string>
-   
+
     <string name="ram">RAM</string>
     <!--type two end-->
     <string name="charging_ing">зарядка</string>
+    <string name="charge_on_left2"> Зарядка слева:%1$d h %2$d min </string>
+     
+    <string name="charge_on_left3"> Завершить </string>
 </resources>
 
 

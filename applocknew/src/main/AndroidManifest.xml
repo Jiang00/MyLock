@@ -36,7 +36,7 @@
 
         <activity
             android:name="com.vactorapps.manager.MainActivityAppLock"
-            android:allowTaskReparenting="true"
+            android:allowTaskReparenting="false"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
