@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <include layout="@layout/shop_activity_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/shop_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+       <!-- <com.sample.lottie.LottieAnimationView
+            android:id="@+id/shop_loading_animation"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />-->
+
+        <ImageView
+            android:id="@+id/shop_load_fails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:scaleType="centerInside" />
+    </FrameLayout>
+</LinearLayout>

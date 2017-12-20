@@ -33,7 +33,7 @@
             android:layout_marginBottom="@dimen/d13"
             android:gravity="center"
             android:tag="tip"
-            android:text="请选择您喜欢的主题"
+            android:text="@string/check_theme"
             android:textColor="@color/A6"
             android:textSize="@dimen/s13" />
 
@@ -45,7 +45,7 @@
             android:layout_marginBottom="@dimen/d6"
             android:gravity="center"
             android:tag="title"
-            android:text="还差最后一步！"
+            android:text="@string/end"
             android:textColor="@color/A3"
             android:textSize="@dimen/s16" />
 

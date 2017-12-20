@@ -1,0 +1,12 @@
+<resources>
+    <string name="shop_app_name">Theme Store</string>
+    <string name="shop_local_themes">Local</string>
+    <string name="shop_themes_is_loading">loading…</string>
+    <string name="shop_wallpaper_apply">Apply</string>
+    <string name="shop_wallpaper_load_fails">Download fails</string>
+    <string name="shop_wallpaper_apply_success">Apply wallpaper success</string>
+    <string name="shop_wallpaper_apply_fails">apply fails</string>
+    <string name="shop_app_name_local">Local</string>
+    <string name="shop_theme_apply_success">Apply theme success</string>
+    <string name="shop_theme_apply_fails">Apply theme fails</string>
+</resources>

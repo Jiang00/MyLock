@@ -28,6 +28,8 @@
     <string name="security_pretent_setting_msg">Por favor, mueva el dedo de izquierda a derecha a lo largo del botón "Cerrar" para encender APP disfraz</string>
     <string name="security_finger_tip">Toque en la huella digital dos veces y mantenga presionado para activar este dedo APP impresión disfraz</string>
     <string name="security_five_min">5 minutos</string>
+    <string name = "check_theme"> Elija su tema favorito </string>
+      <string name = "end">Último paso</string>
     <string name="security_float_action_switch_widget">Widget flotante</string>
     <string name="security_for_lock_new">Usted necesita para bloquear \"%1$s\"?</string>
     <string name="security_forget_password">Olvidó su contraseña</string>

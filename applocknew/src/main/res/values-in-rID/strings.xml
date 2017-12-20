@@ -10,6 +10,8 @@
     <string name="security_change_password">Ganti Kata Sandi</string>
     <string name="security_change_pattern">Ganti Kata Pola</string>
     <string name="security_confirm_passwd_tip">mengkonfirmasi passcode Anda</string>
+    <string name = "check_theme"> Pilih tema favorit Anda </string>
+      <string name = "end"> Langkah Terakhir! </string>
     <string name="security_done">Selesai</string>
     <string name="security_draw_pattern">Menggambar pola</string>
     <string name="security_draw_pattern_next">Menggambar lagi</string>

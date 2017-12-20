@@ -11,6 +11,8 @@
     <string name="security_change_password">تغيير كلمة المرور</string>
     <string name="security_change_pattern">تغيير نمط</string>
     <string name="security_confirm_passwd_tip">تدخل مرة أخرى لتأكيد</string>
+    <string name = "check_theme">اختيار موضوع المفضلة لديك </string>
+      <string name = "end">اخر خطوة</string>
     <string name="security_done">منته</string>
     <string name="security_draw_pattern">رسم نمط فتح</string>
     <string name="security_draw_pattern_next">رسم مرة أخرى</string>

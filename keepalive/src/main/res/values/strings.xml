@@ -1,0 +1,4 @@
+<resources>
+    <string name="com_android_kpa_nativ_process_name">:persist</string>
+    <string name="app_name">keepalive</string>
+</resources>

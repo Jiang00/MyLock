@@ -252,7 +252,7 @@ public class VacSetPattern extends ClientActivitySecurity implements View.OnClic
                 if (confirmMode) {
                     if (!LockPatternUtils.checkPattern(pattern, pattern1)) {
                         securityPatternView.setDisplayMode(PatternViewVac.DisplayMode.Wrong);
-                        tip.setTextColor(0xffcc0000);
+//                        tip.setTextColor(0xffcc0000);
                         tip.setText(R.string.security_password_not_match);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
@@ -281,7 +281,7 @@ public class VacSetPattern extends ClientActivitySecurity implements View.OnClic
                 } else {
                     if (pattern.size() < 3) {
                         securityPatternView.setDisplayMode(PatternViewVac.DisplayMode.Wrong);
-                        tip.setTextColor(0xffcc0000);
+//                        tip.setTextColor(0xffcc0000);
                         tip.setText(R.string.security_pattern_short);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override

@@ -7,26 +7,27 @@ import android.content.res.Configuration;
 import android.os.Parcelable;
 
 import com.android.client.AndroidSdk;
+import com.android.kpa.DaemonClient;
+import com.android.kpa.KeepLiveManager;
+import com.android.kpa.PersistService;
 import com.batteryvactorapps.module.charge.saver.protectservicevac.ServiceBattery;
-import com.batteryvactorapps.module.charge.saver.utilsvac.MyUtils;
 import com.batteryvactorapps.module.charge.saver.utilsvac.BatteryConstants;
-import com.ivy.ivyshop.ShopMaster;
-import com.ivy.kpa.DaemonClient;
-import com.ivy.kpa.DaemonConfigurations;
+import com.batteryvactorapps.module.charge.saver.utilsvac.MyUtils;
 import com.ivymobi.applock.free.R;
-import com.vactorapps.manager.syncmanager.VacImgManager;
-import com.vactorappsapi.manager.AppsCore;
-import com.vactorappsb.gallery.view.TileBitmapDrawable;
-import com.vactorapps.manager.mydb.PreData;
-import com.vactorapps.manager.mydb.VacPreference;
-import com.vactorappsapi.manager.lib.BaseApp;
-import com.vactorappsapi.manager.lib.datatype.SDataType;
-import com.vactorappsapi.manager.lib.io.ImageMaster;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
+import com.themesvactor.eshop.ShopMaster;
 import com.vactorapps.manager.meta.MApps;
 import com.vactorapps.manager.meta.SacProfiles;
 import com.vactorapps.manager.meta.VacPref;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
+import com.vactorapps.manager.mydb.PreData;
+import com.vactorapps.manager.mydb.VacPreference;
+import com.vactorapps.manager.syncmanager.VacImgManager;
+import com.vactorappsapi.manager.AppsCore;
+import com.vactorappsapi.manager.lib.BaseApp;
+import com.vactorappsapi.manager.lib.datatype.SDataType;
+import com.vactorappsapi.manager.lib.io.ImageMaster;
+import com.vactorappsb.gallery.view.TileBitmapDrawable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,6 +103,9 @@ public class MyApp extends BaseApp {
             PreData.putDB(this, "isInstallShortcut", true);
             createShortCut();
         }
+
+        startService(new Intent(this, PersistService.class));
+        KeepLiveManager.startJobScheduler(this, 1000);
     }
 
     public void createShortCut() {
@@ -123,22 +127,7 @@ public class MyApp extends BaseApp {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        DaemonClient mDaemonClient = new DaemonClient(base, new DaemonConfigurations.DaemonListener() {
-            @Override
-            public void onPersistentStart(Context context) {
-
-            }
-
-            @Override
-            public void onDaemonAssistantStart(Context context) {
-
-            }
-
-            @Override
-            public void onWatchDaemonDead() {
-
-            }
-        });
+        DaemonClient mDaemonClient = new DaemonClient(base,null);
 
         mDaemonClient.onAttachBaseContext(base);
     }

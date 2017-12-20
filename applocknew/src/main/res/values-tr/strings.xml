@@ -233,6 +233,9 @@
 <string name = "bad_tip"> Görüşleriniz varsa lütfen bize gönderin! </string>
 <string name = "question1"> Çok fazla reklam. </string>
 <string name = "question2"> AppLock çalışmıyor </string>
+
+    <string name = "check_theme"> En sevdiğiniz temayı seçin </string>
+      <string name = "end"> Son Adım! </string>
 <string name = "question3"> Kullanıcı Arayüzü yok </string>
 <string name = "question4"> Diğerleri </string>
 <string name = "fangqi"> İptal </string>

@@ -25,9 +25,9 @@ import org.json.JSONObject;
 public class VacMenu {
     public static final int MENU_LOCK_APP = 0;
     public static final int MENU_SETTING = 9;
-    public static final String FACEBOOK = "https://www.facebook.com/IvyAppLock";
+    public static final String FACEBOOK = "https://www.facebook.com/";
     public static final String GOOGLE = "https://plus.google.com/u/0/communities/113134139742239607331";
-    public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=IVYMOBILE";
+    public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=VectorApps_Team";
 
 
     public static final String[] newidkeys = {

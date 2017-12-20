@@ -30,8 +30,8 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.android.client.AdListener;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
+import com.themesvactor.eshop.ShopMaster;
 import com.vactorapps.manager.MyApp;
 import com.vactorapps.manager.VacAccessibilityService;
 import com.vactorapps.manager.meta.TheBridgeVac;
@@ -465,6 +465,7 @@ public class VacThemeFragment extends Fragment {
     public static VacFrameLayout inflate(String layoutId, ViewGroup container, Context c) {
         Context themeContext = null;
         try {
+
             themeContext = ShopMaster.currentTheme().getThemeContext();
         } catch (Exception e) {
             themeContext = c;

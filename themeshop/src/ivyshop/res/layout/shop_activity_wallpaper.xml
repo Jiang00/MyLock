@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#000">
+
+    <ImageView
+        android:id="@+id/shop_wallpaper_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/shop_wallpaper_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="84dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/shop_wallpaper_time"
+        android:textSize="83sp"
+        tools:text="14:14" />
+
+    <TextView
+        android:id="@+id/shop_wallpaper_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="190dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/shop_wallpaper_date"
+        android:textSize="30sp"
+        tools:text="17/1/1 Mon." />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/shop_wallpaper_apply"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/shop_wallpaper_apply"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="@string/shop_wallpaper_apply"
+        android:textAllCaps="false"
+        android:textColor="@color/shop_wallpaper_apply"
+        android:textSize="28sp"
+        android:theme="?attr/toolbarNavigationButtonStyle" />
+
+    <ProgressBar
+        android:id="@+id/shop_wallpaper_loading"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="32dp" />
+</FrameLayout>

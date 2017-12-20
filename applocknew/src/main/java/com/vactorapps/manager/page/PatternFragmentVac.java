@@ -93,7 +93,7 @@ public class PatternFragmentVac extends VacThemeFragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
-                    intent.setAction("ivy.intent.action.full");
+                    intent.setAction("vactorapp.intent.action.full");
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     MyApp.getContext().startActivity(intent);
                 }

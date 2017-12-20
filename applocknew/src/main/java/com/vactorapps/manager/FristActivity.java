@@ -40,16 +40,16 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.android.client.AndroidSdk;
-import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
+import com.themesvactor.eshop.ShopMaster;
+import com.vactorapps.manager.meta.SacProfiles;
 import com.vactorapps.manager.meta.TheBridgeVac;
 import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.mydb.ProfileHelperVac;
-import com.vactorappsapi.manager.lib.io.ImageMaster;
-import com.vactorapps.manager.meta.SacProfiles;
 import com.vactorapps.manager.page.FingerprintUtil;
 import com.vactorapps.manager.page.PasswordFragmentVac;
 import com.vactorapps.manager.page.PatternFragmentVac;
+import com.vactorappsapi.manager.lib.io.ImageMaster;
 
 import org.json.JSONException;
 import org.json.JSONObject;

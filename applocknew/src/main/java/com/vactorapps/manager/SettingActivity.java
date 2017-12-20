@@ -90,6 +90,7 @@ public class SettingActivity extends ClientActivitySecurity {
     private FrameLayout setting_family;
     private FrameLayout help_sug;
     private FrameLayout setting_follow;
+    private boolean onPause = false;
 
 
     @Override
@@ -225,13 +226,27 @@ public class SettingActivity extends ClientActivitySecurity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onPause = true;
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
         intent = getIntent();
+        if (onPause) {
+            onPause = false;
+            setting_rebuild.setText(VacPref.isUseNormalPasswd() ? R.string.security_password_lock : R.string.security_use_pattern);
+        }
 
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        onPause = false;
     }
 
     private LottieAnimationView fingerprint;

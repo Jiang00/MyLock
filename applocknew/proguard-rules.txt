@@ -551,7 +551,6 @@
 
 -dontwarn me.xiaopan.sketch.**
 -keep class me.xiaopan.sketch.** { *;}
--keep class com.ivy.entity.** { *;}
 
--keep class com.ivy.kpa.nativ.** { *; }
+-keep class com.android.kpa.nativ.** { *; }
 

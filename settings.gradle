@@ -1,1 +1,1 @@
-include ':applocknew', ':ByakuGallery', ':model', ':api', 'baselibrary', 'chargesaver'
+include ':applocknew', ':ByakuGallery', ':model', ':api', 'baselibrary', 'chargesaver','keepalive','themeshop'

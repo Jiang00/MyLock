@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShopTabIndicator" parent="TextAppearance.AppCompat.Button">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">@string/shop_tab_font</item>
+    </style>
+
+    <style name="ShopApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/shop_color_primary</item>
+        <item name="colorPrimaryDark">@color/shop_color_primary_dark</item>
+    </style>
+
+    <style name="ShopApp.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

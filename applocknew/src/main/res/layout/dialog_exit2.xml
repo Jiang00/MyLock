@@ -21,7 +21,7 @@
             android:lineSpacingExtra="@dimen/d2"
             android:text="@string/exit_ok"
             android:textColor="@color/A5"
-            android:textSize="@dimen/s16" />
+            android:textSize="@dimen/s20" />
 
         <TextView
             android:id="@+id/main_good_tv2"

@@ -244,4 +244,8 @@
 <string name="security_over_short2">锁定频率</string>
 <string name="close_lock">确认关闭</string>
 <string name="security_applock_stop3">是否关闭应用锁保护</string>
+    <string name="check_theme">请选择您喜欢的主题</string>
+    <string name="end">还差最后一步！</string>
+    <string name="exit_ok">退出</string>
+    <string name="exit_ok2">是否退出AppLock?</string>
 </resources> 

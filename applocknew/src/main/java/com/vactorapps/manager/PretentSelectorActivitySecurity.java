@@ -205,6 +205,7 @@ public class PretentSelectorActivitySecurity extends BaseAbsActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
+                        fakes_lottie.setVisibility(View.VISIBLE);
                         fake_loading.setVisibility(View.GONE);
                     }
 

@@ -64,7 +64,7 @@ public class CrossTranslate extends AppCompatActivity {
                 if (value.equals("ad3")) {
                     if (!b) {
                         Log.e("tagvalue", 3 + "-");
-                        Uri uri = Uri.parse("https://play.google.com/store/apps/developer?id=IVYMOBILE");
+                        Uri uri = Uri.parse("https://play.google.com/store/apps/developer?id=VectorApps_Team");
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         finish();
@@ -73,13 +73,13 @@ public class CrossTranslate extends AppCompatActivity {
                     if (!b) {
                         if (!newDay && showAdTime < 3) {
                             Intent intent = new Intent();
-                            intent.setAction("ivy.intent.action.full");
+                            intent.setAction("vactorapp.intent.action.full");
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
 
                         } else if(newDay){
                             Intent intent = new Intent();
-                            intent.setAction("ivy.intent.action.full");
+                            intent.setAction("vactorapp.intent.action.full");
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }

@@ -71,14 +71,6 @@
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
-
-        <activity
-            android:name="com.vactorapps.manager.VacUnlockSettings"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/activityTheme" />
         <activity
             android:name="com.vactorapps.manager.VacPrevance"
             android:allowTaskReparenting="true"
@@ -123,10 +115,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!--文件2-->
         <activity
@@ -145,10 +133,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -171,10 +155,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
-                <category android:name="android..category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!--日历1-->
         <activity
@@ -195,11 +175,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!--相机4-->
         <activity
@@ -220,11 +196,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!--指南针5-->
         <activity
@@ -245,11 +217,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!--音乐6-->
         <activity
@@ -270,11 +238,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!--计算器7-->
         <activity
@@ -295,11 +259,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ivy.intent.action.pattern" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.vactorapps.manager.TogglePatternActivity"
@@ -344,7 +304,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/nactivityTheme">
             <intent-filter>
-                <action android:name="ivy.intent.action.full" />
+                <action android:name="vactorapp.intent.action.full" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

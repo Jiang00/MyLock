@@ -11,6 +11,9 @@
     <string name="security_change_pattern">Mudar para bloqueio com padrão</string>
     <string name="security_confirm_passwd_tip">confirmar a sua senha</string>
     <string name="security_done">Feito</string>
+
+    <string name = "check_theme"> Escolha o seu tema favorito </string>
+      <string name = "end">Último passo! </string>
     <string name="security_draw_pattern">Desenhe um padrão de desbloqueio</string>
     <string name="security_draw_pattern_next">Draw again</string>
     <string name="security_enter_password">Digite sua palavra-passe para para desbloquear este app.</string>

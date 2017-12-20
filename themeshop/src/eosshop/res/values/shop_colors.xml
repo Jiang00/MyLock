@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="shop_tab_title_selected">#000</color>
+    <color name="shop_tab_title_normal">#8a000000</color>
+    <color name="shop_tab_indicator_selected">#000</color>
+    <color name="shop_tab_indicator_normal">#cccccc</color>
+    <color name="shop_wallpaper_time">#fff</color>
+    <color name="shop_wallpaper_date">#fff</color>
+    <color name="shop_wallpaper_apply">#fff</color>
+    <color name="shop_wallpaper_apply_bg_line">#8affffff</color>
+    <color name="shop_loading_bg">#d9d9d9</color>
+    <color name="shop_loading_color">#8c000000</color>
+    <color name="shop_color_primary">#fff</color>
+    <color name="shop_color_primary_dark">#5c5c5c</color>
+</resources>

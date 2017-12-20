@@ -16,11 +16,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
-import com.vactorapps.manager.MyApp;
-import com.vactorapps.manager.SavePicUtil;
 import com.vactorapps.manager.MainActivityAppLock;
+import com.vactorapps.manager.SavePicUtil;
 import com.vactorapps.manager.meta.VacPref;
 
 /**
@@ -86,7 +84,7 @@ public class MyChooseThemeActivity extends AppCompatActivity {
 //                }
 
                 if (chooseValue == 2) {
-                    ShopMaster.applyTheme(MyApp.getContext(), "theme_preview_two", true);
+//                    ShopMaster.applyTheme(MyApp.getContext(), "theme_preview_two", true);
                 }
                 VacPref.launchNow();
                 Intent intent = new Intent();
