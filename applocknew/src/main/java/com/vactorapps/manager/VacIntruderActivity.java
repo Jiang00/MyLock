@@ -79,7 +79,7 @@ public class VacIntruderActivity extends ClientActivitySecurity {
     public void setupView() {
         setContentView(R.layout.security_intruder_container);
         ButterKnife.inject(this);
-        VacMenu.currentMenuIt = 3;
+//        VacMenu.currentMenuIt = 3;
 
         setupToolbar();
         initclick();
@@ -110,7 +110,8 @@ public class VacIntruderActivity extends ClientActivitySecurity {
                             intent.putExtra("date", entry.simdate);
                             intent.putExtra("pkg", entry.pkg);
                             intent.putExtra("position", position);
-                            startActivityForResult(intent, 1);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                             overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                         }
                     });
@@ -175,6 +176,10 @@ public class VacIntruderActivity extends ClientActivitySecurity {
         if (adapter != null) {
             intruderEntries.clear();
             intruderEntries = IntruderApi.getIntruders();
+            if (intruderEntries.size() == 0) {
+                listView.setVisibility(View.GONE);
+                tip.setVisibility(View.VISIBLE);
+            }
             adapter.notifyDataSetChanged();
         }
     }

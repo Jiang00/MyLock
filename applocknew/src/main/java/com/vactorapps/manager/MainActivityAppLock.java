@@ -504,15 +504,16 @@ public class MainActivityAppLock extends ClientActivitySecurity {
     }
 
     private void setupToolbar() {
-        if (VacPref.hasIntruder()) {
-            VacPref.setHasIntruder(false);
-            VacMenu.currentMenuIt = 3;
-            Intent intent = new Intent(MainActivityAppLock.this, VacIntruderActivity.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
-            finish();
+        if (VacPref.hasIntruder()||VacPref.getFristred()) {
+//            VacMenu.currentMenuIt = 3;
+//            Intent intent = new Intent(MainActivityAppLock.this, VacIntruderActivity.class);
+//            startActivity(intent);
+//            overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
+//            finish();
+            toolbar.setNavigationIcon(R.drawable.security_slide_menu_red);
+        } else {
+            toolbar.setNavigationIcon(R.drawable.security_slide_menu);
         }
-        toolbar.setNavigationIcon(R.drawable.security_slide_menu);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();

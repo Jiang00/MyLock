@@ -40,7 +40,6 @@ public class ErrorBiddenView {
 
     public void wrong() {
         if (wrongView == null) {
-
             return;
         }
         wrong_time += 1;
@@ -97,7 +96,7 @@ public class ErrorBiddenView {
                 }
             }.start();
             colorAnim.start();
-            showTips();
+//            showTips();
         }
         // }
     }

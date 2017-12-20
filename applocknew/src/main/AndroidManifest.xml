@@ -45,6 +45,7 @@
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
+            android:taskAffinity=".theme"
             android:theme="@style/activityTheme" />
 
         <service

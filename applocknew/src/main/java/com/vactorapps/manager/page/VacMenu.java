@@ -61,7 +61,16 @@ public class VacMenu {
         ImageView side_video_select = (ImageView) menu.findViewById(R.id.side_video_select);
         ImageView side_files_select = (ImageView) menu.findViewById(R.id.side_files_select);
         ImageView side_setting_select = (ImageView) menu.findViewById(R.id.side_setting_select);
+        ImageView side_fakes_select_red = (ImageView) menu.findViewById(R.id.side_fakes_select_red);
+        ImageView side_intruder_red = (ImageView) menu.findViewById(R.id.side_intruder_red);
+        if (VacPref.hasIntruder() || VacPref.getFristred()) {
+            side_intruder_red.setVisibility(View.VISIBLE);
+        } else {
+            side_intruder_red.setVisibility(View.GONE);
+        }
+        if (VacPref.getFristred()) {
 
+        }
         try {
             JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
             show_theme = jsonObject.getInt("show_theme");//主题商店
@@ -167,6 +176,7 @@ public class VacMenu {
                         return;
                     }
                     Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_INTRUDE, Tracker.ACT_INTRUDE, 1L);
+                    VacPref.setHasIntruder(false);
                     context.startActivity(new Intent(context, VacIntruderActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
                     ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     currentMenuIt = 3;

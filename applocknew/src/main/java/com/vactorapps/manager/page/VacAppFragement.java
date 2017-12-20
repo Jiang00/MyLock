@@ -44,17 +44,17 @@ import com.privacy.lock.aidl.IWorker;
 import com.vactorapps.lib.customview.BaseFragment;
 import com.vactorapps.lib.customview.VacloadImage;
 import com.vactorapps.manager.MyApp;
-import com.vactorapps.manager.VacNotificationService;
 import com.vactorapps.manager.SearchThread;
 import com.vactorapps.manager.Tracker;
+import com.vactorapps.manager.VacNotificationService;
+import com.vactorapps.manager.meta.MApps;
+import com.vactorapps.manager.meta.SacProfiles;
 import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.mydb.ProfileHelperVac;
 import com.vactorappsapi.manager.lib.Utils;
 import com.vactorappsapi.manager.lib.controller.CListViewAdaptor;
 import com.vactorappsapi.manager.lib.controller.CListViewScroller;
 import com.vactorappsapi.manager.lib.io.RefreshList;
-import com.vactorapps.manager.meta.MApps;
-import com.vactorapps.manager.meta.SacProfiles;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -215,8 +215,34 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
             public void onClick(View v) {
                 VacPref.setVisitor(false);
                 visitorState.setIcon(R.drawable.security_notification_unlock);
-                applock_fl.setVisibility(View.GONE);
+                menuSearch.setVisible(true);
+                menuvisitorFlag = false;
                 applock_ll.setVisibility(View.VISIBLE);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", 0f, -applock_fl.getWidth());
+                animator.setDuration(400);
+                animator.setInterpolator(new AccelerateInterpolator());
+                animator.start();
+                animator.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        applock_fl.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+                });
                 Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
                 adaptor.notifyDataSetChanged();
                 adaptor2.notifyDataSetChanged();
@@ -229,8 +255,36 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         applock_fl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                applock_fl.setVisibility(View.GONE);
+//                applock_fl.setVisibility(View.GONE);
+//                applock_ll.setVisibility(View.VISIBLE);
+                menuSearch.setVisible(true);
+                menuvisitorFlag = false;
                 applock_ll.setVisibility(View.VISIBLE);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", 0f, -applock_fl.getWidth());
+                animator.setDuration(400);
+                animator.setInterpolator(new AccelerateInterpolator());
+                animator.start();
+                animator.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        applock_fl.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+                });
             }
         });
         return v;
@@ -891,18 +945,55 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
 
     }
 
+    boolean menuvisitorFlag = false;
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menuvisitor) {
-            if (VacPref.getVisitor()) {
-                applock_fl.setVisibility(View.VISIBLE);
-                applock_ll.setVisibility(View.GONE);
-                ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", -applock_fl.getWidth(), 0f);
-                animator.setDuration(400);
-                animator.setInterpolator(new AccelerateInterpolator());
-                animator.start();
 
+            if (VacPref.getVisitor()) {
+                if (!menuvisitorFlag) {
+                    menuSearch.setVisible(false);
+                    menuvisitorFlag = true;
+                    applock_fl.setVisibility(View.VISIBLE);
+                    applock_ll.setVisibility(View.GONE);
+                    ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", -applock_fl.getWidth(), 0f);
+                    animator.setDuration(400);
+                    animator.setInterpolator(new AccelerateInterpolator());
+                    animator.start();
+                } else {
+                    menuSearch.setVisible(true);
+                    menuvisitorFlag = false;
+                    applock_ll.setVisibility(View.VISIBLE);
+                    ObjectAnimator animator = ObjectAnimator.ofFloat(applock_fl, "translationX", 0f, -applock_fl.getWidth());
+                    animator.setDuration(400);
+                    animator.setInterpolator(new AccelerateInterpolator());
+                    animator.start();
+                    animator.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            applock_fl.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+
+                        }
+                    });
+                }
             } else {
+                menuSearch.setVisible(true);
+                menuvisitorFlag = false;
                 applock_fl.setVisibility(View.GONE);
                 applock_ll.setVisibility(View.VISIBLE);
                 visitorState.setIcon(R.drawable.security_notification_lock);
