@@ -1,12 +1,15 @@
 package com.vactorappsapi.manager.lib.io;
 
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 
 import com.vactorappsapi.manager.lib.BaseApp;
+import com.vactorappsapi.manager.lib.LoadManager;
 import com.vactorappsapi.manager.lib.sync.LoadingTask;
 
 import java.util.concurrent.LinkedBlockingQueue;
@@ -28,9 +31,11 @@ public class LoadIconFromApp extends LoadingTask {
     }
 
     private static LoadIconFromApp instance = new LoadIconFromApp();
+
     public static LoadIconFromApp Instance() {
         return instance;
     }
+
     public void execute(LoadingNotifiable notifiable) {
         try {
             if (queue.contains(notifiable)) return;
@@ -40,6 +45,7 @@ public class LoadIconFromApp extends LoadingTask {
             e.printStackTrace();
         }
     }
+
     LinkedBlockingQueue<LoadingNotifiable> queue = new LinkedBlockingQueue<>();
 
     @Override
@@ -67,9 +73,10 @@ public class LoadIconFromApp extends LoadingTask {
     }
 
     protected Bitmap getBitmap(String url, LoadingNotifiable notifiable) throws PackageManager.NameNotFoundException {
-        PackageManager pm = BaseApp.getContext().getPackageManager();
-        PackageInfo p = pm.getPackageInfo(url, PackageManager.GET_UNINSTALLED_PACKAGES);
-        BitmapDrawable drawable = (BitmapDrawable) p.applicationInfo.loadIcon(pm);
-        return drawable.getBitmap();
+        Drawable db = LoadManager.getInstance(BaseApp.getContext()).getAppIcon(url);
+        if (db != null) {
+            return LoadManager.getInstance(BaseApp.getContext()).drawableToBitmap(db);
+        }
+        return null;
     }
 }

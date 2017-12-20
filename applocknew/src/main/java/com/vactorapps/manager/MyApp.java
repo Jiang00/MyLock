@@ -1,10 +1,12 @@
 package com.vactorapps.manager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.android.client.AndroidSdk;
 import com.batteryvactorapps.module.charge.saver.protectservicevac.ServiceBattery;
@@ -33,6 +35,7 @@ import com.vactorappsb.gallery.view.TileBitmapDrawable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -160,5 +163,41 @@ public class MyApp extends BaseApp {
 
     public static Context getContrext() {
         return context;
+    }
+
+    public static MyApp _instance = null;
+
+    public static MyApp getInstance() {
+        if (_instance == null) {
+            synchronized (MyApp.class) {
+                if (_instance == null) {
+                    _instance = new MyApp();
+                }
+            }
+        }
+        return _instance;
+    }
+
+    public static ArrayList<Activity> activities = new ArrayList<>();
+
+    public void addActivity(Activity activity) {
+        if (!activities.contains(activity)) {
+            activities.add(activity);
+        }
+    }
+
+    public void removeActivity(Activity activity) {
+        if (activities.contains(activity)) {
+            activities.remove(activity);
+        }
+    }
+
+    public void clearActivity(Activity mactivity) {
+        if (activities.contains(mactivity)) {
+            activities.remove(mactivity);
+        }
+        for (Activity activity : activities) {
+            activity.finish();
+        }
     }
 }

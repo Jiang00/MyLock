@@ -49,6 +49,7 @@ import com.vactorapps.manager.mydb.ProfileHelperVac;
 import com.vactorapps.manager.page.FingerprintUtil;
 import com.vactorapps.manager.page.PasswordFragmentVac;
 import com.vactorapps.manager.page.PatternFragmentVac;
+import com.vactorappsapi.manager.lib.LoadManager;
 import com.vactorappsapi.manager.lib.io.ImageMaster;
 
 import org.json.JSONException;
@@ -81,6 +82,11 @@ public class FristActivity extends VacSetPattern {
     private LottieAnimationView choose_theme_lottie;
     private int show_fingerprint;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        MyApp.getInstance().clearActivity(this);
+    }
 
     public void toggle(boolean normal) {
         if (normal) {
@@ -459,9 +465,11 @@ public class FristActivity extends VacSetPattern {
                 Bitmap icon = ImageMaster.getImage(pkg);
                 if (icon == null) {
                     try {
-                        BitmapDrawable bd = (BitmapDrawable) getPackageManager().getPackageInfo(pkg, 0).applicationInfo.loadIcon(getPackageManager());
-                        icon = bd.getBitmap();
-                        ImageMaster.addImage(pkg, icon);
+                        Drawable db = LoadManager.getInstance(FristActivity.this).getAppIcon(pkg);
+                        if (db != null) {
+                            icon = LoadManager.getInstance(FristActivity.this).drawableToBitmap(db);
+                            ImageMaster.addImage(pkg, icon);
+                        }
                     } catch (OutOfMemoryError | Exception error) {
                         error.printStackTrace();
                     }

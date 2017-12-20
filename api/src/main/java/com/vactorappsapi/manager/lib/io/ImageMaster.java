@@ -3,6 +3,7 @@ package com.vactorappsapi.manager.lib.io;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
+
 import com.vactorappsapi.manager.lib.Utils;
 
 /**
@@ -42,28 +43,33 @@ public class ImageMaster {
             }
         }
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
-    public static boolean hasImage(String key){
+    public static boolean hasImage(String key) {
         return imageCache.get(key) != null;
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
-    public static Bitmap getImage(String key){
+    public static Bitmap getImage(String key) {
         return imageCache.get(key);
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
-    public static void addImage(String key, Bitmap bmp){
+    public static void addImage(String key, Bitmap bmp) {
         if (bmp == null || bmp.isRecycled()) {
             Utils.LOGE(TAG, "bmp can't be null or recycled for " + key);
             return;
         }
         imageCache.put(key, bmp);
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
     public static void remove(String key) {
         imageCache.remove(key);
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
-    public static void evictAll(){
+    public static void evictAll() {
         imageCache.evictAll();
     }
 }

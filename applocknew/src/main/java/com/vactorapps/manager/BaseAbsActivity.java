@@ -137,6 +137,7 @@ public abstract class BaseAbsActivity extends BaseActivity implements SearchThre
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MyApp.getInstance().addActivity(this);
         context = this;
         try {
             exceptionHandler.setVersionName(getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
@@ -158,6 +159,7 @@ public abstract class BaseAbsActivity extends BaseActivity implements SearchThre
     @Override
     protected void onDestroy() {
         context = null;
+        MyApp.getInstance().removeActivity(this);
         super.onDestroy();
     }
 

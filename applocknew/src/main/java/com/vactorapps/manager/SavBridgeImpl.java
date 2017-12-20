@@ -3,6 +3,7 @@ package com.vactorapps.manager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -17,6 +18,7 @@ import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.meta.TheBridgeVac;
 import com.vactorapps.manager.myinterface.ISecurityBridge;
 import com.vactorapps.manager.page.OverflowMenu;
+import com.vactorappsapi.manager.lib.LoadManager;
 
 /**
  * Created by huale on 2015/2/2.
@@ -45,12 +47,11 @@ public class SavBridgeImpl implements ISecurityBridge {
     }
 
     public Drawable getIcon(String pkgName) {
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            PackageInfo pi = packageManager.getPackageInfo(pkgName, PackageManager.GET_UNINSTALLED_PACKAGES);
-            appName = pi.applicationInfo.loadLabel(packageManager);
-            return pi.applicationInfo.loadIcon(packageManager);
-        } catch (Exception e) {
+        Drawable icon = LoadManager.getInstance(context).getAppIcon(pkgName);
+        if (icon != null) {
+            appName = LoadManager.getInstance(context).getAppLabel(pkgName);
+            return icon;
+        } else {
             appName = context.getResources().getString(R.string.app_name);
             return context.getResources().getDrawable(R.drawable.ic_launcher);
         }

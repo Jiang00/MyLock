@@ -36,7 +36,7 @@
 
         <activity
             android:name="com.vactorapps.manager.MainActivityAppLock"
-            android:allowTaskReparenting="false"
+            android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
@@ -103,7 +103,6 @@
             android:theme="@style/activityTheme" />
         <activity
             android:name="com.vactorapps.manager.FristActivity"
-            android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:icon="@drawable/ic_launcher"

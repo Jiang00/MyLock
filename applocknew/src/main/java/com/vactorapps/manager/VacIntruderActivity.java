@@ -1,6 +1,7 @@
 package com.vactorapps.manager;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -18,6 +19,7 @@ import com.ivymobi.applock.free.R;
 import com.vactorapps.lib.customview.VacloadImage;
 import com.vactorapps.manager.meta.VacPref;
 import com.vactorappsapi.manager.IntruderApi;
+import com.vactorappsapi.manager.lib.LoadManager;
 import com.vactorappsapi.manager.lib.controller.CListViewAdaptor;
 import com.vactorappsapi.manager.lib.controller.CListViewScroller;
 import com.vactorapps.manager.myview.MyGridView;
@@ -113,14 +115,11 @@ public class VacIntruderActivity extends ClientActivitySecurity {
                         }
                     });
 
-                    try {
-                        PackageInfo packageInfo = context.getPackageManager().getPackageInfo(entry.pkg, 0);
-                        Drawable icon = packageInfo.applicationInfo.loadIcon(context.getPackageManager());
-                        holder.lockIcon.setBackgroundDrawable(icon);
-
-                    } catch (PackageManager.NameNotFoundException e) {
+                    Drawable icon = LoadManager.getInstance(context).getAppIcon(entry.pkg);
+                    if (icon == null) {
                         holder.lockIcon.setBackgroundResource(R.drawable.ic_launcher);
-
+                    } else {
+                        holder.lockIcon.setBackgroundDrawable(icon);
                     }
 
                 }

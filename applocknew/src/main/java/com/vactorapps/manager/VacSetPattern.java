@@ -1,5 +1,6 @@
 package com.vactorapps.manager;
 
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
@@ -20,6 +21,7 @@ import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.page.LockPatternUtils;
 import com.vactorapps.manager.page.NumberDot;
 import com.vactorapps.manager.page.PatternViewVac;
+import com.vactorappsapi.manager.lib.LoadManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,22 +146,21 @@ public class VacSetPattern extends ClientActivitySecurity implements View.OnClic
 
     public Drawable getIcon() {
         String packageName = getIntent().getStringExtra("pkg");
-        try {
-            PackageInfo pi = getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            return pi.applicationInfo.loadIcon(getPackageManager());
-        } catch (Exception e) {
+        Drawable icon = LoadManager.getInstance(context).getAppIcon(packageName);
+        if (icon != null) {
             return super.getResources().getDrawable(R.drawable.ic_launcher);
+        } else {
+            return icon;
         }
     }
 
     public void setupTitle(ImageView tv) {
 
         String packageName = getIntent().getStringExtra("pkg");
-        try {
-            PackageInfo pi = getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            Drawable ic = pi.applicationInfo.loadIcon(getPackageManager());
-            tv.setImageDrawable(ic);
-        } catch (Exception e) {
+        Drawable icon = LoadManager.getInstance(context).getAppIcon(packageName);
+        if (icon != null) {
+            tv.setImageDrawable(icon);
+        } else {
             tv.setImageResource(R.drawable.ic_launcher);
         }
     }

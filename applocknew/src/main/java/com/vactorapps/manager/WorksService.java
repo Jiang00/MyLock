@@ -1,5 +1,6 @@
 package com.vactorapps.manager;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.Notification;
@@ -13,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -40,6 +42,8 @@ import com.privacy.lock.aidl.IWorker;
 import com.vactorapps.lib.customview.WidgetVac;
 import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.mydb.ProfileHelperVac;
+import com.vactorappsapi.manager.lib.BaseApp;
+import com.vactorappsapi.manager.lib.LoadManager;
 import com.vactorappsapi.manager.lib.Utils;
 import com.vactorappsapi.manager.lib.io.SafeDB;
 import com.vactorapps.manager.meta.SacProfiles;
@@ -390,13 +394,13 @@ public class WorksService extends Service {
 
                 if (packageName != null && packageName.equals("show")) {
                     try {
-                        alterShow=false;
+                        alterShow = false;
                         new Thread().sleep(600);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } else{
-                    alterShow=false;
+                } else {
+                    alterShow = false;
                 }
 
                 if (packageName == null) {
@@ -930,40 +934,35 @@ public class WorksService extends Service {
     boolean dontaskagain = false;
 
     public void protect(final String pkg) {
-        try {
-            PackageInfo pi = getPackageManager().getPackageInfo(pkg, PackageManager.GET_ACTIVITIES);
-            String label = pi.applicationInfo.loadLabel(getPackageManager()).toString();
-            CharSequence protect = "<br/>" + getString(R.string.security_ask_lock_protect);
-            String msg = getString(R.string.security_ask_lock, label) + protect;
-            Drawable icon = pi.applicationInfo.loadIcon(getPackageManager());
+        String label = LoadManager.getInstance(this).getAppLabel(pkg);
+        CharSequence protect = "<br/>" + getString(R.string.security_ask_lock_protect);
+        @SuppressLint("StringFormatInvalid") String msg = getString(R.string.security_ask_lock, label) + protect;
+        Drawable icon = LoadManager.getInstance(this).getAppIcon(pkg);
+        View view = new TextView(null);
 
-            View view = new TextView(null);
-
-            AlertDialog dialog = new AlertDialog.Builder(this, R.style.MessageBox)
-                    .setView(view)
-                    .setNegativeButton(R.string.security_later_, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (dontaskagain) {
-                                SafeDB.defaultDB().putBool("dontask_" + pkg, true).commit();
-                            }
+        AlertDialog dialog = new AlertDialog.Builder(this, R.style.MessageBox)
+                .setView(view)
+                .setNegativeButton(R.string.security_later_, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (dontaskagain) {
+                            SafeDB.defaultDB().putBool("dontask_" + pkg, true).commit();
                         }
-                    })
-                    .setPositiveButton(R.string.security_protect, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            lockApps.put(pkg, true);
-                            long profileId = SafeDB.defaultDB().getLong(VacPref.PREF_ACTIVE_PROFILE_ID, 1L);
-                            ProfileHelperVac.ProfileEntry.addLockedApp(SacProfiles.getDB(), profileId, pkg);
-                            SacProfiles.updateProfiles();
-                        }
-                    }).create();
-            Utils.showDialog(dialog, true);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
+                    }
+                })
+                .setPositiveButton(R.string.security_protect, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        lockApps.put(pkg, true);
+                        long profileId = SafeDB.defaultDB().getLong(VacPref.PREF_ACTIVE_PROFILE_ID, 1L);
+                        ProfileHelperVac.ProfileEntry.addLockedApp(SacProfiles.getDB(), profileId, pkg);
+                        SacProfiles.updateProfiles();
+                    }
+                }).create();
+        Utils.showDialog(dialog, true);
     }
 
+    @SuppressLint("StringFormatInvalid")
     public void lockNew(final String pkg) {
         try {
             if (lockApps.containsKey(pkg)) return;
