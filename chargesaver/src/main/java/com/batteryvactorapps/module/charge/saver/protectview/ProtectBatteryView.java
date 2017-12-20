@@ -292,17 +292,18 @@ public class ProtectBatteryView extends FrameLayout {
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) MyUtils.readData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
-                        if (saverSwitch != null) {
-                            saverSwitch.setChecked(false);
-                            MyUtils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, false);
-                        }
-                    } else {
-                        if (saverSwitch != null) {
-                            saverSwitch.setChecked(true);
-                            MyUtils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true);
-                        }
-                    }
+                    mContext.startActivity(new Intent("charging.intent.setting").setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "charging"));
+//                    if ((Boolean) MyUtils.readData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
+//                        if (saverSwitch != null) {
+//                            saverSwitch.setChecked(false);
+//                            MyUtils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, false);
+//                        }
+//                    } else {
+//                        if (saverSwitch != null) {
+//                            saverSwitch.setChecked(true);
+//                            MyUtils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true);
+//                        }
+//                    }
                 }
             });
         }

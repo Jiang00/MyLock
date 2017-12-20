@@ -5,7 +5,7 @@ package com.vactorapps_model.mymodule;
  */
 public class IntruderEntry {
     public String date;
-    public String simdate;
+    public long simdate;
     public String url;
     public String pkg;
     public long lastModified;

@@ -3,6 +3,7 @@ package com.vactorapps.manager;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -24,6 +25,7 @@ import android.os.RemoteException;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +51,7 @@ import com.vactorapps.manager.mydb.ProfileHelperVac;
 import com.vactorapps.manager.page.FingerprintUtil;
 import com.vactorapps.manager.page.PasswordFragmentVac;
 import com.vactorapps.manager.page.PatternFragmentVac;
+import com.vactorapps.manager.page.VacMenu;
 import com.vactorappsapi.manager.lib.LoadManager;
 import com.vactorappsapi.manager.lib.io.ImageMaster;
 
@@ -259,12 +262,20 @@ public class FristActivity extends VacSetPattern {
             firstLaunchShowResult = false;
             return;
         }
+
 //        VacPref.launchNow();
-        Intent intent = new Intent();
-        intent.setClassName(getPackageName(), MainActivityAppLock.class.getName());
-        intent.putExtra("hide", false);
-        intent.putExtra("launch", true);
-        startActivity(intent);
+        if (getIntent() != null && TextUtils.equals("charging", getIntent().getStringExtra("from"))) {
+            Intent intent = new Intent();
+            intent.setClassName(getPackageName(), SettingActivity.class.getName());
+            VacMenu.currentMenuIt = 7;
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent();
+            intent.setClassName(getPackageName(), MainActivityAppLock.class.getName());
+            intent.putExtra("hide", false);
+            intent.putExtra("launch", true);
+            startActivity(intent);
+        }
         finish();
     }
 

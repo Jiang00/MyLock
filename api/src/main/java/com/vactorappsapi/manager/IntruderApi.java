@@ -47,7 +47,7 @@ public class IntruderApi {
                 }
                 entry.date = df.format(new Date(time));
 //                Log.i("aaa",entry.date+"--2222222");
-                entry.simdate=String.valueOf(time);
+                entry.simdate=time;
                 entry.url = file;
                 entry.pkg = pkg;
                 entry.lastModified= Long.valueOf(date);

@@ -107,7 +107,7 @@ public class VacIntruderActivity extends ClientActivitySecurity {
                         public void onClick(View v) {
                             Intent intent = new Intent(VacIntruderActivity.this, IntrudedeImageMaxActivity.class);
                             intent.putExtra("url", entry.url);
-                            intent.putExtra("date", entry.simdate);
+                            intent.putExtra("date", entry.date);
                             intent.putExtra("pkg", entry.pkg);
                             intent.putExtra("position", position);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

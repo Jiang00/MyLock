@@ -8,12 +8,73 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.vactorapps.lib.customview.AnimationImageView
-            android:id="@+id/security_invade_peple"
+        <FrameLayout
+            android:id="@+id/share_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:scaleType="centerCrop" />
+            android:layout_height="match_parent">
+
+
+            <com.vactorapps.lib.customview.AnimationImageView
+                android:id="@+id/security_invade_peple"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginTop="@dimen/d13"
+                android:src="@drawable/share_title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d68"
+                android:layout_gravity="bottom"
+                android:background="@color/security_black_38"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/share_icon"
+                    android:layout_width="@dimen/d50"
+                    android:layout_height="@dimen/d50"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d9" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d9"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/share_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="adadadsa"
+                        android:textColor="@color/A3"
+                        android:textSize="@dimen/s13" />
+
+                    <TextView
+                        android:id="@+id/share_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d8"
+                        android:text="adsasdadsasd"
+                        android:textColor="@color/A3"
+                        android:textSize="@dimen/s13" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/d50"
+                    android:layout_height="@dimen/d50"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/d9" />
+            </LinearLayout>
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/max_title"
