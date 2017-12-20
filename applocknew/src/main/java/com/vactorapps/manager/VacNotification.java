@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.ivymobi.applock.free.R;
@@ -80,6 +79,7 @@ public class VacNotification {
                 remoteView.setImageViewResource(R.id.notice_fl, R.drawable.notice_bj1);
                 remoteView.setImageViewResource(R.id.notice_bj_circle1, R.drawable.notice_bj_circle);
                 remoteView.setImageViewResource(R.id.notice_bj_circle2, R.drawable.notice_bj_circle);
+                remoteView.setImageViewResource(R.id.notice_lock, R.drawable.notice_iv);
                 int day = getInstallNum(context);
                 CharSequence status = context.getString(R.string.security_visitor_on2, day + "");
                 status = context.getString(R.string.app_name) + status;
@@ -98,8 +98,8 @@ public class VacNotification {
             remoteView.setImageViewResource(R.id.notice_bj_circle2, R.drawable.notice_bj_circle2);
             CharSequence status = context.getResources().getString(R.string.security_visitor_off2);
             remoteView.setTextViewText(R.id.applock_run, status);
+            remoteView.setImageViewResource(R.id.notice_lock, R.drawable.notice_lock);
             mBuilder.setSmallIcon(R.drawable.security_notification_unlock);
-
         }
 
 

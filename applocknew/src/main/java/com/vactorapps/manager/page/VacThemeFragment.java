@@ -9,7 +9,6 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -35,7 +34,6 @@ import com.themesvactor.eshop.ShopMaster;
 import com.vactorapps.manager.MyApp;
 import com.vactorapps.manager.VacAccessibilityService;
 import com.vactorapps.manager.meta.TheBridgeVac;
-import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.mydb.PreData;
 import com.vactorapps.manager.myinterface.ISecurityBridge;
 import com.vactorappsapi.manager.lib.Utils;
@@ -55,7 +53,7 @@ public class VacThemeFragment extends Fragment {
     public static View adView = null;
     static CountDownTimer mytimer = null;
     private static LottieAnimationView password_main_ad;
-    private static LottieAnimationView fingerprint;
+//    private static LottieAnimationView fingerprint;
     private static LottieAnimationView ad_full;
     private static FrameLayout ad_full_fl;
     private static Handler handler;
@@ -176,15 +174,14 @@ public class VacThemeFragment extends Fragment {
         password_main_ad = (LottieAnimationView) v.findViewWithTag("password_main_ad");
         password_main_ad.setAnimation("ad.json");
         password_main_ad.setScale(0.7f);//相对原大小的0.2倍
-        password_main_ad.setSpeed(0.7f);
+        password_main_ad.setSpeed(0.5f);
         password_main_ad.loop(true);
         password_main_ad.playAnimation();
-        fingerprint = (LottieAnimationView) v.findViewWithTag("fingerprint");
-        fingerprint.setAnimation("fingerprint.json");
-        fingerprint.setScale(0.07f);//相对原大小的0.2倍
-//        password_main_ad.setSpeed(0.7f);
-        fingerprint.loop(true);
-        fingerprint.playAnimation();
+//        fingerprint = (LottieAnimationView) v.findViewWithTag("fingerprint");
+//        fingerprint.setAnimation("fingerprint.json");
+//        fingerprint.setScale(0.07f);//相对原大小的0.2倍
+//        fingerprint.loop(true);
+//        fingerprint.playAnimation();
 
         ISecurityBridge bridge = TheBridgeVac.bridge;
         TextView appName = new TextView(v.getContext());
@@ -231,22 +228,22 @@ public class VacThemeFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (show_fingerprint == 1) {
-            FingerprintManagerCompat managerCompat = FingerprintManagerCompat.from(MyApp.getContext());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                if (!managerCompat.isHardwareDetected()) { //判断设备是否支持
-                    fingerprint.setVisibility(View.GONE);
-                } else if (!managerCompat.hasEnrolledFingerprints()) { //判断设备是否已经注册过指纹
-                    fingerprint.setVisibility(View.GONE);
-                } else if (!VacPref.getFingerprintl()) {
-                    fingerprint.setVisibility(View.GONE);
-                }
-            } else {
-                fingerprint.setVisibility(View.GONE);
-            }
-        } else {
-            fingerprint.setVisibility(View.GONE);
-        }
+//        if (show_fingerprint == 1) {
+//            FingerprintManagerCompat managerCompat = FingerprintManagerCompat.from(MyApp.getContext());
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                if (!managerCompat.isHardwareDetected()) { //判断设备是否支持
+////                    fingerprint.setVisibility(View.GONE);
+//                } else if (!managerCompat.hasEnrolledFingerprints()) { //判断设备是否已经注册过指纹
+////                    fingerprint.setVisibility(View.GONE);
+//                } else if (!VacPref.getFingerprintl()) {
+////                    fingerprint.setVisibility(View.GONE);
+//                }
+//            } else {
+////                fingerprint.setVisibility(View.GONE);
+//            }
+//        } else {
+////            fingerprint.setVisibility(View.GONE);
+//        }
         if (MyApp.getContext().getResources().getString(R.string.app_name) != null || MyApp.getContext().getResources().getString(R.string.app_name).isEmpty()) {
             Log.e("chfq", "====MyApp====");
             if ((MyApp.getContext().getResources().getString(R.string.app_name)).equals(bridge.appName())) {
@@ -386,9 +383,9 @@ public class VacThemeFragment extends Fragment {
         if (password_main_ad != null) {
             password_main_ad.cancelAnimation();
         }
-        if (fingerprint != null) {
-            fingerprint.cancelAnimation();
-        }
+//        if (fingerprint != null) {
+//            fingerprint.cancelAnimation();
+//        }
     }
 
     @Override
@@ -399,9 +396,9 @@ public class VacThemeFragment extends Fragment {
             if (password_main_ad != null) {
                 password_main_ad.playAnimation();
             }
-            if (fingerprint != null) {
-                fingerprint.playAnimation();
-            }
+//            if (fingerprint != null) {
+//                fingerprint.playAnimation();
+//            }
         }
     }
 
@@ -429,9 +426,9 @@ public class VacThemeFragment extends Fragment {
         if (password_main_ad != null) {
             password_main_ad.cancelAnimation();
         }
-        if (fingerprint != null) {
-            fingerprint.cancelAnimation();
-        }
+//        if (fingerprint != null) {
+//            fingerprint.cancelAnimation();
+//        }
         if (animator != null) {
             animator.cancel();
         }

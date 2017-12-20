@@ -196,7 +196,7 @@ public class VacPref {
     }
 
     public static boolean tip4Rate() {
-        return MyApp.getSharedPreferences().getInt("rate", 0) >1 && !MyApp.getSharedPreferences().contains("rate_showed");
+        return MyApp.getSharedPreferences().getInt("rate", 0) > 1 && !MyApp.getSharedPreferences().contains("rate_showed");
     }
 
     public static boolean tip4Security() {
@@ -319,6 +319,14 @@ public class VacPref {
 
     public static void setHasIntruder(boolean yes) {
         MyApp.getSharedPreferences().edit().putBoolean("intruder", yes).apply();
+    }
+
+    public static boolean getFristred() {
+        return MyApp.getSharedPreferences().getBoolean("fristred", true);
+    }
+
+    public static void setFristred(boolean yes) {
+        MyApp.getSharedPreferences().edit().putBoolean("fristred", yes).apply();
     }
 
     public static boolean fetchIntruder() {

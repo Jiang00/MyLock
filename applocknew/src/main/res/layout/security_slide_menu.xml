@@ -51,7 +51,7 @@
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/security_lock_app"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"/>
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
 
             <FrameLayout
@@ -102,6 +102,15 @@
                     android:text="@string/security_myfake"
                     android:textColor="@color/A3"
                     android:textSize="@dimen/s16" />
+
+                <ImageView
+                    android:id="@+id/side_fakes_select_red"
+                    android:layout_width="@dimen/d8"
+                    android:layout_height="@dimen/d8"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d16"
+                    android:src="@drawable/security_reddot_nostroke" />
             </FrameLayout>
 
             <FrameLayout
@@ -126,6 +135,15 @@
                     android:text="@string/security_new_intruder"
                     android:textColor="@color/A3"
                     android:textSize="@dimen/s16" />
+
+                <ImageView
+                    android:id="@+id/side_intruder_red"
+                    android:layout_width="@dimen/d8"
+                    android:layout_height="@dimen/d8"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d16"
+                    android:src="@drawable/security_reddot_nostroke" />
             </FrameLayout>
 
             <FrameLayout

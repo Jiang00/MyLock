@@ -96,19 +96,36 @@
                     android:textColor="@color/A3"
                     android:textSize="@dimen/s14" />
 
-                <com.vactorapps.lib.customview.CustomerTypefaceTextView
-                    android:id="@+id/open_lock"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d46"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d6"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d16"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20"
                     android:layout_marginTop="@dimen/d90"
-                    android:background="@drawable/main_unlock_bj"
-                    android:gravity="center"
-                    android:text="@string/close_lock"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s17" />
+                    android:orientation="horizontal">
+
+                    <com.vactorapps.lib.customview.CustomerTypefaceTextView
+                        android:id="@+id/open_lock"
+                        android:layout_width="@dimen/d150"
+                        android:layout_height="@dimen/d46"
+                        android:background="@drawable/main_unlock_bj2"
+                        android:gravity="center"
+                        android:text="@string/close_lock"
+                        android:textColor="@color/A3"
+                        android:textSize="@dimen/s17" />
+
+                    <com.vactorapps.lib.customview.CustomerTypefaceTextView
+                        android:id="@+id/open_cancle"
+                        android:layout_width="@dimen/d150"
+                        android:layout_height="@dimen/d46"
+                        android:layout_marginLeft="@dimen/d20"
+                        android:background="@drawable/main_unlock_bj"
+                        android:gravity="center"
+                        android:text="@string/close_lock_cancle"
+                        android:textColor="@color/A3"
+                        android:textSize="@dimen/s17" />
+                </LinearLayout>
             </LinearLayout>
         </FrameLayout>
     </ScrollView>

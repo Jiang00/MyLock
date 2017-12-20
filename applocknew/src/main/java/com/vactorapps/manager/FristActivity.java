@@ -129,7 +129,7 @@ public class FristActivity extends VacSetPattern {
 
             @Override
             public void onAuthenticationFailed() {
-
+                showToast(getResources().getString(R.string.finger_tip2));
             }
 
             @Override

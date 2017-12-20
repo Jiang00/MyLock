@@ -24,6 +24,7 @@ import com.vactorapps_model.mymodule.FileType;
 import com.vactorapps_model.mymodule.IntruderEntry;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -61,6 +62,7 @@ public class IntrudedeImageMaxActivity extends BaseActivity {
     private int position;
     private boolean onClickFlag;
     private float height;
+    private ArrayList<IntruderEntry> intruderEntries;
 
     @Override
     protected void onIntent(Intent intent) {
@@ -98,6 +100,7 @@ public class IntrudedeImageMaxActivity extends BaseActivity {
                 finish();
             }
         });
+        intruderEntries = IntruderApi.getIntruders();
 
         bacbitmap = BitmapFactory.decodeResource(getResources(), R.drawable.testbac);
 
@@ -115,9 +118,11 @@ public class IntrudedeImageMaxActivity extends BaseActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent();
-                in.putExtra("position", position);
-                setResult(1, in);
+//                Intent in = new Intent();
+//                in.putExtra("position", position);
+//                setResult(1, in);
+                IntruderEntry intruderEntry = intruderEntries.remove(position);
+                IntruderApi.deleteIntruder(intruderEntry);
                 finish();
             }
         });

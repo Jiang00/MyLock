@@ -47,6 +47,7 @@
                 android:background="@drawable/notice_bj_circle" />
 
             <ImageView
+                android:id="@+id/notice_lock"
                 android:layout_width="@dimen/d28"
                 android:layout_height="@dimen/d33"
                 android:layout_gravity="center"

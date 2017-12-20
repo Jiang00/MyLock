@@ -1,4 +1,4 @@
-﻿#ifdef _64BIT_SUPPORT_HL
+#ifdef _64BIT_SUPPORT_HL
 #define _LARGE_FILES
 #define _FILE_OFFSET_BITS 64
 #define _OFF_T_DEFINED_
