@@ -13,76 +13,92 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d75">
-
-        <ImageView
-            android:id="@+id/ad_icon"
-            android:layout_width="@dimen/d46"
-            android:layout_height="@dimen/d46"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d16"
-            android:tag="ad_icon" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/d75"
-            android:layout_marginLeft="@dimen/d70"
-            android:layout_marginRight="@dimen/d86"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLength="45"
-                android:singleLine="true"
-                android:tag="ad_title"
-                android:textColor="#de000000"
-                android:textSize="@dimen/s15"
-                tools:text="Your see" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d3"
-                android:ellipsize="end"
-                android:fontFamily="sans-serif-light"
-                android:lines="1"
-                android:singleLine="true"
-                android:tag="ad_subtitle"
-                android:textColor="#8a000000"
-                android:textSize="@dimen/s11"
-                tools:text="Your see Your see Your see Your see" />
-        </LinearLayout>
+        android:layout_height="@dimen/d210"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
+        android:tag="ad_image">
 
         <TextView
-            android:layout_width="@dimen/d72"
-            android:layout_height="@dimen/d33"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginRight="@dimen/d8"
-            android:background="@drawable/main_unlock_bj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="@dimen/d50"
+            android:background="#32000000"
+            android:fontFamily="sans-serif-light"
             android:gravity="center"
-            android:tag="ad_action"
-            android:text="Install"
-            android:textColor="@color/A3"
-            android:textSize="@dimen/s13" />
+            android:padding="@dimen/d3"
+            android:text="AD"
+            android:textColor="@android:color/white"
+            android:textSize="8sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d50"
+            android:layout_gravity="bottom"
+            android:background="#66000000">
+
+            <ImageView
+                android:id="@+id/iv_ic"
+                android:layout_width="@dimen/d33"
+                android:layout_height="@dimen/d33"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d8"
+                android:tag="ad_icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d53"
+                android:layout_marginRight="@dimen/d86"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-regular"
+                    android:maxLength="45"
+                    android:singleLine="true"
+                    android:tag="ad_title"
+                    android:textColor="@color/A3"
+                    android:textSize="@dimen/s14"
+                    tools:text="Your see" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d3"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-light"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:tag="ad_subtitle"
+                    android:textColor="@color/A3"
+                    android:textSize="@dimen/s10"
+                    tools:text="Your see Your see Your see Your see" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/d72"
+                android:layout_height="@dimen/d33"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="@dimen/d8"
+                android:background="@drawable/main_unlock_bj"
+                android:gravity="center"
+                android:tag="ad_action"
+                android:text="Install"
+                android:textColor="@color/A3"
+                android:textSize="@dimen/s13" />
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:tag="ad_choices" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#32000000"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:padding="@dimen/d6"
-            android:text="AD"
-            android:textColor="@android:color/white"
-            android:textSize="8sp" />
     </FrameLayout>
 
     <View

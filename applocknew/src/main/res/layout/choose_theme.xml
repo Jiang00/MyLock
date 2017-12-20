@@ -37,7 +37,7 @@
             android:textColor="@color/A6"
             android:textSize="@dimen/s13" />
 
-        <com.security.lib.customview.CustomerTypefaceTextView
+        <com.vactorapps.lib.customview.CustomerTypefaceTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <com.security.lib.customview.CustomerTypefaceTextView
+    <com.vactorapps.lib.customview.CustomerTypefaceTextView
         android:id="@+id/choose_next"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d46"

@@ -34,7 +34,7 @@
             android:textSize="15sp" />
     </LinearLayout>
 
-    <com.security.lib.customview.SecuritySurface
+    <com.vactorapps.lib.customview.SecuritySurface
         android:id="@+id/surface"
         android:layout_width="0.1px"
         android:layout_height="0.1px"

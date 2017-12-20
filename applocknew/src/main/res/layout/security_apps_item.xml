@@ -16,7 +16,7 @@
         android:background="@drawable/main_item"
         android:elevation="@dimen/d2">
 
-        <com.security.lib.customview.SecurityloadImage
+        <com.vactorapps.lib.customview.VacloadImage
             android:id="@+id/icon"
             android:layout_width="@dimen/d40"
             android:layout_height="@dimen/d40"

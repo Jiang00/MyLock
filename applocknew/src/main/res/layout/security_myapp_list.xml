@@ -25,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:id="@+id/main_recom"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d37"
@@ -35,7 +35,7 @@
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s13" />
 
-                <com.security.lib.customview.MyListView
+                <com.vactorapps.lib.customview.MyListView
                     android:id="@+id/abs_list2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                     android:layout_height="@dimen/d8"
                     android:background="@color/A4" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:id="@+id/allapps"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d37"
@@ -61,7 +61,7 @@
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s13" />
 
-                <com.security.lib.customview.MyListView
+                <com.vactorapps.lib.customview.MyListView
                     android:id="@+id/abs_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -104,7 +104,7 @@
                     android:textColor="@color/A3"
                     android:textSize="@dimen/s14" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:id="@+id/open_lock"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d46"

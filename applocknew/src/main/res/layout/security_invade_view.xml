@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.security.lib.customview.AnimationImageView
+        <com.vactorapps.lib.customview.AnimationImageView
             android:id="@+id/security_invade_peple"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.auroras.module.charge.saver">
+    package="com.batteryvactorapps.module.charge.saver">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
         <service
-            android:name="com.auroras.module.charge.saver.aurorasprotectservice.ServiceBattery"
+            android:name="com.batteryvactorapps.module.charge.saver.protectservicevac.ServiceBattery"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <receiver android:name="com.auroras.module.charge.saver.receiver.BroadcastReceiverStart">
+        <receiver android:name="com.batteryvactorapps.module.charge.saver.receiver.BroadcastReceiverStart">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -26,11 +26,11 @@
         </receiver>
 
         <activity
-            android:name="com.auroras.module.charge.saver.AurorasSetADActivity"
+            android:name="com.batteryvactorapps.module.charge.saver.acSetADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.auroras.module.charge.saver.AurorasBatteryProtectActivity"
+            android:name="com.batteryvactorapps.module.charge.saver.BatteryProtectActivityVac"
             android:launchMode="singleInstance"
             android:screenOrientation="nosensor"
             android:theme="@style/CustomTranslate" />

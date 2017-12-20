@@ -44,15 +44,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_applcok" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/security_lock_app"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16"/>
             </FrameLayout>
 
             <FrameLayout
@@ -70,7 +69,7 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_theme" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -95,15 +94,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_fakes" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/security_myfake"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
 
             <FrameLayout
@@ -120,15 +118,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_intru" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/security_new_intruder"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
 
             <FrameLayout
@@ -146,15 +143,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_pic" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/side_picture"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
 
             <FrameLayout
@@ -172,15 +168,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_vi" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/side_video"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
 
             <FrameLayout
@@ -198,15 +193,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_file" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/side_files"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
 
             <FrameLayout
@@ -223,15 +217,14 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@drawable/side_setting" />
 
-                <com.security.lib.customview.CustomerTypefaceTextView
+                <com.vactorapps.lib.customview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d56"
                     android:text="@string/security_tab_setting"
                     android:textColor="@color/A3"
-                    android:textSize="@dimen/s16"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/s16" />
             </FrameLayout>
         </LinearLayout>
     </ScrollView>

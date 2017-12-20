@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.security.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
+<com.vactorapps.manager.page.SlideMenu xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     android:clipToPadding="true"
     android:fitsSystemWindows="true">
 
-    <com.security.manager.page.MyRelativeLayout
+    <com.vactorapps.manager.page.VacRelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,13 +83,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/fakes_lottie2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
             </FrameLayout>
         </FrameLayout>
-    </com.security.manager.page.MyRelativeLayout>
+    </com.vactorapps.manager.page.VacRelativeLayout>
 
     <include
         android:id="@+id/left"
         layout="@layout/security_slide_menu" />
-</com.security.manager.page.SlideMenu>
+</com.vactorapps.manager.page.SlideMenu>
 
 

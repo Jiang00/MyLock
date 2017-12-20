@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <com.security.lib.customview.SecurityloadImage
+                <com.vactorapps.lib.customview.VacloadImage
                     android:id="@+id/security_ima"
                     android:layout_width="@dimen/d168"
                     android:layout_height="@dimen/d168"

@@ -33,7 +33,7 @@ android {
         versionName 'v3.0.3.3'
         signingConfig signingConfigs.config
         resValue("string", 'app_name', 'AppLock')
-        buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
+        buildConfigField('String', 'ROOT_DIR_NAME', '"/.vactorapps/"')
     }
 
     buildTypes {

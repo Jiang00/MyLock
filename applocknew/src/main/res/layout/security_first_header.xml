@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/d141">
 
-        <com.security.lib.customview.CustomerTypefaceTextView
+        <com.vactorapps.lib.customview.CustomerTypefaceTextView
             android:id="@+id/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:layout_marginBottom="@dimen/d10" />
     </RelativeLayout>
 
-    <com.security.lib.customview.CustomerTypefaceTextView
+    <com.vactorapps.lib.customview.CustomerTypefaceTextView
         android:id="@+id/main_recom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d37"

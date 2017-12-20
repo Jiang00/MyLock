@@ -53,7 +53,7 @@
     <string name="security_over_short">锁定设置</string>
     <string name="security_password_not_match">密码不一致</string>
     <string name="security_password_setsuccessful">密码设置成功</string>
-    <string name="security_pattern_short">至少绘制3箇点</string>
+    <string name="security_pattern_short">至少绘制3个点</string>
     <string name="security_pause_protect">停止保护</string>
     <string name="security_permission_grand">授权</string>
     <string name="security_permission_msg">应用无法被锁定，请授权。</string>

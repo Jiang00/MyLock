@@ -2,12 +2,12 @@ package com.privacy.api;
 
 import android.test.ApplicationTestCase;
 
-import com.security.manager.History;
-import com.security.manager.SafeApi;
-import com.security.manager.lib.BaseApp;
-import com.security.manager.lib.Utils;
-import com.security.mymodule.FileType;
-import com.security.mymodule.FolderEntry;
+import com.vactorappsapi.manager.History;
+import com.vactorappsapi.manager.SafeApi;
+import com.vactorappsapi.manager.lib.BaseApp;
+import com.vactorappsapi.manager.lib.Utils;
+import com.vactorapps_model.mymodule.FileType;
+import com.vactorapps_model.mymodule.FolderEntry;
 
 import junit.framework.Assert;
 

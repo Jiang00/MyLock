@@ -182,6 +182,7 @@
     <string name="security_user_compare_go_pro">Go PRO!</string>
     <string name="security_user_plan_free_click">FREE selected</string>
     <string name="pre_tip">Please find AppLock and enable Accessibility Service to stop battery draining apps and extend battery life.</string>
+
     <string name="rote_support">好评支持</string>
     <string name="main_recom">推荐上锁Apps</string>
     <string name="otherapps">其他Apps</string>
@@ -217,7 +218,7 @@
     <string name="security_service_title2">保持正常运行</string>
     <string name="max_share">分享</string>
     <string name="max_delect">删除</string>
-    <string name="security_visitor_on2">Applock已经保护隐私%1$s天</string>
+    <string name="security_visitor_on2">已经保护隐私%1$s天</string><!--翻译短一点-->
     <string name="security_visitor_off2">手机隐私需要安全保护</string>
     <string name="security_applock_stop2">所有应用已解锁</string>
     <string name="open_lock">启动应用锁</string>
@@ -239,4 +240,5 @@
     <string name="security_change_pattern2">数字解锁</string>
     <string name="theme">主题选择</string>
     <string name="overf_brief">锁定设置</string>
+    <string name="security_over_short2">锁定频率</string>
 </resources>

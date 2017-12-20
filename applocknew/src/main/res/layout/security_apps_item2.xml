@@ -16,7 +16,7 @@
         android:background="@drawable/main_item"
         android:elevation="@dimen/d2">
 
-        <com.security.lib.customview.SecurityloadImage
+        <com.vactorapps.lib.customview.VacloadImage
             android:id="@+id/icon"
             android:layout_width="@dimen/d40"
             android:layout_height="@dimen/d40"
@@ -33,7 +33,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <com.security.lib.customview.CustomerTypefaceTextView
+        <com.vactorapps.lib.customview.CustomerTypefaceTextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:textColor="@color/A1"
             android:textSize="@dimen/s16" />
 
-        <com.security.lib.customview.CustomerTypefaceTextView
+        <com.vactorapps.lib.customview.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d4"

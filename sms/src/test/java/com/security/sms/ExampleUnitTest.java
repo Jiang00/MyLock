@@ -1,4 +1,4 @@
-package com.security.sms;
+package com.vactorapps.sms;
 
 import org.junit.Test;
 

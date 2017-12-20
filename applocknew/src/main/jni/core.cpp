@@ -1,4 +1,4 @@
-#ifdef _64BIT_SUPPORT_HL
+﻿#ifdef _64BIT_SUPPORT_HL
 #define _LARGE_FILES
 #define _FILE_OFFSET_BITS 64
 #define _OFF_T_DEFINED_
@@ -502,7 +502,7 @@ extern "C"
 		}
 		//MediaCore
 
-		env->RegisterNatives(env->FindClass("com/security/manager/AppsCore"), methods_table, NELEM(methods_table));
+		env->RegisterNatives(env->FindClass("com/vactorappsapi/manager/AppsCore"), methods_table, NELEM(methods_table));
 		return JNI_VERSION_1_4;
 	}
 }

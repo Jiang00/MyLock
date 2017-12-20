@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true">
 
 
-    <com.security.manager.page.MyRelativeLayout
+    <com.vactorapps.manager.page.VacRelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:layout_height="48dp"
             android:background="@drawable/security_button_bg"
             android:visibility="gone" />
-    </com.security.manager.page.MyRelativeLayout>
+    </com.vactorapps.manager.page.VacRelativeLayout>
 
 
 

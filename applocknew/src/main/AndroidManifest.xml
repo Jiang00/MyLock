@@ -24,28 +24,28 @@
     <supports-screens android:anyDensity="true" />
 
     <application
-        android:name="com.security.manager.App"
+        android:name="com.vactorapps.manager.MyApp"
         android:allowBackup="true"
         android:exported="true"
         android:icon="@drawable/ic_launcher"
-        android:manageSpaceActivity="com.security.manager.SecurityPatternActivity"
+        android:manageSpaceActivity="com.vactorapps.manager.FristActivity"
         android:persistent="true"
         android:theme="@style/activityTheme">
 
         <activity
-            android:name="com.security.manager.SecurityAppLock"
+            android:name="com.vactorapps.manager.MainActivityAppLock"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.IntrudedeImageActivity"
+            android:name="com.vactorapps.manager.IntrudedeImageMaxActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 
         <service
-            android:name="com.security.manager.AccessibilityService"
+            android:name="com.vactorapps.manager.VacAccessibilityService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -56,58 +56,58 @@
                 android:resource="@xml/acc" />
         </service>
         <service
-            android:name="com.security.manager.ApplockC"
+            android:name="com.vactorapps.manager.ApplockC"
             android:process=":remote" />
 
         <activity
-            android:name="com.security.manager.SecurityTansparent"
+            android:name="com.vactorapps.manager.VacTansparent"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CustomTranslucent" />
         <activity
-            android:name="com.security.manager.SecuritySettings"
+            android:name="com.vactorapps.manager.SettingActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 
         <activity
-            android:name="com.security.manager.SecurityUnlockSettings"
+            android:name="com.vactorapps.manager.VacUnlockSettings"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.SecuritySettingsAdvance"
+            android:name="com.vactorapps.manager.VacPrevance"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.SecurityPermissionActivity"
+            android:name="com.vactorapps.manager.PermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.security.manager.SecuritySetPattern"
+            android:name="com.vactorapps.manager.VacSetPattern"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.security.manager.IntruderActivitySecurity"
+            android:name="com.vactorapps.manager.VacIntruderActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:taskAffinity=".theme"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.SecurityPatternActivity"
+            android:name="com.vactorapps.manager.FristActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
@@ -130,7 +130,7 @@
         </activity>
         <!--文件2-->
         <activity
-            android:name="com.security.manager.PretentTwoActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentTwoActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -154,7 +154,7 @@
         </activity>
         <!--邮箱3-->
         <activity
-            android:name="com.security.manager.PretentThreeActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentThreeActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -178,7 +178,7 @@
         </activity>
         <!--日历1-->
         <activity
-            android:name="com.security.manager.PretentOneActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentOneActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -203,7 +203,7 @@
         </activity>
         <!--相机4-->
         <activity
-            android:name="com.security.manager.PretentFourActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentFourActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -228,7 +228,7 @@
         </activity>
         <!--指南针5-->
         <activity
-            android:name="com.security.manager.PretentFiveActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentFiveActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -253,7 +253,7 @@
         </activity>
         <!--音乐6-->
         <activity
-            android:name="com.security.manager.PretentSixActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentSixActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -278,7 +278,7 @@
         </activity>
         <!--计算器7-->
         <activity
-            android:name="com.security.manager.PretentSevenActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.PretentSevenActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:enabled="false"
@@ -302,13 +302,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.security.manager.SecurityTogglePatternActivity"
+            android:name="com.vactorapps.manager.TogglePatternActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme" />
         <activity
-            android:name="com.security.manager.UnlockActivitySecurityPatternActivity"
+            android:name="com.vactorapps.manager.UnlockActivitySecurityPatternActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
@@ -320,25 +320,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.security.manager.SecurityResetPattern"
+            android:name="com.vactorapps.manager.VacResetPattern"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:taskAffinity=":remote"
             android:theme="@style/Theme.AppCompat.Dialog.Alert" />
         <activity
-            android:name="com.security.manager.SecurityIntruderSetting"
+            android:name="com.vactorapps.manager.IntruderSetting"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.PretentSelectorActivitySecurity"
+            android:name="com.vactorapps.manager.PretentSelectorActivitySecurity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.FullScreenActivity"
+            android:name="com.vactorapps.manager.FullScreenActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
@@ -349,7 +349,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.security.manager.UnlockApp"
+            android:name="com.vactorapps.manager.UnlockApp"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
@@ -358,17 +358,17 @@
             android:theme="@style/activityTheme" />
         <activity
 
-            android:name="com.security.manager.page.SecurityChooseThemeActivity"
+            android:name="com.vactorapps.manager.page.MyChooseThemeActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 
-        <service android:name="com.security.manager.SecurityService" />
-        <service android:name="com.security.manager.NotificationService" />
-        <service android:name="com.security.manager.PreferenceService" />
+        <service android:name="com.vactorapps.manager.WorksService" />
+        <service android:name="com.vactorapps.manager.VacNotificationService" />
+        <service android:name="com.vactorapps.manager.PreferenceService" />
 
-        <receiver android:name="com.security.manager.WidgetReceiver">
+        <receiver android:name="com.vactorapps.manager.WidgetReceiver">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="my.appwidget.action.wiget" />
@@ -390,7 +390,7 @@
                 android:resource="@xml/security_widget" />
         </receiver>
         <receiver
-            android:name="com.security.manager.SecurityBootReceiver"
+            android:name="com.vactorapps.manager.VacBootReceiver"
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -404,8 +404,5 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-
-
     </application>
-
 </manifest>

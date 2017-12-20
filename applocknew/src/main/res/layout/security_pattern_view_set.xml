@@ -48,7 +48,7 @@
             android:textColor="@color/A6"
             android:textSize="@dimen/s13" />
 
-        <com.security.lib.customview.CustomerTypefaceTextView
+        <com.vactorapps.lib.customview.CustomerTypefaceTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,14 +77,14 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <com.security.manager.page.SecurityPatternView
+        <com.vactorapps.manager.page.PatternViewVac
             android:id="@+id/lpv_lock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="lpv_lock" />
     </LinearLayout>
 
-    <com.security.lib.customview.CustomerTypefaceTextView
+    <com.vactorapps.lib.customview.CustomerTypefaceTextView
         android:id="@+id/number_cancel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d46"
