@@ -16,7 +16,9 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -34,6 +36,8 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.ivymobi.applock.free.R;
 import com.vactorapps.lib.customview.VacWidgetContainer;
 import com.vactorappsapi.manager.lib.Utils;
+
+import butterknife.InjectView;
 
 /**
  * Created by superjoy on 2014/9/4.
@@ -56,7 +60,7 @@ public class VacPrevance extends AppCompatActivity {
 
 
     ListView lv;
-
+    Toolbar toolbar;
     Intent intent;
     private Handler handler;
     private boolean onPause;
@@ -66,7 +70,7 @@ public class VacPrevance extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.security_settings_advance);
-
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
                 Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
 
@@ -141,12 +145,12 @@ public class VacPrevance extends AppCompatActivity {
             };
         }
 
-        findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
 
         lv = (ListView) this.findViewById(R.id.my_abs_list);
@@ -287,6 +291,24 @@ public class VacPrevance extends AppCompatActivity {
                 return view;
             }
         });
+        setupToolbar();
+    }
+
+    private void setupToolbar() {
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.setting_power);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
     }
 
     public void showSaveMode(Context context, final int pre) {

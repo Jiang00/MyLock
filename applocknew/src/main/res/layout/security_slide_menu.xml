@@ -241,16 +241,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
-            android:layout_weight="1"
-            android:background="@drawable/security_google_play" />
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/facebook"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
-            android:layout_weight="1"
-            android:background="@drawable/security_facebook" />
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/goolge"
@@ -258,7 +256,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginLeft="34dp"
-            android:layout_weight="1"
-            android:background="@drawable/security_google" />
+            android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

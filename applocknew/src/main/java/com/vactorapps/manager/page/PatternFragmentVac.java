@@ -16,8 +16,6 @@ import android.view.ViewStub;
 import android.widget.LinearLayout;
 
 import com.android.common.SdkCache;
-import com.android.theme.internal.data.Theme;
-import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.vactorapps.lib.customview.SecurityDotImage;
 import com.vactorapps.manager.MyApp;
@@ -116,9 +114,9 @@ public class PatternFragmentVac extends VacThemeFragment {
             dlyp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ShopMaster.launch(MyApp.getContext(),
-                            new Theme(R.raw.theme_preview, MyApp.getContext().getPackageName()),
-                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
+//                    ShopMaster.launch(MyApp.getContext(),
+//                            new Theme(R.raw.theme_preview, MyApp.getContext().getPackageName()),
+//                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
                     callback.unLock();
                 }
             });

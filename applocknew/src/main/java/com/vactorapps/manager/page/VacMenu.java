@@ -8,15 +8,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.android.client.AndroidSdk;
-import com.android.theme.internal.data.Theme;
-import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.vactorapps.manager.MainActivityAppLock;
-import com.vactorapps.manager.MyApp;
-import com.vactorapps.manager.VacIntruderActivity;
 import com.vactorapps.manager.PretentSelectorActivitySecurity;
 import com.vactorapps.manager.SettingActivity;
 import com.vactorapps.manager.Tracker;
+import com.vactorapps.manager.VacIntruderActivity;
 import com.vactorapps.manager.meta.VacPref;
 
 import org.json.JSONException;
@@ -147,11 +144,11 @@ public class VacMenu {
                     Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.ACT_APPLOCK, Tracker.ACT_APPLOCK, 1L);
                     break;
                 case R.id.side_shop:
-                    ShopMaster.launch(MyApp.getContext(),
-                            new Theme(R.raw.theme_preview, MyApp.getContext().getPackageName()),
-                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
+//                    ShopMaster.launch(MyApp.getContext(),
+//                            new Theme(R.raw.theme_preview, MyApp.getContext().getPackageName()),
+//                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
                     Tracker.sendEvent(Tracker.ACT_LLIDE_MENU, Tracker.CATE_ACTION_OPEN_THEME, Tracker.CATE_ACTION_OPEN_THEME, 1L);
-                    ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
+//                    ((Activity) context).overridePendingTransition(R.anim.security_slide_in_left, R.anim.security_slide_right);
                     break;
                 case R.id.side_fakes:
                     if (currentMenuIt == 2) {

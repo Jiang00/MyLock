@@ -9,8 +9,7 @@
     android:fitsSystemWindows="true">
 
 
-    <com.vactorapps.manager.page.VacRelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.vactorapps.manager.page.VacRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,18 +32,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:choiceMode="multipleChoice"
-            android:divider="@drawable/security_category_divider"
             android:fastScrollEnabled="false"
             android:longClickable="false"
-            android:padding="8dp"
-            />
+            android:padding="8dp" />
 
         <ProgressBar
-            android:visibility="gone"
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <TextView
 
@@ -65,7 +62,6 @@
             android:background="@drawable/security_button_bg"
             android:visibility="gone" />
     </com.vactorapps.manager.page.VacRelativeLayout>
-
 
 
 </FrameLayout>

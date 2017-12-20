@@ -3,15 +3,21 @@ package com.vactorapps.manager;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -23,9 +29,12 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.ivymobi.applock.free.R;
 import com.vactorapps.manager.meta.VacPref;
-import com.vactorappsapi.manager.lib.BaseActivity;
-import com.vactorapps.manager.page.VacMenu;
+import com.vactorapps.manager.mydb.PreData;
 import com.vactorapps.manager.page.SlideMenu;
+import com.vactorapps.manager.page.VacMenu;
+import com.vactorappsapi.manager.lib.BaseActivity;
+
+import org.json.JSONObject;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -45,6 +54,7 @@ public abstract class BaseAbsActivity extends BaseActivity implements SearchThre
     public BaseAbsActivity context;
     boolean invisible;
     private AnimatorListenerAdapter invis2visAnimatorListener;
+    private AlertDialog dialog1;
 
 
     @Override
@@ -309,9 +319,80 @@ public abstract class BaseAbsActivity extends BaseActivity implements SearchThre
         startActivity(setIntent);
     }
 
+    //退出
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void showExitDialog() {
+        View view = View.inflate(BaseAbsActivity.this, R.layout.dialog_exit2, null);
+        TextView main_bad = (TextView) view.findViewById(R.id.main_bad);
+        TextView main_good = (TextView) view.findViewById(R.id.main_good);
+        main_good.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.dismiss();
+                finish();
+            }
+        });
+        main_bad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.dismiss();
+            }
+        });
+        dialog1 = new AlertDialog.Builder(this, R.style.dialog).create();
+
+        dialog1.getWindow().setWindowAnimations(R.style.dialog_animation);
+        dialog1.getWindow().setGravity(Gravity.CENTER);
+        dialog1.show();
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+        WindowManager.LayoutParams lp = dialog1.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        int uiOptions =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        //布局位于状态栏下方
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        //隐藏导航栏
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+        if (Build.VERSION.SDK_INT >= 19) {
+            uiOptions |= 0x00001000;
+        } else {
+            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+        }
+        dialog1.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        dialog1.getWindow().setAttributes(lp);
+        dialog1.getWindow().setContentView(view);
+    }
+
     protected void askForExit() {
-        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
-        super.onBackPressed();
+        showExitDialog();
+        String tag = "ad_interval_minute2";
+        long lastPopAdTime = PreData.getDB(this, tag, 0l);
+        if (lastPopAdTime == -1) {
+            PreData.putDB(this, tag, 0l);
+            return;
+        }
+        long l = System.currentTimeMillis();
+        if (lastPopAdTime == 0) {
+            Log.e("chfq", "====lastPopAdTime=0====");
+            AndroidSdk.showFullAd("exit_full", null);
+            PreData.putDB(this, tag, l);
+            return;
+        }
+        try {
+            long minute = new JSONObject(AndroidSdk.getExtraData()).optLong("show_interval_time");
+            Log.e("chfq", "minute=" + minute);
+            if (l - lastPopAdTime >= minute * 60 * 1000) {
+                Log.e("chfq", "====l - lastPopAdTime=====");
+                AndroidSdk.showFullAd("exit_full", null);
+                PreData.putDB(this, tag, l);
+            }
+        } catch (Exception e) {
+        }
+
+//        super.onBackPressed();
 
     }
 
@@ -400,21 +481,21 @@ public abstract class BaseAbsActivity extends BaseActivity implements SearchThre
         } else if (edit) {
             exitEditMode();
         } else if (menu != null && !menu.isLock()) {
-            Log.e("value","close1");
+            Log.e("value", "close1");
             SlideMenu.Status status = menu.getStatus();
             if (status == SlideMenu.Status.Close) menu.open();
 
             else if (status == SlideMenu.Status.OpenRight) {
                 menu.close();
-                Log.e("value","close2");
+                Log.e("value", "close2");
 
             } else
                 askForExit();
-            Log.e("value","close3");
+            Log.e("value", "close3");
 
         } else
             super.onBackPressed();
-        Log.e("value","close4");
+        Log.e("value", "close4");
 
     }
 

@@ -241,4 +241,6 @@
     <string name="theme">主题选择</string>
     <string name="overf_brief">锁定设置</string>
     <string name="security_over_short2">锁定频率</string>
+    <string name="exit_ok">确认退出</string>
+    <string name="exit_ok2">您真的确定退出吗？</string>
 </resources>

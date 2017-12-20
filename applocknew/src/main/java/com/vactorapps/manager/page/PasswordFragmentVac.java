@@ -9,15 +9,13 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 
 import com.android.common.SdkCache;
-import com.android.theme.internal.data.Theme;
-import com.ivy.ivyshop.ShopMaster;
 import com.ivymobi.applock.free.R;
 import com.vactorapps.lib.customview.SecurityDotImage;
 import com.vactorapps.manager.MyApp;
 import com.vactorapps.manager.Tools;
 import com.vactorapps.manager.Tracker;
-import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.meta.TheBridgeVac;
+import com.vactorapps.manager.meta.VacPref;
 import com.vactorapps.manager.myinterface.ISecurityBridge;
 
 /**
@@ -100,9 +98,9 @@ public class PasswordFragmentVac extends VacThemeFragment {
             dlyp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ShopMaster.launch(MyApp.getContext(),
-                            new Theme(R.raw.theme_preview, MyApp.getContext().getPackageName()),
-                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
+//                    ShopMaster.launch(MyApp.getContext(),
+//                            new Theme(R.raw.theme_preview, MyApp.getContext().getPackageName()),
+//                            new Theme(R.raw.theme_preview_two, "theme_preview_two"));
                     callback.unLock();
                 }
             });

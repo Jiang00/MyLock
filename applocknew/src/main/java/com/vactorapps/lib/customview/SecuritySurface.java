@@ -147,7 +147,7 @@ public class SecuritySurface extends SurfaceView implements SurfaceHolder.Callba
                         }
                     });
                 }
-            }, 1000);
+            }, 10);
         } catch (Exception | Error e) {
             e.printStackTrace();
             release();

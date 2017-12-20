@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.ivymobi.applock.free.R;
@@ -49,19 +50,21 @@ public class VacNotification {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        long time_ = firstInstallTime % 86400000;
+        long time_ = firstInstallTime % 24 * 60 * 60 * 1000;
         long installTime = System.currentTimeMillis() - firstInstallTime + time_;
         if (firstInstallTime == 0) {
             return -1;
         } else {
             return millTransFate(installTime) + 1;
         }
+
     }
 
     //多少天
     public static int millTransFate(long millisecond) {
-        long day = millisecond / 86400000;
-        return (int) day;
+        int day = (int) Math.floor(millisecond / 86400000);
+
+        return day;
     }
 
     private android.app.Notification _getNotification(Context context) {

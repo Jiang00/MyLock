@@ -80,12 +80,12 @@ public class VacUnlockSettings extends AppCompatActivity {
 
 
             icon = new int[]{
-                    R.drawable.security_brif_setting,
-                    R.drawable.security_hide_pattern,
-                    R.drawable.security_lock_new,
-                    R.drawable.security_notification,
-                    R.drawable.security_permission_center,
-                    R.drawable.security_rate_me
+                    R.drawable.ic_launcher,
+                    R.drawable.ic_launcher,
+                    R.drawable.ic_launcher,
+                    R.drawable.ic_launcher,
+                    R.drawable.ic_launcher,
+                    R.drawable.ic_launcher
             };
 
             normalTitle.setText("   " + getResources().getString(R.string.security_tab_setting));
