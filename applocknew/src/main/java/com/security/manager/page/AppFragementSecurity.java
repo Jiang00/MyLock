@@ -212,11 +212,13 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         open_lock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SecurityMyPref.setVisitor(false);
+                visitorState.setIcon(R.drawable.security_notification_unlock);
                 applock_fl.setVisibility(View.GONE);
                 applock_ll.setVisibility(View.VISIBLE);
-                visitorState.setIcon(R.drawable.security_notification_lock);
-                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
-                SecurityMyPref.setVisitor(true);
+                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
+                adaptor.notifyDataSetChanged();
+                adaptor2.notifyDataSetChanged();
                 if (SecurityMyPref.getNotification()) {
                     getActivity().stopService(new Intent(getActivity(), NotificationService.class));
                     getActivity().startService(new Intent(getActivity(), NotificationService.class));
@@ -226,7 +228,8 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         applock_fl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                applock_fl.setVisibility(View.GONE);
+                applock_ll.setVisibility(View.VISIBLE);
             }
         });
         return v;
@@ -334,12 +337,17 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                     String pkgName = commons.get(position);
                     h.icon.setImageIcon(pkgName, forceLoading);
                     h.name.setText(labels.get(pkgName));
-                    h.lock.setImageResource(R.drawable.security_lock_bg2);
-                    h.lock.setEnabled(locks.containsKey(pkgName));
-                    if (locks.containsKey(pkgName)) {
-                        h.unlock_yuan2.setVisibility(View.VISIBLE);
-                        h.unlock_yuan.setVisibility(View.GONE);
+                    if (SecurityMyPref.getVisitor()) {
+                        h.lock.setEnabled(locks.containsKey(pkgName));
+                        if (locks.containsKey(pkgName)) {
+                            h.unlock_yuan2.setVisibility(View.VISIBLE);
+                            h.unlock_yuan.setVisibility(View.GONE);
+                        } else {
+                            h.unlock_yuan2.setVisibility(View.GONE);
+                            h.unlock_yuan.setVisibility(View.VISIBLE);
+                        }
                     } else {
+                        h.lock.setEnabled(false);
                         h.unlock_yuan2.setVisibility(View.GONE);
                         h.unlock_yuan.setVisibility(View.VISIBLE);
                     }
@@ -373,6 +381,18 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String pkgName = commons.get(position);
                 final ViewHolder holder = (ViewHolder) view.getTag();
+                if (!SecurityMyPref.getVisitor()) {
+                    SecurityMyPref.setVisitor(true);
+                    visitorState.setIcon(R.drawable.security_notification_lock);
+                    Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+                    adaptor.notifyDataSetChanged();
+                    adaptor2.notifyDataSetChanged();
+                    if (SecurityMyPref.getNotification()) {
+                        getActivity().stopService(new Intent(getActivity(), NotificationService.class));
+                        getActivity().startService(new Intent(getActivity(), NotificationService.class));
+                    }
+                    return;
+                }
                 if (locks.containsKey(pkgName)) {
                     locks.remove(pkgName);
                     unlockAnimation(holder);
@@ -402,13 +422,17 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                     String pkgName = data.pkg;
                     h.icon.setImageIcon(pkgName, forceLoading);
                     h.name.setText(data.label);
-
-                    h.lock.setImageResource(R.drawable.security_lock_bg2);
-                    h.lock.setEnabled(locks.containsKey(pkgName));
-                    if (locks.containsKey(pkgName)) {
-                        h.unlock_yuan2.setVisibility(View.VISIBLE);
-                        h.unlock_yuan.setVisibility(View.GONE);
+                    if (SecurityMyPref.getVisitor()) {
+                        h.lock.setEnabled(locks.containsKey(pkgName));
+                        if (locks.containsKey(pkgName)) {
+                            h.unlock_yuan2.setVisibility(View.VISIBLE);
+                            h.unlock_yuan.setVisibility(View.GONE);
+                        } else {
+                            h.unlock_yuan2.setVisibility(View.GONE);
+                            h.unlock_yuan.setVisibility(View.VISIBLE);
+                        }
                     } else {
+                        h.lock.setEnabled(false);
                         h.unlock_yuan2.setVisibility(View.GONE);
                         h.unlock_yuan.setVisibility(View.VISIBLE);
                     }
@@ -646,12 +670,24 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         if (count > 0) {
             which--;
         }
+        if (!SecurityMyPref.getVisitor()) {
+            SecurityMyPref.setVisitor(true);
+            visitorState.setIcon(R.drawable.security_notification_lock);
+            Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
+            adaptor.notifyDataSetChanged();
+            adaptor2.notifyDataSetChanged();
+            if (SecurityMyPref.getNotification()) {
+                getActivity().stopService(new Intent(getActivity(), NotificationService.class));
+                getActivity().startService(new Intent(getActivity(), NotificationService.class));
+            }
+            return;
+        }
         ViewHolder holder = (ViewHolder) view.getTag();
 //        List<SearchThread.SearchData> list = searchResult == null ? apps : searchResult;
         if (which >= list.size()) return;
         SearchThread.SearchData data = list.get(which);
         dirty = true;
-        if (toast != null) {
+        if (toast != null) {0
             toast.cancel();
         }
         String pkgName = data.pkg;
@@ -861,15 +897,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                 animator.setDuration(400);
                 animator.setInterpolator(new AccelerateInterpolator());
                 animator.start();
-                SecurityMyPref.setVisitor(false);
-                visitorState.setIcon(R.drawable.security_notification_unlock);
-                Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_off), Toast.LENGTH_SHORT).show();
 
-                Tracker.sendEvent(Tracker.ACT_MODE, Tracker.ACT_MODE_APPS, Tracker.ACT_MODE_OFF, 1L);
-                if (SecurityMyPref.getNotification()) {
-                    getActivity().stopService(new Intent(getActivity(), NotificationService.class));
-                    getActivity().startService(new Intent(getActivity(), NotificationService.class));
-                }
 
             } else {
                 applock_fl.setVisibility(View.GONE);
@@ -877,6 +905,8 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
                 visitorState.setIcon(R.drawable.security_notification_lock);
                 Toast.makeText(getActivity(), getResources().getString(R.string.security_visitor_on), Toast.LENGTH_SHORT).show();
                 SecurityMyPref.setVisitor(true);
+                adaptor.notifyDataSetChanged();
+                adaptor2.notifyDataSetChanged();
                 if (SecurityMyPref.getNotification()) {
                     getActivity().stopService(new Intent(getActivity(), NotificationService.class));
                     getActivity().startService(new Intent(getActivity(), NotificationService.class));
