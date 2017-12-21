@@ -204,11 +204,6 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (show_applock_stop == 1) {
-            if (!VacPref.getVisitor()) {
-                applock_fl.setVisibility(View.VISIBLE);
-            }
-        }
 
         open_lock.setOnClickListener(new View.OnClickListener() {
             @Override

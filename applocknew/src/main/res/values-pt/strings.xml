@@ -189,7 +189,7 @@
 <string name = "rote_support"> Rating </string>
 <string name = "main_recom"> Apps Recomendados </string>
 <string name = "otherapps"> Outros Apps </string>
-<string name = "main_tip"> Bloquear usa frequentemente aplicativos para proteger a privacidade </string>
+<string name = "main_tip">Protect private app info</string>
 <string name = "frist1_tip"> Bloquear as seguintes aplicações para proteger a privacidade </string>
 <string name = "frist_ok"> Bloquear </string>
 <string name = "pattern_lock"> Defina Pattern Lock </string>
@@ -221,8 +221,8 @@
 <string name = "security_service_title2"> Mantenha o AppLock em funcionamento </string>
 <string name = "max_share"> Compartilhar </string>
 <string name = "max_delect"> Excluir </string>
-<string name = "security_visitor_on2"> AppLock protege privacidade% %1$s dia(s) </string>
-<string name = "security_visitor_off2"> A privacidade do telefone precisa ser protegida </string>
+<string name = "security_visitor_on2">protege %1$s dia(s) </string>
+<string name = "security_visitor_off2">Privacidade precisa proteger</string>
 <string name = "security_applock_stop2"> Todas as aplicações estão bloqueadas </string>
 <string name = "open_lock"> Abrir AppLock </string>
 <string name = "security_applock_permission2"> Encontre AppLock e ative-o! </string>

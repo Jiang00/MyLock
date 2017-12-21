@@ -5,28 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d56"
-        android:background="@color/A1"
-        android:elevation="@dimen/d4">
-
-        <ImageView
-            android:id="@+id/title_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingLeft="@dimen/d16"
-            android:paddingRight="@dimen/d16"
-            android:src="@drawable/back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/security_intruder_setting_new"
-            android:textColor="@color/A3"
-            android:textSize="@dimen/s18" />
-    </LinearLayout>
+    <include layout="@layout/security_component_toolbar" />
 
     <FrameLayout
         android:id="@+id/intrude_open_fl"

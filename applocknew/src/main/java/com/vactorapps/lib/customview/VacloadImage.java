@@ -30,7 +30,7 @@ import com.vactorappsapi.manager.lib.io.LoadSafeThumbnail;
  * Created by SongHualin on 6/12/2015.
  */
 public class VacloadImage extends ImageView
-        implements LoadIconFromApp.LoadingNotifiable{
+        implements LoadIconFromApp.LoadingNotifiable {
     Animation animation;
     String url;
     int fileType;
@@ -172,7 +172,9 @@ public class VacloadImage extends ImageView
         MyApp.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (bitmap != null) {
+                Bitmap bitmapm = ImageMaster.getImage(url);
+                setImageBitmap(bitmapm);
+                if (bitmapm == null && bitmap != null) {
                     if (!bitmap.isRecycled()) {
                         setImageBitmap(bitmap);
                     }
@@ -199,6 +201,7 @@ public class VacloadImage extends ImageView
         canvas.drawBitmap(bitmap, 0, 0, paint2);
         bitmap.recycle();
     }
+
     private void drawLiftUp(Canvas canvas) {
         Path path = new Path();
         path.moveTo(0, roundHeight);

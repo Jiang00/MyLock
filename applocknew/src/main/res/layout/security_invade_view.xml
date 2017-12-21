@@ -72,7 +72,8 @@
                     android:layout_width="@dimen/d50"
                     android:layout_height="@dimen/d50"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginRight="@dimen/d9" />
+                    android:layout_marginRight="@dimen/d9"
+                    android:visibility="gone" />
             </LinearLayout>
         </FrameLayout>
 

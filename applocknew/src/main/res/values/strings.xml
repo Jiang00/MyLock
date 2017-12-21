@@ -188,7 +188,7 @@
     <string name="rote_support">5-star Rating</string>
     <string name="main_recom">Recommended Apps</string>
     <string name="otherapps">Other Apps</string>
-    <string name="main_tip">Lock frequently use apps to protect privacy</string>
+    <string name="main_tip">Protect private app info</string>
     <string name="frist1_tip">Lock Following Apps to Protect Privacy</string>
     <string name="frist_ok">Lock</string>
     <string name="pattern_lock">Please Set Pattern Lock</string>
@@ -220,8 +220,8 @@
     <string name="security_service_title2">Keep AppLock working</string>
     <string name="max_share">Share</string>
     <string name="max_delect">Delete</string>
-    <string name="security_visitor_on2">protect privacy %1$s day(s) </string><!--翻译短一点-->
-    <string name="security_visitor_off2">Phone privacy needs to be protected</string>
+    <string name="security_visitor_on2">protect %1$s day(s)</string><!--翻译短一点-->
+    <string name="security_visitor_off2">Privacy needs protect</string>
     <string name="security_applock_stop2">All apps are locked</string>
     <string name="open_lock">Open AppLock</string>
     <string name="security_applock_permission2">Please find AppLock and enable it!</string>

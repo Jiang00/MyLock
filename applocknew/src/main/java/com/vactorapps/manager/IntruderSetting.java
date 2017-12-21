@@ -3,7 +3,10 @@ package com.vactorapps.manager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -25,8 +28,6 @@ public class IntruderSetting extends BaseActivity {
 
     //    @InjectView(R.id.suo_title_bar_te)
 //    TextView title;
-    @InjectView(R.id.title_back)
-    ImageView title_back;
     @InjectView(R.id.intrude_open_fl)
     FrameLayout intrude_open_fl;
     @InjectView(R.id.intrude_open)
@@ -41,6 +42,8 @@ public class IntruderSetting extends BaseActivity {
     FrameLayout setting_shutter_fl;
     @InjectView(R.id.intruder_shutter)
     ImageView intruder_shutter;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
     private boolean openFlag;
     private boolean shutterFlag;
     private String[] summaries;
@@ -107,12 +110,28 @@ public class IntruderSetting extends BaseActivity {
     }
 
     private void setupToolbar() {
-        title_back.setOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.security_intruder_setting_new);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 
     public void showFrequencyDialog(final Context c) {

@@ -121,51 +121,9 @@ public class MainActivityAppLock extends ClientActivitySecurity {
                             pre_lottie.cancelAnimation();
                             startActivityForResult(intent, REQUSETSET);
                             //启动服务
-                            Intent intent = new Intent(MainActivityAppLock.this, PreferenceService.class);
-                            intent.putExtra("setting_permission_main", true);
-                            startService(intent);
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    wc = new VacWidgetContainer(getApplicationContext(),
-                                            Gravity.START | Gravity.BOTTOM,
-                                            ViewGroup.LayoutParams.MATCH_PARENT,
-                                            ViewGroup.LayoutParams.MATCH_PARENT,
-                                            false);
-                                    View alertDialogView = View.inflate(MainActivityAppLock.this, R.layout.security_show_permission, null);
-                                    final LottieAnimationView pre_lottie2 = (LottieAnimationView) alertDialogView.findViewById(R.id.pre_lottie);
-                                    pre_lottie2.setAnimation("pre.json");
-                                    pre_lottie2.setScale(0.4f);//相对原大小的0.2倍
-//                    pre_lottie.setSpeed(0.7f);
-                                    pre_lottie2.loop(true);
-                                    pre_lottie2.playAnimation();
-                                    wc.setWidgetListener(new VacWidgetContainer.IWidgetListener() {
-                                        @Override
-                                        public boolean onBackPressed() {
-                                            return false;
-                                        }
-
-                                        @Override
-                                        public boolean onMenuPressed() {
-                                            return false;
-                                        }
-
-                                        @Override
-                                        public void onClick() {
-                                            if (pre_lottie2 != null) {
-                                                pre_lottie2.cancelAnimation();
-                                            }
-                                            if (wc != null) {
-                                                wc.removeFromWindow();
-                                                wc = null;
-                                            }
-                                        }
-                                    });
-                                    wc.addView(alertDialogView);
-                                    wc.addToWindow();
-                                }
-                            }, 1500);
-
+                            handler.postDelayed(runnable_us1, 1500);
+                            handler.removeCallbacks(runnable_us2);
+                            handler.post(runnable_us2);
                             Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
 
                         }
@@ -189,6 +147,58 @@ public class MainActivityAppLock extends ClientActivitySecurity {
             }
         }
     }
+
+    Runnable runnable_us1 = new Runnable() {
+        @Override
+        public void run() {
+            wc = new VacWidgetContainer(getApplicationContext(),
+                    Gravity.START | Gravity.BOTTOM,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    false);
+            View alertDialogView = View.inflate(MainActivityAppLock.this, R.layout.security_show_permission, null);
+            final LottieAnimationView pre_lottie2 = (LottieAnimationView) alertDialogView.findViewById(R.id.pre_lottie);
+            pre_lottie2.setAnimation("pre.json");
+            pre_lottie2.setScale(0.4f);//相对原大小的0.2倍
+//                    pre_lottie.setSpeed(0.7f);
+            pre_lottie2.loop(true);
+            pre_lottie2.playAnimation();
+            wc.setWidgetListener(new VacWidgetContainer.IWidgetListener() {
+                @Override
+                public boolean onBackPressed() {
+                    return false;
+                }
+
+                @Override
+                public boolean onMenuPressed() {
+                    return false;
+                }
+
+                @Override
+                public void onClick() {
+                    if (pre_lottie2 != null) {
+                        pre_lottie2.cancelAnimation();
+                    }
+                    if (wc != null) {
+                        wc.removeFromWindow();
+                        wc = null;
+                    }
+                }
+            });
+            wc.addView(alertDialogView);
+            wc.addToWindow();
+        }
+    };
+    Runnable runnable_us2 = new Runnable() {
+        @Override
+        public void run() {
+            if (!Utils.requireCheckAccessPermission(MainActivityAppLock.this)) {
+                startActivity(new Intent(MainActivityAppLock.this, MainActivityAppLock.class).putExtra("pre_open", true));
+            } else {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
 
     public void goodShow() {
         final View alertDialogView = View.inflate(this, R.layout.goodshow, null);
@@ -387,6 +397,47 @@ public class MainActivityAppLock extends ClientActivitySecurity {
         }
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        boolean pre_open = getIntent().getBooleanExtra("pre_open", false);
+        Log.e("chfq", "==pre_open==" + pre_open);
+        if (pre_open) {
+            if (main_back_pre == null || main_back_pre_lottie == null)
+                return;
+            main_back_pre.setVisibility(View.VISIBLE);
+            main_back_pre.setAlpha(1f);
+            main_back_pre_lottie.setAnimation("frist4.json");
+            main_back_pre_lottie.setScale(2f);//相对原大小的0.2倍
+            main_back_pre_lottie.loop(false);//是否循环，true循环
+            main_back_pre_lottie.setSpeed(1f);//播放速度
+            main_back_pre_lottie.playAnimation();
+            main_back_pre_lottie.addAnimatorListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    ObjectAnimator animator = ObjectAnimator.ofFloat(main_back_pre, "alpha", 1f, 0f);
+                    animator.setDuration(1500);
+                    animator.start();
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+            });
+        }
+    }
+
     public void setupView() {
         setContentView(R.layout.security_slidemenu_data);
         ButterKnife.inject(this);
@@ -484,14 +535,12 @@ public class MainActivityAppLock extends ClientActivitySecurity {
         if (onPause) {
 //            setAnimators(view);
             onPause = false;
-            stopService(new Intent(this, PreferenceService.class));
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUSETSET) {
-            stopService(new Intent(this, PreferenceService.class));
             if (d != null) {
                 d.dismiss();
             }
@@ -504,7 +553,7 @@ public class MainActivityAppLock extends ClientActivitySecurity {
     }
 
     private void setupToolbar() {
-        if (VacPref.hasIntruder()||VacPref.getFristred()) {
+        if (VacPref.hasIntruder() || VacPref.getFristred()) {
 //            VacMenu.currentMenuIt = 3;
 //            Intent intent = new Intent(MainActivityAppLock.this, VacIntruderActivity.class);
 //            startActivity(intent);
@@ -604,6 +653,8 @@ public class MainActivityAppLock extends ClientActivitySecurity {
         if (lottie_good != null) {
             lottie_good.cancelAnimation();
         }
-        stopService(new Intent(this, PreferenceService.class));
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
     }
 }

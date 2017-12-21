@@ -188,7 +188,7 @@
 	<string name="rote_support">Rating</string>
 <string name="main_recom">Rekomendasikan Aplikasi</string>
 <string name="otherapps">Aplikasi Lain</string>
-<string name="main_tip">Kunci sering menggunakan aplikasi untuk melindungi privasi</string>
+<string name="main_tip">Lindungi info aplikasi pribadi</string>
 <string name="frist1_tip">Kunci Mengikuti Aplikasi untuk Melindungi Privasi</string>
 <string name="frist_ok">Kunci</string>
 <string name="pattern_lock">Setel Pola Kunci</string>
@@ -220,8 +220,8 @@
 <string name="security_service_title2">Jaga agar AppLock bekerja</string>
 <string name="max_share">Bagi</string>
 <string name="max_delect">Hapus</string>
-<string name="security_visitor_on2">AppLock melindungi privasi %1$s day</string>
-<string name="security_visitor_off2">Privasi telepon harus dilindungi</string>
+<string name="security_visitor_on2">melindungi %1$s day</string>
+<string name="security_visitor_off2">Privasi perlu dilindungi</string>
 <string name="security_applock_stop2">Semua aplikasi terkunci</string>
 <string name="open_lock">Buka AppLock</string>
 <string name="security_applock_permission2">Silakan temukan AppLock dan aktifkan!</string>

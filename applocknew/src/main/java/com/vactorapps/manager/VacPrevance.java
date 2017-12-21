@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
@@ -64,6 +65,50 @@ public class VacPrevance extends AppCompatActivity {
     private Handler handler;
     private boolean onPause;
     private LottieAnimationView pre_lottie2;
+    FrameLayout main_back_pre;
+    LottieAnimationView main_back_pre_lottie;
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        boolean pre_open = intent.getBooleanExtra("pre_open", false);
+        if (pre_open) {
+            if (main_back_pre != null && main_back_pre_lottie != null) {
+                main_back_pre.setVisibility(View.VISIBLE);
+                main_back_pre.setAlpha(1f);
+                main_back_pre_lottie.setAnimation("frist4.json");
+                main_back_pre_lottie.setScale(2f);//相对原大小的0.2倍
+                main_back_pre_lottie.loop(false);//是否循环，true循环
+                main_back_pre_lottie.setSpeed(1f);//播放速度
+                main_back_pre_lottie.playAnimation();
+                main_back_pre_lottie.addAnimatorListener(new Animator.AnimatorListener() {
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        ObjectAnimator animator = ObjectAnimator.ofFloat(main_back_pre, "alpha", 1f, 0f);
+                        animator.setDuration(1500);
+                        animator.start();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+                });
+                ((BaseAdapter) lv.getAdapter()).notifyDataSetChanged();
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +121,8 @@ public class VacPrevance extends AppCompatActivity {
         intent = getIntent();
         final int[] items;
         handler = new Handler();
-        final FrameLayout main_back_pre = (FrameLayout) findViewById(R.id.main_back_pre);
-        final LottieAnimationView main_back_pre_lottie = (LottieAnimationView) findViewById(R.id.main_back_pre_lottie);
+        main_back_pre = (FrameLayout) findViewById(R.id.main_back_pre);
+        main_back_pre_lottie = (LottieAnimationView) findViewById(R.id.main_back_pre_lottie);
         boolean pre_open = intent.getBooleanExtra("pre_open", false);
         Log.e("chfq", "==pre_open==" + pre_open);
         if (pre_open) {
@@ -193,9 +238,8 @@ public class VacPrevance extends AppCompatActivity {
                                 showSaveMode(VacPrevance.this, SETTING_POWER_MODE);
                                 Log.e("chfq", "==showSaveMode===");
                                 //启动服务
-                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
-                                intent.putExtra("setting_power_mode", true);
-                                startService(intent);
+                                handler.removeCallbacks(runnable_acc);
+                                handler.post(runnable_acc);
                             } else {
                                 Toast.makeText(VacPrevance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
                             }
@@ -221,9 +265,11 @@ public class VacPrevance extends AppCompatActivity {
                             if (Utils.requireCheckAccessPermission(VacPrevance.this)) {
                                 showSettingPermission50(VacPrevance.this);
                                 //启动服务
-                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
-                                intent.putExtra("setting_permission", true);
-                                startService(intent);
+//                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
+//                                intent.putExtra("setting_permission", true);
+//                                startService(intent);
+                                handler.removeCallbacks(runnable_ust);
+                                handler.post(runnable_ust);
                             } else {
                                 Toast.makeText(VacPrevance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
                             }
@@ -252,10 +298,12 @@ public class VacPrevance extends AppCompatActivity {
                                 Toast.makeText(VacPrevance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
                             } else {
                                 showSaveMode(VacPrevance.this, SETTING_CAMERA);
+                                handler.removeCallbacks(runnable_camera);
+                                handler.post(runnable_camera);
                                 //启动服务
-                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
-                                intent.putExtra("setting_camera", true);
-                                startService(intent);
+//                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
+//                                intent.putExtra("setting_camera", true);
+//                                startService(intent);
                             }
                         }
                     });
@@ -278,9 +326,11 @@ public class VacPrevance extends AppCompatActivity {
                             if (!Settings.canDrawOverlays(VacPrevance.this)) {
                                 showSaveMode(VacPrevance.this, SETTING_ALERT_WINDOW);
                                 //启动服务
-                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
-                                intent.putExtra("setting_alert_window", true);
-                                startService(intent);
+//                                Intent intent = new Intent(VacPrevance.this, PreferenceService.class);
+//                                intent.putExtra("setting_alert_window", true);
+//                                startService(intent);
+                                handler.removeCallbacks(runnable_xuanfu);
+                                handler.post(runnable_xuanfu);
                             } else {
                                 Toast.makeText(VacPrevance.this, R.string.pre_open, Toast.LENGTH_LONG).show();
                             }
@@ -400,6 +450,48 @@ public class VacPrevance extends AppCompatActivity {
         }
     }
 
+    Runnable runnable_acc = new Runnable() {
+        @Override
+        public void run() {
+            if (isAccessibilitySettingsOn(VacPrevance.this)) {
+                startActivity(new Intent(VacPrevance.this, VacPrevance.class).putExtra("pre_open", true));
+            } else {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
+    Runnable runnable_ust = new Runnable() {
+        @Override
+        public void run() {
+            if (!Utils.requireCheckAccessPermission(VacPrevance.this)) {
+                startActivity(new Intent(VacPrevance.this, VacPrevance.class).putExtra("pre_open", true));
+            } else {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
+    Runnable runnable_camera = new Runnable() {
+        @Override
+        public void run() {
+            if (ContextCompat.checkSelfPermission(VacPrevance.this,
+                    android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                startActivity(new Intent(VacPrevance.this, VacPrevance.class).putExtra("pre_open", true));
+            } else {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
+    Runnable runnable_xuanfu = new Runnable() {
+        @Override
+        public void run() {
+            if (Settings.canDrawOverlays(VacPrevance.this)) {
+                startActivity(new Intent(VacPrevance.this, VacPrevance.class).putExtra("pre_open", true));
+            } else {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
+
     //使用记录，和5.0权限一样
     public void showSettingPermission50(Context context) {
         try {
@@ -466,7 +558,6 @@ public class VacPrevance extends AppCompatActivity {
         super.onResume();
         if (onPause) {
             onPause = false;
-            stopService(new Intent(this, PreferenceService.class));
         }
     }
 
@@ -542,6 +633,8 @@ public class VacPrevance extends AppCompatActivity {
         if (wc != null) {
             wc.removeFromWindow();
         }
-        stopService(new Intent(this, PreferenceService.class));
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
     }
 }

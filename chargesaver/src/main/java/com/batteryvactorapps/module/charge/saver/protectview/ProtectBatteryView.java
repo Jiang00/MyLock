@@ -273,10 +273,11 @@ public class ProtectBatteryView extends FrameLayout {
             more.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (switchLayout != null) {
-//                        more.setVisibility(View.GONE);
-                        switchLayout.setVisibility(VISIBLE);
-                    }
+                    mContext.startActivity(new Intent("charging.intent.setting").setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "charging"));
+//                    if (switchLayout != null) {
+////                        more.setVisibility(View.GONE);
+//                        switchLayout.setVisibility(VISIBLE);
+//                    }
                 }
             });
 

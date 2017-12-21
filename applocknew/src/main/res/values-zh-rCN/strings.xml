@@ -220,7 +220,7 @@
     <string name="security_service_title2">保持正常运行</string>
     <string name="max_share">分享</string>
     <string name="max_delect">删除</string>
-    <string name="security_visitor_on2">已经保护隐私%1$s天</string><!--翻译短一点-->
+    <string name="security_visitor_on2">已经保护%1$s天</string><!--翻译短一点-->
     <string name="security_visitor_off2">手机隐私需要安全保护</string>
     <string name="security_applock_stop2">所有应用已解锁</string>
     <string name="open_lock">启动应用锁</string>

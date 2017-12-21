@@ -169,7 +169,7 @@
                     <ImageView
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24"
-                        android:src="@mipmap/battery_more" />
+                        android:src="@mipmap/security_for_setting" />
                 </LinearLayout>
             </RelativeLayout>
             <!--电量-->

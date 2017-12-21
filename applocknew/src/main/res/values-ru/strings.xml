@@ -186,7 +186,7 @@
     <string name="rote_support"> Рейтинг </string>
     <string name="main_recom"> Рекомендуемые приложения </string>
     <string name="otherapps"> Другие приложения </string>
-    <string name="main_tip"> Блокировка часто использует приложения для защиты конфиденциальности </string>
+    <string name="main_tip">Protect private app info</string>
     <string name="frist1_tip"> Блокировать следующие приложения для защиты конфиденциальности </string>
     <string name="frist_ok"> Блокировка </string>
     <string name="pattern_lock"> Пожалуйста, установите блокировку рисунка </string>
@@ -218,8 +218,8 @@
     <string name="security_service_title2"> Сохранить приложение AppLock </string>
     <string name="max_share"> Поделиться </string>
     <string name="max_delect"> Удалить </string>
-    <string name="security_visitor_on2"> AppLock защищать Телефон %1$s день </string>
-    <string name="security_visitor_off2"> Защита конфиденциальной информации должна быть защищена </string>
+    <string name="security_visitor_on2">защищать %1$s день </string>
+    <string name="security_visitor_off2">Защита конфиденциальности</string>
     <string name="security_applock_stop2"> Все приложения заблокированы </string>
     <string name="open_lock"> Открыть AppLock </string>
     <string name="security_applock_permission2"> Найдите AppLock и включите его! </string>

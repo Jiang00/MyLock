@@ -137,42 +137,41 @@ public class QiuBubbleLayout extends View {
 
         paint.reset();
         paint.setColor(0X669999);//灰白色
-        List<Bubble> list = null;
-        if (bubbles != null) {
-            list = new ArrayList<Bubble>(bubbles);
-        } else {
-            list = new ArrayList<Bubble>();
-        }
-        //依次绘制气泡
-        for (Bubble bubble : list) {
-            //碰到上边界从数组中移除
-            if (bubble.getY() + bubble.getSpeedY() <= 0) {
-                bubbles.remove(bubble);
-            } else if (bubble.getX() - bubble.getRadius() <= 0) {//碰到左边界从数组中移除
-                bubbles.remove(bubble);
-            } else if (bubble.getX() + bubble.getRadius() >= width) { //碰到右边界从数组中移除
-                bubbles.remove(bubble);
-            } else {
-                int i = bubbles.indexOf(bubble);
-                if (bubble.getX() + bubble.getSpeedX() <= bubble.getRadius()) {
-                    bubble.setX(bubble.getRadius());
-                } else if (bubble.getX() + bubble.getSpeedX() >= width - bubble.getRadius()) {
-                    bubble.setX(width - bubble.getRadius());
-                } else {
-                    bubble.setX(bubble.getX() + bubble.getSpeedX());
-                }
-                bubble.setY(bubble.getY() + bubble.getSpeedY());
 
-                bubbles.set(i, bubble);
-                paint.setAlpha(bubble.getAlpha());//设置不透明度：透明为0，完全不透明为255
-//				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);
-                Bitmap dst = bubble.getBitmap();
-                if (dst != null) {
-                    canvas.drawBitmap(dst, bubble.getX(), bubble.getY(), paint);
-                } else {
+        try {
+            List<Bubble> list = new ArrayList<>(bubbles);
+            //依次绘制气泡
+            for (Bubble bubble : list) {
+                //碰到上边界从数组中移除
+                if (bubble.getY() + bubble.getSpeedY() <= 0) {
                     bubbles.remove(bubble);
+                } else if (bubble.getX() - bubble.getRadius() <= 0) {//碰到左边界从数组中移除
+                    bubbles.remove(bubble);
+                } else if (bubble.getX() + bubble.getRadius() >= width) { //碰到右边界从数组中移除
+                    bubbles.remove(bubble);
+                } else {
+                    int i = bubbles.indexOf(bubble);
+                    if (bubble.getX() + bubble.getSpeedX() <= bubble.getRadius()) {
+                        bubble.setX(bubble.getRadius());
+                    } else if (bubble.getX() + bubble.getSpeedX() >= width - bubble.getRadius()) {
+                        bubble.setX(width - bubble.getRadius());
+                    } else {
+                        bubble.setX(bubble.getX() + bubble.getSpeedX());
+                    }
+                    bubble.setY(bubble.getY() + bubble.getSpeedY());
+
+                    bubbles.set(i, bubble);
+                    paint.setAlpha(bubble.getAlpha());//设置不透明度：透明为0，完全不透明为255
+//				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);
+                    Bitmap dst = bubble.getBitmap();
+                    if (dst != null) {
+                        canvas.drawBitmap(dst, bubble.getX(), bubble.getY(), paint);
+                    } else {
+                        bubbles.remove(bubble);
+                    }
                 }
             }
+        } catch (Exception e) {
         }
         //刷新屏幕
         invalidate();

@@ -82,7 +82,7 @@ public class VacNotification {
                 remoteView.setImageViewResource(R.id.notice_lock, R.drawable.notice_iv);
                 int day = getInstallNum(context);
                 CharSequence status = context.getString(R.string.security_visitor_on2, day + "");
-                status = context.getString(R.string.app_name) + status;
+                status = context.getString(R.string.app_name) +" "+ status;
                 remoteView.setTextViewText(R.id.applock_run, status);
             } catch (Exception e) {
                 e.printStackTrace();

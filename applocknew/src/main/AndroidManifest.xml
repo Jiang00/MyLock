@@ -38,6 +38,7 @@
             android:name="com.vactorapps.manager.MainActivityAppLock"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
@@ -79,7 +80,7 @@
             android:name="com.vactorapps.manager.VacPrevance"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
@@ -142,6 +143,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <!--邮箱3-->
         <activity
@@ -162,6 +167,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <!--日历1-->
         <activity
@@ -180,6 +189,10 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -203,7 +216,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <!--指南针5-->
         <activity
@@ -224,7 +240,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <!--音乐6-->
         <activity
@@ -245,7 +264,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <!--计算器7-->
         <activity
@@ -266,7 +288,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
+            <intent-filter>
+                <action android:name="charging.intent.setting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.vactorapps.manager.TogglePatternActivity"
