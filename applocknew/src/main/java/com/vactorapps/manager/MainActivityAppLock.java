@@ -641,6 +641,15 @@ public class MainActivityAppLock extends ClientActivitySecurity {
     };
 
     @Override
+    public void onBackPressed() {
+        if (main_back_pre.getVisibility() == View.VISIBLE) {
+            main_back_pre.setVisibility(View.GONE);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mHomeKeyEventReceiver);

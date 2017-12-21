@@ -80,7 +80,7 @@ public class PreferenceService extends Service {
                     stopService(new Intent(PreferenceService.this, PreferenceService.class));
                     Intent intent = new Intent(PreferenceService.this, MainActivityAppLock.class);
                     intent.putExtra("pre_open", true);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//若是跳转不过去，通过Intent.FLAG_ACTIVITY_CLEAR_TOP重新加载
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//若是跳转不过去，通过Intent.FLAG_ACTIVITY_CLEAR_TOP重新加载
                     startActivity(intent);
                     handler.removeCallbacks(runnable);
                 } else {
