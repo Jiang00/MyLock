@@ -504,7 +504,7 @@ public class MainActivityAppLock extends ClientActivitySecurity {
     }
 
     private void setupToolbar() {
-        if (VacPref.hasIntruder()||VacPref.getFristred()) {
+        if (VacPref.hasIntruder() || VacPref.getFristred()) {
 //            VacMenu.currentMenuIt = 3;
 //            Intent intent = new Intent(MainActivityAppLock.this, VacIntruderActivity.class);
 //            startActivity(intent);
@@ -590,6 +590,15 @@ public class MainActivityAppLock extends ClientActivitySecurity {
             }
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        if (main_back_pre.getVisibility() == View.VISIBLE) {
+            main_back_pre.setVisibility(View.GONE);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     protected void onDestroy() {

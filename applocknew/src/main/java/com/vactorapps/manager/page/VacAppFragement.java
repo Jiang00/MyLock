@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -135,6 +134,13 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
     private boolean questionFlag1;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -343,7 +349,7 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        handler.removeCallbacks(runnable);
     }
 
     private void recyclerSetAdapter() {
@@ -780,13 +786,40 @@ public class VacAppFragement extends BaseFragment implements RefreshList, Search
         MyApp.runOnUiThread(action);
     }
 
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            lottie_good.playAnimation();
+        }
+    };
 
     private void headerClick(final View headerView) {
         lottie_good = (LottieAnimationView) headerView.findViewById(R.id.lottie_good);
         lottie_good.setAnimation("good.json");
         lottie_good.setScale(0.3f);//相对原大小的0.2倍
-        lottie_good.loop(true);
+        lottie_good.loop(false);
         lottie_good.playAnimation();
+        lottie_good.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                handler.postDelayed(runnable, 1000);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
 
         headerView.findViewById(R.id.security_bad_tit).setOnClickListener(new View.OnClickListener() {
             @Override
