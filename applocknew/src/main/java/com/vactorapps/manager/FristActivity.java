@@ -3,7 +3,6 @@ package com.vactorapps.manager;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -114,7 +113,7 @@ public class FristActivity extends VacSetPattern {
         if (show_fingerprint == 1) {
             FingerprintManagerCompat managerCompat = FingerprintManagerCompat.from(MyApp.getContext());
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                if (!managerCompat.isHardwareDetected() || !managerCompat.hasEnrolledFingerprints()) {
+                if (!managerCompat.isHardwareDetected() || !managerCompat.hasEnrolledFingerprints() || !VacPref.getFingerprintl()) {
                 } else {
                     onFingerprintClick();
                 }

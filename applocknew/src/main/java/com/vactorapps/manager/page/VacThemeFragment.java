@@ -199,6 +199,7 @@ public class VacThemeFragment extends Fragment {
         ImageView icon = (ImageView) v.findViewWithTag("title");
         ImageView statusicon = (ImageView) v.findViewWithTag("app_icon");
         appname.setText(bridge.appName());
+
         icon.setBackgroundDrawable(bridge.icon());
         if (adView != null) {
             icon.setVisibility(View.GONE);
@@ -247,6 +248,29 @@ public class VacThemeFragment extends Fragment {
         if (MyApp.getContext().getResources().getString(R.string.app_name) != null || MyApp.getContext().getResources().getString(R.string.app_name).isEmpty()) {
             Log.e("chfq", "====MyApp====");
             if ((MyApp.getContext().getResources().getString(R.string.app_name)).equals(bridge.appName())) {
+                switch (PretentPresenter.pretentIconIdx()) {
+                    case 1:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.security_myfake_1));
+                        break;
+                    case 2:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.fakes_files));
+                        break;
+                    case 3:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.fakes_email));
+                        break;
+                    case 4:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.fakes_camera));
+                        break;
+                    case 5:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.fakes_compass));
+                        break;
+                    case 6:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.fakes_music));
+                        break;
+                    case 7:
+                        icon.setBackgroundDrawable(MyApp.getContrext().getResources().getDrawable(R.drawable.security_myfake_2));
+                        break;
+                }
                 Log.e("chfq", "====myApp====");
                 String tag = "ad_interval_minute_slock";
                 long lastPopAdTime = PreData.getDB(v.getContext(), tag, 0l);
