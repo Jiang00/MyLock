@@ -27,6 +27,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -993,7 +994,7 @@ public class WorksService extends Service {
     public void onWakeUp() {
 //        String pkgName = getTopPackageName();
         String pkgName = getLauncherTopApp(WorksService.this, mActivityManager);
-
+        Log.e("packagename", "==a"+pkgName);
         if (getPackageName().equals(pkgName)) {
             String className = mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
             if (!excludesClasses.containsKey(className)) {
